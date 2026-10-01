@@ -32,9 +32,9 @@
       <main>
         <div class="intro">
           <p class="eyebrow" data-i18n="eyebrow">SAVE TRANSFER / RGH → PC</p>
-          <h1 data-i18n="title">Bring an RGH save to PC.</h1>
-          <p class="intro-copy" data-i18n="intro">Choose a Lost Odyssey RGH save or its ZIP archive. Get a ZIP ready to extract into your Lost Odyssey Recomp folder.</p>
-          <p class="privacy-note"><span class="privacy-dot" aria-hidden="true"></span><span data-i18n="privacy">Your save stays in this browser. Nothing is uploaded.</span></p>
+          <h1 data-i18n="title">RGH save converter</h1>
+          <p class="intro-copy" data-i18n="intro">Convert a Lost Odyssey RGH save to a Recomp ZIP.</p>
+          <p class="privacy-note"><span class="privacy-dot" aria-hidden="true"></span><span data-i18n="privacy">Converted locally. No uploads.</span></p>
         </div>
         <noscript><p class="noscript-note">JavaScript is required to convert saves locally. / 本地转换存档需要启用 JavaScript。</p></noscript>
 
@@ -57,14 +57,14 @@
                   <span class="drop-title" data-i18n="dropTitle">Drop a file here</span>
                   <span class="drop-subtitle" data-i18n="dropSubtitle">or choose a file</span>
                 </label>
-                <p class="field-hint" id="file-hint" data-i18n="fileHint">Original CON file (often named user00) or a ZIP containing it · up to 16 MiB</p>
+                <p class="field-hint" id="file-hint" data-i18n="fileHint">CON save (e.g. user00) or ZIP · up to 16 MiB</p>
                 <p class="chosen-file" id="chosen-file" hidden></p>
               </div>
 
               <div class="field slot-field">
                 <label class="field-label" for="target-slot" data-i18n="slotLabel">Destination save slot</label>
                 <select id="target-slot" name="target-slot"></select>
-                <p class="field-hint" data-i18n="slotHint">Choose an empty slot. The ZIP will contain the matching save/userNN folder.</p>
+                <p class="field-hint" data-i18n="slotHint">Choose an empty slot to avoid overwriting a save.</p>
               </div>
 
               <button class="primary-button" id="convert-button" type="submit" disabled>
@@ -91,7 +91,7 @@
 
             <div class="result-empty" id="result-empty">
               <span class="empty-glyph" aria-hidden="true">□</span>
-              <p data-i18n="emptyResult">Your converted ZIP will appear here.</p>
+              <p data-i18n="emptyResult">No file converted yet.</p>
             </div>
 
             <div class="result-ready" id="result-ready" hidden>
@@ -113,18 +113,17 @@
             </div>
 
             <div class="install-note">
-              <p class="note-title" data-i18n="installTitle">Before you extract</p>
+              <p class="note-title" data-i18n="installTitle">Import the save</p>
               <ol>
-                <li data-i18n="installBackup">Back up your current save folder and close the game.</li>
-                <li data-i18n="installCheck">Check the destination slot is empty before copying files.</li>
-                <li data-i18n="installWindows">Windows portable: extract the ZIP beside the game executable, preserving save/userNN.</li>
-                <li><span data-i18n="installLinux">Linux: extract into the active save-data directory.</span> <a id="install-guide" href="https://github.com/freefrank/LostOdysseyRecomp/blob/main/docs/INSTALLING.md" data-i18n="installGuide">See file locations.</a></li>
+                <li data-i18n="installBackup">Close the game and back up your save folder.</li>
+                <li data-i18n="installWindows">Windows portable: extract beside the game executable.</li>
+                <li><span data-i18n="installLinux">Linux: copy the ZIP’s userNN folder into your save folder.</span> <a id="install-guide" href="https://github.com/freefrank/LostOdysseyRecomp/blob/main/docs/INSTALLING.md" data-i18n="installGuide">Find your save folder.</a></li>
               </ol>
             </div>
           </section>
         </div>
 
-        <p class="support-note" data-i18n="supportNote">Currently supports the verified Lost Odyssey RGH save layout. If your save has a different format, the converter will stop with an error.</p>
+        <p class="support-note" data-i18n="supportNote">Supports the verified Lost Odyssey CON format. RGH → PC only.</p>
       </main>
 
       <footer class="site-footer">

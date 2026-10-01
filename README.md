@@ -8,13 +8,13 @@ The supported input is the verified Lost Odyssey saved-game STFS layout: title I
 
 ## Use the page
 
-Open the published Pages URL when available:
+Open the published Pages URL:
 
 `https://freefrank.github.io/LostOdysseyRecomp/`
 
-Choose the RGH file or its ZIP, select an empty slot, click **Convert save**, and download the result. Back up the existing Recomp `save/` folder before extracting. Copy or extract the generated `save/userNN` folder beside the game executable on Windows portable installs; follow the installation guide for Linux data paths. Close the game while replacing or adding saves.
+Choose the RGH file or its ZIP, select an empty slot, click **Convert save**, and download the result. Close the game and back up `save/`. On Windows portable installs, extract the ZIP beside the game executable. On Linux, copy its `userNN` folder into the game's `save/` folder; see the [installation guide](https://github.com/freefrank/LostOdysseyRecomp/blob/main/docs/INSTALLING.md#file-locations) for its location.
 
-The Pages publication is separate from the game release version. Until the Pages branch is published, the page can be served locally from the repository:
+The Pages publication is separate from the game release version. Publish the contents of `web/save-converter/` from source branch `trail/issue-88-rgh-save-import` into the root of `trail/save-converter-pages`; do not publish the repository root. The page can also be served locally from the repository:
 
 ```powershell
 python -m http.server --directory web/save-converter
@@ -32,4 +32,4 @@ node --test tools/tests/save_converter_test.mjs
 
 The real RGH sample is private and must not be committed. To run sample-backed checks locally, set `RGH_SAMPLE_PATH` to its path. The test suite also covers synthetic active-copy data, a fragmented chain crossing 170 blocks, ZIP compression and CRC handling, traversal/ambiguity rejection, and the verified Issue #88 sample when available.
 
-For the format boundary and the earlier isolated runtime load evidence, see [Issue #88 research](../../docs/notes/issue-88-rgh-save-import.md) and [GitHub Issue #88](https://github.com/freefrank/LostOdysseyRecomp/issues/88). The isolated `v0.7.15` load of the supplied sample established payload compatibility for that sample; it did not establish full gameplay, cross-region compatibility, console round-trip support, or publication status.
+For the format boundary and the earlier isolated runtime load evidence, see [Issue #88 research](../../docs/notes/issue-88-rgh-save-import.md) and [GitHub Issue #88](https://github.com/freefrank/LostOdysseyRecomp/issues/88). The isolated `v0.7.15` load of the supplied sample established payload compatibility for that sample; it did not establish full gameplay, cross-region compatibility, console round-trip support, or general online-conversion acceptance.
