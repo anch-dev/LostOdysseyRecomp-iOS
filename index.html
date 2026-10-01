@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#191a1a">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'">
+    <meta name="description" content="Convert a supported Lost Odyssey RGH save to a PC save ZIP in your browser.">
+    <title>RGH Save Converter · Lost Odyssey Recomp</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23191a1a'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='sans-serif' font-size='28' font-weight='700' fill='%23d3b575'%3ELO%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./app.mjs"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="https://github.com/freefrank/LostOdysseyRecomp" aria-label="Lost Odyssey Recomp on GitHub">
+          <span class="brand-mark" aria-hidden="true">LO</span>
+          <span class="brand-name">Lost Odyssey <span>Recomp</span></span>
+        </a>
+        <nav class="header-links" aria-label="Page links">
+          <a href="https://github.com/freefrank/LostOdysseyRecomp/issues/88" data-i18n="issueLink">Issue #88</a>
+          <div class="language-switch" role="group" aria-label="Language">
+            <button type="button" id="lang-en" lang="en" aria-pressed="true">EN</button>
+            <button type="button" id="lang-zh" lang="zh-CN" aria-pressed="false">中文</button>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <div class="intro">
+          <p class="eyebrow" data-i18n="eyebrow">SAVE TRANSFER / RGH → PC</p>
+          <h1 data-i18n="title">Bring an RGH save to PC.</h1>
+          <p class="intro-copy" data-i18n="intro">Choose a Lost Odyssey RGH save or its ZIP archive. Get a ZIP ready to extract into your Lost Odyssey Recomp folder.</p>
+          <p class="privacy-note"><span class="privacy-dot" aria-hidden="true"></span><span data-i18n="privacy">Your save stays in this browser. Nothing is uploaded.</span></p>
+        </div>
+        <noscript><p class="noscript-note">JavaScript is required to convert saves locally. / 本地转换存档需要启用 JavaScript。</p></noscript>
+
+        <div class="workspace">
+          <section class="panel input-panel" aria-labelledby="input-title">
+            <div class="panel-heading">
+              <span class="step-number" aria-hidden="true">01</span>
+              <div>
+                <p class="panel-kicker" data-i18n="inputKicker">SOURCE & DESTINATION</p>
+                <h2 id="input-title" data-i18n="inputTitle">Prepare the save</h2>
+              </div>
+            </div>
+
+            <form id="converter-form" novalidate>
+              <div class="field">
+                <span class="field-label" id="file-label" data-i18n="fileLabel">RGH save file</span>
+                <label class="dropzone" id="dropzone">
+                  <input id="source-file" type="file" aria-labelledby="file-label" aria-describedby="file-hint">
+                  <span class="drop-icon" aria-hidden="true">↥</span>
+                  <span class="drop-title" data-i18n="dropTitle">Drop a file here</span>
+                  <span class="drop-subtitle" data-i18n="dropSubtitle">or choose a file</span>
+                </label>
+                <p class="field-hint" id="file-hint" data-i18n="fileHint">Original CON file (often named user00) or a ZIP containing it · up to 16 MiB</p>
+                <p class="chosen-file" id="chosen-file" hidden></p>
+              </div>
+
+              <div class="field slot-field">
+                <label class="field-label" for="target-slot" data-i18n="slotLabel">Destination save slot</label>
+                <select id="target-slot" name="target-slot"></select>
+                <p class="field-hint" data-i18n="slotHint">Choose an empty slot. The ZIP will contain the matching save/userNN folder.</p>
+              </div>
+
+              <button class="primary-button" id="convert-button" type="submit" disabled>
+                <span class="button-spinner" aria-hidden="true"></span>
+                <span id="convert-label" data-i18n="convertButton">Convert save</span>
+                <span class="button-arrow" aria-hidden="true">→</span>
+              </button>
+              <p class="status-message" id="status-message" role="status" aria-live="polite"></p>
+              <div class="error-box" id="error-box" role="alert" hidden>
+                <strong data-i18n="errorTitle">Could not convert this save</strong>
+                <p id="error-message"></p>
+              </div>
+            </form>
+          </section>
+
+          <section class="panel result-panel" aria-labelledby="result-title">
+            <div class="panel-heading">
+              <span class="step-number" aria-hidden="true">02</span>
+              <div>
+                <p class="panel-kicker" data-i18n="resultKicker">OUTPUT</p>
+                <h2 id="result-title" data-i18n="resultTitle">Download & install</h2>
+              </div>
+            </div>
+
+            <div class="result-empty" id="result-empty">
+              <span class="empty-glyph" aria-hidden="true">□</span>
+              <p data-i18n="emptyResult">Your converted ZIP will appear here.</p>
+            </div>
+
+            <div class="result-ready" id="result-ready" hidden>
+              <p class="ready-label"><span class="ready-dot" aria-hidden="true"></span><span data-i18n="readyLabel">READY TO DOWNLOAD</span></p>
+              <p class="save-title" id="save-display-name"></p>
+              <dl class="result-facts">
+                <div><dt data-i18n="sourceFact">Source</dt><dd id="source-name"></dd></div>
+                <div><dt data-i18n="slotFact">Destination</dt><dd id="output-slot"></dd></div>
+                <div><dt data-i18n="sizeFact">Save data</dt><dd id="payload-size"></dd></div>
+              </dl>
+              <button class="primary-button download-button" id="download-button" type="button" hidden>
+                <span data-i18n="downloadButton">Download ZIP</span>
+                <span class="button-arrow" aria-hidden="true">↓</span>
+              </button>
+              <details class="file-details">
+                <summary data-i18n="detailsSummary">File details</summary>
+                <p><span data-i18n="hashLabel">Save data SHA-256</span><br><code id="payload-hash"></code></p>
+              </details>
+            </div>
+
+            <div class="install-note">
+              <p class="note-title" data-i18n="installTitle">Before you extract</p>
+              <ol>
+                <li data-i18n="installBackup">Back up your current save folder and close the game.</li>
+                <li data-i18n="installCheck">Check the destination slot is empty before copying files.</li>
+                <li data-i18n="installWindows">Windows portable: extract the ZIP beside the game executable, preserving save/userNN.</li>
+                <li><span data-i18n="installLinux">Linux: extract into the active save-data directory.</span> <a id="install-guide" href="https://github.com/freefrank/LostOdysseyRecomp/blob/main/docs/INSTALLING.md" data-i18n="installGuide">See file locations.</a></li>
+              </ol>
+            </div>
+          </section>
+        </div>
+
+        <p class="support-note" data-i18n="supportNote">Currently supports the verified Lost Odyssey RGH save layout. If your save has a different format, the converter will stop with an error.</p>
+      </main>
+
+      <footer class="site-footer">
+        <span>Lost Odyssey Recomp</span>
+        <a href="https://github.com/freefrank/LostOdysseyRecomp/issues/88" data-i18n="footerIssue">Conversion notes · Issue #88</a>
+      </footer>
+    </div>
+  </body>
+</html>
