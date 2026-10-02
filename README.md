@@ -228,7 +228,7 @@ Optional diagnostics are off by default and can be disabled in Settings. See [Pr
 
 ## Development
 
-See [Building](docs/BUILDING.md) for dependencies and build commands, [Developer tools](tools/README.md) for the available utilities, and the [documentation index](docs/README.md) for current references and historical notes.
+See [Building](docs/BUILDING.md) for dependencies and build commands, [Developer tools](tools/README.md) for the available utilities, the [Ghidra/decomp analysis guide](tools/ghidra/README.md) for the read-only analysis catalog, the [semantic recovery library](LostOdysseyRecompSemantics/README.md) for human-readable function recovery, and the [documentation index](docs/README.md) for current references and historical notes.
 
 | Directory | Contents |
 | :--- | :--- |

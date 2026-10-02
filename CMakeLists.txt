@@ -64,6 +64,11 @@ option(LO_BUILD_RECOMP_LIB "Build the recompiled game code library from LostOdys
 option(LO_BUILD_RUNTIME "Build the LostOdysseyRecomp runtime executable" ON)
 option(LO_BUILD_GPU "Build the plume-based GPU backend" ON)
 option(LO_BUILD_ANDROID_RUNTIME "Enable the experimental Android game runtime shared library" OFF)
+option(LO_BUILD_SEMANTIC_LIBRARY "Build the independently recovered guest semantics library" OFF)
+
+if(LO_BUILD_SEMANTIC_LIBRARY)
+    add_subdirectory(LostOdysseyRecompSemantics)
+endif()
 
 if(ANDROID)
     if(NOT LO_TARGET_ISA STREQUAL "aarch64")

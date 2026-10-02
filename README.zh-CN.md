@@ -228,7 +228,7 @@ LostOdysseyRecomp.app/Contents/MacOS/LostOdysseyRecomp --game ~/Games/LostOdysse
 
 ## 开发导航
 
-[构建指南](docs/BUILDING.md)介绍依赖和构建命令，[开发工具](tools/README.md)列出可用工具，[文档索引](docs/README.md)汇总当前参考文档和历史记录。
+[构建指南](docs/BUILDING.md)介绍依赖和构建命令，[开发工具](tools/README.md)列出可用工具，[Ghidra／decomp 分析指南](tools/ghidra/README.md)说明只读分析索引，[语义恢复库](LostOdysseyRecompSemantics/README.zh-CN.md)介绍可读函数恢复，[文档索引](docs/README.md)汇总当前参考文档和历史记录。
 
 | 目录 | 内容 |
 | :--- | :--- |

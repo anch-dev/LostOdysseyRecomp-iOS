@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "description": "Search labels recovered from repository investigations, not original symbols or proof of complete type recovery. Historical candidates require current profiling before optimization.",
+  "functions": [
+    {
+      "address": "824856A0",
+      "label": "RenderingThreadMain",
+      "category": "render-thread",
+      "confidence": "documented",
+      "evidence": [{"path": "docs/notes/cpu-performance-optimization-guide.md", "line": 99, "note": "Existing semantic attribution for the guest render thread; not a symbol recovered from a retail PDB."}]
+    },
+    {
+      "address": "825B2A20",
+      "label": "FSceneRenderer::Render",
+      "category": "render-thread",
+      "confidence": "documented",
+      "evidence": [{"path": "docs/notes/cpu-recomp-deep-2026-09-13.md", "line": 21, "note": "Historical guest-render stack attribution. Sample share is not a current bottleneck measurement or recoverable frame-time estimate."}]
+    },
+    {
+      "address": "823B62A0",
+      "label": "GPU completion timestamp wait",
+      "category": "gpu-query",
+      "confidence": "documented",
+      "evidence": [{"path": "docs/notes/third-map-hang.md", "line": 60, "note": "Requested timestamp compared with device +0x2A9C and completion through +0x2A90; stack wait state starts with device pointer. Preserve wait semantics."}]
+    },
+    {
+      "address": "827B6278",
+      "label": "GPU completion wait-state poll",
+      "category": "gpu-query",
+      "confidence": "documented",
+      "evidence": [{"path": "docs/notes/third-map-hang.md", "line": 60, "note": "Reads device from wait state and monitors a 5000-tick timeout. Historical invalid pointer observation does not identify its writer."}]
+    },
+    {
+      "address": "823CF3F0",
+      "label": "Type-9 query completion data",
+      "category": "gpu-query",
+      "confidence": "documented",
+      "evidence": [{"path": "docs/notes/third-map-hang.md", "line": 74, "note": "Historical query layout: +0 device, +4 type, +24 bytes (0x18) timestamp; the legacy decompilation reads int element 6. Invalid small device pointer was observed, not a confirmed common cause."}]
+    },
+    {
+      "address": "827B7408",
+      "label": "Create type-9 GPU query",
+      "category": "gpu-query",
+      "confidence": "documented",
+      "evidence": [{"path": "docs/notes/third-map-hang.md", "line": 80, "note": "Creates 0x9c-byte query; +0 device, +4 type 9, +0xc reference count 1."}]
+    },
+    {
+      "address": "823CCCE8",
+      "label": "GPU query reuse-array ownership",
+      "category": "gpu-query",
+      "confidence": "documented",
+      "evidence": [{"path": "docs/notes/third-map-hang.md", "line": 80, "note": "Reuse array through global 83235AB8; takes a reference on insertion and releases its local reference through 823CDCA8."}]
+    },
+    {
+      "address": "823CDCA8",
+      "label": "Release GPU query reference",
+      "category": "gpu-query",
+      "confidence": "documented",
+      "evidence": [{"path": "docs/notes/third-map-hang.md", "line": 80, "note": "Decrements +0xc; only frees on zero, setting +8 to 0x78787878 before 827C9DB0. No confirmed early release in that investigation."}]
+    },
+    {
+      "address": "824C4EC0",
+      "label": "LightComponent SetLightProperties",
+      "category": "particle-light",
+      "confidence": "documented",
+      "evidence": [{"path": "docs/notes/fire-hit-rendering.md", "line": 43, "note": "Brightness +0x100, LightColor +0x104; change notification via 822D6810. Not evidence that fire uses this script setter."}]
+    },
+    {
+      "address": "82944608",
+      "label": "Particle light spawn brightness distribution",
+      "category": "particle-light",
+      "confidence": "documented",
+      "evidence": [{"path": "docs/notes/fire-hit-rendering.md", "line": 47, "note": "Vtable +0x108; module distribution +0x54 evaluated at emitter time +0x8c; particle payload brightness +0x24."}]
+    },
+    {
+      "address": "82944668",
+      "label": "Particle light update brightness distribution",
+      "category": "particle-light",
+      "confidence": "documented",
+      "evidence": [{"path": "docs/notes/fire-hit-rendering.md", "line": 47, "note": "Vtable +0x10c; evaluates particle age +0xc unless particle +0x5c bit 0. Emitter stride +0x78, indices +0x3c, data +0x38, count +0x7c, payload offset +0x104. The generated instructions at 829446A0 compute particle data + index * stride before the +0x5c load; this is not a module flag."}]
+    },
+    {
+      "address": "8292B768",
+      "label": "Build particle light render data",
+      "category": "particle-light",
+      "confidence": "documented",
+      "evidence": [{"path": "docs/notes/fire-hit-rendering.md", "line": 57, "note": "Applies component +0x248..+0x254 and owner +0x170..+0x17c color/intensity multipliers; owner-derived +0x1b4 copied into render data."}]
+    },
+    {
+      "address": "82CCA0B0",
+      "label": "Loader decode candidate (algorithm unidentified)",
+      "category": "loading",
+      "confidence": "historical_candidate",
+      "evidence": [{"path": "docs/OPTIMIZATION_PLAN.md", "line": 61, "note": "Historical macOS fork profile only. Algorithm identity and current platform cost must be established before proposing a native decoder."}]
+    },
+    {
+      "address": "82CC3C50",
+      "label": "Loader worker spin-wait candidate",
+      "category": "loading",
+      "confidence": "historical_candidate",
+      "evidence": [{"path": "docs/OPTIMIZATION_PLAN.md", "line": 61, "note": "Historical macOS fork observation; requires current on-CPU/wait measurement and synchronization analysis."}]
+    }
+  ]
+}

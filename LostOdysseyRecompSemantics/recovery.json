@@ -1,0 +1,1486 @@
+{
+  "schema_version": 1,
+  "xex_sha256": "40c7dbb12cca03921d52cf4177a0f700cc4ae94ab730ab594940e2bdffd8ecf2",
+  "goal": "Readable, buildable C++ with recovered semantics and behavior comparison before individual runtime replacements.",
+  "functions": [
+    {
+      "address": "827B7408",
+      "name": "lo::semantic::gpu::CreateType9Query",
+      "module": "gpu/query",
+      "source": "LostOdysseyRecompSemantics/src/query.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/query.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3: guest device address",
+        "return": "r3: guest query address, or zero on allocation/initialization failure",
+        "preserved": "r1, r27-r31 and LR; other ABI nonvolatile registers are not touched by this function",
+        "memory": "32-bit guest addresses and big-endian words; no native struct layout is assumed"
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.74.cpp",
+          "line": 10414,
+          "kind": "generated_ppc",
+          "note": "Original instruction body is extracted at test time; its SHA-256 is recorded in the test receipt."
+        },
+        {
+          "path": "out/decomp-index/selected/827B7408.c",
+          "line": 2,
+          "kind": "decompiler",
+          "note": "Decompiler signature is misleading because __savegprlr_27 was treated as a value-returning function. PPC r3 establishes the device argument."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_query_lifecycle.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "Three original PPC bodies compose creation, slot initialization and release; 74 bounded cases passed. This supplements the isolated function receipt and does not validate underlying services or runtime scenes."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "827C9D88",
+          "boundary": "QueryServices::Allocate",
+          "status": "implementation_available",
+          "contract": "Allocate 0x9c bytes with flags 0x64800000; zero means failure. Preserve unwritten allocator bytes."
+        },
+        {
+          "address": "827B72E8",
+          "boundary": "QueryServices::InitializeSlot",
+          "status": "implementation_available",
+          "contract": "device, owner-slot and data-slot guest addresses; negative int32 result means failure. May change query memory including +0x98."
+        },
+        {
+          "address": "823CDCA8",
+          "boundary": "QueryServices::Release",
+          "status": "implementation_available",
+          "contract": "Called after storing the completed slot count on initialization failure. Its return value is discarded."
+        }
+      ],
+      "open_obligations": [
+        "The three direct callees now have readable implementations and bounded comparisons; complete their deeper allocation/cache dependencies.",
+        "Complete query object field meanings beyond observed offsets and expand beyond the bounded composed lifecycle fixtures.",
+        "Validate a real PPCContext/guest-stack adapter before runtime replacement.",
+        "Validate real query creation/failure/lifetime in representative scenes, including concurrency and MMIO effects."
+      ]
+    },
+    {
+      "address": "827B72E8",
+      "name": "lo::semantic::gpu::InitializeQuerySlot",
+      "module": "gpu/query",
+      "source": "LostOdysseyRecompSemantics/src/query_pool.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/query_pool.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 device, r4 owner output address, r5 data output address",
+        "memory": "32-bit guest addresses; big-endian memory; modulo-32-bit arithmetic",
+        "scope": "Low-32-bit arguments/return and observable memory/service effects; a real PPCContext adapter is not yet validated",
+        "return": "int32 0 or 0x8007000e"
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.74.cpp",
+          "line": 10242,
+          "kind": "generated_ppc",
+          "note": "Original generated PPC instruction body is extracted and identity-checked by its oracle runner."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "827C9D88",
+          "boundary": "QueryPoolServices::Allocate",
+          "status": "implementation_available",
+          "contract": "Allocate pool metadata/data in order without assuming zero-filled memory."
+        },
+        {
+          "address": "827C9DB0",
+          "boundary": "QueryPoolServices::Free",
+          "status": "implementation_available",
+          "contract": "Free pool metadata after second allocation failure and pointer store."
+        }
+      ],
+      "open_obligations": [
+        "Recover allocation initialization, lifetime and synchronization contracts.",
+        "Map the pool type beyond its bitmap/data/next fields; validate real memory aliasing and game use."
+      ]
+    },
+    {
+      "address": "823CDCA8",
+      "name": "lo::semantic::gpu::ReleaseQuery",
+      "module": "gpu/query",
+      "source": "LostOdysseyRecompSemantics/src/query_release.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/query_pool.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 query address",
+        "memory": "32-bit guest addresses; big-endian memory; modulo-32-bit arithmetic",
+        "scope": "Low-32-bit arguments/return and observable memory/service effects; a real PPCContext adapter is not yet validated",
+        "return": "low 32-bit decremented reference count; zero after destruction"
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.12.cpp",
+          "line": 60870,
+          "kind": "generated_ppc",
+          "note": "Original generated PPC instruction body is extracted and identity-checked by its oracle runner."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "827C9DB0",
+          "boundary": "QueryPoolServices::Free",
+          "status": "implementation_available",
+          "contract": "Callback-visible reads/writes retained before and after data/pool/query free."
+        },
+        {
+          "address": "823EA178",
+          "boundary": "QueryPoolServices::NotifyRange",
+          "status": "implementation_available",
+          "contract": "Mapped data-cache range notification before freeing pool data."
+        }
+      ],
+      "open_obligations": [
+        "Provide real free/cache service effects and validate resource lifetime under the actual runtime.",
+        "Recover complete query type meanings, concurrency rules and invalid-pointer/list behavior beyond bounded fixtures."
+      ]
+    },
+    {
+      "address": "827C9D88",
+      "name": "lo::semantic::gpu::AllocateDispatch",
+      "module": "gpu/allocation",
+      "source": "LostOdysseyRecompSemantics/src/allocation.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/allocation.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 byte count, r4 exact flags",
+        "memory": "32-bit guest addresses; big-endian memory; modulo-32-bit arithmetic",
+        "scope": "Low-32-bit arguments/return and observable memory/service effects; a real PPCContext adapter is not yet validated",
+        "return": "low 32-bit allocation result"
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+          "line": 21284,
+          "kind": "generated_ppc",
+          "note": "Original generated PPC instruction body is extracted and identity-checked by its oracle runner."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "827C9A40",
+          "boundary": "AllocationServices::AllocateSpecial",
+          "status": "opaque",
+          "contract": "Special flags 0xa7820007: allocator 0x832471a8, requested bytes."
+        },
+        {
+          "address": "827CA050",
+          "boundary": "AllocationServices::AllocateGeneral",
+          "status": "implementation_available",
+          "contract": "All other flags: forward byte count and flags unchanged."
+        }
+      ],
+      "open_obligations": [
+        "Recover both allocator implementations, memory initialization, synchronization and failure behavior.",
+        "Validate complete guest ABI forwarding before runtime substitution."
+      ]
+    },
+    {
+      "address": "827C9DB0",
+      "name": "lo::semantic::gpu::FreeDispatch",
+      "module": "gpu/allocation",
+      "source": "LostOdysseyRecompSemantics/src/allocation.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/allocation.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 allocation address, r4 exact flags",
+        "memory": "32-bit guest addresses; big-endian memory; modulo-32-bit arithmetic",
+        "scope": "Low-32-bit arguments/return and observable memory/service effects; a real PPCContext adapter is not yet validated",
+        "return": "low 32-bit service result"
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+          "line": 21315,
+          "kind": "generated_ppc",
+          "note": "Original generated PPC instruction body is extracted and identity-checked by its oracle runner."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "827C9C60",
+          "boundary": "AllocationServices::FreeSpecial",
+          "status": "opaque",
+          "contract": "Special flags 0xa7820007: allocator 0x832471a8, allocation address."
+        },
+        {
+          "address": "827CA0E8",
+          "boundary": "AllocationServices::FreeGeneral",
+          "status": "implementation_available",
+          "contract": "All other flags: forward allocation address and flags unchanged."
+        }
+      ],
+      "open_obligations": [
+        "Recover the special deallocator and compose the recovered general deallocator with verified resource/synchronization adapters.",
+        "Validate complete guest ABI forwarding before runtime substitution."
+      ]
+    },
+    {
+      "address": "823EA178",
+      "name": "lo::semantic::gpu::FlushDataCacheRange",
+      "module": "gpu/cache",
+      "source": "LostOdysseyRecompSemantics/src/cache.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/cache.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 begin, r4 end; r5 ignored",
+        "memory": "32-bit guest addresses; big-endian memory; modulo-32-bit arithmetic",
+        "scope": "Low-32-bit arguments/return and observable memory/service effects; a real PPCContext adapter is not yet validated",
+        "return": "no semantic return value"
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.14.cpp",
+          "line": 7969,
+          "kind": "generated_ppc",
+          "note": "The generated host code omits dcbf/sync. The pinned original control flow is instrumented at those exact instruction comments to compare cache-operation traces."
+        }
+      ],
+      "dependencies": [],
+      "open_obligations": [
+        "Implement and validate actual platform cache-line flush and sync effects through CacheServices.",
+        "Instrumented generated-PPC traces only validate addresses/order; hardware memory ordering and real gameplay remain unverified.",
+        "Two reversed/huge-range cases verify bounded prefixes, not completion of billions of flush operations."
+      ]
+    },
+    {
+      "address": "827CA050",
+      "name": "lo::semantic::gpu::AllocateGeneral",
+      "module": "memory",
+      "source": "LostOdysseyRecompSemantics/src/allocation_backend.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/allocation_backend.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 bytes, r4 flags",
+        "return": "low-32 allocation result",
+        "memory": "32-bit guest addresses, explicit big-endian mapped memory",
+        "scope": "Bounded ordinary-memory/service comparisons; no actual game ABI adapter or scene acceptance"
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+          "line": 21777,
+          "kind": "generated_ppc",
+          "note": "Original body is extracted and pinned by the corresponding oracle runner."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "827C9E20",
+          "boundary": "GeneralAllocationServices::AllocatePhysical",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "bytes, unspecified address, alignment, selected policy"
+        },
+        {
+          "address": "827CAD38",
+          "boundary": "GeneralAllocationServices::AllocateHeap",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "mapped heap flag and byte count"
+        },
+        {
+          "address": "82B7BC40",
+          "boundary": "GeneralAllocationServices::Fill",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "zero fill after successful physical allocation when requested"
+        }
+      ],
+      "open_obligations": [
+        "Connect and validate the recovered lower allocation/heap/fill implementations through the real runtime.",
+        "Confirm policy-table initialization, lifetime and synchronization beyond synthetic callbacks."
+      ]
+    },
+    {
+      "address": "827CA0E8",
+      "name": "lo::semantic::gpu::FreeGeneral",
+      "module": "memory",
+      "source": "LostOdysseyRecompSemantics/src/allocation_backend.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/allocation_backend.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 address, r4 flags",
+        "return": "raw low-32 service result, or zero for null physical address",
+        "memory": "32-bit guest addresses, explicit big-endian mapped memory",
+        "scope": "Bounded ordinary-memory/service comparisons; no actual game ABI adapter or scene acceptance"
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+          "line": 21874,
+          "kind": "generated_ppc",
+          "note": "Original body is extracted and pinned by the corresponding oracle runner."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "827C9EB8",
+          "boundary": "GeneralAllocationServices::FreePhysical",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "nonzero physical address; actual kernel service is void"
+        },
+        {
+          "address": "827CAD80",
+          "boundary": "GeneralAllocationServices::FreeHeap",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "heap address including zero"
+        }
+      ],
+      "open_obligations": [
+        "Resolve defined semantic returns versus residual ABI register state for the void physical-free path.",
+        "Validate real underlying resource lifetime and runtime adapter."
+      ]
+    },
+    {
+      "address": "827C9E20",
+      "name": "lo::semantic::gpu::AllocatePhysicalMemory",
+      "module": "memory",
+      "source": "LostOdysseyRecompSemantics/src/memory_services.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/memory_services.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 bytes, r4 requested address or ffffffff, r5 alignment, r6 protection",
+        "return": "allocation address or zero after reporting failure",
+        "memory": "32-bit guest addresses, explicit big-endian mapped memory",
+        "scope": "Bounded ordinary-memory/service comparisons; no actual game ABI adapter or scene acceptance"
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+          "line": 21395,
+          "kind": "generated_ppc",
+          "note": "Original body is extracted and pinned by the corresponding oracle runner."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "830D9EBC",
+          "boundary": "KernelMemoryServices::AllocatePhysical",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "MmAllocatePhysicalMemoryEx(0,size,protect,min,max,alignment)"
+        },
+        {
+          "address": "822CA180",
+          "boundary": "KernelMemoryServices::ReportAllocationFailure",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "called with code 8 on null allocation"
+        }
+      ],
+      "open_obligations": [
+        "Connect to and validate native kernel allocation behavior, including minimum/maximum address and protection handling.",
+        "Validate the recovered allocation-failure routine against live thread initialization and memory-policy global initialization."
+      ]
+    },
+    {
+      "address": "827C9EB8",
+      "name": "lo::semantic::gpu::FreePhysicalMemory",
+      "module": "memory",
+      "source": "LostOdysseyRecompSemantics/src/memory_services.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/memory_services.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 allocation address",
+        "return": "void; residual r3 is not a defined API return",
+        "memory": "32-bit guest addresses, explicit big-endian mapped memory",
+        "scope": "Bounded ordinary-memory/service comparisons; no actual game ABI adapter or scene acceptance"
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+          "line": 21504,
+          "kind": "generated_ppc",
+          "note": "Original body is extracted and pinned by the corresponding oracle runner."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "830D9EDC",
+          "boundary": "KernelMemoryServices::FreePhysical",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "MmFreePhysicalMemory(0,address)"
+        }
+      ],
+      "open_obligations": [
+        "Validate real kernel deallocation and lifetime effects.",
+        "Keep the void API distinct from residual register state in any future raw ABI adapter."
+      ]
+    },
+    {
+      "address": "827CAD38",
+      "name": "lo::semantic::gpu::AllocateHeapMemory",
+      "module": "memory",
+      "source": "LostOdysseyRecompSemantics/src/memory_services.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/memory_services.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 flags, r4 bytes",
+        "return": "heap allocation result",
+        "memory": "32-bit guest addresses, explicit big-endian mapped memory",
+        "scope": "Bounded ordinary-memory/service comparisons; no actual game ABI adapter or scene acceptance"
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+          "line": 23735,
+          "kind": "generated_ppc",
+          "note": "Original body is extracted and pinned by the corresponding oracle runner."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "823ACC98",
+          "boundary": "GetProcessHeap",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "read current guest process heap global"
+        },
+        {
+          "address": "823ACCB0",
+          "boundary": "KernelMemoryServices::AllocateHeap",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "heap, transformed flag bit, byte count"
+        }
+      ],
+      "open_obligations": [
+        "Complete the readable heap allocation core's growth, VM, synchronization and exception dependencies.",
+        "Validate the live process heap and its initialization/lifetime."
+      ]
+    },
+    {
+      "address": "827CAD80",
+      "name": "lo::semantic::gpu::FreeHeapMemory",
+      "module": "memory",
+      "source": "LostOdysseyRecompSemantics/src/memory_services.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/memory_services.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 address",
+        "return": "zero on successful heap-free service; input address on failure",
+        "memory": "32-bit guest addresses, explicit big-endian mapped memory",
+        "scope": "Bounded ordinary-memory/service comparisons; no actual game ABI adapter or scene acceptance"
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+          "line": 23782,
+          "kind": "generated_ppc",
+          "note": "Original body is extracted and pinned by the corresponding oracle runner."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "823ACC98",
+          "boundary": "GetProcessHeap",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "read current guest process heap global"
+        },
+        {
+          "address": "823ADE28",
+          "boundary": "KernelMemoryServices::FreeHeap",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "heap, zero flags, address"
+        }
+      ],
+      "open_obligations": [
+        "Complete the now-readable heap-free core's decommit, kernel synchronization and exception dependencies.",
+        "Validate real heap lifetime and runtime ABI."
+      ]
+    },
+    {
+      "address": "823ACC98",
+      "name": "lo::semantic::gpu::GetProcessHeap",
+      "module": "memory",
+      "source": "LostOdysseyRecompSemantics/src/memory_services.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/memory_services.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "none",
+        "return": "guest word at 83245708",
+        "memory": "32-bit guest addresses, explicit big-endian mapped memory",
+        "scope": "Bounded ordinary-memory/service comparisons; no actual game ABI adapter or scene acceptance"
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.11.cpp",
+          "line": 27167,
+          "kind": "generated_ppc",
+          "note": "Original body is extracted and pinned by the corresponding oracle runner."
+        }
+      ],
+      "dependencies": [],
+      "open_obligations": [
+        "Validate global initialization and actual runtime calling convention before replacement."
+      ]
+    },
+    {
+      "address": "82B7BC40",
+      "name": "lo::semantic::gpu::FillGuestMemory",
+      "module": "memory",
+      "source": "LostOdysseyRecompSemantics/src/memory_fill.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/memory_fill.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 destination, r4 fill value, r5 byte count",
+        "return": "original destination (semantic API low 32 bits)",
+        "memory": "32-bit guest addresses, explicit big-endian mapped memory",
+        "scope": "Bounded ordinary-memory/service comparisons; no actual game ABI adapter or scene acceptance"
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.175.cpp",
+          "line": 10912,
+          "kind": "generated_ppc",
+          "note": "Original body is extracted and pinned by the corresponding oracle runner."
+        },
+        {
+          "path": "LostOdysseyRecompSemantics/include/lo_semantics/ppc/memory_fill.h",
+          "line": 1,
+          "kind": "ppc_adapter",
+          "note": "Unregistered adapter compared with the original PPC in 1166 cases: full context and store addresses, widths, values and order. No runtime hook is enabled."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_heap_lifecycle.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "One original/recovered allocate-free-reallocate sequence composes 13 pinned bodies with synthetic VM/process/lock services. It validates persisted ordinary heap state and the Initialize child+236 / Grow parent+60 spill; ABI scratch is reset between top-level calls."
+        }
+      ],
+      "dependencies": [],
+      "open_obligations": [
+        "Validate the live runtime call path and permitted mapped-memory domain before enabling a replacement.",
+        "Store traces do not establish real concurrent/MMIO effects; enormous lengths are not executed exhaustively.",
+        "The unregistered PPC adapter restores final register values after stores; mid-store faults and observation of intermediate PPCContext are not equivalent evidence.",
+        "Current adapter differential uses /Od; optimized adapter and live runtime paths are unvalidated."
+      ]
+    },
+    {
+      "address": "827CBA60",
+      "name": "lo::semantic::gpu::InsertFreeBlocks",
+      "module": "memory/heap",
+      "source": "LostOdysseyRecompSemantics/src/heap.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/heap.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 heap, r4 block, r5 units",
+        "returns": "void; residual registers are not assigned an API meaning",
+        "memory": "16-byte heap units; explicit big-endian guest memory; bounded ordinary-memory fixtures"
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.76.cpp",
+          "line": 1371,
+          "kind": "generated_ppc",
+          "note": "Complete original body is extracted and hash-pinned by the oracle runner."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_heap_lifecycle.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "One original/recovered allocate-free-reallocate sequence composes 13 pinned bodies with synthetic VM/process/lock services. It validates persisted ordinary heap state and the Initialize child+236 / Grow parent+60 spill; ABI scratch is reset between top-level calls."
+        }
+      ],
+      "dependencies": [],
+      "open_obligations": [
+        "Validate actual runtime ABI and mapped memory domains.",
+        "Bounded heap fixtures do not establish full allocator lifetime, concurrent mutation, arbitrary corruption, or real kernel behavior."
+      ]
+    },
+    {
+      "address": "823AE108",
+      "name": "lo::semantic::gpu::CoalesceFreeBlocks",
+      "module": "memory/heap",
+      "source": "LostOdysseyRecompSemantics/src/heap.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/heap.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 heap, r4 block, r5 guest units in/out address, r6 already_free",
+        "returns": "guest merged-block address",
+        "memory": "16-byte heap units; explicit big-endian guest memory; bounded ordinary-memory fixtures"
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.11.cpp",
+          "line": 30217,
+          "kind": "generated_ppc",
+          "note": "Complete original body is extracted and hash-pinned by the oracle runner."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_heap_lifecycle.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "One original/recovered allocate-free-reallocate sequence composes 13 pinned bodies with synthetic VM/process/lock services. It validates persisted ordinary heap state and the Initialize child+236 / Grow parent+60 spill; ABI scratch is reset between top-level calls."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "830DA08C",
+          "boundary": "HeapServices::CompareMemoryUlong",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "Debug fill comparison; return value ignored by this guest function."
+        }
+      ],
+      "open_obligations": [
+        "Validate actual runtime ABI and mapped memory domains.",
+        "Bounded heap fixtures do not establish full allocator lifetime, concurrent mutation, arbitrary corruption, or real kernel behavior."
+      ]
+    },
+    {
+      "address": "823ADE28",
+      "name": "lo::semantic::gpu::FreeHeapBlock",
+      "module": "memory/heap",
+      "source": "LostOdysseyRecompSemantics/src/heap_free.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/heap_free.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 heap, r4 flags, r5 payload; frame_base is the original 176-byte guest frame after ABI prologue",
+        "returns": "uint32 from guest frame+88 after cleanup; null payload returns literal 1",
+        "memory": "Explicit guest frame locals preserve callback-visible addresses; adapter owns ABI spill/backchain restoration."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.11.cpp",
+          "line": 29747,
+          "kind": "generated_ppc",
+          "note": "Original bodies and composed helper bodies are hash-pinned by the heap-free oracle."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_heap_lifecycle.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "One original/recovered allocate-free-reallocate sequence composes 13 pinned bodies with synthetic VM/process/lock services. It validates persisted ordinary heap state and the Initialize child+236 / Grow parent+60 spill; ABI scratch is reset between top-level calls."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "830D9C7C",
+          "boundary": "HeapFreeServices::LeaveCriticalSection",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "Re-read heap+0x580; invoked only when the live lock-owned value is nonzero."
+        },
+        {
+          "address": "823AE108",
+          "boundary": "CoalesceFreeBlocks",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "Real composition, guest units in/out at frame+80."
+        },
+        {
+          "address": "827CBA60",
+          "boundary": "InsertFreeBlocks",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "Only the branch exceeding 0xf000 units composes this helper."
+        },
+        {
+          "address": "823AE0BC",
+          "boundary": "LeaveHeapCriticalSection",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "Explicit normal-path cleanup, followed by a fresh result-slot load."
+        },
+        {
+          "address": "827CC668",
+          "boundary": "HeapFreeServices::DecommitFreeBlock",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "Heap/block/units; internal VM/decommit behavior remains unrecovered."
+        },
+        {
+          "address": "830DA07C",
+          "boundary": "HeapFreeServices::GetCurrentProcessType",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "Process check occurs before the null-payload return."
+        },
+        {
+          "address": "830DA06C",
+          "boundary": "HeapFreeServices::BugCheck",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "Code 244, heap, saved LR read from frame+168, line4390, payload. Synthetic callback may return."
+        },
+        {
+          "address": "830D9C6C",
+          "boundary": "HeapFreeServices::EnterCriticalSection",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "Live lock-owned is set after the callback returns."
+        },
+        {
+          "address": "830D9D3C",
+          "boundary": "HeapFreeServices::FreeVirtualMemory",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "Guest frame+96 and+80 output pointers,0x8000,0; signed-negative status forces result zero."
+        }
+      ],
+      "open_obligations": [
+        "Compose the recovered decommit path and validate real kernel VM contracts, live allocation and synchronization.",
+        "Validate a PPCContext adapter, actual guest exception landing pad 823AE094 and Xbox unwind machinery; ordinary C++ exceptions are not equivalent evidence.",
+        "No runtime replacement or representative scene acceptance yet."
+      ]
+    },
+    {
+      "address": "823AE0BC",
+      "name": "lo::semantic::gpu::LeaveHeapCriticalSection",
+      "module": "memory/heap",
+      "source": "LostOdysseyRecompSemantics/src/heap_free.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/heap_free.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "nonstandard live r30 heap and r25 lock-owned; original r12 provides parent frame for ABI setup",
+        "returns": "void; residual volatile register values are not a source-level return contract",
+        "memory": "Explicit guest frame locals preserve callback-visible addresses; adapter owns ABI spill/backchain restoration."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.11.cpp",
+          "line": 30168,
+          "kind": "generated_ppc",
+          "note": "Original bodies and composed helper bodies are hash-pinned by the heap-free oracle."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_heap_lifecycle.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "One original/recovered allocate-free-reallocate sequence composes 13 pinned bodies with synthetic VM/process/lock services. It validates persisted ordinary heap state and the Initialize child+236 / Grow parent+60 spill; ABI scratch is reset between top-level calls."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "830D9C7C",
+          "boundary": "HeapFreeServices::LeaveCriticalSection",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "Re-read heap+0x580; invoked only when the live lock-owned value is nonzero."
+        }
+      ],
+      "open_obligations": [
+        "Compose the recovered decommit path and validate real kernel VM contracts, live allocation and synchronization.",
+        "Validate a PPCContext adapter, actual guest exception landing pad 823AE094 and Xbox unwind machinery; ordinary C++ exceptions are not equivalent evidence.",
+        "No runtime replacement or representative scene acceptance yet."
+      ]
+    },
+    {
+      "address": "822CA180",
+      "name": "lo::semantic::gpu::ReportAllocationFailure",
+      "module": "memory/thread-state",
+      "source": "LostOdysseyRecompSemantics/src/thread_state.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/thread_state.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 code; implicit r13 thread-state address",
+        "returns": "void semantic API; original r3 is preserved",
+        "memory": "Read thread_state+0x150 guard; when zero, write code at ReadU32(thread_state+0x100)+0x160."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+          "line": 40883,
+          "kind": "generated_ppc",
+          "note": "Work names reflect the observed allocation-failure call path, not recovered debug symbols."
+        },
+        {
+          "path": "LostOdysseyRecomp/cpu/guest_thread.cpp",
+          "line": 141,
+          "kind": "runtime_correspondence",
+          "note": "Current runtime SetLastError uses the same suppressing word and TEB field; guest constructor stores TEB pointer at PCR+0x100. This is corroborating source evidence, not a live runtime test."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "822CA188",
+          "boundary": "StoreThreadFailureCode",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "Tail-forward with the same r13/r3 values."
+        }
+      ],
+      "open_obligations": [
+        "Recover the original thread-state field types and lifecycle; the guard meaning is not independently established.",
+        "Validate the live PPC r13 adapter, thread initialization and runtime allocation-failure paths."
+      ]
+    },
+    {
+      "address": "822CA188",
+      "name": "lo::semantic::gpu::StoreThreadFailureCode",
+      "module": "memory/thread-state",
+      "source": "LostOdysseyRecompSemantics/src/thread_state.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/thread_state.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 code; implicit r13 thread-state address",
+        "returns": "void semantic API; original r3 is preserved",
+        "memory": "Read thread_state+0x150 guard; when zero, write code at ReadU32(thread_state+0x100)+0x160."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+          "line": 40894,
+          "kind": "generated_ppc",
+          "note": "Work names reflect the observed allocation-failure call path, not recovered debug symbols."
+        },
+        {
+          "path": "LostOdysseyRecomp/cpu/guest_thread.cpp",
+          "line": 141,
+          "kind": "runtime_correspondence",
+          "note": "Current runtime SetLastError uses the same suppressing word and TEB field; guest constructor stores TEB pointer at PCR+0x100. This is corroborating source evidence, not a live runtime test."
+        }
+      ],
+      "dependencies": [],
+      "open_obligations": [
+        "Recover the original thread-state field types and lifecycle; the guard meaning is not independently established.",
+        "Validate the live PPC r13 adapter, thread initialization and runtime allocation-failure paths."
+      ]
+    },
+    {
+      "address": "823ACCB0",
+      "name": "lo::semantic::gpu::AllocateHeapBlock",
+      "module": "memory/heap",
+      "source": "LostOdysseyRecompSemantics/src/heap_allocate.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/heap_allocate.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 heap, r4 flags, r5 requested bytes; explicit original 320-byte guest frame with saved LR at+312",
+        "returns": "Reload guest frame+100 after explicit cleanup",
+        "memory": "Guest frame locals, partial exception record and kernel in/out pointers remain guest addresses; ABI prologue/epilogue is separate."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.11.cpp",
+          "line": 27181,
+          "kind": "generated_ppc",
+          "note": "Oracle extracts original allocation/cleanup plus real fill and insert bodies with pinned hashes."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_heap_lifecycle.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "One original/recovered allocate-free-reallocate sequence composes 13 pinned bodies with synthetic VM/process/lock services. It validates persisted ordinary heap state and the Initialize child+236 / Grow parent+60 spill; ABI scratch is reset between top-level calls."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "830D9C7C",
+          "boundary": "HeapAllocateServices::LeaveCriticalSection",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "When live lock-owned is nonzero, read current heap+0x580 and leave it."
+        },
+        {
+          "address": "827CBA60",
+          "boundary": "InsertFreeBlocks",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "Only merged remainder exceeding 0xf000 units."
+        },
+        {
+          "address": "82B7BC40",
+          "boundary": "FillGuestMemory",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "Ordinary zero-fill uses original requested bytes; VM path clears only the 48-byte allocation header."
+        },
+        {
+          "address": "823AD544",
+          "boundary": "LeaveHeapAllocateCriticalSection",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "Explicit cleanup, then reload result slot."
+        },
+        {
+          "address": "827CC428",
+          "boundary": "HeapAllocateServices::GrowHeap",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "Heap and current rounded bytes; return an initialized free-list block included in heap accounting, or zero."
+        },
+        {
+          "address": "830DA07C",
+          "boundary": "HeapAllocateServices::GetCurrentProcessType",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "Check before normalizing the allocation request."
+        },
+        {
+          "address": "830DA06C",
+          "boundary": "HeapAllocateServices::BugCheck",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "244, heap, saved caller LR reloaded after process callback, 1459, original requested bytes."
+        },
+        {
+          "address": "830D9C6C",
+          "boundary": "HeapAllocateServices::EnterCriticalSection",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "Requested units are cached before entry; rounded byte argument is reloaded afterward."
+        },
+        {
+          "address": "830D9D1C",
+          "boundary": "HeapAllocateServices::AllocateVirtualMemory",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "Guest frame+84 and+88 in/out addresses; signed-negative NTSTATUS is failure."
+        },
+        {
+          "address": "830DA0AC",
+          "boundary": "HeapAllocateServices::RaiseException",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "Guest record at frame+144; exception address at+156 is not initialized; generated PPC continues if the callback returns."
+        }
+      ],
+      "open_obligations": [
+        "Compose recovered heap growth and validate real VM, process, exception and critical-section service contracts.",
+        "Validate guest exception landing pad 823AD51C and actual Xbox unwinding; no C++ RAII behavior is inferred.",
+        "Validate runtime ABI adapter, concurrency, memory-fault behavior and representative game scenes."
+      ]
+    },
+    {
+      "address": "823AD544",
+      "name": "lo::semantic::gpu::LeaveHeapAllocateCriticalSection",
+      "module": "memory/heap",
+      "source": "LostOdysseyRecompSemantics/src/heap_allocate.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/heap_allocate.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Nonstandard live r27 heap and r22 lock-owned; r12 supplies parent frame for ABI setup",
+        "returns": "void; only observable cleanup is represented",
+        "memory": "Guest frame locals, partial exception record and kernel in/out pointers remain guest addresses; ABI prologue/epilogue is separate."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.11.cpp",
+          "line": 28418,
+          "kind": "generated_ppc",
+          "note": "Oracle extracts original allocation/cleanup plus real fill and insert bodies with pinned hashes."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_heap_lifecycle.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "One original/recovered allocate-free-reallocate sequence composes 13 pinned bodies with synthetic VM/process/lock services. It validates persisted ordinary heap state and the Initialize child+236 / Grow parent+60 spill; ABI scratch is reset between top-level calls."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "830D9C7C",
+          "boundary": "HeapAllocateServices::LeaveCriticalSection",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "When live lock-owned is nonzero, read current heap+0x580 and leave it."
+        }
+      ],
+      "open_obligations": [
+        "Validate real VM, process, exception and critical-section service contracts.",
+        "Validate guest exception landing pad 823AD51C and actual Xbox unwinding; no C++ RAII behavior is inferred.",
+        "Validate runtime ABI adapter, concurrency, memory-fault behavior and representative game scenes."
+      ]
+    },
+    {
+      "address": "827CC428",
+      "name": "lo::semantic::gpu::GrowHeap",
+      "module": "memory/heap",
+      "source": "LostOdysseyRecompSemantics/src/heap_growth.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/heap_growth.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 heap, r4 rounded bytes; explicit 144-byte guest frame",
+        "returns": "r3 free-block address or zero",
+        "memory": "Big-endian guest words and wrapping 32-bit addresses; observable guest locals are explicit, ABI spills/backchain remain adapter responsibilities."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.76.cpp",
+          "line": 2788,
+          "kind": "generated_ppc",
+          "note": "Working semantic names, not recovered debug symbols; original body identity is pinned by the native Windows differential runner."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_heap_lifecycle.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "One original/recovered allocate-free-reallocate sequence composes 13 pinned bodies with synthetic VM/process/lock services. It validates persisted ordinary heap state and the Initialize child+236 / Grow parent+60 spill; ABI scratch is reset between top-level calls."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "827CB778",
+          "boundary": "HeapGrowthServices::ExtendSegment",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "Heap, segment, frame+88 size in/out, required base zero; callable adapter remains explicit."
+        },
+        {
+          "address": "823AE108",
+          "boundary": "CoalesceFreeBlocks",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "Real composition after successful segment extension; frame+88 holds units."
+        },
+        {
+          "address": "827CBA60",
+          "boundary": "InsertFreeBlocks",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "Compose the recovered free-list insertion with the original guest heap layout."
+        },
+        {
+          "address": "827CC2C0",
+          "boundary": "HeapGrowthServices::InitializeSegment",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "Pass the first empty segment slot, VM base and both committed/reserved ends."
+        },
+        {
+          "address": "830D9D1C",
+          "boundary": "AllocateVirtualMemory",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "Original guest in/out addresses, type, protection and zero arguments; signed-negative NTSTATUS is failure."
+        },
+        {
+          "address": "830D9D3C",
+          "boundary": "FreeVirtualMemory",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "Original guest in/out addresses and flags; signed status or ignored return exactly follows each caller."
+        }
+      ],
+      "open_obligations": [
+        "Expand beyond the one bounded composed growth/initialization/extension lifecycle and validate actual runtime guest frames.",
+        "Validate kernel VM output contracts, allocation lifetime, actual runtime ABI and concurrent heap use."
+      ]
+    },
+    {
+      "address": "827CC668",
+      "name": "lo::semantic::gpu::DecommitFreeBlock",
+      "module": "memory/heap",
+      "source": "LostOdysseyRecompSemantics/src/heap_decommit.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/heap_decommit.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 heap, r4 block, r5 units; explicit 208-byte guest frame",
+        "returns": "void; no defined scalar return",
+        "memory": "Big-endian guest words and wrapping 32-bit addresses; observable guest locals are explicit, ABI spills/backchain remain adapter responsibilities."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.76.cpp",
+          "line": 3111,
+          "kind": "generated_ppc",
+          "note": "Working semantic names, not recovered debug symbols; original body identity is pinned by the native Windows differential runner."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_heap_lifecycle.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "One original/recovered allocate-free-reallocate sequence composes 13 pinned bodies with synthetic VM/process/lock services. It validates persisted ordinary heap state and the Initialize child+236 / Grow parent+60 spill; ABI scratch is reset between top-level calls."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "827CB498",
+          "boundary": "HeapDecommitServices::AllocateRangeNode",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "Segment pointer; reserve bookkeeping node before releasing VM."
+        },
+        {
+          "address": "827CB658",
+          "boundary": "HeapDecommitServices::InsertRangeRecord",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "Segment plus reloaded frame+84 base and frame+80 bytes."
+        },
+        {
+          "address": "830D9D3C",
+          "boundary": "FreeVirtualMemory",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "Original guest in/out addresses and flags; signed status or ignored return exactly follows each caller."
+        },
+        {
+          "address": "827CBA60",
+          "boundary": "InsertFreeBlocks",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "Compose the recovered free-list insertion with the original guest heap layout."
+        }
+      ],
+      "open_obligations": [
+        "Expand the bounded composed range-node/range-record fixtures to real VM decommit, memory faults and concurrency.",
+        "Validate runtime ABI and 64 KiB page ownership/lifetime in representative scenes."
+      ]
+    },
+    {
+      "address": "827CB498",
+      "name": "lo::semantic::gpu::AllocateRangeNode",
+      "module": "memory/heap",
+      "source": "LostOdysseyRecompSemantics/src/heap_ranges.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/heap_ranges.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 segment; explicit 128-byte guest frame",
+        "returns": "r3 16-byte range node or zero",
+        "memory": "Big-endian guest words and wrapping 32-bit addresses; observable guest locals are explicit, ABI spills/backchain remain adapter responsibilities."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.76.cpp",
+          "line": 531,
+          "kind": "generated_ppc",
+          "note": "Working semantic names, not recovered debug symbols; original body identity is pinned by the native Windows differential runner."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_heap_lifecycle.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "One original/recovered allocate-free-reallocate sequence composes 13 pinned bodies with synthetic VM/process/lock services. It validates persisted ordinary heap state and the Initialize child+236 / Grow parent+60 spill; ABI scratch is reset between top-level calls."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "830D9D1C",
+          "boundary": "AllocateVirtualMemory",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "Original guest in/out addresses, type, protection and zero arguments; signed-negative NTSTATUS is failure."
+        },
+        {
+          "address": "830D9D3C",
+          "boundary": "FreeVirtualMemory",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "Original guest in/out addresses and flags; signed status or ignored return exactly follows each caller."
+        }
+      ],
+      "open_obligations": [
+        "Validate zeroed/reserved/committed VM arena contracts and segment owner lifetime in the runtime.",
+        "Expand malformed/cyclic lists, address aliasing, faults and concurrency beyond bounded fixtures."
+      ]
+    },
+    {
+      "address": "827CB658",
+      "name": "lo::semantic::gpu::InsertRangeRecord",
+      "module": "memory/heap",
+      "source": "LostOdysseyRecompSemantics/src/heap_ranges.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/heap_ranges.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 segment, r4 range base, r5 bytes; explicit 128-byte guest frame",
+        "returns": "void; no defined scalar return",
+        "memory": "Big-endian guest words and wrapping 32-bit addresses; observable guest locals are explicit, ABI spills/backchain remain adapter responsibilities."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.76.cpp",
+          "line": 779,
+          "kind": "generated_ppc",
+          "note": "Working semantic names, not recovered debug symbols; original body identity is pinned by the native Windows differential runner."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_heap_lifecycle.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "One original/recovered allocate-free-reallocate sequence composes 13 pinned bodies with synthetic VM/process/lock services. It validates persisted ordinary heap state and the Initialize child+236 / Grow parent+60 spill; ABI scratch is reset between top-level calls."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "827CB498",
+          "boundary": "AllocateRangeNode",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "Real composition in the next 128-byte guest frame, including VM failures."
+        }
+      ],
+      "open_obligations": [
+        "Recover shared range/segment field types and complete lifetime/concurrency validation.",
+        "Validate runtime adapters and coverage beyond bounded sorted-list fixtures."
+      ]
+    },
+    {
+      "address": "827CB778",
+      "name": "lo::semantic::gpu::ExtendHeapSegment",
+      "module": "memory/heap",
+      "source": "LostOdysseyRecompSemantics/src/heap_segment.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/heap_segment.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 heap, r4 segment, r5 byte-count guest pointer, r6 required base (zero accepts any); explicit 160-byte frame",
+        "returns": "r3 new free-block address or zero",
+        "memory": "Big-endian guest words and wrapping 32-bit addresses; observable guest locals are explicit, ABI spills/backchain remain adapter responsibilities."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.76.cpp",
+          "line": 943,
+          "kind": "generated_ppc",
+          "note": "Working semantic names, not recovered debug symbols; original body identity is pinned by the native Windows differential runner."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_heap_lifecycle.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "One original/recovered allocate-free-reallocate sequence composes 13 pinned bodies with synthetic VM/process/lock services. It validates persisted ordinary heap state and the Initialize child+236 / Grow parent+60 spill; ABI scratch is reset between top-level calls."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "830D9D1C",
+          "boundary": "AllocateVirtualMemory",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "Original guest in/out addresses, type, protection and zero arguments; signed-negative NTSTATUS is failure."
+        }
+      ],
+      "open_obligations": [
+        "Resolve optional indirect commit callback loaded from heap+1412, including guest arguments and output aliases; it remains synthetic in the oracle.",
+        "Validate real committed memory, list corruption/fault behavior, runtime ABI and concurrency."
+      ]
+    },
+    {
+      "address": "827CC2C0",
+      "name": "lo::semantic::gpu::InitializeHeapSegment",
+      "module": "memory/heap",
+      "source": "LostOdysseyRecompSemantics/src/heap_segment.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/heap_segment.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 heap, r4 segment base, r5 slot index, r6 flags, r7 range begin, r8 committed end, r9 reserved end; explicit 176-byte frame",
+        "returns": "r3 1 on success or zero",
+        "memory": "Big-endian guest words and wrapping 32-bit addresses; observable guest locals are explicit, ABI spills/backchain remain adapter responsibilities."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.76.cpp",
+          "line": 2576,
+          "kind": "generated_ppc",
+          "note": "Working semantic names, not recovered debug symbols; original body identity is pinned by the native Windows differential runner."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_heap_lifecycle.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "One original/recovered allocate-free-reallocate sequence composes 13 pinned bodies with synthetic VM/process/lock services. It validates persisted ordinary heap state and the Initialize child+236 / Grow parent+60 spill; ABI scratch is reset between top-level calls."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "830D9D1C",
+          "boundary": "AllocateVirtualMemory",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "Original guest in/out addresses, type, protection and zero arguments; signed-negative NTSTATUS is failure."
+        },
+        {
+          "address": "827CB658",
+          "boundary": "HeapSegmentServices::InitializeUncommittedRange",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "Segment base, current committed end, and remaining bytes; explicit adapter boundary."
+        },
+        {
+          "address": "827CBA60",
+          "boundary": "InsertFreeBlocks",
+          "status": "implementation_available",
+          "kind": "guest_function",
+          "contract": "Compose the recovered free-list insertion with the original guest heap layout."
+        }
+      ],
+      "open_obligations": [
+        "Expand the composed range bookkeeping and VM fixture to real VM zero-initialization and kernel behavior.",
+        "Validate the incoming caller argument spill at frame+236 and actual runtime ABI/lifetimes."
+      ]
+    }
+  ]
+}
