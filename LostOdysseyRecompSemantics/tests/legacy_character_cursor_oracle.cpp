@@ -20,10 +20,12 @@ constexpr GuestAddress Stack = 0x80000u;
 constexpr std::array<Region, 1> Regions{{{0u, 0x90000u}}};
 
 enum class Mode { Empty, Ordinary, LeadingSpaceTab, Quoted,
-    QuotedEscape, BufferLimit };
-constexpr std::array<Mode, 6> Cases{{Mode::Empty, Mode::Ordinary,
-    Mode::LeadingSpaceTab, Mode::Quoted, Mode::QuotedEscape,
-    Mode::BufferLimit}};
+    EmptyQuoted, QuotedEscape, EscapeTerminal, LiteralBackslash,
+    BufferLimit, QuotedBufferLimit };
+constexpr std::array<Mode, 10> Cases{{Mode::Empty, Mode::Ordinary,
+    Mode::LeadingSpaceTab, Mode::Quoted, Mode::EmptyQuoted,
+    Mode::QuotedEscape, Mode::EscapeTerminal, Mode::LiteralBackslash,
+    Mode::BufferLimit, Mode::QuotedBufferLimit}};
 
 family::Registers FromPpc(const PPCContext& context)
 {
@@ -90,6 +92,10 @@ void Seed(GuestWindow& window, Mode mode)
         memory.WriteU16(Text + 4u, 'B');
         memory.WriteU16(Text + 6u, '"');
         break;
+    case Mode::EmptyQuoted:
+        memory.WriteU16(Text, '"');
+        memory.WriteU16(Text + 2u, '"');
+        break;
     case Mode::QuotedEscape:
         memory.WriteU16(Text, '"');
         memory.WriteU16(Text + 2u, 'A');
@@ -98,6 +104,18 @@ void Seed(GuestWindow& window, Mode mode)
         memory.WriteU16(Text + 8u, 'B');
         memory.WriteU16(Text + 10u, '"');
         break;
+    case Mode::EscapeTerminal:
+        memory.WriteU16(Text, '"');
+        memory.WriteU16(Text + 2u, 'A');
+        memory.WriteU16(Text + 4u, '\\');
+        break;
+    case Mode::LiteralBackslash:
+        memory.WriteU16(Text, '"');
+        memory.WriteU16(Text + 2u, 'A');
+        memory.WriteU16(Text + 4u, '\\');
+        memory.WriteU16(Text + 6u, 'B');
+        memory.WriteU16(Text + 8u, '"');
+        break;
     case Mode::BufferLimit:
         memory.WriteU16(Text, 'A');
         memory.WriteU16(Text + 2u, 'B');
@@ -105,6 +123,14 @@ void Seed(GuestWindow& window, Mode mode)
         memory.WriteU16(Text + 6u, 'D');
         memory.WriteU16(Text + 8u, 'E');
         memory.WriteU16(Text + 10u, ' ');
+        break;
+    case Mode::QuotedBufferLimit:
+        memory.WriteU16(Text, '"');
+        memory.WriteU16(Text + 2u, 'A');
+        memory.WriteU16(Text + 4u, 'B');
+        memory.WriteU16(Text + 6u, 'C');
+        memory.WriteU16(Text + 8u, 'D');
+        memory.WriteU16(Text + 10u, '"');
         break;
     }
 }
@@ -126,8 +152,12 @@ PPCContext Initial(Mode mode)
     context.ctr.u64 = 0x5555666677778888ull;
     context.r3.u64 = 0x1234567800000000ull | Cursor;
     context.r4.u64 = 0x8765432100000000ull | Output;
-    context.r5.u64 = mode == Mode::BufferLimit ? 3u : 16u;
-    context.r6.u64 = mode == Mode::QuotedEscape ? 1u : 0u;
+    context.r5.u64 = 0xdeadbeef00000000ull |
+        ((mode == Mode::BufferLimit || mode == Mode::QuotedBufferLimit) ?
+            3u : 16u);
+    context.r6.u64 = (mode == Mode::QuotedEscape ||
+        mode == Mode::EscapeTerminal) ?
+        0x1234567800000001ull : 0x1234567800000000ull;
     context.cr0.gt = 1;
     context.cr6.lt = 1;
     context.xer.so = 1;
@@ -147,11 +177,15 @@ bool ExpectedPath(Mode mode, const PPCContext& context,
     case Mode::Ordinary: cursor += 6u; result = "ABC"; break;
     case Mode::LeadingSpaceTab: cursor += 8u; result = "Hi"; break;
     case Mode::Quoted: cursor += 8u; result = "AB"; break;
+    case Mode::EmptyQuoted: cursor += 4u; break;
     case Mode::QuotedEscape: cursor += 12u; result = "A\"B"; break;
+    case Mode::EscapeTerminal: cursor += 8u; result = "A"; break;
+    case Mode::LiteralBackslash: cursor += 10u; result = "A\\B"; break;
     case Mode::BufferLimit: cursor += 10u; result = "AB"; break;
+    case Mode::QuotedBufferLimit: cursor += 6u; result = "AB"; break;
     }
     if (memory.ReadU32(Cursor) != cursor ||
-        context.r3.u64 != (mode == Mode::Empty ? 0u : 1u))
+        context.r3.u64 != (result[0] ? 1u : 0u))
         return false;
     unsigned index = 0;
     while (result[index])

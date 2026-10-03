@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Bounded UTF-16 cursor comparison against the pinned original PPC body.",
+  "families": [
+    {
+      "name": "legacy-character-cursor",
+      "manifest": "LostOdysseyRecompSemantics/legacy_character_cursor_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_character_cursor_oracle.cpp",
+      "prelude": "",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_character_cursor.cpp"
+      ]
+    }
+  ]
+}
