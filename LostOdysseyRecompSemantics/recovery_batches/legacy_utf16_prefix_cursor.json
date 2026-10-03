@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Bounded 82296740 comparison with actual complete PPC bodies for its four accepted lower dependencies.",
+  "families": [
+    {
+      "name": "legacy-utf16-prefix-cursor",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/legacy_utf16_prefix_cursor_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_utf16_prefix_cursor_oracle.cpp",
+      "prelude": "extern \"C\" PPC_FUNC(__imp__sub_82296830);\nextern \"C\" PPC_FUNC(__imp__sub_82296858);\nextern \"C\" PPC_FUNC(__imp__sub_82296938);\nextern \"C\" PPC_FUNC(__imp__sub_82483AC8);\nvoid LegacyPrefixInvalidArgument(PPCContext&, std::uint8_t*);\nvoid LegacyPrefixInvalidParameter(PPCContext&, std::uint8_t*);\n#define sub_82296830(c,b) __imp__sub_82296830(c,b)\n#define sub_82296858(c,b) __imp__sub_82296858(c,b)\n#define sub_82296938(c,b) __imp__sub_82296938(c,b)\n#define sub_82483AC8(c,b) __imp__sub_82483AC8(c,b)\n#define sub_82B7FD78(c,b) LegacyPrefixInvalidArgument(c,b)\n#define sub_82B7FEC0(c,b) LegacyPrefixInvalidParameter(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_utf16_prefix_cursor.cpp"
+      ]
+    }
+  ]
+}
