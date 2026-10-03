@@ -3084,7 +3084,7 @@
         {
           "address": "82B7FEC0",
           "boundary": "CrtAllocationServices::ReportInvalidParameter",
-          "status": "opaque"
+          "status": "implementation_available"
         }
       ]
     },
@@ -3218,6 +3218,90 @@
           "line": 1,
           "kind": "bounded_differential_runner",
           "note": "One composed batch passed 5 allocation and 4 free cases. Original CRT bodies are extracted; both paths reuse the previously validated heap semantic implementations rather than rerunning the heap suites. Return, service order/arguments, persistent memory and wrapper error word are compared. ABI saves/volatile state and live runtime are excluded."
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "address": "82B7FEC0",
+      "name": "lo::semantic::gpu::ReportInvalidParameter",
+      "module": "memory/invalid_parameter",
+      "source": "LostOdysseyRecompSemantics/src/invalid_parameter.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/invalid_parameter.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Mutable r3-r10 argument registers and r13; live handler pointer at 0x83378e80.",
+        "return": "Call the masked handler, or set r3=2, clear global state, retain helper r10=0xffffffff83380000 and invoke the explicit trap boundary.",
+        "preserved": "Dispatcher compares exposed r3-r10 and r13. Generic volatile state, ABI frame/saves and real trap termination remain adapter responsibilities.",
+        "memory": "32-bit big-endian guest memory with callback mutations and call ordering."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+          "line": 65,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_invalid_parameter.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "One batch passed 4 dispatcher cases and 1 memory-only clear case. Dispatcher compares exposed r3-r10/r13, persistent guest memory and complete trap-boundary parameters. Handler and trap are explicit test services; no host termination API was executed."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "82B84D88",
+          "boundary": "ClearInvalidParameterState",
+          "status": "implementation_available"
+        },
+        {
+          "address": "indirect:invalid-parameter-handler",
+          "boundary": "InvalidParameterServices::CallHandler",
+          "status": "opaque"
+        },
+        {
+          "address": "instruction:twi",
+          "boundary": "InvalidParameterServices::Trap",
+          "status": "native_boundary"
+        }
+      ]
+    },
+    {
+      "address": "82B84D88",
+      "name": "lo::semantic::gpu::ClearInvalidParameterState",
+      "module": "memory/invalid_parameter",
+      "source": "LostOdysseyRecompSemantics/src/invalid_parameter.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/invalid_parameter.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "No semantic arguments; guest state word at 0x83378d64.",
+        "return": "Clear the state word. The public helper models memory only; the dispatcher retains its observable r10 side effect before Trap.",
+        "preserved": "Dispatcher compares exposed r3-r10 and r13. Generic volatile state, ABI frame/saves and real trap termination remain adapter responsibilities.",
+        "memory": "32-bit big-endian guest memory with callback mutations and call ordering."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+          "line": 12414,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_invalid_parameter.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "One batch passed 4 dispatcher cases and 1 memory-only clear case. Dispatcher compares exposed r3-r10/r13, persistent guest memory and complete trap-boundary parameters. Handler and trap are explicit test services; no host termination API was executed."
         }
       ],
       "dependencies": []

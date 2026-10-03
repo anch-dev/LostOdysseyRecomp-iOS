@@ -17,6 +17,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/allocation_failure.cpp
     src/crt_thread_data.cpp
     src/crt_allocation.cpp
+    src/invalid_parameter.cpp
     src/manager_init.cpp
     src/manager_construction.cpp
     src/manager_storage.cpp
@@ -32,6 +33,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/pointer_fields.cpp
     src/global_assignments.cpp
     src/field_operations.cpp
+    src/field_arithmetic.cpp
     src/memory_services.cpp
     src/memory_fill.cpp
     src/memory_move.cpp
