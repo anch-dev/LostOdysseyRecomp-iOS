@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "family": "instance_property_initializer",
+  "source": "out/function-inventory/registered-instance-candidates.json",
+  "entry_count": 15,
+  "registered_type_reference_count": 15,
+  "entries": [
+    {
+      "address": "825F1018",
+      "vtable": "0x82008250",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.46.cpp",
+      "source_line": 32975,
+      "registered_types": [
+        {
+          "constructor": "825F0718",
+          "type_name": "StructProperty",
+          "kind": "constructor"
+        }
+      ]
+    },
+    {
+      "address": "825F1100",
+      "vtable": "0x821DFB28",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.46.cpp",
+      "source_line": 33128,
+      "registered_types": [
+        {
+          "constructor": "82405848",
+          "type_name": "MapProperty",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "825F11E8",
+      "vtable": "0x82008E00",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.46.cpp",
+      "source_line": 33281,
+      "registered_types": [
+        {
+          "constructor": "82405E68",
+          "type_name": "ArrayProperty",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "825F1218",
+      "vtable": "0x820086D0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.46.cpp",
+      "source_line": 33313,
+      "registered_types": [
+        {
+          "constructor": "82405910",
+          "type_name": "StrProperty",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "825F1248",
+      "vtable": "0x820083D0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.46.cpp",
+      "source_line": 33345,
+      "registered_types": [
+        {
+          "constructor": "8240B668",
+          "type_name": "NameProperty",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "825F1278",
+      "vtable": "0x821DFE28",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.46.cpp",
+      "source_line": 33377,
+      "registered_types": [
+        {
+          "constructor": "8240BA50",
+          "type_name": "InterfaceProperty",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "825F1360",
+      "vtable": "0x821DF9A8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.46.cpp",
+      "source_line": 33530,
+      "registered_types": [
+        {
+          "constructor": "824065B8",
+          "type_name": "ComponentProperty",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "825F1410",
+      "vtable": "0x82008F80",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.46.cpp",
+      "source_line": 33645,
+      "registered_types": [
+        {
+          "constructor": "8240C338",
+          "type_name": "ClassProperty",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "825F1440",
+      "vtable": "0x82008B00",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.46.cpp",
+      "source_line": 33677,
+      "registered_types": [
+        {
+          "constructor": "82405730",
+          "type_name": "ObjectProperty",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "825F1470",
+      "vtable": "0x82008980",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.46.cpp",
+      "source_line": 33709,
+      "registered_types": [
+        {
+          "constructor": "8240BCA8",
+          "type_name": "FloatProperty",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "825F14A0",
+      "vtable": "0x821DF828",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.46.cpp",
+      "source_line": 33741,
+      "registered_types": [
+        {
+          "constructor": "8240C4C8",
+          "type_name": "BoolProperty",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "825F1588",
+      "vtable": "0x821DFCA8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.46.cpp",
+      "source_line": 33894,
+      "registered_types": [
+        {
+          "constructor": "8240C0E0",
+          "type_name": "DelegateProperty",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "825F1670",
+      "vtable": "0x82008550",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.46.cpp",
+      "source_line": 34047,
+      "registered_types": [
+        {
+          "constructor": "8240B988",
+          "type_name": "IntProperty",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "825F16A0",
+      "vtable": "0x82008C80",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.46.cpp",
+      "source_line": 34079,
+      "registered_types": [
+        {
+          "constructor": "8240C400",
+          "type_name": "ByteProperty",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "825F1788",
+      "vtable": "0x821A7D70",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.46.cpp",
+      "source_line": 34232,
+      "registered_types": [
+        {
+          "constructor": "82405668",
+          "type_name": "Property",
+          "kind": "lazy_singleton"
+        }
+      ]
+    }
+  ]
+}
