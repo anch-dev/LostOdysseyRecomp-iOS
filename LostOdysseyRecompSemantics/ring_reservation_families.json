@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "family": "ring_reservation",
+  "entry_count": 1,
+  "entries": [
+    {
+      "address": "82290AB8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+      "line": 1653,
+      "instruction_sequence": [
+        "stw r4,0(r3)",
+        "li r9,1",
+        "lwz r11,24(r4)",
+        "add r10,r11,r5",
+        "addi r11,r11,-1",
+        "addi r10,r10,-1",
+        "andc r11,r10,r11",
+        "stw r11,8(r3)",
+        "stw r9,16(r4)",
+        "lwz r11,0(r3)",
+        "lwz r8,20(r11)",
+        "lwz r10,8(r11)",
+        "cmplw cr6,r8,r10",
+        "ble cr6,0x82290b04",
+        "lwz r10,8(r11)",
+        "lwz r9,8(r3)",
+        "add r10,r10,r9",
+        "cmplw cr6,r10,r8",
+        "bge cr6,0x82290adc",
+        "lwz r10,8(r11)",
+        "lwz r9,8(r3)",
+        "lwz r7,4(r11)",
+        "add r10,r10,r9",
+        "cmplw cr6,r10,r7",
+        "ble cr6,0x82290b44",
+        "lwz r10,0(r11)",
+        "cmplw cr6,r8,r10",
+        "beq cr6,0x82290adc",
+        "lwz r10,8(r11)",
+        "stw r10,12(r11)",
+        "lwsync",
+        "lwz r11,0(r3)",
+        "lwz r10,0(r11)",
+        "stw r10,8(r11)",
+        "b 0x82290adc",
+        "lwz r11,0(r3)",
+        "lwz r11,8(r11)",
+        "stw r11,4(r3)",
+        "blr"
+      ],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82290AB8) {\n\tPPC_FUNC_PROLOGUE();\n\t// stw r4,0(r3)\n\tPPC_STORE_U32(ctx.r3.u32 + 0, ctx.r4.u32);\n\t// li r9,1\n\tctx.r9.s64 = 1;\n\t// lwz r11,24(r4)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r4.u32 + 24);\n\t// add r10,r11,r5\n\tctx.r10.u64 = ctx.r11.u64 + ctx.r5.u64;\n\t// addi r11,r11,-1\n\tctx.r11.s64 = ctx.r11.s64 + -1;\n\t// addi r10,r10,-1\n\tctx.r10.s64 = ctx.r10.s64 + -1;\n\t// andc r11,r10,r11\n\tctx.r11.u64 = ctx.r10.u64 & ~ctx.r11.u64;\n\t// stw r11,8(r3)\n\tPPC_STORE_U32(ctx.r3.u32 + 8, ctx.r11.u32);\n\t// stw r9,16(r4)\n\tPPC_STORE_U32(ctx.r4.u32 + 16, ctx.r9.u32);\nloc_82290ADC:\n\t// lwz r11,0(r3)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 0);\n\t// lwz r8,20(r11)\n\tctx.r8.u64 = PPC_LOAD_U32(ctx.r11.u32 + 20);\n\t// lwz r10,8(r11)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 8);\n\t// cmplw cr6,r8,r10\n\tctx.cr6.compare<uint32_t>(ctx.r8.u32, ctx.r10.u32, ctx.xer);\n\t// ble cr6,0x82290b04\n\tif (!ctx.cr6.gt) goto loc_82290B04;\n\t// lwz r10,8(r11)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 8);\n\t// lwz r9,8(r3)\n\tctx.r9.u64 = PPC_LOAD_U32(ctx.r3.u32 + 8);\n\t// add r10,r10,r9\n\tctx.r10.u64 = ctx.r10.u64 + ctx.r9.u64;\n\t// cmplw cr6,r10,r8\n\tctx.cr6.compare<uint32_t>(ctx.r10.u32, ctx.r8.u32, ctx.xer);\n\t// bge cr6,0x82290adc\n\tif (!ctx.cr6.lt) goto loc_82290ADC;\nloc_82290B04:\n\t// lwz r10,8(r11)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 8);\n\t// lwz r9,8(r3)\n\tctx.r9.u64 = PPC_LOAD_U32(ctx.r3.u32 + 8);\n\t// lwz r7,4(r11)\n\tctx.r7.u64 = PPC_LOAD_U32(ctx.r11.u32 + 4);\n\t// add r10,r10,r9\n\tctx.r10.u64 = ctx.r10.u64 + ctx.r9.u64;\n\t// cmplw cr6,r10,r7\n\tctx.cr6.compare<uint32_t>(ctx.r10.u32, ctx.r7.u32, ctx.xer);\n\t// ble cr6,0x82290b44\n\tif (!ctx.cr6.gt) goto loc_82290B44;\n\t// lwz r10,0(r11)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);\n\t// cmplw cr6,r8,r10\n\tctx.cr6.compare<uint32_t>(ctx.r8.u32, ctx.r10.u32, ctx.xer);\n\t// beq cr6,0x82290adc\n\tif (ctx.cr6.eq) goto loc_82290ADC;\n\t// lwz r10,8(r11)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 8);\n\t// stw r10,12(r11)\n\tPPC_STORE_U32(ctx.r11.u32 + 12, ctx.r10.u32);\n\t// lwsync \n\t// lwz r11,0(r3)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 0);\n\t// lwz r10,0(r11)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);\n\t// stw r10,8(r11)\n\tPPC_STORE_U32(ctx.r11.u32 + 8, ctx.r10.u32);\n\t// b 0x82290adc\n\tgoto loc_82290ADC;\nloc_82290B44:\n\t// lwz r11,0(r3)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 0);\n\t// lwz r11,8(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 8);\n\t// stw r11,4(r3)\n\tPPC_STORE_U32(ctx.r3.u32 + 4, ctx.r11.u32);\n\t// blr \n\treturn;\n}\n",
+      "cfg": {
+        "labels": [
+          "loc_82290ADC",
+          "loc_82290B04",
+          "loc_82290B44"
+        ],
+        "branches": [
+          "ble cr6,0x82290b04",
+          "bge cr6,0x82290adc",
+          "ble cr6,0x82290b44",
+          "beq cr6,0x82290adc",
+          "b 0x82290adc",
+          "blr"
+        ]
+      },
+      "parameters": {
+        "descriptor_words": [
+          0,
+          4,
+          8
+        ],
+        "ring_fields": {
+          "base": 0,
+          "end": 4,
+          "producer": 8,
+          "wrap_limit": 12,
+          "reserved": 16,
+          "consumer": 20,
+          "alignment": 24
+        },
+        "synchronization": "lwsync after wrap-limit store",
+        "wait": "original live-field loops, no timeout"
+      }
+    }
+  ],
+  "validation_limit": "Generated PPC omits lwsync. Ordinary RAM finite paths do not prove concurrency or hardware synchronization."
+}
