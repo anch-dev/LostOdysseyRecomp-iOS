@@ -89,7 +89,8 @@ def compile_and_run(suite: str, original_cpp: bytes, harness_cpp: bytes | str,
             raise RuntimeError("clang-cl unavailable after native compiler setup")
         includes = [*extra_include_dirs, ROOT / "LostOdysseyRecompLib/ppc",
                     ROOT / "tools/XenonRecomp/thirdparty/simde",
-                    ROOT / "LostOdysseyRecompSemantics/include"]
+                    ROOT / "LostOdysseyRecompSemantics/include",
+                    ROOT / "LostOdysseyRecompSemantics/tests"]
         sources = [str(Path(p) if Path(p).is_absolute() else ROOT / p)
                    for p in semantic_sources]
         library = [str(Path(semantic_library).resolve())] if semantic_library else []
