@@ -20,6 +20,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/crt_allocation.cpp
     src/invalid_parameter.cpp
     src/manager_init.cpp
+    src/manager_facade.cpp
     src/manager_construction.cpp
     src/manager_storage.cpp
     src/manager_lock.cpp

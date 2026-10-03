@@ -3305,6 +3305,246 @@
         }
       ],
       "dependencies": []
+    },
+    {
+      "address": "823F3340",
+      "name": "lo::semantic::gpu::ReleaseManagerBuffer",
+      "module": "memory/manager_facade",
+      "source": "LostOdysseyRecompSemantics/src/manager_facade.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/manager_facade.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Full incoming r3 buffer register and caller stack pointer; manager global at 0x8330b608.",
+        "return": "Full r3 returned by manager vtable slot +12.",
+        "preserved": "The 112-byte PPC frame and nonvolatile register saves remain ABI adapter responsibilities; nested initializer frame base is caller_sp - 224.",
+        "memory": "If global manager is zero, initialize and reload it before reading the live vtable and invoking the release method."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.14.cpp",
+          "line": 30680,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_facade.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "Part of 12 composed original-PPC cases; live and lazy manager, full argument and return registers, ordered callbacks, guest memory and initializer local slot compared."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "827C5F38",
+          "boundary": "InitializeManager",
+          "status": "implementation_available"
+        },
+        {
+          "address": "indirect:manager-vtable+12",
+          "boundary": "ManagerFacadeServices::ReleaseStorage",
+          "status": "opaque"
+        }
+      ],
+      "open_obligations": [
+        "The bounded comparison reuses validated InitializeManager, ResizeArray and RemoveArrayRange implementations as lower stand-ins; manager vtable methods remain explicit service boundaries.",
+        "A complete PPCContext/guest-stack runtime adapter and representative scene execution remain unvalidated."
+      ]
+    },
+    {
+      "address": "82486C88",
+      "name": "lo::semantic::gpu::AllocateManagerBuffer",
+      "module": "memory/manager_facade",
+      "source": "LostOdysseyRecompSemantics/src/manager_facade.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/manager_facade.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Full incoming r3 byte-count register and caller stack pointer; manager global at 0x8330b608.",
+        "return": "Full r3 returned by manager vtable slot +4 with r5 alignment 8.",
+        "preserved": "The 112-byte PPC frame and nonvolatile register saves remain ABI adapter responsibilities; nested initializer frame base is caller_sp - 224.",
+        "memory": "If global manager is zero, initialize and reload it before reading the live vtable and invoking the allocation method."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.24.cpp",
+          "line": 7399,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_facade.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "Part of 12 composed original-PPC cases; live and lazy manager, full byte-count and return registers, alignment 8, guest memory and initializer local slot compared."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "827C5F38",
+          "boundary": "InitializeManager",
+          "status": "implementation_available"
+        },
+        {
+          "address": "indirect:manager-vtable+4",
+          "boundary": "ManagerFacadeServices::AllocateStorage",
+          "status": "opaque"
+        }
+      ],
+      "open_obligations": [
+        "The bounded comparison reuses validated InitializeManager, ResizeArray and RemoveArrayRange implementations as lower stand-ins; manager vtable methods remain explicit service boundaries.",
+        "A complete PPCContext/guest-stack runtime adapter and representative scene execution remain unvalidated."
+      ]
+    },
+    {
+      "address": "823F3548",
+      "name": "lo::semantic::gpu::ClearBufferHeader",
+      "module": "memory/manager_facade",
+      "source": "LostOdysseyRecompSemantics/src/manager_facade.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/manager_facade.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 is the header address; caller stack pointer identifies the nested release frame.",
+        "return": "Zero when the data pointer is null; otherwise preserve the full release callback r3.",
+        "preserved": "The 96-byte PPC frame and nonvolatile register saves remain ABI adapter responsibilities.",
+        "memory": "Read data at header+0, optionally release it, then clear words at offsets 0, 8, and 4 in that order, including after callback mutations."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.14.cpp",
+          "line": 31017,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_facade.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "Part of 12 composed original-PPC cases; null and non-null data plus release callback mutation compared."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "823F3340",
+          "boundary": "ReleaseManagerBuffer",
+          "status": "implementation_available"
+        }
+      ],
+      "open_obligations": [
+        "The bounded comparison reuses validated InitializeManager, ResizeArray and RemoveArrayRange implementations as lower stand-ins; manager vtable methods remain explicit service boundaries.",
+        "A complete PPCContext/guest-stack runtime adapter and representative scene execution remain unvalidated."
+      ]
+    },
+    {
+      "address": "82298A98",
+      "name": "lo::semantic::gpu::ReleaseTwoByteArray",
+      "module": "memory/manager_facade",
+      "source": "LostOdysseyRecompSemantics/src/manager_facade.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/manager_facade.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 is the two-byte array header; remove first=0, count reloaded from header+4, element size=2, resize argument=8.",
+        "return": "Zero if the post-removal data pointer is null; otherwise preserve full manager release callback r3.",
+        "preserved": "The 96-byte outer and 128-byte nested remove PPC frames remain ABI adapter responsibilities.",
+        "memory": "RemoveArrayRange may shrink storage; reload header+0 afterwards, optionally release that live pointer, then clear offsets 0, 8, 4 in order."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+          "line": 20834,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_facade.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "Part of 12 composed original-PPC cases; empty and populated arrays, nested shrink, lazy manager and callback-mutated header compared using validated remove/resize implementations as lower stand-ins."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "82298AF8",
+          "boundary": "RemoveArrayRange",
+          "status": "implementation_available"
+        },
+        {
+          "address": "823F3340",
+          "boundary": "ReleaseManagerBuffer",
+          "status": "implementation_available"
+        }
+      ],
+      "open_obligations": [
+        "The bounded comparison reuses validated InitializeManager, ResizeArray and RemoveArrayRange implementations as lower stand-ins; manager vtable methods remain explicit service boundaries.",
+        "A complete PPCContext/guest-stack runtime adapter and representative scene execution remain unvalidated."
+      ]
+    },
+    {
+      "address": "82298938",
+      "name": "lo::semantic::gpu::ResetTwoByteArray",
+      "module": "memory/manager_facade",
+      "source": "LostOdysseyRecompSemantics/src/manager_facade.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/manager_facade.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 is the two-byte array header; caller stack pointer identifies the nested resize and release frames.",
+        "return": "Full r3 left by ReleaseTwoByteArray, including the manager release callback result when called.",
+        "preserved": "The 96-byte PPC frame and nonvolatile register saves remain ABI adapter responsibilities.",
+        "memory": "Read capacity before clearing count; when capacity is nonzero, clear capacity then ResizeArray with size 2 and argument 8; finally release the array."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+          "line": 20621,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_facade.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "Part of 12 composed original-PPC cases; zero and nonzero capacity, resize return zero or replacement, callback header mutation and final release compared."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "8229F678",
+          "boundary": "ResizeArray",
+          "status": "implementation_available"
+        },
+        {
+          "address": "82298A98",
+          "boundary": "ReleaseTwoByteArray",
+          "status": "implementation_available"
+        }
+      ],
+      "open_obligations": [
+        "The bounded comparison reuses validated InitializeManager, ResizeArray and RemoveArrayRange implementations as lower stand-ins; manager vtable methods remain explicit service boundaries.",
+        "A complete PPCContext/guest-stack runtime adapter and representative scene execution remain unvalidated."
+      ]
     }
   ]
 }
