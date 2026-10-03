@@ -57,6 +57,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/instance_owned_state_family.cpp
     src/instance_shared_metadata_initializer.cpp
     src/state_array_processing.cpp
+    src/instance_allocation_composed_family.cpp
     src/object_startup.cpp
     src/manager_construction.cpp
     src/manager_storage.cpp
