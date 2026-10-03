@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "family": "instance_marker_initializer",
+  "source": "out/function-inventory/registered-instance-candidates.json",
+  "entry_count": 13,
+  "registered_type_reference_count": 13,
+  "entries": [
+    {
+      "address": "824D5D80",
+      "vtable": "0x821B58F8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "source_line": 21331,
+      "registered_types": [
+        {
+          "constructor": "8245F9E8",
+          "type_name": "PortalMarker",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "824D6218",
+      "vtable": "0x821B5278",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "source_line": 22110,
+      "registered_types": [
+        {
+          "constructor": "8245D668",
+          "type_name": "VolumePathNode",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "824D6438",
+      "vtable": "0x821B4BF8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "source_line": 22468,
+      "registered_types": [
+        {
+          "constructor": "82460D68",
+          "type_name": "LiftExit",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "824D64C8",
+      "vtable": "0x821B45B8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "source_line": 22561,
+      "registered_types": [
+        {
+          "constructor": "82460E28",
+          "type_name": "LiftCenter",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "824D69F0",
+      "vtable": "0x821B4278",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "source_line": 23416,
+      "registered_types": [
+        {
+          "constructor": "82462FB8",
+          "type_name": "AutoLadder",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "824D6F78",
+      "vtable": "0x821B17C0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "source_line": 24375,
+      "registered_types": [
+        {
+          "constructor": "824611C8",
+          "type_name": "Ladder",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "824D7ED8",
+      "vtable": "0x821B3BF8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "source_line": 26806,
+      "registered_types": [
+        {
+          "constructor": "8245FE48",
+          "type_name": "PickupFactory",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "824D8120",
+      "vtable": "0x821B55B8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "source_line": 27185,
+      "registered_types": [
+        {
+          "constructor": "824C8110",
+          "type_name": "PlayerStart",
+          "kind": "constructor"
+        }
+      ]
+    },
+    {
+      "address": "824D8210",
+      "vtable": "0x821B5C38",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "source_line": 27347,
+      "registered_types": [
+        {
+          "constructor": "8245DE70",
+          "type_name": "Teleporter",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "824D8810",
+      "vtable": "0x821B4F38",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "source_line": 28337,
+      "registered_types": [
+        {
+          "constructor": "8245FFA8",
+          "type_name": "PathNode",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82537230",
+      "vtable": "0x821C72B0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.35.cpp",
+      "source_line": 19097,
+      "registered_types": [
+        {
+          "constructor": "82462740",
+          "type_name": "CoverSlotMarker",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "825373F0",
+      "vtable": "0x821C6F60",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.35.cpp",
+      "source_line": 19390,
+      "registered_types": [
+        {
+          "constructor": "82462800",
+          "type_name": "CoverLink",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "825482B8",
+      "vtable": "0x821C8C98",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.35.cpp",
+      "source_line": 60666,
+      "registered_types": [
+        {
+          "constructor": "82461AE0",
+          "type_name": "DynamicAnchor",
+          "kind": "lazy_singleton"
+        }
+      ]
+    }
+  ]
+}
