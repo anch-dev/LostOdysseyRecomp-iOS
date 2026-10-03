@@ -1,4 +1,5 @@
 #include "lo_semantics/registered_getter_family.h"
+#include "lo_semantics/registered_inline_constructor.h"
 
 #include <array>
 #include <cstdio>
@@ -38,6 +39,7 @@ struct Window
     Window()
     {
         if (!bytes || !VirtualAlloc(bytes, 0x70000, MEM_COMMIT, PAGE_READWRITE) ||
+            !VirtualAlloc(bytes + 0x83247000u, 0x1000, MEM_COMMIT, PAGE_READWRITE) ||
             !VirtualAlloc(bytes + 0x8330b000u, 0x1000, MEM_COMMIT, PAGE_READWRITE) ||
             !VirtualAlloc(bytes + 0x83315000u, 0x5000, MEM_COMMIT, PAGE_READWRITE))
             throw std::runtime_error("commit getter oracle guest window");
@@ -100,6 +102,7 @@ Services* active = nullptr;
 void Initialize(std::uint8_t* bytes, const Entry& entry, Mode mode)
 {
     std::memset(bytes, 0xbd, 0x70000);
+    std::memset(bytes + 0x83247000u, 0, 0x1000);
     std::memset(bytes + 0x8330b000u, 0, 0x1000);
     std::memset(bytes + 0x83315000u, 0, 0x5000);
     GuestMemory memory(0, std::span<std::uint8_t>(bytes, Space));
@@ -135,6 +138,8 @@ bool CompareOne(const Entry& entry, Mode mode, unsigned ordinal,
         context.r31.u64 == 0x1122334455667788ull &&
         expected.events == actual.events &&
         std::memcmp(original.bytes, recovered.bytes, Stack - 0x1000u) == 0 &&
+        std::memcmp(original.bytes + 0x83247000u,
+            recovered.bytes + 0x83247000u, 0x1000) == 0 &&
         std::memcmp(original.bytes + 0x83315000u,
             recovered.bytes + 0x83315000u, 0x5000) == 0 &&
         std::memcmp(original.bytes + 0x8330b000u,
@@ -153,6 +158,9 @@ bool CompareOne(const Entry& entry, Mode mode, unsigned ordinal,
 
 std::uint64_t ConstructorLower(PPCContext& ctx, std::uint32_t address)
 {
+    if (address == 0x827ce240u)
+        return ConstructInlineManagedRegisteredObject(active->memory,
+            *active, ctx.r3.u64, ctx.r1.u32);
     std::uint64_t result = 0;
     if (!registered_constructor_family::Apply(address, active->memory,
             *active, *active, ctx.r3.u64, ctx.r1.u32, result))

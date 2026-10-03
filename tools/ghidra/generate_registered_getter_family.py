@@ -1,4 +1,4 @@
-"""Recover the cached 52 singleton getters through one reviewed C++ operation.
+"""Recover the cached singleton getters through one reviewed C++ operation.
 
 Checks the full generated PPC body, including branch targets and instruction
 constants, against the reviewed 19-instruction form. No source scan or hash.
@@ -83,7 +83,8 @@ def recover(candidate, constructors):
     owner_lo = match_value(r"addi r3,r11,(-?\d+)", instructions[9])
     constructor = match_value(r"bl 0x([0-9a-f]+)", instructions[10], 16)
     registration = match_value(r"bl 0x([0-9a-f]+)", instructions[12], 16)
-    if constructors.get(f"{constructor:08X}", {}).get("kind") != "constructor":
+    if constructor != 0x827ce240 and \
+            constructors.get(f"{constructor:08X}", {}).get("kind") != "constructor":
         raise ValueError(f"unrecovered ordinary constructor: {constructor:08X}")
     expected = BODY.substitute(
         address=f"{address:08X}", global_hi=global_hi, global_lo=global_lo,
@@ -119,14 +120,17 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--candidates", type=Path, default=ROOT /
                         "out/function-inventory/registered-dependency-candidates.json")
+    parser.add_argument("--next-candidates", type=Path, default=ROOT /
+                        "out/function-inventory/registered-next-dependencies.json")
     args = parser.parse_args()
     candidates = json.loads(args.candidates.read_text(encoding="utf-8"))
+    candidates.extend(json.loads(args.next_candidates.read_text(encoding="utf-8")))
     constructors = {entry["address"]: entry for entry in json.loads((ROOT /
         "LostOdysseyRecompSemantics/registered_constructor_families.json").read_text())[
             "entries"]}
     entries = sorted((recover(entry, constructors) for entry in candidates
                       if len(entry["instructions"]) == 19), key=lambda e: e["address"])
-    if len(entries) != 52 or len({entry["address"] for entry in entries}) != 52:
+    if len(entries) != 58 or len({entry["address"] for entry in entries}) != 58:
         raise ValueError("reviewed getter set changed")
     manifest = {"schema_version": 1, "family": "registered_getter",
                 "entry_count": len(entries), "entries": entries}
