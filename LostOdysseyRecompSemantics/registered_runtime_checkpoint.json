@@ -54,14 +54,20 @@
       "LO_SEMANTIC_MEMORY_RUNTIME",
       "LO_SEMANTIC_REGISTERED_RUNTIME"
     ],
-    "configuration": "Windows D3D12, 1280x720, 30 FPS; AA/upscaling/HDR/frame generation off; one isolated writable save/profile copied from the previous scene seed; existing original scene observations reused.",
+    "configuration": "Windows Vulkan, 1280x720, 30 FPS; AA/upscaling/HDR/frame generation off; one isolated writable save/profile copied from the previous scene seed; existing original scene observations reused.",
     "observed": "Reached Map 20, Uhra - Residential Area. The scene capture shows the player, environment and HUD; one Y-button pulse opened the main menu. No crash or visible structural regression was observed.",
     "evidence_directory": "External scratch: semantic-runtime-registered-scene-20261003",
     "scene_capture": "scene_1805.png",
     "menu_capture": "scene_3951.png",
     "log": "runtime.log",
     "test_process_stopped": true,
-    "scope": "A smoke run with the new gate enabled, without individual traces for all 58 getters. Later library-only initializer additions are outside this binary and scene scope."
+    "scope": "A smoke run with the new gate enabled, without individual traces for all 58 getters. Later library-only initializer additions are outside this binary and scene scope.",
+    "backend_correction": {
+      "date": "2026-10-03",
+      "previous_label": "Windows D3D12",
+      "verified_backend": "Windows Vulkan",
+      "evidence": "External scratch: semantic-runtime-registered-scene-20261003/runtime.log, Vulkan device and selected backend; output/capture 1280x720 at DPI 144. Backend metadata corrected after rereading the retained log; the original scene run and captures are unchanged."
+    }
   },
   "evidence_reuse": "Prior constructor/callback/getter library comparisons, runtime suites and baseline scenes were reused. No source/image hash pass, full PPC scan or regeneration, broad regression replay or performance measurement was added.",
   "remaining_boundaries": [

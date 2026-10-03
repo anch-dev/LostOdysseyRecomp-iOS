@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "previous_checkpoint": "registered_initializer_checkpoint.json",
+  "code_commits": {
+    "flags_and_ui_fill": "2e418ed",
+    "navigation_and_tail_dependencies": "73cec9d",
+    "integer_instance_runtime": "ee9239d"
+  },
+  "unique_recovered_entry_addresses": 4996,
+  "additional_entry_addresses": 33,
+  "individually_recorded_entries": 82,
+  "family_manifests": 30,
+  "overlapping_addresses": ["829664E8", "82B84D88"],
+  "counting_note": "Unique readable mapped addresses, not independent logical functions or complete semantic recovery. The 655 wrappers integrate existing addresses and add no mapped entries. Navigation records list all eight parents and eight callees explicitly; the reused tail callee 825A7F18 is not counted again.",
+  "new_library_families": [
+    {
+      "family": "instance_flag_initializer",
+      "entries": 4,
+      "manifest": "instance_flag_initializer_families.json",
+      "validation": "Four complete cached translated bodies and parameters checked. Five representative cases passed: existing flags OR bit 31, vtable binding, null/full r3 and unknown address. Ordinary memory and full r3 only; volatile GPR/CR and fault/MMIO observations excluded.",
+      "receipt": "External scratch: semantic-instance-flag-tests/instance-flag-initializer-result.json"
+    },
+    {
+      "family": "instance_fill_initializer",
+      "entries": 4,
+      "manifest": "instance_fill_initializer_families.json",
+      "validation": "Four complete cached translated bodies and CFG/parameters checked. Three layout representatives and eight cases passed against the actual cached fill body: null/full r3, unaligned destination, frame alias and unknown address. Preserves vtable/fill order, full r3 plus offset, 96-byte frame writes and LR/r31 reloads. Volatile GPR/CR/CTR and fault/MMIO widths excluded.",
+      "receipt": "External scratch: semantic-instance-fill-tests/instance-fill-initializer-result.json"
+    },
+    {
+      "family": "instance_navigation_initializer",
+      "entries": 16,
+      "manifest": "instance_navigation_initializer_families.json",
+      "validation": "Eight complete wrapper bodies and eight complete callee bodies checked; five lower targets reuse InitializeConstantFields. Seven focused comparisons with actual lower PPC bodies passed, covering nested calls, volume scratch, null/full r3, direct callee, stack alias and unknown address. Preserves 96/112-byte frame writes and pointer spill order; temporary registers and fault/MMIO widths excluded.",
+      "receipt": "External scratch: semantic-instance-navigation-tests/instance-navigation-initializer-result.json"
+    },
+    {
+      "family": "instance_tail_initializer",
+      "entries": 9,
+      "manifest": "instance_tail_initializer_families.json",
+      "validation": "Five complete tail guards, four new complete callee bodies and the reused 825A7F18 parameters checked. Nine focused comparisons passed for full r3, object/staged stack words, null, two aliases and unknown address. Original parent/callee bodies are composed with previously recovered FillGuestMemory and ResizeArray helper models; generic helper ABI spills and volatile registers remain outside this API.",
+      "receipt": "External scratch: semantic-instance-tail-tests/instance-tail-initializer-result.json"
+    }
+  ],
+  "instance_runtime_adapter": {
+    "entry_count": 655,
+    "new_mapped_entry_addresses": 0,
+    "gate": "LO_SEMANTIC_INSTANCE_RUNTIME",
+    "default_enabled": false,
+    "source": "LostOdysseyRecomp/cpu/semantic_instance.h",
+    "generator": "tools/ghidra/generate_semantic_instance_wrappers.py",
+    "abi_manifest": "instance_runtime_abi.json",
+    "families": {
+      "instance_vtable": 583,
+      "instance_field_initializer": 19,
+      "instance_property_initializer": 15,
+      "instance_marker_initializer": 13,
+      "instance_scalar_initializer": 19,
+      "instance_ui_initializer": 6
+    },
+    "implementation": "Existing library Apply and native adapters share header-template InitializeWith algorithms. Native writes retain original volatile U8/U32 widths and byte order. The adapter checks known parameters before effects, compares low r3 with XER.SO even for null, applies exact signed full64 GPR constants before the first store and preserves full r3. Normal wrapper generation uses tracked manifests; cached original bodies are needed only to refresh/check ABI recovery.",
+    "symbol_validation": "All 655 public symbols bind to semantic_instance_wrappers.cpp.obj in the production linker map, with original __imp__ fallback bodies retained. Generation rejects address and hand-written hook collisions.",
+    "bounded_validation": {
+      "status": "passed",
+      "comparisons": 22,
+      "comparisons_per_gate": 11,
+      "representative_shapes": 9,
+      "scope": "Nine integer store layouts and two low-word-null cases in both gate modes; dirty high words, XER.SO, full PPCContext, ordinary RAM, alternating direct/function-table calls and fallback counts compared. All 655 ABI prefixes and family parameters are statically matched to complete cached translated bodies. This is not a dynamic test of all 655 addresses.",
+      "runner": "tools/ghidra/test_semantic_instance_runtime.py",
+      "receipt": "External scratch: semantic-instance-runtime-tests/instance-runtime-result.json"
+    },
+    "excluded_entries": "The 42 default-field, four flag, FP component/metadata and new dependency-chain families have no native adapter in this batch."
+  },
+  "runtime": {
+    "available_opt_in_wrappers": 3168,
+    "default_off_gates": 8,
+    "wrappers_added": 655
+  },
+  "build": {
+    "status": "passed",
+    "platform": "Windows x86_64 clang-cl 22.1.8 RelWithDebInfo",
+    "scene_binary_revision": "ee9239d965cc",
+    "scope": "Native semantic-library and runtime compile/link with the existing PPC archive. Resume used two build jobs; committed binary revision was confirmed in the startup log. Linker binding checked once, without image/source hashes.",
+    "logs": [
+      "External scratch: semantic-runtime-build/instance-fill-flag-library-build.log",
+      "External scratch: semantic-runtime-build/instance-runtime-build.log",
+      "External scratch: semantic-runtime-build/instance-runtime-resume-build.log",
+      "External scratch: semantic-runtime-build/instance-runtime-committed-build.log"
+    ],
+    "link_receipt": "External scratch: semantic-runtime-build/instance-runtime-link-result.json"
+  },
+  "scene_smoke": {
+    "status": "passed",
+    "runs_added": 1,
+    "backend": "Windows Vulkan",
+    "enabled_gates": [
+      "LO_SEMANTIC_LEAF_RUNTIME", "LO_SEMANTIC_INTEGER_RUNTIME",
+      "LO_SEMANTIC_ACCESSOR_RUNTIME", "LO_SEMANTIC_FIELDS_RUNTIME",
+      "LO_SEMANTIC_OBJECT_RUNTIME", "LO_SEMANTIC_MEMORY_RUNTIME",
+      "LO_SEMANTIC_REGISTERED_RUNTIME", "LO_SEMANTIC_INSTANCE_RUNTIME"
+    ],
+    "configuration": "30 FPS; AA/upscaling/HDR/frame generation off; configured/effective internal resolution 1280x720. Actual output/capture 848x467 at DPI 96. Isolated writable settings, save, profile and shader cache; read-only game and shader-pack inputs.",
+    "observed": "Reached Map 20, Uhra - Residential Area; world, player and HUD rendered and one Y-button pulse opened the main menu. No observed crash or visible structural regression relative to the prior registered scene. Output geometry differs from that baseline; no pixel identity or performance claim.",
+    "evidence_directory": "External scratch: semantic-runtime-instance-scene-20261003",
+    "scene_capture": "scene_871.png",
+    "menu_capture": "scene_3072.png",
+    "log": "runtime.log",
+    "test_process_stopped": true,
+    "scope": "All eight gates were logged enabled; individual execution of all 655 entries was not traced. Combat, transitions, long play, faults, MMIO, concurrency and cross-platform acceptance remain outside this smoke."
+  },
+  "prior_scene_backend_correction": {
+    "checkpoint": "registered_runtime_checkpoint.json",
+    "previous_label": "Windows D3D12",
+    "verified_backend": "Windows Vulkan",
+    "evidence": "External scratch: semantic-runtime-registered-scene-20261003/runtime.log reports Vulkan device and selected backend; output/capture 1280x720 at DPI 144. The old backend label was incorrect; no new D3D12 run is claimed."
+  },
+  "remaining_cached_candidates": {
+    "instance_entries": 55,
+    "metadata_entries": 17,
+    "scope": "Remainders of cached subsets, not whole-game totals.",
+    "tail_handoff": "out/function-inventory/instance-tail-dependency-handoff.md"
+  },
+  "evidence_reuse": "Previously passing family/helper/runtime comparisons and baseline scenes reused. Navigation address-record normalization and strict tail checker repairs did not change production behavior, so their passing dynamic comparisons were reused. No full PPC scan, broad old-test replay, source/image hash pass or performance measurement.",
+  "remaining_boundaries": [
+    "The loaded-single metadata signaling-NaN mismatch is preserved in FLOAT_LOAD_STORE_NOTES.md and registered_initializer_checkpoint.json.",
+    "Object layouts, deeper constructor/manager/CRT/kernel dependencies and further ABI adapters remain incomplete.",
+    "Complete semantic recovery of the game remains incomplete; all runtime gates remain disabled by default."
+  ]
+}
