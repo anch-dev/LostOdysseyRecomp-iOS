@@ -26,3 +26,5 @@ struct Registers
                          gpu::GuestMemory& memory);
 
 } // namespace lo::semantic::read_only_fields
+
+#include "lo_semantics/detail/read_only_fields_impl.h"

@@ -263,6 +263,22 @@ if(LO_ENABLE_SEMANTIC_RUNTIME)
         COMMENT "Generating opt-in semantic object wrappers"
         VERBATIM)
     target_sources(LostOdysseyRecomp PRIVATE "${LO_SEMANTIC_OBJECT_WRAPPERS}")
+    set(LO_SEMANTIC_MEMORY_WRAPPERS "${CMAKE_CURRENT_BINARY_DIR}/generated/semantic_memory_wrappers.cpp")
+    add_custom_command(
+        OUTPUT "${LO_SEMANTIC_MEMORY_WRAPPERS}"
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_SOURCE_DIR}/tools/ghidra/generate_semantic_memory_wrappers.py"
+                --read-manifest "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/read_only_field_families.json"
+                --write-manifest "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/memory_write_families.json"
+                --single-manifest "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/single_write_field_families.json"
+                --output "${LO_SEMANTIC_MEMORY_WRAPPERS}"
+        DEPENDS
+            "${CMAKE_SOURCE_DIR}/tools/ghidra/generate_semantic_memory_wrappers.py"
+            "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/read_only_field_families.json"
+            "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/memory_write_families.json"
+            "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/single_write_field_families.json"
+        COMMENT "Generating opt-in semantic memory wrappers"
+        VERBATIM)
+    target_sources(LostOdysseyRecomp PRIVATE "${LO_SEMANTIC_MEMORY_WRAPPERS}")
     target_link_libraries(LostOdysseyRecomp PRIVATE LO::Semantics)
 endif()
 if(ANDROID)

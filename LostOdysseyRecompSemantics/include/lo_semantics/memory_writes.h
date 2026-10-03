@@ -20,3 +20,5 @@ struct Registers
 bool Apply(std::uint32_t address, Registers& registers, gpu::GuestMemory& memory);
 
 } // namespace lo::semantic::memory_writes
+
+#include "lo_semantics/detail/memory_writes_impl.h"

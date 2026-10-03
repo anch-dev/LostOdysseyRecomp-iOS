@@ -20,3 +20,5 @@ struct Registers
                          gpu::GuestMemory& memory);
 
 } // namespace lo::semantic::single_write_fields
+
+#include "lo_semantics/detail/single_write_fields_impl.h"
