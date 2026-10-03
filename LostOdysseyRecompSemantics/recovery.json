@@ -3545,6 +3545,375 @@
         "The bounded comparison reuses validated InitializeManager, ResizeArray and RemoveArrayRange implementations as lower stand-ins; manager vtable methods remain explicit service boundaries.",
         "A complete PPCContext/guest-stack runtime adapter and representative scene execution remain unvalidated."
       ]
+    },
+    {
+      "address": "8240CC58",
+      "name": "lo::semantic::gpu::InitializeRegisteredObjectBase",
+      "module": "memory/object_registration",
+      "source": "LostOdysseyRecompSemantics/src/object_registration.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/object_registration.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Full object r3, size r5, descriptor r6, owner r7, and flags r8; live list mode/head globals at 0x83315ed8/0x83315ef0.",
+        "return": "Preserve the full incoming object r3.",
+        "preserved": "The memory-only implementation models data stores; unrelated volatile registers remain ABI adapter responsibilities.",
+        "memory": "Initialize base fields in PPC store order and link into the global list only when the mode word is zero."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp",
+          "line": 8192,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_object_registration.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "Part of 10 composed original-PPC cases; list-linked and unlinked base layouts compared over object and global memory."
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "address": "82410A28",
+      "name": "lo::semantic::gpu::InitializeRegisteredObject",
+      "module": "memory/object_registration",
+      "source": "LostOdysseyRecompSemantics/src/object_registration.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/object_registration.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Full r3 and r5-r10 plus caller_sp; reads the caller's outgoing stack words at +80, +92, +100, +108 after the original 112-byte frame adjustment.",
+        "return": "Preserve the full r3 returned by the base initializer.",
+        "preserved": "The 112-byte PPC frame, backchain, LR and nonvolatile saves remain ABI adapter responsibilities; the byte and tag spills plus two local words are modeled.",
+        "memory": "Build the 376-byte object extension with ordered zero and metadata stores; reload guest stack arguments at their original points."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp",
+          "line": 17327,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_object_registration.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "Part of 10 composed original-PPC cases; complete object/global memory, full r3, and selected caller-stack spill and argument words compared."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "8240CC58",
+          "boundary": "InitializeRegisteredObjectBase",
+          "status": "implementation_available"
+        }
+      ]
+    },
+    {
+      "address": "82410B90",
+      "name": "lo::semantic::gpu::ConstructRegisteredObject",
+      "module": "memory/object_registration",
+      "source": "LostOdysseyRecompSemantics/src/object_registration.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/object_registration.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Full incoming owner r3 and caller_sp; request 376 bytes through the recovered manager facade, then pass original stack arguments and r5-r10 to the object initializer.",
+        "return": "Return zero when the allocation result has a zero low word; otherwise preserve the constructor's full r3.",
+        "preserved": "The 128-byte PPC frame and nonvolatile saves remain ABI adapter responsibilities; outgoing argument slots at frame+80/92/100/108 are modeled.",
+        "memory": "Use live guest outgoing stack slots and initialize base and extended object fields in order."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp",
+          "line": 17519,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_object_registration.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "Part of 10 composed original-PPC cases; success, zero-low-word allocation failure, lazy manager, full owner and return registers, object/global memory and outgoing stack words compared."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "82486C88",
+          "boundary": "AllocateManagerBuffer",
+          "status": "implementation_available"
+        },
+        {
+          "address": "82410A28",
+          "boundary": "InitializeRegisteredObject",
+          "status": "implementation_available"
+        }
+      ]
+    },
+    {
+      "address": "82410C48",
+      "name": "lo::semantic::gpu::RegisterObjectGraph",
+      "module": "memory/object_registration",
+      "source": "LostOdysseyRecompSemantics/src/object_registration.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/object_registration.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Live primary/secondary and registration-mode globals at 0x83315f9c/0x83315f7c/0x83315ed8; callback r3 values remain full-width.",
+        "return": "Preserve the final full r3 from the last service call or ready vtable method.",
+        "preserved": "The 112-byte PPC frame and nonvolatile saves remain ABI adapter responsibilities; explicit service boundaries preserve callback arguments and mutation order.",
+        "memory": "Reload globals after callbacks, link the secondary at primary+196, set primary+52 to self, and conditionally call vtable+124."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp",
+          "line": 17625,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_object_registration.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "Part of 10 composed original-PPC cases; equal/mismatched primary, existing/lazy secondary, ready gate, callback-mutated globals, full service parameters and result compared."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "824059D8",
+          "boundary": "ObjectRegistrationServices::GetPrimaryObject",
+          "status": "opaque"
+        },
+        {
+          "address": "82408438",
+          "boundary": "ObjectRegistrationServices::CreateSecondary",
+          "status": "opaque"
+        },
+        {
+          "address": "824084F0",
+          "boundary": "ObjectRegistrationServices::RegisterSecondary",
+          "status": "opaque"
+        },
+        {
+          "address": "indirect:primary-vtable+124",
+          "boundary": "ObjectRegistrationServices::CallReadyMethod",
+          "status": "opaque"
+        }
+      ]
+    },
+    {
+      "address": "823F8980",
+      "name": "lo::semantic::gpu::PrepareObject",
+      "module": "object/object_startup",
+      "source": "LostOdysseyRecompSemantics/src/object_startup.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/object_startup.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Full r3 is the guest object register; the low word addresses the object.",
+        "return": "r3 is 1 when eligible and the vtable +32 method was called, otherwise 0; the callback return is ignored.",
+        "preserved": "The 96-byte PPC frame and LR save remain ABI adapter responsibilities.",
+        "memory": "Check object+4 against -1 and bit 15 of the 64-bit flags at object+8; clear bit 17, set bit 15, store the full flags, then call the method loaded from vtable+32."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.15.cpp",
+          "line": 12348,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_object_startup.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "Part of 15 composed original-PPC cases covering eligible, already preparing and disabled states."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "indirect:vtable+32",
+          "boundary": "ObjectStartupServices::CallMethod",
+          "status": "opaque",
+          "kind": "indirect"
+        }
+      ],
+      "open_obligations": [
+        "Guest vtable callback semantics, complete PPCContext/guest-stack runtime adapter and representative scene execution remain unvalidated."
+      ]
+    },
+    {
+      "address": "823F89F8",
+      "name": "lo::semantic::gpu::CompleteObjectStartup",
+      "module": "object/object_startup",
+      "source": "LostOdysseyRecompSemantics/src/object_startup.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/object_startup.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Full r3 is the guest object register; the low word addresses the object.",
+        "return": "r3 is 1 when eligible and the vtable +40 method was called, otherwise 0; the callback return is ignored.",
+        "preserved": "The 96-byte PPC frame and LR save remain ABI adapter responsibilities.",
+        "memory": "Check object+4 against -1 and bit 16 of the 64-bit flags at object+8; clear bit 5, set bit 16, store the full flags, then call the method loaded from vtable+40."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.15.cpp",
+          "line": 12419,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_object_startup.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "Part of 15 composed original-PPC cases covering eligible, already completed and disabled states."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "indirect:vtable+40",
+          "boundary": "ObjectStartupServices::CallMethod",
+          "status": "opaque",
+          "kind": "indirect"
+        }
+      ],
+      "open_obligations": [
+        "Guest vtable callback semantics, complete PPCContext/guest-stack runtime adapter and representative scene execution remain unvalidated."
+      ]
+    },
+    {
+      "address": "823F8A68",
+      "name": "lo::semantic::gpu::StartObject",
+      "module": "object/object_startup",
+      "source": "LostOdysseyRecompSemantics/src/object_startup.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/object_startup.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Full r3 is the guest object register; the low word addresses the object.",
+        "return": "When already started, preserve incoming full r3; otherwise return the full r3 from CompleteObjectStartup (0 or 1).",
+        "preserved": "The 96-byte PPC frame, r31 and LR save remain ABI adapter responsibilities.",
+        "memory": "When bit 16 is clear, prepare the object, reload vtable+36 for each poll, call WaitForRetry(0) after each zero low-word result, then complete startup after the first nonzero low-word result. Callback memory changes remain live."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.15.cpp",
+          "line": 12488,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_object_startup.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "Part of 15 composed original-PPC cases covering already started, direct success, retries, vtable mutation, callback flag mutation and disabled completion."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "823F8980",
+          "boundary": "PrepareObject",
+          "status": "implementation_available"
+        },
+        {
+          "address": "823F89F8",
+          "boundary": "CompleteObjectStartup",
+          "status": "implementation_available"
+        },
+        {
+          "address": "827CA048",
+          "boundary": "ObjectStartupServices::WaitForRetry",
+          "status": "opaque"
+        },
+        {
+          "address": "indirect:vtable+36",
+          "boundary": "ObjectStartupServices::CallMethod",
+          "status": "opaque",
+          "kind": "indirect"
+        }
+      ],
+      "open_obligations": [
+        "Unbounded retry behavior depends on the guest callbacks eventually reporting completion. A complete PPCContext/guest-stack runtime adapter and representative scene execution remain unvalidated."
+      ]
+    },
+    {
+      "address": "82406B00",
+      "name": "lo::semantic::gpu::GetPrimaryRegisteredObject",
+      "module": "object/object_startup",
+      "source": "LostOdysseyRecompSemantics/src/object_startup.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/object_startup.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "No call arguments; caller_sp is the guest stack pointer at entry, used for the 96-byte frame before nested construction.",
+        "return": "r3 is the zero-extended word reloaded from global 0x83315F9C, including changes made by registration callbacks.",
+        "preserved": "The 96-byte PPC frame, r31 and LR save remain ABI adapter responsibilities.",
+        "memory": "If the primary global is zero, construct with sign-extended owner 0xffffffff8218c210, store the low word at 0x83315F9C, register the graph, then reload the global."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.15.cpp",
+          "line": 45609,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_object_startup.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "Part of 15 composed original-PPC cases covering existing global, lazy construction, registration readiness and callback mutation of the primary global."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "82410B90",
+          "boundary": "ConstructRegisteredObject",
+          "status": "implementation_available"
+        },
+        {
+          "address": "82410C48",
+          "boundary": "RegisterObjectGraph",
+          "status": "implementation_available"
+        }
+      ],
+      "open_obligations": [
+        "Manager allocation and object registration guest callbacks retain their service boundaries. A complete PPCContext/guest-stack runtime adapter and representative scene execution remain unvalidated."
+      ]
     }
   ]
 }
