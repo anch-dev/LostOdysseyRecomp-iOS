@@ -1,0 +1,85 @@
+{
+  "schema": "crt-float-conversion-checkpoint-v1",
+  "baseline_commit": "e655a317",
+  "accepted_families": [
+    {
+      "name": "crt_float_environment",
+      "commit": "cf8a21b",
+      "entries": [
+        "82B7FF08",
+        "82B7E580",
+        "827CB0B0"
+      ],
+      "instruction_count": 91,
+      "focused_original_ppc_cases": 10,
+      "unknown_entry_checks": 1,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-float-environment-tests/crt-float-environment-result.json"
+    },
+    {
+      "name": "crt_float_text_helpers",
+      "commit": "5addee0",
+      "entries": [
+        "8231B1B8",
+        "82B7F048",
+        "82B7F828"
+      ],
+      "instruction_count": 376,
+      "focused_original_ppc_cases": 18,
+      "unknown_entry_checks": 1,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-float-text-helper-tests/crt-float-text-helpers-result.json"
+    },
+    {
+      "name": "crt_float_conversion",
+      "commit": "967f5f4",
+      "entries": [
+        "8231A470",
+        "8231A2F0"
+      ],
+      "instruction_count": 832,
+      "focused_original_ppc_cases": 11,
+      "unknown_entry_checks": 1,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-float-conversion-tests/crt-float-conversion-result.json"
+    }
+  ],
+  "delta": {
+    "unique_entries": 8,
+    "instructions": 1299,
+    "focused_original_ppc_cases": 39,
+    "unknown_entry_checks": 3
+  },
+  "progress": {
+    "source_commit": "967f5f4",
+    "unique_mapped_entries": 5199,
+    "cached_total": 62627,
+    "cached_entry_mapping_percent": 8.302,
+    "runtime_wrappers": 3168,
+    "complete_individual_records": 0,
+    "scope": "Fixed historical cached baseline; entry mapping, not refreshed whole-game census or full semantic completion."
+  },
+  "cumulative_crt": {
+    "entries": 45,
+    "instructions": 2954,
+    "focused_original_ppc_cases": 164,
+    "unknown_entry_checks": 15
+  },
+  "validation": "Windows-native /W4 /WX shared MT library and focused original-PPC comparison passed; accepted lower models reused.",
+  "limitations": [
+    "Finite conversion cases: precision17/mode0; subnormal/extreme/other mode/alias/fatal paths not newly validated.",
+    "Native/lower ABI, faults/MMIO/concurrency/unwind/runtime/scene and complete semantics remain bounded; entry ratio is mapping only."
+  ],
+  "next_packets": [
+    {
+      "manifest": "crt_float_formatting_families.json",
+      "entries": 6,
+      "instructions": 527,
+      "status": "pinned_design_only; selector and e/f/a/g wrappers not credited"
+    },
+    {
+      "manifest": "crt_formatter_families.json",
+      "entries": 3,
+      "instructions": 802,
+      "status": "pinned_design_only; main formatter with live function slots/in-body tables not credited"
+    }
+  ],
+  "execution_policy": "User requested fewer checks and documentation updates: minimal representative cases, reuse passing checks, one small checkpoint; retain native single-thread incremental build and in-process compiler-environment reuse."
+}
