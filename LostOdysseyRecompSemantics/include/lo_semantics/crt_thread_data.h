@@ -5,6 +5,11 @@
 namespace lo::semantic::gpu
 {
 
+struct CrtThreadDataCall
+{
+    std::uint64_t thread_environment = 0; // Live PPC r13, including upper bits.
+};
+
 class CrtThreadDataServices
 {
 public:
@@ -13,11 +18,23 @@ public:
     virtual void SetTlsValue(std::uint32_t index, std::uint64_t value) = 0;
     virtual std::uint64_t CallThreadDataGetter(GuestAddress function,
                                                std::uint64_t context) = 0;
+    virtual std::uint64_t CallThreadDataGetterWithState(GuestAddress function,
+        std::uint64_t context, CrtThreadDataCall& call)
+    {
+        (void)call;
+        return CallThreadDataGetter(function, context);
+    }
     virtual std::uint64_t AllocateThreadData(std::uint32_t count,
                                              std::uint32_t bytes_each) = 0;
     virtual std::uint64_t BindThreadData(GuestAddress function,
                                          std::uint64_t context,
                                          std::uint64_t data) = 0;
+    virtual std::uint64_t BindThreadDataWithState(GuestAddress function,
+        std::uint64_t context, std::uint64_t data, CrtThreadDataCall& call)
+    {
+        (void)call;
+        return BindThreadData(function, context, data);
+    }
     virtual void FreeThreadData(std::uint64_t data) = 0;
 };
 
@@ -26,6 +43,11 @@ public:
 // External TLS, allocator, callback and release operations are explicit.
 [[nodiscard]] std::uint64_t GetCrtThreadData(GuestMemory& memory,
     CrtThreadDataServices& services, GuestAddress thread_environment);
+
+// Stateful entry for an ABI adapter. Indirect guest callbacks can change r13;
+// subsequent thread-state loads and error restoration use its live value.
+[[nodiscard]] std::uint64_t GetCrtThreadData(GuestMemory& memory,
+    CrtThreadDataServices& services, CrtThreadDataCall& call);
 
 class CrtErrorOutputServices
 {

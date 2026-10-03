@@ -67,7 +67,8 @@ def entries_from_manifest() -> list[dict]:
     for i, entry in enumerate(entries):
         if candidates is not None:
             candidate = candidates[i]
-            if entry != {**candidate, "generated_ppc_path": candidate["source"],
+            if entry != {**candidate, "status": "bounded_original_ppc_comparison_passed",
+                         "generated_ppc_path": candidate["source"],
                          "line": candidate["source_line"]}:
                 raise ValueError(f"candidate evidence changed: {entry['address']}")
         if entry["instruction_sequence"][-1] != "blr":

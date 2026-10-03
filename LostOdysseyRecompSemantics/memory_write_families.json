@@ -1,0 +1,2444 @@
+{
+  "schema_version": 1,
+  "kind": "memory_write_semantics",
+  "family_counts": {
+    "ClearByteAndWord": 1,
+    "ClearLinkedPair": 1,
+    "ClearObjectAndLinkedState": 1,
+    "ClearObjectFlags": 1,
+    "ClearPairAndReturnOne": 1,
+    "ClearRangeFlags": 1,
+    "ClearStatusAndCopySnapshot": 1,
+    "CopyFourWordsWithinObject": 1,
+    "CopyThreeWordsAndAdvanceCursor": 1,
+    "CopyThreeWordsAndReadFlag": 3,
+    "CopyThreeWordsFromPointerField": 1,
+    "DrainThreeStatusWords": 1,
+    "InitializeEmbeddedLists": 1,
+    "InitializeRecordLinks": 1,
+    "InitializeSelfLinkedNodes": 1,
+    "ReadIndexedPair": 1,
+    "RelinkNeighbors": 1,
+    "ReplicateByte": 1,
+    "SetReadyFlags": 1,
+    "StoreByteAndWord": 1,
+    "StoreFourParameters": 1,
+    "StorePositionPair": 1,
+    "WriteIndexedPair": 1,
+    "WriteRangeEndpoints": 3
+  },
+  "entries": [
+    {
+      "address": "8234B4B8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.7.cpp",
+      "source_line": 30528,
+      "instruction_sequence": [
+        "lwz r11,12(r4)",
+        "lwz r10,0(r11)",
+        "stw r10,0(r5)",
+        "lwz r10,4(r11)",
+        "stw r10,4(r5)",
+        "lwz r11,8(r11)",
+        "stw r11,8(r5)",
+        "lwz r11,12(r4)",
+        "addi r11,r11,12",
+        "stw r11,12(r4)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r11.u64 = PPC_LOAD_U32(ctx.r4.u32 + 12);",
+        "ctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);",
+        "PPC_STORE_U32(ctx.r5.u32 + 0, ctx.r10.u32);",
+        "ctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 4);",
+        "PPC_STORE_U32(ctx.r5.u32 + 4, ctx.r10.u32);",
+        "ctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 8);",
+        "PPC_STORE_U32(ctx.r5.u32 + 8, ctx.r11.u32);",
+        "ctx.r11.u64 = PPC_LOAD_U32(ctx.r4.u32 + 12);",
+        "ctx.r11.s64 = ctx.r11.s64 + 12;",
+        "PPC_STORE_U32(ctx.r4.u32 + 12, ctx.r11.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "lwz r11,12(r4)",
+          "statements": [
+            "ctx.r11.u64 = PPC_LOAD_U32(ctx.r4.u32 + 12);"
+          ]
+        },
+        {
+          "instruction": "lwz r10,0(r11)",
+          "statements": [
+            "ctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);"
+          ]
+        },
+        {
+          "instruction": "stw r10,0(r5)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r5.u32 + 0, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "lwz r10,4(r11)",
+          "statements": [
+            "ctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 4);"
+          ]
+        },
+        {
+          "instruction": "stw r10,4(r5)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r5.u32 + 4, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "lwz r11,8(r11)",
+          "statements": [
+            "ctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 8);"
+          ]
+        },
+        {
+          "instruction": "stw r11,8(r5)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r5.u32 + 8, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "lwz r11,12(r4)",
+          "statements": [
+            "ctx.r11.u64 = PPC_LOAD_U32(ctx.r4.u32 + 12);"
+          ]
+        },
+        {
+          "instruction": "addi r11,r11,12",
+          "statements": [
+            "ctx.r11.s64 = ctx.r11.s64 + 12;"
+          ]
+        },
+        {
+          "instruction": "stw r11,12(r4)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r4.u32 + 12, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "CopyThreeWordsAndAdvanceCursor",
+      "operation_summary": "CopyThreeWordsAndAdvanceCursor",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.7.cpp",
+      "line": 30528,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "825207B8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.34.cpp",
+      "source_line": 18219,
+      "instruction_sequence": [
+        "lwz r11,516(r4)",
+        "addi r11,r11,272",
+        "lwz r10,0(r11)",
+        "lwz r9,4(r11)",
+        "lwz r11,8(r11)",
+        "stw r10,0(r3)",
+        "stw r9,4(r3)",
+        "stw r11,8(r3)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r11.u64 = PPC_LOAD_U32(ctx.r4.u32 + 516);",
+        "ctx.r11.s64 = ctx.r11.s64 + 272;",
+        "ctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);",
+        "ctx.r9.u64 = PPC_LOAD_U32(ctx.r11.u32 + 4);",
+        "ctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 8);",
+        "PPC_STORE_U32(ctx.r3.u32 + 0, ctx.r10.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 4, ctx.r9.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 8, ctx.r11.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "lwz r11,516(r4)",
+          "statements": [
+            "ctx.r11.u64 = PPC_LOAD_U32(ctx.r4.u32 + 516);"
+          ]
+        },
+        {
+          "instruction": "addi r11,r11,272",
+          "statements": [
+            "ctx.r11.s64 = ctx.r11.s64 + 272;"
+          ]
+        },
+        {
+          "instruction": "lwz r10,0(r11)",
+          "statements": [
+            "ctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);"
+          ]
+        },
+        {
+          "instruction": "lwz r9,4(r11)",
+          "statements": [
+            "ctx.r9.u64 = PPC_LOAD_U32(ctx.r11.u32 + 4);"
+          ]
+        },
+        {
+          "instruction": "lwz r11,8(r11)",
+          "statements": [
+            "ctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 8);"
+          ]
+        },
+        {
+          "instruction": "stw r10,0(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 0, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r9,4(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 4, ctx.r9.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,8(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 8, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "CopyThreeWordsFromPointerField",
+      "operation_summary": "CopyThreeWordsFromPointerField",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.34.cpp",
+      "line": 18219,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "8257A208",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "source_line": 2607,
+      "instruction_sequence": [
+        "rlwinm r10,r5,1,0,30",
+        "lwz r11,120(r4)",
+        "add r10,r5,r10",
+        "rlwinm r10,r10,2,0,29",
+        "add r11,r11,r10",
+        "lwz r10,0(r11)",
+        "lwz r11,4(r11)",
+        "stw r10,0(r3)",
+        "stw r11,4(r3)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r10.u64 = __builtin_rotateleft64(ctx.r5.u32 | (ctx.r5.u64 << 32), 1) & 0xFFFFFFFE;",
+        "ctx.r11.u64 = PPC_LOAD_U32(ctx.r4.u32 + 120);",
+        "ctx.r10.u64 = ctx.r5.u64 + ctx.r10.u64;",
+        "ctx.r10.u64 = __builtin_rotateleft64(ctx.r10.u32 | (ctx.r10.u64 << 32), 2) & 0xFFFFFFFC;",
+        "ctx.r11.u64 = ctx.r11.u64 + ctx.r10.u64;",
+        "ctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);",
+        "ctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 4);",
+        "PPC_STORE_U32(ctx.r3.u32 + 0, ctx.r10.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 4, ctx.r11.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "rlwinm r10,r5,1,0,30",
+          "statements": [
+            "ctx.r10.u64 = __builtin_rotateleft64(ctx.r5.u32 | (ctx.r5.u64 << 32), 1) & 0xFFFFFFFE;"
+          ]
+        },
+        {
+          "instruction": "lwz r11,120(r4)",
+          "statements": [
+            "ctx.r11.u64 = PPC_LOAD_U32(ctx.r4.u32 + 120);"
+          ]
+        },
+        {
+          "instruction": "add r10,r5,r10",
+          "statements": [
+            "ctx.r10.u64 = ctx.r5.u64 + ctx.r10.u64;"
+          ]
+        },
+        {
+          "instruction": "rlwinm r10,r10,2,0,29",
+          "statements": [
+            "ctx.r10.u64 = __builtin_rotateleft64(ctx.r10.u32 | (ctx.r10.u64 << 32), 2) & 0xFFFFFFFC;"
+          ]
+        },
+        {
+          "instruction": "add r11,r11,r10",
+          "statements": [
+            "ctx.r11.u64 = ctx.r11.u64 + ctx.r10.u64;"
+          ]
+        },
+        {
+          "instruction": "lwz r10,0(r11)",
+          "statements": [
+            "ctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);"
+          ]
+        },
+        {
+          "instruction": "lwz r11,4(r11)",
+          "statements": [
+            "ctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 4);"
+          ]
+        },
+        {
+          "instruction": "stw r10,0(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 0, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,4(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 4, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "ReadIndexedPair",
+      "operation_summary": "ReadIndexedPair",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "line": 2607,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "8257A230",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "source_line": 2635,
+      "instruction_sequence": [
+        "rlwinm r10,r4,1,0,30",
+        "lwz r11,120(r3)",
+        "lwz r9,0(r5)",
+        "add r10,r4,r10",
+        "rlwinm r10,r10,2,0,29",
+        "add r11,r11,r10",
+        "stw r9,0(r11)",
+        "lwz r10,4(r5)",
+        "stw r10,4(r11)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r10.u64 = __builtin_rotateleft64(ctx.r4.u32 | (ctx.r4.u64 << 32), 1) & 0xFFFFFFFE;",
+        "ctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 120);",
+        "ctx.r9.u64 = PPC_LOAD_U32(ctx.r5.u32 + 0);",
+        "ctx.r10.u64 = ctx.r4.u64 + ctx.r10.u64;",
+        "ctx.r10.u64 = __builtin_rotateleft64(ctx.r10.u32 | (ctx.r10.u64 << 32), 2) & 0xFFFFFFFC;",
+        "ctx.r11.u64 = ctx.r11.u64 + ctx.r10.u64;",
+        "PPC_STORE_U32(ctx.r11.u32 + 0, ctx.r9.u32);",
+        "ctx.r10.u64 = PPC_LOAD_U32(ctx.r5.u32 + 4);",
+        "PPC_STORE_U32(ctx.r11.u32 + 4, ctx.r10.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "rlwinm r10,r4,1,0,30",
+          "statements": [
+            "ctx.r10.u64 = __builtin_rotateleft64(ctx.r4.u32 | (ctx.r4.u64 << 32), 1) & 0xFFFFFFFE;"
+          ]
+        },
+        {
+          "instruction": "lwz r11,120(r3)",
+          "statements": [
+            "ctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 120);"
+          ]
+        },
+        {
+          "instruction": "lwz r9,0(r5)",
+          "statements": [
+            "ctx.r9.u64 = PPC_LOAD_U32(ctx.r5.u32 + 0);"
+          ]
+        },
+        {
+          "instruction": "add r10,r4,r10",
+          "statements": [
+            "ctx.r10.u64 = ctx.r4.u64 + ctx.r10.u64;"
+          ]
+        },
+        {
+          "instruction": "rlwinm r10,r10,2,0,29",
+          "statements": [
+            "ctx.r10.u64 = __builtin_rotateleft64(ctx.r10.u32 | (ctx.r10.u64 << 32), 2) & 0xFFFFFFFC;"
+          ]
+        },
+        {
+          "instruction": "add r11,r11,r10",
+          "statements": [
+            "ctx.r11.u64 = ctx.r11.u64 + ctx.r10.u64;"
+          ]
+        },
+        {
+          "instruction": "stw r9,0(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 0, ctx.r9.u32);"
+          ]
+        },
+        {
+          "instruction": "lwz r10,4(r5)",
+          "statements": [
+            "ctx.r10.u64 = PPC_LOAD_U32(ctx.r5.u32 + 4);"
+          ]
+        },
+        {
+          "instruction": "stw r10,4(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 4, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "WriteIndexedPair",
+      "operation_summary": "WriteIndexedPair",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "line": 2635,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "825BD998",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.43.cpp",
+      "source_line": 32348,
+      "instruction_sequence": [
+        "lwz r11,76(r4)",
+        "lwz r10,72(r4)",
+        "lwz r9,128(r4)",
+        "lwz r8,124(r4)",
+        "add r9,r9,r11",
+        "add r8,r8,r10",
+        "stw r11,4(r3)",
+        "stw r10,0(r3)",
+        "stw r9,12(r3)",
+        "stw r8,8(r3)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r11.u64 = PPC_LOAD_U32(ctx.r4.u32 + 76);",
+        "ctx.r10.u64 = PPC_LOAD_U32(ctx.r4.u32 + 72);",
+        "ctx.r9.u64 = PPC_LOAD_U32(ctx.r4.u32 + 128);",
+        "ctx.r8.u64 = PPC_LOAD_U32(ctx.r4.u32 + 124);",
+        "ctx.r9.u64 = ctx.r9.u64 + ctx.r11.u64;",
+        "ctx.r8.u64 = ctx.r8.u64 + ctx.r10.u64;",
+        "PPC_STORE_U32(ctx.r3.u32 + 4, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 0, ctx.r10.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 12, ctx.r9.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 8, ctx.r8.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "lwz r11,76(r4)",
+          "statements": [
+            "ctx.r11.u64 = PPC_LOAD_U32(ctx.r4.u32 + 76);"
+          ]
+        },
+        {
+          "instruction": "lwz r10,72(r4)",
+          "statements": [
+            "ctx.r10.u64 = PPC_LOAD_U32(ctx.r4.u32 + 72);"
+          ]
+        },
+        {
+          "instruction": "lwz r9,128(r4)",
+          "statements": [
+            "ctx.r9.u64 = PPC_LOAD_U32(ctx.r4.u32 + 128);"
+          ]
+        },
+        {
+          "instruction": "lwz r8,124(r4)",
+          "statements": [
+            "ctx.r8.u64 = PPC_LOAD_U32(ctx.r4.u32 + 124);"
+          ]
+        },
+        {
+          "instruction": "add r9,r9,r11",
+          "statements": [
+            "ctx.r9.u64 = ctx.r9.u64 + ctx.r11.u64;"
+          ]
+        },
+        {
+          "instruction": "add r8,r8,r10",
+          "statements": [
+            "ctx.r8.u64 = ctx.r8.u64 + ctx.r10.u64;"
+          ]
+        },
+        {
+          "instruction": "stw r11,4(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 4, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r10,0(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 0, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r9,12(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 12, ctx.r9.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r8,8(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 8, ctx.r8.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "WriteRangeEndpoints",
+      "operation_summary": "WriteRangeEndpoints",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.43.cpp",
+      "line": 32348,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "825BFF20",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.43.cpp",
+      "source_line": 37722,
+      "instruction_sequence": [
+        "lwz r11,76(r4)",
+        "lwz r10,72(r4)",
+        "lwz r9,128(r4)",
+        "lwz r8,224(r4)",
+        "add r9,r9,r11",
+        "add r8,r8,r10",
+        "stw r11,4(r3)",
+        "stw r10,0(r3)",
+        "stw r9,12(r3)",
+        "stw r8,8(r3)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r11.u64 = PPC_LOAD_U32(ctx.r4.u32 + 76);",
+        "ctx.r10.u64 = PPC_LOAD_U32(ctx.r4.u32 + 72);",
+        "ctx.r9.u64 = PPC_LOAD_U32(ctx.r4.u32 + 128);",
+        "ctx.r8.u64 = PPC_LOAD_U32(ctx.r4.u32 + 224);",
+        "ctx.r9.u64 = ctx.r9.u64 + ctx.r11.u64;",
+        "ctx.r8.u64 = ctx.r8.u64 + ctx.r10.u64;",
+        "PPC_STORE_U32(ctx.r3.u32 + 4, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 0, ctx.r10.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 12, ctx.r9.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 8, ctx.r8.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "lwz r11,76(r4)",
+          "statements": [
+            "ctx.r11.u64 = PPC_LOAD_U32(ctx.r4.u32 + 76);"
+          ]
+        },
+        {
+          "instruction": "lwz r10,72(r4)",
+          "statements": [
+            "ctx.r10.u64 = PPC_LOAD_U32(ctx.r4.u32 + 72);"
+          ]
+        },
+        {
+          "instruction": "lwz r9,128(r4)",
+          "statements": [
+            "ctx.r9.u64 = PPC_LOAD_U32(ctx.r4.u32 + 128);"
+          ]
+        },
+        {
+          "instruction": "lwz r8,224(r4)",
+          "statements": [
+            "ctx.r8.u64 = PPC_LOAD_U32(ctx.r4.u32 + 224);"
+          ]
+        },
+        {
+          "instruction": "add r9,r9,r11",
+          "statements": [
+            "ctx.r9.u64 = ctx.r9.u64 + ctx.r11.u64;"
+          ]
+        },
+        {
+          "instruction": "add r8,r8,r10",
+          "statements": [
+            "ctx.r8.u64 = ctx.r8.u64 + ctx.r10.u64;"
+          ]
+        },
+        {
+          "instruction": "stw r11,4(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 4, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r10,0(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 0, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r9,12(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 12, ctx.r9.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r8,8(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 8, ctx.r8.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "WriteRangeEndpoints",
+      "operation_summary": "WriteRangeEndpoints",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.43.cpp",
+      "line": 37722,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "825C0F80",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.43.cpp",
+      "source_line": 40082,
+      "instruction_sequence": [
+        "lwz r11,76(r4)",
+        "lwz r10,72(r4)",
+        "addi r9,r11,64",
+        "addi r8,r10,64",
+        "stw r11,4(r3)",
+        "stw r10,0(r3)",
+        "stw r9,12(r3)",
+        "stw r8,8(r3)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r11.u64 = PPC_LOAD_U32(ctx.r4.u32 + 76);",
+        "ctx.r10.u64 = PPC_LOAD_U32(ctx.r4.u32 + 72);",
+        "ctx.r9.s64 = ctx.r11.s64 + 64;",
+        "ctx.r8.s64 = ctx.r10.s64 + 64;",
+        "PPC_STORE_U32(ctx.r3.u32 + 4, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 0, ctx.r10.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 12, ctx.r9.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 8, ctx.r8.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "lwz r11,76(r4)",
+          "statements": [
+            "ctx.r11.u64 = PPC_LOAD_U32(ctx.r4.u32 + 76);"
+          ]
+        },
+        {
+          "instruction": "lwz r10,72(r4)",
+          "statements": [
+            "ctx.r10.u64 = PPC_LOAD_U32(ctx.r4.u32 + 72);"
+          ]
+        },
+        {
+          "instruction": "addi r9,r11,64",
+          "statements": [
+            "ctx.r9.s64 = ctx.r11.s64 + 64;"
+          ]
+        },
+        {
+          "instruction": "addi r8,r10,64",
+          "statements": [
+            "ctx.r8.s64 = ctx.r10.s64 + 64;"
+          ]
+        },
+        {
+          "instruction": "stw r11,4(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 4, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r10,0(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 0, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r9,12(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 12, ctx.r9.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r8,8(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 8, ctx.r8.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "WriteRangeEndpoints",
+      "operation_summary": "WriteRangeEndpoints",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.43.cpp",
+      "line": 40082,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82871898",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.97.cpp",
+      "source_line": 2954,
+      "instruction_sequence": [
+        "addi r11,r3,172",
+        "addi r10,r3,188",
+        "lwz r9,0(r11)",
+        "lwz r8,4(r11)",
+        "lwz r7,8(r11)",
+        "lwz r11,12(r11)",
+        "stw r9,0(r10)",
+        "stw r8,4(r10)",
+        "stw r7,8(r10)",
+        "stw r11,12(r10)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r11.s64 = ctx.r3.s64 + 172;",
+        "ctx.r10.s64 = ctx.r3.s64 + 188;",
+        "ctx.r9.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);",
+        "ctx.r8.u64 = PPC_LOAD_U32(ctx.r11.u32 + 4);",
+        "ctx.r7.u64 = PPC_LOAD_U32(ctx.r11.u32 + 8);",
+        "ctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 12);",
+        "PPC_STORE_U32(ctx.r10.u32 + 0, ctx.r9.u32);",
+        "PPC_STORE_U32(ctx.r10.u32 + 4, ctx.r8.u32);",
+        "PPC_STORE_U32(ctx.r10.u32 + 8, ctx.r7.u32);",
+        "PPC_STORE_U32(ctx.r10.u32 + 12, ctx.r11.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "addi r11,r3,172",
+          "statements": [
+            "ctx.r11.s64 = ctx.r3.s64 + 172;"
+          ]
+        },
+        {
+          "instruction": "addi r10,r3,188",
+          "statements": [
+            "ctx.r10.s64 = ctx.r3.s64 + 188;"
+          ]
+        },
+        {
+          "instruction": "lwz r9,0(r11)",
+          "statements": [
+            "ctx.r9.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);"
+          ]
+        },
+        {
+          "instruction": "lwz r8,4(r11)",
+          "statements": [
+            "ctx.r8.u64 = PPC_LOAD_U32(ctx.r11.u32 + 4);"
+          ]
+        },
+        {
+          "instruction": "lwz r7,8(r11)",
+          "statements": [
+            "ctx.r7.u64 = PPC_LOAD_U32(ctx.r11.u32 + 8);"
+          ]
+        },
+        {
+          "instruction": "lwz r11,12(r11)",
+          "statements": [
+            "ctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 12);"
+          ]
+        },
+        {
+          "instruction": "stw r9,0(r10)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r10.u32 + 0, ctx.r9.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r8,4(r10)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r10.u32 + 4, ctx.r8.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r7,8(r10)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r10.u32 + 8, ctx.r7.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,12(r10)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r10.u32 + 12, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "CopyFourWordsWithinObject",
+      "operation_summary": "CopyFourWordsWithinObject",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.97.cpp",
+      "line": 2954,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82884018",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.99.cpp",
+      "source_line": 3420,
+      "instruction_sequence": [
+        "mr r11,r3",
+        "li r10,0",
+        "lwz r9,24420(r11)",
+        "lwz r3,24416(r11)",
+        "stw r9,0(r4)",
+        "lwz r9,24424(r11)",
+        "stw r9,0(r5)",
+        "stw r10,24416(r11)",
+        "stw r10,24420(r11)",
+        "stw r10,24424(r11)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r11.u64 = ctx.r3.u64;",
+        "ctx.r10.s64 = 0;",
+        "ctx.r9.u64 = PPC_LOAD_U32(ctx.r11.u32 + 24420);",
+        "ctx.r3.u64 = PPC_LOAD_U32(ctx.r11.u32 + 24416);",
+        "PPC_STORE_U32(ctx.r4.u32 + 0, ctx.r9.u32);",
+        "ctx.r9.u64 = PPC_LOAD_U32(ctx.r11.u32 + 24424);",
+        "PPC_STORE_U32(ctx.r5.u32 + 0, ctx.r9.u32);",
+        "PPC_STORE_U32(ctx.r11.u32 + 24416, ctx.r10.u32);",
+        "PPC_STORE_U32(ctx.r11.u32 + 24420, ctx.r10.u32);",
+        "PPC_STORE_U32(ctx.r11.u32 + 24424, ctx.r10.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "mr r11,r3",
+          "statements": [
+            "ctx.r11.u64 = ctx.r3.u64;"
+          ]
+        },
+        {
+          "instruction": "li r10,0",
+          "statements": [
+            "ctx.r10.s64 = 0;"
+          ]
+        },
+        {
+          "instruction": "lwz r9,24420(r11)",
+          "statements": [
+            "ctx.r9.u64 = PPC_LOAD_U32(ctx.r11.u32 + 24420);"
+          ]
+        },
+        {
+          "instruction": "lwz r3,24416(r11)",
+          "statements": [
+            "ctx.r3.u64 = PPC_LOAD_U32(ctx.r11.u32 + 24416);"
+          ]
+        },
+        {
+          "instruction": "stw r9,0(r4)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r4.u32 + 0, ctx.r9.u32);"
+          ]
+        },
+        {
+          "instruction": "lwz r9,24424(r11)",
+          "statements": [
+            "ctx.r9.u64 = PPC_LOAD_U32(ctx.r11.u32 + 24424);"
+          ]
+        },
+        {
+          "instruction": "stw r9,0(r5)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r5.u32 + 0, ctx.r9.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r10,24416(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 24416, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r10,24420(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 24420, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r10,24424(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 24424, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "DrainThreeStatusWords",
+      "operation_summary": "DrainThreeStatusWords",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.99.cpp",
+      "line": 3420,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "828F4860",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.110.cpp",
+      "source_line": 3241,
+      "instruction_sequence": [
+        "mr r11,r3",
+        "li r10,0",
+        "li r3,1",
+        "stw r10,4(r11)",
+        "stw r10,8(r11)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r11.u64 = ctx.r3.u64;",
+        "ctx.r10.s64 = 0;",
+        "ctx.r3.s64 = 1;",
+        "PPC_STORE_U32(ctx.r11.u32 + 4, ctx.r10.u32);",
+        "PPC_STORE_U32(ctx.r11.u32 + 8, ctx.r10.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "mr r11,r3",
+          "statements": [
+            "ctx.r11.u64 = ctx.r3.u64;"
+          ]
+        },
+        {
+          "instruction": "li r10,0",
+          "statements": [
+            "ctx.r10.s64 = 0;"
+          ]
+        },
+        {
+          "instruction": "li r3,1",
+          "statements": [
+            "ctx.r3.s64 = 1;"
+          ]
+        },
+        {
+          "instruction": "stw r10,4(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 4, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r10,8(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 8, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "ClearPairAndReturnOne",
+      "operation_summary": "ClearPairAndReturnOne",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.110.cpp",
+      "line": 3241,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82ACD3C0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.160.cpp",
+      "source_line": 17265,
+      "instruction_sequence": [
+        "lwz r10,100(r4)",
+        "li r11,0",
+        "clrlwi r10,r10,2",
+        "stw r11,88(r4)",
+        "stw r11,92(r4)",
+        "stw r11,96(r4)",
+        "stw r10,100(r4)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r10.u64 = PPC_LOAD_U32(ctx.r4.u32 + 100);",
+        "ctx.r11.s64 = 0;",
+        "ctx.r10.u64 = ctx.r10.u32 & 0x3FFFFFFF;",
+        "PPC_STORE_U32(ctx.r4.u32 + 88, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r4.u32 + 92, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r4.u32 + 96, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r4.u32 + 100, ctx.r10.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "lwz r10,100(r4)",
+          "statements": [
+            "ctx.r10.u64 = PPC_LOAD_U32(ctx.r4.u32 + 100);"
+          ]
+        },
+        {
+          "instruction": "li r11,0",
+          "statements": [
+            "ctx.r11.s64 = 0;"
+          ]
+        },
+        {
+          "instruction": "clrlwi r10,r10,2",
+          "statements": [
+            "ctx.r10.u64 = ctx.r10.u32 & 0x3FFFFFFF;"
+          ]
+        },
+        {
+          "instruction": "stw r11,88(r4)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r4.u32 + 88, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,92(r4)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r4.u32 + 92, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,96(r4)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r4.u32 + 96, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r10,100(r4)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r4.u32 + 100, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "ClearRangeFlags",
+      "operation_summary": "ClearRangeFlags",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.160.cpp",
+      "line": 17265,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82BE4878",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.182.cpp",
+      "source_line": 10475,
+      "instruction_sequence": [
+        "mr r11,r3",
+        "li r3,1",
+        "stw r4,0(r11)",
+        "stw r5,4(r11)",
+        "stw r6,8(r11)",
+        "stw r7,12(r11)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r11.u64 = ctx.r3.u64;",
+        "ctx.r3.s64 = 1;",
+        "PPC_STORE_U32(ctx.r11.u32 + 0, ctx.r4.u32);",
+        "PPC_STORE_U32(ctx.r11.u32 + 4, ctx.r5.u32);",
+        "PPC_STORE_U32(ctx.r11.u32 + 8, ctx.r6.u32);",
+        "PPC_STORE_U32(ctx.r11.u32 + 12, ctx.r7.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "mr r11,r3",
+          "statements": [
+            "ctx.r11.u64 = ctx.r3.u64;"
+          ]
+        },
+        {
+          "instruction": "li r3,1",
+          "statements": [
+            "ctx.r3.s64 = 1;"
+          ]
+        },
+        {
+          "instruction": "stw r4,0(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 0, ctx.r4.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r5,4(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 4, ctx.r5.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r6,8(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 8, ctx.r6.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r7,12(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 12, ctx.r7.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "StoreFourParameters",
+      "operation_summary": "StoreFourParameters",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.182.cpp",
+      "line": 10475,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82C2FB88",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.184.cpp",
+      "source_line": 77728,
+      "instruction_sequence": [
+        "li r11,0",
+        "lwz r10,444(r3)",
+        "stw r11,220(r3)",
+        "stw r11,148(r3)",
+        "stw r11,420(r3)",
+        "stw r11,12(r10)",
+        "stw r11,16(r10)",
+        "stw r11,24(r10)",
+        "stw r11,164(r10)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r11.s64 = 0;",
+        "ctx.r10.u64 = PPC_LOAD_U32(ctx.r3.u32 + 444);",
+        "PPC_STORE_U32(ctx.r3.u32 + 220, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 148, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 420, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r10.u32 + 12, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r10.u32 + 16, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r10.u32 + 24, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r10.u32 + 164, ctx.r11.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "li r11,0",
+          "statements": [
+            "ctx.r11.s64 = 0;"
+          ]
+        },
+        {
+          "instruction": "lwz r10,444(r3)",
+          "statements": [
+            "ctx.r10.u64 = PPC_LOAD_U32(ctx.r3.u32 + 444);"
+          ]
+        },
+        {
+          "instruction": "stw r11,220(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 220, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,148(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 148, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,420(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 420, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,12(r10)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r10.u32 + 12, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,16(r10)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r10.u32 + 16, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,24(r10)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r10.u32 + 24, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,164(r10)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r10.u32 + 164, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "ClearObjectAndLinkedState",
+      "operation_summary": "ClearObjectAndLinkedState",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.184.cpp",
+      "line": 77728,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82C2FEB0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.184.cpp",
+      "source_line": 78211,
+      "instruction_sequence": [
+        "lwz r10,0(r3)",
+        "li r11,0",
+        "stw r11,108(r10)",
+        "lwz r10,0(r3)",
+        "stw r11,20(r10)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r10.u64 = PPC_LOAD_U32(ctx.r3.u32 + 0);",
+        "ctx.r11.s64 = 0;",
+        "PPC_STORE_U32(ctx.r10.u32 + 108, ctx.r11.u32);",
+        "ctx.r10.u64 = PPC_LOAD_U32(ctx.r3.u32 + 0);",
+        "PPC_STORE_U32(ctx.r10.u32 + 20, ctx.r11.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "lwz r10,0(r3)",
+          "statements": [
+            "ctx.r10.u64 = PPC_LOAD_U32(ctx.r3.u32 + 0);"
+          ]
+        },
+        {
+          "instruction": "li r11,0",
+          "statements": [
+            "ctx.r11.s64 = 0;"
+          ]
+        },
+        {
+          "instruction": "stw r11,108(r10)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r10.u32 + 108, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "lwz r10,0(r3)",
+          "statements": [
+            "ctx.r10.u64 = PPC_LOAD_U32(ctx.r3.u32 + 0);"
+          ]
+        },
+        {
+          "instruction": "stw r11,20(r10)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r10.u32 + 20, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "ClearLinkedPair",
+      "operation_summary": "ClearLinkedPair",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.184.cpp",
+      "line": 78211,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82C3A438",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.185.cpp",
+      "source_line": 10478,
+      "instruction_sequence": [
+        "li r10,0",
+        "stw r4,0(r3)",
+        "addi r11,r3,8",
+        "stw r10,4(r3)",
+        "stw r10,8(r3)",
+        "stw r11,12(r3)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r10.s64 = 0;",
+        "PPC_STORE_U32(ctx.r3.u32 + 0, ctx.r4.u32);",
+        "ctx.r11.s64 = ctx.r3.s64 + 8;",
+        "PPC_STORE_U32(ctx.r3.u32 + 4, ctx.r10.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 8, ctx.r10.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 12, ctx.r11.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "li r10,0",
+          "statements": [
+            "ctx.r10.s64 = 0;"
+          ]
+        },
+        {
+          "instruction": "stw r4,0(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 0, ctx.r4.u32);"
+          ]
+        },
+        {
+          "instruction": "addi r11,r3,8",
+          "statements": [
+            "ctx.r11.s64 = ctx.r3.s64 + 8;"
+          ]
+        },
+        {
+          "instruction": "stw r10,4(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 4, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r10,8(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 8, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,12(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 12, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "InitializeRecordLinks",
+      "operation_summary": "InitializeRecordLinks",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.185.cpp",
+      "line": 10478,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82CD6C70",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.191.cpp",
+      "source_line": 2157,
+      "instruction_sequence": [
+        "li r10,0",
+        "stw r3,0(r3)",
+        "addi r11,r3,12",
+        "stw r3,4(r3)",
+        "stw r10,8(r3)",
+        "stw r10,8(r11)",
+        "stw r11,0(r11)",
+        "stw r11,4(r11)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r10.s64 = 0;",
+        "PPC_STORE_U32(ctx.r3.u32 + 0, ctx.r3.u32);",
+        "ctx.r11.s64 = ctx.r3.s64 + 12;",
+        "PPC_STORE_U32(ctx.r3.u32 + 4, ctx.r3.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 8, ctx.r10.u32);",
+        "PPC_STORE_U32(ctx.r11.u32 + 8, ctx.r10.u32);",
+        "PPC_STORE_U32(ctx.r11.u32 + 0, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r11.u32 + 4, ctx.r11.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "li r10,0",
+          "statements": [
+            "ctx.r10.s64 = 0;"
+          ]
+        },
+        {
+          "instruction": "stw r3,0(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 0, ctx.r3.u32);"
+          ]
+        },
+        {
+          "instruction": "addi r11,r3,12",
+          "statements": [
+            "ctx.r11.s64 = ctx.r3.s64 + 12;"
+          ]
+        },
+        {
+          "instruction": "stw r3,4(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 4, ctx.r3.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r10,8(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 8, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r10,8(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 8, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,0(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 0, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,4(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 4, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "InitializeSelfLinkedNodes",
+      "operation_summary": "InitializeSelfLinkedNodes",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.191.cpp",
+      "line": 2157,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82CF0748",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp",
+      "source_line": 5331,
+      "instruction_sequence": [
+        "mr r11,r3",
+        "li r3,0",
+        "stw r4,500(r11)",
+        "stw r5,504(r11)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r11.u64 = ctx.r3.u64;",
+        "ctx.r3.s64 = 0;",
+        "PPC_STORE_U32(ctx.r11.u32 + 500, ctx.r4.u32);",
+        "PPC_STORE_U32(ctx.r11.u32 + 504, ctx.r5.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "mr r11,r3",
+          "statements": [
+            "ctx.r11.u64 = ctx.r3.u64;"
+          ]
+        },
+        {
+          "instruction": "li r3,0",
+          "statements": [
+            "ctx.r3.s64 = 0;"
+          ]
+        },
+        {
+          "instruction": "stw r4,500(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 500, ctx.r4.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r5,504(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 504, ctx.r5.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "StorePositionPair",
+      "operation_summary": "StorePositionPair",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp",
+      "line": 5331,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82CFAC30",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp",
+      "source_line": 30827,
+      "instruction_sequence": [
+        "mr r11,r3",
+        "li r3,0",
+        "stb r4,1524(r11)",
+        "stw r5,1528(r11)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r11.u64 = ctx.r3.u64;",
+        "ctx.r3.s64 = 0;",
+        "PPC_STORE_U8(ctx.r11.u32 + 1524, ctx.r4.u8);",
+        "PPC_STORE_U32(ctx.r11.u32 + 1528, ctx.r5.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "mr r11,r3",
+          "statements": [
+            "ctx.r11.u64 = ctx.r3.u64;"
+          ]
+        },
+        {
+          "instruction": "li r3,0",
+          "statements": [
+            "ctx.r3.s64 = 0;"
+          ]
+        },
+        {
+          "instruction": "stb r4,1524(r11)",
+          "statements": [
+            "PPC_STORE_U8(ctx.r11.u32 + 1524, ctx.r4.u8);"
+          ]
+        },
+        {
+          "instruction": "stw r5,1528(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 1528, ctx.r5.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "StoreByteAndWord",
+      "operation_summary": "StoreByteAndWord",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp",
+      "line": 30827,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82CFAD08",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp",
+      "source_line": 30963,
+      "instruction_sequence": [
+        "mr r11,r3",
+        "li r10,0",
+        "li r3,0",
+        "stb r10,1524(r11)",
+        "stw r10,1528(r11)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r11.u64 = ctx.r3.u64;",
+        "ctx.r10.s64 = 0;",
+        "ctx.r3.s64 = 0;",
+        "PPC_STORE_U8(ctx.r11.u32 + 1524, ctx.r10.u8);",
+        "PPC_STORE_U32(ctx.r11.u32 + 1528, ctx.r10.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "mr r11,r3",
+          "statements": [
+            "ctx.r11.u64 = ctx.r3.u64;"
+          ]
+        },
+        {
+          "instruction": "li r10,0",
+          "statements": [
+            "ctx.r10.s64 = 0;"
+          ]
+        },
+        {
+          "instruction": "li r3,0",
+          "statements": [
+            "ctx.r3.s64 = 0;"
+          ]
+        },
+        {
+          "instruction": "stb r10,1524(r11)",
+          "statements": [
+            "PPC_STORE_U8(ctx.r11.u32 + 1524, ctx.r10.u8);"
+          ]
+        },
+        {
+          "instruction": "stw r10,1528(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 1528, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "ClearByteAndWord",
+      "operation_summary": "ClearByteAndWord",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp",
+      "line": 30963,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82D7DF10",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.195.cpp",
+      "source_line": 134758,
+      "instruction_sequence": [
+        "mr r11,r3",
+        "li r10,1",
+        "li r9,0",
+        "li r3,0",
+        "stw r10,15560(r11)",
+        "stw r9,15564(r11)",
+        "stw r10,15536(r11)",
+        "stw r10,456(r11)",
+        "stw r10,3452(r11)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r11.u64 = ctx.r3.u64;",
+        "ctx.r10.s64 = 1;",
+        "ctx.r9.s64 = 0;",
+        "ctx.r3.s64 = 0;",
+        "PPC_STORE_U32(ctx.r11.u32 + 15560, ctx.r10.u32);",
+        "PPC_STORE_U32(ctx.r11.u32 + 15564, ctx.r9.u32);",
+        "PPC_STORE_U32(ctx.r11.u32 + 15536, ctx.r10.u32);",
+        "PPC_STORE_U32(ctx.r11.u32 + 456, ctx.r10.u32);",
+        "PPC_STORE_U32(ctx.r11.u32 + 3452, ctx.r10.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "mr r11,r3",
+          "statements": [
+            "ctx.r11.u64 = ctx.r3.u64;"
+          ]
+        },
+        {
+          "instruction": "li r10,1",
+          "statements": [
+            "ctx.r10.s64 = 1;"
+          ]
+        },
+        {
+          "instruction": "li r9,0",
+          "statements": [
+            "ctx.r9.s64 = 0;"
+          ]
+        },
+        {
+          "instruction": "li r3,0",
+          "statements": [
+            "ctx.r3.s64 = 0;"
+          ]
+        },
+        {
+          "instruction": "stw r10,15560(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 15560, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r9,15564(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 15564, ctx.r9.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r10,15536(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 15536, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r10,456(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 456, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r10,3452(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 3452, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "SetReadyFlags",
+      "operation_summary": "SetReadyFlags",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.195.cpp",
+      "line": 134758,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82D815E8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.195.cpp",
+      "source_line": 142397,
+      "instruction_sequence": [
+        "lwz r10,248(r3)",
+        "li r11,0",
+        "stw r11,280(r3)",
+        "stw r11,472(r3)",
+        "stw r11,3980(r3)",
+        "stw r10,3988(r3)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r10.u64 = PPC_LOAD_U32(ctx.r3.u32 + 248);",
+        "ctx.r11.s64 = 0;",
+        "PPC_STORE_U32(ctx.r3.u32 + 280, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 472, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 3980, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 3988, ctx.r10.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "lwz r10,248(r3)",
+          "statements": [
+            "ctx.r10.u64 = PPC_LOAD_U32(ctx.r3.u32 + 248);"
+          ]
+        },
+        {
+          "instruction": "li r11,0",
+          "statements": [
+            "ctx.r11.s64 = 0;"
+          ]
+        },
+        {
+          "instruction": "stw r11,280(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 280, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,472(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 472, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,3980(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 3980, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r10,3988(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 3988, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "ClearStatusAndCopySnapshot",
+      "operation_summary": "ClearStatusAndCopySnapshot",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.195.cpp",
+      "line": 142397,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82E52FA8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.208.cpp",
+      "source_line": 29988,
+      "instruction_sequence": [
+        "li r11,0",
+        "addi r10,r3,8",
+        "addi r9,r3,28",
+        "stw r11,0(r10)",
+        "stw r11,4(r10)",
+        "stw r11,8(r10)",
+        "stw r11,0(r9)",
+        "stw r11,4(r9)",
+        "stw r11,8(r9)",
+        "stw r10,0(r3)",
+        "stw r9,4(r3)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r11.s64 = 0;",
+        "ctx.r10.s64 = ctx.r3.s64 + 8;",
+        "ctx.r9.s64 = ctx.r3.s64 + 28;",
+        "PPC_STORE_U32(ctx.r10.u32 + 0, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r10.u32 + 4, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r10.u32 + 8, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r9.u32 + 0, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r9.u32 + 4, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r9.u32 + 8, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 0, ctx.r10.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 4, ctx.r9.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "li r11,0",
+          "statements": [
+            "ctx.r11.s64 = 0;"
+          ]
+        },
+        {
+          "instruction": "addi r10,r3,8",
+          "statements": [
+            "ctx.r10.s64 = ctx.r3.s64 + 8;"
+          ]
+        },
+        {
+          "instruction": "addi r9,r3,28",
+          "statements": [
+            "ctx.r9.s64 = ctx.r3.s64 + 28;"
+          ]
+        },
+        {
+          "instruction": "stw r11,0(r10)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r10.u32 + 0, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,4(r10)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r10.u32 + 4, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,8(r10)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r10.u32 + 8, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,0(r9)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r9.u32 + 0, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,4(r9)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r9.u32 + 4, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,8(r9)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r9.u32 + 8, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r10,0(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 0, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r9,4(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 4, ctx.r9.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "InitializeEmbeddedLists",
+      "operation_summary": "InitializeEmbeddedLists",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.208.cpp",
+      "line": 29988,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82EBAF20",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "source_line": 47235,
+      "instruction_sequence": [
+        "addi r11,r3,320",
+        "lwz r10,0(r11)",
+        "stw r10,0(r4)",
+        "lwz r10,4(r11)",
+        "stw r10,4(r4)",
+        "lwz r11,8(r11)",
+        "stw r11,8(r4)",
+        "lwz r11,356(r3)",
+        "rlwinm r3,r11,31,31,31",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r11.s64 = ctx.r3.s64 + 320;",
+        "ctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);",
+        "PPC_STORE_U32(ctx.r4.u32 + 0, ctx.r10.u32);",
+        "ctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 4);",
+        "PPC_STORE_U32(ctx.r4.u32 + 4, ctx.r10.u32);",
+        "ctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 8);",
+        "PPC_STORE_U32(ctx.r4.u32 + 8, ctx.r11.u32);",
+        "ctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 356);",
+        "ctx.r3.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 31) & 0x1;",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "addi r11,r3,320",
+          "statements": [
+            "ctx.r11.s64 = ctx.r3.s64 + 320;"
+          ]
+        },
+        {
+          "instruction": "lwz r10,0(r11)",
+          "statements": [
+            "ctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);"
+          ]
+        },
+        {
+          "instruction": "stw r10,0(r4)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r4.u32 + 0, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "lwz r10,4(r11)",
+          "statements": [
+            "ctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 4);"
+          ]
+        },
+        {
+          "instruction": "stw r10,4(r4)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r4.u32 + 4, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "lwz r11,8(r11)",
+          "statements": [
+            "ctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 8);"
+          ]
+        },
+        {
+          "instruction": "stw r11,8(r4)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r4.u32 + 8, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "lwz r11,356(r3)",
+          "statements": [
+            "ctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 356);"
+          ]
+        },
+        {
+          "instruction": "rlwinm r3,r11,31,31,31",
+          "statements": [
+            "ctx.r3.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 31) & 0x1;"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "CopyThreeWordsAndReadFlag",
+      "operation_summary": "CopyThreeWordsAndReadFlag",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "line": 47235,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82EBAF80",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "source_line": 47300,
+      "instruction_sequence": [
+        "addi r11,r3,332",
+        "lwz r10,0(r11)",
+        "stw r10,0(r4)",
+        "lwz r10,4(r11)",
+        "stw r10,4(r4)",
+        "lwz r11,8(r11)",
+        "stw r11,8(r4)",
+        "lwz r11,356(r3)",
+        "rlwinm r3,r11,30,31,31",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r11.s64 = ctx.r3.s64 + 332;",
+        "ctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);",
+        "PPC_STORE_U32(ctx.r4.u32 + 0, ctx.r10.u32);",
+        "ctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 4);",
+        "PPC_STORE_U32(ctx.r4.u32 + 4, ctx.r10.u32);",
+        "ctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 8);",
+        "PPC_STORE_U32(ctx.r4.u32 + 8, ctx.r11.u32);",
+        "ctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 356);",
+        "ctx.r3.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 30) & 0x1;",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "addi r11,r3,332",
+          "statements": [
+            "ctx.r11.s64 = ctx.r3.s64 + 332;"
+          ]
+        },
+        {
+          "instruction": "lwz r10,0(r11)",
+          "statements": [
+            "ctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);"
+          ]
+        },
+        {
+          "instruction": "stw r10,0(r4)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r4.u32 + 0, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "lwz r10,4(r11)",
+          "statements": [
+            "ctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 4);"
+          ]
+        },
+        {
+          "instruction": "stw r10,4(r4)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r4.u32 + 4, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "lwz r11,8(r11)",
+          "statements": [
+            "ctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 8);"
+          ]
+        },
+        {
+          "instruction": "stw r11,8(r4)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r4.u32 + 8, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "lwz r11,356(r3)",
+          "statements": [
+            "ctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 356);"
+          ]
+        },
+        {
+          "instruction": "rlwinm r3,r11,30,31,31",
+          "statements": [
+            "ctx.r3.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 30) & 0x1;"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "CopyThreeWordsAndReadFlag",
+      "operation_summary": "CopyThreeWordsAndReadFlag",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "line": 47300,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82EBFD30",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "source_line": 59322,
+      "instruction_sequence": [
+        "addi r11,r3,336",
+        "lwz r10,0(r11)",
+        "stw r10,0(r4)",
+        "lwz r10,4(r11)",
+        "stw r10,4(r4)",
+        "lwz r11,8(r11)",
+        "stw r11,8(r4)",
+        "lwz r11,332(r3)",
+        "rlwinm r3,r11,31,31,31",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r11.s64 = ctx.r3.s64 + 336;",
+        "ctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);",
+        "PPC_STORE_U32(ctx.r4.u32 + 0, ctx.r10.u32);",
+        "ctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 4);",
+        "PPC_STORE_U32(ctx.r4.u32 + 4, ctx.r10.u32);",
+        "ctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 8);",
+        "PPC_STORE_U32(ctx.r4.u32 + 8, ctx.r11.u32);",
+        "ctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 332);",
+        "ctx.r3.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 31) & 0x1;",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "addi r11,r3,336",
+          "statements": [
+            "ctx.r11.s64 = ctx.r3.s64 + 336;"
+          ]
+        },
+        {
+          "instruction": "lwz r10,0(r11)",
+          "statements": [
+            "ctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);"
+          ]
+        },
+        {
+          "instruction": "stw r10,0(r4)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r4.u32 + 0, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "lwz r10,4(r11)",
+          "statements": [
+            "ctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 4);"
+          ]
+        },
+        {
+          "instruction": "stw r10,4(r4)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r4.u32 + 4, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "lwz r11,8(r11)",
+          "statements": [
+            "ctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 8);"
+          ]
+        },
+        {
+          "instruction": "stw r11,8(r4)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r4.u32 + 8, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "lwz r11,332(r3)",
+          "statements": [
+            "ctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 332);"
+          ]
+        },
+        {
+          "instruction": "rlwinm r3,r11,31,31,31",
+          "statements": [
+            "ctx.r3.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 31) & 0x1;"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "CopyThreeWordsAndReadFlag",
+      "operation_summary": "CopyThreeWordsAndReadFlag",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "line": 59322,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82F2EBC8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.215.cpp",
+      "source_line": 2280,
+      "instruction_sequence": [
+        "li r11,0",
+        "stw r11,44(r3)",
+        "stw r11,48(r3)",
+        "lwz r11,4(r3)",
+        "rlwinm r11,r11,0,30,27",
+        "stw r11,4(r3)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r11.s64 = 0;",
+        "PPC_STORE_U32(ctx.r3.u32 + 44, ctx.r11.u32);",
+        "PPC_STORE_U32(ctx.r3.u32 + 48, ctx.r11.u32);",
+        "ctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 4);",
+        "ctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 0) & 0xFFFFFFFFFFFFFFF3;",
+        "PPC_STORE_U32(ctx.r3.u32 + 4, ctx.r11.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "li r11,0",
+          "statements": [
+            "ctx.r11.s64 = 0;"
+          ]
+        },
+        {
+          "instruction": "stw r11,44(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 44, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "stw r11,48(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 48, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "lwz r11,4(r3)",
+          "statements": [
+            "ctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 4);"
+          ]
+        },
+        {
+          "instruction": "rlwinm r11,r11,0,30,27",
+          "statements": [
+            "ctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 0) & 0xFFFFFFFFFFFFFFF3;"
+          ]
+        },
+        {
+          "instruction": "stw r11,4(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 4, ctx.r11.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "ClearObjectFlags",
+      "operation_summary": "ClearObjectFlags",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.215.cpp",
+      "line": 2280,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "83084F88",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "source_line": 17644,
+      "instruction_sequence": [
+        "lwz r11,4(r3)",
+        "lwz r10,8(r3)",
+        "stw r10,8(r11)",
+        "lwz r11,8(r3)",
+        "lwz r10,4(r3)",
+        "stw r10,4(r11)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 4);",
+        "ctx.r10.u64 = PPC_LOAD_U32(ctx.r3.u32 + 8);",
+        "PPC_STORE_U32(ctx.r11.u32 + 8, ctx.r10.u32);",
+        "ctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 8);",
+        "ctx.r10.u64 = PPC_LOAD_U32(ctx.r3.u32 + 4);",
+        "PPC_STORE_U32(ctx.r11.u32 + 4, ctx.r10.u32);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "lwz r11,4(r3)",
+          "statements": [
+            "ctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 4);"
+          ]
+        },
+        {
+          "instruction": "lwz r10,8(r3)",
+          "statements": [
+            "ctx.r10.u64 = PPC_LOAD_U32(ctx.r3.u32 + 8);"
+          ]
+        },
+        {
+          "instruction": "stw r10,8(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 8, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "lwz r11,8(r3)",
+          "statements": [
+            "ctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 8);"
+          ]
+        },
+        {
+          "instruction": "lwz r10,4(r3)",
+          "statements": [
+            "ctx.r10.u64 = PPC_LOAD_U32(ctx.r3.u32 + 4);"
+          ]
+        },
+        {
+          "instruction": "stw r10,4(r11)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r11.u32 + 4, ctx.r10.u32);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "RelinkNeighbors",
+      "operation_summary": "RelinkNeighbors",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 17644,
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "830882A8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "source_line": 25526,
+      "instruction_sequence": [
+        "clrlwi r11,r4,24",
+        "stw r4,168(r3)",
+        "stb r11,132(r3)",
+        "stb r11,133(r3)",
+        "stb r11,134(r3)",
+        "stb r11,135(r3)",
+        "blr"
+      ],
+      "generated_statements": [
+        "PPC_FUNC_PROLOGUE();",
+        "ctx.r11.u64 = ctx.r4.u32 & 0xFF;",
+        "PPC_STORE_U32(ctx.r3.u32 + 168, ctx.r4.u32);",
+        "PPC_STORE_U8(ctx.r3.u32 + 132, ctx.r11.u8);",
+        "PPC_STORE_U8(ctx.r3.u32 + 133, ctx.r11.u8);",
+        "PPC_STORE_U8(ctx.r3.u32 + 134, ctx.r11.u8);",
+        "PPC_STORE_U8(ctx.r3.u32 + 135, ctx.r11.u8);",
+        "return;"
+      ],
+      "instruction_effects": [
+        {
+          "instruction": "clrlwi r11,r4,24",
+          "statements": [
+            "ctx.r11.u64 = ctx.r4.u32 & 0xFF;"
+          ]
+        },
+        {
+          "instruction": "stw r4,168(r3)",
+          "statements": [
+            "PPC_STORE_U32(ctx.r3.u32 + 168, ctx.r4.u32);"
+          ]
+        },
+        {
+          "instruction": "stb r11,132(r3)",
+          "statements": [
+            "PPC_STORE_U8(ctx.r3.u32 + 132, ctx.r11.u8);"
+          ]
+        },
+        {
+          "instruction": "stb r11,133(r3)",
+          "statements": [
+            "PPC_STORE_U8(ctx.r3.u32 + 133, ctx.r11.u8);"
+          ]
+        },
+        {
+          "instruction": "stb r11,134(r3)",
+          "statements": [
+            "PPC_STORE_U8(ctx.r3.u32 + 134, ctx.r11.u8);"
+          ]
+        },
+        {
+          "instruction": "stb r11,135(r3)",
+          "statements": [
+            "PPC_STORE_U8(ctx.r3.u32 + 135, ctx.r11.u8);"
+          ]
+        },
+        {
+          "instruction": "blr",
+          "statements": [
+            "return;"
+          ]
+        }
+      ],
+      "family": "ReplicateByte",
+      "operation_summary": "ReplicateByte",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 25526,
+      "status": "bounded_original_ppc_comparison_passed"
+    }
+  ]
+}

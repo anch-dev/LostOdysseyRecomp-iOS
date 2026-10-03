@@ -101,7 +101,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.3.cpp",
       "line": 21379
     },
@@ -198,7 +198,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.5.cpp",
       "line": 38436
     },
@@ -309,7 +309,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.12.cpp",
       "line": 54623
     },
@@ -395,7 +395,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.14.cpp",
       "line": 25568
     },
@@ -506,7 +506,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.14.cpp",
       "line": 25967
     },
@@ -585,7 +585,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp",
       "line": 7521
     },
@@ -717,7 +717,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.40.cpp",
       "line": 35815
     },
@@ -804,7 +804,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
       "line": 29499
     },
@@ -891,7 +891,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
       "line": 32577
     },
@@ -1023,7 +1023,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.57.cpp",
       "line": 9560
     },
@@ -1125,7 +1125,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.57.cpp",
       "line": 10765
     },
@@ -1257,7 +1257,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.57.cpp",
       "line": 16181
     },
@@ -1360,7 +1360,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.60.cpp",
       "line": 26940
     },
@@ -1522,7 +1522,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.60.cpp",
       "line": 28345
     },
@@ -1624,7 +1624,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.62.cpp",
       "line": 1605
     },
@@ -1727,7 +1727,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.62.cpp",
       "line": 25328
     },
@@ -1814,7 +1814,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.64.cpp",
       "line": 12302
     },
@@ -1901,7 +1901,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.66.cpp",
       "line": 13632
     },
@@ -1988,7 +1988,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.66.cpp",
       "line": 35144
     },
@@ -2120,7 +2120,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.70.cpp",
       "line": 9194
     },
@@ -2207,7 +2207,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.70.cpp",
       "line": 26610
     },
@@ -2294,7 +2294,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.72.cpp",
       "line": 6160
     },
@@ -2382,7 +2382,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.73.cpp",
       "line": 20522
     },
@@ -2478,7 +2478,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.74.cpp",
       "line": 7964
     },
@@ -2574,7 +2574,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
       "line": 24183
     },
@@ -2670,7 +2670,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.93.cpp",
       "line": 10038
     },
@@ -2766,7 +2766,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.93.cpp",
       "line": 10056
     },
@@ -2851,7 +2851,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.98.cpp",
       "line": 8692
     },
@@ -2936,7 +2936,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.98.cpp",
       "line": 8708
     },
@@ -3021,7 +3021,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.98.cpp",
       "line": 8724
     },
@@ -3106,7 +3106,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.98.cpp",
       "line": 8740
     },
@@ -3202,7 +3202,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.100.cpp",
       "line": 16329
     },
@@ -3350,7 +3350,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.104.cpp",
       "line": 8525
     },
@@ -3498,7 +3498,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.105.cpp",
       "line": 19910
     },
@@ -3646,7 +3646,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.105.cpp",
       "line": 22657
     },
@@ -3794,7 +3794,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.105.cpp",
       "line": 22681
     },
@@ -3942,7 +3942,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.106.cpp",
       "line": 12217
     },
@@ -4090,7 +4090,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.106.cpp",
       "line": 15848
     },
@@ -4238,7 +4238,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.107.cpp",
       "line": 2287
     },
@@ -4334,7 +4334,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.131.cpp",
       "line": 20873
     },
@@ -4430,7 +4430,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.149.cpp",
       "line": 17420
     },
@@ -4526,7 +4526,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.164.cpp",
       "line": 9615
     },
@@ -4622,7 +4622,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.164.cpp",
       "line": 9633
     },
@@ -4718,7 +4718,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.173.cpp",
       "line": 17123
     },
@@ -4820,7 +4820,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.174.cpp",
       "line": 730
     },
@@ -4907,7 +4907,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.174.cpp",
       "line": 748
     },
@@ -5003,7 +5003,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.175.cpp",
       "line": 2847
     },
@@ -5090,7 +5090,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.177.cpp",
       "line": 4802
     },
@@ -5207,7 +5207,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.178.cpp",
       "line": 2178
     },
@@ -5317,7 +5317,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.179.cpp",
       "line": 983
     },
@@ -5434,7 +5434,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.180.cpp",
       "line": 39420
     },
@@ -5530,7 +5530,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.180.cpp",
       "line": 48224
     },
@@ -5626,7 +5626,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.180.cpp",
       "line": 48242
     },
@@ -5711,7 +5711,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.180.cpp",
       "line": 61633
     },
@@ -5796,7 +5796,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.180.cpp",
       "line": 62087
     },
@@ -5881,7 +5881,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.180.cpp",
       "line": 62180
     },
@@ -5968,7 +5968,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.181.cpp",
       "line": 28473
     },
@@ -6071,7 +6071,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.181.cpp",
       "line": 28890
     },
@@ -6189,7 +6189,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.181.cpp",
       "line": 28908
     },
@@ -6292,7 +6292,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.181.cpp",
       "line": 29975
     },
@@ -6410,7 +6410,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.181.cpp",
       "line": 30178
     },
@@ -6513,7 +6513,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.181.cpp",
       "line": 30629
     },
@@ -6631,7 +6631,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.181.cpp",
       "line": 31571
     },
@@ -6742,7 +6742,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.181.cpp",
       "line": 36144
     },
@@ -6853,7 +6853,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.181.cpp",
       "line": 36164
     },
@@ -6964,7 +6964,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.181.cpp",
       "line": 36184
     },
@@ -7064,7 +7064,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.185.cpp",
       "line": 10500
     },
@@ -7196,7 +7196,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.189.cpp",
       "line": 33461
     },
@@ -7292,7 +7292,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.189.cpp",
       "line": 34332
     },
@@ -7388,7 +7388,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.190.cpp",
       "line": 33497
     },
@@ -7499,7 +7499,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp",
       "line": 577
     },
@@ -7579,7 +7579,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp",
       "line": 29902
     },
@@ -7659,7 +7659,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.203.cpp",
       "line": 18601
     },
@@ -7759,7 +7759,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.216.cpp",
       "line": 7637
     },
@@ -7904,7 +7904,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.216.cpp",
       "line": 20782
     },
@@ -8034,7 +8034,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.216.cpp",
       "line": 37611
     },
@@ -8164,7 +8164,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
       "line": 3193
     },
@@ -8294,7 +8294,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
       "line": 4110
     },
@@ -8439,7 +8439,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
       "line": 7910
     },
@@ -8584,7 +8584,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
       "line": 10140
     },
@@ -8729,7 +8729,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
       "line": 12736
     },
@@ -8874,7 +8874,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
       "line": 14819
     },
@@ -8961,7 +8961,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.218.cpp",
       "line": 10536
     },
@@ -9078,7 +9078,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.218.cpp",
       "line": 20499
     },
@@ -9174,7 +9174,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.219.cpp",
       "line": 7244
     },
@@ -9260,7 +9260,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.226.cpp",
       "line": 39653
     },
@@ -9376,7 +9376,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.226.cpp",
       "line": 39669
     },
@@ -9521,7 +9521,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.226.cpp",
       "line": 39689
     },
@@ -9607,7 +9607,7 @@
         "lr_writes": [],
         "ctr_writes": []
       },
-      "status": "candidate_only_not_recovered",
+      "status": "bounded_original_ppc_comparison_passed",
       "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.226.cpp",
       "line": 40260
     }
