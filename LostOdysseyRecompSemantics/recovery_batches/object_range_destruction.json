@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Four live-vtable object range destructors, minimum caller-boundary representatives.",
+  "families": [
+    {
+      "name": "object-range-destruction",
+      "manifest": "LostOdysseyRecompSemantics/object_range_destruction_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/object_range_destruction_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nvoid OriginalIndirect(std::uint32_t,PPCContext&,std::uint8_t*);\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(a) OriginalIndirect((a),ctx,base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/object_range_destruction.cpp"
+      ]
+    }
+  ]
+}
