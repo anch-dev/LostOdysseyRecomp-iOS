@@ -46,6 +46,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/instance_fp_extension_family.cpp
     src/instance_copy_initializer_family.cpp
     src/instance_composed_initializer_family.cpp
+    src/instance_linker_composed_family.cpp
     src/object_startup.cpp
     src/manager_construction.cpp
     src/manager_storage.cpp
