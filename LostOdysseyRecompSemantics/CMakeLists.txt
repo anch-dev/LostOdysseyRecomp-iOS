@@ -20,6 +20,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/crt_lifecycle.cpp
     src/crt_stream_state.cpp
     src/crt_allocation.cpp
+    src/crt_reallocate.cpp
     src/invalid_parameter.cpp
     src/manager_init.cpp
     src/manager_facade.cpp
