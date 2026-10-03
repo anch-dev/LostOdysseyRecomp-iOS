@@ -1,0 +1,351 @@
+{
+  "schema_version": 1,
+  "family": "instance_field_initializer",
+  "source": "out/function-inventory/registered-instance-candidates.json",
+  "entry_count": 19,
+  "registered_type_reference_count": 19,
+  "entries": [
+    {
+      "address": "82570038",
+      "first_field_offset": 60,
+      "first_initial_word": "0x82065E9C",
+      "second_initial_word": "0x82065EE0",
+      "vtable": "0x8200DF68",
+      "first_final_word": "0x8202BF78",
+      "second_final_word": "0x82030DC0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "source_line": 3864,
+      "registered_types": [
+        {
+          "constructor": "82573D20",
+          "type_name": "InterpTrackDirector",
+          "kind": "constructor"
+        }
+      ]
+    },
+    {
+      "address": "82570170",
+      "first_field_offset": 60,
+      "first_initial_word": "0x82065E9C",
+      "second_initial_word": "0x82065EE0",
+      "vtable": "0x821CFDC8",
+      "first_final_word": "0x8202BF78",
+      "second_final_word": "0x82030DC0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "source_line": 4064,
+      "registered_types": [
+        {
+          "constructor": "82428328",
+          "type_name": "InterpTrackEvent",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "825702A8",
+      "first_field_offset": 60,
+      "first_initial_word": "0x82065E9C",
+      "second_initial_word": "0x82065EE0",
+      "vtable": "0x821CFF40",
+      "first_final_word": "0x8202BF78",
+      "second_final_word": "0x82030DC0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "source_line": 4257,
+      "registered_types": [
+        {
+          "constructor": "82575030",
+          "type_name": "InterpTrackFaceFX",
+          "kind": "constructor"
+        }
+      ]
+    },
+    {
+      "address": "825703E0",
+      "first_field_offset": 60,
+      "first_initial_word": "0x82065E9C",
+      "second_initial_word": "0x82065EE0",
+      "vtable": "0x821D00B8",
+      "first_final_word": "0x821CFAF8",
+      "second_final_word": "0x82030DC0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "source_line": 4457,
+      "registered_types": [
+        {
+          "constructor": "82573180",
+          "type_name": "InterpTrackFloatBase",
+          "kind": "constructor"
+        }
+      ]
+    },
+    {
+      "address": "82570520",
+      "first_field_offset": 60,
+      "first_initial_word": "0x82065E9C",
+      "second_initial_word": "0x82065EE0",
+      "vtable": "0x821D0230",
+      "first_final_word": "0x821CFAF8",
+      "second_final_word": "0x821D03A8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "source_line": 4662,
+      "registered_types": [
+        {
+          "constructor": "82428438",
+          "type_name": "InterpTrackAnimControl",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82570700",
+      "first_field_offset": 60,
+      "first_initial_word": "0x82065E9C",
+      "second_initial_word": "0x82065EE0",
+      "vtable": "0x821CF808",
+      "first_final_word": "0x821CFAF8",
+      "second_final_word": "0x82030DC0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "source_line": 4972,
+      "registered_types": [
+        {
+          "constructor": "824284F8",
+          "type_name": "InterpTrackFade",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "825709D0",
+      "first_field_offset": 60,
+      "first_initial_word": "0x82065E9C",
+      "second_initial_word": "0x82065EE0",
+      "vtable": "0x821D0838",
+      "first_final_word": "0x821CFAF8",
+      "second_final_word": "0x82030DC0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "source_line": 5437,
+      "registered_types": [
+        {
+          "constructor": "824285B8",
+          "type_name": "InterpTrackFloatProp",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82570AC0",
+      "first_field_offset": 60,
+      "first_initial_word": "0x82065E9C",
+      "second_initial_word": "0x82065EE0",
+      "vtable": "0x821CF980",
+      "first_final_word": "0x821CFAF8",
+      "second_final_word": "0x82030DC0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "source_line": 5592,
+      "registered_types": [
+        {
+          "constructor": "82428678",
+          "type_name": "InterpTrackSlomo",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82570CF0",
+      "first_field_offset": 60,
+      "first_initial_word": "0x82065E9C",
+      "second_initial_word": "0x82065EE0",
+      "vtable": "0x821CF078",
+      "first_final_word": "0x821CF208",
+      "second_final_word": "0x82030DC0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "source_line": 5939,
+      "registered_types": [
+        {
+          "constructor": "82572ED0",
+          "type_name": "InterpTrackMove",
+          "kind": "constructor"
+        }
+      ]
+    },
+    {
+      "address": "82570E28",
+      "first_field_offset": 60,
+      "first_initial_word": "0x82065E9C",
+      "second_initial_word": "0x82065EE0",
+      "vtable": "0x821D09B0",
+      "first_final_word": "0x8202D440",
+      "second_final_word": "0x82030DC0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "source_line": 6139,
+      "registered_types": [
+        {
+          "constructor": "825733A8",
+          "type_name": "InterpTrackVectorBase",
+          "kind": "constructor"
+        }
+      ]
+    },
+    {
+      "address": "82570F58",
+      "first_field_offset": 60,
+      "first_initial_word": "0x82065E9C",
+      "second_initial_word": "0x82065EE0",
+      "vtable": "0x821D0B28",
+      "first_final_word": "0x8202D440",
+      "second_final_word": "0x82030DC0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "source_line": 6334,
+      "registered_types": [
+        {
+          "constructor": "824287D8",
+          "type_name": "InterpTrackColorProp",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82571048",
+      "first_field_offset": 60,
+      "first_initial_word": "0x82065E9C",
+      "second_initial_word": "0x82065EE0",
+      "vtable": "0x821CFB38",
+      "first_final_word": "0x8202D440",
+      "second_final_word": "0x82030DC0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "source_line": 6489,
+      "registered_types": [
+        {
+          "constructor": "82428898",
+          "type_name": "InterpTrackColorScale",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82571140",
+      "first_field_offset": 60,
+      "first_initial_word": "0x82065E9C",
+      "second_initial_word": "0x82065EE0",
+      "vtable": "0x821D0CA0",
+      "first_final_word": "0x8202D440",
+      "second_final_word": "0x82030DC0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "source_line": 6649,
+      "registered_types": [
+        {
+          "constructor": "82428958",
+          "type_name": "InterpTrackSound",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82571230",
+      "first_field_offset": 60,
+      "first_initial_word": "0x82065E9C",
+      "second_initial_word": "0x82065EE0",
+      "vtable": "0x821D0E18",
+      "first_final_word": "0x8202D440",
+      "second_final_word": "0x82030DC0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "source_line": 6804,
+      "registered_types": [
+        {
+          "constructor": "82428A18",
+          "type_name": "InterpTrackVectorMaterialParam",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82571320",
+      "first_field_offset": 60,
+      "first_initial_word": "0x82065E9C",
+      "second_initial_word": "0x82065EE0",
+      "vtable": "0x821D0F90",
+      "first_final_word": "0x8202D440",
+      "second_final_word": "0x82030DC0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "source_line": 6959,
+      "registered_types": [
+        {
+          "constructor": "82428AD8",
+          "type_name": "InterpTrackVectorProp",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82582A90",
+      "first_field_offset": 60,
+      "first_initial_word": "0x82065E9C",
+      "second_initial_word": "0x82065EE0",
+      "vtable": "0x820661A4",
+      "first_final_word": "0x8206615C",
+      "second_final_word": "0x82066130",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "source_line": 24060,
+      "registered_types": [
+        {
+          "constructor": "82572B70",
+          "type_name": "InterpTrack",
+          "kind": "constructor"
+        }
+      ]
+    },
+    {
+      "address": "82656CA0",
+      "first_field_offset": 88,
+      "first_initial_word": "0x821EE320",
+      "second_initial_word": "0x821590C4",
+      "vtable": "0x821EED00",
+      "first_final_word": "0x821EF0A0",
+      "second_final_word": "0x821EF0BC",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.53.cpp",
+      "source_line": 22818,
+      "registered_types": [
+        {
+          "constructor": "8243BDA0",
+          "type_name": "UIDataProvider_OnlineProfileSettingsArray",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82656D98",
+      "first_field_offset": 88,
+      "first_initial_word": "0x821EE320",
+      "second_initial_word": "0x821590C4",
+      "vtable": "0x821EEF70",
+      "first_final_word": "0x821EF0A0",
+      "second_final_word": "0x821EF0BC",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.53.cpp",
+      "source_line": 22978,
+      "registered_types": [
+        {
+          "constructor": "8243BE60",
+          "type_name": "UIDataProvider_SettingsArray",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "826A0C88",
+      "first_field_offset": 108,
+      "first_initial_word": "0x821590C4",
+      "second_initial_word": "0x821FD258",
+      "vtable": "0x821FDDA0",
+      "first_final_word": "0x821FDEB8",
+      "second_final_word": "0x821FDEC8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.59.cpp",
+      "source_line": 22341,
+      "registered_types": [
+        {
+          "constructor": "8243A230",
+          "type_name": "UIComp_DrawImage",
+          "kind": "lazy_singleton"
+        }
+      ]
+    }
+  ]
+}
