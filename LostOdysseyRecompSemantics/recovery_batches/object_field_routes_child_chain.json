@@ -1,6 +1,6 @@
 {
   "schema": "semantic-recovery-batch-v1",
-  "scope": "Current four-case real-child chain validation. The original eight-case callback-tail suite and receipt are historical; use object_field_routes_child_chain.json for current validation.",
+  "scope": "Validation-only 822C60D0 -> 822C5E58 -> 822C5F28 composed caller chain, four focused cases.",
   "families": [
     {
       "name": "object-field-child-chain",
@@ -12,7 +12,5 @@
         "LostOdysseyRecompSemantics/src/object_child_float.cpp"
       ]
     }
-  ],
-  "superseded_by": "recovery_batches/object_field_routes_child_chain.json",
-  "historical_callback_source_commit": "2c1554f5"
+  ]
 }

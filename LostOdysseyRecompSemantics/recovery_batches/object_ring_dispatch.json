@@ -1,0 +1,16 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Actual 823EFA30 lower and 82372FB0 upper with accepted 82290AB8 ring reservation; seven focused PPC cases.",
+  "families": [
+    {
+      "name": "object-ring-dispatch",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/object_ring_dispatch_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/object_ring_dispatch_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\nvoid OriginalSave(PPCContext&,std::uint8_t*);\nvoid OriginalRestore(PPCContext&,std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_82290AB8);\nvoid OriginalIndirect(std::uint32_t,PPCContext&,std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_823EFA30);\n#define __savegprlr_28(c,b) OriginalSave(c,b)\n#define __restgprlr_28(c,b) OriginalRestore(c,b)\n#define sub_82290AB8(c,b) __imp__sub_82290AB8(c,b)\n#define sub_823EFA30(c,b) __imp__sub_823EFA30(c,b)\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(t) OriginalIndirect((t),ctx,base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/object_ring_dispatch.cpp",
+        "LostOdysseyRecompSemantics/src/ring_reservation.cpp"
+      ]
+    }
+  ]
+}

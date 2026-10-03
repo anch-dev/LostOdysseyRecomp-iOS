@@ -53,6 +53,8 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/object_record_update.cpp
     src/float_triplet_transfer.cpp
     src/object_field_routes.cpp
+    src/object_child_float.cpp
+    src/object_ring_dispatch.cpp
     src/crt_allocation.cpp
     src/crt_reallocate.cpp
     src/invalid_parameter.cpp

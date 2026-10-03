@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Complete 822C5E58 plus direct 822C5F28 PPC body, seven focused original-PPC cases.",
+  "families": [
+    {
+      "name": "object-child-float",
+      "manifest": "LostOdysseyRecompSemantics/object_child_float_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/object_child_float_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nvoid OriginalSave27(PPCContext&,std::uint8_t*);\nvoid OriginalSave29(PPCContext&,std::uint8_t*);\nvoid OriginalRestore27(PPCContext&,std::uint8_t*);\nvoid OriginalRestore29(PPCContext&,std::uint8_t*);\nvoid OriginalVerify(PPCContext&,std::uint8_t*);\nvoid OriginalIndirect(std::uint32_t,PPCContext&,std::uint8_t*);\n#define __savegprlr_27(c,b) OriginalSave27(c,b)\n#define __savegprlr_29(c,b) OriginalSave29(c,b)\n#define __restgprlr_27(c,b) OriginalRestore27(c,b)\n#define __restgprlr_29(c,b) OriginalRestore29(c,b)\nextern \"C\" PPC_FUNC(__imp__sub_822C5F28);\n#define sub_822C5F28(c,b) __imp__sub_822C5F28(c,b)\n#define sub_82384C08(c,b) OriginalVerify(c,b)\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(target) OriginalIndirect((target),ctx,base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/object_child_float.cpp"
+      ]
+    }
+  ]
+}

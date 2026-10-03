@@ -1,5 +1,6 @@
 #include "lo_semantics/object_field_routes.h"
 #include "lo_semantics/loaded_single.h"
+#include "lo_semantics/object_child_float.h"
 #include "lo_semantics/recovery_abi.h"
 
 #include <bit>
@@ -10,6 +11,75 @@ namespace lo::semantic::gpu::object_field_routes
 namespace
 {
 using recovery_abi::Address;
+namespace child = object_child_float;
+
+child::Registers ToChild(const Registers& state)
+{
+    child::Registers result{};
+    result.r[1] = state.sp; result.r[3] = state.r3;
+    result.r[4] = state.r4; result.r[5] = state.r5;
+    result.r[10] = state.r10; result.r[11] = state.r11;
+    result.r[12] = state.r12; result.r[27] = state.r27;
+    result.r[28] = state.r28; result.r[29] = state.r29;
+    result.r[30] = state.r30; result.r[31] = state.r31;
+    result.ctr = state.ctr; result.lr = state.lr;
+    result.f0_bits = state.f0_bits; result.f1_bits = state.f1_bits;
+    result.f13_bits = state.f13_bits;
+    result.f30_bits = state.f30_bits; result.f31_bits = state.f31_bits;
+    result.cached_fp_control = state.cached_fp_control;
+    result.xer_so = state.xer_so; result.xer_ca = state.xer_ca;
+    result.cr6 = {state.cr6.lt, state.cr6.gt, state.cr6.eq, state.cr6.un};
+    return result;
+}
+void FromChild(Registers& state, const child::Registers& result)
+{
+    state.sp = result.r[1]; state.r3 = result.r[3];
+    state.r4 = result.r[4]; state.r5 = result.r[5];
+    state.r10 = result.r[10]; state.r11 = result.r[11];
+    state.r12 = result.r[12]; state.r27 = result.r[27];
+    state.r28 = result.r[28]; state.r29 = result.r[29];
+    state.r30 = result.r[30]; state.r31 = result.r[31];
+    state.ctr = result.ctr; state.lr = result.lr;
+    state.f0_bits = result.f0_bits; state.f1_bits = result.f1_bits;
+    state.f13_bits = result.f13_bits;
+    state.f30_bits = result.f30_bits; state.f31_bits = result.f31_bits;
+    state.cached_fp_control = result.cached_fp_control;
+    state.xer_so = result.xer_so; state.xer_ca = result.xer_ca;
+    state.cr6 = {result.cr6.lt, result.cr6.gt,
+        result.cr6.eq, result.cr6.un};
+}
+struct ChildServices final : child::NativeServices
+{
+    object_field_routes::NativeServices& native;
+    object_field_routes::Registers& caller;
+    ChildServices(object_field_routes::NativeServices& service,
+        object_field_routes::Registers& state)
+        : native(service), caller(state) {}
+    void SetHostFpControl(std::uint32_t control) override
+    { native.SetHostFpControl(control); }
+    void CallGuest(GuestAddress target, GuestMemory& memory,
+        child::Registers& state) override
+    {
+        object_field_routes::Registers exposed = caller;
+        FromChild(exposed, state);
+        native.CallGuest(target, memory, exposed);
+        caller = exposed;
+        const auto updated = ToChild(exposed);
+        state.r[1] = updated.r[1]; state.r[3] = updated.r[3];
+        state.r[4] = updated.r[4]; state.r[5] = updated.r[5];
+        state.r[10] = updated.r[10]; state.r[11] = updated.r[11];
+        state.r[12] = updated.r[12]; state.r[27] = updated.r[27];
+        state.r[28] = updated.r[28]; state.r[29] = updated.r[29];
+        state.r[30] = updated.r[30]; state.r[31] = updated.r[31];
+        state.ctr = updated.ctr; state.lr = updated.lr;
+        state.f0_bits = updated.f0_bits; state.f1_bits = updated.f1_bits;
+        state.f13_bits = updated.f13_bits;
+        state.f30_bits = updated.f30_bits; state.f31_bits = updated.f31_bits;
+        state.cached_fp_control = updated.cached_fp_control;
+        state.xer_so = updated.xer_so; state.xer_ca = updated.xer_ca;
+        state.cr6 = updated.cr6;
+    }
+};
 
 LoadedSingle LoadSingle(GuestMemory& memory, NativeServices& native,
     Registers& state, GuestAddress address)
@@ -129,7 +199,10 @@ void RouteOptionalField(GuestMemory& memory, NativeServices& native,
     {
         state.r5 = 1u;
         state.r4 = 1u;
-        native.CallGuest(0x822c5e58u, memory, state);
+        auto lower = ToChild(state);
+        ChildServices services(native, state);
+        (void)child::Apply(0x822c5e58u, memory, services, lower);
+        FromChild(state, lower);
     }
 }
 } // namespace

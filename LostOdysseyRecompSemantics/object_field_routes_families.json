@@ -109,7 +109,7 @@
     "header": "include/lo_semantics/object_field_routes.h",
     "source": "src/object_field_routes.cpp",
     "oracle": "tests/object_field_routes_oracle.cpp",
-    "scope": "Object field chain and virtual scale, preferred float field selection, flag-directed virtual tail routing and optional-field direct tail routing. Ordered ordinary RAM, selected GPR/FPR/CR6/FPSCR and guest-call boundaries are modeled."
+    "scope": "Object field chain/virtual scale, preferred float selection, flag-directed virtual tail and optional-field tail composed with recovered object_child_float 822C5E58/822C5F28."
   },
   "validation": {
     "status": "passed",
@@ -118,8 +118,21 @@
     "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-object-field-routes-tests/object-field-routes-result.json",
     "library": "Windows-native /W4 /WX MT static library",
     "tested_scope": "Virtual scale callback with live object mutation, three preferred-float branches, both flag-selected virtual tails and absent/present optional-field direct tails. Complete pinned caller bodies; mutable guest callbacks represent callee boundaries. Selected GPR/FPR/CR6/FP cache, x64 host control, ordered RAM and call events.",
-    "unvalidated_scope": "Callee internals including direct 822C5E58, signaling NaNs, subnormals, host exceptions, other inputs/aliasing, faults, MMIO, concurrency, unselected ABI/FP and runtime.",
+    "unvalidated_scope": "Virtual guest callee internals, other inputs/aliasing, unexposed volatile registers at remaining guest boundaries, signaling NaNs/subnormals/host exceptions, faults, MMIO, concurrency, unselected ABI/FP and runtime.",
     "runtime_validated": false,
-    "complete": false
+    "complete": false,
+    "historical_initial_status": "Initial eight caller cases used an explicit 822C5E58 boundary; that original receipt is retained as historical evidence. Current optional-field tail uses real lower semantics and the four-case composed extension below.",
+    "composed_child_extension": {
+      "status": "passed",
+      "focused_original_ppc_cases": 4,
+      "unknown_entry_checks": 0,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-object-field-child-chain-tests/object-field-child-chain-result.json",
+      "library": "Windows-native /W4 /WX MT static library",
+      "tested_scope": "Actual 822C60D0 -> 822C5E58 -> 822C5F28 bodies: absent optional pointer, present empty list, two-child positive max and second negative child early return. Expanded r27-r30/F30/F31/XER.CA bridge includes nonzero high bits; selected caller state, owned frame spills, FP cache/x64 host control and ordinary RAM. No mapping credit.",
+      "unvalidated_scope": "Other inputs/aliasing, unexposed volatile registers at guest boundaries, 82384C08 and virtual guest callees, signaling NaNs/subnormals/host exceptions, faults, MMIO, concurrency and runtime.",
+      "runtime_validated": false,
+      "complete": false
+    },
+    "current_optional_field_batch": "recovery_batches/object_field_routes_child_chain.json"
   }
 }
