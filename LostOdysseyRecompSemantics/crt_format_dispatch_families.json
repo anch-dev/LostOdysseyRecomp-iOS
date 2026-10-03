@@ -282,6 +282,38 @@
         ]
       },
       "status": "bounded_readable_library"
+    },
+    {
+      "address": "82B7F038",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.175.cpp",
+      "source_line": 19171,
+      "instruction_count": 2,
+      "instructions": [
+        "li r4,0",
+        "b 0x82b7ee58"
+      ],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82B7F038) {\n\tPPC_FUNC_PROLOGUE();\n\t// li r4,0\n\tctx.r4.s64 = 0;\n\t// b 0x82b7ee58\n\tsub_82B7EE58(ctx, base);\n\treturn;\n}",
+      "direct_calls": [
+        "82B7EE58"
+      ],
+      "native_calls": [],
+      "status": "bounded_readable_library"
+    },
+    {
+      "address": "82B7F040",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.175.cpp",
+      "source_line": 19184,
+      "instruction_count": 2,
+      "instructions": [
+        "li r4,0",
+        "b 0x82b7eef8"
+      ],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82B7F040) {\n\tPPC_FUNC_PROLOGUE();\n\t// li r4,0\n\tctx.r4.s64 = 0;\n\t// b 0x82b7eef8\n\tsub_82B7EEF8(ctx, base);\n\treturn;\n}",
+      "direct_calls": [
+        "82B7EEF8"
+      ],
+      "native_calls": [],
+      "status": "bounded_readable_library"
     }
   ],
   "validation": {
@@ -290,12 +322,22 @@
     "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-format-dispatch-tests/crt-format-dispatch-result.json",
     "library": "Windows-native /W4 /WX shared MT library; accepted lower models reused",
     "runtime_validated": false,
-    "complete": false
+    "complete": false,
+    "legacy_tail_extension": {
+      "entries": [
+        "82B7F038",
+        "82B7F040"
+      ],
+      "focused_original_ppc_cases": 2,
+      "unknown_entry_checks": 0,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-format-legacy-tail-tests/crt-format-legacy-tails-result.json",
+      "scope": "New tails only: nonzero incoming full r4 cleared before accepted trim/classified decimal insertion. Prior dispatch checks reused."
+    }
   },
   "implementation": {
     "header": "include/lo_semantics/crt_format_dispatch.h",
     "source": "src/crt_format_dispatch.cpp",
     "oracle": "tests/crt_format_dispatch_oracle.cpp",
-    "scope": "Ten-slot float dispatch initialization/tail, ASCII lowercasing, two in-place float text postprocessors and fatal-error tail. Actual accepted character-classification and fatal lower models; large float conversion remains unrecovered."
+    "scope": "Ten-slot float dispatch initialization/tail, ASCII lowercasing, two in-place float text postprocessors with legacy tails and fatal-error tail. Actual accepted character-classification and fatal lower models; float conversion is a separate family."
   }
 }

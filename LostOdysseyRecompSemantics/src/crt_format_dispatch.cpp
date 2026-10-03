@@ -312,12 +312,18 @@ bool Apply(GuestAddress entry, GuestMemory& memory,
     case 0x82b7a678u:
         InitializeFloatDispatch(memory, state);
         return true;
+    case 0x82b7f040u:
+        state.r[4] = 0;
+        [[fallthrough]];
     case 0x82b7eef8u:
         TrimFloatText(memory, state);
         return true;
     case 0x82b833d0u:
         LowerAscii(state);
         return true;
+    case 0x82b7f038u:
+        state.r[4] = 0;
+        [[fallthrough]];
     case 0x82b7ee58u:
         NormalizeFloatDecimal(memory, state);
         return true;

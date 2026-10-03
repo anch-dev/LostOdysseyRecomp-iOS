@@ -1,4 +1,4 @@
-// Appended after the six pinned PPC bodies by semantic_recovery.py.
+// Appended after the pinned PPC bodies by semantic_recovery.py.
 #include "lo_semantics/crt_format_dispatch.h"
 #include "lo_semantics/read_only_fields.h"
 #include "lo_semantics/recovery_abi.h"
@@ -28,6 +28,7 @@ enum class Mode { Initialize, InitializeTail, AsciiA, AsciiZ, AsciiBefore,
     TrimFraction, InsertExponent, InsertScanned, MissingSupport };
 struct Case { GuestAddress entry; Mode mode; const char* path; };
 constexpr Case Cases[] = {
+#ifndef LO_CRT_FORMAT_LEGACY_ONLY
     {0x82b7a5e0u, Mode::Initialize, "write-ten-slots"},
     {0x82b7a678u, Mode::InitializeTail, "tail-write-ten-slots"},
     {0x82b833d0u, Mode::AsciiA, "ascii-A"},
@@ -42,6 +43,9 @@ constexpr Case Cases[] = {
     {0x82b7ee58u, Mode::InsertExponent, "leading-E-direct"},
     {0x82b7ee58u, Mode::InsertScanned, "classification-scan"},
     {0x82b84c90u, Mode::MissingSupport, "fatal-tail-returning"},
+#endif
+    {0x82b7f040u, Mode::TrimZeros, "legacy-trim-clears-r4"},
+    {0x82b7f038u, Mode::InsertScanned, "legacy-insert-clears-r4"},
 };
 
 void Require(bool value, const char* why)
@@ -273,6 +277,8 @@ void Check(const Case& item)
     case 0x82b7ee58u: __imp__sub_82B7EE58(raw,original.Bytes()); break;
     case 0x82b833d0u: __imp__sub_82B833D0(raw,original.Bytes()); break;
     case 0x82b84c90u: __imp__sub_82B84C90(raw,original.Bytes()); break;
+    case 0x82b7f040u: __imp__sub_82B7F040(raw,original.Bytes()); break;
+    case 0x82b7f038u: __imp__sub_82B7F038(raw,original.Bytes()); break;
     default: throw std::runtime_error("invalid dispatch case");
     }
     Require(family::Apply(item.entry,right_memory,Deps(right),state),
@@ -342,6 +348,10 @@ int main()
     try
     {
         for(const auto& item:Cases) Check(item);
+#ifdef LO_CRT_FORMAT_LEGACY_ONLY
+        std::printf("PASS crt-format-legacy-tails %zu original PPC cases\n",
+            std::size(Cases));
+#else
         GuestWindow window(Regions), baseline(Regions);
         Seed(window,Cases[0]); Seed(baseline,Cases[0]);
         auto memory=window.Memory();
@@ -353,6 +363,7 @@ int main()
             services.events.empty(),"unknown entry changed state");
         std::printf("PASS crt-format-dispatch %zu original PPC cases + unknown\n",
             std::size(Cases));
+#endif
         std::puts("LIMIT selected PPC state/ordinary RAM; accepted character-table and fatal models; no large float conversion, native internals, faults, MMIO, concurrency or runtime proof");
         return 0;
     }

@@ -1,12 +1,12 @@
 {
   "schema": "semantic-recovery-batch-v1",
-  "scope": "Float dispatch initializer/postprocessing and legacy tails; accepted lower models reused.",
+  "scope": "Two newly recovered legacy tails only; prior dispatch cases not rerun.",
   "families": [
     {
-      "name": "crt-format-dispatch",
+      "name": "crt-format-legacy-tails",
       "manifest": "LostOdysseyRecompSemantics/crt_format_dispatch_families.json",
       "harness": "LostOdysseyRecompSemantics/tests/crt_format_dispatch_oracle.cpp",
-      "prelude": "extern \"C\" PPC_FUNC(__imp__sub_82B7A5E0);\nextern \"C\" PPC_FUNC(__imp__sub_82B7A678);\nextern \"C\" PPC_FUNC(__imp__sub_82B7EEF8);\nextern \"C\" PPC_FUNC(__imp__sub_82B84C90);\nextern \"C\" PPC_FUNC(__imp__sub_82B7EE58);\nextern \"C\" PPC_FUNC(__imp__sub_82B833D0);\nvoid OriginalCharacterFlag(PPCContext&,std::uint8_t*);\nvoid OriginalFatal(PPCContext&,std::uint8_t*);\n#define sub_823588A0(c,b) OriginalCharacterFlag(c,b)\n#define sub_82B7BED8(c,b) OriginalFatal(c,b)\n#define sub_82B7A5E0(c,b) __imp__sub_82B7A5E0(c,b)\n#define sub_82B833D0(c,b) __imp__sub_82B833D0(c,b)\nextern \"C\" PPC_FUNC(__imp__sub_82B7F038);\nextern \"C\" PPC_FUNC(__imp__sub_82B7F040);\n#define sub_82B7EE58(c,b) __imp__sub_82B7EE58(c,b)\n#define sub_82B7EEF8(c,b) __imp__sub_82B7EEF8(c,b)\n",
+      "prelude": "#define LO_CRT_FORMAT_LEGACY_ONLY\nextern \"C\" PPC_FUNC(__imp__sub_82B7A5E0);\nextern \"C\" PPC_FUNC(__imp__sub_82B7A678);\nextern \"C\" PPC_FUNC(__imp__sub_82B7EEF8);\nextern \"C\" PPC_FUNC(__imp__sub_82B84C90);\nextern \"C\" PPC_FUNC(__imp__sub_82B7EE58);\nextern \"C\" PPC_FUNC(__imp__sub_82B833D0);\nvoid OriginalCharacterFlag(PPCContext&,std::uint8_t*);\nvoid OriginalFatal(PPCContext&,std::uint8_t*);\n#define sub_823588A0(c,b) OriginalCharacterFlag(c,b)\n#define sub_82B7BED8(c,b) OriginalFatal(c,b)\n#define sub_82B7A5E0(c,b) __imp__sub_82B7A5E0(c,b)\n#define sub_82B833D0(c,b) __imp__sub_82B833D0(c,b)\nextern \"C\" PPC_FUNC(__imp__sub_82B7F038);\nextern \"C\" PPC_FUNC(__imp__sub_82B7F040);\n#define sub_82B7EE58(c,b) __imp__sub_82B7EE58(c,b)\n#define sub_82B7EEF8(c,b) __imp__sub_82B7EEF8(c,b)\n",
       "sources": [
         "LostOdysseyRecompSemantics/src/crt_stream_locks.cpp",
         "LostOdysseyRecompSemantics/src/raw_allocation.cpp",
