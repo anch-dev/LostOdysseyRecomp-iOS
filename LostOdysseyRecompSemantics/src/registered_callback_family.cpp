@@ -3,6 +3,7 @@
 #include "lo_semantics/object_registration.h"
 #include "lo_semantics/object_startup.h"
 #include "lo_semantics/registered_constructor_family.h"
+#include "lo_semantics/registered_getter_family.h"
 
 #include <algorithm>
 #include <cstdint>
@@ -752,12 +753,78 @@ constexpr Spec kSpecs[] = {
         // END GENERATED REGISTERED CALLBACK PARAMETERS
 };
 
+constexpr Spec kDependencySpecs[] = {
+    // BEGIN GENERATED REGISTERED DEPENDENCY PARAMETERS
+    {0x824095F8, 102, 112, 0x83315F80, {true, 0x82406CC0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x8248BE98, 103, 112, 0x8331809C, {false, 0x8245E0B0, 0, 0, 0, 0}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x824C17E0, 104, 112, 0x833180F4, {true, 0x824069E8, 0x83315F80, 0x82409540, 0x824095F8, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x824C38B0, 101, 112, 0x83318114, {true, 0x82463F90, 0x833180F4, 0x824C1728, 0x824C17E0, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x824C5DA8, 102, 112, 0x8331811C, {true, 0x82406CC0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x824C5F58, 101, 112, 0x83318120, {true, 0x822A1DD8, 0x8331811C, 0x824C5CF0, 0x824C5DA8, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x824C7D28, 101, 112, 0x83318194, {true, 0x822A1DD8, 0x8331811C, 0x824C5CF0, 0x824C5DA8, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x824C9570, 101, 112, 0x833181E4, {true, 0x82462980, 0x833181DC, 0x824C90D8, 0x824C9190, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x824C9D60, 103, 112, 0x83318200, {false, 0x82462E38, 0, 0, 0, 0}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x824C9F30, 101, 112, 0x83318204, {true, 0x8245D728, 0x83318200, 0x824C9CA8, 0x824C9D60, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x824EE810, 103, 112, 0x833182C0, {false, 0x824221F8, 0, 0, 0, 0}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x824EE9A0, 103, 112, 0x833182C4, {false, 0x824221F8, 0, 0, 0, 0}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x824EEB70, 103, 112, 0x833182C8, {false, 0x824221F8, 0, 0, 0, 0}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x824EED00, 103, 112, 0x833182CC, {false, 0x824221F8, 0, 0, 0, 0}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x824EF248, 103, 112, 0x833182E0, {false, 0x82421D60, 0, 0, 0, 0}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x824F31D0, 101, 112, 0x833183D8, {true, 0x824223C0, 0x833182C4, 0x824EE8E8, 0x824EE9A0, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x82524A78, 101, 112, 0x83318474, {true, 0x822C9910, 0x83318E54, 0x826D82C8, 0x826D8380, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x82537750, 101, 112, 0x833184A0, {true, 0x822A1DD8, 0x8331811C, 0x824C5CF0, 0x824C5DA8, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x8255F038, 101, 112, 0x833184C8, {true, 0x8242FDD0, 0x833184C4, 0x8255EDD0, 0x8255EE88, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x8256C5B8, 101, 112, 0x83318528, {true, 0x82432DC0, 0x83318524, 0x8256C350, 0x8256C408, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x82572758, 102, 112, 0x83318558, {true, 0x82406CC0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x82572C28, 102, 112, 0x83318564, {true, 0x82406CC0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x82572DD8, 102, 112, 0x83318568, {true, 0x82406CC0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x82573238, 101, 112, 0x83318574, {true, 0x824614C8, 0x83318564, 0x82572B70, 0x82572C28, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x82573460, 101, 112, 0x83318578, {true, 0x824614C8, 0x83318564, 0x82572B70, 0x82572C28, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x8259C3A8, 106, 112, 0x8331861C, {true, 0x82406CC0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, {true, 0, 0x83318718, 0x825A50E0, 0x825A5198, 0xFFFFFFFF8218C21C}, false},
+    {0x8259F0B8, 107, 112, 0x833186C8, {false, 0x8241C048, 0, 0, 0, 0}, {true, 0, 0x83318718, 0x825A50E0, 0x825A5198, 0xFFFFFFFF8218C21C}, false},
+    {0x825A5198, 101, 112, 0x83318718, {true, 0x82463FE0, 0x83247210, 0x827CE240, 0x827CE088, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x825A8230, 101, 112, 0x8331871C, {true, 0x8245DD60, 0x8331809C, 0x8248BDE0, 0x8248BE98, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x825AA8B8, 102, 112, 0x83318730, {true, 0x82406CC0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x825BACA0, 101, 112, 0x83318760, {true, 0x8242FDD0, 0x833184C4, 0x8255EDD0, 0x8255EE88, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x825CCAA8, 102, 112, 0x8331877C, {true, 0x82406CC0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x825DB2A8, 101, 112, 0x83318788, {true, 0x82463F90, 0x833180F4, 0x824C1728, 0x824C17E0, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x825DB618, 101, 112, 0x83318790, {true, 0x824605F8, 0x8331878C, 0x825DB3A8, 0x825DB460, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x825F6B18, 104, 112, 0x83318830, {true, 0x824069E8, 0x83315F80, 0x82409540, 0x824095F8, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x8260C378, 102, 112, 0x833188D0, {true, 0x82406CC0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x82610E10, 101, 112, 0x833188F8, {true, 0x8242C048, 0x83318934, 0x82612220, 0x826122D8, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x826111B8, 101, 112, 0x83318904, {true, 0x8242C048, 0x83318934, 0x82612220, 0x826122D8, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x82611370, 101, 112, 0x83318908, {true, 0x8242C048, 0x83318934, 0x82612220, 0x826122D8, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x82611528, 101, 112, 0x8331890C, {true, 0x8242C048, 0x83318934, 0x82612220, 0x826122D8, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x826116E0, 101, 112, 0x83318910, {true, 0x8242C048, 0x83318934, 0x82612220, 0x826122D8, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x82611898, 101, 112, 0x83318914, {true, 0x8242C048, 0x83318934, 0x82612220, 0x826122D8, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x82611B48, 101, 112, 0x8331891C, {true, 0x8242C048, 0x83318934, 0x82612220, 0x826122D8, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x82611D00, 101, 112, 0x83318920, {true, 0x8242C048, 0x83318934, 0x82612220, 0x826122D8, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x826122D8, 102, 112, 0x83318934, {true, 0x82406CC0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x82614F48, 101, 112, 0x83318948, {true, 0x8242D0F8, 0x83318904, 0x82611100, 0x826111B8, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x8267DA08, 102, 112, 0x83318C6C, {true, 0x82406CC0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x82681768, 104, 112, 0x83318CB8, {true, 0x8240C090, 0x83318830, 0x825F6A60, 0x825F6B18, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x82681E90, 103, 112, 0x83318CCC, {false, 0x8240BFC8, 0, 0, 0, 0}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x826F56D0, 101, 112, 0x83318EA0, {true, 0x8242C048, 0x83318934, 0x82612220, 0x826122D8, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x82726360, 101, 112, 0x83318FDC, {true, 0x82460CC8, 0x83318114, 0x824C37F8, 0x824C38B0, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+        // END GENERATED REGISTERED DEPENDENCY PARAMETERS
+};
+
 const Spec* Find(GuestAddress address)
 {
     const Spec* entry = std::lower_bound(std::begin(kSpecs), std::end(kSpecs),
         address, [](const Spec& spec, GuestAddress target)
         { return spec.address < target; });
     return entry == std::end(kSpecs) || entry->address != address ? nullptr : entry;
+}
+
+const Spec* FindDependency(GuestAddress address)
+{
+    const Spec* entry = std::lower_bound(std::begin(kDependencySpecs),
+        std::end(kDependencySpecs), address,
+        [](const Spec& spec, GuestAddress target)
+        { return spec.address < target; });
+    return entry == std::end(kDependencySpecs) || entry->address != address
+        ? nullptr : entry;
 }
 
 class Composition final : public registered_constructor_family::RegistrationServices
@@ -778,6 +845,8 @@ public:
     {
         const GuestAddress frame = caller_sp - spec.frame_size;
         std::uint64_t r3 = incoming_r3;
+        if (spec.shape >= 100u)
+            return RunDependency(spec, r3, frame);
         if (spec.shape == 9)
             return RunInlineParent(spec, r3, frame);
 
@@ -826,6 +895,38 @@ public:
     }
 
 private:
+    // These registrars snapshot the ready gate before writing +52, then
+    // compare a live reload of self+52 after that write.
+    std::uint64_t RunDependency(const Spec& spec, std::uint64_t r3,
+        GuestAddress frame)
+    {
+        const GuestAddress parent = Resolve(spec.parent, r3, frame);
+        const GuestAddress self = memory_.ReadU32(spec.self_global);
+        if (parent != self)
+        {
+            r3 = Getter(spec.parent.getter, r3, frame);
+            memory_.WriteU32(memory_.ReadU32(spec.self_global) + 60u,
+                static_cast<GuestAddress>(r3));
+        }
+        else
+            memory_.WriteU32(self + 60u, 0);
+
+        const GuestAddress meta = Resolve(spec.meta, r3, frame);
+        memory_.WriteU32(memory_.ReadU32(spec.self_global) + 196u, meta);
+        const GuestAddress primary = EnsurePrimary(r3, frame);
+        const bool ready = memory_.ReadU32(kReadyGate) != 0;
+        memory_.WriteU32(memory_.ReadU32(spec.self_global) + 52u, primary);
+        if (ready)
+        {
+            const GuestAddress current_self = memory_.ReadU32(spec.self_global);
+            const GuestAddress captured = memory_.ReadU32(current_self + 52u);
+            r3 = PrimaryGetter(r3, frame);
+            if (captured == static_cast<GuestAddress>(r3))
+                r3 = Ready(memory_.ReadU32(spec.self_global), frame);
+        }
+        return r3;
+    }
+
     class GraphServices final : public ObjectRegistrationServices
     {
     public:
@@ -881,11 +982,17 @@ private:
         if (registered_constructor_family::Apply(target, memory_, manager_,
                 *this, incoming_r3, caller_sp, result))
             return result;
+        if (registered_getter_family::Apply(target, memory_, manager_,
+                *this, incoming_r3, caller_sp, result))
+            return result;
         if (target == 0x82410b90u)
             return ConstructRegisteredObject(memory_, manager_, incoming_r3,
                 caller_sp);
         if (target == 0x82406b00u)
             return PrimaryGetter(incoming_r3, caller_sp);
+        if (target == 0x827ce240u)
+            return services_.CallExternalConstructor(target, incoming_r3,
+                caller_sp);
         return services_.CallExternalGetter(target, incoming_r3, caller_sp);
     }
 
@@ -895,6 +1002,8 @@ private:
         if (target == 0x82403200u)
             return RegisterSharedMetadataObject(incoming_r3, caller_sp);
         if (const Spec* spec = Find(target))
+            return Run(*spec, incoming_r3, caller_sp);
+        if (const Spec* spec = FindDependency(target))
             return Run(*spec, incoming_r3, caller_sp);
         return services_.CallExternalRegistration(target, incoming_r3,
             caller_sp);
@@ -1043,6 +1152,8 @@ bool LinkRegisteredObject(GuestAddress address, GuestMemory& memory,
     std::uint64_t incoming_r3, GuestAddress caller_sp, std::uint64_t& result)
 {
     const Spec* spec = Find(address);
+    if (spec == nullptr)
+        spec = FindDependency(address);
     if (spec == nullptr)
         return false;
     Composition composition(memory, manager_services, services);

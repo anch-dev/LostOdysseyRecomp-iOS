@@ -14,6 +14,8 @@ public:
     virtual ~Services() = default;
     virtual std::uint64_t CallExternalGetter(GuestAddress target,
         std::uint64_t incoming_r3, GuestAddress caller_sp) = 0;
+    virtual std::uint64_t CallExternalConstructor(GuestAddress target,
+        std::uint64_t incoming_r3, GuestAddress caller_sp) = 0;
     virtual std::uint64_t CallExternalRegistration(GuestAddress target,
         std::uint64_t incoming_r3, GuestAddress caller_sp) = 0;
     virtual std::uint64_t RegisterSecondary(std::uint64_t incoming_r3,

@@ -1,0 +1,1436 @@
+{
+  "schema_version": 1,
+  "source": "out/function-inventory/registered-dependency-candidates.json",
+  "family": "registered_dependency_registration",
+  "entry_count": 51,
+  "entries": [
+    {
+      "address": "0x824095F8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.15.cpp",
+      "source_line": 52097,
+      "shape_id": 2,
+      "frame_size": 112,
+      "self_global": "0x83315F80",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x82406CC0",
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x8248BE98",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.24.cpp",
+      "source_line": 20041,
+      "shape_id": 3,
+      "frame_size": 112,
+      "self_global": "0x8331809C",
+      "parent": {
+        "mode": "direct",
+        "getter": "0x8245E0B0",
+        "global": null,
+        "constructor": null,
+        "registration": null,
+        "descriptor": null
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x824C17E0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.28.cpp",
+      "source_line": 2633,
+      "shape_id": 4,
+      "frame_size": 112,
+      "self_global": "0x833180F4",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x824069E8",
+        "global": "0x83315F80",
+        "constructor": "0x82409540",
+        "registration": "0x824095F8",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x824C38B0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.28.cpp",
+      "source_line": 7836,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x83318114",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x82463F90",
+        "global": "0x833180F4",
+        "constructor": "0x824C1728",
+        "registration": "0x824C17E0",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x824C5DA8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.28.cpp",
+      "source_line": 13499,
+      "shape_id": 2,
+      "frame_size": 112,
+      "self_global": "0x8331811C",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x82406CC0",
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x824C5F58",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.28.cpp",
+      "source_line": 13755,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x83318120",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x822A1DD8",
+        "global": "0x8331811C",
+        "constructor": "0x824C5CF0",
+        "registration": "0x824C5DA8",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x824C7D28",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.28.cpp",
+      "source_line": 18435,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x83318194",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x822A1DD8",
+        "global": "0x8331811C",
+        "constructor": "0x824C5CF0",
+        "registration": "0x824C5DA8",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x824C9570",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.28.cpp",
+      "source_line": 22195,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x833181E4",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x82462980",
+        "global": "0x833181DC",
+        "constructor": "0x824C90D8",
+        "registration": "0x824C9190",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x824C9D60",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.28.cpp",
+      "source_line": 23435,
+      "shape_id": 3,
+      "frame_size": 112,
+      "self_global": "0x83318200",
+      "parent": {
+        "mode": "direct",
+        "getter": "0x82462E38",
+        "global": null,
+        "constructor": null,
+        "registration": null,
+        "descriptor": null
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x824C9F30",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.28.cpp",
+      "source_line": 23719,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x83318204",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x8245D728",
+        "global": "0x83318200",
+        "constructor": "0x824C9CA8",
+        "registration": "0x824C9D60",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x824EE810",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.32.cpp",
+      "source_line": 2892,
+      "shape_id": 3,
+      "frame_size": 112,
+      "self_global": "0x833182C0",
+      "parent": {
+        "mode": "direct",
+        "getter": "0x824221F8",
+        "global": null,
+        "constructor": null,
+        "registration": null,
+        "descriptor": null
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x824EE9A0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.32.cpp",
+      "source_line": 3132,
+      "shape_id": 3,
+      "frame_size": 112,
+      "self_global": "0x833182C4",
+      "parent": {
+        "mode": "direct",
+        "getter": "0x824221F8",
+        "global": null,
+        "constructor": null,
+        "registration": null,
+        "descriptor": null
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x824EEB70",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.32.cpp",
+      "source_line": 3416,
+      "shape_id": 3,
+      "frame_size": 112,
+      "self_global": "0x833182C8",
+      "parent": {
+        "mode": "direct",
+        "getter": "0x824221F8",
+        "global": null,
+        "constructor": null,
+        "registration": null,
+        "descriptor": null
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x824EED00",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.32.cpp",
+      "source_line": 3656,
+      "shape_id": 3,
+      "frame_size": 112,
+      "self_global": "0x833182CC",
+      "parent": {
+        "mode": "direct",
+        "getter": "0x824221F8",
+        "global": null,
+        "constructor": null,
+        "registration": null,
+        "descriptor": null
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x824EF248",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.32.cpp",
+      "source_line": 4484,
+      "shape_id": 3,
+      "frame_size": 112,
+      "self_global": "0x833182E0",
+      "parent": {
+        "mode": "direct",
+        "getter": "0x82421D60",
+        "global": null,
+        "constructor": null,
+        "registration": null,
+        "descriptor": null
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x824F31D0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.32.cpp",
+      "source_line": 14448,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x833183D8",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x824223C0",
+        "global": "0x833182C4",
+        "constructor": "0x824EE8E8",
+        "registration": "0x824EE9A0",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x82524A78",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.34.cpp",
+      "source_line": 28334,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x83318474",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x822C9910",
+        "global": "0x83318E54",
+        "constructor": "0x826D82C8",
+        "registration": "0x826D8380",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x82537750",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.35.cpp",
+      "source_line": 19932,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x833184A0",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x822A1DD8",
+        "global": "0x8331811C",
+        "constructor": "0x824C5CF0",
+        "registration": "0x824C5DA8",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x8255F038",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.37.cpp",
+      "source_line": 2325,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x833184C8",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x8242FDD0",
+        "global": "0x833184C4",
+        "constructor": "0x8255EDD0",
+        "registration": "0x8255EE88",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x8256C5B8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.37.cpp",
+      "source_line": 34785,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x83318528",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x82432DC0",
+        "global": "0x83318524",
+        "constructor": "0x8256C350",
+        "registration": "0x8256C408",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x82572758",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "source_line": 10265,
+      "shape_id": 2,
+      "frame_size": 112,
+      "self_global": "0x83318558",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x82406CC0",
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x82572C28",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "source_line": 11001,
+      "shape_id": 2,
+      "frame_size": 112,
+      "self_global": "0x83318564",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x82406CC0",
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x82572DD8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "source_line": 11257,
+      "shape_id": 2,
+      "frame_size": 112,
+      "self_global": "0x83318568",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x82406CC0",
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x82573238",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "source_line": 11925,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x83318574",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x824614C8",
+        "global": "0x83318564",
+        "constructor": "0x82572B70",
+        "registration": "0x82572C28",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x82573460",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "source_line": 12253,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x83318578",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x824614C8",
+        "global": "0x83318564",
+        "constructor": "0x82572B70",
+        "registration": "0x82572C28",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x8259C3A8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.41.cpp",
+      "source_line": 4533,
+      "shape_id": 6,
+      "frame_size": 112,
+      "self_global": "0x8331861C",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x82406CC0",
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83318718",
+        "constructor": "0x825A50E0",
+        "registration": "0x825A5198",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x8259F0B8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.41.cpp",
+      "source_line": 11543,
+      "shape_id": 7,
+      "frame_size": 112,
+      "self_global": "0x833186C8",
+      "parent": {
+        "mode": "direct",
+        "getter": "0x8241C048",
+        "global": null,
+        "constructor": null,
+        "registration": null,
+        "descriptor": null
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83318718",
+        "constructor": "0x825A50E0",
+        "registration": "0x825A5198",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x825A5198",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.42.cpp",
+      "source_line": 5752,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x83318718",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x82463FE0",
+        "global": "0x83247210",
+        "constructor": "0x827CE240",
+        "registration": "0x827CE088",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x825A8230",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.42.cpp",
+      "source_line": 13176,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x8331871C",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x8245DD60",
+        "global": "0x8331809C",
+        "constructor": "0x8248BDE0",
+        "registration": "0x8248BE98",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x825AA8B8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.42.cpp",
+      "source_line": 19018,
+      "shape_id": 2,
+      "frame_size": 112,
+      "self_global": "0x83318730",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x82406CC0",
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x825BACA0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.43.cpp",
+      "source_line": 25341,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x83318760",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x8242FDD0",
+        "global": "0x833184C4",
+        "constructor": "0x8255EDD0",
+        "registration": "0x8255EE88",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x825CCAA8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.44.cpp",
+      "source_line": 22939,
+      "shape_id": 2,
+      "frame_size": 112,
+      "self_global": "0x8331877C",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x82406CC0",
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x825DB2A8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
+      "source_line": 21035,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x83318788",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x82463F90",
+        "global": "0x833180F4",
+        "constructor": "0x824C1728",
+        "registration": "0x824C17E0",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x825DB618",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
+      "source_line": 21555,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x83318790",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x824605F8",
+        "global": "0x8331878C",
+        "constructor": "0x825DB3A8",
+        "registration": "0x825DB460",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x825F6B18",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.47.cpp",
+      "source_line": 12202,
+      "shape_id": 4,
+      "frame_size": 112,
+      "self_global": "0x83318830",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x824069E8",
+        "global": "0x83315F80",
+        "constructor": "0x82409540",
+        "registration": "0x824095F8",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x8260C378",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.48.cpp",
+      "source_line": 29113,
+      "shape_id": 2,
+      "frame_size": 112,
+      "self_global": "0x833188D0",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x82406CC0",
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x82610E10",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.49.cpp",
+      "source_line": 8903,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x833188F8",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x8242C048",
+        "global": "0x83318934",
+        "constructor": "0x82612220",
+        "registration": "0x826122D8",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x826111B8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.49.cpp",
+      "source_line": 9467,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x83318904",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x8242C048",
+        "global": "0x83318934",
+        "constructor": "0x82612220",
+        "registration": "0x826122D8",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x82611370",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.49.cpp",
+      "source_line": 9727,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x83318908",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x8242C048",
+        "global": "0x83318934",
+        "constructor": "0x82612220",
+        "registration": "0x826122D8",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x82611528",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.49.cpp",
+      "source_line": 9987,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x8331890C",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x8242C048",
+        "global": "0x83318934",
+        "constructor": "0x82612220",
+        "registration": "0x826122D8",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x826116E0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.49.cpp",
+      "source_line": 10247,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x83318910",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x8242C048",
+        "global": "0x83318934",
+        "constructor": "0x82612220",
+        "registration": "0x826122D8",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x82611898",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.49.cpp",
+      "source_line": 10507,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x83318914",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x8242C048",
+        "global": "0x83318934",
+        "constructor": "0x82612220",
+        "registration": "0x826122D8",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x82611B48",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.49.cpp",
+      "source_line": 10919,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x8331891C",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x8242C048",
+        "global": "0x83318934",
+        "constructor": "0x82612220",
+        "registration": "0x826122D8",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x82611D00",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.49.cpp",
+      "source_line": 11179,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x83318920",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x8242C048",
+        "global": "0x83318934",
+        "constructor": "0x82612220",
+        "registration": "0x826122D8",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x826122D8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.49.cpp",
+      "source_line": 12095,
+      "shape_id": 2,
+      "frame_size": 112,
+      "self_global": "0x83318934",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x82406CC0",
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x82614F48",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.49.cpp",
+      "source_line": 18916,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x83318948",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x8242D0F8",
+        "global": "0x83318904",
+        "constructor": "0x82611100",
+        "registration": "0x826111B8",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x8267DA08",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.56.cpp",
+      "source_line": 33932,
+      "shape_id": 2,
+      "frame_size": 112,
+      "self_global": "0x83318C6C",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x82406CC0",
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x82681768",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.57.cpp",
+      "source_line": 6951,
+      "shape_id": 4,
+      "frame_size": 112,
+      "self_global": "0x83318CB8",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x8240C090",
+        "global": "0x83318830",
+        "constructor": "0x825F6A60",
+        "registration": "0x825F6B18",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x82681E90",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.57.cpp",
+      "source_line": 8055,
+      "shape_id": 3,
+      "frame_size": 112,
+      "self_global": "0x83318CCC",
+      "parent": {
+        "mode": "direct",
+        "getter": "0x8240BFC8",
+        "global": null,
+        "constructor": null,
+        "registration": null,
+        "descriptor": null
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x826F56D0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.64.cpp",
+      "source_line": 14848,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x83318EA0",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x8242C048",
+        "global": "0x83318934",
+        "constructor": "0x82612220",
+        "registration": "0x826122D8",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    },
+    {
+      "address": "0x82726360",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.67.cpp",
+      "source_line": 33594,
+      "shape_id": 1,
+      "frame_size": 112,
+      "self_global": "0x83318FDC",
+      "parent": {
+        "mode": "lazy",
+        "getter": "0x82460CC8",
+        "global": "0x83318114",
+        "constructor": "0x824C37F8",
+        "registration": "0x824C38B0",
+        "descriptor": "0xFFFFFFFF8218C21C"
+      },
+      "meta": {
+        "mode": "lazy",
+        "getter": null,
+        "global": "0x83315F60",
+        "constructor": "0x82403148",
+        "registration": "0x82403200",
+        "descriptor": "0xFFFFFFFF8218C210"
+      },
+      "primary_global": "0x83315F9C",
+      "ready_gate": "0x83315ED8",
+      "ready_gate_before_primary_store": true,
+      "ready_capture_from_self_field": true
+    }
+  ]
+}

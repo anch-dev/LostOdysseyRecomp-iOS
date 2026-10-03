@@ -1,5 +1,6 @@
 #include "lo_semantics/registered_callback_family.h"
 #include "lo_semantics/registered_constructor_family.h"
+#include "lo_semantics/registered_getter_family.h"
 #include "lo_semantics/object_registration.h"
 #include "lo_semantics/object_startup.h"
 
@@ -32,7 +33,8 @@ constexpr GuestAddress PrimaryGlobal = 0x83315f9cu;
 constexpr std::uint64_t InitialR3 = 0xabcddcba00007777ull;
 constexpr std::uint64_t AllocatedR3 = 0x1234567800030000ull;
 
-enum class Mode { Equal, Different, Ready, MetaMissing, ParentMissing };
+enum class Mode { Equal, Different, Ready, MetaMissing, ParentMissing,
+    GateAlias };
 struct Entry
 {
     GuestAddress address, self_global, parent_getter, parent_singleton,
@@ -52,6 +54,7 @@ struct Window
     Window()
     {
         if (!bytes || !VirtualAlloc(bytes, 0x70000, MEM_COMMIT, PAGE_READWRITE) ||
+            !VirtualAlloc(bytes + 0x83247000u, 0x1000, MEM_COMMIT, PAGE_READWRITE) ||
             !VirtualAlloc(bytes + 0x8330b000u, 0x1000, MEM_COMMIT, PAGE_READWRITE) ||
             !VirtualAlloc(bytes + 0x83315000u, 0x5000, MEM_COMMIT, PAGE_READWRITE))
             throw std::runtime_error("commit guest window");
@@ -139,6 +142,9 @@ struct Services final : ManagerFacadeServices, callback::Services,
         }
         return mode == Mode::Equal ? Self : Parent;
     }
+    std::uint64_t CallExternalConstructor(GuestAddress, std::uint64_t,
+        GuestAddress) override
+    { throw std::runtime_error("unexpected external constructor"); }
     std::uint64_t CallExternalRegistration(GuestAddress target,
         std::uint64_t r3, GuestAddress caller_sp) override
     {
@@ -200,6 +206,7 @@ void RestoreGprs(PPCContext& ctx, unsigned first)
 void Initialize(std::uint8_t* bytes, const Entry& entry, Mode mode)
 {
     std::memset(bytes, 0xbd, 0x70000);
+    std::memset(bytes + 0x83247000u, 0, 0x1000);
     std::memset(bytes + 0x8330b000u, 0, 0x1000);
     std::memset(bytes + 0x83315000u, 0, 0x5000);
     GuestMemory memory(0, std::span<std::uint8_t>(bytes, Space));
@@ -207,7 +214,8 @@ void Initialize(std::uint8_t* bytes, const Entry& entry, Mode mode)
     memory.WriteU32(Manager, ManagerVtable);
     memory.WriteU32(ManagerVtable + 4, AllocateMethod | 3u);
     memory.WriteU32(0x83315ef0u, 0x34000u);
-    memory.WriteU32(entry.self_global, Self);
+    const GuestAddress self = mode == Mode::GateAlias ? ReadyGate - 52u : Self;
+    memory.WriteU32(entry.self_global, self);
     const GuestAddress parent = mode == Mode::Equal ? Self : Parent;
     if (entry.parent_singleton) memory.WriteU32(entry.parent_singleton, parent);
     if (entry.parent_global) memory.WriteU32(entry.parent_global,
@@ -221,6 +229,7 @@ void Initialize(std::uint8_t* bytes, const Entry& entry, Mode mode)
     memory.WriteU32(PrimaryGlobal, Primary);
     memory.WriteU32(ReadyGate, mode == Mode::Ready ? 1u : 0u);
     memory.WriteU32(Self, SelfVtable);
+    if (mode == Mode::GateAlias) memory.WriteU32(self, SelfVtable);
     memory.WriteU32(Meta, SelfVtable);
     memory.WriteU32(SelfVtable + 124u, ReadyMethod | 3u);
 }
@@ -258,6 +267,8 @@ bool CompareOne(const Entry& entry, Mode mode, unsigned ordinal,
         std::memcmp(original.bytes, recovered.bytes, Stack - 0x1000u) == 0 &&
         std::memcmp(original.bytes + 0x83315000u,
             recovered.bytes + 0x83315000u, 0x5000) == 0 &&
+        std::memcmp(original.bytes + 0x83247000u,
+            recovered.bytes + 0x83247000u, 0x1000) == 0 &&
         std::memcmp(original.bytes + 0x8330b000u,
             recovered.bytes + 0x8330b000u, 0x1000) == 0;
     if (!same)
@@ -328,6 +339,9 @@ void OriginalDirectCall(PPCContext& ctx, std::uint8_t* base,
     if (registered_constructor_family::Apply(target, active->memory,
             *active, *active, ctx.r3.u64, ctx.r1.u32, result))
         ctx.r3.u64 = result;
+    else if (registered_getter_family::Apply(target, active->memory,
+            *active, *active, ctx.r3.u64, ctx.r1.u32, result))
+        ctx.r3.u64 = result;
     else if (target == 0x82410b90u)
         ctx.r3.u64 = ConstructRegisteredObject(active->memory, *active,
             ctx.r3.u64, ctx.r1.u32);
@@ -340,7 +354,7 @@ void OriginalDirectCall(PPCContext& ctx, std::uint8_t* base,
     else if (target == 0x82410c48u)
         ctx.r3.u64 = RegisterObjectGraph(active->memory, *active);
     else if (target == active->entry.parent_registration)
-        ctx.r3.u64 = active->CallExternalRegistration(target, ctx.r3.u64,
+        ctx.r3.u64 = active->Register(target, ctx.r3.u64,
             ctx.r1.u32);
     else
         ctx.r3.u64 = active->CallExternalGetter(target, ctx.r3.u64,
@@ -377,14 +391,24 @@ int main()
             if (entry.address == 0x8249c688u) lazy_parent = &entry;
             if (entry.address == 0x824071e8u) lazy_meta = &entry;
         }
-        if (!lazy_parent || !lazy_meta ||
-            !CompareOne(*lazy_parent, Mode::ParentMissing, cases++, original, recovered) ||
-            !CompareOne(*lazy_meta, Mode::MetaMissing, cases++, original, recovered) ||
-            !CompareShared(Mode::Equal, original, recovered) ||
-            !CompareShared(Mode::Ready, original, recovered))
+        if (std::size(Entries) == 708)
+        {
+            if (!lazy_parent || !lazy_meta ||
+                !CompareOne(*lazy_parent, Mode::ParentMissing, cases++, original, recovered) ||
+                !CompareOne(*lazy_meta, Mode::MetaMissing, cases++, original, recovered) ||
+                !CompareShared(Mode::Equal, original, recovered) ||
+                !CompareShared(Mode::Ready, original, recovered))
+                return 1;
+            cases += 2;
+        }
+        if (std::size(Entries) == 51 &&
+            !CompareOne(Entries[0], Mode::GateAlias, cases++, original, recovered))
             return 1;
-        cases += 2;
-        std::printf("PASS registered-callback %zu new entries %u cases\n",
+        if (std::size(Entries) == 4 &&
+            (!lazy_parent || !CompareOne(*lazy_parent,
+                Mode::ParentMissing, cases++, original, recovered)))
+            return 1;
+        std::printf("PASS registered-callback %zu entries %u cases\n",
             std::size(Entries), cases);
         std::puts("LIMIT original PPC callback bodies; recovered constructor/get-primary stand-ins; external getter/registration and ABI scratch are explicit boundaries");
         return 0;

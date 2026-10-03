@@ -1,4 +1,4 @@
-"""Compare the 708 recovered registration callbacks with cached PPC bodies."""
+"""Compare recovered registration callbacks with cached PPC bodies."""
 
 import argparse
 import json
@@ -16,16 +16,32 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=Path.home() /
                         "worktrees/LostOdysseyRecomp/semantic-registered-callback-tests")
+    parser.add_argument("--scope", choices=("original", "dependency", "composition"),
+                        default="original")
     args = parser.parse_args()
-    entries = json.loads((ROOT / "LostOdysseyRecompSemantics/registered_callback_families.json")
+    manifest = ("registered_dependency_registration_families.json"
+                if args.scope == "dependency" else "registered_callback_families.json")
+    entries = json.loads((ROOT / "LostOdysseyRecompSemantics" / manifest)
                          .read_text(encoding="utf-8"))["entries"]
+    if args.scope == "composition":
+        representative = {"0x824073E8", "0x8249C688", "0x8259C4A8",
+                          "0x8271FEF0"}
+        entries = [entry for entry in entries if entry["address"] in representative]
+        if len(entries) != len(representative):
+            raise ValueError("composition representatives changed")
+    catalog = ("registered-dependency-candidates.json" if args.scope == "dependency"
+               else "registered-callback-candidates.json")
     candidates = {"0x" + item["address"]: item for item in json.loads(
-        (ROOT / "out/function-inventory/registered-callback-candidates.json")
+        (ROOT / "out/function-inventory" / catalog)
         .read_text(encoding="utf-8"))}
     constructors = {number(item["address"]): item for item in json.loads(
         (ROOT / "LostOdysseyRecompSemantics/registered_constructor_families.json")
         .read_text(encoding="utf-8"))["entries"]}
-    if len(entries) != 708 or len(candidates) != 708 or [number(x["address"]) for x in entries] != \
+    expected = {"original": 708, "dependency": 51,
+                "composition": 4}[args.scope]
+    catalog_size = 104 if args.scope == "dependency" else 708
+    if len(entries) != expected or len(candidates) != catalog_size or \
+            [number(x["address"]) for x in entries] != \
             sorted(set(number(x["address"]) for x in entries)):
         raise ValueError("callback inventory changed")
     table, bodies, direct_targets = [], [], set()
@@ -39,6 +55,9 @@ def main():
             raise ValueError(f"callback source mapping changed: {address}")
         if entry["shape_id"] not in range(11) or entry["frame_size"] not in (112, 128):
             raise ValueError(f"callback shape changed: {address}")
+        if args.scope == "dependency" and (not entry["ready_gate_before_primary_store"] or
+                                            not entry["ready_capture_from_self_field"]):
+            raise ValueError(f"dependency ready ordering changed: {address}")
         def singleton(side):
             getter = number(entry[side]["getter"])
             return number(constructors[getter]["singleton_address"]) if getter in constructors else 0
@@ -81,9 +100,12 @@ def main():
     if template.count("/* ENTRY_TABLE */") != 1:
         raise ValueError("callback oracle table marker changed")
     compile_and_run(
-        "registered-callback-family", original_cpp,
+        {"original": "registered-callback-family",
+         "dependency": "registered-dependency-callback-family",
+         "composition": "registered-callback-composition"}[args.scope], original_cpp,
         template.replace("/* ENTRY_TABLE */", "\n".join(table)),
         ["LostOdysseyRecompSemantics/src/registered_callback_family.cpp",
+         "LostOdysseyRecompSemantics/src/registered_getter_family.cpp",
          "LostOdysseyRecompSemantics/src/registered_constructor_family.cpp",
          "LostOdysseyRecompSemantics/src/object_registration.cpp",
          "LostOdysseyRecompSemantics/src/object_startup.cpp",
