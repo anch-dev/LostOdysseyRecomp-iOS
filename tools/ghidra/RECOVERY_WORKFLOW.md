@@ -84,4 +84,7 @@ A receipt proves only the recorded source, fixture, ABI checks, and oracle scope
 
 ## Review checklist
 
+Guest function-pointer tables need both static slot identity and initialization evidence. The CRT formatter table initially points at a fatal thunk, but its initializer replaces the slots with real software float conversion and text postprocessors. Recover those known targets and preserve call-time slot reads; do not credit the formatter from its initial fatal path. Intra-body jump tables stay part of the caller. Existing unpacked-image address mapping and narrow reads are sufficient for this audit; no new hash or image scan is required.
+
+
 Before accepting a packet, the root confirms that the worker did not modify runtime code outside the four paths, duplicate manifest authority, hide an unresolved ABI boundary, claim an unrun test as passed, or treat entry ratio as completion. The root then reviews the documentation delta separately from implementation and build evidence.

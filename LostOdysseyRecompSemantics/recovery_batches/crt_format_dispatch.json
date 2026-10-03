@@ -1,0 +1,31 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Six float dispatch initializer/postprocessing/fatal-tail entries; accepted real lower models only. Large float conversion, runtime/scene/complete remain open.",
+  "families": [
+    {
+      "name": "crt-format-dispatch",
+      "manifest": "LostOdysseyRecompSemantics/crt_format_dispatch_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/crt_format_dispatch_oracle.cpp",
+      "prelude": "extern \"C\" PPC_FUNC(__imp__sub_82B7A5E0);\nextern \"C\" PPC_FUNC(__imp__sub_82B7A678);\nextern \"C\" PPC_FUNC(__imp__sub_82B7EEF8);\nextern \"C\" PPC_FUNC(__imp__sub_82B84C90);\nextern \"C\" PPC_FUNC(__imp__sub_82B7EE58);\nextern \"C\" PPC_FUNC(__imp__sub_82B833D0);\nvoid OriginalCharacterFlag(PPCContext&,std::uint8_t*);\nvoid OriginalFatal(PPCContext&,std::uint8_t*);\n#define sub_823588A0(c,b) OriginalCharacterFlag(c,b)\n#define sub_82B7BED8(c,b) OriginalFatal(c,b)\n#define sub_82B7A5E0(c,b) __imp__sub_82B7A5E0(c,b)\n#define sub_82B833D0(c,b) __imp__sub_82B833D0(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/crt_stream_locks.cpp",
+        "LostOdysseyRecompSemantics/src/raw_allocation.cpp",
+        "LostOdysseyRecompSemantics/src/allocation_failure.cpp",
+        "LostOdysseyRecompSemantics/src/crt_allocation.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_state.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_pointer_unlock.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_index_unlock.cpp",
+        "LostOdysseyRecompSemantics/src/crt_thread_data.cpp",
+        "LostOdysseyRecompSemantics/src/invalid_parameter.cpp",
+        "LostOdysseyRecompSemantics/src/memory_services.cpp",
+        "LostOdysseyRecompSemantics/src/heap_allocate.cpp",
+        "LostOdysseyRecompSemantics/src/heap_free.cpp",
+        "LostOdysseyRecompSemantics/src/heap_segment.cpp",
+        "LostOdysseyRecompSemantics/src/heap.cpp",
+        "LostOdysseyRecompSemantics/src/memory_fill.cpp",
+        "LostOdysseyRecompSemantics/src/read_only_fields.cpp",
+        "LostOdysseyRecompSemantics/src/crt_format_dispatch.cpp"
+      ]
+    }
+  ]
+}
