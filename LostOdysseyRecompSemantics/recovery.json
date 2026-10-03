@@ -2764,7 +2764,7 @@
         {
           "address": "823ADD70",
           "boundary": "AllocationFailureServices::OutputErrorMessage",
-          "status": "opaque"
+          "status": "implementation_available"
         }
       ]
     },
@@ -2924,6 +2924,106 @@
         {
           "address": "822CA048",
           "boundary": "AllocationFailureServices::GetThreadData",
+          "status": "implementation_available"
+        }
+      ]
+    },
+    {
+      "address": "822CA048",
+      "name": "lo::semantic::gpu::GetCrtThreadData",
+      "module": "memory/crt_thread_data",
+      "source": "LostOdysseyRecompSemantics/src/crt_thread_data.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/crt_thread_data.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r13: thread environment; process context, TLS index and callback globals remain live guest inputs.",
+        "return": "Full thread-data result; low-word-zero tests, ordered initialization, and saved thread error restoration.",
+        "preserved": "ABI volatile registers, frame saves and backchain words remain adapter responsibilities.",
+        "memory": "32-bit big-endian guest memory; external service order and persistent memory are compared."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+          "line": 40673,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_crt_thread_data.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "6 cases in one 9-case batch; return, service order and arguments, persistent memory and ANSI descriptor compared. TLS, allocation, callbacks, release, ANSI initializer and output sink are explicit service stubs; runtime scenes excluded."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "82B81778",
+          "boundary": "CrtThreadDataServices::AllocateThreadData",
+          "status": "opaque"
+        },
+        {
+          "address": "823ADDC0",
+          "boundary": "CrtThreadDataServices::FreeThreadData",
+          "status": "opaque"
+        },
+        {
+          "address": "indirect:thread-getter",
+          "boundary": "CrtThreadDataServices::CallThreadDataGetter",
+          "status": "opaque"
+        },
+        {
+          "address": "indirect:thread-binder",
+          "boundary": "CrtThreadDataServices::BindThreadData",
+          "status": "opaque"
+        }
+      ]
+    },
+    {
+      "address": "823ADD70",
+      "name": "lo::semantic::gpu::OutputCrtErrorMessage",
+      "module": "memory/crt_thread_data",
+      "source": "LostOdysseyRecompSemantics/src/crt_thread_data.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/crt_thread_data.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3: message address; r1: caller stack pointer for the eight-byte ANSI_STRING at caller_sp - 16.",
+        "return": "Full output sink result; descriptor buffer and uint16 length loaded after initialization.",
+        "preserved": "ABI volatile registers, frame saves and backchain words remain adapter responsibilities.",
+        "memory": "32-bit big-endian guest memory; external service order and persistent memory are compared."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.11.cpp",
+          "line": 29624,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_crt_thread_data.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "3 cases in one 9-case batch; return, service order and arguments, persistent memory and ANSI descriptor compared. TLS, allocation, callbacks, release, ANSI initializer and output sink are explicit service stubs; runtime scenes excluded."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "import:RtlInitAnsiString",
+          "boundary": "CrtErrorOutputServices::InitAnsiString",
+          "status": "opaque"
+        },
+        {
+          "address": "82BECB10",
+          "boundary": "CrtErrorOutputServices::WriteAnsi",
           "status": "opaque"
         }
       ]
