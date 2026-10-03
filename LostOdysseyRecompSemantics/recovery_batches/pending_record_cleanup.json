@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Pending counter record cleanup and its caller-frame funclet; minimum ordinary-RAM validation.",
+  "families": [
+    {
+      "name": "pending-record-cleanup",
+      "manifest": "LostOdysseyRecompSemantics/pending_record_cleanup_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/pending_record_cleanup_oracle.cpp",
+      "prelude": "extern \"C\" PPC_FUNC(__imp__sub_82373158);\n#define sub_82373158(c,b) __imp__sub_82373158(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/pending_record_cleanup.cpp"
+      ]
+    }
+  ]
+}
