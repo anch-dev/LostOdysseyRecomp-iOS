@@ -39,7 +39,7 @@ constexpr Entry Entries[] = {
 /* ENTRY_TABLE */
 };
 
-enum class Mode { AddNoGrow, AddGrow, AddSigned, AddWrap,
+enum class Mode { AddNoGrow, AddGrow, AddSigned, AddWrap, AddNegativeGrowth,
     AppendNoGrow, AppendMutate, AppendHeaderAlias, AppendStackAlias,
     Callback };
 
@@ -116,6 +116,7 @@ void Initialize(std::uint8_t* bytes, Mode mode)
     if (mode == Mode::AddGrow) { count = 2; capacity = 2; }
     if (mode == Mode::AddSigned) { count = 0x7ffffffeu; capacity = 0x7fffffffu; }
     if (mode == Mode::AddWrap) { count = 0xffffffffu; capacity = 0; }
+    if (mode == Mode::AddNegativeGrowth) { count = 0x30000000u; capacity = 0; }
     if (mode == Mode::AppendNoGrow || mode == Mode::AppendHeaderAlias ||
         mode == Mode::AppendStackAlias) capacity = 3;
     if (mode == Mode::AppendMutate) capacity = 1;
@@ -156,7 +157,7 @@ bool Compare(GuestAddress address, PPCFunc* original_function, Mode mode,
     context.r4.u64 = mode == Mode::AddSigned ?
         0xdeadbeef00000002ull :
         mode == Mode::AddNoGrow || mode == Mode::AddGrow ||
-        mode == Mode::AddWrap ? added_count :
+        mode == Mode::AddWrap || mode == Mode::AddNegativeGrowth ? added_count :
         mode == Mode::AppendHeaderAlias ? Array + 4u :
         mode == Mode::AppendStackAlias ? Stack - 32u : Value;
     context.r5.u64 = 4u;
@@ -210,6 +211,12 @@ int main()
     {
         Window original, recovered;
         unsigned cases = 0;
+#ifdef LO_METADATA_NEGATIVE_GROWTH_ONLY
+        if (!Compare(0x822c42d8u, __imp__sub_822C42D8,
+                     Mode::AddNegativeGrowth, nullptr, cases++, original,
+                     recovered)) return 1;
+        std::printf("PASS registered-metadata negative-growth %u case\n", cases);
+#else
         for (Mode mode : {Mode::AddNoGrow, Mode::AddGrow, Mode::AddSigned,
                           Mode::AddWrap})
             if (!Compare(0x822c42d8u, __imp__sub_822C42D8, mode, nullptr,
@@ -223,6 +230,7 @@ int main()
                          &entry, cases++, original, recovered)) return 1;
         std::printf("PASS registered-metadata %zu callbacks %u cases\n",
             std::size(Entries), cases);
+#endif
         std::puts("LIMIT original 18 cached PPC bodies; ResizeArray uses previously recovered lower semantics; generic ABI volatile state excluded");
         return 0;
     }

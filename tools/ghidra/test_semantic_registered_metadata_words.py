@@ -11,6 +11,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=Path.home() /
                         "worktrees/LostOdysseyRecomp/semantic-registered-metadata-tests")
+    parser.add_argument("--scope", choices=("all", "negative-growth"),
+                        default="all")
     args = parser.parse_args()
     cache = ROOT / "out/function-inventory"
     add = json.loads((cache / "registered-array-add.json").read_text(encoding="utf-8"))
@@ -58,7 +60,11 @@ def main() -> None:
     harness = template.read_text(encoding="utf-8")
     if harness.count("/* ENTRY_TABLE */") != 1:
         raise ValueError("metadata oracle table marker changed")
-    compile_and_run("registered-metadata-words", original_cpp.encode("utf-8"),
+    if args.scope == "negative-growth":
+        harness = "#define LO_METADATA_NEGATIVE_GROWTH_ONLY\n" + harness
+    compile_and_run("registered-metadata-negative-growth" if
+                    args.scope == "negative-growth" else "registered-metadata-words",
+                    original_cpp.encode("utf-8"),
                     harness.replace("/* ENTRY_TABLE */", table),
                     ["LostOdysseyRecompSemantics/src/registered_metadata_words.cpp",
                      "LostOdysseyRecompSemantics/src/allocation_array.cpp",

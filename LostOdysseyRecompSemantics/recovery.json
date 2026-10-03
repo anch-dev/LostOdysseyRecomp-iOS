@@ -4181,6 +4181,12 @@
           "line": 1,
           "kind": "bounded_differential_runner",
           "note": "18 cached PPC bodies compose the two new helpers and 16 metadata callbacks. The focused 24-case receipt covers signed/wrapped growth, high-register truncation, live resize mutation and header/stack value aliases; lower ResizeArray evidence is reused."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_registered_metadata_words.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "The added --scope negative-growth case passed independently: positive new count with a negative wrapped triple preserves signed truncation toward zero. The prior 24-case receipt was reused."
         }
       ],
       "dependencies": [
