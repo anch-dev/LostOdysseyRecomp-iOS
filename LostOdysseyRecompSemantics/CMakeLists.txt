@@ -37,6 +37,8 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/instance_scalar_initializer_family.cpp
     src/instance_ui_initializer_family.cpp
     src/instance_default_fields_family.cpp
+    src/instance_flag_initializer_family.cpp
+    src/instance_fill_initializer_family.cpp
     src/object_startup.cpp
     src/manager_construction.cpp
     src/manager_storage.cpp

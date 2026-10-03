@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "family": "instance_fill_initializer",
+  "entry_count": 4,
+  "fill_target": "82B7BC40",
+  "fill_bytes": 100,
+  "fill_value": 0,
+  "frame_bytes": 96,
+  "entries": [
+    {
+      "address": "8264E920",
+      "vtable": "0x821EC1A0",
+      "field_offset": 60,
+      "framed": false,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.53.cpp",
+      "source_line": 2409,
+      "registered_types": [
+        {
+          "constructor": "82443648",
+          "type_name": "UITexture",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82667430",
+      "vtable": "0x821F0F88",
+      "field_offset": 72,
+      "framed": false,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.55.cpp",
+      "source_line": 5317,
+      "registered_types": [
+        {
+          "constructor": "82438AE8",
+          "type_name": "UIString",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "826674B0",
+      "vtable": "0x821F1210",
+      "field_offset": 72,
+      "framed": true,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.55.cpp",
+      "source_line": 5410,
+      "registered_types": [
+        {
+          "constructor": "824430A0",
+          "type_name": "UIEditboxString",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82667568",
+      "vtable": "0x821F1100",
+      "field_offset": 72,
+      "framed": true,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.55.cpp",
+      "source_line": 5526,
+      "registered_types": [
+        {
+          "constructor": "82443160",
+          "type_name": "UIListString",
+          "kind": "lazy_singleton"
+        }
+      ]
+    }
+  ]
+}

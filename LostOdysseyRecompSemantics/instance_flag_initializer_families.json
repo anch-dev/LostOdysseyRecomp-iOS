@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "family": "instance_flag_initializer",
+  "source": "out/function-inventory/registered-instance-candidates.json",
+  "entry_count": 4,
+  "flag_offset": 120,
+  "or_mask": "0x80000000",
+  "registered_type_reference_count": 4,
+  "entries": [
+    {
+      "address": "8268C9E8",
+      "vtable": "0x821FAD98",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.58.cpp",
+      "source_line": 9104,
+      "registered_types": [
+        {
+          "constructor": "8245EF18",
+          "type_name": "SceneCapturePortalComponent",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "8268CA78",
+      "vtable": "0x821FAEE0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.58.cpp",
+      "source_line": 9195,
+      "registered_types": [
+        {
+          "constructor": "8245ED98",
+          "type_name": "SceneCaptureReflectComponent",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "8268CB98",
+      "vtable": "0x821FAB08",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.58.cpp",
+      "source_line": 9377,
+      "registered_types": [
+        {
+          "constructor": "8245F098",
+          "type_name": "SceneCaptureCubeMapComponent",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "8268CD08",
+      "vtable": "0x821F9630",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.58.cpp",
+      "source_line": 9607,
+      "registered_types": [
+        {
+          "constructor": "8245F158",
+          "type_name": "SceneCaptureComponent",
+          "kind": "lazy_singleton"
+        }
+      ]
+    }
+  ]
+}
