@@ -1,4 +1,4 @@
-"""Generate strong PPC wrappers for the verified, memory-free leaf families."""
+"""Generate strong PPC wrappers for the reviewed semantic families."""
 
 from __future__ import annotations
 
@@ -91,18 +91,63 @@ def generate_integer(manifest: dict) -> str:
     return "\n".join(lines)
 
 
+def generate_accessor(manifest: dict) -> str:
+    if manifest.get("schema_version") != 1 or manifest.get("kind") != "fixed_offset_integer_accessor_families":
+        raise ValueError("unsupported accessor manifest")
+    entries = manifest.get("entries")
+    if not isinstance(entries, list) or not entries:
+        raise ValueError("empty accessor manifest")
+    lines = [
+        "// Generated from accessor_families.json; do not edit.",
+        '#include "cpu/semantic_accessor.h"',
+        "",
+    ]
+    seen = set()
+    for entry in entries:
+        address = entry.get("address")
+        kind, width = entry.get("kind"), entry.get("width")
+        base_register, value_register = entry.get("base_register"), entry.get("value_register")
+        displacement = entry.get("displacement")
+        if not isinstance(address, str) or not re.fullmatch(r"[0-9A-F]{8}", address) or address in seen:
+            raise ValueError(f"invalid or duplicate accessor address: {address}")
+        if kind not in ("getter", "setter") or width not in ("Byte", "Halfword", "Word") or \
+                base_register not in (3, 4, 5, 6, 13) or \
+                type(displacement) is not int or not -32768 <= displacement <= 32767 or \
+                (kind == "getter" and value_register is not None) or \
+                (kind == "setter" and value_register not in (3, 4, 5)):
+            raise ValueError(f"invalid accessor contract at {address}")
+        seen.add(address)
+        symbol = f"sub_{address}"
+        arguments = (f"memory, ctx.r{base_register}.u32, {displacement}, "
+                     f"lo::semantic::gpu::IntegerWidth::{width}")
+        operation = (f"ctx.r3.u64 = lo::semantic::gpu::ReadFieldWith({arguments});"
+                     if kind == "getter" else
+                     f"lo::semantic::gpu::WriteFieldWith({arguments}, ctx.r{value_register}.u64);")
+        lines.extend([
+            f'extern "C" PPC_FUNC(__imp__{symbol});',
+            f"PPC_FUNC({symbol})", "{",
+            "    if (!lo::runtime::semantic_accessor::Enabled())", "    {",
+            f"        __imp__{symbol}(ctx, base);", "        return;", "    }",
+            "    lo::runtime::semantic_accessor::NativeAccessorMemory memory(base);",
+            f"    {operation}", "}", "",
+        ])
+    return "\n".join(lines)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     source_group = parser.add_mutually_exclusive_group(required=True)
     source_group.add_argument("--manifest", type=Path)
     source_group.add_argument("--integer-manifest", type=Path)
+    source_group.add_argument("--accessor-manifest", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    manifest = args.integer_manifest or args.manifest
-    generator = generate_integer if args.integer_manifest else generate
+    manifest = args.accessor_manifest or args.integer_manifest or args.manifest
+    generator = generate_accessor if args.accessor_manifest else generate_integer if args.integer_manifest else generate
     source = generator(json.loads(manifest.read_text(encoding="utf-8")))
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(source, encoding="utf-8")
+    if not args.output.is_file() or args.output.read_text(encoding="utf-8") != source:
+        args.output.write_text(source, encoding="utf-8")
     print(f"Generated {source.count('PPC_FUNC(sub_')} semantic wrappers")
 
 

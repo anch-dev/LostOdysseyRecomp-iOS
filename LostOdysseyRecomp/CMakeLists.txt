@@ -221,6 +221,18 @@ if(LO_ENABLE_SEMANTIC_RUNTIME)
         COMMENT "Generating opt-in semantic integer wrappers"
         VERBATIM)
     target_sources(LostOdysseyRecomp PRIVATE "${LO_SEMANTIC_INTEGER_WRAPPERS}")
+    set(LO_SEMANTIC_ACCESSOR_WRAPPERS "${CMAKE_CURRENT_BINARY_DIR}/generated/semantic_accessor_wrappers.cpp")
+    add_custom_command(
+        OUTPUT "${LO_SEMANTIC_ACCESSOR_WRAPPERS}"
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_SOURCE_DIR}/tools/ghidra/generate_semantic_leaf_wrappers.py"
+                --accessor-manifest "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/accessor_families.json"
+                --output "${LO_SEMANTIC_ACCESSOR_WRAPPERS}"
+        DEPENDS
+            "${CMAKE_SOURCE_DIR}/tools/ghidra/generate_semantic_leaf_wrappers.py"
+            "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/accessor_families.json"
+        COMMENT "Generating opt-in semantic accessor wrappers"
+        VERBATIM)
+    target_sources(LostOdysseyRecomp PRIVATE "${LO_SEMANTIC_ACCESSOR_WRAPPERS}")
     target_link_libraries(LostOdysseyRecomp PRIVATE LO::Semantics)
 endif()
 if(ANDROID)
