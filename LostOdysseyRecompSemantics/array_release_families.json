@@ -1,0 +1,1528 @@
+{
+  "schema_version": 1,
+  "kind": "array_release_families",
+  "family_counts": {
+    "ReleaseArrayElements": 31
+  },
+  "entries": [
+    {
+      "address": "823173E8",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.5.cpp",
+      "line": 10981,
+      "parameters": {
+        "element_size": 64,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,64",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x82317420",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82405E08",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.15.cpp",
+      "line": 43607,
+      "parameters": {
+        "element_size": 1,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,1",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x82405e40",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "8245C2F0",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.21.cpp",
+      "line": 42890,
+      "parameters": {
+        "element_size": 84,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,84",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x8245c328",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82478CA0",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.23.cpp",
+      "line": 18587,
+      "parameters": {
+        "element_size": 52,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,52",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x82478cd8",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "824E2A38",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.30.cpp",
+      "line": 23457,
+      "parameters": {
+        "element_size": 48,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,48",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x824e2a70",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82507598",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.33.cpp",
+      "line": 23214,
+      "parameters": {
+        "element_size": 12,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,12",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x825075d0",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "825075F8",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.33.cpp",
+      "line": 23274,
+      "parameters": {
+        "element_size": 8,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,8",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x82507630",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82537390",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.35.cpp",
+      "line": 19330,
+      "parameters": {
+        "element_size": 4,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,4",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x825373c8",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "8255C7B0",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.36.cpp",
+      "line": 40249,
+      "parameters": {
+        "element_size": 2,
+        "resize_argument": 4
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,4",
+        "li r6,2",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x8255c7e8",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "8255C8A8",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.36.cpp",
+      "line": 40403,
+      "parameters": {
+        "element_size": 40,
+        "resize_argument": 4
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,4",
+        "li r6,40",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x8255c8e0",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "8255DE28",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.36.cpp",
+      "line": 43658,
+      "parameters": {
+        "element_size": 68,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,68",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x8255de60",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "8256B518",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.37.cpp",
+      "line": 32041,
+      "parameters": {
+        "element_size": 372,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,372",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x8256b550",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "825920D0",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.40.cpp",
+      "line": 19885,
+      "parameters": {
+        "element_size": 56,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,56",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x82592108",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82679C18",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.56.cpp",
+      "line": 24744,
+      "parameters": {
+        "element_size": 60,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,60",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x82679c50",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82695A00",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.58.cpp",
+      "line": 30999,
+      "parameters": {
+        "element_size": 36,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,36",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x82695a38",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "826A9AF0",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.60.cpp",
+      "line": 6341,
+      "parameters": {
+        "element_size": 152,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,152",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x826a9b28",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "826DDEE0",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.62.cpp",
+      "line": 27847,
+      "parameters": {
+        "element_size": 48,
+        "resize_argument": 4
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,4",
+        "li r6,48",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x826ddf18",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "826DE038",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.62.cpp",
+      "line": 28047,
+      "parameters": {
+        "element_size": 56,
+        "resize_argument": 4
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,4",
+        "li r6,56",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x826de070",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "826DE190",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.62.cpp",
+      "line": 28247,
+      "parameters": {
+        "element_size": 64,
+        "resize_argument": 4
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,4",
+        "li r6,64",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x826de1c8",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "826DE3D0",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.62.cpp",
+      "line": 28589,
+      "parameters": {
+        "element_size": 16,
+        "resize_argument": 4
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,4",
+        "li r6,16",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x826de408",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "826DE5F8",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.62.cpp",
+      "line": 28917,
+      "parameters": {
+        "element_size": 4,
+        "resize_argument": 4
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,4",
+        "li r6,4",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x826de630",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "827023A8",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.65.cpp",
+      "line": 13430,
+      "parameters": {
+        "element_size": 40,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,40",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x827023e0",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82702408",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.65.cpp",
+      "line": 13490,
+      "parameters": {
+        "element_size": 16,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,16",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x82702440",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82703C70",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.65.cpp",
+      "line": 17249,
+      "parameters": {
+        "element_size": 24,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,24",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x82703ca8",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82703CD0",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.65.cpp",
+      "line": 17309,
+      "parameters": {
+        "element_size": 28,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,28",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x82703d08",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82703D30",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.65.cpp",
+      "line": 17369,
+      "parameters": {
+        "element_size": 20,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,20",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x82703d68",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82703D90",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.65.cpp",
+      "line": 17429,
+      "parameters": {
+        "element_size": 32,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,32",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x82703dc8",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82717D78",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.66.cpp",
+      "line": 39782,
+      "parameters": {
+        "element_size": 96,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,96",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x82717db0",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "82788420",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.71.cpp",
+      "line": 83586,
+      "parameters": {
+        "element_size": 44,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,44",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x82788458",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "8278CD28",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.72.cpp",
+      "line": 3690,
+      "parameters": {
+        "element_size": 80,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,80",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x8278cd60",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    },
+    {
+      "address": "827946D0",
+      "family": "ReleaseArrayElements",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.72.cpp",
+      "line": 21613,
+      "parameters": {
+        "element_size": 256,
+        "resize_argument": 8
+      },
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r7,8",
+        "li r6,256",
+        "li r4,0",
+        "lwz r5,4(r31)",
+        "bl 0x82298af8",
+        "lwz r3,0(r31)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x82794708",
+        "bl 0x823f3340",
+        "li r11,0",
+        "stw r11,0(r31)",
+        "stw r11,8(r31)",
+        "stw r11,4(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "evidence": {
+        "template": "23-instruction array release",
+        "branch_target": "clear_header",
+        "nested_calls": [
+          "82298AF8",
+          "823F3340"
+        ],
+        "header_store_order": [
+          0,
+          8,
+          4
+        ]
+      },
+      "status": "bounded_original_ppc_comparison_passed"
+    }
+  ]
+}

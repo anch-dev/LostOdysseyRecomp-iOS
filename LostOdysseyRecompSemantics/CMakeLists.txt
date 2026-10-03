@@ -21,6 +21,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/invalid_parameter.cpp
     src/manager_init.cpp
     src/manager_facade.cpp
+    src/array_release_family.cpp
     src/object_registration.cpp
     src/object_startup.cpp
     src/manager_construction.cpp

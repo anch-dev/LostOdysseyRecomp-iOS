@@ -89,11 +89,20 @@ std::uint64_t ReleaseTwoByteArray(GuestMemory& memory,
     ManagerFacadeServices& services, GuestAddress array,
     GuestAddress caller_sp)
 {
+    return ReleaseArrayElements(memory, services, array, 2, 8, caller_sp);
+}
+
+std::uint64_t ReleaseArrayElements(GuestMemory& memory,
+    ManagerFacadeServices& services, GuestAddress array,
+    std::uint32_t element_size, std::uint32_t resize_argument,
+    GuestAddress caller_sp)
+{
     const GuestAddress remove_entry_sp = caller_sp - 96u;
     FacadeArrayServices array_services(memory, services,
         remove_entry_sp - 128u);
     RemoveArrayRange(memory, array_services, array, 0,
-        memory.ReadU32(array + 4u), 2, 8, remove_entry_sp - 128u);
+        memory.ReadU32(array + 4u), element_size, resize_argument,
+        remove_entry_sp - 128u);
     const GuestAddress buffer = memory.ReadU32(array);
     std::uint64_t result = buffer;
     if (buffer != 0)
