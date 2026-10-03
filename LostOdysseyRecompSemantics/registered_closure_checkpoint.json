@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-02",
+  "code_commits": ["4603da1", "8f04546", "dcdf389"],
+  "previous_checkpoint": "registered_object_checkpoint.json",
+  "unique_recovered_entry_addresses": 4232,
+  "additional_entry_addresses": 15,
+  "individually_recorded_entries": 80,
+  "family_manifests": 16,
+  "overlapping_addresses": ["829664E8", "82B84D88"],
+  "reused_entry": {
+    "address": "824009F8",
+    "existing_manifest": "field_operation_families.json",
+    "change": "Expose ReadRegistrationReadyGate for registration composition. The existing address mapping is reused; no additional individual record or recovered-entry count."
+  },
+  "new_semantic_recovery": {
+    "registered_getter": {
+      "additional_addresses": ["822C9910", "8242FDD0", "82432DC0", "824605F8", "82462980", "82463FE0"],
+      "family_total": 58,
+      "bounded_comparisons": 13,
+      "runner": "tools/ghidra/test_semantic_registered_getter_family.py --scope next",
+      "receipt": "External scratch: semantic-registered-next-getter-tests/registered-getter-next-result.json",
+      "scope": "Existing/fresh globals for the six new getters and one allocation-failure representative; lower constructors are reused."
+    },
+    "inline_constructor": {
+      "additional_addresses": ["827CE240"],
+      "bounded_comparisons": 4,
+      "runner": "tools/ghidra/test_semantic_registered_inline_constructor.py",
+      "receipt": "External scratch: semantic-registered-inline-tests/registered-inline-constructor-result.json",
+      "scope": "Cached 50-instruction PPC body versus direct manager allocation and initialization: existing/cold manager, full-width success, low-word-zero failure, outgoing-stack alias and frame+112 scratch. Previously validated manager and object initializers are reused."
+    },
+    "dependency_registration": {
+      "additional_addresses": ["824B0B60", "824C9190", "8255EE88", "8256C408", "825DB460", "826D8380"],
+      "family_total": 57,
+      "bounded_comparisons": 15,
+      "runner": "tools/ghidra/test_semantic_registered_callback_family.py --scope next",
+      "receipt": "External scratch: semantic-registered-next-callback-tests/registered-next-callback-result.json",
+      "scope": "Equal/different parent paths for each new entry and readiness representatives for their instruction structures."
+    },
+    "special_registration": {
+      "additional_addresses": ["827CE088", "824084F0"],
+      "bounded_comparisons": 9,
+      "additional_composed_comparisons": 1,
+      "runner": "tools/ghidra/test_semantic_registered_callback_family.py --scope special",
+      "receipt": "External scratch: semantic-registered-special-tests/registered-special-callback-result.json",
+      "scope": "Original PPC bodies cover equal/different parent, readiness, gate/store alias and parent-miss construction/registration. One additional comparison composes the previously recovered RegisterObjectGraph with original versus recovered secondary registration. The existing gate's raw PPC body is a direct callee, not a new counted entry."
+    }
+  },
+  "static_dependency_inventory": {
+    "source": "Current constructor, getter, callback and dependency manifests plus recovered individual entries",
+    "unique_parent_meta_getter_targets": 198,
+    "unique_parent_meta_constructor_targets": 58,
+    "unique_parent_meta_registration_targets": 58,
+    "unrecovered_targets_in_these_sets": 0,
+    "scope": "These table references resolve to available implementations. This is static set membership, not proof of every path, service or whole-subsystem behavior."
+  },
+  "type_names": {
+    "catalog": "registered_type_catalog.json",
+    "readable_index": "REGISTERED_TYPES.md",
+    "named_constructor_or_lazy_entries": 847,
+    "source": "Literal null-terminated UTF-16BE strings at known descriptor pointers in decompressed disc-1 image",
+    "additional_recovered_addresses": 0,
+    "scope": "Names and navigation only; declared size is the initializer argument, not a recovered native C++ layout."
+  },
+  "validation": {
+    "status": "passed_with_bounded_scope",
+    "unique_new_and_changed_scope_comparisons": 42,
+    "special_cases_replayed_when_composition_was_added": 9,
+    "build": "Windows clang-cl RelWithDebInfo incremental semantics-library build passed. After review corrected unconditional self reloads, only registered_callback_family.cpp and the library link were repeated.",
+    "build_log": "External scratch: semantic-runtime-build/registered-closure-build.log",
+    "review_correction": "Both inline registrars reload self after metadata resolution; 827CE088 also reloads before +52. Secondary registration retains its gate snapshot before the final self reload/+52 store.",
+    "evidence_reuse": "Prior 845-constructor, 708-callback, 52-getter and 51-dependency batches were not rerun. No source/image hashes, whole-PPC scans or game scene runs. Documentation and commits do not trigger retests."
+  },
+  "runtime": {
+    "available_opt_in_wrappers": 2455,
+    "default_off_gates": 6,
+    "new_wrappers": 0,
+    "new_scene_runs": 0,
+    "scope": "Registered families remain library implementations. The earlier runtime_memory_checkpoint.json Map20/menu evidence does not cover them."
+  },
+  "remaining_boundaries": [
+    "Manager allocation/lifetime and ready vtable methods remain external services.",
+    "Static direct-target closure does not establish all memory aliases, generic ABI scratch, volatile context, faults, MMIO or concurrency.",
+    "Runtime adapters and representative runtime acceptance for registered families remain pending.",
+    "Complete semantic recovery of the game remains incomplete."
+  ],
+  "counting_note": "Counts are unique mapped entry addresses, not independent logical functions or complete-semantics claims."
+}
