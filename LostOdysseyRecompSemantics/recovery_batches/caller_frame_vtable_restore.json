@@ -1,0 +1,16 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Three caller-frame vtable unwind funclets; reuse the real accepted constant-field operation.",
+  "families": [
+    {
+      "name": "caller-frame-vtable-restore",
+      "manifest": "LostOdysseyRecompSemantics/caller_frame_vtable_restore_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/caller_frame_vtable_restore_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\nvoid OriginalDefaultVTable(PPCContext&,std::uint8_t*);\n#define sub_82485C80 OriginalDefaultVTable\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/pointer_fields.cpp",
+        "LostOdysseyRecompSemantics/src/caller_frame_vtable_restore.cpp"
+      ]
+    }
+  ]
+}

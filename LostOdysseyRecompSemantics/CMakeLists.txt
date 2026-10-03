@@ -43,6 +43,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/legacy_character_classification.cpp
     src/object_range_destruction.cpp
     src/caller_frame_unlock.cpp
+    src/caller_frame_vtable_restore.cpp
     src/crt_allocation.cpp
     src/crt_reallocate.cpp
     src/invalid_parameter.cpp
