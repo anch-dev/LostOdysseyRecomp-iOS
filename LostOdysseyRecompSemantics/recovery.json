@@ -4150,6 +4150,94 @@
         "Runtime ABI/stack adapters and representative scenes remain pending.",
         "External manager and virtual methods, faults, MMIO and concurrency remain outside bounded recovery."
       ]
+    },
+    {
+      "address": "822C42D8",
+      "name": "lo::semantic::gpu::registered_metadata_words::AddArrayElements",
+      "module": "object/registered_metadata_words",
+      "source": "LostOdysseyRecompSemantics/src/registered_metadata_words.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/registered_metadata_words.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Guest32 array, additional count, element size and resize argument. Read count and capacity before storing the wrapped new count.",
+        "return": "Zero-extended original count in r3.",
+        "memory": "Compare signed 32-bit new count with capacity. On growth, compute new_count + trunc_signed(wrapped_three_times_count / 8) + 32, store capacity, and invoke the recovered ResizeArray.",
+        "preserved": "Generic PPCContext and stack save effects remain runtime adapter responsibilities."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+          "line": 26291,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_registered_metadata_words.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "18 cached PPC bodies compose the two new helpers and 16 metadata callbacks. The focused 24-case receipt covers signed/wrapped growth, high-register truncation, live resize mutation and header/stack value aliases; lower ResizeArray evidence is reused."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "8229F678",
+          "boundary": "ResizeArray / ArrayResizeServices",
+          "status": "implementation_available"
+        }
+      ],
+      "open_obligations": [
+        "Existing resize service uses its guest32 argument contract; underlying manager lifetime, callbacks, faults, MMIO and concurrency remain bounded.",
+        "Runtime ABI adapter and representative scene validation remain pending."
+      ]
+    },
+    {
+      "address": "825F41E8",
+      "name": "lo::semantic::gpu::registered_metadata_words::AppendMetadataWord",
+      "module": "object/registered_metadata_words",
+      "source": "LostOdysseyRecompSemantics/src/registered_metadata_words.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/registered_metadata_words.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Guest32 array and live value pointer; compose AddArrayElements(array,1,4,8).",
+        "return": "Reload live count after the value write and subtract one in 64-bit r3, including UINT64_MAX for count zero.",
+        "memory": "Reload storage after resize, compute the wrapped destination from the saved index, skip value dereference/copy when its low word is zero, otherwise read the value after growth and store one big-endian word.",
+        "preserved": "Generic PPCContext and stack save effects remain runtime adapter responsibilities."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.47.cpp",
+          "line": 6037,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_registered_metadata_words.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "18 cached PPC bodies compose the two new helpers and 16 metadata callbacks. The focused 24-case receipt covers signed/wrapped growth, high-register truncation, live resize mutation and header/stack value aliases; lower ResizeArray evidence is reused."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "822C42D8",
+          "boundary": "registered_metadata_words::AddArrayElements",
+          "status": "implementation_available"
+        }
+      ],
+      "open_obligations": [
+        "Existing resize service uses its guest32 argument contract; underlying manager lifetime, callbacks, faults, MMIO and concurrency remain bounded.",
+        "Runtime ABI adapter and representative scene validation remain pending."
+      ]
     }
   ]
 }

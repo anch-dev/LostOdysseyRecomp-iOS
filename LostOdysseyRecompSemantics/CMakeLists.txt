@@ -27,6 +27,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/registered_inline_constructor.cpp
     src/registered_callback_family.cpp
     src/registered_getter_family.cpp
+    src/registered_metadata_words.cpp
     src/object_startup.cpp
     src/manager_construction.cpp
     src/manager_storage.cpp
