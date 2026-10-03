@@ -136,7 +136,7 @@ def main():
                 "entry_count": len(entries), "entries": entries}
     write_if_changed(ROOT / "LostOdysseyRecompSemantics/registered_getter_families.json",
                      json.dumps(manifest, indent=2) + "\n")
-    path = ROOT / "LostOdysseyRecompSemantics/src/registered_getter_family.cpp"
+    path = ROOT / "LostOdysseyRecompSemantics/include/lo_semantics/registered_getter_family.h"
     source = path.read_text(encoding="utf-8")
     if source.count(BEGIN) != 1 or source.count(END) != 1:
         raise ValueError("C++ table markers missing or duplicated")

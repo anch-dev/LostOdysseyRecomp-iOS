@@ -279,6 +279,19 @@ if(LO_ENABLE_SEMANTIC_RUNTIME)
         COMMENT "Generating opt-in semantic memory wrappers"
         VERBATIM)
     target_sources(LostOdysseyRecomp PRIVATE "${LO_SEMANTIC_MEMORY_WRAPPERS}")
+    set(LO_SEMANTIC_REGISTERED_WRAPPERS "${CMAKE_CURRENT_BINARY_DIR}/generated/semantic_registered_wrappers.cpp")
+    add_custom_command(
+        OUTPUT "${LO_SEMANTIC_REGISTERED_WRAPPERS}"
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_SOURCE_DIR}/tools/ghidra/generate_semantic_registered_wrappers.py"
+                --manifest "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/registered_getter_families.json"
+                --output "${LO_SEMANTIC_REGISTERED_WRAPPERS}"
+        DEPENDS
+            "${CMAKE_SOURCE_DIR}/tools/ghidra/generate_semantic_registered_wrappers.py"
+            "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/registered_getter_families.json"
+            "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/include/lo_semantics/registered_getter_family.h"
+        COMMENT "Generating opt-in semantic registered getter wrappers"
+        VERBATIM)
+    target_sources(LostOdysseyRecomp PRIVATE "${LO_SEMANTIC_REGISTERED_WRAPPERS}")
     target_link_libraries(LostOdysseyRecomp PRIVATE LO::Semantics)
 endif()
 if(ANDROID)
