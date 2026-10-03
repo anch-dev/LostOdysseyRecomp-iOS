@@ -4,7 +4,7 @@
   "families": [
     {
       "name": "legacy-token-lookup-flags",
-      "manifest": "LostOdysseyRecompSemantics/legacy_token_lookup_flags_families.json",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/legacy_token_lookup_flags_validation.json",
       "harness": "LostOdysseyRecompSemantics/tests/legacy_token_lookup_flags_oracle.cpp",
       "prelude": "",
       "sources": [
