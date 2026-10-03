@@ -29,6 +29,8 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/pointer_vector.cpp
     src/field_bits.cpp
     src/pointer_fields.cpp
+    src/global_assignments.cpp
+    src/field_operations.cpp
     src/memory_services.cpp
     src/memory_fill.cpp
     src/memory_move.cpp
