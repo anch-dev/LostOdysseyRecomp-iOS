@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "previous_checkpoint": "metadata_descriptor_checkpoint.json",
+  "code_commit": "38b41524",
+  "unique_recovered_entry_addresses": 5139,
+  "additional_entry_addresses": 18,
+  "individually_recorded_entries": 82,
+  "family_manifests": 72,
+  "overlapping_addresses": [
+    "829664E8",
+    "82B84D88"
+  ],
+  "progress": {
+    "readable_entry_address_numerator": 5139,
+    "cached_candidate_address_denominator": 62627,
+    "readable_entry_coverage_percent": 8.206,
+    "denominator_source": "Previously audited out/function-inventory/summary.json candidate_addresses, reused without a full PPC scan or image/source hashes.",
+    "logical_function_total": null,
+    "complete_semantic_recovery_percent": null,
+    "counting_note": "Coverage of unique readable mapped entry addresses within the cached work inventory. It is not independent logical-function count or full semantic completion; entries have different complexity and bounded validation."
+  },
+  "new_library_families": [
+    {
+      "family": "metadata_descriptor_index",
+      "entries": 4,
+      "code_commit": "3decb1ad",
+      "manifest": "metadata_descriptor_index_families.json",
+      "original_ppc_comparisons": 7,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, recorded source identity, CFG/calls and parameters pinned; no full scans or verification hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Actual bucket rebuild, chained slot append, key insertion and descriptor initialization compose existing manager allocation/release and array algorithms. Live child save-slot redirection is reloaded at both parent layers. Full result/SP and owned nonvolatile/LR RAM effects compared; dynamic manager internals and generic lower ABI remain external.",
+        "receipt": "External scratch: semantic-metadata-descriptor-index-tests/metadata-descriptor-index-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/metadata-descriptor-index-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5125,
+      "readable_entry_coverage_percent_at_commit": 8.183,
+      "available_opt_in_wrappers_at_commit": 3168
+    },
+    {
+      "family": "metadata_descriptor_membership",
+      "entries": 2,
+      "code_commit": "accc05d5",
+      "manifest": "metadata_descriptor_membership_families.json",
+      "original_ppc_comparisons": 7,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, recorded source identity, CFG/calls and parameters pinned; no full scans or verification hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Actual removal and reassignment bodies compose recovered array remove/append. Last-owner registry duplicates, flag block, first insertion, move redirection and live observer reread compared. Dynamic observer methods expose selected full registers and guest frames; target internals and untracked volatile ABI remain external.",
+        "receipt": "External scratch: semantic-metadata-descriptor-membership-tests/metadata-descriptor-membership-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/metadata-descriptor-membership-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5127,
+      "readable_entry_coverage_percent_at_commit": 8.187,
+      "available_opt_in_wrappers_at_commit": 3168
+    },
+    {
+      "family": "metadata_utf16_slice",
+      "entries": 4,
+      "code_commit": "26f6e601",
+      "manifest": "metadata_utf16_slice_families.json",
+      "original_ppc_comparisons": 8,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, recorded source identity, CFG/calls and parameters pinned; no full scans or verification hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Actual constructor, clamped slice, reverse and signed-number formatter bodies compose original batch children and recovered copy/resize/append/remove/release. Virtual callbacks redirect live manager r30 and nested saved r31 cleanup. Full input/results, selected nonvolatile/LR and owned stack RAM compared; lower generic ABI and dynamic manager internals excluded.",
+        "receipt": "External scratch: semantic-metadata-utf16-slice-tests/metadata-utf16-slice-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/metadata-utf16-slice-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5131,
+      "readable_entry_coverage_percent_at_commit": 8.193,
+      "available_opt_in_wrappers_at_commit": 3168
+    },
+    {
+      "family": "metadata_descriptor_names",
+      "entries": 2,
+      "code_commit": "f83b8fda",
+      "manifest": "metadata_descriptor_names_families.json",
+      "original_ppc_comparisons": 6,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, recorded source identity, CFG/calls and parameters pinned; no full scans or verification hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Actual packed-name and recursive owner-name bodies compose recovered formatter/header/append/reset algorithms and original parent-child calls. Zero/nonzero suffix, stop/leaf/recursive owner chain and formatted-name saved-slot alias compared. Dynamic UTF16 methods and generic lower ABI remain bounded; cyclic owner chains unverified.",
+        "receipt": "External scratch: semantic-metadata-descriptor-names-tests/metadata-descriptor-names-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/metadata-descriptor-names-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5133,
+      "readable_entry_coverage_percent_at_commit": 8.196,
+      "available_opt_in_wrappers_at_commit": 3168
+    },
+    {
+      "family": "metadata_option_match",
+      "entries": 3,
+      "code_commit": "33de2173",
+      "manifest": "metadata_option_match_families.json",
+      "original_ppc_comparisons": 6,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, recorded source identity, CFG/calls and parameters pinned; no full scans or verification hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Actual folded-prefix comparison, boundary search and option scanner compose original batch children and recovered UTF16Length. Folded difference, full search pointer, slash/dash delimiter, suffix retry and rejection compared; direct comparison r4/r5/r8/r9/r10 residuals also checked. Errno/invalid-parameter branch composes recovered models statically but is not dynamically covered in this batch; generic lower volatile ABI excluded.",
+        "receipt": "External scratch: semantic-metadata-option-match-tests/metadata-option-match-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/metadata-option-match-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5136,
+      "readable_entry_coverage_percent_at_commit": 8.201,
+      "available_opt_in_wrappers_at_commit": 3168
+    },
+    {
+      "family": "metadata_utf16_search",
+      "entries": 3,
+      "code_commit": "38b41524",
+      "manifest": "metadata_utf16_search_families.json",
+      "original_ppc_comparisons": 9,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, recorded source identity, CFG/calls and parameters pinned; no full scans or verification hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Actual substring search, clamped prefix and replacement bodies with original batch search and actual original prefix constructor. Empty/missing/tail search, negative/clamped prefix, empty/missing/repeated replacement, nested saved-r31 return and owned saved-r25 alias compared. Known lower copy/append/reset APIs retain their ABI/service boundary; only terminating ordinary-RAM cases validated.",
+        "receipt": "External scratch: semantic-metadata-utf16-search-tests/metadata-utf16-search-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/metadata-utf16-search-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5139,
+      "readable_entry_coverage_percent_at_commit": 8.206,
+      "available_opt_in_wrappers_at_commit": 3168
+    }
+  ],
+  "validation_totals": {
+    "original_ppc_comparisons": 43,
+    "unknown_entry_checks": 6,
+    "scope": "Only this increment; accepted lower/runtime/scene evidence reused."
+  },
+  "build": {
+    "status": "passed",
+    "platform": "Windows x86_64 clang-cl 22.1.8 RelWithDebInfo /W4 /WX",
+    "scope": "Six new library sources incrementally compiled and linked in six single-job Windows builds; at most two concurrent native compiler jobs. No full runtime rebuild."
+  },
+  "runtime": {
+    "available_opt_in_wrappers": 3168,
+    "default_off_gates": 8,
+    "wrappers_added": 0,
+    "reused_checkpoint": "instance_runtime_checkpoint.json",
+    "scene_binary_revision": "ee9239d965cc",
+    "scene_scope": "Prior eight-gate Windows Vulkan Map20/Uhra/menu and 655-wrapper adapter evidence reused. New library entries have no runtime adapters or new scene validation."
+  },
+  "remaining_cached_candidates": {
+    "instance_entries": 5,
+    "metadata_entries": 9,
+    "scope": "Cached subsets only, not whole-game remaining counts.",
+    "next_dependency_work": "Descriptor initializer 82400CE8 (841 instructions) remains open: five of its initially recorded 18 unmapped direct target kinds remain and seven dynamic call sites remain. All nine cached metadata callers still depend on this initializer. Of 8247C470's five previously open direct helpers, search/prefix/replacement/option matching are now recovered, leaving 82319260 and its formatting chain. 823FD128 still needs 823FD1A8, which needs 822A6EF8/823A7268/82406568. Manager parents 823262B8/827010D0/82700D10 still need 8256F6B8 and recursive 823FFDD8, including 8229C948/823FF338/82400620. Unclosed callers receive no credit.",
+    "handoffs": [
+      "out/function-inventory/instance-manager-link-handoff.md",
+      "out/function-inventory/manager-object-registration-handoff.md",
+      "out/function-inventory/metadata-parser-next-handoff.md",
+      "out/function-inventory/metadata-lookup-next-handoff.md",
+      "out/function-inventory/metadata-descriptor-frontier.json",
+      "out/function-inventory/metadata-lower-frontier-handoff.md",
+      "out/function-inventory/metadata-descriptor-recursive-handoff.md"
+    ],
+    "next_directly_closed_helper_candidates": [
+      "822A6EF8"
+    ],
+    "frontier_note": "Only 18 previously recorded descriptor helpers, fixed relevant lower source locations and the committed unique entry union were inspected; no full scan or verification hash. New candidate clusters are planning only and receive no recovered credit. The next 822A6EF8/82406568 pair has a bounded vtable+284 boundary but does not close its parent. 823A7268/82401A10/82400CE8 form an unresolved dependency cycle and require grouped recovery; 823AAB50 also has three open direct children. The 82B7D158 tail still requires 82B7D020, which needs the open 722-instruction formatting core 82319330 and 116-instruction stream helper 82B82558. The latter has four open lower targets. 8247BF30 writes guest address 3 in generated PPC; no hardware trap behavior is inferred.",
+    "next_lower_dependency_clusters": [
+      [
+        "822A6EF8",
+        "82406568"
+      ],
+      [
+        "822CA100",
+        "827CCF80",
+        "823ACAD8"
+      ]
+    ],
+    "descriptor_open_direct_targets": [
+      "8247BF30",
+      "823FD128",
+      "8247C470",
+      "824790A8",
+      "823A7268"
+    ]
+  },
+  "evidence_reuse": "Recovered lower models and external service contracts reused. Generic lower callback register/frame-pointer redirection and lower frame writes remain bounded by their existing APIs. Own frames and explicitly exposed direct callback state are modeled. Dynamic target internals, untracked volatile/CR/FPSCR, hardware synchronization, concurrency, faults/MMIO and access widths remain open. Known signaling-NaN discrepancy retained in FLOAT_LOAD_STORE_NOTES.md.",
+  "whole_game_semantics_complete": false,
+  "delivery": {
+    "scope": "Local commits on trail/semantic-recovery; this increment is not pushed or released."
+  }
+}
