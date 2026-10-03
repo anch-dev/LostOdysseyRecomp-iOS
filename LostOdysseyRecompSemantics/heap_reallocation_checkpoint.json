@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "previous_checkpoint": "metadata_lifecycle_checkpoint.json",
+  "code_commit": "c3b90c1d",
+  "unique_recovered_entry_addresses": 5153,
+  "additional_entry_addresses": 4,
+  "individually_recorded_entries": 82,
+  "family_manifests": 80,
+  "overlapping_addresses": [
+    "829664E8",
+    "82B84D88"
+  ],
+  "progress": {
+    "readable_entry_address_numerator": 5153,
+    "cached_candidate_address_denominator": 62627,
+    "readable_entry_coverage_percent": 8.228,
+    "denominator_source": "Previously audited out/function-inventory/summary.json candidate_addresses, reused without a full PPC scan or image/source hashes.",
+    "logical_function_total": null,
+    "complete_semantic_recovery_percent": null,
+    "counting_note": "Coverage of unique readable mapped entry addresses within the cached work inventory. It is not independent logical-function count or full semantic completion; entries have different complexity and bounded validation."
+  },
+  "new_library_families": [
+    {
+      "family": "heap_lock_exit",
+      "entries": 1,
+      "original_instruction_count": 17,
+      "code_commit": "f77c1c09",
+      "manifest": "heap_lock_exit_families.json",
+      "original_ppc_comparisons": 4,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, recorded source identity, CFG/calls and parameters pinned; no full scans or verification hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Actual conditional native leave wrapper; skip/full return, high-SP zero expansion, live backchain/save-slot redirection and marker/save-slot alias. Complete fixture context compared within the selected native callback profile; unselected native effects remain external.",
+        "receipt": "External scratch: semantic-heap-lock-exit-tests/heap-lock-exit-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/heap-lock-exit-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5150,
+      "readable_entry_coverage_percent_at_commit": 8.223,
+      "available_opt_in_wrappers_at_commit": 3168
+    },
+    {
+      "family": "heap_block_resize",
+      "entries": 1,
+      "original_instruction_count": 348,
+      "code_commit": "d1f03b63",
+      "manifest": "heap_block_resize_families.json",
+      "original_ppc_comparisons": 9,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, recorded source identity, CFG/calls and parameters pinned; no full scans or verification hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Actual 348-instruction in-place resize body with accepted segment/coalesce/insert/fill models. Limit, busy/short adjacent block, exact growth, split/merge, both native comparisons and missing segment paths. Native callbacks change live r29/r25/SP, block headers, frame+80 and saved-r31; original ordered heap+48/frame+80 aliases preserved. Generic lower ABI and native target internals remain bounded.",
+        "receipt": "External scratch: semantic-heap-block-resize-tests/heap-block-resize-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/heap-block-resize-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5151,
+      "readable_entry_coverage_percent_at_commit": 8.225,
+      "available_opt_in_wrappers_at_commit": 3168
+    },
+    {
+      "family": "heap_reallocate",
+      "entries": 1,
+      "original_instruction_count": 519,
+      "code_commit": "fdb2b26b",
+      "manifest": "heap_reallocate_families.json",
+      "original_ppc_comparisons": 11,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, recorded source identity, CFG/calls and parameters pinned; no full scans or verification hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Actual 519-instruction parent and actual original 348/17 children. Null/limit, process guard, invalid block, shrink/split/zero fill, locking with live r21, growth/no-move failure and successful move/copy/tail-zero/free paths. Own parent and immediate allocator/free frames compared; source wrap masks preserve repeated low-word high bits. Native compare, VM free and exception branches are statically recovered but not dynamically exercised by this receipt; guest unwinding and generic lower ABI remain open.",
+        "receipt": "External scratch: semantic-heap-reallocate-tests/heap-reallocate-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/heap-reallocate-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5152,
+      "readable_entry_coverage_percent_at_commit": 8.226,
+      "available_opt_in_wrappers_at_commit": 3168
+    },
+    {
+      "family": "crt_reallocate",
+      "entries": 1,
+      "original_instruction_count": 61,
+      "code_commit": "c3b90c1d",
+      "manifest": "crt_reallocate_families.json",
+      "original_ppc_comparisons": 7,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, recorded source identity, CFG/calls and parameters pinned; no full scans or verification hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Actual 61-instruction CRT caller and original save/rest27 with accepted recovered direct lower models. Null oversized allocation, nonzero-pointer zero-size VM release, oversized request, heap result, error translation without retry, handler rejection and one retry. Own128 and immediate raw/free/new-handler/error frames, selected returns/nonvolatiles/LR/SP, RAM and boundary events compared. Later heap changes concern unexercised move/native paths, so this upper-only receipt is reused; it does not independently revalidate lower bodies or complete volatile ABI.",
+        "receipt": "External scratch: semantic-crt-reallocate-tests/crt-reallocate-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/crt-reallocate-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5153,
+      "readable_entry_coverage_percent_at_commit": 8.228,
+      "available_opt_in_wrappers_at_commit": 3168
+    }
+  ],
+  "validation_totals": {
+    "original_ppc_comparisons": 31,
+    "unknown_entry_checks": 4,
+    "new_original_body_instructions": 945,
+    "instruction_count_note": "Static four-body length, not executed instructions or a completion weight.",
+    "scope": "Only this increment; accepted lower/runtime/scene evidence reused."
+  },
+  "build": {
+    "status": "passed",
+    "platform": "Windows x86_64 clang-cl 22.1.8 RelWithDebInfo /W4 /WX",
+    "scope": "Four new library sources incrementally compiled and linked in four single-job Windows builds; at most two concurrent native compiler jobs. No full runtime rebuild."
+  },
+  "runtime": {
+    "available_opt_in_wrappers": 3168,
+    "default_off_gates": 8,
+    "wrappers_added": 0,
+    "reused_checkpoint": "instance_runtime_checkpoint.json",
+    "scene_binary_revision": "ee9239d965cc",
+    "scene_scope": "Prior eight-gate Windows Vulkan Map20/Uhra/menu and 655-wrapper adapter evidence reused. New library entries have no runtime adapters or new scene validation."
+  },
+  "remaining_cached_candidates": {
+    "instance_entries": 5,
+    "metadata_entries": 9,
+    "scope": "Cached subsets only, not whole-game remaining counts.",
+    "next_dependency_work": "The heap reallocation chain 827CD7BC/827CBCA8/827CCF80/823ACAD8 is now mapped within its declared ABI/native bounds. Descriptor root 82400CE8 (841 instructions) still has five recorded open direct target kinds and seven dynamic call sites; all nine cached metadata callers still need it. 824790A8's allocator child is now mapped but 82B7D158 remains open. 823FD1A8 still needs 823A7268; 823A7268/82401A10/82400CE8 remain a dependency cycle. Formatting tail 82B7D158 needs 82B7D020, 722-instruction core 82319330 and stream helper 82B82558. Stream has two open direct children 82B81DE0/82B85F70 and deeper true cycle 82B81B28/82B819E8, plus 82B81AF8 and 82BE2810/82BE2938 through 827CA628. Manager parents 823262B8/827010D0/82700D10 still need 8256F6B8 and recursive 823FFDD8, including 8229C948/823FF338/82400620. Unclosed parents receive no credit.",
+    "handoffs": [
+      "out/function-inventory/instance-manager-link-handoff.md",
+      "out/function-inventory/manager-object-registration-handoff.md",
+      "out/function-inventory/metadata-parser-next-handoff.md",
+      "out/function-inventory/metadata-lookup-next-handoff.md",
+      "out/function-inventory/metadata-descriptor-frontier.json",
+      "out/function-inventory/metadata-lower-frontier-handoff.md",
+      "out/function-inventory/metadata-descriptor-recursive-handoff.md",
+      "out/function-inventory/crt-stream-depth-handoff.json",
+      "out/function-inventory/metadata-heap-reallocate-handoff.md",
+      "out/function-inventory/crt-stream-next-handoff.md"
+    ],
+    "next_directly_closed_helper_candidates": [
+      "82B819C8",
+      "82B863F0",
+      "82B7FDB0",
+      "82B7FDE8",
+      "82B7BED8"
+    ],
+    "frontier_note": "The next stream inventory reads 19 fixed bodies (eight cached plus eleven targeted SQLite mode=ro locations), with no scan/hash/compiler or recovery credit. Actual bodies correct missing catalog calls to 82B819C8, 82B81F38 and 82B860CC. Three true closed next groups have static lengths 18, 37 and 64; 82B7FDE8 is a closed 28-instruction helper and 82B7BED8 a closed 18-instruction helper with an explicit dynamic callback. Candidates remain planning only. 8247BF30's guest-address-3 write does not establish a hardware trap.",
+    "next_lower_dependency_clusters": [
+      [
+        "82B819C8",
+        "82B863B8"
+      ],
+      [
+        "82B863F0",
+        "82B81F38",
+        "82B860CC"
+      ],
+      [
+        "82B7FDB0",
+        "82B86228"
+      ]
+    ],
+    "descriptor_open_direct_targets": [
+      "8247BF30",
+      "823FD128",
+      "8247C470",
+      "824790A8",
+      "823A7268"
+    ]
+  },
+  "evidence_reuse": "Recovered lower models and external service contracts reused. Generic lower callback register/frame-pointer redirection and lower frame writes remain bounded by their existing APIs. Own frames and explicitly exposed direct callback state are modeled. Dynamic target internals, untracked volatile/CR/FPSCR, hardware synchronization, concurrency, faults/MMIO and access widths remain open. Known signaling-NaN discrepancy retained in FLOAT_LOAD_STORE_NOTES.md.",
+  "whole_game_semantics_complete": false,
+  "delivery": {
+    "scope": "Local commits on trail/semantic-recovery; this increment is not pushed or released."
+  }
+}
