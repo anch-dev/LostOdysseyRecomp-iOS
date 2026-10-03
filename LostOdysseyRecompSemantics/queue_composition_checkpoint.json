@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "previous_checkpoint": "property_state_checkpoint.json",
+  "code_commit": "3ab93d70",
+  "unique_recovered_entry_addresses": 5088,
+  "additional_entry_addresses": 15,
+  "individually_recorded_entries": 82,
+  "family_manifests": 49,
+  "overlapping_addresses": [
+    "829664E8",
+    "82B84D88"
+  ],
+  "progress": {
+    "readable_entry_address_numerator": 5088,
+    "cached_candidate_address_denominator": 62627,
+    "readable_entry_coverage_percent": 8.124,
+    "denominator_source": "Previously audited out/function-inventory/summary.json candidate_addresses, reused without a full PPC scan or image/source hashes.",
+    "logical_function_total": null,
+    "complete_semantic_recovery_percent": null,
+    "counting_note": "Coverage of unique readable mapped entry addresses within the cached work inventory. It is not independent logical-function count or full semantic completion; entries have different complexity and bounded validation."
+  },
+  "new_library_families": [
+    {
+      "family": "registered_metadata_composed",
+      "entries": 2,
+      "code_commit": "98868804",
+      "manifest": "registered_metadata_composed_families.json",
+      "original_ppc_comparisons": 5,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, instructions, CFG/calls and parameters checked at cached or recorded source locations; no full scan or hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Two exact original bodies; full-r3/SP/LR dynamic vtable+292 tail contract and ordered UTF16 copy including terminator, with source cursor and terminating aliases compared. Dynamic target implementation remains open.",
+        "receipt": "External scratch: semantic-metadata-composed-tests/metadata-composed-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/metadata-composed-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5075,
+      "readable_entry_coverage_percent_at_commit": 8.104,
+      "available_opt_in_wrappers_at_commit": 3168
+    },
+    {
+      "family": "state_array_processing",
+      "entries": 3,
+      "code_commit": "869a2509",
+      "manifest": "state_array_processing_families.json",
+      "original_ppc_comparisons": 16,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, instructions, CFG/calls and parameters checked at cached or recorded source locations; no full scan or hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Three exact original bodies and real save/rest21/27/28 with recovered manager/Move/Resize/Remove algorithms. Live queue/count reload, reentrant append, direct/nested full64 resize and signed capacity, cleanup mutations, frame aliases, null/parent paths. No-shrink storage, early-return full header SP and callback full-r3 residuals covered. Dynamic targets and item volatile r4-r7 remain open. Nested lower-helper callback redirection of nonvolatile frame pointers is part of the excluded generic lower ABI; the direct hub callback state is modeled.",
+        "receipt": "External scratch: semantic-state-array-tests/state-array-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/queue-bit-array-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5078,
+      "readable_entry_coverage_percent_at_commit": 8.108,
+      "available_opt_in_wrappers_at_commit": 3168
+    },
+    {
+      "family": "instance_allocation_composed",
+      "entries": 3,
+      "code_commit": "4be61696",
+      "manifest": "instance_allocation_composed_families.json",
+      "original_ppc_comparisons": 10,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, instructions, CFG/calls and parameters checked at cached or recorded source locations; no full scan or hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Three exact bit-word/holder/World originals plus actual save/rest28, original property and manager-init bodies, with proven lower models. Signed wrap/division, storage/capacity branches, lazy manager initialization, full callback r3/SP, live callback/register/save-slot mutation, holder saved-frame alias and World child-result/null paths. Corrected World signed-addi cross-page vtable constants before passing receipt.",
+        "receipt": "External scratch: semantic-instance-allocation-composed-tests/instance-allocation-composed-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/queue-bit-array-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5081,
+      "readable_entry_coverage_percent_at_commit": 8.113,
+      "available_opt_in_wrappers_at_commit": 3168
+    },
+    {
+      "family": "instance_navigation_allocation",
+      "entries": 5,
+      "code_commit": "7d01411f",
+      "manifest": "instance_navigation_allocation_families.json",
+      "original_ppc_comparisons": 10,
+      "unknown_entry_checks": 2,
+      "strict_validation": "Complete translated bodies, instructions, CFG/calls and parameters checked at cached or recorded source locations; no full scan or hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Five exact originals plus real save/rest27 and prior allocation model. Registry linked-list aliases, two dynamic callbacks with live r31/vtable reload, nested nodes, finite F0/F13 and flush effects, ready skip, allocation success/failure, null tail and high SP. A reviewed correction changed seven post-callback stores to live r30; the prior nine-case receipt is reused and one new original-PPC callback-mutation case independently passed.",
+        "receipt": "External scratch: semantic-instance-navigation-allocation-tests/instance-navigation-allocation-result.json",
+        "additional_receipt": "External scratch: semantic-instance-navigation-allocation-tests/instance-navigation-allocation-r30-result.json",
+        "reuse_note": "Nine prior baseline cases plus one new live-r30 case; two unknown checks across the two scoped receipts."
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/navigation-allocation-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5086,
+      "readable_entry_coverage_percent_at_commit": 8.121,
+      "available_opt_in_wrappers_at_commit": 3168
+    },
+    {
+      "family": "instance_manager_link",
+      "entries": 2,
+      "code_commit": "3ab93d70",
+      "manifest": "instance_manager_link_families.json",
+      "original_ppc_comparisons": 5,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, instructions, CFG/calls and parameters checked at cached or recorded source locations; no full scan or hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Two exact closed node initializer foundations; finite floating-load effects, register/stack aliases and full-r3/SP return paths. The 827010D0/82700D10 manager-link caller pair remains open through 823262B8 and other unclosed helpers; these callers receive no recovered credit.",
+        "receipt": "External scratch: semantic-instance-manager-link-tests/instance-manager-link-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/manager-link-foundations-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5088,
+      "readable_entry_coverage_percent_at_commit": 8.124,
+      "available_opt_in_wrappers_at_commit": 3168
+    }
+  ],
+  "validation_totals": {
+    "original_ppc_comparisons": 46,
+    "unknown_entry_checks": 6,
+    "scope": "Only this increment; old helper/runtime/scene results reused."
+  },
+  "build": {
+    "status": "passed",
+    "platform": "Windows x86_64 clang-cl 22.1.8 RelWithDebInfo /W4 /WX",
+    "scope": "Five new sources incrementally compiled and the semantics library linked, at most two concurrent single-compiler jobs. No full runtime rebuild."
+  },
+  "runtime": {
+    "available_opt_in_wrappers": 3168,
+    "default_off_gates": 8,
+    "wrappers_added": 0,
+    "reused_checkpoint": "instance_runtime_checkpoint.json",
+    "scene_binary_revision": "ee9239d965cc",
+    "scene_scope": "Prior eight-gate Windows Vulkan Map20/Uhra/menu and 655-wrapper adapter evidence reused. New library entries have no runtime adapters or new scene validation."
+  },
+  "remaining_cached_candidates": {
+    "instance_entries": 5,
+    "metadata_entries": 9,
+    "scope": "Cached subsets only, not whole-game remaining counts.",
+    "next_dependency_work": "Prioritize unmapped 82290AB8 (39 instructions, no calls), 82326B08 and 823267A0 (59 each, recovered release/allocation dependencies), then 82326890 (57, metadata-word and 823267A0 dependencies), before their manager-link callers. These four are planned, not recovered credit. Five cached instance and nine metadata entries remain. Metadata closure continues through 82296D30 and 82400CE8 chains.",
+    "handoff": "out/function-inventory/registered-metadata-composed-handoff.md",
+    "handoffs": [
+      "out/function-inventory/registered-metadata-composed-handoff.md",
+      "out/function-inventory/instance-manager-link-handoff.md"
+    ]
+  },
+  "evidence_reuse": "Nested lower ResizeArray/Remove callback frame-pointer redirection is part of the excluded generic lower ABI; explicit hub/direct callback frames are modeled. Recovered lower models and external service contracts are reused. Dynamic destructor internals, generic lower ABI, volatile/CR, faults/MMIO/access widths and concurrency remain open. Known signaling-NaN discrepancy retained in FLOAT_LOAD_STORE_NOTES.md.",
+  "whole_game_semantics_complete": false,
+  "delivery": {
+    "scope": "Local commits on trail/semantic-recovery; this increment is not pushed or released."
+  }
+}

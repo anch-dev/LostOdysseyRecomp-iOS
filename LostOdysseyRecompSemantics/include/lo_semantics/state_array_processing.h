@@ -20,6 +20,9 @@ struct FrameRegisters
 // live LR/nonvolatile registers. Nested lower helper volatile r4-r7 effects
 // are not represented by this bounded API; VisitItem therefore exposes only
 // its freshly loaded receiver. Callback implementations remain external.
+// Nested ResizeArray/Remove reuse APIs with an explicit array address, so
+// callback redirection of those lower helpers' nonvolatile frame pointers is
+// outside their modeled ABI. Direct hub callbacks use the live frame here.
 class StateArrayCallbacks
 {
 public:
