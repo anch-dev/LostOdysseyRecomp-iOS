@@ -4494,7 +4494,7 @@
         "ctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 2) & 0xFFFFFFFC;",
         "ctx.r3.u64 = ctx.r11.u64 + ctx.r3.u64;"
       ],
-      "family": "ScaledClampedIndex",
+      "family": "ScaledMaskedIndex",
       "value": 0,
       "auxiliary": 0,
       "group": "straight_line_integer_leaf_with_all_gpr_effects",

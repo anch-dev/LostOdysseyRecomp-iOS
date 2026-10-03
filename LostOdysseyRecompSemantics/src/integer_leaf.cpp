@@ -30,7 +30,7 @@ enum class Family : std::uint8_t
     LowByteR4,
     ScaledIndex36,
     ScaledIndexStaticBase,
-    ScaledClampedIndex,
+    ScaledMaskedIndex,
 };
 
 struct Entry
@@ -286,7 +286,7 @@ constexpr std::array<Entry, 296> kEntries{{
     {0x82F278D8u, Family::ConstantWithR11, 0xffffffff832207a0ull, 0xffffffff83220000ull},
     {0x82F278E8u, Family::ScaledIndexStaticBase, 0xffffffff83220800ull, 0x0000000000000000ull},
     {0x82F2E8F8u, Family::ConstantWithR11, 0xffffffff832208a0ull, 0xffffffff83220000ull},
-    {0x82F4C898u, Family::ScaledClampedIndex, 0x0000000000000000ull, 0x0000000000000000ull},
+    {0x82F4C898u, Family::ScaledMaskedIndex, 0x0000000000000000ull, 0x0000000000000000ull},
     {0x82F51D78u, Family::OffsetR3, 0x000000000000001cull, 0x0000000000000000ull},
     {0x82F51E00u, Family::OffsetR3, 0x0000000000000028ull, 0x0000000000000000ull},
     {0x82F5AC18u, Family::Constant, 0x0000000040000000ull, 0x0000000000000000ull},
@@ -424,7 +424,7 @@ void Execute(const Entry& entry, Registers& r) noexcept
         r.r10 = LowWordShift(r.r10, 2);
         r.r3 = r.r10 + r.r11;
         break;
-    case Family::ScaledClampedIndex:
+    case Family::ScaledMaskedIndex:
         r.r11 = static_cast<std::uint32_t>(r.r4) & 0xfffffu;
         r.r11 += 25u;
         r.r10 = LowWordShift(r.r11, 1);

@@ -1,10 +1,22 @@
 # Lost Odyssey 语义恢复库
 
-本目录是项目首个可读语义恢复代码库。它是独立的 C++20 static library，可以在不依赖私有游戏数据、生成的 PPC 代码、渲染器或游戏 SDK 的情况下用 CMake 配置；Windows C++ 工具链仍需要正常的编译器和 SDK 环境。当前源码已有四十九个可读实现，覆盖 query 创建、query-pool 分配／释放、allocator 分派、memory service、guest-memory fill、cache range、heap-core、thread-state、heap allocation helper、heap growth／range／segment、guest memory move/copy、dynamic-array、special/raw allocation、manager 构造／初始化／锁／storage，以及 manager allocation／resize 和 fallback resize。Guest memory 仍是显式的 32 位大端窗口，尚未恢复契约的 service boundary 保持不透明。
+本目录是项目首个可读语义恢复代码库。它是独立的 C++20 static library，可以在不依赖私有游戏数据、生成的 PPC 代码、渲染器或游戏 SDK 的情况下用 CMake 配置；Windows C++ 工具链仍需要正常的编译器和 SDK 环境。当前源码已有五十个逐个记录的可读实现，覆盖 query 创建、query-pool 分配／释放、allocator 分派、memory service、guest-memory fill、cache range、heap-core、thread-state、heap allocation helper、heap growth／range／segment、guest memory move/copy、dynamic-array、special/raw allocation、manager 构造／初始化／锁／storage、manager allocation／resize、fallback resize 以及 pointer-vector 清理。Guest memory 仍是显式的 32 位大端窗口，尚未恢复契约的 service boundary 保持不透明。
 
-这是研究和行为对照用的代码面，不会替换生成的 runtime，也不会启用 runtime hook；当前不宣称完整恢复、兼容性、性能提升或跨平台验证。恢复记录将可读实现、差分检查、runtime 接入、场景验证和完整语义分别记录；当前完整恢复仍为 0。
+这是研究和行为对照用的代码面，runtime 替换默认关闭；当前不宣称完整恢复、兼容性、性能提升或跨平台验证。恢复记录将可读实现、差分检查、runtime 接入、场景验证和完整语义分别记录；当前完整恢复仍为 0。
 
-另有一个独立的 leaf-family 批次，将 942 个原始 entrypoint 映射到两个共享的可读 C++ 实现（`PreserveR3` 和 `ReturnOne`），使用 3 个精确源码模板。一次 native 编译及 4,710/4,710 条完整 PPCContext 加 4,096 字节普通内存对照均通过。共享批处理流程去除了逐函数编译开销，但不宣称整体加速；现有 49 个逐个恢复函数仍单独计数。入口映射见 [leaf_families.json](leaf_families.json)。可用 `python -B tools/ghidra/test_semantic_leaf_family.py --write-map --output "$env:USERPROFILE/worktrees/LostOdysseyRecomp/semantic-leaf-family-tests"` 重现。运行需要已有的 `out/function-inventory/exact-body-families.json` 清单和私有输入；完整 PPC 位于其他 checkout 时，用 `--ppc-root <目录>` 指定。该证据仅限有边界的行为对照，不会启用 runtime 替换，也不代表游戏验收通过。
+另有一个独立的 leaf-family 批次，将 942 个原始 entrypoint 映射到两个共享的可读 C++ 实现（`PreserveR3` 和 `ReturnOne`），使用 3 个精确源码模板。一次 native 编译及 4,710/4,710 条完整 PPCContext 加 4,096 字节普通内存对照均通过。共享批处理流程去除了逐函数编译开销，但不宣称整体加速；逐个跟踪的实现仍单独计数。入口映射见 [leaf_families.json](leaf_families.json)。可用 `python -B tools/ghidra/test_semantic_leaf_family.py --write-map --output "$env:USERPROFILE/worktrees/LostOdysseyRecomp/semantic-leaf-family-tests"` 重现。运行需要已有的 `out/function-inventory/exact-body-families.json` 清单和私有输入；完整 PPC 位于其他 checkout 时，用 `--ppc-root <目录>` 指定。该证据仅限有边界的行为对照，不会启用 runtime 替换，也不代表游戏验收通过。
+
+当前 family manifest 另外覆盖 304 个固定偏移 accessor 地址（217 getter、87 setter，共 1,824 条对照）和 296 个 integer-leaf 地址（2,960 条对照，其中 1 个此前已记录）。与 942 个 leaf 地址有 1 个重叠后，manifest 共覆盖 1,591 个唯一映射地址，其中包括 50 个逐个记录的条目；这是地址映射数量，不是独立逻辑函数或完整函数数量。新增模块纳入的 standalone Release semantics library 已通过一次构建。需要时可显式指定生成 PPC 根目录运行：
+
+~~~powershell
+python -B tools/ghidra/test_semantic_accessor_family.py --write-map --ppc-root <complete-ppc> --output "$env:USERPROFILE/worktrees/LostOdysseyRecomp/semantic-accessor-family-tests"
+python -B tools/ghidra/test_semantic_integer_leaf.py --ppc-root <complete-ppc> --output "$env:USERPROFILE/worktrees/LostOdysseyRecomp/semantic-integer-leaf-tests"
+python -B tools/ghidra/test_semantic_pointer_vector.py --ppc-root <complete-ppc> --output "$env:USERPROFILE/worktrees/LostOdysseyRecomp/semantic-pointer-vector-tests"
+~~~
+
+新增的 `827C4FA0` pointer-vector 恢复会释放缓存指针并将 count 清零；原先的 GrowPointerVector 边界名称并不准确。10 条边界对照已通过 return、memory 和调用顺序检查；ABI 保存、volatile 状态和真实 kernel 仍未纳入。此前 49 函数 hash receipt 的命令属于历史检查点，共享 header 改动后不应视为当前全源码新鲜度报告。
+
+实验性的 runtime adapter 基础设施已经加入，但默认关闭。构建时启用 `LO_ENABLE_SEMANTIC_RUNTIME`，并在启动时设置 `LO_SEMANTIC_LEAF_RUNTIME=1` 后，942 个 leaf entry 使用生成的 semantic wrapper，同时保留原始 `__imp__sub_*` fallback；focused native compile/link 检查已在两种模式下通过完整 PPCContext 检查。这不代表完整游戏构建或场景验证通过。
 
 ## 构建
 
@@ -83,9 +95,10 @@ GuestMemory 表示有边界的 Xbox guest 地址窗口，并显式读写大端�
  - 822A0738 FindPrimaryResizeNode
  - 82295530 ResizeFallbackAllocation
  - 827C5050 AppendPointerToVector
+ - 827C4FA0 FlushPointerVector
 
-库内还实现了将 query 创建、槽位初始化和释放串联起来的 PooledQueryServices 组合 adapter；它是库内组合面，不是 runtime 接入。manager lifecycle 组合对原始 PPC 的 InitializeManager、AllocateRawMemory、GetProcessHeap 及 primary／fallback constructor 通过 12 条有边界用例；manager-lock 组合再通过 12 条；manager-startup 组合对 10 个原始／恢复 body 通过 6 条，三个虚表调用均指向真实目标。manager-allocation 和 fallback-resize 组合各通过 12 条补充用例，不增加函数数量。6 个新函数各有独立、有边界的 receipt，包含大小类别边界用例。3 个 lock 函数各有 16、24、24 条用例，2 个 storage 函数各有 18 条。其 test-only adapter 会显式重放 ABI prologue 保存和 backchain；production 仍没有完整 PPCContext adapter。heap、CRT、native-critical-section 和更深 vtable 边界仍为 synthetic，generic ABI scratch 和 volatile context 不纳入。部分测试仍使用有边界的 stub 或合成组合，因此不代表内存已完整恢复。下一步先做 inventory 后的入口／边界审计，再处理更深 vtable、CRT／native kernel、unwind、ABI adapter 以及代表性 runtime 场景验证。后续按证据和热点扩展，不为所有地址生成占位实现。
-本阶段当前源码和 oracle 集合各为 49 个。48 个普通 PPC 函数共 21,536 例；cache 单独记录 1,042 条轨迹（1,040 条完整、2 条有限前缀）。query-lifecycle 增加 74 例，补充 heap-lifecycle runner 增加 1 条序列，manager lifecycle 增加 12 例，manager-lock 组合增加 12 例，manager-startup 增加 6 例，manager-allocation 组合增加 12 例，fallback-resize 组合增加 12 例，共 21,665 条有边界对照例。runtime、scene 和 complete 仍为 0；MMIO、fault、concurrency、完整 void r3 和机器码 runtime 验证仍未覆盖，cache 结果也不代表硬件同步已验收。
+库内还实现了将 query 创建、槽位初始化和释放串联起来的 PooledQueryServices 组合 adapter；它是库内组合面，不是 runtime 接入。manager lifecycle 组合对原始 PPC 的 InitializeManager、AllocateRawMemory、GetProcessHeap 及 primary／fallback constructor 通过 12 条有边界用例；manager-lock 组合再通过 12 条；manager-startup 组合对 10 个原始／恢复 body 通过 6 条，三个虚表调用均指向真实目标。manager-allocation 和 fallback-resize 组合各通过 12 条补充用例，不增加函数数量。6 个新函数各有独立、有边界的 receipt，包含大小类别边界用例。3 个 lock 函数各有 16、24、24 条用例，2 个 storage 函数各有 18 条。其 test-only adapter 会显式重放 ABI prologue 保存和 backchain；production 仍没有完整 PPCContext adapter。heap、CRT、native-critical-section 和更深 vtable 边界仍为 synthetic，generic ABI scratch 和 volatile context 不纳入。部分测试仍使用有边界的 stub 或合成组合，因此不代表内存已完整恢复。当前工作继续推进 family 与 dependency 恢复，并同步构建 runtime adapter；更深 vtable、CRT／native kernel、unwind、ABI adapter 以及代表性 runtime 场景验证仍待完成。后续按证据和热点扩展，不为所有地址生成占位实现。
+当前 50 个逐个记录条目与各 family 映射合计覆盖 1,591 个唯一地址（942 leaf、304 accessor、296 integer，其中 1 个重叠）；runtime、scene 和 complete 仍为 0。此前 49 函数的报告和 receipt 保留为历史检查点；MMIO、fault、concurrency、完整 void r3 和机器码 runtime 验证仍未覆盖，cache 结果也不代表硬件同步已验收。
 memory-fill 对照还覆盖未注册的 PPCContext adapter，包括 store address、width、value 和 order。该 adapter 只属于对照 harness，不是 runtime 接入。函数名和字段名是根据 PPC 证据推断的工作名称，不是已恢复的原始 debug symbol。
 fill adapter 不证明 fault 期间的中间 PPCContext 状态，也未在 optimized 或 live path 上测试。
 
@@ -97,7 +110,7 @@ python -B tools/ghidra/test_semantic_query.py --output "$env:USERPROFILE/worktre
 
 生成下方汇总报告前，还需运行其余[语义对照脚本](../tools/ghidra/README.md)；receipt 列表需要全部四十九个分函数结果。
 
-当前进度报告覆盖 62,627 个候选地址，其中 49 个可读函数、49 个有边界对照函数，runtime、scene 和 complete 均为 0。receipt 保存在仓库外，可用进度工具汇总：
+此前的进度报告覆盖 62,627 个候选地址，其中 49 个可读函数、49 个有边界对照函数；它保留为历史检查点，receipt 保存在仓库外。当前 family 与 dependency 恢复及 runtime adapter 工作见上文：runtime、scene 和 complete 仍为 0。
 
 扩展恢复集合前，先运行[只读 function inventory 审计](../tools/ghidra/README.md#deduplicate-before-expanding-recovery)。当前 snapshot 是 62,627 个 catalog/manifest union 地址：50,412 个 `shared_entry`、7 个 `ghidra_only_entry`、4 个 `generated_interior_candidate` 和 12,204 个 `generated_uncovered_entry`。这些分类不等于真实逻辑函数数量，也不证明入口等价；审计不会独立核验实际 XEX 或 image 来源链，也不会修改恢复记录。四个 interior candidate 都有外部直接调用和独立生成的函数体证据，不安全合并；12,204 个 uncovered entry 是未解决候选，不是重复记录。边界审计证据保存在 `out/function-inventory/boundary-review.json`。 精确函数体审计发现 61,597 种不同文本，48 个重复组覆盖 1,071 个入口，有 1,023 份重复实现候选。后续可按组复用实现，但需保留每个入口映射并独立对照；这些计数不代表逻辑函数总数。
 
