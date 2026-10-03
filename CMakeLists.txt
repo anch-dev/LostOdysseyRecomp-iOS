@@ -65,8 +65,13 @@ option(LO_BUILD_RUNTIME "Build the LostOdysseyRecomp runtime executable" ON)
 option(LO_BUILD_GPU "Build the plume-based GPU backend" ON)
 option(LO_BUILD_ANDROID_RUNTIME "Enable the experimental Android game runtime shared library" OFF)
 option(LO_BUILD_SEMANTIC_LIBRARY "Build the independently recovered guest semantics library" OFF)
+option(LO_ENABLE_SEMANTIC_RUNTIME "Compile opt-in recovered leaf wrappers into the game runtime" OFF)
 
-if(LO_BUILD_SEMANTIC_LIBRARY)
+if(LO_ENABLE_SEMANTIC_RUNTIME AND (NOT LO_BUILD_RUNTIME OR NOT LO_BUILD_RECOMP_LIB))
+    message(FATAL_ERROR "LO_ENABLE_SEMANTIC_RUNTIME requires LO_BUILD_RUNTIME and LO_BUILD_RECOMP_LIB")
+endif()
+
+if(LO_BUILD_SEMANTIC_LIBRARY OR LO_ENABLE_SEMANTIC_RUNTIME)
     add_subdirectory(LostOdysseyRecompSemantics)
 endif()
 

@@ -196,6 +196,21 @@ target_link_libraries(LostOdysseyRecomp PRIVATE
     xxHash::xxhash
     o1heap
     SDL2::SDL2)
+if(LO_ENABLE_SEMANTIC_RUNTIME)
+    set(LO_SEMANTIC_LEAF_WRAPPERS "${CMAKE_CURRENT_BINARY_DIR}/generated/semantic_leaf_wrappers.cpp")
+    add_custom_command(
+        OUTPUT "${LO_SEMANTIC_LEAF_WRAPPERS}"
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_SOURCE_DIR}/tools/ghidra/generate_semantic_leaf_wrappers.py"
+                --manifest "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/leaf_families.json"
+                --output "${LO_SEMANTIC_LEAF_WRAPPERS}"
+        DEPENDS
+            "${CMAKE_SOURCE_DIR}/tools/ghidra/generate_semantic_leaf_wrappers.py"
+            "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/leaf_families.json"
+        COMMENT "Generating opt-in semantic leaf wrappers"
+        VERBATIM)
+    target_sources(LostOdysseyRecomp PRIVATE "${LO_SEMANTIC_LEAF_WRAPPERS}")
+    target_link_libraries(LostOdysseyRecomp PRIVATE LO::Semantics)
+endif()
 if(ANDROID)
     target_link_libraries(LostOdysseyRecomp PRIVATE android log dl nlohmann_json::nlohmann_json)
 elseif(UNIX)
