@@ -59,7 +59,8 @@ def extract_originals(entries: list[dict], ppc_root: Path) -> bytes:
 
 def compile_and_run(suite: str, original_cpp: bytes, harness_cpp: bytes | str,
                     semantic_sources: list[Path | str], output: Path,
-                    extra_include_dirs=()) -> dict:
+                    extra_include_dirs=(), semantic_library: Path | None = None,
+                    msvc_runtime: str = "MD") -> dict:
     """Build one executable, run it once, and save a compact result and log."""
     if not re.fullmatch(r"[a-zA-Z0-9_-]+", suite):
         raise ValueError("suite must be a simple filename")
@@ -73,38 +74,54 @@ def compile_and_run(suite: str, original_cpp: bytes, harness_cpp: bytes | str,
         harness_cpp = harness_cpp.encode("utf-8")
     fixture.write_bytes(b'#include "ppc_context.h"\n#include <cstddef>\n' +
                         original_cpp + b"\n" + harness_cpp)
-    result = {"suite": suite, "status": "failed"}
+    result = {"suite": suite, "status": "failed", "phase": "compiler_setup",
+              "msvc_runtime": msvc_runtime}
     result_path = output / f"{suite}-result.json"
     # Replace stale success before attempting a new build.
     result_path.write_text(json.dumps(result) + "\n", encoding="utf-8")
-    environment = compiler_environment()
-    search_path = next(v for k, v in environment.items() if k.upper() == "PATH")
-    compiler = shutil.which("clang-cl", path=search_path)
-    if compiler is None:
-        raise RuntimeError("clang-cl unavailable after native compiler setup")
-    includes = [ROOT / "LostOdysseyRecompLib/ppc",
-                ROOT / "tools/XenonRecomp/thirdparty/simde",
-                ROOT / "LostOdysseyRecompSemantics/include", *extra_include_dirs]
-    sources = [str(Path(p) if Path(p).is_absolute() else ROOT / p)
-               for p in semantic_sources]
-    command = [compiler, "/nologo", "/std:c++20", "/EHsc", "/O2", "/MD",
-               "-Wno-ignored-attributes", "-msse4.1",
-               *["/I" + str(p) for p in includes], str(fixture), *sources,
-               "/Fo" + str(output) + "\\", "/Fe" + str(executable)]
-    with (output / f"{suite}.log").open("w", encoding="utf-8") as log:
-        for name, args in (("compile", command), ("execute", [str(executable)])):
-            started = time.perf_counter()
-            completed = subprocess.run(args, cwd=ROOT, env=environment,
-                                       capture_output=True, text=True, timeout=300)
-            result[name + "_seconds"] = round(time.perf_counter() - started, 3)
-            text = completed.stdout + completed.stderr
-            log.write(text)
-            log.flush()
-            print(text, end="", flush=True)
-            if completed.returncode:
-                raise subprocess.CalledProcessError(completed.returncode, args)
-            if name == "execute":
-                result["summary"] = text.strip()
-    result["status"] = "passed"
-    result_path.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+    try:
+        if msvc_runtime not in ("MD", "MDd", "MT", "MTd"):
+            raise ValueError(f"unsupported MSVC runtime: {msvc_runtime}")
+        environment = compiler_environment()
+        search_path = next(v for k, v in environment.items() if k.upper() == "PATH")
+        compiler = shutil.which("clang-cl", path=search_path)
+        if compiler is None:
+            raise RuntimeError("clang-cl unavailable after native compiler setup")
+        includes = [*extra_include_dirs, ROOT / "LostOdysseyRecompLib/ppc",
+                    ROOT / "tools/XenonRecomp/thirdparty/simde",
+                    ROOT / "LostOdysseyRecompSemantics/include"]
+        sources = [str(Path(p) if Path(p).is_absolute() else ROOT / p)
+                   for p in semantic_sources]
+        library = [str(Path(semantic_library).resolve())] if semantic_library else []
+        if semantic_library and not Path(semantic_library).is_file():
+            raise FileNotFoundError(f"semantics library missing: {semantic_library}")
+        command = [compiler, "/nologo", "/std:c++20", "/EHsc", "/O2",
+                   "/" + msvc_runtime,
+                   "-Wno-ignored-attributes", "-msse4.1",
+                   *["/I" + str(p) for p in includes], str(fixture), *sources,
+                   *library, "/Fo" + str(output) + "\\", "/Fe" + str(executable)]
+        with (output / f"{suite}.log").open("w", encoding="utf-8") as log:
+            for name, args in (("compile", command), ("execute", [str(executable)])):
+                result["phase"] = name
+                started = time.perf_counter()
+                try:
+                    completed = subprocess.run(args, cwd=ROOT, env=environment,
+                                               capture_output=True, text=True, timeout=300)
+                finally:
+                    result[name + "_seconds"] = round(time.perf_counter() - started, 3)
+                output_text = completed.stdout + completed.stderr
+                log.write(output_text)
+                log.flush()
+                print(output_text, end="", flush=True)
+                if completed.returncode:
+                    raise subprocess.CalledProcessError(completed.returncode, args)
+                if name == "execute":
+                    result["summary"] = output_text.strip()
+        result["status"] = "passed"
+        result["phase"] = "complete"
+    except Exception as exc:
+        result["error"] = f"{type(exc).__name__}: {exc}"
+        raise
+    finally:
+        result_path.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     return result

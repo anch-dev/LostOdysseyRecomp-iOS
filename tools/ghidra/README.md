@@ -145,3 +145,17 @@ The existing scripts can also be run directly:
 ```
 
 Put all exports in ignored `out/`. Review decompiler output as a hypothesis and verify instruction semantics, data types, callers and side effects against the binary and runtime evidence. Ghidra's lack of a reference does not establish that no reference exists. Record reverse-engineering conclusions in the relevant [research notes](../../docs/notes/README.md).
+
+## Shared semantic recovery workflow
+
+For bounded family recovery, use the [semantic recovery workflow](RECOVERY_WORKFLOW.md) and the [worker packet template](templates/semantic_worker_prompt.md). The shared [semantic_recovery.py](semantic_recovery.py) helper provides body/metadata checks, one strict `--parallel 1` CMake library build, same-library oracle links, and HEAD-local progress reporting:
+
+```powershell
+python tools/ghidra/semantic_recovery.py check --manifest <paths> --ppc-root <path>
+python tools/ghidra/semantic_recovery.py run --batch <root-relative.json> `
+  --output <external-scratch> --library-build <configured-cmake-dir> `
+  --msvc-runtime MT --library-file <exact-library.lib>
+python tools/ghidra/semantic_recovery.py progress --runtime-wrappers 3168
+```
+
+`--msvc-runtime` must match the configured `MT`, `MD`, `MTd`, or `MDd` runtime. Use `--library-file` when standard library discovery is ambiguous. Outputs belong outside the checkout and ownCloud. Tool checks and shared-header fixtures validate the workflow; they do not add semantic recovery cases, prove complete PPC context, enable runtime replacement, or establish full-game behavior.
