@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Conditional count-derived extent with word-shift truncation and full-width final addition.",
+  "families": [
+    {
+      "name": "record-buffer-extent",
+      "manifest": "LostOdysseyRecompSemantics/record_buffer_extent_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/record_buffer_extent_oracle.cpp",
+      "prelude": "",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/record_buffer_extent.cpp"
+      ]
+    }
+  ]
+}

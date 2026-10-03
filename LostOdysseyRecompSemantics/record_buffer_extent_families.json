@@ -1,0 +1,41 @@
+{
+  "schema": "record-buffer-extent-v1",
+  "entries": [
+    {
+      "address": "82373190",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.9.cpp",
+      "source_line": 11826,
+      "instruction_count": 8,
+      "instructions": [
+        "lwz r11,252(r3)",
+        "lwz r10,508(r3)",
+        "rlwinm r11,r11,2,0,29",
+        "cmplwi cr6,r10,0",
+        "beq cr6,0x823731a8",
+        "li r11,12",
+        "addi r3,r11,576",
+        "blr "
+      ],
+      "direct_calls": [],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82373190) {\n\tPPC_FUNC_PROLOGUE();\n\t// lwz r11,252(r3)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 252);\n\t// lwz r10,508(r3)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r3.u32 + 508);\n\t// rlwinm r11,r11,2,0,29\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 2) & 0xFFFFFFFC;\n\t// cmplwi cr6,r10,0\n\tctx.cr6.compare<uint32_t>(ctx.r10.u32, 0, ctx.xer);\n\t// beq cr6,0x823731a8\n\tif (ctx.cr6.eq) goto loc_823731A8;\n\t// li r11,12\n\tctx.r11.s64 = 12;\nloc_823731A8:\n\t// addi r3,r11,576\n\tctx.r3.s64 = ctx.r11.s64 + 576;\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
+    }
+  ],
+  "implementation": {
+    "header": "include/lo_semantics/record_buffer_extent.h",
+    "source": "src/record_buffer_extent.cpp",
+    "oracle": "tests/record_buffer_extent_oracle.cpp",
+    "scope": "Select a fixed extent for a nonzero flag or derive it from a 32-bit shifted count; preserve the final full-64-bit addition, scratch registers and CR6."
+  },
+  "validation": {
+    "focused_original_ppc_cases": 4,
+    "unknown_entry_checks": 0,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-record-buffer-extent-tests/record-buffer-extent-result.json",
+    "library": "Windows-native /W4 /WX MT static library",
+    "tested_scope": "Ordinary count, word-shift truncation, full-64-bit final addition beyond UINT32_MAX and nonzero high-bit flag; high-bit incoming base/GPR/SP/LR, selected GPR/CR/XER and unchanged ordinary RAM.",
+    "unvalidated_scope": "Other inputs, faults, MMIO, concurrency, unselected ABI and runtime behavior.",
+    "runtime_validated": false,
+    "complete": false
+  }
+}
