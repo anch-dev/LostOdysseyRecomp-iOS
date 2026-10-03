@@ -1,0 +1,62 @@
+{
+  "schema": "crt-exception-predicates-v1",
+  "entries": [
+    {
+      "address": "82B80480",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "source_line": 980,
+      "instruction_count": 9,
+      "instructions": [
+        "std r31,-8(r1)",
+        "addi r31,r12,-96",
+        "lbz r11,127(r31)",
+        "cntlzw r11,r11",
+        "rlwinm r11,r11,27,31,31",
+        "xori r3,r11,1",
+        "mr r8,r8",
+        "ld r31,-8(r1)",
+        "blr "
+      ],
+      "direct_calls": [],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82B80480) {\n\tPPC_FUNC_PROLOGUE();\n\t// std r31,-8(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -8, ctx.r31.u64);\n\t// addi r31,r12,-96\n\tctx.r31.s64 = ctx.r12.s64 + -96;\n\t// lbz r11,127(r31)\n\tctx.r11.u64 = PPC_LOAD_U8(ctx.r31.u32 + 127);\n\t// cntlzw r11,r11\n\tctx.r11.u64 = ctx.r11.u32 == 0 ? 32 : __builtin_clz(ctx.r11.u32);\n\t// rlwinm r11,r11,27,31,31\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 27) & 0x1;\n\t// xori r3,r11,1\n\tctx.r3.u64 = ctx.r11.u64 ^ 1;\n\t// mr r8,r8\n\tctx.r8.u64 = ctx.r8.u64;\n\t// ld r31,-8(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -8);\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
+    },
+    {
+      "address": "82B8223C",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "source_line": 5682,
+      "instruction_count": 9,
+      "instructions": [
+        "lwz r11,0(r3)",
+        "lis r10,-16384",
+        "ori r10,r10,23",
+        "lwz r11,0(r11)",
+        "subf r11,r11,r10",
+        "cntlzw r11,r11",
+        "rlwinm r3,r11,27,31,31",
+        "mr r8,r8",
+        "blr "
+      ],
+      "direct_calls": [],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82B8223C) {\n\tPPC_FUNC_PROLOGUE();\n\t// lwz r11,0(r3)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 0);\n\t// lis r10,-16384\n\tctx.r10.s64 = -1073741824;\n\t// ori r10,r10,23\n\tctx.r10.u64 = ctx.r10.u64 | 23;\n\t// lwz r11,0(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);\n\t// subf r11,r11,r10\n\tctx.r11.s64 = ctx.r10.s64 - ctx.r11.s64;\n\t// cntlzw r11,r11\n\tctx.r11.u64 = ctx.r11.u32 == 0 ? 32 : __builtin_clz(ctx.r11.u32);\n\t// rlwinm r3,r11,27,31,31\n\tctx.r3.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 27) & 0x1;\n\t// mr r8,r8\n\tctx.r8.u64 = ctx.r8.u64;\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
+    }
+  ],
+  "implementation": {
+    "header": "include/lo_semantics/crt_exception_predicates.h",
+    "source": "src/crt_exception_predicates.cpp",
+    "oracle": "tests/crt_exception_predicates_oracle.cpp"
+  },
+  "validation": {
+    "focused_original_ppc_cases": 4,
+    "unknown_entry_checks": 0,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-exception-predicates-tests/crt-exception-predicates-result.json",
+    "library": "Windows-native /W4 /WX shared MT library",
+    "tested_scope": "Both entries, true/false predicates, high register halves, caller frame spill, selected GPRs and ordinary RAM.",
+    "unvalidated_scope": "Faults, MMIO and runtime.",
+    "runtime_validated": false,
+    "complete": false
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Two CRT exception predicates, minimum true/false representatives.",
+  "families": [
+    {
+      "name": "crt-exception-predicates",
+      "manifest": "LostOdysseyRecompSemantics/crt_exception_predicates_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/crt_exception_predicates_oracle.cpp",
+      "prelude": "",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/crt_exception_predicates.cpp"
+      ]
+    }
+  ]
+}
