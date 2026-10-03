@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "family": "metadata_manager_dispatch",
+  "entry_count": 1,
+  "entries": [
+    {
+      "address": "823F3298",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.14.cpp",
+      "line": 30568,
+      "instruction_count": 19,
+      "instruction_sequence": [
+        "mflr r12",
+        "bl 0x82b7a6ec",
+        "stwu r1,-112(r1)",
+        "lis r31,-31951",
+        "mr r30,r3",
+        "mr r29,r4",
+        "lwz r3,-18936(r31)",
+        "cmplwi cr6,r3,0",
+        "bne cr6,0x823f32c4",
+        "bl 0x827c5f38",
+        "lwz r3,-18936(r31)",
+        "lwz r11,0(r3)",
+        "mr r5,r29",
+        "mr r4,r30",
+        "lwz r11,4(r11)",
+        "mtctr r11",
+        "bctrl",
+        "addi r1,r1,112",
+        "b 0x82b7a73c"
+      ],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_823F3298) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// bl 0x82b7a6ec\n\tctx.lr = 0x823F32A0;\n\t__savegprlr_29(ctx, base);\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// lis r31,-31951\n\tctx.r31.s64 = -2093940736;\n\t// mr r30,r3\n\tctx.r30.u64 = ctx.r3.u64;\n\t// mr r29,r4\n\tctx.r29.u64 = ctx.r4.u64;\n\t// lwz r3,-18936(r31)\n\tctx.r3.u64 = PPC_LOAD_U32(ctx.r31.u32 + -18936);\n\t// cmplwi cr6,r3,0\n\tctx.cr6.compare<uint32_t>(ctx.r3.u32, 0, ctx.xer);\n\t// bne cr6,0x823f32c4\n\tif (!ctx.cr6.eq) goto loc_823F32C4;\n\t// bl 0x827c5f38\n\tctx.lr = 0x823F32C0;\n\tsub_827C5F38(ctx, base);\n\t// lwz r3,-18936(r31)\n\tctx.r3.u64 = PPC_LOAD_U32(ctx.r31.u32 + -18936);\nloc_823F32C4:\n\t// lwz r11,0(r3)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 0);\n\t// mr r5,r29\n\tctx.r5.u64 = ctx.r29.u64;\n\t// mr r4,r30\n\tctx.r4.u64 = ctx.r30.u64;\n\t// lwz r11,4(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 4);\n\t// mtctr r11\n\tctx.ctr.u64 = ctx.r11.u64;\n\t// bctrl \n\tctx.lr = 0x823F32DC;\n\tPPC_CALL_INDIRECT_FUNC(ctx.ctr.u32 & ~3u);\n\t// addi r1,r1,112\n\tctx.r1.s64 = ctx.r1.s64 + 112;\n\t// b 0x82b7a73c\n\t__restgprlr_29(ctx, base);\n\treturn;\n}\n",
+      "direct_calls": [
+        "82B7A6EC",
+        "827C5F38"
+      ],
+      "indirect_calls": [
+        {
+          "kind": "manager vtable+4",
+          "return_address": "823F32DC",
+          "target_mask": "~3"
+        }
+      ],
+      "cfg": {
+        "labels": [
+          "loc_823F32C4"
+        ],
+        "branches": [
+          "bl 0x82b7a6ec",
+          "bne cr6,0x823f32c4",
+          "bl 0x827c5f38",
+          "bctrl",
+          "b 0x82b7a73c"
+        ]
+      },
+      "parameters": {
+        "r3": "full argument passed as dynamic r4",
+        "r4": "full argument passed as dynamic r5",
+        "caller_sp": "full entry SP",
+        "result": "dynamic full r3"
+      }
+    }
+  ],
+  "limitations": [
+    "827C5F38 is composed through its accepted InitializeManager model, not an opaque direct-call stand-in.",
+    "Manager vtable+4 is an explicit dynamic service; its implementation and semantic purpose are not recovered.",
+    "The existing InitializeManager API does not expose all lower generic register/frame effects.",
+    "Ordinary mapped guest RAM is covered; MMIO faults and concurrent manager mutation are excluded."
+  ]
+}
