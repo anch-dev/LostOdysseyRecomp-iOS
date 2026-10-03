@@ -2964,12 +2964,12 @@
         {
           "address": "82B81778",
           "boundary": "CrtThreadDataServices::AllocateThreadData",
-          "status": "opaque"
+          "status": "implementation_available"
         },
         {
           "address": "823ADDC0",
           "boundary": "CrtThreadDataServices::FreeThreadData",
-          "status": "opaque"
+          "status": "implementation_available"
         },
         {
           "address": "indirect:thread-getter",
@@ -3027,6 +3027,200 @@
           "status": "opaque"
         }
       ]
+    },
+    {
+      "address": "82B816A0",
+      "name": "lo::semantic::gpu::AllocateCrtArray",
+      "module": "memory/crt_allocation",
+      "source": "LostOdysseyRecompSemantics/src/crt_allocation.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/crt_allocation.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Count and element size use low 32-bit arguments; optional error_out and caller_sp retain guest-local layout.",
+        "return": "Checked allocation with zero-size normalization, live new-handler retry, and error-out store.",
+        "preserved": "ABI saved words and volatile registers remain outside this semantic adapter.",
+        "memory": "32-bit big-endian guest memory; preserves observable service and memory ordering."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+          "line": 3740,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_crt_allocation.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "One composed batch passed 5 allocation and 4 free cases. Original CRT bodies are extracted; both paths reuse the previously validated heap semantic implementations rather than rerunning the heap suites. Return, service order/arguments, persistent memory and wrapper error word are compared. ABI saves/volatile state and live runtime are excluded."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "823ACCB0",
+          "boundary": "AllocateHeapBlock",
+          "status": "implementation_available"
+        },
+        {
+          "address": "823ACC98",
+          "boundary": "GetProcessHeap",
+          "status": "implementation_available"
+        },
+        {
+          "address": "82B7FD78",
+          "boundary": "GetAllocationErrorAddress",
+          "status": "implementation_available"
+        },
+        {
+          "address": "82B7FE68",
+          "boundary": "InvokeNewHandler",
+          "status": "implementation_available"
+        },
+        {
+          "address": "82B7FEC0",
+          "boundary": "CrtAllocationServices::ReportInvalidParameter",
+          "status": "opaque"
+        }
+      ]
+    },
+    {
+      "address": "82B81778",
+      "name": "lo::semantic::gpu::AllocateCrtRecord",
+      "module": "memory/crt_allocation",
+      "source": "LostOdysseyRecompSemantics/src/crt_allocation.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/crt_allocation.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Count, element size and caller_sp; local error output at caller_sp - 32.",
+        "return": "Full allocation result; on failure, reload the thread error address before the final error store.",
+        "preserved": "ABI saved words and volatile registers remain outside this semantic adapter.",
+        "memory": "32-bit big-endian guest memory; preserves observable service and memory ordering."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+          "line": 3873,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_crt_allocation.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "One composed batch passed 5 allocation and 4 free cases. Original CRT bodies are extracted; both paths reuse the previously validated heap semantic implementations rather than rerunning the heap suites. Return, service order/arguments, persistent memory and wrapper error word are compared. ABI saves/volatile state and live runtime are excluded."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "82B816A0",
+          "boundary": "AllocateCrtArray",
+          "status": "implementation_available"
+        },
+        {
+          "address": "82B7FD78",
+          "boundary": "GetAllocationErrorAddress",
+          "status": "implementation_available"
+        }
+      ]
+    },
+    {
+      "address": "823ADDC0",
+      "name": "lo::semantic::gpu::FreeCrtRecord",
+      "module": "memory/crt_allocation",
+      "source": "LostOdysseyRecompSemantics/src/crt_allocation.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/crt_allocation.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Full payload register, r13 thread environment and caller_sp.",
+        "return": "Low-word-zero payload preserves full r3; otherwise free through the process heap and map errors on failure.",
+        "preserved": "ABI saved words and volatile registers remain outside this semantic adapter.",
+        "memory": "32-bit big-endian guest memory; preserves observable service and memory ordering."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.11.cpp",
+          "line": 29684,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_crt_allocation.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "One composed batch passed 5 allocation and 4 free cases. Original CRT bodies are extracted; both paths reuse the previously validated heap semantic implementations rather than rerunning the heap suites. Return, service order/arguments, persistent memory and wrapper error word are compared. ABI saves/volatile state and live runtime are excluded."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "823ADE28",
+          "boundary": "FreeHeapBlock",
+          "status": "implementation_available"
+        },
+        {
+          "address": "823ACC98",
+          "boundary": "GetProcessHeap",
+          "status": "implementation_available"
+        },
+        {
+          "address": "82B7FD78",
+          "boundary": "GetAllocationErrorAddress",
+          "status": "implementation_available"
+        },
+        {
+          "address": "82B7FD10",
+          "boundary": "TranslateCrtError",
+          "status": "implementation_available"
+        }
+      ]
+    },
+    {
+      "address": "82B7FD10",
+      "name": "lo::semantic::gpu::TranslateCrtError",
+      "module": "memory/crt_allocation",
+      "source": "LostOdysseyRecompSemantics/src/crt_allocation.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/crt_allocation.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Low 32-bit runtime error status; live table at 0x832150a8.",
+        "return": "Search 45 status/error pairs, then use bounded range rules and the default error code.",
+        "preserved": "ABI saved words and volatile registers remain outside this semantic adapter.",
+        "memory": "32-bit big-endian guest memory; preserves observable service and memory ordering."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.175.cpp",
+          "line": 21105,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_crt_allocation.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "One composed batch passed 5 allocation and 4 free cases. Original CRT bodies are extracted; both paths reuse the previously validated heap semantic implementations rather than rerunning the heap suites. Return, service order/arguments, persistent memory and wrapper error word are compared. ABI saves/volatile state and live runtime are excluded."
+        }
+      ],
+      "dependencies": []
     }
   ]
 }
