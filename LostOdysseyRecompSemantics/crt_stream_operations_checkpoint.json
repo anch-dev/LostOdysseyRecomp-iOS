@@ -1,0 +1,87 @@
+{
+  "schema": "crt-stream-operations-checkpoint-v1",
+  "date": "2026-10-03",
+  "scope": "Two readable C++ families and bounded original-PPC comparisons; no runtime or scene increment.",
+  "baseline_checkpoint": "crt_stream_checkpoint.json",
+  "entries_since_baseline": 8,
+  "static_instructions_since_baseline": 523,
+  "focused_cases_since_baseline": 27,
+  "unknown_checks_since_baseline": 2,
+  "families": [
+    {
+      "family": "crt_stream_operations",
+      "manifest": "crt_stream_operations_families.json",
+      "commit": "de4e49b",
+      "entries": 5,
+      "static_instructions": 469,
+      "focused_original_ppc_cases": 16,
+      "unknown_entry_checks": 1,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-stream-operations-formatting-tests/crt-stream-operations-result.json",
+      "summary": "PASS crt-stream-operations 16 original PPC cases + unknown\nLIMIT selected state/RAM; accepted lower ABI and native internals, faults, MMIO, concurrency and runtime remain open"
+    },
+    {
+      "family": "crt_formatting_support",
+      "manifest": "crt_formatting_support_families.json",
+      "commit": "de4e49b",
+      "entries": 3,
+      "static_instructions": 54,
+      "focused_original_ppc_cases": 11,
+      "unknown_entry_checks": 1,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-stream-operations-formatting-tests/crt-formatting-support-result.json",
+      "summary": "PASS crt-formatting-support 11 original PPC cases + unknown\nLIMIT selected full entry state and ordinary RAM; accepted ANSI-output descriptor/result contract; explicit mutable native services; no generic lower ABI/fault/MMIO/concurrency/runtime proof"
+    }
+  ],
+  "progress": {
+    "source": "Committed HEAD de4e49b; semantic_recovery.py progress",
+    "individual_records": 82,
+    "family_manifests": 88,
+    "unique_mapped_entries": 5177,
+    "cached_catalog_manifest_union": 62627,
+    "entry_mapping_percent": 8.266,
+    "runtime_wrappers": 3168,
+    "default_off_runtime_gates": 8,
+    "complete_individual_records": 0,
+    "note": "Entry mapping percentage is not logical-function or complete semantic recovery percentage."
+  },
+  "library_build": {
+    "directory": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-runtime-build",
+    "compiler": "Windows-native clang-cl22.1.8 C++20 /W4 /WX",
+    "msvc_runtime": "MT",
+    "native_jobs_per_build": 1,
+    "new_sources": 2,
+    "oracle_links": "Same .lib; passing formatting-support 11 cases reused while only failed stream fixture was corrected."
+  },
+  "failure_corrections": [
+    {
+      "category": "fixture",
+      "evidence": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-stream-operations-formatting-tests/first-stream-path-failure.json",
+      "correction": "A negative signed64 seek offset with origin0 correctly takes error131 before native dispatch. Retain its rejection case and use a positive nonzero high word for the native-seek case; keep expected-path assertions."
+    }
+  ],
+  "static_review_corrections": [
+    "Retain entry and loop CR6 comparisons and dot-form CR0 side effects when expressing branches as C++.",
+    "Compute the stream block base from its complete lis/addi pair (83380000-29312=83378D80).",
+    "Retain full64 word-rotate masks, 64-bit cmpdi -1, exact save slots and live native callback state."
+  ],
+  "next_dependencies": {
+    "crt_formatter_scc": [
+      "82B7D158",
+      "82B7D020",
+      "82319330"
+    ],
+    "wide_output_open": [
+      "82B84A08",
+      "822A03D8",
+      "82B86BE0",
+      "82B87868",
+      "82B86AB8"
+    ],
+    "note": "Planning only; no recovered-entry credit. Complete PPC bodies expose more calls than truncated static-call caches."
+  },
+  "limitations": [
+    "Original top-level bodies compared with real accepted lower models under their bounded selected ABI.",
+    "Formatting Unicode imports use explicit mutable selected state; ANSI output retains its accepted descriptor/result interface rather than generic lower PPCContext ABI.",
+    "Own frames, save order and ordinary committed RAM modeled; U64 uses ordered U32 accesses, without atomicity or fault claims.",
+    "Native internals, unknown indirect implementations, faults, MMIO, concurrency, unwind, runtime/scene acceptance and complete semantics remain unverified."
+  ]
+}
