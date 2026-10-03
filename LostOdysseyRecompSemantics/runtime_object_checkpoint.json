@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-02",
+  "code_commits": ["0ea78c9", "22b956e", "7a58164"],
+  "unique_recovered_entry_addresses": 2521,
+  "individually_recorded_entries": 68,
+  "family_manifests": 11,
+  "overlapping_addresses": ["829664E8", "82B84D88"],
+  "available_opt_in_runtime_wrappers": {
+    "leaf": 942,
+    "integer": 296,
+    "accessor": 304,
+    "field_bits": 153,
+    "field_arithmetic": 89,
+    "pointer_fields": 277,
+    "global_assignments": 104,
+    "field_operations": 134
+  },
+  "new_semantic_recovery": {
+    "multiple_memory_writes": {"additional_addresses": 43, "bounded_comparisons": 258},
+    "single_write_fields": {"additional_addresses": 46, "bounded_comparisons": 276},
+    "manager_facades": {
+      "additional_addresses": 5,
+      "composed_comparisons": 12,
+      "scope": "Original PPC manager allocation/release, header clearing and two-byte array release/reset compared for full r3 results, ordered service calls and bounded guest-memory effects, including lazy initialization and callback mutations.",
+      "limits": "InitializeManager, ResizeArray and RemoveArrayRange reuse previously validated semantic implementations as lower stand-ins. Actual manager vtable methods remain explicit service boundaries; complete ABI and runtime adapters are not established."
+    }
+  },
+  "object_runtime_adapter": {
+    "gate": "LO_SEMANTIC_OBJECT_RUNTIME",
+    "default_enabled": false,
+    "wrappers_added": 515,
+    "comparisons": 2060,
+    "scope": "Original PPC full-context and seeded ordinary-memory comparisons through actual strong wrappers: direct and mapping-table calls, disabled and enabled gates, with original fallback counts checked.",
+    "implementation": "Shared named ApplyWith algorithms use the existing exact-width volatile PPC_LOAD/PPC_STORE backend. Supported full-width GPR results and ordered memory accesses are retained.",
+    "runner": "tools/ghidra/test_semantic_object_runtime.py"
+  },
+  "build": {
+    "platform": "Windows x86_64, clang-cl 22.1.8, RelWithDebInfo",
+    "runtime": "Incremental runtime compile/link passed with the 515 additional wrappers and both new memory-write batches, reusing the supplied PPC archive.",
+    "semantic_library": "The subsequent five manager facades compiled and linked into the semantic library; they have no runtime wrappers and are not covered by this scene run.",
+    "reused_evidence": "Old suites and baseline scene runs were not repeated. No source/image hashes or full PPC regeneration were performed."
+  },
+  "scene_smoke": {
+    "status": "passed",
+    "runs_added": 1,
+    "baseline": "Earlier observations in runtime_checkpoint.json, runtime_accessor_checkpoint.json and runtime_field_checkpoint.json were reused.",
+    "enabled_gates": [
+      "LO_SEMANTIC_LEAF_RUNTIME",
+      "LO_SEMANTIC_INTEGER_RUNTIME",
+      "LO_SEMANTIC_ACCESSOR_RUNTIME",
+      "LO_SEMANTIC_FIELDS_RUNTIME",
+      "LO_SEMANTIC_OBJECT_RUNTIME"
+    ],
+    "configuration": "D3D12, 1280x720, 30 FPS cap; AA/upscaling/HDR/frame generation off; copied seed save/profile and isolated writable state",
+    "observed": "Reached Map 20, Uhra - Residential Area; a Y-button pulse opened the main menu. Captures showed the player, environment, HUD and menu with no observed crash or visible structural regression.",
+    "evidence_directory": "External scratch: semantic-runtime-objects-scene",
+    "scene_capture": "scene_1305.png",
+    "menu_capture": "scene_2936.png",
+    "log": "runtime.log",
+    "test_process_stopped": true
+  },
+  "cached_short_memory_pool": {
+    "source": "out/function-inventory/next-memory-opcode-pool.json",
+    "remaining_addresses": 0,
+    "note": "Only this cached 913-entry candidate pool is covered; it is not the whole-program remainder."
+  },
+  "acceptance_limits": [
+    "All five runtime gates remain disabled by default. Per-entry scene execution was not traced.",
+    "New memory-write recovery has library-level comparisons, without runtime wrappers.",
+    "No pixel identity, performance, combat, transition, fault, concurrency, MMIO or cross-platform acceptance is claimed.",
+    "Mapped addresses are not independent logical function counts. Full semantic recovery and full-game acceptance remain incomplete."
+  ]
+}
