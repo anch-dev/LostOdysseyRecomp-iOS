@@ -1,0 +1,18 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Two raw binary64/extended and bounded byte-copy helper entries; accepted real errno/invalid lower models, no large float conversion or runtime/scene proof.",
+  "families": [
+    {
+      "name": "crt-float-core-helpers",
+      "manifest": "LostOdysseyRecompSemantics/crt_float_core_helpers_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/crt_float_core_helpers_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nvoid OriginalError(PPCContext&, std::uint8_t*);\nvoid OriginalInvalid(PPCContext&, std::uint8_t*);\n#define sub_82B7FD78 OriginalError\n#define sub_82B7FEC0 OriginalInvalid\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/allocation_failure.cpp",
+        "LostOdysseyRecompSemantics/src/crt_thread_data.cpp",
+        "LostOdysseyRecompSemantics/src/invalid_parameter.cpp",
+        "LostOdysseyRecompSemantics/src/crt_float_core_helpers.cpp"
+      ]
+    }
+  ]
+}
