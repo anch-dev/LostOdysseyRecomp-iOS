@@ -1,0 +1,140 @@
+{
+  "schema": "crt-stream-pointer-unlock-v1",
+  "entries": [
+    {
+      "address": "82B863F0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "source_line": 16030,
+      "instructions": [
+        "srawi r10,r3,5",
+        "lis r11,-31944",
+        "rlwinm r9,r10,2,0,29",
+        "addi r11,r11,-29312",
+        "rlwinm r10,r3,6,21,25",
+        "lwzx r11,r9,r11",
+        "add r11,r11,r10",
+        "addi r3,r11,12",
+        "b 0x830d9c7c"
+      ],
+      "direct_calls": [],
+      "native_calls": [
+        "RtlLeaveCriticalSection"
+      ],
+      "inputs": "r3 full, SP/LR and live selected volatile registers",
+      "cfg": {
+        "labels": [],
+        "branches": [
+          "b 0x830d9c7c"
+        ]
+      },
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82B863F0) {\n\tPPC_FUNC_PROLOGUE();\n\t// srawi r10,r3,5\n\tctx.xer.ca = (ctx.r3.s32 < 0) & ((ctx.r3.u32 & 0x1F) != 0);\n\tctx.r10.s64 = ctx.r3.s32 >> 5;\n\t// lis r11,-31944\n\tctx.r11.s64 = -2093481984;\n\t// rlwinm r9,r10,2,0,29\n\tctx.r9.u64 = __builtin_rotateleft64(ctx.r10.u32 | (ctx.r10.u64 << 32), 2) & 0xFFFFFFFC;\n\t// addi r11,r11,-29312\n\tctx.r11.s64 = ctx.r11.s64 + -29312;\n\t// rlwinm r10,r3,6,21,25\n\tctx.r10.u64 = __builtin_rotateleft64(ctx.r3.u32 | (ctx.r3.u64 << 32), 6) & 0x7C0;\n\t// lwzx r11,r9,r11\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r9.u32 + ctx.r11.u32);\n\t// add r11,r11,r10\n\tctx.r11.u64 = ctx.r11.u64 + ctx.r10.u64;\n\t// addi r3,r11,12\n\tctx.r3.s64 = ctx.r11.s64 + 12;\n\t// b 0x830d9c7c\n\t__imp__RtlLeaveCriticalSection(ctx, base);\n\treturn;\n}",
+      "status": "bounded_readable_library",
+      "boundary": "Complete selected registers and ordinary RAM; RtlLeaveCriticalSection native tail service explicit; unselected native volatile effects, faults, MMIO, concurrency and runtime unverified."
+    },
+    {
+      "address": "82B81F38",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "source_line": 5157,
+      "instructions": [
+        "std r31,-8(r1)",
+        "addi r31,r12,-160",
+        "std r30,-16(r1)",
+        "mflr r12",
+        "stw r12,-24(r1)",
+        "stwu r1,-112(r1)",
+        "mr r3,r30",
+        "bl 0x82b863f0",
+        "lwz r1,0(r1)",
+        "ld r31,-8(r1)",
+        "ld r30,-16(r1)",
+        "lwz r12,-24(r1)",
+        "mtlr r12",
+        "blr "
+      ],
+      "direct_calls": [
+        "82B863F0"
+      ],
+      "native_calls": [],
+      "inputs": "r12/r30/r31 full, SP/LR and live saved guest slots",
+      "cfg": {
+        "labels": [],
+        "branches": [
+          "bl 0x82b863f0",
+          "blr "
+        ]
+      },
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82B81F38) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// std r31,-8(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -8, ctx.r31.u64);\n\t// addi r31,r12,-160\n\tctx.r31.s64 = ctx.r12.s64 + -160;\n\t// std r30,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r30.u64);\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-24(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -24, ctx.r12.u32);\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// mr r3,r30\n\tctx.r3.u64 = ctx.r30.u64;\n\t// bl 0x82b863f0\n\tctx.lr = 0x82B81F58;\n\tsub_82B863F0(ctx, base);\n\t// lwz r1,0(r1)\n\tctx.r1.u64 = PPC_LOAD_U32(ctx.r1.u32 + 0);\n\t// ld r31,-8(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -8);\n\t// ld r30,-16(r1)\n\tctx.r30.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// lwz r12,-24(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -24);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library",
+      "boundary": "Complete selected registers and ordinary RAM; RtlLeaveCriticalSection native tail service explicit; unselected native volatile effects, faults, MMIO, concurrency and runtime unverified."
+    },
+    {
+      "address": "82B860CC",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "source_line": 15538,
+      "instructions": [
+        "std r31,-8(r1)",
+        "addi r31,r12,-160",
+        "std r30,-16(r1)",
+        "mflr r12",
+        "stw r12,-24(r1)",
+        "stwu r1,-112(r1)",
+        "mr r3,r30",
+        "bl 0x82b863f0",
+        "lwz r1,0(r1)",
+        "ld r31,-8(r1)",
+        "ld r30,-16(r1)",
+        "lwz r12,-24(r1)",
+        "mtlr r12",
+        "blr "
+      ],
+      "direct_calls": [
+        "82B863F0"
+      ],
+      "native_calls": [],
+      "inputs": "r12/r30/r31 full, SP/LR and live saved guest slots",
+      "cfg": {
+        "labels": [],
+        "branches": [
+          "bl 0x82b863f0",
+          "blr "
+        ]
+      },
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82B860CC) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// std r31,-8(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -8, ctx.r31.u64);\n\t// addi r31,r12,-160\n\tctx.r31.s64 = ctx.r12.s64 + -160;\n\t// std r30,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r30.u64);\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-24(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -24, ctx.r12.u32);\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// mr r3,r30\n\tctx.r3.u64 = ctx.r30.u64;\n\t// bl 0x82b863f0\n\tctx.lr = 0x82B860EC;\n\tsub_82B863F0(ctx, base);\n\t// lwz r1,0(r1)\n\tctx.r1.u64 = PPC_LOAD_U32(ctx.r1.u32 + 0);\n\t// ld r31,-8(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -8);\n\t// ld r30,-16(r1)\n\tctx.r30.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// lwz r12,-24(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -24);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library",
+      "boundary": "Complete selected registers and ordinary RAM; RtlLeaveCriticalSection native tail service explicit; unselected native volatile effects, faults, MMIO, concurrency and runtime unverified."
+    },
+    {
+      "address": "82B81AF8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "source_line": 4466,
+      "instructions": [
+        "std r30,-8(r1)",
+        "mflr r12",
+        "stw r12,-16(r1)",
+        "stwu r1,-96(r1)",
+        "lwz r3,80(r30)",
+        "bl 0x830d9c7c",
+        "lwz r1,0(r1)",
+        "ld r30,-8(r1)",
+        "lwz r12,-16(r1)",
+        "mtlr r12",
+        "blr "
+      ],
+      "direct_calls": [],
+      "native_calls": [
+        "RtlLeaveCriticalSection"
+      ],
+      "inputs": "r30 full, SP/LR and live saved guest slots",
+      "cfg": {
+        "labels": [],
+        "branches": [
+          "bl 0x830d9c7c",
+          "blr "
+        ]
+      },
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82B81AF8) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// std r30,-8(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -8, ctx.r30.u64);\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-16(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -16, ctx.r12.u32);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// lwz r3,80(r30)\n\tctx.r3.u64 = PPC_LOAD_U32(ctx.r30.u32 + 80);\n\t// bl 0x830d9c7c\n\tctx.lr = 0x82B81B10;\n\t__imp__RtlLeaveCriticalSection(ctx, base);\n\t// lwz r1,0(r1)\n\tctx.r1.u64 = PPC_LOAD_U32(ctx.r1.u32 + 0);\n\t// ld r30,-8(r1)\n\tctx.r30.u64 = PPC_LOAD_U64(ctx.r1.u32 + -8);\n\t// lwz r12,-16(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -16);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library",
+      "boundary": "Complete selected registers and ordinary RAM; RtlLeaveCriticalSection native tail service explicit; unselected native volatile effects, faults, MMIO, concurrency and runtime unverified."
+    }
+  ]
+}
