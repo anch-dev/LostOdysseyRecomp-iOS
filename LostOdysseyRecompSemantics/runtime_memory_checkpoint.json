@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-02",
+  "code_commits": ["77c90e9", "b2c6a0a", "6e92118"],
+  "unique_recovered_entry_addresses": 2560,
+  "individually_recorded_entries": 76,
+  "family_manifests": 12,
+  "overlapping_addresses": ["829664E8", "82B84D88"],
+  "available_opt_in_runtime_wrappers": {
+    "leaf": 942,
+    "integer": 296,
+    "accessor": 304,
+    "field_bits": 153,
+    "field_arithmetic": 89,
+    "pointer_fields": 277,
+    "global_assignments": 104,
+    "field_operations": 134,
+    "read_only_fields": 39,
+    "memory_writes": 71,
+    "single_write_fields": 46
+  },
+  "new_semantic_recovery": {
+    "object_registration": {
+      "additional_addresses": 4,
+      "bounded_comparisons": 10,
+      "scope": "Base and extended initialization, manager-backed construction and registration retain live stack inputs and callback-driven global changes. Allocation composes the recovered manager facade."
+    },
+    "object_startup": {
+      "additional_addresses": 4,
+      "bounded_comparisons": 15,
+      "scope": "Prepare, poll/retry and complete object startup, plus lazy construction directly composing the recovered construction and registration APIs. The 15 cases include the earlier 11 startup cases."
+    },
+    "array_release_family": {
+      "additional_addresses": 31,
+      "bounded_comparisons": 31,
+      "scope": "One parameter table shares ReleaseArrayElements across element sizes and resize arguments. Original entry bodies are compared for parameters, nested stack position, full r3, ordered service calls, callback-driven pointer changes and persistent memory.",
+      "limits": "RemoveArrayRange and InitializeManager are controlled oracle boundaries; ReleaseManagerBuffer reuses its recovered implementation. Complete lower behavior and generic ABI state are not revalidated."
+    }
+  },
+  "memory_runtime_adapter": {
+    "gate": "LO_SEMANTIC_MEMORY_RUNTIME",
+    "default_enabled": false,
+    "wrappers_added": 156,
+    "comparisons": 624,
+    "scope": "Full original-PPC context and seeded ordinary-memory comparisons through actual strong wrappers: direct and mapping-table calls with disabled and enabled gates, checking original fallback call counts.",
+    "implementation": "The three recovered memory families share unchanged ApplyWith algorithms with the exact-width volatile native backend, including the live r1 scratch slot and r18 input.",
+    "runner": "tools/ghidra/test_semantic_memory_runtime.py"
+  },
+  "build": {
+    "platform": "Windows x86_64, clang-cl 22.1.8, RelWithDebInfo",
+    "runtime": "Incremental compile/link passed for the 156 memory wrappers, reusing the existing PPC archive.",
+    "semantic_library": "A subsequent incremental compile/link passed for all eight object APIs and 31 array-release entries. They have no runtime wrappers and are outside this scene's scope.",
+    "reused_evidence": "Existing semantic suites and earlier baseline scenes were reused. No source/image hashes or full PPC regeneration were performed."
+  },
+  "scene_smoke": {
+    "status": "passed",
+    "runs_added": 1,
+    "baseline": "Earlier scene observations remain in runtime_object_checkpoint.json and its preceding checkpoints.",
+    "enabled_gates": [
+      "LO_SEMANTIC_LEAF_RUNTIME", "LO_SEMANTIC_INTEGER_RUNTIME",
+      "LO_SEMANTIC_ACCESSOR_RUNTIME", "LO_SEMANTIC_FIELDS_RUNTIME",
+      "LO_SEMANTIC_OBJECT_RUNTIME", "LO_SEMANTIC_MEMORY_RUNTIME"
+    ],
+    "configuration": "Windows D3D12, 1280x720, 30 FPS; AA/upscaling/HDR/frame generation off; isolated writable save/profile copied from the same seed",
+    "observed": "Reached Map 20, Uhra - Residential Area. The Y-button pulse opened the main menu; captures showed the player, environment, HUD and menu without an observed crash or visible structural regression.",
+    "evidence_directory": "External scratch: semantic-runtime-memory-scene",
+    "scene_capture": "scene_2057.png",
+    "menu_capture": "scene_7217.png",
+    "log": "runtime.log",
+    "test_process_stopped": true
+  },
+  "next_cached_candidates": {
+    "source": "out/function-inventory/registered-constructor-families.json",
+    "body_source": "out/function-inventory/registered-constructor-candidates.json",
+    "classified_addresses": 846,
+    "ordinary_constructors": 130,
+    "constructors_with_stack_scratch": 8,
+    "lazy_singletons": 708,
+    "already_recovered": ["82410B90"],
+    "potential_additional_addresses": 845,
+    "excluded_mixed_function": "8244B810",
+    "status": "Static candidates only; implementation and behavior comparison remain pending."
+  },
+  "acceptance_limits": [
+    "All six gates remain disabled by default; the 2455 wrappers were not individually traced in the scene.",
+    "New object registration/startup and array-release APIs have bounded library comparisons only; their deeper singleton, wait and vtable callbacks remain service boundaries. Full ABI/runtime adapters are pending.",
+    "This scene does not validate the new object or array-release APIs. Pixel identity, performance, combat, transitions, faults, concurrency, MMIO and cross-platform behavior are not established.",
+    "Mapped addresses are not independent logical function counts; complete semantic recovery and full-game acceptance remain incomplete."
+  ]
+}
