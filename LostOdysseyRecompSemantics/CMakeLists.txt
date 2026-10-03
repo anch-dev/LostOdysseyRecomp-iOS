@@ -23,6 +23,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/manager_facade.cpp
     src/array_release_family.cpp
     src/object_registration.cpp
+    src/registered_constructor_family.cpp
     src/object_startup.cpp
     src/manager_construction.cpp
     src/manager_storage.cpp
