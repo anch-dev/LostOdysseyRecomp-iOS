@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "previous_checkpoint": "metadata_composition_checkpoint.json",
+  "code_commit": "9e231630",
+  "unique_recovered_entry_addresses": 5149,
+  "additional_entry_addresses": 10,
+  "individually_recorded_entries": 82,
+  "family_manifests": 76,
+  "overlapping_addresses": [
+    "829664E8",
+    "82B84D88"
+  ],
+  "progress": {
+    "readable_entry_address_numerator": 5149,
+    "cached_candidate_address_denominator": 62627,
+    "readable_entry_coverage_percent": 8.222,
+    "denominator_source": "Previously audited out/function-inventory/summary.json candidate_addresses, reused without a full PPC scan or image/source hashes.",
+    "logical_function_total": null,
+    "complete_semantic_recovery_percent": null,
+    "counting_note": "Coverage of unique readable mapped entry addresses within the cached work inventory. It is not independent logical-function count or full semantic completion; entries have different complexity and bounded validation."
+  },
+  "new_library_families": [
+    {
+      "family": "metadata_descriptor_cursor",
+      "entries": 2,
+      "code_commit": "18d66911",
+      "manifest": "metadata_descriptor_cursor_families.json",
+      "original_ppc_comparisons": 6,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, recorded source identity, CFG/calls and parameters pinned; no full scans or verification hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Actual cursor traversal and initializer compose original batch children. Empty/flag-stop, linked nodes, repeated dynamic returns and nested saved-r31 aliases compared. Full result/SP, selected LR/r31/CTR and owned frame RAM are exposed; vtable+284 target internals, other volatile ABI and unbounded lists remain external.",
+        "receipt": "External scratch: semantic-metadata-descriptor-cursor-tests/metadata-descriptor-cursor-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/metadata-descriptor-cursor-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5141,
+      "readable_entry_coverage_percent_at_commit": 8.209,
+      "available_opt_in_wrappers_at_commit": 3168
+    },
+    {
+      "family": "crt_last_error",
+      "entries": 2,
+      "code_commit": "1ce55b37",
+      "manifest": "crt_last_error_families.json",
+      "original_ppc_comparisons": 4,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, recorded source identity, CFG/calls and parameters pinned; no full scans or verification hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Actual last-error getter and real tail entry compared on normal and blocked thread branches. Complete PPCContext and unchanged ordinary RAM compared, including full r13 preservation, zero-expanded error words, CR6 and XER.SO. Fault/MMIO/concurrency and runtime remain unverified.",
+        "receipt": "External scratch: semantic-crt-last-error-tests/crt-last-error-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/crt-last-error-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5143,
+      "readable_entry_coverage_percent_at_commit": 8.212,
+      "available_opt_in_wrappers_at_commit": 3168
+    },
+    {
+      "family": "crt_stream_state",
+      "entries": 4,
+      "code_commit": "c841c873",
+      "manifest": "crt_stream_state_families.json",
+      "original_ppc_comparisons": 8,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, recorded source identity, CFG/calls and parameters pinned; no full scans or verification hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Actual stream-state getter, buffer setup, native critical-section wrapper and mutable once initializer compose recovered lower algorithms and the actual default child. Null/invalid, allocation success/failure, saved-slot aliases, nested default and alternate targets compared. Full return/SP and selected argument/frame fields are exposed; native/alternate target internals and generic lower ABI remain external.",
+        "receipt": "External scratch: semantic-crt-stream-state-tests/crt-stream-state-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/crt-stream-state-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5147,
+      "readable_entry_coverage_percent_at_commit": 8.219,
+      "available_opt_in_wrappers_at_commit": 3168
+    },
+    {
+      "family": "metadata_descriptor_lifecycle",
+      "entries": 2,
+      "code_commit": "9e231630",
+      "manifest": "metadata_descriptor_lifecycle_families.json",
+      "original_ppc_comparisons": 7,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, recorded source identity, CFG/calls and parameters pinned; no full scans or verification hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Actual node notifications and object cleanup compose accepted manager and array algorithms plus the immediate lower functions' known frames. Empty list, signed limits, full offset addition, each-iteration zero additional argument, live callback r31 chain redirects, cleanup buffers/elements and immediate saved-r30/r31 redirects compared. Selected full r3-r8, LR/CTR/r26-r31 and owned RAM effects are exposed; dynamic vtable+360 internals, deeper generic lower ABI and unbounded node lists remain outside this contract.",
+        "receipt": "External scratch: semantic-metadata-descriptor-lifecycle-tests/metadata-descriptor-lifecycle-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/metadata-descriptor-lifecycle-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5149,
+      "readable_entry_coverage_percent_at_commit": 8.222,
+      "available_opt_in_wrappers_at_commit": 3168
+    }
+  ],
+  "validation_totals": {
+    "original_ppc_comparisons": 25,
+    "unknown_entry_checks": 4,
+    "scope": "Only this increment; accepted lower/runtime/scene evidence reused."
+  },
+  "build": {
+    "status": "passed",
+    "platform": "Windows x86_64 clang-cl 22.1.8 RelWithDebInfo /W4 /WX",
+    "scope": "Four new library sources incrementally compiled and linked in four single-job Windows builds; at most two concurrent native compiler jobs. No full runtime rebuild."
+  },
+  "runtime": {
+    "available_opt_in_wrappers": 3168,
+    "default_off_gates": 8,
+    "wrappers_added": 0,
+    "reused_checkpoint": "instance_runtime_checkpoint.json",
+    "scene_binary_revision": "ee9239d965cc",
+    "scene_scope": "Prior eight-gate Windows Vulkan Map20/Uhra/menu and 655-wrapper adapter evidence reused. New library entries have no runtime adapters or new scene validation."
+  },
+  "remaining_cached_candidates": {
+    "instance_entries": 5,
+    "metadata_entries": 9,
+    "scope": "Cached subsets only, not whole-game remaining counts.",
+    "next_dependency_work": "Descriptor initializer 82400CE8 (841 instructions) remains open: five initially recorded direct target kinds and seven dynamic call sites remain. All nine cached metadata callers still depend on it. 823FD1A8 now composes recovered cursor helpers but still requires 823A7268. 823A7268/82401A10/82400CE8 remain a dependency cycle; cleanup children 8240EFC0/82401C58 are now mapped. 823ACAD8 now composes the recovered last-error tail/getter but still requires 827CCF80 and its two open lower children. The stream helper 82B82558 now has two open direct children, 82B81DE0/82B85F70. Manager parents 823262B8/827010D0/82700D10 still require 8256F6B8 and recursive 823FFDD8, including 8229C948/823FF338/82400620. Unclosed parents receive no credit.",
+    "handoffs": [
+      "out/function-inventory/instance-manager-link-handoff.md",
+      "out/function-inventory/manager-object-registration-handoff.md",
+      "out/function-inventory/metadata-parser-next-handoff.md",
+      "out/function-inventory/metadata-lookup-next-handoff.md",
+      "out/function-inventory/metadata-descriptor-frontier.json",
+      "out/function-inventory/metadata-lower-frontier-handoff.md",
+      "out/function-inventory/metadata-descriptor-recursive-handoff.md",
+      "out/function-inventory/crt-stream-depth-handoff.json",
+      "out/function-inventory/metadata-heap-reallocate-handoff.md"
+    ],
+    "next_directly_closed_helper_candidates": [],
+    "frontier_note": "Only recorded fixed source locations and committed entry union were inspected; no full scan or verification hash. Allocator/CRT lower clusters remain planning only. The 82B7D158 real tail still needs 82B7D020, the 722-instruction formatting core 82319330 and stream helper 82B82558. 82B863B8's actual body includes an unmapped 82B819C8 call omitted by its catalog row; source bodies take precedence. 8247BF30 writes guest address 3 in generated PPC; no hardware trap behavior is inferred.",
+    "next_lower_dependency_clusters": [
+      [
+        "827CBCA8",
+        "827CD7BC",
+        "827CCF80",
+        "823ACAD8"
+      ],
+      [
+        "82B81DE0",
+        "82B85F70",
+        "82B82558"
+      ]
+    ],
+    "descriptor_open_direct_targets": [
+      "8247BF30",
+      "823FD128",
+      "8247C470",
+      "824790A8",
+      "823A7268"
+    ]
+  },
+  "evidence_reuse": "Recovered lower models and external service contracts reused. Generic lower callback register/frame-pointer redirection and lower frame writes remain bounded by their existing APIs. Own frames and explicitly exposed direct callback state are modeled. Dynamic target internals, untracked volatile/CR/FPSCR, hardware synchronization, concurrency, faults/MMIO and access widths remain open. Known signaling-NaN discrepancy retained in FLOAT_LOAD_STORE_NOTES.md.",
+  "whole_game_semantics_complete": false,
+  "delivery": {
+    "scope": "Local commits on trail/semantic-recovery; this increment is not pushed or released."
+  }
+}
