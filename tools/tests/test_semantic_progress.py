@@ -170,6 +170,39 @@ class SemanticProgressFixture(unittest.TestCase):
             self.run_progress(self.receipt)
         self.assertFalse((self.output / "report.md").exists())
 
+    def test_shared_source_is_read_once_per_validation_run(self):
+        second = self.repo / "second_receipt.json"
+        self.write_receipt(second, SECOND)
+        reads = []
+        original_read = progress.SourceSnapshot.read
+
+        def record_read(snapshot, path):
+            reads.append(path.resolve())
+            return original_read(snapshot, path)
+
+        with patch.object(progress.SourceSnapshot, 'read', record_read):
+            self.run_progress(self.receipt, second)
+        self.assertEqual(reads.count(self.ppc), 1)
+        self.assertEqual(reads.count(self.source), 1)
+        self.assertEqual(reads.count(self.xex), 1)
+
+    def test_missing_original_body_cannot_match_missing_body_hash(self):
+        self.functions.append(self.function(GENERATED_ONLY))
+        self.write_manifest()
+        forged = self.repo / 'missing_body.json'
+        self.write_receipt(forged, FIRST, function_address=GENERATED_ONLY,
+                           original_function=f'sub_{GENERATED_ONLY}',
+                           original_function_sha256=None)
+        with self.assertRaisesRegex(ValueError, 'body identity'):
+            self.run_progress(forged)
+
+    def test_snapshot_detects_input_mutation_before_publication(self):
+        snapshot = progress.SourceSnapshot()
+        snapshot.digest(self.source)
+        self.source.write_bytes(b'different source size and contents\n')
+        with self.assertRaisesRegex(ValueError, 'changed during validation'):
+            snapshot.check_unchanged()
+
 
 if __name__ == "__main__":
     unittest.main()

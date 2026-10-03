@@ -28,6 +28,55 @@ def digest(path: Path) -> str:
         return hashlib.file_digest(stream, "sha256").hexdigest()
 
 
+class SourceSnapshot:
+    """Reuse hashes and parsed bodies only within one validation invocation."""
+
+    def __init__(self) -> None:
+        self.hashes: dict[Path, str] = {}
+        self.identities: dict[Path, tuple[int, int]] = {}
+        self.function_bodies: dict[Path, dict[str, str]] = {}
+
+    def read(self, path: Path) -> bytes:
+        path = path.resolve()
+        before = path.stat()
+        data = path.read_bytes()
+        after = path.stat()
+        identity = (after.st_size, after.st_mtime_ns)
+        if (before.st_size, before.st_mtime_ns) != identity:
+            raise ValueError(f"source changed while reading: {path}")
+        actual = hashlib.sha256(data).hexdigest()
+        if path in self.hashes and self.hashes[path] != actual:
+            raise ValueError(f"source changed during validation: {path}")
+        self.hashes[path] = actual
+        self.identities[path] = identity
+        return data
+
+    def digest(self, path: Path) -> str:
+        path = path.resolve()
+        if path not in self.hashes:
+            self.read(path)
+        return self.hashes[path]
+
+    def body_digest(self, path: Path, addr: str) -> str | None:
+        path = path.resolve()
+        if path not in self.function_bodies:
+            bodies = {}
+            pattern = rb"PPC_FUNC_IMPL\(__imp__sub_([0-9A-F]{8})\) \{.*?\r?\n\}"
+            for match in re.finditer(pattern, self.read(path), re.S):
+                found = match.group(1).decode('ascii')
+                if found in bodies:
+                    raise ValueError(f"duplicate original function body: {found} in {path}")
+                bodies[found] = hashlib.sha256(match.group()).hexdigest()
+            self.function_bodies[path] = bodies
+        return self.function_bodies[path].get(addr)
+
+    def check_unchanged(self) -> None:
+        for path, identity in self.identities.items():
+            current = path.stat()
+            if (current.st_size, current.st_mtime_ns) != identity:
+                raise ValueError(f"source changed during validation: {path}")
+
+
 def address(value: str) -> str:
     if not isinstance(value, str) or not re.fullmatch(r"[0-9A-F]{8}", value):
         raise ValueError(f"expected uppercase eight-digit address: {value!r}")
@@ -41,7 +90,8 @@ def repo_file(value: str) -> Path:
     return path
 
 
-def check_receipt(path: Path, functions: dict, generated: dict, xex_sha: str) -> tuple[str, dict]:
+def check_receipt(path: Path, functions: dict, generated: dict, xex_sha: str,
+                  snapshot: SourceSnapshot) -> tuple[str, dict]:
     receipt = json.loads(path.read_text(encoding="utf-8"))
     addr = address(receipt.get("function_address"))
     if addr not in functions:
@@ -56,9 +106,8 @@ def check_receipt(path: Path, functions: dict, generated: dict, xex_sha: str) ->
     reference = Path(receipt["generated_ppc_path"]).resolve()
     if addr not in generated or reference != repo_file(generated[addr].rsplit(":", 1)[0]):
         raise ValueError(f"{path}: original function source does not match catalog")
-    pattern = rb"PPC_FUNC_IMPL\(__imp__" + symbol.encode("ascii") + rb"\) \{.*?\r?\n\}"
-    bodies = re.findall(pattern, reference.read_bytes(), re.S)
-    if len(bodies) != 1 or hashlib.sha256(bodies[0]).hexdigest() != receipt.get("original_function_sha256"):
+    body_hash = snapshot.body_digest(reference, addr)
+    if body_hash is None or body_hash != receipt.get("original_function_sha256"):
         raise ValueError(f"{path}: original function body identity mismatch")
     if type(receipt.get("cases")) is not int or receipt["cases"] <= 0:
         raise ValueError(f"{path}: missing positive case count")
@@ -67,17 +116,18 @@ def check_receipt(path: Path, functions: dict, generated: dict, xex_sha: str) ->
     if not required.issubset(hashes):
         raise ValueError(f"{path}: recovered source/header hashes are missing")
     for name, expected in hashes.items():
-        if digest(repo_file(name)) != expected:
+        if snapshot.digest(repo_file(name)) != expected:
             raise ValueError(f"{path}: stale receipt; source changed: {name}")
     # Check the private reference and generated fixture as well as public sources.
     for prefix in ("xex", "generated_ppc", "generated_fixture"):
         source = Path(receipt[f"{prefix}_path"])
-        if digest(source) != receipt[f"{prefix}_sha256"]:
+        if snapshot.digest(source) != receipt[f"{prefix}_sha256"]:
             raise ValueError(f"{path}: stale receipt; {prefix} changed")
     return addr, receipt
 
 
 def run(args: argparse.Namespace) -> None:
+    snapshot = SourceSnapshot()
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
     if manifest.get("schema_version") != 1:
         raise ValueError("unsupported recovery manifest schema")
@@ -114,7 +164,7 @@ def run(args: argparse.Namespace) -> None:
         raise ValueError("recovered function is absent from both address inventories")
     receipts = {}
     for path in args.receipt:
-        addr, receipt = check_receipt(path, functions, generated, xex_sha)
+        addr, receipt = check_receipt(path, functions, generated, xex_sha, snapshot)
         if addr in receipts:
             raise ValueError(f"multiple receipts supplied for {addr}")
         receipts[addr] = receipt
@@ -174,6 +224,7 @@ def run(args: argparse.Namespace) -> None:
                   "before retiring the corresponding generated implementation.", "",
                   "The address TSV is a work queue. Unrecovered addresses have no generated semantic stubs.", ""])
     # Validate all inputs before replacing reports so a failed run preserves prior evidence.
+    snapshot.check_unchanged()
     args.output.mkdir(parents=True, exist_ok=True)
     report = args.output / "report.md"
     temporary = report.with_suffix(".md.tmp")
