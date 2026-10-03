@@ -43,6 +43,7 @@ bool Apply(GuestAddress entry, GuestMemory& memory,
     case 0x822958ccu: ReleaseFrameRecord(memory, native, state, 176, 80, 0x822958e4u); return true;
     case 0x8229a8dcu: ReleaseFrameRecord(memory, native, state, 128, 80, 0x8229a8f4u); return true;
     case 0x8229a904u: ReleaseFrameRecord(memory, native, state, 128, 80, 0x8229a91cu); return true;
+    case 0x822c3cfcu: ReleaseFrameRecord(memory, native, state, 128, 80, 0x822c3d14u); return true;
     default: return false;
     }
 }

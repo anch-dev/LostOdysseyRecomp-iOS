@@ -24,7 +24,7 @@ public:
 };
 
 // Dereference the caller-owned lock record and release its critical section.
-// Six unwind funclets address that record relative to the incoming r12 frame.
+// Seven unwind funclets address that record relative to the incoming r12 frame.
 [[nodiscard]] bool Apply(GuestAddress entry, GuestMemory& memory,
     NativeServices& native, Registers& state);
 }

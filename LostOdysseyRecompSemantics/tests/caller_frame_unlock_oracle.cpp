@@ -11,14 +11,26 @@ namespace
 using namespace lo::semantic::gpu;
 namespace family = caller_frame_unlock;
 constexpr test::Region Regions[] = {{0, 0x100000u}};
-constexpr GuestAddress CallerFrame = 0x70000u, DirectRecord = 0x60000u;
-struct Case { GuestAddress entry; std::uint32_t size, field; GuestAddress critical; };
+constexpr std::uint64_t CallerFrame = 0x5566778800070000ull;
+constexpr GuestAddress DirectRecord = 0x60000u;
+struct Case {
+    GuestAddress entry; std::uint32_t size, field; GuestAddress critical;
+    std::uint64_t caller_frame = CallerFrame;
+};
+#ifdef LO_CALLER_FRAME_UNLOCK_822C3CFC_ONLY
+constexpr Case Cases[] = {
+    {0x822c3cfcu, 128, 80, 0x50800u},
+    {0x822c3cfcu, 128, 80, 0x50900u, 0x50u},
+    {0x822c3cfcu, 128, 80, 0x50a00u, 0xffffffff00070000ull}
+};
+#else
 constexpr Case Cases[] = {
     {0x82290878u, 0, 0, 0x50000u}, {0x82290708u, 512, 88, 0x50100u},
     {0x8229587cu, 176, 80, 0x50200u}, {0x822958a4u, 176, 80, 0x50300u},
     {0x822958ccu, 176, 80, 0x50400u}, {0x8229a8dcu, 128, 80, 0x50500u},
     {0x8229a904u, 128, 80, 0x50600u}, {0x82290878u, 0, 0, 0x50700u}
 };
+#endif
 family::Registers FromPpc(const PPCContext& c)
 {
     return {c.r1.u64, c.lr, c.ctr.u64, c.r3.u64, c.r4.u64,
@@ -65,7 +77,8 @@ void Check(const Case& item)
 {
     test::GuestWindow original(Regions), recovered(Regions);
     original.Fill(0); recovered.Fill(0);
-    const auto record = item.size ? CallerFrame - item.size + item.field : DirectRecord;
+    const auto record = item.size ? static_cast<GuestAddress>(
+        item.caller_frame - item.size + item.field) : DirectRecord;
     for (auto* window : {&original, &recovered})
         window->Memory().WriteU32(record, item.critical);
     PPCContext context{};
@@ -75,7 +88,7 @@ void Check(const Case& item)
     context.r4.u64 = 0x8877665544332211ull;
     context.r10.u64 = 0x5555666677778888ull;
     context.r11.u64 = 0x1111222233334444ull;
-    context.r12.u64 = 0x5566778800070000ull;
+    context.r12.u64 = item.caller_frame;
     context.r31.u64 = 0x99aabbccddeeff00ull;
     auto state = FromPpc(context);
     Services expected(original), actual(recovered);
@@ -89,6 +102,7 @@ void Check(const Case& item)
     case 0x822958ccu: __imp__sub_822958CC(context, original.Bytes()); break;
     case 0x8229a8dcu: __imp__sub_8229A8DC(context, original.Bytes()); break;
     case 0x8229a904u: __imp__sub_8229A904(context, original.Bytes()); break;
+    case 0x822c3cfcu: __imp__sub_822C3CFC(context, original.Bytes()); break;
     }
     active = nullptr;
     if (expected.events.size() != 1 || expected.events[0][2] != item.critical + 4u)
