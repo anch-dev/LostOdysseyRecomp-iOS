@@ -1,0 +1,18 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Actual 82384C08 list query composed with accepted 8242D038 lazy singleton, seven focused PPC cases; 8242D038 is a validation-only dependency.",
+  "families": [
+    {
+      "name": "object-float-record",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/object_float_record_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/object_float_record_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_8242D038);\nvoid OriginalAllocate(PPCContext&,std::uint8_t*);\nvoid OriginalInitialize(PPCContext&,std::uint8_t*);\nvoid OriginalRegister(PPCContext&,std::uint8_t*);\n#define sub_8242D038(c,b) __imp__sub_8242D038(c,b)\n#define sub_82486C88(c,b) OriginalAllocate(c,b)\n#define sub_82410A28(c,b) OriginalInitialize(c,b)\n#define sub_82627230(c,b) OriginalRegister(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/object_float_record.cpp",
+        "LostOdysseyRecompSemantics/src/registered_constructor_family.cpp",
+        "LostOdysseyRecompSemantics/src/manager_facade.cpp",
+        "LostOdysseyRecompSemantics/src/object_registration.cpp"
+      ]
+    }
+  ]
+}

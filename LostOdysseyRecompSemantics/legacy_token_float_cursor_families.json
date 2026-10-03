@@ -1,0 +1,97 @@
+{
+  "schema": "legacy-token-float-cursor-v1",
+  "entries": [
+    {
+      "address": "82297338",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+      "source_line": 17361,
+      "instruction_count": 21,
+      "instructions": [
+        "mflr r12",
+        "bl 0x82b7a6ec",
+        "stwu r1,-112(r1)",
+        "mr r31,r4",
+        "mr r29,r5",
+        "bl 0x82297390",
+        "mr r30,r3",
+        "cmplwi cr6,r30,0",
+        "bne cr6,0x82297364",
+        "addi r1,r1,112",
+        "b 0x82b7a73c",
+        "mr r3,r31",
+        "bl 0x82296830",
+        "rlwinm r11,r3,1,0,30",
+        "add r3,r11,r30",
+        "bl 0x822974a8",
+        "frsp f0,f1",
+        "stfs f0,0(r29)",
+        "li r3,1",
+        "addi r1,r1,112",
+        "b 0x82b7a73c"
+      ],
+      "direct_calls": [
+        "82297390",
+        "82296830",
+        "822974A8"
+      ],
+      "native_calls": [],
+      "cfg": {
+        "labels": [
+          "82297364"
+        ],
+        "branches": [
+          "bl 0x82b7a6ec",
+          "bl 0x82297390",
+          "bne cr6,0x82297364",
+          "b 0x82b7a73c",
+          "bl 0x82296830",
+          "bl 0x822974a8",
+          "b 0x82b7a73c"
+        ]
+      },
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82297338) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// bl 0x82b7a6ec\n\tctx.lr = 0x82297340;\n\t__savegprlr_29(ctx, base);\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// mr r31,r4\n\tctx.r31.u64 = ctx.r4.u64;\n\t// mr r29,r5\n\tctx.r29.u64 = ctx.r5.u64;\n\t// bl 0x82297390\n\tctx.lr = 0x82297350;\n\tsub_82297390(ctx, base);\n\t// mr r30,r3\n\tctx.r30.u64 = ctx.r3.u64;\n\t// cmplwi cr6,r30,0\n\tctx.cr6.compare<uint32_t>(ctx.r30.u32, 0, ctx.xer);\n\t// bne cr6,0x82297364\n\tif (!ctx.cr6.eq) goto loc_82297364;\n\t// addi r1,r1,112\n\tctx.r1.s64 = ctx.r1.s64 + 112;\n\t// b 0x82b7a73c\n\t__restgprlr_29(ctx, base);\n\treturn;\nloc_82297364:\n\t// mr r3,r31\n\tctx.r3.u64 = ctx.r31.u64;\n\t// bl 0x82296830\n\tctx.lr = 0x8229736C;\n\tsub_82296830(ctx, base);\n\t// rlwinm r11,r3,1,0,30\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r3.u32 | (ctx.r3.u64 << 32), 1) & 0xFFFFFFFE;\n\t// add r3,r11,r30\n\tctx.r3.u64 = ctx.r11.u64 + ctx.r30.u64;\n\t// bl 0x822974a8\n\tctx.lr = 0x82297378;\n\tsub_822974A8(ctx, base);\n\t// frsp f0,f1\n\tctx.fpscr.disableFlushMode();\n\tctx.f0.f64 = double(float(ctx.f1.f64));\n\t// stfs f0,0(r29)\n\ttemp.f32 = float(ctx.f0.f64);\n\tPPC_STORE_U32(ctx.r29.u32 + 0, temp.u32);\n\t// li r3,1\n\tctx.r3.s64 = 1;\n\t// addi r1,r1,112\n\tctx.r1.s64 = ctx.r1.s64 + 112;\n\t// b 0x82b7a73c\n\t__restgprlr_29(ctx, base);\n\treturn;\n}\n",
+      "status": "bounded_readable_library"
+    },
+    {
+      "address": "822974A8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+      "source_line": 17587,
+      "instruction_count": 2,
+      "instructions": [
+        "li r4,0",
+        "b 0x82b7d270"
+      ],
+      "direct_calls": [
+        "82B7D270"
+      ],
+      "native_calls": [],
+      "cfg": {
+        "labels": [],
+        "branches": [
+          "b 0x82b7d270"
+        ]
+      },
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_822974A8) {\n\tPPC_FUNC_PROLOGUE();\n\t// li r4,0\n\tctx.r4.s64 = 0;\n\t// b 0x82b7d270\n\tsub_82B7D270(ctx, base);\n\treturn;\n}\n",
+      "status": "bounded_readable_library"
+    }
+  ],
+  "implementation": {
+    "header": "include/lo_semantics/legacy_token_float_cursor.h",
+    "source": "src/legacy_token_float_cursor.cpp",
+    "oracle": "tests/legacy_token_float_cursor_oracle.cpp",
+    "scope": "Two new caller PPC bodies; original oracle composes three previously mapped lower PPC bodies. 82B7D270 remains an explicit unrecovered PPC guest conversion boundary."
+  },
+  "validation": {
+    "status": "passed",
+    "focused_original_ppc_cases": 7,
+    "unknown_entry_checks": 0,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-legacy-token-float-cursor-tests/legacy-token-float-cursor-result.json",
+    "library": "Windows-native /W4 /WX MT static library",
+    "tested_scope": "Seven cases: token miss, direct match, non-word-boundary skip, prefix mismatch before hit, empty token, hit with FP flush already cleared and direct mode-zero tail. Original side uses actual new callers and accepted 82297390/82296830/82296858, plus actual save/restore helpers. Recovered side reuses accepted token/length helpers. Selected full GPR/SP/LR/CTR/CR/XER, F0/F1/FP cache, x64 host control, ordinary RAM and parse boundary arguments/result.",
+    "unvalidated_scope": "Unrecovered PPC guest 82B7D270 numeric parser and its volatile effects; reused FindToken miss-path r10/r11/CR0/XER.CA are excluded. Other inputs/aliasing, invalid/error handlers, unselected ABI/FP, signaling NaNs/subnormals/host exceptions, faults, MMIO, concurrency and runtime.",
+    "runtime_validated": false,
+    "complete": false,
+    "original_ppc_validation_pin": "recovery_drafts/legacy_token_float_cursor_validation.json"
+  },
+  "scope": "Bounded UTF-16 token-to-float caller with explicit unrecovered PPC conversion boundary; no numeric-parser recovery credit."
+}

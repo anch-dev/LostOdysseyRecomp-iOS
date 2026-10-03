@@ -1,0 +1,14 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Two call-free ppc2 object pointer routes, seven focused original-PPC cases.",
+  "families": [
+    {
+      "name": "object-pointer-routes",
+      "manifest": "LostOdysseyRecompSemantics/object_pointer_routes_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/object_pointer_routes_oracle.cpp",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/object_pointer_routes.cpp"
+      ]
+    }
+  ]
+}

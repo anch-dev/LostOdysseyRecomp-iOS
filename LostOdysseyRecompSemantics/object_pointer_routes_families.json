@@ -1,0 +1,72 @@
+{
+  "schema": "object-pointer-routes-v1",
+  "entries": [
+    {
+      "address": "822C6398",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+      "source_line": 31417,
+      "instruction_count": 21,
+      "instructions": [
+        "cmplwi cr6,r4,0",
+        "beq cr6,0x822c63d8",
+        "lwz r9,288(r3)",
+        "li r10,0",
+        "cmpwi cr6,r9,0",
+        "ble cr6,0x822c63d8",
+        "lwz r8,284(r3)",
+        "mr r11,r8",
+        "lwz r7,0(r11)",
+        "lwz r7,60(r7)",
+        "cmplw cr6,r7,r4",
+        "beq cr6,0x822c63e0",
+        "addi r10,r10,1",
+        "addi r11,r11,4",
+        "cmpw cr6,r10,r9",
+        "blt cr6,0x822c63b8",
+        "li r3,0",
+        "blr",
+        "rlwinm r11,r10,2,0,29",
+        "lwzx r3,r11,r8",
+        "blr"
+      ],
+      "direct_calls": [],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_822C6398) {\n\tPPC_FUNC_PROLOGUE();\n\t// cmplwi cr6,r4,0\n\tctx.cr6.compare<uint32_t>(ctx.r4.u32, 0, ctx.xer);\n\t// beq cr6,0x822c63d8\n\tif (ctx.cr6.eq) goto loc_822C63D8;\n\t// lwz r9,288(r3)\n\tctx.r9.u64 = PPC_LOAD_U32(ctx.r3.u32 + 288);\n\t// li r10,0\n\tctx.r10.s64 = 0;\n\t// cmpwi cr6,r9,0\n\tctx.cr6.compare<int32_t>(ctx.r9.s32, 0, ctx.xer);\n\t// ble cr6,0x822c63d8\n\tif (!ctx.cr6.gt) goto loc_822C63D8;\n\t// lwz r8,284(r3)\n\tctx.r8.u64 = PPC_LOAD_U32(ctx.r3.u32 + 284);\n\t// mr r11,r8\n\tctx.r11.u64 = ctx.r8.u64;\nloc_822C63B8:\n\t// lwz r7,0(r11)\n\tctx.r7.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);\n\t// lwz r7,60(r7)\n\tctx.r7.u64 = PPC_LOAD_U32(ctx.r7.u32 + 60);\n\t// cmplw cr6,r7,r4\n\tctx.cr6.compare<uint32_t>(ctx.r7.u32, ctx.r4.u32, ctx.xer);\n\t// beq cr6,0x822c63e0\n\tif (ctx.cr6.eq) goto loc_822C63E0;\n\t// addi r10,r10,1\n\tctx.r10.s64 = ctx.r10.s64 + 1;\n\t// addi r11,r11,4\n\tctx.r11.s64 = ctx.r11.s64 + 4;\n\t// cmpw cr6,r10,r9\n\tctx.cr6.compare<int32_t>(ctx.r10.s32, ctx.r9.s32, ctx.xer);\n\t// blt cr6,0x822c63b8\n\tif (ctx.cr6.lt) goto loc_822C63B8;\nloc_822C63D8:\n\t// li r3,0\n\tctx.r3.s64 = 0;\n\t// blr \n\treturn;\nloc_822C63E0:\n\t// rlwinm r11,r10,2,0,29\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r10.u32 | (ctx.r10.u64 << 32), 2) & 0xFFFFFFFC;\n\t// lwzx r3,r11,r8\n\tctx.r3.u64 = PPC_LOAD_U32(ctx.r11.u32 + ctx.r8.u32);\n\t// blr \n\treturn;\n}\n",
+      "status": "bounded_readable_library"
+    },
+    {
+      "address": "822C66C8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+      "source_line": 31901,
+      "instruction_count": 11,
+      "instructions": [
+        "lwz r10,624(r3)",
+        "cmplwi cr6,r10,0",
+        "bne cr6,0x822c66dc",
+        "li r3,0",
+        "blr",
+        "lwz r11,888(r3)",
+        "cmplwi cr6,r11,0",
+        "bne cr6,0x822c66ec",
+        "lwz r11,244(r10)",
+        "mr r3,r11",
+        "blr"
+      ],
+      "direct_calls": [],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_822C66C8) {\n\tPPC_FUNC_PROLOGUE();\n\t// lwz r10,624(r3)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r3.u32 + 624);\n\t// cmplwi cr6,r10,0\n\tctx.cr6.compare<uint32_t>(ctx.r10.u32, 0, ctx.xer);\n\t// bne cr6,0x822c66dc\n\tif (!ctx.cr6.eq) goto loc_822C66DC;\n\t// li r3,0\n\tctx.r3.s64 = 0;\n\t// blr \n\treturn;\nloc_822C66DC:\n\t// lwz r11,888(r3)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 888);\n\t// cmplwi cr6,r11,0\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 0, ctx.xer);\n\t// bne cr6,0x822c66ec\n\tif (!ctx.cr6.eq) goto loc_822C66EC;\n\t// lwz r11,244(r10)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r10.u32 + 244);\nloc_822C66EC:\n\t// mr r3,r11\n\tctx.r3.u64 = ctx.r11.u64;\n\t// blr \n\treturn;\n}\n",
+      "status": "bounded_readable_library"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "focused_original_ppc_cases": 7,
+    "unknown_entry_checks": 0,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-object-pointer-routes-tests/object-pointer-routes-result.json",
+    "library": "Windows-native /W4 /WX MT static library",
+    "tested_scope": "Seven cases: zero tag, signed-negative list count, second node hit, list miss, no primary pointer, direct preferred pointer and self-alias fallback. Complete original 822C6398/822C66C8 bodies. Full touched GPR/CR6/XER.SO and ordinary RAM; high incoming bits and source aliasing.",
+    "unvalidated_scope": "Other inputs/aliasing, faults, MMIO, concurrency, unselected ABI and runtime.",
+    "runtime_validated": false,
+    "complete": false
+  }
+}

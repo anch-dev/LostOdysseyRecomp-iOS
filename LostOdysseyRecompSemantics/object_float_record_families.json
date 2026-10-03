@@ -1,0 +1,69 @@
+{
+  "schema": "object-float-record-v1",
+  "entries": [
+    {
+      "address": "82384C08",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.10.cpp",
+      "source_line": 6881,
+      "instruction_count": 32,
+      "instructions": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "cmplwi cr6,r31,0",
+        "beq cr6,0x82384c70",
+        "bl 0x8242d038",
+        "lwz r11,52(r31)",
+        "cmplwi cr6,r11,0",
+        "beq cr6,0x82384c48",
+        "cmplw cr6,r11,r3",
+        "beq cr6,0x82384c58",
+        "lwz r11,60(r11)",
+        "cmplwi cr6,r11,0",
+        "bne cr6,0x82384c34",
+        "cntlzw r11,r3",
+        "rlwinm r11,r11,27,31,31",
+        "cmpwi cr6,r11,0",
+        "beq cr6,0x82384c70",
+        "mr r3,r31",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr ",
+        "li r3,0",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr "
+      ],
+      "direct_calls": [
+        "8242D038"
+      ],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82384C08) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// std r31,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// mr r31,r3\n\tctx.r31.u64 = ctx.r3.u64;\n\t// cmplwi cr6,r31,0\n\tctx.cr6.compare<uint32_t>(ctx.r31.u32, 0, ctx.xer);\n\t// beq cr6,0x82384c70\n\tif (ctx.cr6.eq) goto loc_82384C70;\n\t// bl 0x8242d038\n\tctx.lr = 0x82384C28;\n\tsub_8242D038(ctx, base);\n\t// lwz r11,52(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + 52);\n\t// cmplwi cr6,r11,0\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 0, ctx.xer);\n\t// beq cr6,0x82384c48\n\tif (ctx.cr6.eq) goto loc_82384C48;\nloc_82384C34:\n\t// cmplw cr6,r11,r3\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, ctx.r3.u32, ctx.xer);\n\t// beq cr6,0x82384c58\n\tif (ctx.cr6.eq) goto loc_82384C58;\n\t// lwz r11,60(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 60);\n\t// cmplwi cr6,r11,0\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 0, ctx.xer);\n\t// bne cr6,0x82384c34\n\tif (!ctx.cr6.eq) goto loc_82384C34;\nloc_82384C48:\n\t// cntlzw r11,r3\n\tctx.r11.u64 = ctx.r3.u32 == 0 ? 32 : __builtin_clz(ctx.r3.u32);\n\t// rlwinm r11,r11,27,31,31\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 27) & 0x1;\n\t// cmpwi cr6,r11,0\n\tctx.cr6.compare<int32_t>(ctx.r11.s32, 0, ctx.xer);\n\t// beq cr6,0x82384c70\n\tif (ctx.cr6.eq) goto loc_82384C70;\nloc_82384C58:\n\t// mr r3,r31\n\tctx.r3.u64 = ctx.r31.u64;\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\nloc_82384C70:\n\t// li r3,0\n\tctx.r3.s64 = 0;\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
+    }
+  ],
+  "implementation": {
+    "header": "include/lo_semantics/object_float_record.h",
+    "source": "src/object_float_record.cpp",
+    "oracle": "tests/object_float_record_oracle.cpp",
+    "scope": "82384C08 parent +52/+60 list query composed with accepted 8242D038 lazy singleton."
+  },
+  "validation": {
+    "status": "passed",
+    "focused_original_ppc_cases": 7,
+    "unknown_entry_checks": 0,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-object-float-record-tests/object-float-record-result.json",
+    "library": "Windows-native /W4 /WX MT static library",
+    "tested_scope": "Seven cases: null parent, existing singleton at head/linked/absent, lazy construction success, allocation failure and guest registration callback replacing the singleton global. Actual new 82384C08 and actual accepted 8242D038 bodies on original side; accepted allocation and initializer semantic adapters reused. Selected SP/LR/r3/r11/r12/r31/CR6/XER.SO, upper frame spills, selected lower outgoing fields, non-stack ordinary RAM and registration events.",
+    "unvalidated_scope": "82627230 guest registration body, accepted allocation/initializer nested frames and generic volatile ABI. Lower stack scratch outside checked outgoing fields is excluded; faults, MMIO, concurrency, other inputs/aliasing and runtime.",
+    "runtime_validated": false,
+    "complete": false,
+    "original_ppc_validation_pin": "recovery_drafts/object_float_record_validation.json"
+  }
+}
