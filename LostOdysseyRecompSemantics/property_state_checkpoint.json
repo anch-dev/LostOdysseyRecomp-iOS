@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "previous_checkpoint": "closed_initializer_checkpoint.json",
+  "code_commit": "ebc7483",
+  "unique_recovered_entry_addresses": 5073,
+  "additional_entry_addresses": 28,
+  "individually_recorded_entries": 82,
+  "family_manifests": 44,
+  "overlapping_addresses": [
+    "829664E8",
+    "82B84D88"
+  ],
+  "progress": {
+    "readable_entry_address_numerator": 5073,
+    "cached_candidate_address_denominator": 62627,
+    "readable_entry_coverage_percent": 8.1,
+    "denominator_source": "Previously audited out/function-inventory/summary.json candidate_addresses, reused without a full PPC scan or image/source hashes.",
+    "logical_function_total": null,
+    "complete_semantic_recovery_percent": null,
+    "counting_note": "Coverage of unique readable mapped entry addresses within the cached work inventory. It is not independent logical-function count or full semantic completion; entries have different complexity and bounded validation."
+  },
+  "new_library_families": [
+    {
+      "family": "string_property_initializer",
+      "entries": 2,
+      "code_commit": "b7be5f9",
+      "manifest": "string_property_initializer_families.json",
+      "original_ppc_comparisons": 6,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, instructions, CFG/calls and parameters checked at cached or recorded source locations; no full scan or hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Original two bodies and real save/rest28 helpers, with prior resize/copy/UTF16/reset models. Live source/count reload, custom/default string, full SP and own/nested save aliases covered.",
+        "receipt": "External scratch: semantic-string-property-tests/string-property-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/string-property-library-build.log"
+      }
+    },
+    {
+      "family": "instance_property_chain",
+      "entries": 9,
+      "code_commit": "1cf5db3",
+      "manifest": "instance_property_chain_families.json",
+      "original_ppc_comparisons": 15,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, instructions, CFG/calls and parameters checked at cached or recorded source locations; no full scan or hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Original nine bodies plus original two property foundations, with proven lower models. Nine baseline, five null and one staged-stack alias comparisons. Generic lower ABI excluded.",
+        "receipt": "External scratch: semantic-instance-property-chain-tests/instance-property-chain-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/instance-property-chain-library-build.log"
+      }
+    },
+    {
+      "family": "owned_state_initializer",
+      "entries": 2,
+      "code_commit": "4ec2d80",
+      "manifest": "owned_state_initializer_families.json",
+      "original_ppc_comparisons": 9,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, instructions, CFG/calls and parameters checked at cached or recorded source locations; no full scan or hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Original two bodies with prior allocation model and explicit destructor callback. Null-source second read, source/flags/save aliases, allocation failure/success, live callback register mutation and full SP. Dynamic destructor implementation remains open.",
+        "receipt": "External scratch: semantic-owned-state-tests/owned-state-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/property-state-foundations-library-build.log"
+      }
+    },
+    {
+      "family": "instance_connection_initializer",
+      "entries": 5,
+      "code_commit": "4951a2d",
+      "manifest": "instance_connection_initializer_families.json",
+      "original_ppc_comparisons": 10,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, instructions, CFG/calls and parameters checked at cached or recorded source locations; no full scan or hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Original five bodies and real save/rest25/29 helpers, composed with prior property/archive/resize/fill models. Nulls, signed bit-count wrap, live resize count, frame aliases, full SP/r3 and finite FP. LoadedSingle known sNaN discrepancy retained.",
+        "receipt": "External scratch: semantic-instance-connection-tests/instance-connection-initializer-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/property-state-foundations-library-build.log"
+      }
+    },
+    {
+      "family": "instance_owned_state",
+      "entries": 8,
+      "code_commit": "a21fc91",
+      "manifest": "instance_owned_state_families.json",
+      "original_ppc_comparisons": 20,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, instructions, CFG/calls and parameters checked at cached or recorded source locations; no full scan or hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Original eight callers plus original owned-state foundations, with proven allocation model and explicit dynamic destructor contract. Baseline/null/skip paths, callback mutation, full 64-bit SP, frame aliases and allocation failure; F0/FPSCR and ordinary memory compared. Generic lower ABI and known signaling-NaN discrepancy excluded.",
+        "receipt": "External scratch: semantic-instance-owned-state-tests/instance-owned-state-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/instance-owned-state-library-build.log"
+      }
+    },
+    {
+      "family": "instance_shared_metadata_initializer",
+      "entries": 2,
+      "code_commit": "ebc7483",
+      "manifest": "instance_shared_metadata_initializer_families.json",
+      "original_ppc_comparisons": 7,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, instructions, CFG/calls and parameters checked at cached or recorded source locations; no full scan or hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Original initializer/null-tail plus real save/rest28 helpers, composed with proven constructor/registration models. Existing/empty gate, full r3/high SP, callback live-global reread, stack/global aliases. Generic lower ABI and scene behavior excluded; unused constant removed for /W4 /WX without changing behavior or rerunning passing comparison.",
+        "receipt": "External scratch: semantic-instance-shared-metadata-tests/instance-shared-metadata-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/instance-shared-metadata-library-build.log"
+      }
+    }
+  ],
+  "validation_totals": {
+    "original_ppc_comparisons": 67,
+    "unknown_entry_checks": 6,
+    "scope": "Only this increment; old helper/runtime/scene results reused."
+  },
+  "build": {
+    "status": "passed",
+    "platform": "Windows x86_64 clang-cl 22.1.8 RelWithDebInfo /W4 /WX",
+    "scope": "Six new sources incrementally compiled and the semantics library linked, at most two concurrent single-compiler jobs. No full runtime rebuild."
+  },
+  "runtime": {
+    "available_opt_in_wrappers": 3168,
+    "default_off_gates": 8,
+    "wrappers_added": 0,
+    "reused_checkpoint": "instance_runtime_checkpoint.json",
+    "scene_binary_revision": "ee9239d965cc",
+    "scene_scope": "Prior eight-gate Windows Vulkan Map20/Uhra/menu and 655-wrapper adapter evidence reused. New library entries have no runtime adapters or new scene validation."
+  },
+  "remaining_cached_candidates": {
+    "instance_entries": 8,
+    "metadata_entries": 10,
+    "scope": "Cached subsets only, not whole-game remaining counts.",
+    "next_dependency_work": "823FDAB0 queue/resize/virtual callback composition and cached 82407AD8/8240A7C0 parents. Existing RemoveArrayRange's void memory API leaves residual r3 to derive before crediting standalone hub behavior.",
+    "handoff": "out/function-inventory/state-array-recovery-handoff.md"
+  },
+  "evidence_reuse": "Recovered lower models and external service contracts are reused. Dynamic destructor internals, generic lower ABI, volatile/CR, faults/MMIO/access widths and concurrency remain open. Known signaling-NaN discrepancy retained in FLOAT_LOAD_STORE_NOTES.md.",
+  "whole_game_semantics_complete": false,
+  "delivery": {
+    "scope": "Local commits on trail/semantic-recovery; this increment is not pushed or released."
+  }
+}
