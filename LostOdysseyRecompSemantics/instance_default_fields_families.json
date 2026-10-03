@@ -1,0 +1,2960 @@
+{
+  "schema_version": 1,
+  "family": "instance_default_fields",
+  "source": "out/function-inventory/registered-instance-candidates.json",
+  "entry_count": 42,
+  "ordered_write_count": 464,
+  "registered_type_reference_count": 42,
+  "entries": [
+    {
+      "address": "82412050",
+      "vtable": "0x820053D0",
+      "writes_in_order": [
+        {
+          "offset": 84,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 88,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 92,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 128,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 132,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 136,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x820053D0"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp",
+      "source_line": 20684,
+      "registered_types": [
+        {
+          "constructor": "8240BBE0",
+          "type_name": "Function",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82412338",
+      "vtable": "0x82191708",
+      "writes_in_order": [
+        {
+          "offset": 84,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 88,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 92,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 128,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 132,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 136,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x82191708"
+        },
+        {
+          "offset": 164,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 168,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 172,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 176,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 180,
+          "width_bits": 32,
+          "value": "0x00000008"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp",
+      "source_line": 21174,
+      "registered_types": [
+        {
+          "constructor": "824059D8",
+          "type_name": "State",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "824123D8",
+      "vtable": "0x82191840",
+      "writes_in_order": [
+        {
+          "offset": 84,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 88,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 92,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 128,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 132,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 136,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x82191840"
+        },
+        {
+          "offset": 140,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 144,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 148,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 156,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 160,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 164,
+          "width_bits": 32,
+          "value": "0x00000000"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp",
+      "source_line": 21274,
+      "registered_types": [
+        {
+          "constructor": "8240B410",
+          "type_name": "ScriptStruct",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82412568",
+      "vtable": "0x821915D0",
+      "writes_in_order": [
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821915D0"
+        },
+        {
+          "offset": 84,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 88,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 92,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 128,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 132,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 136,
+          "width_bits": 32,
+          "value": "0x00000000"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp",
+      "source_line": 21523,
+      "registered_types": [
+        {
+          "constructor": "823A80D8",
+          "type_name": "Struct",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "8245D2B8",
+      "vtable": "0x82009104",
+      "writes_in_order": [
+        {
+          "offset": 60,
+          "width_bits": 32,
+          "value": "0x82062CC0"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x82009104"
+        },
+        {
+          "offset": 60,
+          "width_bits": 32,
+          "value": "0x8205F33C"
+        },
+        {
+          "offset": 696,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 700,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 704,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 712,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 716,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 720,
+          "width_bits": 32,
+          "value": "0x00000000"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.21.cpp",
+      "source_line": 45328,
+      "registered_types": [
+        {
+          "constructor": "82464080",
+          "type_name": "Engine",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82483228",
+      "vtable": "0x821A8A40",
+      "writes_in_order": [
+        {
+          "offset": 60,
+          "width_bits": 32,
+          "value": "0x82062CC0"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821A8A40"
+        },
+        {
+          "offset": 60,
+          "width_bits": 32,
+          "value": "0x82000D00"
+        },
+        {
+          "offset": 132,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 136,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 140,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 204,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 208,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 212,
+          "width_bits": 32,
+          "value": "0x00000000"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.23.cpp",
+      "source_line": 42748,
+      "registered_types": [
+        {
+          "constructor": "8240B280",
+          "type_name": "System",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "8248D208",
+      "vtable": "0x821A9EF0",
+      "writes_in_order": [
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821A9EF0"
+        },
+        {
+          "offset": 108,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 112,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 120,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 100,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 104,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 116,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 124,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 128,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 132,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 136,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 140,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 96,
+          "width_bits": 32,
+          "value": "0x821A9EDC"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.24.cpp",
+      "source_line": 22957,
+      "registered_types": [
+        {
+          "constructor": "8248BDE0",
+          "type_name": "Texture",
+          "kind": "constructor"
+        }
+      ]
+    },
+    {
+      "address": "8249C470",
+      "vtable": "0x821AABC0",
+      "writes_in_order": [
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821AABC0"
+        },
+        {
+          "offset": 524,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 528,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 532,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 536,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 540,
+          "width_bits": 32,
+          "value": "0x00000008"
+        },
+        {
+          "offset": 604,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 608,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 612,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 616,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 620,
+          "width_bits": 32,
+          "value": "0x00000008"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.25.cpp",
+      "source_line": 22763,
+      "registered_types": [
+        {
+          "constructor": "82433668",
+          "type_name": "PrefabInstance",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "824C3648",
+      "vtable": "0x820058E0",
+      "writes_in_order": [
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x820058E0"
+        },
+        {
+          "offset": 100,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 104,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 108,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 116,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 120,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 124,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 128,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 132,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 136,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 140,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 144,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 148,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 152,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 156,
+          "width_bits": 32,
+          "value": "0x00000008"
+        },
+        {
+          "offset": 160,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 164,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 168,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 172,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 176,
+          "width_bits": 32,
+          "value": "0x00000008"
+        },
+        {
+          "offset": 180,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 184,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 188,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 192,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 196,
+          "width_bits": 32,
+          "value": "0x00000008"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.28.cpp",
+      "source_line": 7458,
+      "registered_types": [
+        {
+          "constructor": "82463078",
+          "type_name": "AudioComponent",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "824D7128",
+      "vtable": "0x821AF928",
+      "writes_in_order": [
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821AF928"
+        },
+        {
+          "offset": 1212,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 1216,
+          "width_bits": 32,
+          "value": "0x00000000"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "source_line": 24657,
+      "registered_types": [
+        {
+          "constructor": "824C94B8",
+          "type_name": "PlayerController",
+          "kind": "constructor"
+        }
+      ]
+    },
+    {
+      "address": "824D87E8",
+      "vtable": "0x821B00B0",
+      "writes_in_order": [
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821B00B0"
+        },
+        {
+          "offset": 560,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 564,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 568,
+          "width_bits": 8,
+          "value": "0x00000000"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "source_line": 28309,
+      "registered_types": [
+        {
+          "constructor": "824C7C70",
+          "type_name": "NavigationPoint",
+          "kind": "constructor"
+        }
+      ]
+    },
+    {
+      "address": "824D9010",
+      "vtable": "0x821B1E08",
+      "writes_in_order": [
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821B1E08"
+        },
+        {
+          "offset": 72,
+          "width_bits": 32,
+          "value": "0x00000000"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "source_line": 29731,
+      "registered_types": [
+        {
+          "constructor": "8245F518",
+          "type_name": "ReachSpec",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "824D90C0",
+      "vtable": "0x821B5F78",
+      "writes_in_order": [
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821B5F78"
+        },
+        {
+          "offset": 752,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 756,
+          "width_bits": 32,
+          "value": "0x00000000"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.30.cpp",
+      "source_line": 99,
+      "registered_types": [
+        {
+          "constructor": "824C6F30",
+          "type_name": "GameInfo",
+          "kind": "constructor"
+        }
+      ]
+    },
+    {
+      "address": "825AA370",
+      "vtable": "0x82004D68",
+      "writes_in_order": [
+        {
+          "offset": 108,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 112,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 120,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 124,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 128,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 100,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 104,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 116,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 132,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 136,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 140,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 96,
+          "width_bits": 32,
+          "value": "0x821A9EDC"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x82004D68"
+        },
+        {
+          "offset": 188,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 192,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 196,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 224,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 232,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 236,
+          "width_bits": 32,
+          "value": "0x00000000"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.42.cpp",
+      "source_line": 18186,
+      "registered_types": [
+        {
+          "constructor": "825A8178",
+          "type_name": "Texture2D",
+          "kind": "constructor"
+        }
+      ]
+    },
+    {
+      "address": "825F5E98",
+      "vtable": "0x821E02F8",
+      "writes_in_order": [
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821E02F8"
+        },
+        {
+          "offset": 60,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 64,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 68,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 72,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 76,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 80,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 84,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 88,
+          "width_bits": 32,
+          "value": "0x00000008"
+        },
+        {
+          "offset": 92,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 96,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 100,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 104,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 108,
+          "width_bits": 32,
+          "value": "0x00000008"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.47.cpp",
+      "source_line": 10276,
+      "registered_types": [
+        {
+          "constructor": "8240B4D8",
+          "type_name": "PackageMap",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "826316C0",
+      "vtable": "0x8200CB28",
+      "writes_in_order": [
+        {
+          "offset": 276,
+          "width_bits": 32,
+          "value": "0x821E00D8"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x8200CB28"
+        },
+        {
+          "offset": 276,
+          "width_bits": 32,
+          "value": "0x821E977C"
+        },
+        {
+          "offset": 324,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 328,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 332,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 336,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 340,
+          "width_bits": 32,
+          "value": "0x00000008"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.51.cpp",
+      "source_line": 1600,
+      "registered_types": [
+        {
+          "constructor": "82438050",
+          "type_name": "UIScene",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82632130",
+      "vtable": "0x821EB4D8",
+      "writes_in_order": [
+        {
+          "offset": 608,
+          "width_bits": 32,
+          "value": "0x821BAD58"
+        },
+        {
+          "offset": 612,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 616,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821EB4D8"
+        },
+        {
+          "offset": 608,
+          "width_bits": 32,
+          "value": "0x821EB720"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.51.cpp",
+      "source_line": 3350,
+      "registered_types": [
+        {
+          "constructor": "82440880",
+          "type_name": "UINumericEditBox",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82632360",
+      "vtable": "0x821E97A0",
+      "writes_in_order": [
+        {
+          "offset": 608,
+          "width_bits": 32,
+          "value": "0x821E9C1C"
+        },
+        {
+          "offset": 612,
+          "width_bits": 32,
+          "value": "0x821E9C34"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821E97A0"
+        },
+        {
+          "offset": 608,
+          "width_bits": 32,
+          "value": "0x821E99CC"
+        },
+        {
+          "offset": 612,
+          "width_bits": 32,
+          "value": "0x821E99E4"
+        },
+        {
+          "offset": 616,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 620,
+          "width_bits": 32,
+          "value": "0x00000000"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.51.cpp",
+      "source_line": 3701,
+      "registered_types": [
+        {
+          "constructor": "82440D30",
+          "type_name": "UILabel",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "8264E6A0",
+      "vtable": "0x82007918",
+      "writes_in_order": [
+        {
+          "offset": 60,
+          "width_bits": 32,
+          "value": "0x82062CC0"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x82007918"
+        },
+        {
+          "offset": 60,
+          "width_bits": 32,
+          "value": "0x82000D1C"
+        },
+        {
+          "offset": 140,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 144,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 148,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 152,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 156,
+          "width_bits": 32,
+          "value": "0x00000008"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.53.cpp",
+      "source_line": 2000,
+      "registered_types": [
+        {
+          "constructor": "8243ED28",
+          "type_name": "GameUISceneClient",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82657250",
+      "vtable": "0x821EF4A0",
+      "writes_in_order": [
+        {
+          "offset": 120,
+          "width_bits": 32,
+          "value": "0x821EE320"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821EF4A0"
+        },
+        {
+          "offset": 120,
+          "width_bits": 32,
+          "value": "0x821EF5EC"
+        },
+        {
+          "offset": 136,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 140,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 144,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 148,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 152,
+          "width_bits": 32,
+          "value": "0x00000008"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.53.cpp",
+      "source_line": 23798,
+      "registered_types": [
+        {
+          "constructor": "8243C220",
+          "type_name": "UIDataStore_GameResource",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "826576E0",
+      "vtable": "0x821EFFE0",
+      "writes_in_order": [
+        {
+          "offset": 120,
+          "width_bits": 32,
+          "value": "0x821EE320"
+        },
+        {
+          "offset": 124,
+          "width_bits": 32,
+          "value": "0x821590C4"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821EFFE0"
+        },
+        {
+          "offset": 120,
+          "width_bits": 32,
+          "value": "0x821F012C"
+        },
+        {
+          "offset": 124,
+          "width_bits": 32,
+          "value": "0x821F0148"
+        },
+        {
+          "offset": 172,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 176,
+          "width_bits": 32,
+          "value": "0x00000000"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.53.cpp",
+      "source_line": 24573,
+      "registered_types": [
+        {
+          "constructor": "8243C7E8",
+          "type_name": "UIDataStore_OnlineGameSearch",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82657910",
+      "vtable": "0x821F0290",
+      "writes_in_order": [
+        {
+          "offset": 120,
+          "width_bits": 32,
+          "value": "0x821EE320"
+        },
+        {
+          "offset": 124,
+          "width_bits": 32,
+          "value": "0x821590C4"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821F0290"
+        },
+        {
+          "offset": 120,
+          "width_bits": 32,
+          "value": "0x821F03DC"
+        },
+        {
+          "offset": 124,
+          "width_bits": 32,
+          "value": "0x821F03F8"
+        },
+        {
+          "offset": 192,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 196,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 200,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 204,
+          "width_bits": 32,
+          "value": "0x00000000"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.53.cpp",
+      "source_line": 24931,
+      "registered_types": [
+        {
+          "constructor": "8243C968",
+          "type_name": "UIDataStore_OnlineStats",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "8266CFB0",
+      "vtable": "0x82009B00",
+      "writes_in_order": [
+        {
+          "offset": 272,
+          "width_bits": 32,
+          "value": "0x821EC508"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x82009B00"
+        },
+        {
+          "offset": 272,
+          "width_bits": 32,
+          "value": "0x821F248C"
+        },
+        {
+          "offset": 276,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 280,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 284,
+          "width_bits": 32,
+          "value": "0x00000000"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.55.cpp",
+      "source_line": 19330,
+      "registered_types": [
+        {
+          "constructor": "82443A78",
+          "type_name": "UISequence",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "8266D118",
+      "vtable": "0x821F22F0",
+      "writes_in_order": [
+        {
+          "offset": 272,
+          "width_bits": 32,
+          "value": "0x821EC508"
+        },
+        {
+          "offset": 276,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 280,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 284,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821F22F0"
+        },
+        {
+          "offset": 272,
+          "width_bits": 32,
+          "value": "0x821F248C"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.55.cpp",
+      "source_line": 19559,
+      "registered_types": [
+        {
+          "constructor": "82443BB8",
+          "type_name": "UIStateSequence",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "8268CF20",
+      "vtable": "0x821FB270",
+      "writes_in_order": [
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821FB270"
+        },
+        {
+          "offset": 144,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 148,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 152,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 156,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 160,
+          "width_bits": 32,
+          "value": "0x00000008"
+        },
+        {
+          "offset": 164,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 168,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 172,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 176,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 180,
+          "width_bits": 32,
+          "value": "0x00000008"
+        },
+        {
+          "offset": 184,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 188,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 192,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 196,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 200,
+          "width_bits": 32,
+          "value": "0x00000008"
+        },
+        {
+          "offset": 204,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 208,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 212,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 216,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 220,
+          "width_bits": 32,
+          "value": "0x00000008"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.58.cpp",
+      "source_line": 9947,
+      "registered_types": [
+        {
+          "constructor": "8243D588",
+          "type_name": "UISkin",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "8268D090",
+      "vtable": "0x821FB748",
+      "writes_in_order": [
+        {
+          "offset": 144,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 148,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 152,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 156,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 160,
+          "width_bits": 32,
+          "value": "0x00000008"
+        },
+        {
+          "offset": 164,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 168,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 172,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 176,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 180,
+          "width_bits": 32,
+          "value": "0x00000008"
+        },
+        {
+          "offset": 184,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 188,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 192,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 196,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 200,
+          "width_bits": 32,
+          "value": "0x00000008"
+        },
+        {
+          "offset": 204,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 208,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 212,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 216,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 220,
+          "width_bits": 32,
+          "value": "0x00000008"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821FB748"
+        },
+        {
+          "offset": 224,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 228,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 232,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 236,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 240,
+          "width_bits": 32,
+          "value": "0x00000008"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.58.cpp",
+      "source_line": 10178,
+      "registered_types": [
+        {
+          "constructor": "8243D648",
+          "type_name": "UICustomSkin",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "8268D260",
+      "vtable": "0x821FB4F8",
+      "writes_in_order": [
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821FB4F8"
+        },
+        {
+          "offset": 92,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 120,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 124,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 152,
+          "width_bits": 32,
+          "value": "0x00000000"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.58.cpp",
+      "source_line": 10469,
+      "registered_types": [
+        {
+          "constructor": "824432E0",
+          "type_name": "UIStyle_Combo",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82698150",
+      "vtable": "0x821FC1C0",
+      "writes_in_order": [
+        {
+          "offset": 108,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 112,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 100,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 104,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 116,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 120,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 124,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 128,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 132,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 136,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 140,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 96,
+          "width_bits": 32,
+          "value": "0x821A9EDC"
+        },
+        {
+          "offset": 188,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 192,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 196,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 224,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 232,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 236,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821FC1C0"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.59.cpp",
+      "source_line": 861,
+      "registered_types": [
+        {
+          "constructor": "8245E848",
+          "type_name": "ShadowMapTexture2D",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "8269CB00",
+      "vtable": "0x821FD268",
+      "writes_in_order": [
+        {
+          "offset": 608,
+          "width_bits": 32,
+          "value": "0x821BAD58"
+        },
+        {
+          "offset": 612,
+          "width_bits": 32,
+          "value": "0x821FD258"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821FD268"
+        },
+        {
+          "offset": 608,
+          "width_bits": 32,
+          "value": "0x821FD4E8"
+        },
+        {
+          "offset": 612,
+          "width_bits": 32,
+          "value": "0x821FD504"
+        },
+        {
+          "offset": 908,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 912,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 952,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 956,
+          "width_bits": 32,
+          "value": "0x00000000"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.59.cpp",
+      "source_line": 12410,
+      "registered_types": [
+        {
+          "constructor": "82441818",
+          "type_name": "UIList",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "826B5E48",
+      "vtable": "0x821FFC40",
+      "writes_in_order": [
+        {
+          "offset": 108,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 112,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 120,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 124,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 128,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 100,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 104,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 116,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 132,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 136,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 140,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 96,
+          "width_bits": 32,
+          "value": "0x821A9EDC"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821FFC40"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.60.cpp",
+      "source_line": 35369,
+      "registered_types": [
+        {
+          "constructor": "8245DC50",
+          "type_name": "TextureCube",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "826C0480",
+      "vtable": "0x82201B50",
+      "writes_in_order": [
+        {
+          "offset": 108,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 112,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 100,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 104,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 116,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 120,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 124,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 128,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 132,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 136,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 140,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 96,
+          "width_bits": 32,
+          "value": "0x821A9EDC"
+        },
+        {
+          "offset": 188,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 192,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 196,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 224,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 232,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 236,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x82201B50"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.61.cpp",
+      "source_line": 18009,
+      "registered_types": [
+        {
+          "constructor": "8241CDD8",
+          "type_name": "TerrainWeightMapTexture",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "826F7AA8",
+      "vtable": "0x82207350",
+      "writes_in_order": [
+        {
+          "offset": 108,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 112,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 120,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 124,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 128,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 100,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 104,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 116,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 132,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 136,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 140,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 96,
+          "width_bits": 32,
+          "value": "0x821A9EDC"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x82207350"
+        },
+        {
+          "offset": 216,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 220,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 224,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 228,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 232,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 236,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 240,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 244,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 248,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 252,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 256,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 212,
+          "width_bits": 32,
+          "value": "0x821A9EDC"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.64.cpp",
+      "source_line": 20408,
+      "registered_types": [
+        {
+          "constructor": "8245DAD0",
+          "type_name": "TextureMovie",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "826FA078",
+      "vtable": "0x821F6CB0",
+      "writes_in_order": [
+        {
+          "offset": 60,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 64,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 68,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 72,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 76,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 80,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 84,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 88,
+          "width_bits": 32,
+          "value": "0x00000008"
+        },
+        {
+          "offset": 92,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 96,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 100,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 104,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 108,
+          "width_bits": 32,
+          "value": "0x00000008"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821F6CB0"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.64.cpp",
+      "source_line": 26404,
+      "registered_types": [
+        {
+          "constructor": "824467C0",
+          "type_name": "PackageMapLevel",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "826FA0D0",
+      "vtable": "0x821F6DE8",
+      "writes_in_order": [
+        {
+          "offset": 60,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 64,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 68,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 72,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 76,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 80,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 84,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 88,
+          "width_bits": 32,
+          "value": "0x00000008"
+        },
+        {
+          "offset": 92,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 96,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 100,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 104,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 108,
+          "width_bits": 32,
+          "value": "0x00000008"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x821F6DE8"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.64.cpp",
+      "source_line": 26454,
+      "registered_types": [
+        {
+          "constructor": "82446880",
+          "type_name": "PackageMapSeekFree",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82705AD8",
+      "vtable": "0x8220A3A0",
+      "writes_in_order": [
+        {
+          "offset": 108,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 112,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 120,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 124,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 128,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 100,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 104,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 116,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 132,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 136,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 140,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 96,
+          "width_bits": 32,
+          "value": "0x821A9EDC"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x8220A3A0"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.65.cpp",
+      "source_line": 22001,
+      "registered_types": [
+        {
+          "constructor": "8245DA10",
+          "type_name": "TextureRenderTarget",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82706A60",
+      "vtable": "0x8220AAE0",
+      "writes_in_order": [
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x8220AAE0"
+        },
+        {
+          "offset": 616,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 620,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 624,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 628,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 632,
+          "width_bits": 32,
+          "value": "0x00000008"
+        },
+        {
+          "offset": 696,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 700,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 704,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 708,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 712,
+          "width_bits": 32,
+          "value": "0x00000008"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.65.cpp",
+      "source_line": 24545,
+      "registered_types": [
+        {
+          "constructor": "82441998",
+          "type_name": "UIPrefabInstance",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82706AF8",
+      "vtable": "0x8220AD80",
+      "writes_in_order": [
+        {
+          "offset": 276,
+          "width_bits": 32,
+          "value": "0x821E00D8"
+        },
+        {
+          "offset": 340,
+          "width_bits": 32,
+          "value": "0x00000008"
+        },
+        {
+          "offset": 324,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 328,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 332,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 336,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x8220AD80"
+        },
+        {
+          "offset": 276,
+          "width_bits": 32,
+          "value": "0x8220AF80"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.65.cpp",
+      "source_line": 24643,
+      "registered_types": [
+        {
+          "constructor": "82442DA0",
+          "type_name": "UIPrefabScene",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "8270F408",
+      "vtable": "0x8220B450",
+      "writes_in_order": [
+        {
+          "offset": 108,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 112,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 100,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 104,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 116,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 120,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 124,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 128,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 132,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 136,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 140,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 96,
+          "width_bits": 32,
+          "value": "0x821A9EDC"
+        },
+        {
+          "offset": 188,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 192,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 196,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 224,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 232,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 236,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x8220B450"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.66.cpp",
+      "source_line": 18821,
+      "registered_types": [
+        {
+          "constructor": "82460AF8",
+          "type_name": "LightMapTexture2D",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82714A40",
+      "vtable": "0x8220C2A8",
+      "writes_in_order": [
+        {
+          "offset": 108,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 112,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 120,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 124,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 128,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 100,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 104,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 116,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 132,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 136,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 140,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 96,
+          "width_bits": 32,
+          "value": "0x821A9EDC"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x8220C2A8"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.66.cpp",
+      "source_line": 31984,
+      "registered_types": [
+        {
+          "constructor": "8245D950",
+          "type_name": "TextureRenderTarget2D",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82719FE8",
+      "vtable": "0x8220D608",
+      "writes_in_order": [
+        {
+          "offset": 108,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 112,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 120,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 124,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 128,
+          "width_bits": 32,
+          "value": "0xFFFFFFFF"
+        },
+        {
+          "offset": 100,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 104,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 116,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 132,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 136,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 140,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 96,
+          "width_bits": 32,
+          "value": "0x821A9EDC"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x8220D608"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.67.cpp",
+      "source_line": 3847,
+      "registered_types": [
+        {
+          "constructor": "8245D890",
+          "type_name": "TextureRenderTargetCube",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82720EF0",
+      "vtable": "0x8220EDD8",
+      "writes_in_order": [
+        {
+          "offset": 72,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 76,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 80,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x8220EDD8"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.67.cpp",
+      "source_line": 20904,
+      "registered_types": [
+        {
+          "constructor": "82446AD0",
+          "type_name": "ChannelDownload",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "8272F978",
+      "vtable": "0x82211548",
+      "writes_in_order": [
+        {
+          "offset": 1212,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 1216,
+          "width_bits": 32,
+          "value": "0x00000000"
+        },
+        {
+          "offset": 0,
+          "width_bits": 32,
+          "value": "0x82211548"
+        }
+      ],
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.68.cpp",
+      "source_line": 18862,
+      "registered_types": [
+        {
+          "constructor": "82475100",
+          "type_name": "GamePlayerController",
+          "kind": "lazy_singleton"
+        }
+      ]
+    }
+  ]
+}

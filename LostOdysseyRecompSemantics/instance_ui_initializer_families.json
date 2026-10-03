@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "family": "instance_ui_initializer",
+  "source": "out/function-inventory/registered-instance-candidates.json",
+  "entry_count": 6,
+  "registered_type_reference_count": 6,
+  "entries": [
+    {
+      "address": "82631AD0",
+      "first_field_offset": 656,
+      "zero_field_offset": 660,
+      "initial_field_word": "0x821BAD58",
+      "vtable": "0x821EA0D8",
+      "final_field_word": "0x821EA310",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.51.cpp",
+      "source_line": 2290,
+      "registered_types": [
+        {
+          "constructor": "8243F1C0",
+          "type_name": "UICheckbox",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82631BE8",
+      "first_field_offset": 656,
+      "zero_field_offset": 660,
+      "initial_field_word": "0x821BAD58",
+      "vtable": "0x821EA330",
+      "final_field_word": "0x821EA568",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.51.cpp",
+      "source_line": 2474,
+      "registered_types": [
+        {
+          "constructor": "8243F918",
+          "type_name": "UILabelButton",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "826320A0",
+      "first_field_offset": 608,
+      "zero_field_offset": 612,
+      "initial_field_word": "0x821BAD58",
+      "vtable": "0x821E9C40",
+      "final_field_word": "0x821E9E88",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.51.cpp",
+      "source_line": 3258,
+      "registered_types": [
+        {
+          "constructor": "824404C8",
+          "type_name": "UIEditBox",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82632250",
+      "first_field_offset": 608,
+      "zero_field_offset": 612,
+      "initial_field_word": "0x821BAD58",
+      "vtable": "0x821EB740",
+      "final_field_word": "0x821EB974",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.51.cpp",
+      "source_line": 3531,
+      "registered_types": [
+        {
+          "constructor": "82440940",
+          "type_name": "UIImage",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82632480",
+      "first_field_offset": 608,
+      "zero_field_offset": 752,
+      "initial_field_word": "0x821BAD58",
+      "vtable": "0x821EB990",
+      "final_field_word": "0x821EBBC0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.51.cpp",
+      "source_line": 3888,
+      "registered_types": [
+        {
+          "constructor": "82441C28",
+          "type_name": "UIProgressBar",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82632648",
+      "first_field_offset": 608,
+      "zero_field_offset": 748,
+      "initial_field_word": "0x821BAD58",
+      "vtable": "0x821EBBE0",
+      "final_field_word": "0x821EBE10",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.51.cpp",
+      "source_line": 4187,
+      "registered_types": [
+        {
+          "constructor": "82442CE0",
+          "type_name": "UISlider",
+          "kind": "lazy_singleton"
+        }
+      ]
+    }
+  ]
+}

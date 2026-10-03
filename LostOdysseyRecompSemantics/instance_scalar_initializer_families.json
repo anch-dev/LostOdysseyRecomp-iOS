@@ -1,0 +1,294 @@
+{
+  "schema_version": 1,
+  "family": "instance_scalar_initializer",
+  "source": "out/function-inventory/registered-instance-candidates.json",
+  "entry_count": 19,
+  "registered_type_reference_count": 19,
+  "entries": [
+    {
+      "address": "8240AB00",
+      "layout": "three_zero",
+      "vtable": "0x82190D70",
+      "first_field_offset": 68,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp",
+      "source_line": 3100,
+      "registered_types": [
+        {
+          "constructor": "8240BF00",
+          "type_name": "Enum",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "8240AC40",
+      "layout": "four_zero_then_eight",
+      "vtable": "0x821910B8",
+      "first_field_offset": 60,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp",
+      "source_line": 3308,
+      "registered_types": [
+        {
+          "constructor": "8240B730",
+          "type_name": "MetaData",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82411F48",
+      "layout": "three_zero",
+      "vtable": "0x821914B0",
+      "first_field_offset": 68,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp",
+      "source_line": 20513,
+      "registered_types": [
+        {
+          "constructor": "8240C1A8",
+          "type_name": "Const",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82483B20",
+      "layout": "three_zero",
+      "vtable": "0x821A8B50",
+      "first_field_offset": 60,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.24.cpp",
+      "source_line": 59,
+      "registered_types": [
+        {
+          "constructor": "8240B5A0",
+          "type_name": "ObjectSerializer",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "824D5C80",
+      "layout": "zero72_before_vtable",
+      "vtable": "0x821B3790",
+      "first_field_offset": 72,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "source_line": 21166,
+      "registered_types": [
+        {
+          "constructor": "8245DDB0",
+          "type_name": "TeleportReachSpec",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "824D8BF8",
+      "layout": "zero72_before_vtable",
+      "vtable": "0x821B32F0",
+      "first_field_offset": 72,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "source_line": 29010,
+      "registered_types": [
+        {
+          "constructor": "8245DFF0",
+          "type_name": "SwatTurnReachSpec",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "824D8CD0",
+      "layout": "zero72_before_vtable",
+      "vtable": "0x821B31C8",
+      "first_field_offset": 72,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "source_line": 29155,
+      "registered_types": [
+        {
+          "constructor": "824608B8",
+          "type_name": "MantleReachSpec",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "824D8DA8",
+      "layout": "zero72_before_vtable",
+      "vtable": "0x821B3668",
+      "first_field_offset": 72,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "source_line": 29300,
+      "registered_types": [
+        {
+          "constructor": "8245F5D8",
+          "type_name": "ProscribedReachSpec",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "824D8E68",
+      "layout": "zero72_before_vtable",
+      "vtable": "0x821B3540",
+      "first_field_offset": 72,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "source_line": 29434,
+      "registered_types": [
+        {
+          "constructor": "82461108",
+          "type_name": "LadderReachSpec",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "824D8F30",
+      "layout": "zero72_before_vtable",
+      "vtable": "0x821B2C00",
+      "first_field_offset": 72,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "source_line": 29573,
+      "registered_types": [
+        {
+          "constructor": "82463138",
+          "type_name": "AdvancedReachSpec",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "824D8FF0",
+      "layout": "zero72_before_vtable",
+      "vtable": "0x821B2E50",
+      "first_field_offset": 72,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "source_line": 29707,
+      "registered_types": [
+        {
+          "constructor": "82461910",
+          "type_name": "ForcedReachSpec",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "8256F938",
+      "layout": "four_zero_then_eight",
+      "vtable": "0x82007EE8",
+      "first_field_offset": 232,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "source_line": 2673,
+      "registered_types": [
+        {
+          "constructor": "82572240",
+          "type_name": "SeqAct_Interp",
+          "kind": "constructor"
+        }
+      ]
+    },
+    {
+      "address": "82599F30",
+      "layout": "four_zero_then_eight",
+      "vtable": "0x821D31E8",
+      "first_field_offset": 84,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.40.cpp",
+      "source_line": 39465,
+      "registered_types": [
+        {
+          "constructor": "825990E8",
+          "type_name": "Font",
+          "kind": "constructor"
+        }
+      ]
+    },
+    {
+      "address": "82603C78",
+      "layout": "four_zero_then_eight",
+      "vtable": "0x821E2F38",
+      "first_field_offset": 72,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.48.cpp",
+      "source_line": 8591,
+      "registered_types": [
+        {
+          "constructor": "8245E5D0",
+          "type_name": "SoundCue",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82656288",
+      "layout": "three_zero",
+      "vtable": "0x821EE5A0",
+      "first_field_offset": 100,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.53.cpp",
+      "source_line": 21190,
+      "registered_types": [
+        {
+          "constructor": "8243B860",
+          "type_name": "UIConfigFileProvider",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "8266EB08",
+      "layout": "four_zero_then_eight",
+      "vtable": "0x821F24A0",
+      "first_field_offset": 256,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.55.cpp",
+      "source_line": 23938,
+      "registered_types": [
+        {
+          "constructor": "82445A40",
+          "type_name": "UIEvent_ProcessInput",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "8268CDC8",
+      "layout": "four_zero_then_eight",
+      "vtable": "0x821FB168",
+      "first_field_offset": 100,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.58.cpp",
+      "source_line": 9728,
+      "registered_types": [
+        {
+          "constructor": "82438CF8",
+          "type_name": "UIStyle",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "826E2298",
+      "layout": "four_zero_then_eight",
+      "vtable": "0x82203E50",
+      "first_field_offset": 92,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.63.cpp",
+      "source_line": 4221,
+      "registered_types": [
+        {
+          "constructor": "824202B8",
+          "type_name": "PhysicsAssetInstance",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "82720E78",
+      "layout": "three_zero",
+      "vtable": "0x8220ECB8",
+      "first_field_offset": 72,
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.67.cpp",
+      "source_line": 20822,
+      "registered_types": [
+        {
+          "constructor": "82446A08",
+          "type_name": "Download",
+          "kind": "lazy_singleton"
+        }
+      ]
+    }
+  ]
+}
