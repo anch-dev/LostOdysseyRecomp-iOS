@@ -1,0 +1,42 @@
+{
+  "schema": "crt-status-error-v1",
+  "entries": [
+    {
+      "address": "827CA628",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+      "source_line": 22674,
+      "instructions": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "stwu r1,-96(r1)",
+        "bl 0x830d9efc",
+        "lwz r11,336(r13)",
+        "cmplwi cr6,r11,0",
+        "bne cr6,0x827ca64c",
+        "lwz r11,256(r13)",
+        "stw r3,352(r11)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "blr "
+      ],
+      "direct_calls": [],
+      "native_calls": [
+        "RtlNtStatusToDosError"
+      ],
+      "cfg": {
+        "labels": [
+          "827CA64C"
+        ],
+        "branches": [
+          "bl 0x830d9efc",
+          "bne cr6,0x827ca64c",
+          "blr "
+        ]
+      },
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_827CA628) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// bl 0x830d9efc\n\tctx.lr = 0x827CA638;\n\t__imp__RtlNtStatusToDosError(ctx, base);\n\t// lwz r11,336(r13)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r13.u32 + 336);\n\t// cmplwi cr6,r11,0\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 0, ctx.xer);\n\t// bne cr6,0x827ca64c\n\tif (!ctx.cr6.eq) goto loc_827CA64C;\n\t// lwz r11,256(r13)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r13.u32 + 256);\n\t// stw r3,352(r11)\n\tPPC_STORE_U32(ctx.r11.u32 + 352, ctx.r3.u32);\nloc_827CA64C:\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library",
+      "boundary": "Own96 frame, selected mutable native state and ordinary RAM; RtlNtStatusToDosError is explicit. Native internals/unselected state/fault/MMIO/concurrency/runtime unverified."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Four pending entries only; accepted lower models retain their existing ABI and service bounds. No runtime or scene validation.",
+  "families": [
+    {
+      "name": "crt-status-error",
+      "manifest": "LostOdysseyRecompSemantics/crt_status_error_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/crt_status_error_oracle.cpp",
+      "prelude": "void OriginalConvert(PPCContext&, std::uint8_t*);\n#define __imp__RtlNtStatusToDosError(ctx, base) OriginalConvert(ctx, base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/crt_status_error.cpp"
+      ]
+    },
+    {
+      "name": "crt-stream-error",
+      "manifest": "LostOdysseyRecompSemantics/crt_stream_error_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/crt_stream_error_oracle.cpp",
+      "prelude": "void OriginalThread(PPCContext&, std::uint8_t*);\nvoid OriginalErrorAddress(PPCContext&, std::uint8_t*);\nvoid OriginalInvalid(PPCContext&, std::uint8_t*);\nvoid OriginalTranslate(PPCContext&, std::uint8_t*);\n#define sub_822CA048(ctx, base) OriginalThread(ctx, base)\n#define sub_82B7FDB0(ctx, base) __imp__sub_82B7FDB0(ctx, base)\n#define sub_82B7FD78(ctx, base) OriginalErrorAddress(ctx, base)\n#define sub_82B7FEC0(ctx, base) OriginalInvalid(ctx, base)\n#define sub_82B7FD10(ctx, base) OriginalTranslate(ctx, base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/crt_stream_error.cpp",
+        "LostOdysseyRecompSemantics/src/crt_thread_data.cpp",
+        "LostOdysseyRecompSemantics/src/allocation_failure.cpp",
+        "LostOdysseyRecompSemantics/src/invalid_parameter.cpp",
+        "LostOdysseyRecompSemantics/src/crt_allocation.cpp",
+        "LostOdysseyRecompSemantics/src/memory_services.cpp",
+        "LostOdysseyRecompSemantics/src/heap_allocate.cpp",
+        "LostOdysseyRecompSemantics/src/heap_free.cpp",
+        "LostOdysseyRecompSemantics/src/heap_segment.cpp",
+        "LostOdysseyRecompSemantics/src/heap.cpp",
+        "LostOdysseyRecompSemantics/src/memory_fill.cpp"
+      ]
+    }
+  ]
+}
