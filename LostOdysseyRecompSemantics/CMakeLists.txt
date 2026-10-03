@@ -61,6 +61,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/instance_navigation_allocation_family.cpp
     src/instance_manager_link_family.cpp
     src/ring_reservation.cpp
+    src/manager_ring_node.cpp
     src/object_startup.cpp
     src/manager_construction.cpp
     src/manager_storage.cpp
