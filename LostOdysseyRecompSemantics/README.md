@@ -4,6 +4,8 @@ This directory is the first human-readable semantic-recovery library for the pro
 
 The library is a research and comparison surface. It does not replace the generated runtime, enable a runtime hook, or claim complete recovery, compatibility, performance improvement or cross-platform validation. The current recovery record keeps readability, differential checks, runtime integration, scene validation and complete semantics as separate states; complete recovery is currently zero.
 
+A separate leaf-family batch maps 942 original entrypoints to two shared readable C++ implementations (`PreserveR3` and `ReturnOne`) using three exact source templates. One native compilation and 4,710/4,710 complete PPCContext plus 4,096-byte ordinary-memory comparisons passed. The shared batch workflow removes per-function compile overhead, but no overall speedup is claimed; the existing 49 individually recovered functions remain a separate count. The entry mapping is in [leaf_families.json](leaf_families.json). Reproduce it with `python -B tools/ghidra/test_semantic_leaf_family.py --write-map --output "$env:USERPROFILE/worktrees/LostOdysseyRecomp/semantic-leaf-family-tests"`. The runner requires the existing `out/function-inventory/exact-body-families.json` inventory and private inputs; use `--ppc-root <directory>` if the complete generated PPC lives in another checkout. This is bounded comparison evidence only: it does not enable runtime replacement or establish gameplay acceptance.
+
 ## Build
 
 From a Windows cmd shell, use the repository setup helper once, then configure and build the standalone directory outside the ownCloud checkout:

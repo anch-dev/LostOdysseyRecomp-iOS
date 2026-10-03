@@ -4,6 +4,8 @@
 
 这是研究和行为对照用的代码面，不会替换生成的 runtime，也不会启用 runtime hook；当前不宣称完整恢复、兼容性、性能提升或跨平台验证。恢复记录将可读实现、差分检查、runtime 接入、场景验证和完整语义分别记录；当前完整恢复仍为 0。
 
+另有一个独立的 leaf-family 批次，将 942 个原始 entrypoint 映射到两个共享的可读 C++ 实现（`PreserveR3` 和 `ReturnOne`），使用 3 个精确源码模板。一次 native 编译及 4,710/4,710 条完整 PPCContext 加 4,096 字节普通内存对照均通过。共享批处理流程去除了逐函数编译开销，但不宣称整体加速；现有 49 个逐个恢复函数仍单独计数。入口映射见 [leaf_families.json](leaf_families.json)。可用 `python -B tools/ghidra/test_semantic_leaf_family.py --write-map --output "$env:USERPROFILE/worktrees/LostOdysseyRecomp/semantic-leaf-family-tests"` 重现。运行需要已有的 `out/function-inventory/exact-body-families.json` 清单和私有输入；完整 PPC 位于其他 checkout 时，用 `--ppc-root <目录>` 指定。该证据仅限有边界的行为对照，不会启用 runtime 替换，也不代表游戏验收通过。
+
 ## 构建
 
 在 Windows cmd 中先调用仓库的设置脚本，再把独立目录配置和构建到 ownCloud checkout 之外：

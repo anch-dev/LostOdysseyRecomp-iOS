@@ -1,0 +1,5865 @@
+{
+  "schema_version": 1,
+  "kind": "exact_leaf_entry_to_shared_semantics",
+  "inventory_sha256": "49d5726e6cd94c669c0852d5a43e6a754a2361b97d1ba5f7c55bf126313ef59a",
+  "catalog_sha256": "d57158d2c0ef955da24fffa6f6f5021337a736b4c335a02a000ca971f6af7ff2",
+  "xex_sha256": "40c7dbb12cca03921d52cf4177a0f700cc4ae94ab730ab594940e2bdffd8ecf2",
+  "image_sha256": "cb756b46092e448923517bf660b44ad1a0651c2860882b43ae021f4ad4290f71",
+  "semantic_families": {
+    "PreserveR3": "lo::semantic::leaf::PreserveR3",
+    "ReturnOne": "lo::semantic::leaf::ReturnOne"
+  },
+  "body_templates": {
+    "blr": {
+      "body_sha256": "bd50cd3d52456157ff4861b081252fb90f2add6e53f3602302bf32d423e13aa3",
+      "image_bytes": "4e800020",
+      "semantic": "PreserveR3"
+    },
+    "li_one_blr": {
+      "body_sha256": "d51aa3e2c7115414e8f67980166b9b1bfdeeda7682d8c0a71b497cd853d4188d",
+      "image_bytes": "386000014e800020",
+      "semantic": "ReturnOne"
+    },
+    "li_one_mr_r8_blr": {
+      "body_sha256": "236bf4a5a28e63bf9dfe535ce17494d26d7251006219f203dd9b0f2d4d63bdda",
+      "image_bytes": "386000017d0843784e800020",
+      "semantic": "ReturnOne"
+    }
+  },
+  "source_sha256": {
+    "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp": "eca516238a78d38ba116467dc3d24be4dc3c515f2783c0c52af0129038efa658",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.1.cpp": "536c8c8ae89a5d6c6475097ee3e47242a1dd8268ed6f18a83797d2c92b3f350c",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.10.cpp": "2fd9e271bf816ba9dc1af88826c40083d6fb5d0fe6a08d0748b4dcfeb5649a46",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.100.cpp": "55f33fa2c965cbacbeb9ed376396d4d36b07b4007c4b74e7527b9393a072eb95",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.101.cpp": "ba4d9a4fdde192d8203d61f704eeae450473ac4e509d84eb0698090ee6abcdc9",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.102.cpp": "2f834357c9720eac62f3207d931a257ed971c265e8b39be0cdaf19e9d1968829",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.104.cpp": "90dd6c317379c9d495363584feade13da86608e88c63be21538ddf61951d7cba",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.106.cpp": "065bd931b0053a8b5990282407a718fa60c32688587097378532f2d197dd3cc6",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.109.cpp": "ed768e08a0d2021e9fbe5317b23717aed699f8ffa9a7e559ec8d5bd256db9a59",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.110.cpp": "dc712f947153317844a1409cb8b138edda9e85b49f398ef546792c308788fe50",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.112.cpp": "dc30526a462531ca52a11e5c118969f1721e1b46d9e4ae49a15232aee6f5a9d0",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.113.cpp": "774364893eefb18bd6b2eac51ed22dc39dd4acea234efecd4ffef1a6640a2d5d",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp": "1342d6fa3db06be6ae5c5c3c863453f8e95a32c811630be81cf3ddfb81c0b650",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.115.cpp": "44136649253e3d3b70be68cbaa222fe191d63639dbc69e1db0a0244b623bb16d",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.116.cpp": "411ad76a4d32ea7058f164431fde1f4b6399917c3ec0a0bb355b6aed47a864b1",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.117.cpp": "1b8ceaf009a5709b47756d3e1d526553a9dd732b43538ca28042d239fff87c56",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.118.cpp": "37d65e1882789b35c82d6e9c9ee3b4437086079d4953f75cc18c33d00b5e39a9",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.119.cpp": "01491e1dd825fcdeb17dabe739f43d16b9c25ca0f6c746f9da3598dcfd9b6378",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.12.cpp": "2b18149cc9e62e59c7532d759d28a627369e51e22e6bdde8d78b2e89c081aa42",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.120.cpp": "19125a7eb8f8ea317835a5d0fbbace29b310817151eb335517c8d73c7afcb183",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.121.cpp": "e5ca9fbf02b50eca95a17ac5fee695acc8cc29d12ecc6f1427d4258e8af7d653",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.122.cpp": "efa058c05bb6e2830e4b82986ddac7b563ab536aa4915cf8130dd0a8c5bcee2a",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.123.cpp": "41288a7250d8166a34cc39b5ca2958002a1a9e4366fa6c535ee29a569348b452",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.124.cpp": "722b78709475ee224b2779045a4fbdf6d5d1db8efa4c675fe97fdfc50e0d0e0c",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.125.cpp": "8cb6e7f425f5095b601b8990af6fd2c2a20a15d4adad938b879df6c373aec261",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.128.cpp": "b09365b7ae9cb09ab6b7e1f4738ec61d4fd449c154c98442e95c5f46af90ff08",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.129.cpp": "d6768bedccd7022d542177c401779d3f1836965f6efaa0e7c76b49d29f025ec2",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.130.cpp": "59924843da0f44b97ef8f7060128596027ddb563aab0010f480aa4670b3ea735",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.131.cpp": "53513655ab2335507e35d3b8b0c6be242e61d0b7c3577afe0cea32ac7189ada3",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.132.cpp": "d0113d92202fddf935e800eaa8b6761f87e3877b4ca73f153285cc2a3c6cc838",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.133.cpp": "a6f010cc904ae2e65d50121fac0df6989092953ed7685afef83636e5239b2fb6",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp": "6c4d9e943bb3685bcce822c365b4afddddc14400a53fe78b17f32c3182bf51b5",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp": "a2d7b475de00f31eb69594573b75aa827d0e0d17a9677e507f3a6bd740a3836b",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp": "59b5bea33dfa6e4a33b847014ccc5724f47afdf884a52aabf85461fdf90f13e7",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp": "8819adebcf17be6fce1dbffe9d9a343155e907e6fd2eb3289d6a59da03b81a0d",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.138.cpp": "d0c7d5ecfa7b604519c4b9320ee2c9447d26105f9e8c2417b95e99b2ce61ea28",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.14.cpp": "dc4b493b3019eb96ab857de313bfd4df3d43870e5163d8b8e15bedb65979f98e",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.140.cpp": "79b50a54d3495b742c41f1be0c98cb0d851f44cc90423e8a82d34191be094526",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.141.cpp": "4f56e290e824d68758d8e2b261eedb8ad48d6b819804b2b60f89dd8952c40cdf",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.142.cpp": "f3a039ca62c6dca0777a922ba15d6c1f6b5d40e09e47580bc6271facf7edca6a",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.144.cpp": "66b5f28f8231cfd8958f6814c869d0034e5b669b91b19fa2146b4e74d776e556",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.146.cpp": "c55299c63123587a0dc824b34bb52ef0d09eea590094c6a3bf9414f96ab49f0d",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.147.cpp": "4a330d745b618f2d74b8a05ce996bb1939bee1bd05b49c5e3c9167049f176064",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.148.cpp": "c9cf3571210a7504b040e8cb8361b2d86d9b46a10c3add20b6b5646c3494de17",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.149.cpp": "e55f25e784dbbe9e4e1b308b5b462f476cba346ebda32c29d60e514befa8d755",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.15.cpp": "9d4440d0f61d2654feab6dbb43688ef5e71c8dcd7dd4e3eed814d0df66c6a3db",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.150.cpp": "d88ccff431dd14c9ea8306ebe6270e143d7028ea97bd1a585e991df9d55a7630",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.152.cpp": "ea665805f68ca750fa32e3ddcee94a60614a8e141b901543f17abdcd5e9bb012",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.153.cpp": "0a266216414b25bf7470cc5dc8540baedf388c4d41ac583bd08cb78180ea2bf3",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.155.cpp": "65cc796254ee3329ee025c0013f59bac307ea8b50935a72be16a1b68cf458c38",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.156.cpp": "7c68c4f41c5726dc843fa4b50cf1210ae95efeb043e3faa1cdafd74ff2337116",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.157.cpp": "4f02983fb117c4d1d080b62b1bfd16bddd7c58de97e97cb9e580238842070d32",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp": "3652e2cec49fa96c407a872e9b88cc413f302a6de4fe5a0acff2a53a6e22612f",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.161.cpp": "eaea3f0d7c7cc977d148c408fdca0487804b790b74011fef024b89528bb9af50",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.162.cpp": "5b9e7d02c2fe50a69f86b333ffe04147d3671acb7d6247140d067b57f7e403f2",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.164.cpp": "4db9c7f7962794af9c6cddf27ac46859a50d37c3187c2ad734f6468b75264e47",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.168.cpp": "d41d606c794d3b60df41212d41c7ece4e0bf163bfb4cb30679b87c8eced45a16",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.17.cpp": "6ff1c8e8887b6b15eb6a8aa23c41d9ad7f514ed6731066dfdd4c30888d07b4d1",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.171.cpp": "350e91579d597fc1054bab1a146d022c65c8970fe5b7c0ac0f26edc742d6d5d4",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp": "740ce40537f587460faaedf011c94cd1444ee4c7b6fbe41e053d63ec2ec66469",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.173.cpp": "a0e960b267c27dccf8e4822b11ec70e42aebffbda8d768dc3f2b58e56691a4f8",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.174.cpp": "be7d1e1782fae3161ec462eb8d723fef2407fe91b74a233e95bba66eecf02c0b",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.175.cpp": "1e7753df27ba49eb495ef2e91306987c34e79e25c92e0a9992cc130f540593b3",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp": "ab8dcd56088e3ad22c17c23361a7fbc26d7a1b3fd86054e8dd4a1b8d3906384b",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.177.cpp": "693b2698cfaba48a60c5945bbcd83af2b41f75da81bcd778381d78e87f838fe6",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.178.cpp": "cc337d541ed841092ae83136a5a5a58443e384fd8db519eae5dce56ff3021dde",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.179.cpp": "e437a8fc1b22f9b9063a177fad33d02d4706f514ba1c33f3829a31b691f9c78a",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.180.cpp": "516bf504d616056cadaebc2083093c33c3dfd0f45698bde592944db42f3d3ead",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.182.cpp": "c4e4b73241f2d64bd02610932e59bb6fa3c7f780b800294f282a7a321646ccf7",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.183.cpp": "0bd804016721a40209168f137c9618a3ec0e960996f3724bc26bd0eec66cfb42",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.184.cpp": "b9e255cb54070800d43d6a986de43098fcf417f1a92ffbe060a99405ad8181ae",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.185.cpp": "1a2624c8cad7477913b8c875cda30de0e3c08398471bfcb15799e2d9324d18bc",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.187.cpp": "14525cf72bb6dd6f96a2293445e0846f16bfa7149274215e54cfcc5068fa6a4c",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.188.cpp": "d95f065b4167a39ccd3c14f6242817abed7dff6001238f1dad9a1f79e7ff81aa",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.189.cpp": "0048103ef21f393a0ee7dbb8bcd7cec793daab5472fbf61d0e314d06fe719317",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.191.cpp": "a1154b4447818403624021fc7d4a68aa6a4d9822bbffa2d2b18bdda702f6d028",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp": "ac4b069cb942e7c344016352648c4fb44846cbb2e3fd62b77024de08918ddec8",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.193.cpp": "4112a7b6400244b2e95ff94728ad26ef6693ec20b97e46caa6079cba9edb9216",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.196.cpp": "65ce8fa8cd9c1693b203ee5f05b8df10cb7f24b64420ff64489bbfae59ca957c",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.197.cpp": "d6d8a07b6f89e8051f4e2b5d00dc4632cc08d9ea3784038aea5a6dbcf4522824",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.199.cpp": "afa068674a6059b20e59bc4d6caa28b0d010ecafb13e1a4e36eb4e78e449aced",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp": "bbf728fc3272d532643d848ea60e3a9c5036bb2cd0acb8890097331b33dcf28a",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.200.cpp": "2adecd9dd3c69b1e7b1d679797769a15643837e8dd8a9404f706c9877c4cf6e9",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.201.cpp": "756b6d2ab48a8278af9cef22fea6bdc52b9f124375ea318e8ce9939d5460a37d",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.204.cpp": "f7839df0a381a3c51721c0bbb77a98e22ca17a1f11c8b750f299676d47e8fb5c",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.205.cpp": "12923b61ab90f9c5d745bb9a17784ca93ae9c4fd5431a20e77cae9925bb4e7ab",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.207.cpp": "2d2d41b71d773ae9c01d682ea73a1a613207bc0802c154b7d8d9d587a29ede16",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.208.cpp": "4b3083e406153185e27618e6b8f5464f0a3c823e624f65c262d2ea1a8b6dfd0d",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.21.cpp": "8f30b161ab7a18137e3f55e3f377a4c03f295963d052f56de6f23e8b42e5a90b",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp": "522f9a302398abf82f37a83535d235f26f9fe1ba3b95b08437cdc2daadfc92e7",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp": "19421815822f030be1ff0e05139348828aa8965c7b83d4964dea2f97a1de1fa7",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp": "4bb0d780034e30992dc3d5485318092f69419bf1937a2beb33bdfc814b7d49f0",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.213.cpp": "3a438a57275c4c6285a5fe49db0be3d16ca84dee10d427bf5850f8f29d22efce",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.214.cpp": "4a14c701c9b110cebf1d9f9c4e21e14072937cd0f717c31600c51a41acf1ba0e",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.215.cpp": "31b750103f5e8fe6b8ce2b3a7dc826e3de583850aa90249948b67a44404d4e53",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.216.cpp": "c466ec4144455c31a3576cb83f96e22a28d6bca662f7452dec04b59696acc984",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.218.cpp": "3b002a566f8b3a8054bb3d226ac442656b2f2e0dc506be132e22f35533bc364b",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.219.cpp": "2caabd2d59a9f87582f48f31bb00bb8293cf7b45609740aa85067061c8d03536",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.22.cpp": "15ccf6c3a30ea392aded92bf3b4619cf0aac1bb8b9643927ff8a71f8a3e95018",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.220.cpp": "e08c7f542cd46bab3fcdfa66afe21a0d4dec960315b5546bd23f34afb5317879",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.221.cpp": "ef897727953422a64abe7c43e073c8577a7decf3768ad76420f597089d82f30f",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.222.cpp": "a4297d7e2b4faeb2972dd78073764c7649c067374727981aca6c46fbca1eb4b2",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.223.cpp": "c84096d6617db8d80bb4da252977d793c121df56b9a5243b63001142ef84e84a",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.226.cpp": "3a0e512fa7f1b1f03854b9ee54f16ba2a8240b3440b2f901d78553057282f2a9",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp": "5a1e45151da668c0ec2356be409c416bd191097d29f8c8c89d520e42c3f6da0f",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.23.cpp": "3cebd697fb49e5f4e170e51e27bcf5b5264e5287c9053380b4bccb719d76e284",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.24.cpp": "97d83173586426fb0e94ea02616c4a20b757072b0d70dd5925e6c74c09edff79",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp": "c48fa44b40f102651b19555d18ca27facec270652c494a5666dad770abf0d96c",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp": "c2f8e4ce4c0f50da248fe230ce1a30461965088282f1c6d565da974496db61f3",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.243.cpp": "e0e0e7fa761ed02f7d69217b15597fe5c9a949d45ce57f0f63f84ae1395c3f6d",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.244.cpp": "88034a8264380eecb31bb0fc7b8e114761f1c6a29514bce5b1dba30f3d7a7b32",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.25.cpp": "cf10ca5dbc4ca7eaa784ac0b39aa045c5e7803c5acc2e0cb166c56985656bbd9",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp": "28f1fe65e883e4dd02cbe94418ea8e3cacf610f2f3b27dce3f36f5c1945b3513",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.3.cpp": "84d5d50c6d40816a70dc04cefbdb573f668443a44d009e576c981b5f7757c0a0",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.30.cpp": "326871f3092607c4628cca7d1e8dbde1de54de078d68bae2c28de9cf42407a97",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.33.cpp": "0b902c5a777157d9a4c11d53ecc4e3ec52e7106adfb862659229adb194b77c73",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.34.cpp": "35db36bc2d94c687d7ed23f010d2b96c05fb674e7fd6ebaa64354565c304aa0b",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.35.cpp": "a4ab8cbba03539d139adad16ad8bb97a1fe281863625ef0a34cfaf6d4ab57c41",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.36.cpp": "d454ed260857f77aaa217f8255bf2a556e9517abdc8632057fb39c5cedafc816",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.37.cpp": "44d77cca42268321cad1880e2597f3a7d09f8bd47bfb350d3957eafee035f8dd",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp": "e316ee24942c06d7c8a7885ed6da422455ab2ac2661574874a2f91e3ed685b76",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp": "9b0affb37029aff5170e5e8446b3533b3216f9f11211780a251f337412d218cf",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.4.cpp": "c6afe0e92642a153f844600fa194fd8a4006abcbd0393ca56b8f4bb9e959ce39",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.40.cpp": "e6f76883836bff48c3f92553d46b5516ed8abd694ff5ee592ea671d5338fca7b",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.42.cpp": "cc65748921031de4a98f37786a05a3f683432fb4ff210efb23bce8aec758812e",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.43.cpp": "60a7f1e432430a21c1055154def860d1aab1990e4885bc2f135147bb7dc1a536",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.44.cpp": "8786c60ce0e349ccd0cebf881175a051490898419c560689c7199f8542a03d8c",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp": "ab288dabdd92d233d306ab60f99978d86bc520e54de4c179c6ae977a9bcdd031",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.47.cpp": "a207f8d31eca0cb26a2c4ba162c31096f8e564720a6aaa12ae4004c7a94f5d48",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.48.cpp": "fc16a049ec2afd03f960aa083b80071774cddafb471e4ea5b8562afc46dedac0",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.49.cpp": "e3b942d27a7043527e65430733db68d7af7c3d1f441901945fd4176f94b4d577",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.5.cpp": "7e8ef6bd4fdc6fea2bd33bf11a598bde3ea6fd6eebfefea9a3327ec1ad2231ad",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.51.cpp": "e966792d5fe865c6775bfe630a6df344de5216e4110bb29c69d220b57bf12174",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.52.cpp": "bd0271f32e5ea72479ca953d2cff44c84a02b24804b5c7d58682b48d68d5c16b",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.53.cpp": "5966ddd2f13847b289fb3cec6ce574dab2806c7f643f99ee690da1f21591e362",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.54.cpp": "7f1e523dac9d7f8af60c8e60d8f964aa8c7fb7591de97b086f0051c6a1428898",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.55.cpp": "2af7926d9f72f170980bc78c47a2c40caf52a4ce8d606549d68de7ad1c389ef1",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.56.cpp": "bbefc7ba656829f80b450e4fbefb1157c592bdce6000b7a71f1a3b582cb4d51b",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.58.cpp": "28781837a6a2eedbb75b83a288b3378ff9536d82119579b9df409008b6124796",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.59.cpp": "957f759ae16359ea4d760986893d70cec6754a18bb4cffc6698eddd4b24d2453",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.6.cpp": "5dfd06e2b6c06b38fcf50df3c9157c4de7245cbe5217052550e4692c57e093f6",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.60.cpp": "8be29096e8b856dcca22d44bec6401cc9620813362267fd37f0d5600eab49052",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.61.cpp": "a68b825cccb834dfc31571096c2476b74ad382012fb4871f9f7616f02ae69a02",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.62.cpp": "53ab9ccc91b11850cd13e4d7d9977d455e79717068c75315468198f80a3d2407",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.63.cpp": "5e51bdd16934241676b392fd28ad7f645c566fdf9914714b0646794e0fa5d873",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.64.cpp": "d0c5711d07ce3d44a537bc6a0156c1137bac8c5dd099de5b1938ce0a92274eaa",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.65.cpp": "89c8a245a66c6119885921c2854129dca0818dce1b531ae3a952fe763cad4519",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.66.cpp": "ff166dfc98518cfe2fdb6becec46acbda83fa6375653106a2ae19a520ba67fc2",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.67.cpp": "8aa3edfee1f967fa6d4c1e7a9d0104bfff063f32c0d87fad4f4aeb081ac65c47",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.68.cpp": "8de3e8a766c368790c5a2a3ccae4de02cfe532251ee57fdf1f444da40896eeed",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.69.cpp": "d69ef4ddcbfd3e4513d8f97b46b464f61304f1f3ec584ce280387cc205cbfdb9",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.7.cpp": "05f44dc21cfc7bc0973aee4225b527b6f0addd1f8d98f587626e8807587aa77d",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.70.cpp": "639f63747615ac8a07e7b6516501d7e72c4a7080b967ed016f9bae3aef5d7388",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.73.cpp": "c36a5666a63392b5630762adf7293d22f8cb72432ba55ac7f59a3108d215d39f",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp": "d1ac6018509c5226968f88b88747f098fb83536340d277d289f24fc02ff148fe",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.76.cpp": "199e40b99d0072ac9e50f44c1a33b8c845a308bd81bb4d766e1e3a77dba5ab26",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.77.cpp": "074827cc1ae8911b65124b9076d868f99a171c636df1d3582b8dc02eeda5219b",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.78.cpp": "08993d1d8de4173271367833d394369e8d4664a3a974f13378555cd47e51930a",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.8.cpp": "f2ed32c48335844432e38ec4736a6a8564048ee52b92d0217faa65d92de5d022",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp": "a0d79c45bf5692d3c808c490d0463ccae7e0e66f8d3aa0c2ceed3d8d33bcf43b",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.81.cpp": "94368efee0e528c8cb0b4e238c918f1fdc497b98c4274d87c8744e2525b83f63",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.82.cpp": "5f5298519697dbb2a1ec33e892e450e88a7375bb7b9086b939f5d42deb02dc3d",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp": "f33dd0a5150a0ca7c2d4730ab5b7ae599b6cf07af777753d15966c116a24c771",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.84.cpp": "bb0becfcb50561442167ed4ec368c6ac2e28da78636c736df8a26f681929764f",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.85.cpp": "955a0978c19fdd094d72f3b9aaf520b150b4061c844da8c6f710fc0002306583",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.86.cpp": "cc1275775a5e5d7bb6cec8f563862147a61f450bac1c54d954aeb799f9c4a167",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.87.cpp": "412d9b850c5aa3d21adeb6e3e01dc5fded2e06fd476c1788efa9faffee37c4d2",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.88.cpp": "25422102822c0d9c7e88397224a9698f46cbdae3f79768458aa3f35ae0f4188a",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.89.cpp": "063285360a4d26759506e37c48a602b9cf03fe2f3ac75f34dc267a6e24dcd2a0",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.9.cpp": "780b88c330848696c18206e2fbbd026f831f72e1d6552e4020a74cbddb956669",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.93.cpp": "35c1ab8445bcfad7e8c07008c0cf65b0c4fe3635e476a5128c814a073e7e6152",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.95.cpp": "22521e01abe51db814f8237e60047c29641c4663c5bfcf1a9888e1ec81211aad",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.96.cpp": "862c95c542099095bce8a7ada3a87d89a438c2a27a91c8c3737ca41511889006",
+    "LostOdysseyRecompLib/ppc/ppc_recomp.97.cpp": "f3d8ec3d6d71ebda18dd972992ac769be6765eab9862dea6b6156a70ed393326"
+  },
+  "entries": [
+    {
+      "address": "82298A94",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+      "line": 20824
+    },
+    {
+      "address": "822992EC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+      "line": 22099
+    },
+    {
+      "address": "8229B588",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+      "line": 27217
+    },
+    {
+      "address": "822A67D4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.1.cpp",
+      "line": 12571
+    },
+    {
+      "address": "822B42C4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.1.cpp",
+      "line": 45985
+    },
+    {
+      "address": "822BA90C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+      "line": 3029
+    },
+    {
+      "address": "822BD7C8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+      "line": 9995
+    },
+    {
+      "address": "822BFA40",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+      "line": 15234
+    },
+    {
+      "address": "822C60F0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+      "line": 31002
+    },
+    {
+      "address": "822C8C90",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+      "line": 37654
+    },
+    {
+      "address": "822D3060",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.3.cpp",
+      "line": 6790
+    },
+    {
+      "address": "822D3068",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.3.cpp",
+      "line": 6800
+    },
+    {
+      "address": "822D8480",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.3.cpp",
+      "line": 19420
+    },
+    {
+      "address": "822D8630",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.3.cpp",
+      "line": 19694
+    },
+    {
+      "address": "822D88F4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.3.cpp",
+      "line": 20159
+    },
+    {
+      "address": "822DBD88",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.3.cpp",
+      "line": 28094
+    },
+    {
+      "address": "822F74A4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.3.cpp",
+      "line": 93640
+    },
+    {
+      "address": "822F74D0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.3.cpp",
+      "line": 93682
+    },
+    {
+      "address": "822F7500",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.3.cpp",
+      "line": 93724
+    },
+    {
+      "address": "822F7530",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.3.cpp",
+      "line": 93766
+    },
+    {
+      "address": "822FD5A8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.4.cpp",
+      "line": 11617
+    },
+    {
+      "address": "8230E044",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.4.cpp",
+      "line": 52315
+    },
+    {
+      "address": "82314350",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.5.cpp",
+      "line": 3759
+    },
+    {
+      "address": "823175DC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.5.cpp",
+      "line": 11301
+    },
+    {
+      "address": "823175F0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.5.cpp",
+      "line": 11328
+    },
+    {
+      "address": "823183D4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.5.cpp",
+      "line": 13481
+    },
+    {
+      "address": "82320898",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.5.cpp",
+      "line": 34036
+    },
+    {
+      "address": "82328F74",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.6.cpp",
+      "line": 4812
+    },
+    {
+      "address": "8234B9AC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.7.cpp",
+      "line": 31288
+    },
+    {
+      "address": "823527F4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.7.cpp",
+      "line": 48516
+    },
+    {
+      "address": "823562D0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.7.cpp",
+      "line": 57022
+    },
+    {
+      "address": "82361280",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.8.cpp",
+      "line": 23980
+    },
+    {
+      "address": "82367A64",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.8.cpp",
+      "line": 40256
+    },
+    {
+      "address": "82367CD8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.8.cpp",
+      "line": 40627
+    },
+    {
+      "address": "8236B5D8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.8.cpp",
+      "line": 49411
+    },
+    {
+      "address": "82377968",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.9.cpp",
+      "line": 23023
+    },
+    {
+      "address": "82380560",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.9.cpp",
+      "line": 44256
+    },
+    {
+      "address": "82380A2C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.9.cpp",
+      "line": 45037
+    },
+    {
+      "address": "82381E98",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.10.cpp",
+      "line": 82
+    },
+    {
+      "address": "8238ACB8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.10.cpp",
+      "line": 21715
+    },
+    {
+      "address": "823B4C20",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.12.cpp",
+      "line": 522
+    },
+    {
+      "address": "823B63F4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.12.cpp",
+      "line": 4375
+    },
+    {
+      "address": "823BE200",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.12.cpp",
+      "line": 23306
+    },
+    {
+      "address": "823CB334",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.12.cpp",
+      "line": 54613
+    },
+    {
+      "address": "823E827C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.14.cpp",
+      "line": 3326
+    },
+    {
+      "address": "823E8744",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.14.cpp",
+      "line": 4059
+    },
+    {
+      "address": "823F0FE8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.14.cpp",
+      "line": 25335
+    },
+    {
+      "address": "823F444C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.15.cpp",
+      "line": 2093
+    },
+    {
+      "address": "823FD124",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.15.cpp",
+      "line": 22805
+    },
+    {
+      "address": "824034F0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.15.cpp",
+      "line": 37336
+    },
+    {
+      "address": "8240A7CC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp",
+      "line": 2601
+    },
+    {
+      "address": "8240AE3C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp",
+      "line": 3638
+    },
+    {
+      "address": "82411314",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp",
+      "line": 18680
+    },
+    {
+      "address": "8241210C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp",
+      "line": 20812
+    },
+    {
+      "address": "824192AC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp",
+      "line": 37554
+    },
+    {
+      "address": "824198B0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.17.cpp",
+      "line": 174
+    },
+    {
+      "address": "8245D2B4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.21.cpp",
+      "line": 45318
+    },
+    {
+      "address": "8246DF80",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.22.cpp",
+      "line": 27178
+    },
+    {
+      "address": "82475A54",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.23.cpp",
+      "line": 10937
+    },
+    {
+      "address": "82476A14",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.23.cpp",
+      "line": 13263
+    },
+    {
+      "address": "824790A0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.23.cpp",
+      "line": 19222
+    },
+    {
+      "address": "82482858",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.23.cpp",
+      "line": 41260
+    },
+    {
+      "address": "82486B94",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.24.cpp",
+      "line": 7237
+    },
+    {
+      "address": "82488A74",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.24.cpp",
+      "line": 12044
+    },
+    {
+      "address": "8248AFA8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.24.cpp",
+      "line": 17718
+    },
+    {
+      "address": "82491AC4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.24.cpp",
+      "line": 33798
+    },
+    {
+      "address": "82491B1C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.24.cpp",
+      "line": 33865
+    },
+    {
+      "address": "82491B74",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.24.cpp",
+      "line": 33932
+    },
+    {
+      "address": "824980E0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.25.cpp",
+      "line": 12550
+    },
+    {
+      "address": "82498F78",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.25.cpp",
+      "line": 14871
+    },
+    {
+      "address": "8249BD18",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.25.cpp",
+      "line": 21627
+    },
+    {
+      "address": "8249E554",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.25.cpp",
+      "line": 27772
+    },
+    {
+      "address": "8249E5D4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.25.cpp",
+      "line": 27866
+    },
+    {
+      "address": "824BBDA8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 24005
+    },
+    {
+      "address": "824DE544",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.30.cpp",
+      "line": 12906
+    },
+    {
+      "address": "824E013C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.30.cpp",
+      "line": 17327
+    },
+    {
+      "address": "824E3E70",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.30.cpp",
+      "line": 26512
+    },
+    {
+      "address": "824FED24",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.33.cpp",
+      "line": 2857
+    },
+    {
+      "address": "825068B4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.33.cpp",
+      "line": 21188
+    },
+    {
+      "address": "825068DC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.33.cpp",
+      "line": 21225
+    },
+    {
+      "address": "82506904",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.33.cpp",
+      "line": 21262
+    },
+    {
+      "address": "8251FD30",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.34.cpp",
+      "line": 16545
+    },
+    {
+      "address": "8251FE6C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.34.cpp",
+      "line": 16759
+    },
+    {
+      "address": "8252C3AC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.34.cpp",
+      "line": 46770
+    },
+    {
+      "address": "82533854",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.35.cpp",
+      "line": 10221
+    },
+    {
+      "address": "82535E50",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.35.cpp",
+      "line": 16006
+    },
+    {
+      "address": "825460C8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.35.cpp",
+      "line": 55605
+    },
+    {
+      "address": "82547CC4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.35.cpp",
+      "line": 59735
+    },
+    {
+      "address": "8255C518",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.36.cpp",
+      "line": 39822
+    },
+    {
+      "address": "8255DBCC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.36.cpp",
+      "line": 43295
+    },
+    {
+      "address": "82568FD0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.37.cpp",
+      "line": 26271
+    },
+    {
+      "address": "825756B0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "line": 17586
+    },
+    {
+      "address": "82576F14",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "line": 21218
+    },
+    {
+      "address": "82577698",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.38.cpp",
+      "line": 22322
+    },
+    {
+      "address": "8257C15C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "line": 7343
+    },
+    {
+      "address": "8257C2B0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "line": 7572
+    },
+    {
+      "address": "8257C3C8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "line": 7753
+    },
+    {
+      "address": "8257C564",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "line": 8004
+    },
+    {
+      "address": "8257C908",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "line": 8595
+    },
+    {
+      "address": "8257CBE8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "line": 9072
+    },
+    {
+      "address": "8257D3E8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "line": 10340
+    },
+    {
+      "address": "8257E3A8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "line": 12882
+    },
+    {
+      "address": "8257F7F8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "line": 16041
+    },
+    {
+      "address": "825801C0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "line": 17580
+    },
+    {
+      "address": "82580EA0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "line": 19686
+    },
+    {
+      "address": "82581668",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "line": 20910
+    },
+    {
+      "address": "82581EE8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "line": 22221
+    },
+    {
+      "address": "82589C48",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.40.cpp",
+      "line": 364
+    },
+    {
+      "address": "825A7FB8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.42.cpp",
+      "line": 12788
+    },
+    {
+      "address": "825A80BC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.42.cpp",
+      "line": 12939
+    },
+    {
+      "address": "825AEB2C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.42.cpp",
+      "line": 28846
+    },
+    {
+      "address": "825AEC74",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.42.cpp",
+      "line": 29039
+    },
+    {
+      "address": "825AF250",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.42.cpp",
+      "line": 30012
+    },
+    {
+      "address": "825B37B0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.43.cpp",
+      "line": 8016
+    },
+    {
+      "address": "825B5490",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.43.cpp",
+      "line": 12208
+    },
+    {
+      "address": "825BB088",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.43.cpp",
+      "line": 25967
+    },
+    {
+      "address": "825C5B20",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.44.cpp",
+      "line": 5822
+    },
+    {
+      "address": "825C7EC4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.44.cpp",
+      "line": 11251
+    },
+    {
+      "address": "825CB3F4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.44.cpp",
+      "line": 19356
+    },
+    {
+      "address": "825CBEA0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.44.cpp",
+      "line": 21075
+    },
+    {
+      "address": "825CC674",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.44.cpp",
+      "line": 22297
+    },
+    {
+      "address": "825CED2C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.44.cpp",
+      "line": 28200
+    },
+    {
+      "address": "825DD324",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
+      "line": 25982
+    },
+    {
+      "address": "825DD404",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
+      "line": 26126
+    },
+    {
+      "address": "825DD4E4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
+      "line": 26270
+    },
+    {
+      "address": "825DD504",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
+      "line": 26303
+    },
+    {
+      "address": "825DD72C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
+      "line": 26672
+    },
+    {
+      "address": "825E0934",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
+      "line": 34528
+    },
+    {
+      "address": "825E2B14",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
+      "line": 39793
+    },
+    {
+      "address": "825FC40C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.47.cpp",
+      "line": 26341
+    },
+    {
+      "address": "8260A608",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.48.cpp",
+      "line": 24688
+    },
+    {
+      "address": "8260A658",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.48.cpp",
+      "line": 24743
+    },
+    {
+      "address": "8260A6A0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.48.cpp",
+      "line": 24794
+    },
+    {
+      "address": "82614AE8",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.49.cpp",
+      "line": 18263
+    },
+    {
+      "address": "82636504",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.51.cpp",
+      "line": 13708
+    },
+    {
+      "address": "8263BDCC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.51.cpp",
+      "line": 27001
+    },
+    {
+      "address": "82640E40",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.52.cpp",
+      "line": 7642
+    },
+    {
+      "address": "82640FF8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.52.cpp",
+      "line": 7928
+    },
+    {
+      "address": "82641830",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.52.cpp",
+      "line": 9153
+    },
+    {
+      "address": "8264197C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.52.cpp",
+      "line": 9372
+    },
+    {
+      "address": "82642220",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.52.cpp",
+      "line": 10698
+    },
+    {
+      "address": "82642710",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.52.cpp",
+      "line": 11493
+    },
+    {
+      "address": "82642848",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.52.cpp",
+      "line": 11704
+    },
+    {
+      "address": "82643118",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.52.cpp",
+      "line": 13028
+    },
+    {
+      "address": "82644748",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.52.cpp",
+      "line": 16411
+    },
+    {
+      "address": "82644B00",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.52.cpp",
+      "line": 16974
+    },
+    {
+      "address": "82645A38",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.52.cpp",
+      "line": 19230
+    },
+    {
+      "address": "82649AFC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.52.cpp",
+      "line": 29088
+    },
+    {
+      "address": "8264A424",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.52.cpp",
+      "line": 30547
+    },
+    {
+      "address": "8264D234",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.52.cpp",
+      "line": 37526
+    },
+    {
+      "address": "8264E948",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.53.cpp",
+      "line": 2438
+    },
+    {
+      "address": "82654434",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.53.cpp",
+      "line": 16399
+    },
+    {
+      "address": "8265446C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.53.cpp",
+      "line": 16444
+    },
+    {
+      "address": "82654490",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.53.cpp",
+      "line": 16479
+    },
+    {
+      "address": "826544A8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.53.cpp",
+      "line": 16506
+    },
+    {
+      "address": "8265DA18",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.54.cpp",
+      "line": 14959
+    },
+    {
+      "address": "8265DA48",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.54.cpp",
+      "line": 14998
+    },
+    {
+      "address": "8265F328",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.54.cpp",
+      "line": 18729
+    },
+    {
+      "address": "8265F408",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.54.cpp",
+      "line": 18876
+    },
+    {
+      "address": "82665C80",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.55.cpp",
+      "line": 1723
+    },
+    {
+      "address": "82667458",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.55.cpp",
+      "line": 5346
+    },
+    {
+      "address": "8266BED0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.55.cpp",
+      "line": 16740
+    },
+    {
+      "address": "8266C068",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.55.cpp",
+      "line": 17005
+    },
+    {
+      "address": "8266C140",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.55.cpp",
+      "line": 17162
+    },
+    {
+      "address": "82674FA0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.56.cpp",
+      "line": 13204
+    },
+    {
+      "address": "82679F5C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.56.cpp",
+      "line": 25254
+    },
+    {
+      "address": "8267BCA4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.56.cpp",
+      "line": 29626
+    },
+    {
+      "address": "826917AC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.58.cpp",
+      "line": 20942
+    },
+    {
+      "address": "82693A38",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.58.cpp",
+      "line": 26267
+    },
+    {
+      "address": "82693DE4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.58.cpp",
+      "line": 26852
+    },
+    {
+      "address": "82694CF4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.58.cpp",
+      "line": 29148
+    },
+    {
+      "address": "82694D30",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.58.cpp",
+      "line": 29195
+    },
+    {
+      "address": "8269E20C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.59.cpp",
+      "line": 15923
+    },
+    {
+      "address": "8269E6EC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.59.cpp",
+      "line": 16681
+    },
+    {
+      "address": "8269EA40",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.59.cpp",
+      "line": 17214
+    },
+    {
+      "address": "826A6100",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.59.cpp",
+      "line": 35137
+    },
+    {
+      "address": "826A65D0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.59.cpp",
+      "line": 35917
+    },
+    {
+      "address": "826A6AE0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.59.cpp",
+      "line": 36688
+    },
+    {
+      "address": "826A6D64",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.59.cpp",
+      "line": 37062
+    },
+    {
+      "address": "826B2CE4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.60.cpp",
+      "line": 27946
+    },
+    {
+      "address": "826B50C4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.60.cpp",
+      "line": 33302
+    },
+    {
+      "address": "826BBC88",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.61.cpp",
+      "line": 7024
+    },
+    {
+      "address": "826C7F9C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.61.cpp",
+      "line": 36033
+    },
+    {
+      "address": "826D6C2C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.62.cpp",
+      "line": 10623
+    },
+    {
+      "address": "826D6F24",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.62.cpp",
+      "line": 11116
+    },
+    {
+      "address": "826D7EA4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.62.cpp",
+      "line": 13451
+    },
+    {
+      "address": "826E3324",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.63.cpp",
+      "line": 6772
+    },
+    {
+      "address": "826F7A94",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.64.cpp",
+      "line": 20372
+    },
+    {
+      "address": "826F89D4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.64.cpp",
+      "line": 22754
+    },
+    {
+      "address": "826FA234",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.64.cpp",
+      "line": 26672
+    },
+    {
+      "address": "82700D1C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.65.cpp",
+      "line": 9931
+    },
+    {
+      "address": "82713424",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.66.cpp",
+      "line": 28566
+    },
+    {
+      "address": "82713460",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.66.cpp",
+      "line": 28619
+    },
+    {
+      "address": "8271ADD0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.67.cpp",
+      "line": 5980
+    },
+    {
+      "address": "8271E344",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.67.cpp",
+      "line": 14146
+    },
+    {
+      "address": "827340B4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.68.cpp",
+      "line": 29870
+    },
+    {
+      "address": "827366B4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.68.cpp",
+      "line": 35458
+    },
+    {
+      "address": "827366D8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.68.cpp",
+      "line": 35493
+    },
+    {
+      "address": "82736E08",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.69.cpp",
+      "line": 716
+    },
+    {
+      "address": "8273F6F8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.69.cpp",
+      "line": 20919
+    },
+    {
+      "address": "82741024",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.69.cpp",
+      "line": 24861
+    },
+    {
+      "address": "82744B88",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.69.cpp",
+      "line": 33971
+    },
+    {
+      "address": "82749198",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.69.cpp",
+      "line": 44639
+    },
+    {
+      "address": "82752FA4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.70.cpp",
+      "line": 2685
+    },
+    {
+      "address": "827551F4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.70.cpp",
+      "line": 7870
+    },
+    {
+      "address": "82755640",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.70.cpp",
+      "line": 8526
+    },
+    {
+      "address": "82763EB4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.70.cpp",
+      "line": 43472
+    },
+    {
+      "address": "827A3FA4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.73.cpp",
+      "line": 1343
+    },
+    {
+      "address": "827A60AC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.73.cpp",
+      "line": 6321
+    },
+    {
+      "address": "827C9EB4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+      "line": 21494
+    },
+    {
+      "address": "827CA100",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+      "line": 21898
+    },
+    {
+      "address": "827CCF68",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.76.cpp",
+      "line": 4370
+    },
+    {
+      "address": "827CD828",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.76.cpp",
+      "line": 5667
+    },
+    {
+      "address": "827CE234",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.76.cpp",
+      "line": 7224
+    },
+    {
+      "address": "827CE828",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.76.cpp",
+      "line": 8185
+    },
+    {
+      "address": "827D2A5C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.76.cpp",
+      "line": 19241
+    },
+    {
+      "address": "827D38EC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.77.cpp",
+      "line": 1792
+    },
+    {
+      "address": "827DE85C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.78.cpp",
+      "line": 13957
+    },
+    {
+      "address": "827DE86C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.78.cpp",
+      "line": 13982
+    },
+    {
+      "address": "827DE87C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.78.cpp",
+      "line": 14007
+    },
+    {
+      "address": "827DE88C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.78.cpp",
+      "line": 14032
+    },
+    {
+      "address": "827DE89C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.78.cpp",
+      "line": 14057
+    },
+    {
+      "address": "827DE8AC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.78.cpp",
+      "line": 14082
+    },
+    {
+      "address": "827DE8BC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.78.cpp",
+      "line": 14107
+    },
+    {
+      "address": "827DE8CC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.78.cpp",
+      "line": 14132
+    },
+    {
+      "address": "827DE8DC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.78.cpp",
+      "line": 14157
+    },
+    {
+      "address": "827DE8EC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.78.cpp",
+      "line": 14182
+    },
+    {
+      "address": "827DE8FC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.78.cpp",
+      "line": 14207
+    },
+    {
+      "address": "827DE90C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.78.cpp",
+      "line": 14232
+    },
+    {
+      "address": "827DE91C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.78.cpp",
+      "line": 14257
+    },
+    {
+      "address": "827DE92C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.78.cpp",
+      "line": 14282
+    },
+    {
+      "address": "827DE93C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.78.cpp",
+      "line": 14307
+    },
+    {
+      "address": "827DE94C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.78.cpp",
+      "line": 14332
+    },
+    {
+      "address": "827DE95C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.78.cpp",
+      "line": 14357
+    },
+    {
+      "address": "827DFE10",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.78.cpp",
+      "line": 17583
+    },
+    {
+      "address": "827DFE40",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.78.cpp",
+      "line": 17622
+    },
+    {
+      "address": "827E0694",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.78.cpp",
+      "line": 18933
+    },
+    {
+      "address": "827EE1D8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 7502
+    },
+    {
+      "address": "827EE8FC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 8657
+    },
+    {
+      "address": "827EE90C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 8682
+    },
+    {
+      "address": "827EE91C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 8707
+    },
+    {
+      "address": "827EE92C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 8732
+    },
+    {
+      "address": "827EE93C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 8757
+    },
+    {
+      "address": "827EE94C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 8782
+    },
+    {
+      "address": "827EE95C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 8807
+    },
+    {
+      "address": "827EE96C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 8832
+    },
+    {
+      "address": "827EE97C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 8857
+    },
+    {
+      "address": "827EE98C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 8882
+    },
+    {
+      "address": "827EE99C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 8907
+    },
+    {
+      "address": "827EE9AC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 8932
+    },
+    {
+      "address": "827EE9BC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 8957
+    },
+    {
+      "address": "827EE9CC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 8982
+    },
+    {
+      "address": "827EE9DC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 9007
+    },
+    {
+      "address": "827EE9EC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 9032
+    },
+    {
+      "address": "827EE9FC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 9057
+    },
+    {
+      "address": "827EEA0C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 9082
+    },
+    {
+      "address": "827EEA1C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 9107
+    },
+    {
+      "address": "827EEA2C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 9132
+    },
+    {
+      "address": "827EEA3C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 9157
+    },
+    {
+      "address": "827EEA4C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 9182
+    },
+    {
+      "address": "827EEA5C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 9207
+    },
+    {
+      "address": "827EEA6C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 9232
+    },
+    {
+      "address": "827EEA7C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 9257
+    },
+    {
+      "address": "827EEA8C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 9282
+    },
+    {
+      "address": "827EEA9C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 9307
+    },
+    {
+      "address": "827EEAAC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 9332
+    },
+    {
+      "address": "827EEABC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 9357
+    },
+    {
+      "address": "827EEACC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 9382
+    },
+    {
+      "address": "827EEADC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 9407
+    },
+    {
+      "address": "827EEAEC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.80.cpp",
+      "line": 9432
+    },
+    {
+      "address": "827F53B4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.81.cpp",
+      "line": 15644
+    },
+    {
+      "address": "827F53C4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.81.cpp",
+      "line": 15669
+    },
+    {
+      "address": "827F53D4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.81.cpp",
+      "line": 15694
+    },
+    {
+      "address": "827F598C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.81.cpp",
+      "line": 16647
+    },
+    {
+      "address": "827F627C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.81.cpp",
+      "line": 18137
+    },
+    {
+      "address": "827F72C0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.82.cpp",
+      "line": 3
+    },
+    {
+      "address": "827F858C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.82.cpp",
+      "line": 3048
+    },
+    {
+      "address": "827F859C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.82.cpp",
+      "line": 3073
+    },
+    {
+      "address": "827F85AC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.82.cpp",
+      "line": 3098
+    },
+    {
+      "address": "827F85BC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.82.cpp",
+      "line": 3123
+    },
+    {
+      "address": "827F9A44",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.82.cpp",
+      "line": 6463
+    },
+    {
+      "address": "827FC7DC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.82.cpp",
+      "line": 13513
+    },
+    {
+      "address": "827FC7EC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.82.cpp",
+      "line": 13538
+    },
+    {
+      "address": "827FE3A4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.82.cpp",
+      "line": 17836
+    },
+    {
+      "address": "827FFE04",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 696
+    },
+    {
+      "address": "827FFE14",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 721
+    },
+    {
+      "address": "827FFE24",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 746
+    },
+    {
+      "address": "827FFE34",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 771
+    },
+    {
+      "address": "827FFE44",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 796
+    },
+    {
+      "address": "827FFE54",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 821
+    },
+    {
+      "address": "827FFE64",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 846
+    },
+    {
+      "address": "827FFED4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 939
+    },
+    {
+      "address": "827FFEE4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 964
+    },
+    {
+      "address": "827FFEF4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 989
+    },
+    {
+      "address": "827FFF04",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 1014
+    },
+    {
+      "address": "827FFF14",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 1039
+    },
+    {
+      "address": "827FFF24",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 1064
+    },
+    {
+      "address": "827FFF34",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 1089
+    },
+    {
+      "address": "827FFF44",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 1114
+    },
+    {
+      "address": "82801704",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 4919
+    },
+    {
+      "address": "82803AB4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 10517
+    },
+    {
+      "address": "82803AC4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 10542
+    },
+    {
+      "address": "82803AD4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 10567
+    },
+    {
+      "address": "82803AE4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 10592
+    },
+    {
+      "address": "82803AF4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 10617
+    },
+    {
+      "address": "82804604",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 12390
+    },
+    {
+      "address": "82804EE4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 13964
+    },
+    {
+      "address": "8280B46C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.84.cpp",
+      "line": 14657
+    },
+    {
+      "address": "8280DADC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.84.cpp",
+      "line": 20694
+    },
+    {
+      "address": "82810094",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.85.cpp",
+      "line": 1765
+    },
+    {
+      "address": "82810344",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.85.cpp",
+      "line": 2200
+    },
+    {
+      "address": "82811E54",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.85.cpp",
+      "line": 6320
+    },
+    {
+      "address": "8281252C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.85.cpp",
+      "line": 7399
+    },
+    {
+      "address": "82815FD4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.85.cpp",
+      "line": 16902
+    },
+    {
+      "address": "8281E56C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.86.cpp",
+      "line": 18299
+    },
+    {
+      "address": "8281E57C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.86.cpp",
+      "line": 18324
+    },
+    {
+      "address": "8281E58C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.86.cpp",
+      "line": 18349
+    },
+    {
+      "address": "8281E9DC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.86.cpp",
+      "line": 19050
+    },
+    {
+      "address": "8282091C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.87.cpp",
+      "line": 189
+    },
+    {
+      "address": "82820940",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.87.cpp",
+      "line": 224
+    },
+    {
+      "address": "8282935C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.88.cpp",
+      "line": 2334
+    },
+    {
+      "address": "8282BFB8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.88.cpp",
+      "line": 9141
+    },
+    {
+      "address": "8282E3C0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.88.cpp",
+      "line": 15138
+    },
+    {
+      "address": "8282EDE4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.88.cpp",
+      "line": 16848
+    },
+    {
+      "address": "8282F4BC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.88.cpp",
+      "line": 17954
+    },
+    {
+      "address": "828320DC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.89.cpp",
+      "line": 5185
+    },
+    {
+      "address": "828320EC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.89.cpp",
+      "line": 5210
+    },
+    {
+      "address": "828320FC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.89.cpp",
+      "line": 5235
+    },
+    {
+      "address": "8283210C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.89.cpp",
+      "line": 5260
+    },
+    {
+      "address": "82835430",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.89.cpp",
+      "line": 13302
+    },
+    {
+      "address": "82850FF8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.93.cpp",
+      "line": 9921
+    },
+    {
+      "address": "828614A4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.95.cpp",
+      "line": 2563
+    },
+    {
+      "address": "8286CC1C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.96.cpp",
+      "line": 11324
+    },
+    {
+      "address": "8286D750",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.96.cpp",
+      "line": 13361
+    },
+    {
+      "address": "82871F88",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.97.cpp",
+      "line": 4132
+    },
+    {
+      "address": "828722EC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.97.cpp",
+      "line": 4690
+    },
+    {
+      "address": "82872384",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.97.cpp",
+      "line": 4794
+    },
+    {
+      "address": "828942B8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.100.cpp",
+      "line": 24685
+    },
+    {
+      "address": "828985D4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.101.cpp",
+      "line": 6522
+    },
+    {
+      "address": "828A302C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.102.cpp",
+      "line": 5408
+    },
+    {
+      "address": "828B4B50",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.104.cpp",
+      "line": 4605
+    },
+    {
+      "address": "828B4EFC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.104.cpp",
+      "line": 5210
+    },
+    {
+      "address": "828CC7CC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.106.cpp",
+      "line": 12207
+    },
+    {
+      "address": "828EE02C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.109.cpp",
+      "line": 10535
+    },
+    {
+      "address": "828EE03C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.109.cpp",
+      "line": 10560
+    },
+    {
+      "address": "828EE394",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.109.cpp",
+      "line": 11110
+    },
+    {
+      "address": "828F7620",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.110.cpp",
+      "line": 10868
+    },
+    {
+      "address": "828F7638",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.110.cpp",
+      "line": 10895
+    },
+    {
+      "address": "828F7650",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.110.cpp",
+      "line": 10922
+    },
+    {
+      "address": "828F7668",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.110.cpp",
+      "line": 10949
+    },
+    {
+      "address": "828F931C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.110.cpp",
+      "line": 15634
+    },
+    {
+      "address": "828F9A04",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.110.cpp",
+      "line": 16745
+    },
+    {
+      "address": "828F9CA0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.110.cpp",
+      "line": 17225
+    },
+    {
+      "address": "82904D6C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.112.cpp",
+      "line": 589
+    },
+    {
+      "address": "82904D7C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.112.cpp",
+      "line": 614
+    },
+    {
+      "address": "82904D8C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.112.cpp",
+      "line": 639
+    },
+    {
+      "address": "8290605C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.112.cpp",
+      "line": 3614
+    },
+    {
+      "address": "829063F8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.112.cpp",
+      "line": 4222
+    },
+    {
+      "address": "829086A4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.112.cpp",
+      "line": 9616
+    },
+    {
+      "address": "82910A0C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.113.cpp",
+      "line": 15377
+    },
+    {
+      "address": "8291139C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.113.cpp",
+      "line": 16963
+    },
+    {
+      "address": "82911D84",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 1178
+    },
+    {
+      "address": "82911D94",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 1203
+    },
+    {
+      "address": "82911DA4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 1228
+    },
+    {
+      "address": "82914328",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 7042
+    },
+    {
+      "address": "82914350",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 7077
+    },
+    {
+      "address": "829143E4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 7179
+    },
+    {
+      "address": "8291440C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 7216
+    },
+    {
+      "address": "82914434",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 7253
+    },
+    {
+      "address": "82914588",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 7516
+    },
+    {
+      "address": "82914620",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 7622
+    },
+    {
+      "address": "829146D4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 7751
+    },
+    {
+      "address": "829146F4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 7784
+    },
+    {
+      "address": "82914714",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 7817
+    },
+    {
+      "address": "82914734",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 7850
+    },
+    {
+      "address": "8291730C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 14737
+    },
+    {
+      "address": "8291731C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 14762
+    },
+    {
+      "address": "8291732C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 14787
+    },
+    {
+      "address": "8291733C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 14812
+    },
+    {
+      "address": "8291734C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 14837
+    },
+    {
+      "address": "8291735C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 14862
+    },
+    {
+      "address": "8291736C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 14887
+    },
+    {
+      "address": "8291737C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.114.cpp",
+      "line": 14912
+    },
+    {
+      "address": "82918A84",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.115.cpp",
+      "line": 1299
+    },
+    {
+      "address": "82918A94",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.115.cpp",
+      "line": 1324
+    },
+    {
+      "address": "82918AA4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.115.cpp",
+      "line": 1349
+    },
+    {
+      "address": "82918AB4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.115.cpp",
+      "line": 1374
+    },
+    {
+      "address": "82918AC4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.115.cpp",
+      "line": 1399
+    },
+    {
+      "address": "82918AD4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.115.cpp",
+      "line": 1424
+    },
+    {
+      "address": "8291B664",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.115.cpp",
+      "line": 8391
+    },
+    {
+      "address": "8291B674",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.115.cpp",
+      "line": 8416
+    },
+    {
+      "address": "8291B684",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.115.cpp",
+      "line": 8441
+    },
+    {
+      "address": "8291C9AC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.115.cpp",
+      "line": 11473
+    },
+    {
+      "address": "8291D3AC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.115.cpp",
+      "line": 13227
+    },
+    {
+      "address": "8291ED5C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.115.cpp",
+      "line": 17498
+    },
+    {
+      "address": "8291ED6C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.115.cpp",
+      "line": 17523
+    },
+    {
+      "address": "8291ED7C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.115.cpp",
+      "line": 17548
+    },
+    {
+      "address": "8291ED8C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.115.cpp",
+      "line": 17573
+    },
+    {
+      "address": "8291ED9C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.115.cpp",
+      "line": 17598
+    },
+    {
+      "address": "8291EDAC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.115.cpp",
+      "line": 17623
+    },
+    {
+      "address": "82920BBC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.116.cpp",
+      "line": 4581
+    },
+    {
+      "address": "82921FF4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.116.cpp",
+      "line": 7882
+    },
+    {
+      "address": "82923F0C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.116.cpp",
+      "line": 12716
+    },
+    {
+      "address": "8292452C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.116.cpp",
+      "line": 13705
+    },
+    {
+      "address": "8292983C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.116.cpp",
+      "line": 26346
+    },
+    {
+      "address": "82929C34",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.116.cpp",
+      "line": 27014
+    },
+    {
+      "address": "82929C44",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.116.cpp",
+      "line": 27039
+    },
+    {
+      "address": "8292A794",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.116.cpp",
+      "line": 28815
+    },
+    {
+      "address": "8292D9A4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.117.cpp",
+      "line": 384
+    },
+    {
+      "address": "8293136C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.117.cpp",
+      "line": 9198
+    },
+    {
+      "address": "82933ABC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.117.cpp",
+      "line": 15073
+    },
+    {
+      "address": "829374FC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.117.cpp",
+      "line": 24280
+    },
+    {
+      "address": "82937F9C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.117.cpp",
+      "line": 26135
+    },
+    {
+      "address": "82938DCC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.118.cpp",
+      "line": 1055
+    },
+    {
+      "address": "8293A0EC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.118.cpp",
+      "line": 4330
+    },
+    {
+      "address": "8293A0FC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.118.cpp",
+      "line": 4355
+    },
+    {
+      "address": "8293A10C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.118.cpp",
+      "line": 4380
+    },
+    {
+      "address": "8293A404",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.118.cpp",
+      "line": 4858
+    },
+    {
+      "address": "8293BC8C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.118.cpp",
+      "line": 8695
+    },
+    {
+      "address": "8293C314",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.118.cpp",
+      "line": 9762
+    },
+    {
+      "address": "8293D08C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.118.cpp",
+      "line": 11881
+    },
+    {
+      "address": "8293DAFC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.118.cpp",
+      "line": 13606
+    },
+    {
+      "address": "8293DE3C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.118.cpp",
+      "line": 14180
+    },
+    {
+      "address": "8293EDB4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.118.cpp",
+      "line": 16718
+    },
+    {
+      "address": "8293EEBC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.118.cpp",
+      "line": 16894
+    },
+    {
+      "address": "8293F714",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.118.cpp",
+      "line": 18268
+    },
+    {
+      "address": "8293FF0C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.118.cpp",
+      "line": 19547
+    },
+    {
+      "address": "82940D2C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.119.cpp",
+      "line": 2119
+    },
+    {
+      "address": "82940D3C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.119.cpp",
+      "line": 2144
+    },
+    {
+      "address": "82940D4C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.119.cpp",
+      "line": 2169
+    },
+    {
+      "address": "82941E64",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.119.cpp",
+      "line": 4880
+    },
+    {
+      "address": "8294279C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.119.cpp",
+      "line": 6388
+    },
+    {
+      "address": "829427AC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.119.cpp",
+      "line": 6413
+    },
+    {
+      "address": "829427BC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.119.cpp",
+      "line": 6438
+    },
+    {
+      "address": "829439CC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.119.cpp",
+      "line": 9314
+    },
+    {
+      "address": "829439DC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.119.cpp",
+      "line": 9339
+    },
+    {
+      "address": "82944B4C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.119.cpp",
+      "line": 12121
+    },
+    {
+      "address": "829453B4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.119.cpp",
+      "line": 13498
+    },
+    {
+      "address": "82945724",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.119.cpp",
+      "line": 14062
+    },
+    {
+      "address": "82947614",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.119.cpp",
+      "line": 18907
+    },
+    {
+      "address": "829481AC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.119.cpp",
+      "line": 20759
+    },
+    {
+      "address": "8294CDF4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.120.cpp",
+      "line": 11714
+    },
+    {
+      "address": "8294E2B4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.120.cpp",
+      "line": 14969
+    },
+    {
+      "address": "8294E8A4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.120.cpp",
+      "line": 15989
+    },
+    {
+      "address": "8294E8B4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.120.cpp",
+      "line": 16014
+    },
+    {
+      "address": "8294ECA4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.120.cpp",
+      "line": 16676
+    },
+    {
+      "address": "8294EF0C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.120.cpp",
+      "line": 17086
+    },
+    {
+      "address": "82950C6C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.121.cpp",
+      "line": 720
+    },
+    {
+      "address": "829514CC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.121.cpp",
+      "line": 2230
+    },
+    {
+      "address": "82952E4C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.121.cpp",
+      "line": 6461
+    },
+    {
+      "address": "82955144",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.121.cpp",
+      "line": 12385
+    },
+    {
+      "address": "829567B4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.122.cpp",
+      "line": 2072
+    },
+    {
+      "address": "82956E84",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.122.cpp",
+      "line": 3177
+    },
+    {
+      "address": "829586A4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.122.cpp",
+      "line": 7172
+    },
+    {
+      "address": "8295BACC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.122.cpp",
+      "line": 15732
+    },
+    {
+      "address": "8295C604",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.123.cpp",
+      "line": 1363
+    },
+    {
+      "address": "8295C614",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.123.cpp",
+      "line": 1388
+    },
+    {
+      "address": "8295D614",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.123.cpp",
+      "line": 3881
+    },
+    {
+      "address": "8295E124",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.123.cpp",
+      "line": 5664
+    },
+    {
+      "address": "8295F6A4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.123.cpp",
+      "line": 8987
+    },
+    {
+      "address": "8295FD74",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.123.cpp",
+      "line": 10060
+    },
+    {
+      "address": "8295FF0C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.123.cpp",
+      "line": 10354
+    },
+    {
+      "address": "829604DC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.123.cpp",
+      "line": 11291
+    },
+    {
+      "address": "82960F3C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.123.cpp",
+      "line": 13029
+    },
+    {
+      "address": "82961078",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.123.cpp",
+      "line": 13248
+    },
+    {
+      "address": "8296196C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.123.cpp",
+      "line": 14761
+    },
+    {
+      "address": "82961FA4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.123.cpp",
+      "line": 15770
+    },
+    {
+      "address": "8296288C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.123.cpp",
+      "line": 17191
+    },
+    {
+      "address": "82964F14",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.124.cpp",
+      "line": 1487
+    },
+    {
+      "address": "8296542C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.124.cpp",
+      "line": 2380
+    },
+    {
+      "address": "82965A8C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.124.cpp",
+      "line": 3443
+    },
+    {
+      "address": "82965ECC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.124.cpp",
+      "line": 4136
+    },
+    {
+      "address": "829679EC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.124.cpp",
+      "line": 8844
+    },
+    {
+      "address": "8297211C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.125.cpp",
+      "line": 18369
+    },
+    {
+      "address": "8298271C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.128.cpp",
+      "line": 1321
+    },
+    {
+      "address": "8298272C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.128.cpp",
+      "line": 1346
+    },
+    {
+      "address": "8298273C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.128.cpp",
+      "line": 1371
+    },
+    {
+      "address": "8298274C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.128.cpp",
+      "line": 1396
+    },
+    {
+      "address": "8298275C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.128.cpp",
+      "line": 1421
+    },
+    {
+      "address": "8298276C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.128.cpp",
+      "line": 1446
+    },
+    {
+      "address": "8298277C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.128.cpp",
+      "line": 1471
+    },
+    {
+      "address": "8298278C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.128.cpp",
+      "line": 1496
+    },
+    {
+      "address": "8298279C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.128.cpp",
+      "line": 1521
+    },
+    {
+      "address": "829827AC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.128.cpp",
+      "line": 1546
+    },
+    {
+      "address": "829827BC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.128.cpp",
+      "line": 1571
+    },
+    {
+      "address": "829827CC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.128.cpp",
+      "line": 1596
+    },
+    {
+      "address": "829856C4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.128.cpp",
+      "line": 9888
+    },
+    {
+      "address": "829856D4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.128.cpp",
+      "line": 9913
+    },
+    {
+      "address": "829858D4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.128.cpp",
+      "line": 10240
+    },
+    {
+      "address": "82985BC8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.128.cpp",
+      "line": 10740
+    },
+    {
+      "address": "82986080",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.129.cpp",
+      "line": 655
+    },
+    {
+      "address": "8298F258",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.129.cpp",
+      "line": 23145
+    },
+    {
+      "address": "82993444",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.130.cpp",
+      "line": 7360
+    },
+    {
+      "address": "82999468",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.130.cpp",
+      "line": 22299
+    },
+    {
+      "address": "8299B1A4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.130.cpp",
+      "line": 26931
+    },
+    {
+      "address": "8299B254",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.130.cpp",
+      "line": 27061
+    },
+    {
+      "address": "8299DE68",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.131.cpp",
+      "line": 3603
+    },
+    {
+      "address": "8299F1B0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.131.cpp",
+      "line": 6761
+    },
+    {
+      "address": "829AD6C0",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.132.cpp",
+      "line": 19176
+    },
+    {
+      "address": "829AF644",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.132.cpp",
+      "line": 24228
+    },
+    {
+      "address": "829B0170",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.132.cpp",
+      "line": 26087
+    },
+    {
+      "address": "829B0818",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.133.cpp",
+      "line": 850
+    },
+    {
+      "address": "829B80B4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.133.cpp",
+      "line": 19479
+    },
+    {
+      "address": "829B80C4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.133.cpp",
+      "line": 19504
+    },
+    {
+      "address": "829B81B0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.133.cpp",
+      "line": 19703
+    },
+    {
+      "address": "829B82E8",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.133.cpp",
+      "line": 19895
+    },
+    {
+      "address": "829B8360",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.133.cpp",
+      "line": 19975
+    },
+    {
+      "address": "829B8498",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.133.cpp",
+      "line": 20169
+    },
+    {
+      "address": "829B8640",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.133.cpp",
+      "line": 20431
+    },
+    {
+      "address": "829B87E8",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.133.cpp",
+      "line": 20693
+    },
+    {
+      "address": "829B8990",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.133.cpp",
+      "line": 20955
+    },
+    {
+      "address": "829BBEA4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 1552
+    },
+    {
+      "address": "829BBEB4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 1577
+    },
+    {
+      "address": "829BBEC4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 1602
+    },
+    {
+      "address": "829BBED4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 1627
+    },
+    {
+      "address": "829BBEE4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 1652
+    },
+    {
+      "address": "829BBEF4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 1677
+    },
+    {
+      "address": "829BC060",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 1914
+    },
+    {
+      "address": "829BC208",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 2176
+    },
+    {
+      "address": "829BC3B0",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 2438
+    },
+    {
+      "address": "829BC558",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 2700
+    },
+    {
+      "address": "829BC700",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 2962
+    },
+    {
+      "address": "829BD574",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 5345
+    },
+    {
+      "address": "829BD584",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 5370
+    },
+    {
+      "address": "829BD594",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 5395
+    },
+    {
+      "address": "829BD5A4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 5420
+    },
+    {
+      "address": "829BD8F4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 6019
+    },
+    {
+      "address": "829BD930",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 6081
+    },
+    {
+      "address": "829BD968",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 6132
+    },
+    {
+      "address": "829BDA88",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 6337
+    },
+    {
+      "address": "829BE120",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 7532
+    },
+    {
+      "address": "829BE228",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 7725
+    },
+    {
+      "address": "829BE3C8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 8012
+    },
+    {
+      "address": "829BE500",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 8204
+    },
+    {
+      "address": "829BE6A8",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 8466
+    },
+    {
+      "address": "829BE850",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 8728
+    },
+    {
+      "address": "829BE9F8",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 8990
+    },
+    {
+      "address": "829BEBA0",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 9252
+    },
+    {
+      "address": "829BED48",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 9514
+    },
+    {
+      "address": "829BEEF0",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 9776
+    },
+    {
+      "address": "829BF098",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 10038
+    },
+    {
+      "address": "829BF240",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 10300
+    },
+    {
+      "address": "829BF3E8",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 10562
+    },
+    {
+      "address": "829BF590",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 10824
+    },
+    {
+      "address": "829BF670",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 10968
+    },
+    {
+      "address": "829BF6F0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 11061
+    },
+    {
+      "address": "829BF7E0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 11213
+    },
+    {
+      "address": "829BF8D0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.134.cpp",
+      "line": 11373
+    },
+    {
+      "address": "829C8874",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 14383
+    },
+    {
+      "address": "829C8884",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 14408
+    },
+    {
+      "address": "829C8894",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 14433
+    },
+    {
+      "address": "829C88A4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 14458
+    },
+    {
+      "address": "829C88B4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 14483
+    },
+    {
+      "address": "829C88C4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 14508
+    },
+    {
+      "address": "829C88D4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 14533
+    },
+    {
+      "address": "829C88E4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 14558
+    },
+    {
+      "address": "829C88F4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 14583
+    },
+    {
+      "address": "829C8904",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 14608
+    },
+    {
+      "address": "829C8914",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 14633
+    },
+    {
+      "address": "829C8A18",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 14800
+    },
+    {
+      "address": "829C8A20",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 14810
+    },
+    {
+      "address": "829C8AC0",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 14915
+    },
+    {
+      "address": "829C8AD0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 14938
+    },
+    {
+      "address": "829C8B60",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 15032
+    },
+    {
+      "address": "829C8C98",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 15224
+    },
+    {
+      "address": "829C8E40",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 15486
+    },
+    {
+      "address": "829C8FE8",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 15748
+    },
+    {
+      "address": "829C9190",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 16010
+    },
+    {
+      "address": "829C9338",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 16272
+    },
+    {
+      "address": "829C94E0",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 16534
+    },
+    {
+      "address": "829C9688",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 16796
+    },
+    {
+      "address": "829C9830",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 17058
+    },
+    {
+      "address": "829C99D8",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.135.cpp",
+      "line": 17320
+    },
+    {
+      "address": "829CC5B4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp",
+      "line": 789
+    },
+    {
+      "address": "829CC688",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp",
+      "line": 935
+    },
+    {
+      "address": "829CF764",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp",
+      "line": 8489
+    },
+    {
+      "address": "829D06CC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp",
+      "line": 11205
+    },
+    {
+      "address": "829D06DC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp",
+      "line": 11230
+    },
+    {
+      "address": "829D06EC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp",
+      "line": 11255
+    },
+    {
+      "address": "829D06FC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp",
+      "line": 11280
+    },
+    {
+      "address": "829D070C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp",
+      "line": 11305
+    },
+    {
+      "address": "829D071C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp",
+      "line": 11330
+    },
+    {
+      "address": "829D072C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp",
+      "line": 11355
+    },
+    {
+      "address": "829D073C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp",
+      "line": 11380
+    },
+    {
+      "address": "829D07F8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp",
+      "line": 11514
+    },
+    {
+      "address": "829D0930",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp",
+      "line": 11706
+    },
+    {
+      "address": "829D0AD8",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp",
+      "line": 11968
+    },
+    {
+      "address": "829D0C80",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp",
+      "line": 12230
+    },
+    {
+      "address": "829D0E28",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp",
+      "line": 12492
+    },
+    {
+      "address": "829D3C9C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp",
+      "line": 19954
+    },
+    {
+      "address": "829D3CAC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp",
+      "line": 19979
+    },
+    {
+      "address": "829D3CBC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp",
+      "line": 20004
+    },
+    {
+      "address": "829D3CCC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp",
+      "line": 20029
+    },
+    {
+      "address": "829D3F48",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.136.cpp",
+      "line": 20417
+    },
+    {
+      "address": "829D645C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 2869
+    },
+    {
+      "address": "829D6460",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 2879
+    },
+    {
+      "address": "829D64E0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 2959
+    },
+    {
+      "address": "829D66C8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 3267
+    },
+    {
+      "address": "829D6800",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 3459
+    },
+    {
+      "address": "829D9B54",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 11466
+    },
+    {
+      "address": "829D9CC8",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 11700
+    },
+    {
+      "address": "829D9E70",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 11962
+    },
+    {
+      "address": "829DA53C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 13032
+    },
+    {
+      "address": "829DA6A4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 13280
+    },
+    {
+      "address": "829DAD0C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 14347
+    },
+    {
+      "address": "829DAD10",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 14357
+    },
+    {
+      "address": "829DAD18",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 14367
+    },
+    {
+      "address": "829DAD20",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 14377
+    },
+    {
+      "address": "829DAD28",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 14387
+    },
+    {
+      "address": "829DAD30",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 14397
+    },
+    {
+      "address": "829DAD38",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 14407
+    },
+    {
+      "address": "829DAD40",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 14417
+    },
+    {
+      "address": "829DAD48",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 14427
+    },
+    {
+      "address": "829DAD50",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 14437
+    },
+    {
+      "address": "829DAEB8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 14686
+    },
+    {
+      "address": "829DAFF0",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 14878
+    },
+    {
+      "address": "829E5454",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.138.cpp",
+      "line": 4737
+    },
+    {
+      "address": "829E5540",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.138.cpp",
+      "line": 4928
+    },
+    {
+      "address": "829E5C78",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.138.cpp",
+      "line": 6108
+    },
+    {
+      "address": "829E5E20",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.138.cpp",
+      "line": 6370
+    },
+    {
+      "address": "829E5FC8",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.138.cpp",
+      "line": 6632
+    },
+    {
+      "address": "829E6170",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.138.cpp",
+      "line": 6894
+    },
+    {
+      "address": "829E6318",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.138.cpp",
+      "line": 7156
+    },
+    {
+      "address": "829E64C0",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.138.cpp",
+      "line": 7418
+    },
+    {
+      "address": "829E6668",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.138.cpp",
+      "line": 7680
+    },
+    {
+      "address": "829E6810",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.138.cpp",
+      "line": 7942
+    },
+    {
+      "address": "829E69B8",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.138.cpp",
+      "line": 8204
+    },
+    {
+      "address": "829F9844",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.140.cpp",
+      "line": 1876
+    },
+    {
+      "address": "829F9854",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.140.cpp",
+      "line": 1901
+    },
+    {
+      "address": "829F9864",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.140.cpp",
+      "line": 1926
+    },
+    {
+      "address": "829F9874",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.140.cpp",
+      "line": 1951
+    },
+    {
+      "address": "829F9884",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.140.cpp",
+      "line": 1976
+    },
+    {
+      "address": "829F9894",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.140.cpp",
+      "line": 2001
+    },
+    {
+      "address": "829F98A4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.140.cpp",
+      "line": 2026
+    },
+    {
+      "address": "829F98B4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.140.cpp",
+      "line": 2051
+    },
+    {
+      "address": "829F9ABC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.140.cpp",
+      "line": 2396
+    },
+    {
+      "address": "829F9D20",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.140.cpp",
+      "line": 2791
+    },
+    {
+      "address": "829FC0FC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.140.cpp",
+      "line": 8445
+    },
+    {
+      "address": "829FC1B0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.140.cpp",
+      "line": 8580
+    },
+    {
+      "address": "829FC2E8",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.140.cpp",
+      "line": 8772
+    },
+    {
+      "address": "829FD7FC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.140.cpp",
+      "line": 12327
+    },
+    {
+      "address": "829FD848",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.140.cpp",
+      "line": 12383
+    },
+    {
+      "address": "829FE164",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.140.cpp",
+      "line": 13834
+    },
+    {
+      "address": "82A03250",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.141.cpp",
+      "line": 4911
+    },
+    {
+      "address": "82A03258",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.141.cpp",
+      "line": 4921
+    },
+    {
+      "address": "82A07D24",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.142.cpp",
+      "line": 4320
+    },
+    {
+      "address": "82A151B0",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.144.cpp",
+      "line": 8164
+    },
+    {
+      "address": "82A321B8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.146.cpp",
+      "line": 1463
+    },
+    {
+      "address": "82A32498",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.146.cpp",
+      "line": 1929
+    },
+    {
+      "address": "82A41E9C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.147.cpp",
+      "line": 1115
+    },
+    {
+      "address": "82A41EF4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.147.cpp",
+      "line": 1182
+    },
+    {
+      "address": "82A41F4C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.147.cpp",
+      "line": 1249
+    },
+    {
+      "address": "82A41FA4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.147.cpp",
+      "line": 1316
+    },
+    {
+      "address": "82A41FFC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.147.cpp",
+      "line": 1383
+    },
+    {
+      "address": "82A4502C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.147.cpp",
+      "line": 8801
+    },
+    {
+      "address": "82A453F8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.147.cpp",
+      "line": 9471
+    },
+    {
+      "address": "82A4FFB0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.148.cpp",
+      "line": 1923
+    },
+    {
+      "address": "82A51500",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.148.cpp",
+      "line": 5196
+    },
+    {
+      "address": "82A51508",
+      "template": "li_one_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.148.cpp",
+      "line": 5208
+    },
+    {
+      "address": "82A67AD0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.149.cpp",
+      "line": 16462
+    },
+    {
+      "address": "82A6A094",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.149.cpp",
+      "line": 22469
+    },
+    {
+      "address": "82A6B2F8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.149.cpp",
+      "line": 25457
+    },
+    {
+      "address": "82A6B734",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.149.cpp",
+      "line": 26138
+    },
+    {
+      "address": "82A6BBAC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.150.cpp",
+      "line": 592
+    },
+    {
+      "address": "82A6C864",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.150.cpp",
+      "line": 2650
+    },
+    {
+      "address": "82A6C874",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.150.cpp",
+      "line": 2675
+    },
+    {
+      "address": "82A6C884",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.150.cpp",
+      "line": 2700
+    },
+    {
+      "address": "82A6CF54",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.150.cpp",
+      "line": 3826
+    },
+    {
+      "address": "82A6D8AC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.150.cpp",
+      "line": 5446
+    },
+    {
+      "address": "82A6D8BC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.150.cpp",
+      "line": 5471
+    },
+    {
+      "address": "82A6D8CC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.150.cpp",
+      "line": 5496
+    },
+    {
+      "address": "82A6F3E4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.150.cpp",
+      "line": 9708
+    },
+    {
+      "address": "82A6F3F4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.150.cpp",
+      "line": 9733
+    },
+    {
+      "address": "82A6F78C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.150.cpp",
+      "line": 10328
+    },
+    {
+      "address": "82A76AC4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.152.cpp",
+      "line": 3495
+    },
+    {
+      "address": "82A797FC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.152.cpp",
+      "line": 10394
+    },
+    {
+      "address": "82A79DD4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.152.cpp",
+      "line": 11369
+    },
+    {
+      "address": "82A79EDC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.152.cpp",
+      "line": 11545
+    },
+    {
+      "address": "82A7BFA4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.153.cpp",
+      "line": 2326
+    },
+    {
+      "address": "82A7BFB4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.153.cpp",
+      "line": 2351
+    },
+    {
+      "address": "82A7BFC4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.153.cpp",
+      "line": 2376
+    },
+    {
+      "address": "82A7C364",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.153.cpp",
+      "line": 2962
+    },
+    {
+      "address": "82A7C804",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.153.cpp",
+      "line": 3775
+    },
+    {
+      "address": "82A92BAC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.155.cpp",
+      "line": 6848
+    },
+    {
+      "address": "82A92BBC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.155.cpp",
+      "line": 6873
+    },
+    {
+      "address": "82A92BCC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.155.cpp",
+      "line": 6898
+    },
+    {
+      "address": "82A97C0C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.155.cpp",
+      "line": 19327
+    },
+    {
+      "address": "82A97C1C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.155.cpp",
+      "line": 19352
+    },
+    {
+      "address": "82A9965C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.156.cpp",
+      "line": 4680
+    },
+    {
+      "address": "82A99954",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.156.cpp",
+      "line": 5158
+    },
+    {
+      "address": "82A99964",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.156.cpp",
+      "line": 5183
+    },
+    {
+      "address": "82A99974",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.156.cpp",
+      "line": 5208
+    },
+    {
+      "address": "82A99984",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.156.cpp",
+      "line": 5233
+    },
+    {
+      "address": "82A99994",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.156.cpp",
+      "line": 5258
+    },
+    {
+      "address": "82A999A4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.156.cpp",
+      "line": 5283
+    },
+    {
+      "address": "82A999B4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.156.cpp",
+      "line": 5308
+    },
+    {
+      "address": "82A999C4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.156.cpp",
+      "line": 5333
+    },
+    {
+      "address": "82A9B18C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.156.cpp",
+      "line": 9042
+    },
+    {
+      "address": "82A9BCB4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.156.cpp",
+      "line": 10843
+    },
+    {
+      "address": "82AAB8C8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.157.cpp",
+      "line": 33934
+    },
+    {
+      "address": "82AAB8E0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.157.cpp",
+      "line": 33961
+    },
+    {
+      "address": "82AD8DF8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.161.cpp",
+      "line": 8396
+    },
+    {
+      "address": "82AD9BA4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.161.cpp",
+      "line": 10640
+    },
+    {
+      "address": "82ADF3F0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.161.cpp",
+      "line": 24380
+    },
+    {
+      "address": "82AE163C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.162.cpp",
+      "line": 3491
+    },
+    {
+      "address": "82AE5264",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.162.cpp",
+      "line": 13104
+    },
+    {
+      "address": "82AF46B8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.164.cpp",
+      "line": 737
+    },
+    {
+      "address": "82AF47F8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.164.cpp",
+      "line": 938
+    },
+    {
+      "address": "82AF4834",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.164.cpp",
+      "line": 983
+    },
+    {
+      "address": "82AF52AC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.164.cpp",
+      "line": 2672
+    },
+    {
+      "address": "82B33110",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.168.cpp",
+      "line": 22830
+    },
+    {
+      "address": "82B331F8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.168.cpp",
+      "line": 22986
+    },
+    {
+      "address": "82B35774",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.168.cpp",
+      "line": 29033
+    },
+    {
+      "address": "82B51534",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.171.cpp",
+      "line": 9377
+    },
+    {
+      "address": "82B51E5C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.171.cpp",
+      "line": 10870
+    },
+    {
+      "address": "82B51E6C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.171.cpp",
+      "line": 10895
+    },
+    {
+      "address": "82B5C6F4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "line": 23479
+    },
+    {
+      "address": "82B5C80C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "line": 23679
+    },
+    {
+      "address": "82B63F0C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.173.cpp",
+      "line": 17318
+    },
+    {
+      "address": "82B64544",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.173.cpp",
+      "line": 18317
+    },
+    {
+      "address": "82B6B358",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.173.cpp",
+      "line": 35976
+    },
+    {
+      "address": "82B71EF0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.174.cpp",
+      "line": 16675
+    },
+    {
+      "address": "82B71FE8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.174.cpp",
+      "line": 16830
+    },
+    {
+      "address": "82B723B0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.174.cpp",
+      "line": 17421
+    },
+    {
+      "address": "82B7488C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.174.cpp",
+      "line": 23167
+    },
+    {
+      "address": "82B74FAC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.174.cpp",
+      "line": 24281
+    },
+    {
+      "address": "82B756D4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.174.cpp",
+      "line": 25446
+    },
+    {
+      "address": "82B7FCDC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.175.cpp",
+      "line": 21060
+    },
+    {
+      "address": "82B807F4",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "line": 1490
+    },
+    {
+      "address": "82B80928",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "line": 1672
+    },
+    {
+      "address": "82B810B8",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "line": 2781
+    },
+    {
+      "address": "82B8111C",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "line": 2848
+    },
+    {
+      "address": "82B81174",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "line": 2910
+    },
+    {
+      "address": "82B8A620",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "line": 26392
+    },
+    {
+      "address": "82B8E3BC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.177.cpp",
+      "line": 6146
+    },
+    {
+      "address": "82B9A64C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.178.cpp",
+      "line": 16892
+    },
+    {
+      "address": "82B9C150",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.179.cpp",
+      "line": 3094
+    },
+    {
+      "address": "82BC5AB0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.180.cpp",
+      "line": 40880
+    },
+    {
+      "address": "82BCE650",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.180.cpp",
+      "line": 62077
+    },
+    {
+      "address": "82BE78EC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.182.cpp",
+      "line": 17815
+    },
+    {
+      "address": "82BF4190",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.183.cpp",
+      "line": 3
+    },
+    {
+      "address": "82C2CA58",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.184.cpp",
+      "line": 70053
+    },
+    {
+      "address": "82C2CC54",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.184.cpp",
+      "line": 70377
+    },
+    {
+      "address": "82C393BC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.185.cpp",
+      "line": 7993
+    },
+    {
+      "address": "82C6D91C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.187.cpp",
+      "line": 18729
+    },
+    {
+      "address": "82C6D998",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.187.cpp",
+      "line": 18810
+    },
+    {
+      "address": "82CB02E0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.188.cpp",
+      "line": 77896
+    },
+    {
+      "address": "82CB0378",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.188.cpp",
+      "line": 78004
+    },
+    {
+      "address": "82CB42CC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.188.cpp",
+      "line": 87254
+    },
+    {
+      "address": "82CB6430",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.188.cpp",
+      "line": 92287
+    },
+    {
+      "address": "82CB7B04",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.188.cpp",
+      "line": 95631
+    },
+    {
+      "address": "82CC3AD0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.189.cpp",
+      "line": 27780
+    },
+    {
+      "address": "82CEAD34",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.191.cpp",
+      "line": 49447
+    },
+    {
+      "address": "82CEB5E0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.191.cpp",
+      "line": 50824
+    },
+    {
+      "address": "82CEC0C8",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.191.cpp",
+      "line": 52452
+    },
+    {
+      "address": "82CEC400",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.191.cpp",
+      "line": 52920
+    },
+    {
+      "address": "82CEC4A8",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.191.cpp",
+      "line": 53023
+    },
+    {
+      "address": "82CEC6FC",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.191.cpp",
+      "line": 53369
+    },
+    {
+      "address": "82CEC9A8",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.191.cpp",
+      "line": 53778
+    },
+    {
+      "address": "82CECF10",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.191.cpp",
+      "line": 54576
+    },
+    {
+      "address": "82CED4B8",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.191.cpp",
+      "line": 55424
+    },
+    {
+      "address": "82CED5C8",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.191.cpp",
+      "line": 55592
+    },
+    {
+      "address": "82CED684",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.191.cpp",
+      "line": 55707
+    },
+    {
+      "address": "82CED93C",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.191.cpp",
+      "line": 56097
+    },
+    {
+      "address": "82CEDCE8",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.191.cpp",
+      "line": 56633
+    },
+    {
+      "address": "82CF7B58",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp",
+      "line": 23554
+    },
+    {
+      "address": "82D1699C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.193.cpp",
+      "line": 63288
+    },
+    {
+      "address": "82D8489C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.196.cpp",
+      "line": 3
+    },
+    {
+      "address": "82DD0A8C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.197.cpp",
+      "line": 28722
+    },
+    {
+      "address": "82DD1E88",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.197.cpp",
+      "line": 31954
+    },
+    {
+      "address": "82DE242C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.199.cpp",
+      "line": 7508
+    },
+    {
+      "address": "82DE243C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.199.cpp",
+      "line": 7533
+    },
+    {
+      "address": "82DE244C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.199.cpp",
+      "line": 7558
+    },
+    {
+      "address": "82DE245C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.199.cpp",
+      "line": 7583
+    },
+    {
+      "address": "82DE246C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.199.cpp",
+      "line": 7608
+    },
+    {
+      "address": "82DE247C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.199.cpp",
+      "line": 7633
+    },
+    {
+      "address": "82DE248C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.199.cpp",
+      "line": 7658
+    },
+    {
+      "address": "82DE249C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.199.cpp",
+      "line": 7683
+    },
+    {
+      "address": "82DE24AC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.199.cpp",
+      "line": 7708
+    },
+    {
+      "address": "82DE24BC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.199.cpp",
+      "line": 7733
+    },
+    {
+      "address": "82DE24CC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.199.cpp",
+      "line": 7758
+    },
+    {
+      "address": "82DE24DC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.199.cpp",
+      "line": 7783
+    },
+    {
+      "address": "82DE24EC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.199.cpp",
+      "line": 7808
+    },
+    {
+      "address": "82DE24FC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.199.cpp",
+      "line": 7833
+    },
+    {
+      "address": "82DE250C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.199.cpp",
+      "line": 7858
+    },
+    {
+      "address": "82DE251C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.199.cpp",
+      "line": 7883
+    },
+    {
+      "address": "82DE4684",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.200.cpp",
+      "line": 3718
+    },
+    {
+      "address": "82DE6994",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.200.cpp",
+      "line": 9672
+    },
+    {
+      "address": "82DE69A4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.200.cpp",
+      "line": 9697
+    },
+    {
+      "address": "82DE69B4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.200.cpp",
+      "line": 9722
+    },
+    {
+      "address": "82DE69C4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.200.cpp",
+      "line": 9747
+    },
+    {
+      "address": "82DE69D4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.200.cpp",
+      "line": 9772
+    },
+    {
+      "address": "82DE69E4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.200.cpp",
+      "line": 9797
+    },
+    {
+      "address": "82DE69F4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.200.cpp",
+      "line": 9822
+    },
+    {
+      "address": "82DE6A04",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.200.cpp",
+      "line": 9847
+    },
+    {
+      "address": "82DE6A14",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.200.cpp",
+      "line": 9872
+    },
+    {
+      "address": "82DE8D64",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.200.cpp",
+      "line": 15519
+    },
+    {
+      "address": "82DE8D74",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.200.cpp",
+      "line": 15544
+    },
+    {
+      "address": "82DE8D84",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.200.cpp",
+      "line": 15569
+    },
+    {
+      "address": "82DE8D94",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.201.cpp",
+      "line": 3
+    },
+    {
+      "address": "82DE8DA4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.201.cpp",
+      "line": 28
+    },
+    {
+      "address": "82DE8DB4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.201.cpp",
+      "line": 53
+    },
+    {
+      "address": "82DEA65C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.201.cpp",
+      "line": 4175
+    },
+    {
+      "address": "82DEA66C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.201.cpp",
+      "line": 4200
+    },
+    {
+      "address": "82DEA67C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.201.cpp",
+      "line": 4225
+    },
+    {
+      "address": "82DEB94C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.201.cpp",
+      "line": 7174
+    },
+    {
+      "address": "82DECA94",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.201.cpp",
+      "line": 10044
+    },
+    {
+      "address": "82DECE4C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.201.cpp",
+      "line": 10666
+    },
+    {
+      "address": "82DECF54",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.201.cpp",
+      "line": 10842
+    },
+    {
+      "address": "82E0184C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.204.cpp",
+      "line": 5232
+    },
+    {
+      "address": "82E0CFF0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.204.cpp",
+      "line": 32787
+    },
+    {
+      "address": "82E0D16C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.204.cpp",
+      "line": 33039
+    },
+    {
+      "address": "82E0DEA8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.204.cpp",
+      "line": 35159
+    },
+    {
+      "address": "82E14FC4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.205.cpp",
+      "line": 14537
+    },
+    {
+      "address": "82E44108",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.207.cpp",
+      "line": 38574
+    },
+    {
+      "address": "82E44404",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.207.cpp",
+      "line": 39109
+    },
+    {
+      "address": "82E46478",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.208.cpp",
+      "line": 72
+    },
+    {
+      "address": "82E70CB4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 9323
+    },
+    {
+      "address": "82E70D28",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 9400
+    },
+    {
+      "address": "82E78FCC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 30396
+    },
+    {
+      "address": "82E7989C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 31777
+    },
+    {
+      "address": "82E798C0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 31812
+    },
+    {
+      "address": "82E7E748",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 7036
+    },
+    {
+      "address": "82E93D8C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 58229
+    },
+    {
+      "address": "82EB47D4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "line": 31604
+    },
+    {
+      "address": "82EC248C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "line": 65785
+    },
+    {
+      "address": "82ECACD0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.213.cpp",
+      "line": 6001
+    },
+    {
+      "address": "82ECF3B4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.213.cpp",
+      "line": 16645
+    },
+    {
+      "address": "82EE525C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.213.cpp",
+      "line": 69288
+    },
+    {
+      "address": "82EF99B4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.213.cpp",
+      "line": 118348
+    },
+    {
+      "address": "82F01F64",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.213.cpp",
+      "line": 138941
+    },
+    {
+      "address": "82F2DA9C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.214.cpp",
+      "line": 106383
+    },
+    {
+      "address": "82F42A90",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.215.cpp",
+      "line": 50041
+    },
+    {
+      "address": "82F45CE8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.215.cpp",
+      "line": 57864
+    },
+    {
+      "address": "82F4CA34",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.216.cpp",
+      "line": 8131
+    },
+    {
+      "address": "82F58380",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.216.cpp",
+      "line": 35309
+    },
+    {
+      "address": "82F587E8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.216.cpp",
+      "line": 36049
+    },
+    {
+      "address": "82F69AC8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.218.cpp",
+      "line": 912
+    },
+    {
+      "address": "82F69C8C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.218.cpp",
+      "line": 1222
+    },
+    {
+      "address": "82F975C0",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.219.cpp",
+      "line": 21626
+    },
+    {
+      "address": "82F9A448",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.219.cpp",
+      "line": 28613
+    },
+    {
+      "address": "82F9A454",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.219.cpp",
+      "line": 28627
+    },
+    {
+      "address": "82F9A8CC",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.219.cpp",
+      "line": 29313
+    },
+    {
+      "address": "82F9ADF0",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.219.cpp",
+      "line": 30084
+    },
+    {
+      "address": "82F9AF50",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.219.cpp",
+      "line": 30290
+    },
+    {
+      "address": "82FA02A0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.220.cpp",
+      "line": 3100
+    },
+    {
+      "address": "82FA02D8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.220.cpp",
+      "line": 3143
+    },
+    {
+      "address": "82FA6E34",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.220.cpp",
+      "line": 19510
+    },
+    {
+      "address": "82FB34B8",
+      "template": "li_one_mr_r8_blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.220.cpp",
+      "line": 49413
+    },
+    {
+      "address": "82FB51BC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.221.cpp",
+      "line": 1370
+    },
+    {
+      "address": "82FB6910",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.221.cpp",
+      "line": 4909
+    },
+    {
+      "address": "82FBD690",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.221.cpp",
+      "line": 21395
+    },
+    {
+      "address": "82FC4E60",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.221.cpp",
+      "line": 39347
+    },
+    {
+      "address": "82FD7474",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.222.cpp",
+      "line": 12537
+    },
+    {
+      "address": "82FDEF50",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.222.cpp",
+      "line": 30625
+    },
+    {
+      "address": "82FE0B14",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.222.cpp",
+      "line": 34815
+    },
+    {
+      "address": "83026790",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.223.cpp",
+      "line": 95624
+    },
+    {
+      "address": "8306E658",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.226.cpp",
+      "line": 20876
+    },
+    {
+      "address": "83076A20",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.226.cpp",
+      "line": 40363
+    },
+    {
+      "address": "830851B4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 18003
+    },
+    {
+      "address": "830859EC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 19308
+    },
+    {
+      "address": "830D3540",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 5762
+    },
+    {
+      "address": "830D3758",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 6129
+    },
+    {
+      "address": "830D3B5C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 6803
+    },
+    {
+      "address": "830D3C1C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 6943
+    },
+    {
+      "address": "830D3C64",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 6998
+    },
+    {
+      "address": "830D3CAC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 7053
+    },
+    {
+      "address": "830D3CF4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 7108
+    },
+    {
+      "address": "830D3D3C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 7163
+    },
+    {
+      "address": "830D3FF4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 7648
+    },
+    {
+      "address": "830D403C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 7703
+    },
+    {
+      "address": "830D4084",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 7758
+    },
+    {
+      "address": "830D40CC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 7813
+    },
+    {
+      "address": "830D4114",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 7868
+    },
+    {
+      "address": "830D415C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 7923
+    },
+    {
+      "address": "830D41A4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 7978
+    },
+    {
+      "address": "830D41EC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 8033
+    },
+    {
+      "address": "830D424C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 8109
+    },
+    {
+      "address": "830D4294",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 8164
+    },
+    {
+      "address": "830D42DC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 8219
+    },
+    {
+      "address": "830D4324",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 8286
+    },
+    {
+      "address": "830D442C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 8521
+    },
+    {
+      "address": "830D4474",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 8576
+    },
+    {
+      "address": "830D44BC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 8631
+    },
+    {
+      "address": "830D4504",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 8686
+    },
+    {
+      "address": "830D454C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.241.cpp",
+      "line": 8741
+    },
+    {
+      "address": "830D4690",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 86
+    },
+    {
+      "address": "830D47CC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 282
+    },
+    {
+      "address": "830D4814",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 337
+    },
+    {
+      "address": "830D48EC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 527
+    },
+    {
+      "address": "830D4974",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 654
+    },
+    {
+      "address": "830D49FC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 769
+    },
+    {
+      "address": "830D4A44",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 824
+    },
+    {
+      "address": "830D4A8C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 879
+    },
+    {
+      "address": "830D4AD4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 934
+    },
+    {
+      "address": "830D4B1C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 989
+    },
+    {
+      "address": "830D4B64",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 1044
+    },
+    {
+      "address": "830D4C04",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 1155
+    },
+    {
+      "address": "830D4C4C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 1210
+    },
+    {
+      "address": "830D4E3C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 1549
+    },
+    {
+      "address": "830D52EC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 2585
+    },
+    {
+      "address": "830D5334",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 2640
+    },
+    {
+      "address": "830D5D34",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 4680
+    },
+    {
+      "address": "830D5DDC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 4837
+    },
+    {
+      "address": "830D5E34",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 4900
+    },
+    {
+      "address": "830D5E8C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 4963
+    },
+    {
+      "address": "830D5EE8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 5035
+    },
+    {
+      "address": "830D5EF0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 5045
+    },
+    {
+      "address": "830D5EF8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.242.cpp",
+      "line": 5055
+    },
+    {
+      "address": "830D6084",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.243.cpp",
+      "line": 48
+    },
+    {
+      "address": "830D60CC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.243.cpp",
+      "line": 115
+    },
+    {
+      "address": "830D6124",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.243.cpp",
+      "line": 185
+    },
+    {
+      "address": "830D621C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.243.cpp",
+      "line": 405
+    },
+    {
+      "address": "830D6244",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.243.cpp",
+      "line": 442
+    },
+    {
+      "address": "830D628C",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.243.cpp",
+      "line": 516
+    },
+    {
+      "address": "830D62A4",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.243.cpp",
+      "line": 545
+    },
+    {
+      "address": "830D62BC",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.243.cpp",
+      "line": 574
+    },
+    {
+      "address": "830D6DF8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.243.cpp",
+      "line": 2539
+    },
+    {
+      "address": "830D6F80",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.243.cpp",
+      "line": 2847
+    },
+    {
+      "address": "830D7120",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.243.cpp",
+      "line": 3164
+    },
+    {
+      "address": "830D7128",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.243.cpp",
+      "line": 3174
+    },
+    {
+      "address": "830D7130",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.243.cpp",
+      "line": 3184
+    },
+    {
+      "address": "830D7138",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.243.cpp",
+      "line": 3194
+    },
+    {
+      "address": "830D7140",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.243.cpp",
+      "line": 3204
+    },
+    {
+      "address": "830D7378",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.243.cpp",
+      "line": 3614
+    },
+    {
+      "address": "830D73F0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.243.cpp",
+      "line": 3700
+    },
+    {
+      "address": "830D74C8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.243.cpp",
+      "line": 3905
+    },
+    {
+      "address": "830D7760",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.243.cpp",
+      "line": 4365
+    },
+    {
+      "address": "830D93C8",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.244.cpp",
+      "line": 2883
+    },
+    {
+      "address": "830D9870",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.244.cpp",
+      "line": 3748
+    },
+    {
+      "address": "830D9878",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.244.cpp",
+      "line": 3758
+    },
+    {
+      "address": "830D9880",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.244.cpp",
+      "line": 3768
+    },
+    {
+      "address": "830D9888",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.244.cpp",
+      "line": 3778
+    },
+    {
+      "address": "830D9A50",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.244.cpp",
+      "line": 4091
+    },
+    {
+      "address": "830D9A58",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.244.cpp",
+      "line": 4101
+    },
+    {
+      "address": "830D9A60",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.244.cpp",
+      "line": 4111
+    },
+    {
+      "address": "830D9A80",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.244.cpp",
+      "line": 4139
+    },
+    {
+      "address": "830D9AD0",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.244.cpp",
+      "line": 4203
+    },
+    {
+      "address": "830D9C58",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.244.cpp",
+      "line": 4495
+    },
+    {
+      "address": "830D9C60",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.244.cpp",
+      "line": 4505
+    },
+    {
+      "address": "830D9C68",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.244.cpp",
+      "line": 4515
+    },
+    {
+      "address": "830DAC00",
+      "template": "blr",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.244.cpp",
+      "line": 4587
+    }
+  ],
+  "limits": [
+    "942 distinct guest entry addresses share two readable C++ semantics; they are not 942 independent human implementations.",
+    "Each entry requires its own original PPC and machine-word check plus differential cases.",
+    "Unpacked image identity is independently pinned from XEX identity, but the unpacking provenance is not independently attested.",
+    "No game-runtime replacement is enabled by this map."
+  ]
+}
