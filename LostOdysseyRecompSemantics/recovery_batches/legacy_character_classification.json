@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Two connected legacy character classification entries, minimum representatives.",
+  "families": [
+    {
+      "name": "legacy-character-classification",
+      "manifest": "LostOdysseyRecompSemantics/legacy_character_classification_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_character_classification_oracle.cpp",
+      "prelude": "extern \"C\" PPC_FUNC(__imp__sub_82483AC8);\n#define sub_82483AC8(c,b) __imp__sub_82483AC8(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_character_classification.cpp"
+      ]
+    }
+  ]
+}

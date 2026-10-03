@@ -1,0 +1,94 @@
+{
+  "schema": "legacy-character-classification-v1",
+  "entries": [
+    {
+      "address": "82483AC8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.24.cpp",
+      "source_line": 3,
+      "instruction_count": 22,
+      "instructions": [
+        "clrlwi r11,r3,16",
+        "cmplwi cr6,r11,65",
+        "blt cr6,0x82483adc",
+        "cmplwi cr6,r11,90",
+        "ble cr6,0x82483b18",
+        "cmplwi cr6,r11,192",
+        "blt cr6,0x82483aec",
+        "cmplwi cr6,r11,255",
+        "ble cr6,0x82483b18",
+        "cmplwi cr6,r11,97",
+        "blt cr6,0x82483afc",
+        "cmplwi cr6,r11,122",
+        "ble cr6,0x82483b18",
+        "cmplwi cr6,r11,159",
+        "beq cr6,0x82483b18",
+        "cmplwi cr6,r11,140",
+        "beq cr6,0x82483b18",
+        "cmplwi cr6,r11,156",
+        "li r3,0",
+        "bnelr cr6",
+        "li r3,1",
+        "blr "
+      ],
+      "direct_calls": [],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82483AC8) {\n\tPPC_FUNC_PROLOGUE();\n\t// clrlwi r11,r3,16\n\tctx.r11.u64 = ctx.r3.u32 & 0xFFFF;\n\t// cmplwi cr6,r11,65\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 65, ctx.xer);\n\t// blt cr6,0x82483adc\n\tif (ctx.cr6.lt) goto loc_82483ADC;\n\t// cmplwi cr6,r11,90\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 90, ctx.xer);\n\t// ble cr6,0x82483b18\n\tif (!ctx.cr6.gt) goto loc_82483B18;\nloc_82483ADC:\n\t// cmplwi cr6,r11,192\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 192, ctx.xer);\n\t// blt cr6,0x82483aec\n\tif (ctx.cr6.lt) goto loc_82483AEC;\n\t// cmplwi cr6,r11,255\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 255, ctx.xer);\n\t// ble cr6,0x82483b18\n\tif (!ctx.cr6.gt) goto loc_82483B18;\nloc_82483AEC:\n\t// cmplwi cr6,r11,97\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 97, ctx.xer);\n\t// blt cr6,0x82483afc\n\tif (ctx.cr6.lt) goto loc_82483AFC;\n\t// cmplwi cr6,r11,122\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 122, ctx.xer);\n\t// ble cr6,0x82483b18\n\tif (!ctx.cr6.gt) goto loc_82483B18;\nloc_82483AFC:\n\t// cmplwi cr6,r11,159\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 159, ctx.xer);\n\t// beq cr6,0x82483b18\n\tif (ctx.cr6.eq) goto loc_82483B18;\n\t// cmplwi cr6,r11,140\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 140, ctx.xer);\n\t// beq cr6,0x82483b18\n\tif (ctx.cr6.eq) goto loc_82483B18;\n\t// cmplwi cr6,r11,156\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 156, ctx.xer);\n\t// li r3,0\n\tctx.r3.s64 = 0;\n\t// bnelr cr6\n\tif (!ctx.cr6.eq) return;\nloc_82483B18:\n\t// li r3,1\n\tctx.r3.s64 = 1;\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
+    },
+    {
+      "address": "82296938",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+      "source_line": 15686,
+      "instruction_count": 25,
+      "instructions": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "bl 0x82483ac8",
+        "cmpwi cr6,r3,0",
+        "bne cr6,0x82296984",
+        "clrlwi r11,r31,16",
+        "cmplwi cr6,r11,48",
+        "blt cr6,0x8229696c",
+        "cmplwi cr6,r11,57",
+        "ble cr6,0x82296984",
+        "li r3,0",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr ",
+        "li r3,1",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr "
+      ],
+      "direct_calls": [
+        "82483AC8"
+      ],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82296938) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// std r31,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// mr r31,r3\n\tctx.r31.u64 = ctx.r3.u64;\n\t// bl 0x82483ac8\n\tctx.lr = 0x82296950;\n\tsub_82483AC8(ctx, base);\n\t// cmpwi cr6,r3,0\n\tctx.cr6.compare<int32_t>(ctx.r3.s32, 0, ctx.xer);\n\t// bne cr6,0x82296984\n\tif (!ctx.cr6.eq) goto loc_82296984;\n\t// clrlwi r11,r31,16\n\tctx.r11.u64 = ctx.r31.u32 & 0xFFFF;\n\t// cmplwi cr6,r11,48\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 48, ctx.xer);\n\t// blt cr6,0x8229696c\n\tif (ctx.cr6.lt) goto loc_8229696C;\n\t// cmplwi cr6,r11,57\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 57, ctx.xer);\n\t// ble cr6,0x82296984\n\tif (!ctx.cr6.gt) goto loc_82296984;\nloc_8229696C:\n\t// li r3,0\n\tctx.r3.s64 = 0;\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\nloc_82296984:\n\t// li r3,1\n\tctx.r3.s64 = 1;\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
+    }
+  ],
+  "implementation": {
+    "header": "include/lo_semantics/legacy_character_classification.h",
+    "source": "src/legacy_character_classification.cpp",
+    "oracle": "tests/legacy_character_classification_oracle.cpp",
+    "scope": "Exact low-16 legacy letter ranges and letter-or-digit wrapper; ordered comparison CR6 and caller frame ABI."
+  },
+  "validation": {
+    "focused_original_ppc_cases": 8,
+    "unknown_entry_checks": 0,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-legacy-character-classification-tests/legacy-character-classification-result.json",
+    "library": "Windows-native /W4 /WX shared MT library",
+    "tested_scope": "Lowercase, extended special code, broad C0-FF range member, rejected values, decimal digit, punctuation and uppercase through the real lower implementation. Selected full GPRs/CR6/XER.SO, frame spills and ordinary RAM.",
+    "unvalidated_scope": "Other inputs, faults, MMIO and runtime.",
+    "runtime_validated": false,
+    "complete": false
+  }
+}
