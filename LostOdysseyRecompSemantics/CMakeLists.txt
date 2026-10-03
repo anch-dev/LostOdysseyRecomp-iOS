@@ -25,6 +25,8 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/crt_stream_pointer_unlock.cpp
     src/crt_stream_locks.cpp
     src/crt_stream_io.cpp
+    src/crt_stream_operations.cpp
+    src/crt_formatting_support.cpp
     src/crt_allocation.cpp
     src/crt_reallocate.cpp
     src/invalid_parameter.cpp
