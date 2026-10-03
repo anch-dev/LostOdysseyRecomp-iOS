@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-02",
+  "code_commits": ["ea137d5", "35c5910", "1db9a54"],
+  "unique_recovered_entry_addresses": 2360,
+  "individually_recorded_entries": 63,
+  "family_manifests": 8,
+  "overlapping_addresses": ["829664E8", "82B84D88"],
+  "available_opt_in_runtime_wrappers": {"leaf": 942, "integer": 296, "accessor": 304},
+  "accessor_adapter": {
+    "gate": "LO_SEMANTIC_ACCESSOR_RUNTIME",
+    "default_enabled": false,
+    "memory_contract": "The shared field semantics use a narrow backend that calls the original volatile PPC_LOAD/PPC_STORE macros at their original 8/16/32-bit widths. Only reviewed single-access ordinary-memory functions are included.",
+    "new_wrapper_batch": "304 exact original PPC bodies compared with strong wrappers through direct and table calls, disabled and enabled: 1216 context/memory comparisons passed. Fallback call counts were checked.",
+    "runner": "tools/ghidra/test_semantic_accessor_runtime.py",
+    "reused_evidence": "Earlier 1824 accessor comparisons and 1238 leaf/integer wrapper checks were not repeated."
+  },
+  "build": {
+    "platform": "Windows x86_64, clang-cl 22.1.8, RelWithDebInfo",
+    "runtime": "Incremental runtime compile and link passed after the accessor adapter and CRT allocation changes.",
+    "semantic_library": "The subsequently added field arithmetic and invalid-parameter sources compiled and linked into the semantics library. They are not runtime replacements, so the runtime scene was not repeated for them.",
+    "ppc_archive": "The supplied local PPC archive was reused; no whole-source/image hashing or PPC regeneration was performed."
+  },
+  "scene_smoke": {
+    "status": "passed",
+    "baseline": "runtime_checkpoint.json; previous original and recovered baseline observations were reused.",
+    "runs_added": 1,
+    "enabled_gates": ["LO_SEMANTIC_LEAF_RUNTIME", "LO_SEMANTIC_INTEGER_RUNTIME", "LO_SEMANTIC_ACCESSOR_RUNTIME"],
+    "configuration": "D3D12, 1280x720, 30 FPS cap; AA/upscaling/HDR off; copied seed save/profile and isolated writable state.",
+    "observed": "Continue reached Map 20, Uhra - Residential Area. The player/environment rendered and a Y-button pulse opened the main menu without an observed crash or visible structural regression.",
+    "evidence_directory": "External scratch: semantic-runtime-accessor-scene",
+    "log": "runtime.log",
+    "scene_capture": "scene_1079.png",
+    "menu_capture": "scene_5096.png",
+    "test_process_stopped": true
+  },
+  "acceptance_limits": [
+    "No per-entry execution coverage was collected; scene acceptance remains unset for individual entries.",
+    "No pixel identity, performance, combat, transition, fault, concurrency, MMIO or cross-platform acceptance is claimed.",
+    "CRT, field arithmetic and invalid-parameter recovery remain bounded semantic surfaces with explicit service boundaries.",
+    "All runtime gates remain disabled by default. Full semantic recovery and full-game acceptance remain incomplete."
+  ]
+}
