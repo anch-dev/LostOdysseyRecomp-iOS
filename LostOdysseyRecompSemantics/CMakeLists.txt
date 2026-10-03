@@ -50,6 +50,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/instance_composed_initializer_family.cpp
     src/instance_linker_composed_family.cpp
     src/instance_string_initializer_family.cpp
+    src/instance_property_chain_family.cpp
     src/object_startup.cpp
     src/manager_construction.cpp
     src/manager_storage.cpp
