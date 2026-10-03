@@ -31,6 +31,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/registered_metadata_initializers.cpp
     src/registered_metadata_range.cpp
     src/registered_metadata_string.cpp
+    src/registered_metadata_composed.cpp
     src/string_property_initializer.cpp
     src/owned_state_initializer.cpp
     src/instance_vtable_family.cpp
