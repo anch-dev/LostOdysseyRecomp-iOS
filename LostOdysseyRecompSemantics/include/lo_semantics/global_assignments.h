@@ -54,3 +54,5 @@ void WriteFieldAssignments(GuestMemory& memory, GlobalAssignmentRegisters& regis
                            std::span<const ConstantRegisterValue> register_values_after);
 
 } // namespace lo::semantic::gpu
+
+#include "lo_semantics/detail/global_assignments_impl.h"

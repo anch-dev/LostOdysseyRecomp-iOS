@@ -65,3 +65,5 @@ void ReadPointerArrayElement(GuestMemory& memory, PointerFieldRegisters& registe
                              std::int32_t array_pointer_displacement);
 
 } // namespace lo::semantic::gpu
+
+#include "lo_semantics/detail/pointer_fields_impl.h"

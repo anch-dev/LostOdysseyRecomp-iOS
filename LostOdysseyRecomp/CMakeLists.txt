@@ -247,6 +247,22 @@ if(LO_ENABLE_SEMANTIC_RUNTIME)
             VERBATIM)
         target_sources(LostOdysseyRecomp PRIVATE "${LO_SEMANTIC_FIELD_WRAPPERS}")
     endforeach()
+    set(LO_SEMANTIC_OBJECT_WRAPPERS "${CMAKE_CURRENT_BINARY_DIR}/generated/semantic_object_wrappers.cpp")
+    add_custom_command(
+        OUTPUT "${LO_SEMANTIC_OBJECT_WRAPPERS}"
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_SOURCE_DIR}/tools/ghidra/generate_semantic_object_wrappers.py"
+                --pointer-manifest "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/pointer_fields_families.json"
+                --global-manifest "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/global_assignment_families.json"
+                --field-manifest "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/field_operation_families.json"
+                --output "${LO_SEMANTIC_OBJECT_WRAPPERS}"
+        DEPENDS
+            "${CMAKE_SOURCE_DIR}/tools/ghidra/generate_semantic_object_wrappers.py"
+            "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/pointer_fields_families.json"
+            "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/global_assignment_families.json"
+            "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/field_operation_families.json"
+        COMMENT "Generating opt-in semantic object wrappers"
+        VERBATIM)
+    target_sources(LostOdysseyRecomp PRIVATE "${LO_SEMANTIC_OBJECT_WRAPPERS}")
     target_link_libraries(LostOdysseyRecomp PRIVATE LO::Semantics)
 endif()
 if(ANDROID)

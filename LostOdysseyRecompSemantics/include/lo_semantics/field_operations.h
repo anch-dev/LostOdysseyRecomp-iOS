@@ -67,3 +67,5 @@ void FieldNotEqualsConstant(GuestMemory& memory, FieldOperationRegisters& regist
                             std::uint8_t width, std::uint32_t comparison);
 
 } // namespace lo::semantic::gpu
+
+#include "lo_semantics/detail/field_operations_impl.h"
