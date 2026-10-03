@@ -3914,6 +3914,70 @@
       "open_obligations": [
         "Manager allocation and object registration guest callbacks retain their service boundaries. A complete PPCContext/guest-stack runtime adapter and representative scene execution remain unvalidated."
       ]
+    },
+    {
+      "address": "82403200",
+      "name": "lo::semantic::gpu::registered_callback_family::RegisterSharedMetadataObject",
+      "module": "gpu/registered_callback_family",
+      "source": "LostOdysseyRecompSemantics/src/registered_callback_family.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/registered_callback_family.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Full incoming r3 and guest caller_sp; the semantic frame is caller_sp - 112.",
+        "return": "Full r3 left by the last nested call, or incoming r3 when no call runs.",
+        "memory": "Big-endian ordinary guest memory, live shared/primary global reloads, and a ready-gate snapshot before the +52 store."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.15.cpp",
+          "line": 36890,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_registered_callback_family.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "The shared metadata helper is compared in isolation with ready off/on and as the original PPC callee in a lazy metadata composition. The combined callback batch passed 1432 cases for 708 table entries plus this helper."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "82403148",
+          "boundary": "registered_constructor_family::Apply",
+          "status": "implementation_available"
+        },
+        {
+          "address": "82410B90",
+          "boundary": "ConstructRegisteredObject",
+          "status": "implementation_available"
+        },
+        {
+          "address": "82410C48",
+          "boundary": "RegisterObjectGraph",
+          "status": "implementation_available"
+        },
+        {
+          "address": "82406B00",
+          "boundary": "GetPrimaryRegisteredObject",
+          "status": "implementation_available"
+        },
+        {
+          "address": "indirect",
+          "boundary": "Services::CallReadyMethod",
+          "status": "external_boundary"
+        }
+      ],
+      "open_obligations": [
+        "Recover remaining deeper registration/vtable behavior and establish object lifetime contracts.",
+        "Validate a runtime ABI adapter and representative scenes before replacement.",
+        "Faults, MMIO, concurrency and generic ABI scratch are outside the bounded comparison."
+      ]
     }
   ]
 }
