@@ -15,7 +15,7 @@ public:
     virtual void LightweightSync() = 0;
 };
 
-// Clear a pending record and its counter, or enter through its caller-frame funclet.
+// Clear a pending record and its counter, or enter through its caller-frame funclets.
 [[nodiscard]] bool Apply(GuestAddress entry, GuestMemory& memory,
     NativeServices& native, Registers& registers);
 } // namespace lo::semantic::gpu::pending_record_cleanup

@@ -20,12 +20,24 @@ constexpr std::array<Region, 1> Regions{{{0u, 0x90000u}}};
 
 enum class Mode { Idle, Overflow, Alias, Funclet };
 struct Case { GuestAddress entry; Mode mode; };
+#ifdef LO_PENDING_RECORD_8237308C_ONLY
+constexpr std::array<Case, 2> Cases{{
+    {0x8237308cu, Mode::Idle},
+    {0x8237308cu, Mode::Overflow},
+}};
+#elif defined(LO_PENDING_RECORD_8237DA84_ONLY)
+constexpr std::array<Case, 2> Cases{{
+    {0x8237da84u, Mode::Idle},
+    {0x8237da84u, Mode::Alias},
+}};
+#else
 constexpr std::array<Case, 4> Cases{{
     {0x82373158u, Mode::Idle},
     {0x82373158u, Mode::Overflow},
     {0x82373158u, Mode::Alias},
     {0x82290640u, Mode::Funclet},
 }};
+#endif
 
 struct Services final : family::NativeServices
 {
@@ -84,7 +96,7 @@ void Seed(GuestWindow& window, Mode mode)
     memory.WriteU32(Target + 16u, 0x55555555u);
 }
 
-PPCContext Initial(Mode mode)
+PPCContext Initial(const Case& item)
 {
     PPCContext context{};
     PPCRegister* fields[] = {&context.r0, &context.r1, &context.r2,
@@ -100,8 +112,10 @@ PPCContext Initial(Mode mode)
     context.lr = 0x11223344abcdef01ull;
     context.ctr.u64 = 0x5555666677778888ull;
     context.r3.u64 = Record;
-    if (mode == Mode::Funclet)
-        context.r12.u64 = 0x1234567800000000ull | (Record + 408u);
+    if (item.entry != 0x82373158u)
+        context.r12.u64 = 0x1234567800000000ull |
+            (Record + (item.entry == 0x8237308cu ? 72u :
+                item.entry == 0x8237da84u ? 56u : 408u));
     context.cr0.gt = 1;
     context.cr6.lt = 1;
     context.xer.so = 1;
@@ -109,10 +123,18 @@ PPCContext Initial(Mode mode)
     return context;
 }
 
-bool ExpectedPath(Mode mode, const PPCContext& context,
+bool ExpectedPath(const Case& item, const PPCContext& context,
     const GuestWindow& window)
 {
     const auto memory = window.Memory();
+    const auto mode = item.mode;
+    if (item.entry != 0x82373158u &&
+        (context.r3.u64 != (0x1234567800000000ull | Record) ||
+         context.r31.u64 != (0x1234567800000000ull |
+            (Record - (item.entry == 0x82290640u ? 104u : 88u))) ||
+         context.r1.u64 != (0x1234567800000000ull | Stack) ||
+         context.lr != 0xabcdef01u))
+        return false;
     if (mode == Mode::Idle)
         return context.r11.u64 == 0u && context.cr6.eq &&
             memory.ReadU32(Record + 4u) == 0u &&
@@ -129,12 +151,6 @@ bool ExpectedPath(Mode mode, const PPCContext& context,
         memory.ReadU32(Record + 4u) != 0u)
         return false;
 
-    if (mode == Mode::Funclet)
-        return context.r3.u64 == (0x1234567800000000ull | Record) &&
-            context.r31.u64 ==
-                (0x1234567800000000ull | (Record - 104u)) &&
-            context.r1.u64 == (0x1234567800000000ull | Stack) &&
-            context.lr == 0xabcdef01u;
     return true;
 }
 
@@ -144,15 +160,19 @@ bool Check(const Case& item)
     Seed(original, item.mode);
     Seed(recovered, item.mode);
     Services native;
-    auto raw = Initial(item.mode);
+    auto raw = Initial(item);
     auto state = FromPpc(raw);
     std::fprintf(stderr, "pending original entry=%08X mode=%u\n",
         item.entry, static_cast<unsigned>(item.mode));
     if (item.entry == 0x82373158u)
         __imp__sub_82373158(raw, original.Bytes());
+    else if (item.entry == 0x8237308cu)
+        __imp__sub_8237308C(raw, original.Bytes());
+    else if (item.entry == 0x8237da84u)
+        __imp__sub_8237DA84(raw, original.Bytes());
     else
         __imp__sub_82290640(raw, original.Bytes());
-    if (!ExpectedPath(item.mode, raw, original))
+    if (!ExpectedPath(item, raw, original))
         throw std::runtime_error("pending fixture missed original path");
     auto recovered_memory = recovered.Memory();
     if (!family::Apply(item.entry, recovered_memory, native, state))

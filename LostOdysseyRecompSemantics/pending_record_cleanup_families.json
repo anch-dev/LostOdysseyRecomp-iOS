@@ -50,13 +50,61 @@
       "native_calls": [],
       "translated_body": "PPC_FUNC_IMPL(__imp__sub_82290640) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// addi r31,r12,-512\n\tctx.r31.s64 = ctx.r12.s64 + -512;\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// addi r3,r31,104\n\tctx.r3.s64 = ctx.r31.s64 + 104;\n\t// bl 0x82373158\n\tctx.lr = 0x82290658;\n\tsub_82373158(ctx, base);\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}",
       "status": "bounded_readable_library"
+    },
+    {
+      "address": "8237308C",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.9.cpp",
+      "source_line": 11631,
+      "instruction_count": 10,
+      "instructions": [
+        "addi r31,r12,-160",
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "stwu r1,-96(r1)",
+        "addi r3,r31,88",
+        "bl 0x82373158",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "blr "
+      ],
+      "direct_calls": [
+        "82373158"
+      ],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_8237308C) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// addi r31,r12,-160\n\tctx.r31.s64 = ctx.r12.s64 + -160;\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// addi r3,r31,88\n\tctx.r3.s64 = ctx.r31.s64 + 88;\n\t// bl 0x82373158\n\tctx.lr = 0x823730A4;\n\tsub_82373158(ctx, base);\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
+    },
+    {
+      "address": "8237DA84",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.9.cpp",
+      "source_line": 37680,
+      "instruction_count": 10,
+      "instructions": [
+        "addi r31,r12,-144",
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "stwu r1,-96(r1)",
+        "addi r3,r31,88",
+        "bl 0x82373158",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "blr "
+      ],
+      "direct_calls": [
+        "82373158"
+      ],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_8237DA84) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// addi r31,r12,-144\n\tctx.r31.s64 = ctx.r12.s64 + -144;\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// addi r3,r31,88\n\tctx.r3.s64 = ctx.r31.s64 + 88;\n\t// bl 0x82373158\n\tctx.lr = 0x8237DA9C;\n\tsub_82373158(ctx, base);\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
     }
   ],
   "implementation": {
     "header": "include/lo_semantics/pending_record_cleanup.h",
     "source": "src/pending_record_cleanup.cpp",
     "oracle": "tests/pending_record_cleanup_oracle.cpp",
-    "scope": "Recover the pending-record cleanup and caller funclet with idle handling, 32-bit store overflow/full-64-bit sum behavior, self-alias target handling, high-SP/full-LR frame restoration and ordinary-RAM/selected-GPR/CR/XER comparison. Synchronization callback placement is represented; host/PPC lwsync ordering, concurrency, faults, MMIO, native synchronization implementation and runtime integration remain outside scope."
+    "scope": "Pending-record counter cleanup and three caller-frame funclets; preserve idle and active paths, full-width frame arithmetic, low-32-bit guest stores and selected live register state. Synchronization placement is represented, with ordering and concurrency still open."
   },
   "validation": {
     "focused_original_ppc_cases": 4,
@@ -66,6 +114,28 @@
     "tested_scope": "idle; 32-bit store overflow with full-64-bit sum; target=self alias; caller funclet high-SP/full-LR; ordinary RAM and selected GPR/CR/XER; synchronization callback placement only",
     "unvalidated": "lwsync host/PPC ordering, concurrency, faults, MMIO, native synchronization implementation and runtime behavior",
     "runtime_validated": false,
-    "complete": false
+    "complete": false,
+    "extensions": [
+      {
+        "address": "8237308C",
+        "focused_original_ppc_cases": 2,
+        "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-pending-record-8237308c-tests/pending-record-8237308c-result.json",
+        "library": "Windows-native /W4 /WX MT static library",
+        "tested_scope": "Only 8237308C: idle and full-64-bit sum with low-32-bit store overflow; high caller-frame/SP/LR inputs and truncated LR restoration, ordinary RAM, selected GPR/CR/XER and synchronization callback placement.",
+        "unvalidated_scope": "Host/PPC lwsync ordering, concurrency, faults, MMIO, native synchronization implementation, unselected ABI and runtime.",
+        "runtime_validated": false,
+        "complete": false
+      },
+      {
+        "address": "8237DA84",
+        "focused_original_ppc_cases": 2,
+        "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-pending-record-8237da84-tests/pending-record-8237da84-result.json",
+        "library": "Windows-native /W4 /WX MT static library",
+        "tested_scope": "Only 8237DA84: idle and target=self alias; high caller-frame/SP/LR inputs and truncated LR restoration, ordinary RAM, selected GPR/CR/XER and synchronization callback placement.",
+        "unvalidated_scope": "Host/PPC lwsync ordering, concurrency, faults, MMIO, native synchronization implementation, unselected ABI and runtime.",
+        "runtime_validated": false,
+        "complete": false
+      }
+    ]
   }
 }

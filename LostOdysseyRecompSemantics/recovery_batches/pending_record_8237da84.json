@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "8237DA84 pending record caller-frame cleanup; idle and self-alias paths through the accepted lower implementation.",
+  "families": [
+    {
+      "name": "pending-record-8237da84",
+      "manifest": "LostOdysseyRecompSemantics/pending_record_cleanup_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/pending_record_cleanup_oracle.cpp",
+      "prelude": "#define LO_PENDING_RECORD_8237DA84_ONLY\nextern \"C\" PPC_FUNC(__imp__sub_82373158);\n#define sub_82373158(c,b) __imp__sub_82373158(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/pending_record_cleanup.cpp"
+      ]
+    }
+  ]
+}

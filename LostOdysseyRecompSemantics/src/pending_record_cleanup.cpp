@@ -35,15 +35,16 @@ void ClearPendingRecord(GuestMemory& memory,NativeServices& native,
 }
 
 void ClearPendingFunclet(GuestMemory& memory,NativeServices& native,
-    Registers& state)
+    Registers& state,std::uint32_t frame_size,std::uint32_t member_offset,
+    GuestAddress return_address)
 {
-    R(state,31)=R(state,12)-512u;
+    R(state,31)=R(state,12)-frame_size;
     R(state,12)=state.lr;
     memory.WriteU32(Address(state.sp-8u),Address(R(state,12)));
     memory.WriteU32(Address(state.sp-96u),Address(state.sp));
     state.sp-=96u;
-    R(state,3)=R(state,31)+104u;
-    state.lr=0x82290658u;
+    R(state,3)=R(state,31)+member_offset;
+    state.lr=return_address;
     ClearPendingRecord(memory,native,state);
     state.sp+=96u;
     R(state,12)=memory.ReadU32(Address(state.sp-8u));
@@ -57,7 +58,9 @@ bool Apply(GuestAddress entry,GuestMemory& memory,
     switch (entry)
     {
     case 0x82373158u:ClearPendingRecord(memory,native,registers);return true;
-    case 0x82290640u:ClearPendingFunclet(memory,native,registers);return true;
+    case 0x82290640u:ClearPendingFunclet(memory,native,registers,512u,104u,0x82290658u);return true;
+    case 0x8237308cu:ClearPendingFunclet(memory,native,registers,160u,88u,0x823730a4u);return true;
+    case 0x8237da84u:ClearPendingFunclet(memory,native,registers,144u,88u,0x8237da9cu);return true;
     default:return false;
     }
 }
