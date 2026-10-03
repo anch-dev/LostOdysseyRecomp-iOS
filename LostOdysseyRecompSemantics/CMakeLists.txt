@@ -28,6 +28,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/registered_callback_family.cpp
     src/registered_getter_family.cpp
     src/registered_metadata_words.cpp
+    src/registered_metadata_initializers.cpp
     src/instance_vtable_family.cpp
     src/instance_field_initializer_family.cpp
     src/instance_property_initializer_family.cpp
