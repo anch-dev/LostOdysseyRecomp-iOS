@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "previous_checkpoint": "instance_runtime_checkpoint.json",
+  "code_commit": "a51db0b",
+  "unique_recovered_entry_addresses": 5010,
+  "additional_entry_addresses": 14,
+  "individually_recorded_entries": 82,
+  "family_manifests": 31,
+  "overlapping_addresses": ["829664E8", "82B84D88"],
+  "family": {
+    "name": "instance_integer_sequence",
+    "manifest": "instance_integer_sequence_families.json",
+    "entries": 14,
+    "algorithm_layouts": 12,
+    "implementation": "Named TextBufferFactory, Factory, Exporter, Commandlet, DrawString, ShaderCache, GameViewportClient, ShadowMap1D, StaticMesh, AudioDevice and XeAudioDevice layouts. Retains ordered word/byte defaults, dynamic flag masks, conditional bit-14 setting, repeated vtable/field writes and live stack staging; no runtime PPC instruction interpreter.",
+    "strict_validation": "All 14 complete cached translated bodies, instruction sequences, CFG and literal parameter tables are pinned in the checked manifest. Generator --check compares the entire records and C++ parameter table, without source/image hashes or a PPC tree scan.",
+    "bounded_validation": {
+      "status": "passed",
+      "original_ppc_comparisons": 16,
+      "unknown_address_checks": 1,
+      "scope": "One representative per 12 algorithm layouts plus Commandlet bit-9 early return, XeAudio null-path pre-guard caller_sp+20 write, XeAudio stack alias/reloads and UI low-word-null. Full r3 and ordinary bounded memory compared. U64 ld/std are modeled as two ordinary word accesses; volatile PPC registers and fault/MMIO widths excluded.",
+      "runner": "tools/ghidra/test_semantic_instance_integer_sequence_family.py",
+      "receipt": "External scratch: semantic-instance-integer-sequence-tests/instance-integer-sequence-result.json"
+    }
+  },
+  "build": {
+    "status": "passed",
+    "platform": "Windows x86_64 clang-cl 22.1.8 RelWithDebInfo /W4 /WX",
+    "scope": "Only the new semantic-library source compiled and the static library linked, with two build jobs. No new runtime adapter or binary/scene validation for these 14 entries.",
+    "log": "External scratch: semantic-runtime-build/instance-integer-sequence-library-build.log"
+  },
+  "runtime": {
+    "available_opt_in_wrappers": 3168,
+    "default_off_gates": 8,
+    "wrappers_added": 0,
+    "reused_checkpoint": "instance_runtime_checkpoint.json",
+    "scene_binary_revision": "ee9239d965cc",
+    "scene_scope": "The previous eight-gate Vulkan Map20/menu smoke and 655-wrapper adapter comparisons are reused. The new integer-sequence library API has no runtime wrappers and is outside that scene scope."
+  },
+  "remaining_cached_candidates": {
+    "instance_entries": 41,
+    "metadata_entries": 17,
+    "scope": "Cached subsets only, not whole-game remaining function counts.",
+    "next_closed_paths": "Seven loaded-single initializers, one CopyGuestMemory composition and seven parent paths through four additionally recoverable callees. The latter would add eleven unique addresses. Twenty-six cached instance entries still have unmapped lower dependencies.",
+    "handoff": "out/function-inventory/instance-remaining-handoff.md"
+  },
+  "counting_note": "Unique readable mapped entry addresses, not independent logical functions or complete semantic recovery. The 14 new addresses do not overlap existing family maps. Complete game semantics, object layouts and deeper services remain incomplete.",
+  "evidence_reuse": "Existing runtime/helper/scene results reused. This library-only addition did not justify replaying the game, old suites or hashes. The retained FP signaling-NaN discrepancy and corrected Vulkan backend metadata remain unchanged."
+}
