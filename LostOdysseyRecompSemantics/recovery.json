@@ -606,6 +606,12 @@
           "line": 1,
           "kind": "composed_differential_runner",
           "note": "Twelve five-function original-PPC composition cases passed. Test-only adapters replay ABI stack saves/backchains; heap, CRT, kernel and vtable callbacks remain synthetic. No production PPCContext or runtime integration is implied."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_startup.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "Six ten-function startup cases use real recovered/original virtual targets checked in a separately hash-pinned unpacked image. Heap/CRT/kernel services remain synthetic; generic ABI scratch and volatile context are excluded. Image unpacking provenance is not independently proved."
         }
       ],
       "dependencies": [],
@@ -1834,6 +1840,12 @@
           "line": 1,
           "kind": "composed_differential_runner",
           "note": "Twelve five-function original-PPC composition cases passed. Test-only adapters replay ABI stack saves/backchains; heap, CRT, kernel and vtable callbacks remain synthetic. No production PPCContext or runtime integration is implied."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_startup.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "Six ten-function startup cases use real recovered/original virtual targets checked in a separately hash-pinned unpacked image. Heap/CRT/kernel services remain synthetic; generic ABI scratch and volatile context are excluded. Image unpacking provenance is not independently proved."
         }
       ],
       "dependencies": [
@@ -1924,6 +1936,12 @@
           "line": 1,
           "kind": "composed_differential_runner",
           "note": "Twelve five-function original-PPC composition cases passed. Test-only adapters replay ABI stack saves/backchains; heap, CRT, kernel and vtable callbacks remain synthetic. No production PPCContext or runtime integration is implied."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_startup.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "Six ten-function startup cases use real recovered/original virtual targets checked in a separately hash-pinned unpacked image. Heap/CRT/kernel services remain synthetic; generic ABI scratch and volatile context are excluded. Image unpacking provenance is not independently proved."
         }
       ],
       "dependencies": [
@@ -2011,6 +2029,12 @@
           "line": 1,
           "kind": "composed_differential_runner",
           "note": "Twelve five-function original-PPC composition cases passed. Test-only adapters replay ABI stack saves/backchains; heap, CRT, kernel and vtable callbacks remain synthetic. No production PPCContext or runtime integration is implied."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_startup.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "Six ten-function startup cases use real recovered/original virtual targets checked in a separately hash-pinned unpacked image. Heap/CRT/kernel services remain synthetic; generic ABI scratch and volatile context are excluded. Image unpacking provenance is not independently proved."
         }
       ],
       "dependencies": [],
@@ -2051,6 +2075,12 @@
           "line": 1,
           "kind": "composed_differential_runner",
           "note": "Twelve five-function original-PPC composition cases passed. Test-only adapters replay ABI stack saves/backchains; heap, CRT, kernel and vtable callbacks remain synthetic. No production PPCContext or runtime integration is implied."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_startup.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "Six ten-function startup cases use real recovered/original virtual targets checked in a separately hash-pinned unpacked image. Heap/CRT/kernel services remain synthetic; generic ABI scratch and volatile context are excluded. Image unpacking provenance is not independently proved."
         }
       ],
       "dependencies": [
@@ -2092,6 +2122,12 @@
           "line": 10540,
           "kind": "generated_ppc",
           "note": "Original PPC body pinned and extracted by test_semantic_manager_storage.py."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_startup.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "Six ten-function startup cases use real recovered/original virtual targets checked in a separately hash-pinned unpacked image. Heap/CRT/kernel services remain synthetic; generic ABI scratch and volatile context are excluded. Image unpacking provenance is not independently proved."
         }
       ],
       "dependencies": [],
@@ -2124,6 +2160,12 @@
           "line": 10909,
           "kind": "generated_ppc",
           "note": "Original PPC body pinned and extracted by test_semantic_manager_storage.py."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_startup.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "Six ten-function startup cases use real recovered/original virtual targets checked in a separately hash-pinned unpacked image. Heap/CRT/kernel services remain synthetic; generic ABI scratch and volatile context are excluded. Image unpacking provenance is not independently proved."
         }
       ],
       "dependencies": [
@@ -2164,6 +2206,12 @@
           "line": 5199,
           "kind": "generated_ppc",
           "note": "Pinned original bodies are extracted by the manager lock runner, including twelve real three-body composed cases."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_startup.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "Six ten-function startup cases use real recovered/original virtual targets checked in a separately hash-pinned unpacked image. Heap/CRT/kernel services remain synthetic; generic ABI scratch and volatile context are excluded. Image unpacking provenance is not independently proved."
         }
       ],
       "dependencies": [],
@@ -2195,6 +2243,12 @@
           "line": 13287,
           "kind": "generated_ppc",
           "note": "Pinned original bodies are extracted by the manager lock runner, including twelve real three-body composed cases."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_startup.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "Six ten-function startup cases use real recovered/original virtual targets checked in a separately hash-pinned unpacked image. Heap/CRT/kernel services remain synthetic; generic ABI scratch and volatile context are excluded. Image unpacking provenance is not independently proved."
         }
       ],
       "dependencies": [
@@ -2235,6 +2289,12 @@
           "line": 9802,
           "kind": "generated_ppc",
           "note": "Pinned original bodies are extracted by the manager lock runner, including twelve real three-body composed cases."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_startup.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "Six ten-function startup cases use real recovered/original virtual targets checked in a separately hash-pinned unpacked image. Heap/CRT/kernel services remain synthetic; generic ABI scratch and volatile context are excluded. Image unpacking provenance is not independently proved."
         }
       ],
       "dependencies": [
