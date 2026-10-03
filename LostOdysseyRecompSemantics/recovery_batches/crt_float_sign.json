@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "One live-reference binary64 predicate, generated x64 flush-control cache, minimum representative validation.",
+  "families": [
+    {
+      "name": "crt-float-sign",
+      "manifest": "LostOdysseyRecompSemantics/crt_float_sign_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/crt_float_sign_oracle.cpp",
+      "prelude": "",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/crt_float_sign.cpp"
+      ]
+    }
+  ]
+}
