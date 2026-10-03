@@ -1,0 +1,46 @@
+{
+  "schema": "heap-lock-exit-v1",
+  "entries": [
+    {
+      "address": "827CD7BC",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.76.cpp",
+      "source_line": 5592,
+      "instructions": [
+        "std r31,-8(r1)",
+        "addi r31,r12,-320",
+        "std r22,-16(r1)",
+        "mflr r12",
+        "stw r12,-24(r1)",
+        "stwu r1,-112(r1)",
+        "lwz r11,96(r31)",
+        "cmplwi cr6,r11,0",
+        "beq cr6,0x827cd7e8",
+        "lwz r3,1408(r22)",
+        "bl 0x830d9c7c",
+        "lwz r1,0(r1)",
+        "ld r31,-8(r1)",
+        "ld r22,-16(r1)",
+        "lwz r12,-24(r1)",
+        "mtlr r12",
+        "blr "
+      ],
+      "direct_calls": [],
+      "native_calls": [
+        "RtlLeaveCriticalSection"
+      ],
+      "cfg": {
+        "labels": [
+          "827CD7E8"
+        ],
+        "branches": [
+          "beq cr6,0x827cd7e8",
+          "bl 0x830d9c7c",
+          "blr "
+        ]
+      },
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_827CD7BC) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// std r31,-8(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -8, ctx.r31.u64);\n\t// addi r31,r12,-320\n\tctx.r31.s64 = ctx.r12.s64 + -320;\n\t// std r22,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r22.u64);\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-24(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -24, ctx.r12.u32);\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// lwz r11,96(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + 96);\n\t// cmplwi cr6,r11,0\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 0, ctx.xer);\n\t// beq cr6,0x827cd7e8\n\tif (ctx.cr6.eq) goto loc_827CD7E8;\n\t// lwz r3,1408(r22)\n\tctx.r3.u64 = PPC_LOAD_U32(ctx.r22.u32 + 1408);\n\t// bl 0x830d9c7c\n\tctx.lr = 0x827CD7E8;\n\t__imp__RtlLeaveCriticalSection(ctx, base);\nloc_827CD7E8:\n\t// lwz r1,0(r1)\n\tctx.r1.u64 = PPC_LOAD_U32(ctx.r1.u32 + 0);\n\t// ld r31,-8(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -8);\n\t// ld r22,-16(r1)\n\tctx.r22.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// lwz r12,-24(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -24);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library",
+      "boundary": "Complete selected registers, own frame and ordinary RAM; RtlLeaveCriticalSection explicit native service. Other volatile registers, faults, MMIO, concurrency and runtime unverified."
+    }
+  ]
+}
