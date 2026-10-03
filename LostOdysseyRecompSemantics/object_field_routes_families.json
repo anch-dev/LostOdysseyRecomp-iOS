@@ -1,0 +1,125 @@
+{
+  "schema": "object-field-routes-v1",
+  "entries": [
+    {
+      "address": "822C4BA8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+      "source_line": 27606,
+      "instruction_count": 19,
+      "instructions": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "lwz r11,80(r3)",
+        "lwz r11,60(r11)",
+        "lwz r31,0(r11)",
+        "mr r3,r31",
+        "lwz r11,0(r31)",
+        "lwz r11,288(r11)",
+        "mtctr r11",
+        "bctrl",
+        "lfs f0,928(r31)",
+        "fmuls f1,f1,f0",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "direct_calls": [],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_822C4BA8) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// std r31,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// lwz r11,80(r3)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 80);\n\t// lwz r11,60(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 60);\n\t// lwz r31,0(r11)\n\tctx.r31.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);\n\t// mr r3,r31\n\tctx.r3.u64 = ctx.r31.u64;\n\t// lwz r11,0(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + 0);\n\t// lwz r11,288(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 288);\n\t// mtctr r11\n\tctx.ctr.u64 = ctx.r11.u64;\n\t// bctrl \n\tctx.lr = 0x822C4BD8;\n\tPPC_CALL_INDIRECT_FUNC(ctx.ctr.u32 & ~3u);\n\t// lfs f0,928(r31)\n\tctx.fpscr.disableFlushMode();\n\ttemp.u32 = PPC_LOAD_U32(ctx.r31.u32 + 928);\n\tctx.f0.f64 = double(temp.f32);\n\t// fmuls f1,f1,f0\n\tctx.f1.f64 = double(float(ctx.f1.f64 * ctx.f0.f64));\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
+    },
+    {
+      "address": "822C4BF8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+      "source_line": 27658,
+      "instruction_count": 12,
+      "instructions": [
+        "lis r11,-32256",
+        "lfs f0,916(r3)",
+        "lfs f13,3664(r11)",
+        "fcmpu cr6,f0,f13",
+        "bne cr6,0x822c4c20",
+        "lfs f0,924(r3)",
+        "fcmpu cr6,f0,f13",
+        "bne cr6,0x822c4c1c",
+        "lfs f0,920(r3)",
+        "stfs f0,916(r3)",
+        "lfs f1,916(r3)",
+        "blr"
+      ],
+      "direct_calls": [],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_822C4BF8) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// lis r11,-32256\n\tctx.r11.s64 = -2113929216;\n\t// lfs f0,916(r3)\n\tctx.fpscr.disableFlushMode();\n\ttemp.u32 = PPC_LOAD_U32(ctx.r3.u32 + 916);\n\tctx.f0.f64 = double(temp.f32);\n\t// lfs f13,3664(r11)\n\ttemp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 3664);\n\tctx.f13.f64 = double(temp.f32);\n\t// fcmpu cr6,f0,f13\n\tctx.cr6.compare(ctx.f0.f64, ctx.f13.f64);\n\t// bne cr6,0x822c4c20\n\tif (!ctx.cr6.eq) goto loc_822C4C20;\n\t// lfs f0,924(r3)\n\ttemp.u32 = PPC_LOAD_U32(ctx.r3.u32 + 924);\n\tctx.f0.f64 = double(temp.f32);\n\t// fcmpu cr6,f0,f13\n\tctx.cr6.compare(ctx.f0.f64, ctx.f13.f64);\n\t// bne cr6,0x822c4c1c\n\tif (!ctx.cr6.eq) goto loc_822C4C1C;\n\t// lfs f0,920(r3)\n\ttemp.u32 = PPC_LOAD_U32(ctx.r3.u32 + 920);\n\tctx.f0.f64 = double(temp.f32);\nloc_822C4C1C:\n\t// stfs f0,916(r3)\n\tctx.fpscr.disableFlushMode();\n\ttemp.f32 = float(ctx.f0.f64);\n\tPPC_STORE_U32(ctx.r3.u32 + 916, temp.u32);\nloc_822C4C20:\n\t// lfs f1,916(r3)\n\tctx.fpscr.disableFlushMode();\n\ttemp.u32 = PPC_LOAD_U32(ctx.r3.u32 + 916);\n\tctx.f1.f64 = double(temp.f32);\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
+    },
+    {
+      "address": "822C5C68",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+      "source_line": 30268,
+      "instruction_count": 14,
+      "instructions": [
+        "mr r4,r3",
+        "lwz r11,84(r4)",
+        "rlwinm r11,r11,0,2,2",
+        "cmplwi cr6,r11,0",
+        "bne cr6,0x822c5c8c",
+        "lwz r11,0(r4)",
+        "lwz r11,308(r11)",
+        "mtctr r11",
+        "bctr",
+        "lwz r11,0(r5)",
+        "mr r3,r5",
+        "lwz r11,268(r11)",
+        "mtctr r11",
+        "bctr"
+      ],
+      "direct_calls": [],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_822C5C68) {\n\tPPC_FUNC_PROLOGUE();\n\t// mr r4,r3\n\tctx.r4.u64 = ctx.r3.u64;\n\t// lwz r11,84(r4)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r4.u32 + 84);\n\t// rlwinm r11,r11,0,2,2\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 0) & 0x20000000;\n\t// cmplwi cr6,r11,0\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 0, ctx.xer);\n\t// bne cr6,0x822c5c8c\n\tif (!ctx.cr6.eq) goto loc_822C5C8C;\n\t// lwz r11,0(r4)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r4.u32 + 0);\n\t// lwz r11,308(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 308);\n\t// mtctr r11\n\tctx.ctr.u64 = ctx.r11.u64;\n\t// bctr \n\tPPC_CALL_INDIRECT_FUNC(ctx.ctr.u32 & ~3u);\n\treturn;\nloc_822C5C8C:\n\t// lwz r11,0(r5)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r5.u32 + 0);\n\t// mr r3,r5\n\tctx.r3.u64 = ctx.r5.u64;\n\t// lwz r11,268(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 268);\n\t// mtctr r11\n\tctx.ctr.u64 = ctx.r11.u64;\n\t// bctr \n\tPPC_CALL_INDIRECT_FUNC(ctx.ctr.u32 & ~3u);\n\treturn;\n}",
+      "status": "bounded_readable_library"
+    },
+    {
+      "address": "822C60D0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+      "source_line": 30974,
+      "instruction_count": 8,
+      "instructions": [
+        "lis r11,-32256",
+        "lwz r3,124(r3)",
+        "cmplwi cr6,r3,0",
+        "lfs f1,30596(r11)",
+        "beqlr cr6",
+        "li r5,1",
+        "li r4,1",
+        "b 0x822c5e58"
+      ],
+      "direct_calls": [
+        "822C5E58"
+      ],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_822C60D0) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// lis r11,-32256\n\tctx.r11.s64 = -2113929216;\n\t// lwz r3,124(r3)\n\tctx.r3.u64 = PPC_LOAD_U32(ctx.r3.u32 + 124);\n\t// cmplwi cr6,r3,0\n\tctx.cr6.compare<uint32_t>(ctx.r3.u32, 0, ctx.xer);\n\t// lfs f1,30596(r11)\n\tctx.fpscr.disableFlushMode();\n\ttemp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 30596);\n\tctx.f1.f64 = double(temp.f32);\n\t// beqlr cr6\n\tif (ctx.cr6.eq) return;\n\t// li r5,1\n\tctx.r5.s64 = 1;\n\t// li r4,1\n\tctx.r4.s64 = 1;\n\t// b 0x822c5e58\n\tsub_822C5E58(ctx, base);\n\treturn;\n}",
+      "status": "bounded_readable_library"
+    }
+  ],
+  "implementation": {
+    "header": "include/lo_semantics/object_field_routes.h",
+    "source": "src/object_field_routes.cpp",
+    "oracle": "tests/object_field_routes_oracle.cpp",
+    "scope": "Object field chain and virtual scale, preferred float field selection, flag-directed virtual tail routing and optional-field direct tail routing. Ordered ordinary RAM, selected GPR/FPR/CR6/FPSCR and guest-call boundaries are modeled."
+  },
+  "validation": {
+    "status": "passed",
+    "focused_original_ppc_cases": 8,
+    "unknown_entry_checks": 0,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-object-field-routes-tests/object-field-routes-result.json",
+    "library": "Windows-native /W4 /WX MT static library",
+    "tested_scope": "Virtual scale callback with live object mutation, three preferred-float branches, both flag-selected virtual tails and absent/present optional-field direct tails. Complete pinned caller bodies; mutable guest callbacks represent callee boundaries. Selected GPR/FPR/CR6/FP cache, x64 host control, ordered RAM and call events.",
+    "unvalidated_scope": "Callee internals including direct 822C5E58, signaling NaNs, subnormals, host exceptions, other inputs/aliasing, faults, MMIO, concurrency, unselected ABI/FP and runtime.",
+    "runtime_validated": false,
+    "complete": false
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Two bounded original PPC bodies for chained key lookup and legacy character flags.",
+  "families": [
+    {
+      "name": "legacy-token-lookup-flags",
+      "manifest": "LostOdysseyRecompSemantics/legacy_token_lookup_flags_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_token_lookup_flags_oracle.cpp",
+      "prelude": "",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_token_lookup_flags.cpp"
+      ]
+    }
+  ]
+}

@@ -43,12 +43,16 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/legacy_character_classification.cpp
     src/legacy_character_cursor.cpp
     src/legacy_utf16_prefix_cursor.cpp
+    src/legacy_token_lookup_flags.cpp
     src/object_range_destruction.cpp
     src/caller_frame_unlock.cpp
     src/caller_frame_vtable_restore.cpp
+    src/caller_frame_vtable_init.cpp
     src/pending_record_cleanup.cpp
     src/record_buffer_extent.cpp
+    src/object_record_update.cpp
     src/float_triplet_transfer.cpp
+    src/object_field_routes.cpp
     src/crt_allocation.cpp
     src/crt_reallocate.cpp
     src/invalid_parameter.cpp

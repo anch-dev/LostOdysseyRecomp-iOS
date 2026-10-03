@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Object flag predicate and ordered record snapshot/add/output with integer/FP conversion.",
+  "families": [
+    {
+      "name": "object-record-update",
+      "manifest": "LostOdysseyRecompSemantics/object_record_update_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/object_record_update_oracle.cpp",
+      "prelude": "",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/object_record_update.cpp"
+      ]
+    }
+  ]
+}

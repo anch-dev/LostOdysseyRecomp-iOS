@@ -1,0 +1,92 @@
+{
+  "schema": "caller-frame-vtable-init-v1",
+  "entries": [
+    {
+      "address": "828138F8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.85.cpp",
+      "source_line": 10525,
+      "instruction_count": 10,
+      "instructions": [
+        "std r31,-8(r1)",
+        "addi r31,r1,-16",
+        "stwu r1,-16(r1)",
+        "stw r3,36(r31)",
+        "lis r11,-32248",
+        "addi r11,r11,396",
+        "stw r11,0(r3)",
+        "addi r1,r31,16",
+        "ld r31,-8(r1)",
+        "blr "
+      ],
+      "direct_calls": [],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_828138F8) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// std r31,-8(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -8, ctx.r31.u64);\n\t// addi r31,r1,-16\n\tctx.r31.s64 = ctx.r1.s64 + -16;\n\t// stwu r1,-16(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-16);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// stw r3,36(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 36, ctx.r3.u32);\n\t// lis r11,-32248\n\tctx.r11.s64 = -2113404928;\n\t// addi r11,r11,396\n\tctx.r11.s64 = ctx.r11.s64 + 396;\n\t// stw r11,0(r3)\n\tPPC_STORE_U32(ctx.r3.u32 + 0, ctx.r11.u32);\n\t// addi r1,r31,16\n\tctx.r1.s64 = ctx.r31.s64 + 16;\n\t// ld r31,-8(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -8);\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
+    },
+    {
+      "address": "82373104",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.9.cpp",
+      "source_line": 11727,
+      "instruction_count": 10,
+      "instructions": [
+        "addi r31,r12,-160",
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "stwu r1,-96(r1)",
+        "addi r3,r31,104",
+        "bl 0x828138f8",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "blr "
+      ],
+      "direct_calls": [
+        "828138F8"
+      ],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82373104) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// addi r31,r12,-160\n\tctx.r31.s64 = ctx.r12.s64 + -160;\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// addi r3,r31,104\n\tctx.r3.s64 = ctx.r31.s64 + 104;\n\t// bl 0x828138f8\n\tctx.lr = 0x8237311C;\n\tsub_828138F8(ctx, base);\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
+    },
+    {
+      "address": "8237DAFC",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.9.cpp",
+      "source_line": 37776,
+      "instruction_count": 10,
+      "instructions": [
+        "addi r31,r12,-144",
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "stwu r1,-96(r1)",
+        "addi r3,r31,80",
+        "bl 0x828138f8",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "blr "
+      ],
+      "direct_calls": [
+        "828138F8"
+      ],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_8237DAFC) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// addi r31,r12,-144\n\tctx.r31.s64 = ctx.r12.s64 + -144;\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// addi r3,r31,80\n\tctx.r3.s64 = ctx.r31.s64 + 80;\n\t// bl 0x828138f8\n\tctx.lr = 0x8237DB14;\n\tsub_828138F8(ctx, base);\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
+    }
+  ],
+  "implementation": {
+    "header": "include/lo_semantics/caller_frame_vtable_init.h",
+    "source": "src/caller_frame_vtable_init.cpp",
+    "oracle": "tests/caller_frame_vtable_init_oracle.cpp",
+    "scope": "Actual 828138F8 direct-vtable lower and two caller-frame funclets. Preserves lower 64-bit r31 save/restore, 32-bit SP/r3 spills, full-width GPR arithmetic and the 8208018C field write."
+  },
+  "validation": {
+    "status": "passed",
+    "focused_original_ppc_cases": 6,
+    "unknown_entry_checks": 0,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-caller-frame-vtable-init-tests/caller-frame-vtable-init-result.json",
+    "library": "Windows-native /W4 /WX MT static library",
+    "tested_scope": "Actual 828138F8 lower, direct and spill-alias cases plus both callers with high and wrapped caller-frame values. Correct 8208018C vtable store, selected full GPR/SP/LR, spills and ordinary RAM.",
+    "unvalidated_scope": "Faults, MMIO, concurrency, unselected ABI and runtime.",
+    "runtime_validated": false,
+    "complete": false
+  }
+}

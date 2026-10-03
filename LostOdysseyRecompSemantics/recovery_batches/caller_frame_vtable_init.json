@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Actual 828138F8 lower and its two PPC9 caller-frame funclets; six focused original PPC cases.",
+  "families": [
+    {
+      "name": "caller-frame-vtable-init",
+      "manifest": "LostOdysseyRecompSemantics/caller_frame_vtable_init_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/caller_frame_vtable_init_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\nextern \"C\" PPC_FUNC(__imp__sub_828138F8);\n#define sub_828138F8(c,b) __imp__sub_828138F8(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/caller_frame_vtable_init.cpp"
+      ]
+    }
+  ]
+}
