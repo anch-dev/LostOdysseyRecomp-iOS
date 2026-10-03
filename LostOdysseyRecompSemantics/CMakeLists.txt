@@ -18,6 +18,9 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/manager_construction.cpp
     src/manager_storage.cpp
     src/manager_lock.cpp
+    src/manager_allocate.cpp
+    src/manager_resize.cpp
+    src/fallback_resize.cpp
     src/memory_services.cpp
     src/memory_fill.cpp
     src/memory_move.cpp

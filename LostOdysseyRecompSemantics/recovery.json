@@ -1614,11 +1614,15 @@
             "82295530"
           ],
           "target_evidence": "out/decomp-index/manager-vtable-targets.json",
-          "target_scope": "Observed in primary 0x82002700 and fallback 0x8201dd90 tables; arbitrary runtime vtable replacement remains unresolved."
+          "target_scope": "Readable implementations and bounded receipts now cover these observed targets; arbitrary runtime vtable replacement and caller ABI composition remain unresolved.",
+          "known_target_implementations": [
+            "82295950",
+            "82295530"
+          ]
         }
       ],
       "open_obligations": [
-        "Recover indirect resize implementation and allocator lifetime.",
+        "Compose the recovered primary/fallback resize methods with real allocation services and validate allocator lifetime.",
         "Original residual r3 is unmodeled; adapt it before any caller that observes the register.",
         "Validate a complete PPCContext adapter and representative game scenes before runtime replacement."
       ]
@@ -1725,7 +1729,11 @@
             "82295530"
           ],
           "target_evidence": "out/decomp-index/manager-vtable-targets.json",
-          "target_scope": "Observed in primary 0x82002700 and fallback 0x8201dd90 tables; arbitrary runtime vtable replacement remains unresolved."
+          "target_scope": "Readable implementations and bounded receipts now cover these observed targets; arbitrary runtime vtable replacement and caller ABI composition remain unresolved.",
+          "known_target_implementations": [
+            "82295950",
+            "82295530"
+          ]
         },
         {
           "address": "indirect:vtable+16",
@@ -1738,11 +1746,15 @@
             "823F25E0"
           ],
           "target_evidence": "out/decomp-index/manager-vtable-targets.json",
-          "target_scope": "Observed in primary 0x82002700 and fallback 0x8201dd90 tables; arbitrary runtime vtable replacement remains unresolved."
+          "target_scope": "Readable implementations and bounded receipts now cover these observed targets; arbitrary runtime vtable replacement and caller ABI composition remain unresolved.",
+          "known_target_implementations": [
+            "823F2670",
+            "823F25E0"
+          ]
         }
       ],
       "open_obligations": [
-        "Recover allocation/reallocation vtable methods, manager synchronization and object lifetime.",
+        "Compose recovered allocation/reallocation vtable methods; recover deeper allocator methods and validate real synchronization and object lifetime.",
         "Validate allocator table aliasing and overflow beyond the bounded synthetic cases.",
         "Validate a complete PPCContext adapter and representative game scenes before runtime replacement."
       ]
@@ -1800,12 +1812,16 @@
             "82295530"
           ],
           "target_evidence": "out/decomp-index/manager-vtable-targets.json",
-          "target_scope": "Observed in primary 0x82002700 and fallback 0x8201dd90 tables; arbitrary runtime vtable replacement remains unresolved."
+          "target_scope": "Readable implementations and bounded receipts now cover these observed targets; arbitrary runtime vtable replacement and caller ABI composition remain unresolved.",
+          "known_target_implementations": [
+            "82295950",
+            "82295530"
+          ]
         }
       ],
       "open_obligations": [
         "Resolve the residual r3 adapter contract before composing with FreeDispatch, whose current service API returns a register value.",
-        "Recover manager resize synchronization and real allocation lifetime.",
+        "Validate recovered manager resize methods with real synchronization and allocation lifetime.",
         "Validate a complete PPCContext adapter and representative game scenes before runtime replacement."
       ]
     },
@@ -2328,6 +2344,314 @@
       "open_obligations": [
         "Validate the full runtime PPCContext adapter and representative game scenes.",
         "Real critical-section concurrency and cancellation/fault/unwind behavior remain unverified; no retry limit is introduced."
+      ]
+    },
+    {
+      "address": "823F2670",
+      "name": "lo::semantic::gpu::AllocateThroughPrimaryManager",
+      "module": "gpu/allocation",
+      "source": "LostOdysseyRecompSemantics/src/manager_allocate.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/manager_allocate.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments_and_return": "r3 receiver, r4 allocation argument, r5 scoped marker; all inputs and r3 return retain their full 64-bit register values",
+        "memory": "Big-endian 32-bit guest addresses; no native object layout is assumed.",
+        "scope": "Ordinary memory and observed service effects. ABI frame saves/backchains belong to test adapters; complete volatile PPCContext, faults, MMIO and concurrency are not established."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.14.cpp",
+          "line": 28763,
+          "kind": "generated_ppc",
+          "note": "Original generated PPC body is extracted and hash-pinned by the differential runner."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_allocate.py",
+          "line": 1,
+          "kind": "differential_runner",
+          "note": "24 bounded original-PPC cases passed; see receipt boundaries for composed helpers and synthetic services."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "indirect:vtable+4",
+          "boundary": "ManagerAllocateServices::AllocateVirtual",
+          "status": "opaque"
+        }
+      ],
+      "open_obligations": [
+        "Resolve remaining service, indirect-call, allocation lifetime and object contracts beyond the bounded fixtures.",
+        "Validate production PPCContext/stack adapters, faults, concurrency and representative game scenes before runtime replacement."
+      ]
+    },
+    {
+      "address": "823F25E0",
+      "name": "lo::semantic::gpu::AllocateThroughFallbackManager",
+      "module": "gpu/allocation",
+      "source": "LostOdysseyRecompSemantics/src/manager_allocate.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/manager_allocate.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments_and_return": "r4/r5 allocation arguments; post-prologue 128-byte guest frame has a live lock holder at +80; full virtual-call r3 is returned and leave result discarded",
+        "memory": "Big-endian 32-bit guest addresses; no native object layout is assumed.",
+        "scope": "Ordinary memory and observed service effects. ABI frame saves/backchains belong to test adapters; complete volatile PPCContext, faults, MMIO and concurrency are not established."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.14.cpp",
+          "line": 28665,
+          "kind": "generated_ppc",
+          "note": "Original generated PPC body is extracted and hash-pinned by the differential runner."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_allocate.py",
+          "line": 1,
+          "kind": "differential_runner",
+          "note": "24 bounded original-PPC cases passed; see receipt boundaries for composed helpers and synthetic services."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "822958F8",
+          "boundary": "StoreLockAndWaitForEnter",
+          "status": "implementation_available"
+        },
+        {
+          "address": "indirect:vtable+16",
+          "boundary": "ManagerAllocateServices::AllocateVirtual",
+          "status": "opaque"
+        },
+        {
+          "address": "import:RtlLeaveCriticalSection",
+          "boundary": "ManagerAllocateServices::LeaveCriticalSection",
+          "status": "opaque"
+        }
+      ],
+      "open_obligations": [
+        "Resolve remaining service, indirect-call, allocation lifetime and object contracts beyond the bounded fixtures.",
+        "Validate production PPCContext/stack adapters, faults, concurrency and representative game scenes before runtime replacement."
+      ]
+    },
+    {
+      "address": "822A0738",
+      "name": "lo::semantic::gpu::FindPrimaryResizeNode",
+      "module": "gpu/allocation",
+      "source": "LostOdysseyRecompSemantics/src/manager_resize.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/manager_resize.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments_and_return": "r3 manager, r4 requested bytes, r5 mode, r6 group; signed low-word size comparison, modulo-32-bit table indexing, full r3 address return",
+        "memory": "Big-endian 32-bit guest addresses; no native object layout is assumed.",
+        "scope": "Ordinary memory and observed service effects. ABI frame saves/backchains belong to test adapters; complete volatile PPCContext, faults, MMIO and concurrency are not established."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+          "line": 40039,
+          "kind": "generated_ppc",
+          "note": "Original generated PPC body is extracted and hash-pinned by the differential runner."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_resize.py",
+          "line": 1,
+          "kind": "differential_runner",
+          "note": "15 bounded original-PPC cases passed; see receipt boundaries for composed helpers and synthetic services."
+        }
+      ],
+      "dependencies": [],
+      "open_obligations": [
+        "Resolve remaining service, indirect-call, allocation lifetime and object contracts beyond the bounded fixtures.",
+        "Validate production PPCContext/stack adapters, faults, concurrency and representative game scenes before runtime replacement."
+      ]
+    },
+    {
+      "address": "82295950",
+      "name": "lo::semantic::gpu::ResizePrimaryManagerStorage",
+      "module": "gpu/allocation",
+      "source": "LostOdysseyRecompSemantics/src/manager_resize.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/manager_resize.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments_and_return": "r3 manager, r4 prior storage, r5 requested bytes, r6 flags; post-prologue 144-byte guest frame exposes the copy spill at r1-8; full r3 return",
+        "memory": "Big-endian 32-bit guest addresses; no native object layout is assumed.",
+        "scope": "Ordinary memory and observed service effects. ABI frame saves/backchains belong to test adapters; complete volatile PPCContext, faults, MMIO and concurrency are not established."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+          "line": 13346,
+          "kind": "generated_ppc",
+          "note": "Original generated PPC body is extracted and hash-pinned by the differential runner."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_resize.py",
+          "line": 1,
+          "kind": "differential_runner",
+          "note": "32 bounded original-PPC cases passed; see receipt boundaries for composed helpers and synthetic services."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "822A0738",
+          "boundary": "FindPrimaryResizeNode",
+          "status": "implementation_available"
+        },
+        {
+          "address": "82B7A0B0",
+          "boundary": "CopyGuestMemory",
+          "status": "implementation_available"
+        },
+        {
+          "address": "indirect:vtable+4",
+          "boundary": "ManagerResizeServices::AllocateStorage",
+          "status": "opaque"
+        },
+        {
+          "address": "indirect:vtable+12",
+          "boundary": "ManagerResizeServices::FreeStorage",
+          "status": "opaque"
+        }
+      ],
+      "open_obligations": [
+        "Resolve remaining service, indirect-call, allocation lifetime and object contracts beyond the bounded fixtures.",
+        "Validate production PPCContext/stack adapters, faults, concurrency and representative game scenes before runtime replacement."
+      ]
+    },
+    {
+      "address": "827C5050",
+      "name": "lo::semantic::gpu::AppendPointerToVector",
+      "module": "gpu/allocation",
+      "source": "LostOdysseyRecompSemantics/src/fallback_resize.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/fallback_resize.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments_and_return": "r3 vector, r4 appended value; growth result remains the full r3 return while count/backing storage are reloaded after the callback",
+        "memory": "Big-endian 32-bit guest addresses; no native object layout is assumed.",
+        "scope": "Ordinary memory and observed service effects. ABI frame saves/backchains belong to test adapters; complete volatile PPCContext, faults, MMIO and concurrency are not established."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+          "line": 8792,
+          "kind": "generated_ppc",
+          "note": "Original generated PPC body is extracted and hash-pinned by the differential runner."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_fallback_resize.py",
+          "line": 1,
+          "kind": "differential_runner",
+          "note": "4 bounded original-PPC cases passed; see receipt boundaries for composed helpers and synthetic services."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "827C4FA0",
+          "boundary": "FallbackResizeServices::GrowPointerVector",
+          "status": "opaque"
+        }
+      ],
+      "open_obligations": [
+        "Resolve remaining service, indirect-call, allocation lifetime and object contracts beyond the bounded fixtures.",
+        "Validate production PPCContext/stack adapters, faults, concurrency and representative game scenes before runtime replacement."
+      ]
+    },
+    {
+      "address": "82295530",
+      "name": "lo::semantic::gpu::ResizeFallbackAllocation",
+      "module": "gpu/allocation",
+      "source": "LostOdysseyRecompSemantics/src/fallback_resize.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/fallback_resize.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments_and_return": "r4 prior storage, r5 size, r6 argument, low r13 thread state; incoming r3 unused; post-prologue 176-byte guest frame with live +80 lock holder; full r3 return",
+        "memory": "Big-endian 32-bit guest addresses; no native object layout is assumed.",
+        "scope": "Ordinary memory and observed service effects. ABI frame saves/backchains belong to test adapters; complete volatile PPCContext, faults, MMIO and concurrency are not established."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+          "line": 12720,
+          "kind": "generated_ppc",
+          "note": "Original generated PPC body is extracted and hash-pinned by the differential runner."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_fallback_resize.py",
+          "line": 1,
+          "kind": "differential_runner",
+          "note": "39 bounded original-PPC cases passed; see receipt boundaries for composed helpers and synthetic services."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "822958F8",
+          "boundary": "StoreLockAndWaitForEnter",
+          "status": "implementation_available"
+        },
+        {
+          "address": "827C5050",
+          "boundary": "AppendPointerToVector",
+          "status": "implementation_available"
+        },
+        {
+          "address": "82B7A0B0",
+          "boundary": "CopyGuestMemory",
+          "status": "implementation_available"
+        },
+        {
+          "address": "indirect:vtable+8",
+          "boundary": "FallbackResizeServices::ReallocateThroughManager",
+          "status": "opaque"
+        },
+        {
+          "address": "indirect:vtable+12",
+          "boundary": "FallbackResizeServices::ReleaseThroughManager",
+          "status": "opaque"
+        },
+        {
+          "address": "import:RtlLeaveCriticalSection",
+          "boundary": "ManagerLockServices::LeaveCriticalSection",
+          "status": "opaque"
+        }
+      ],
+      "open_obligations": [
+        "Resolve remaining service, indirect-call, allocation lifetime and object contracts beyond the bounded fixtures.",
+        "Validate production PPCContext/stack adapters, faults, concurrency and representative game scenes before runtime replacement."
       ]
     }
   ]
