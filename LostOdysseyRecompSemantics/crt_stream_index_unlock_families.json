@@ -1,0 +1,64 @@
+{
+  "schema": "crt-stream-index-unlock-v1",
+  "entries": [
+    {
+      "address": "82B819C8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "source_line": 4241,
+      "instructions": [
+        "lis r11,-31967",
+        "rlwinm r10,r3,3,0,28",
+        "addi r11,r11,21336",
+        "lwzx r3,r10,r11",
+        "b 0x830d9c7c"
+      ],
+      "direct_calls": [],
+      "native_calls": [
+        "RtlLeaveCriticalSection"
+      ],
+      "cfg": {
+        "labels": [],
+        "branches": [
+          "b 0x830d9c7c"
+        ]
+      },
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82B819C8) {\n\tPPC_FUNC_PROLOGUE();\n\t// lis r11,-31967\n\tctx.r11.s64 = -2094989312;\n\t// rlwinm r10,r3,3,0,28\n\tctx.r10.u64 = __builtin_rotateleft64(ctx.r3.u32 | (ctx.r3.u64 << 32), 3) & 0xFFFFFFF8;\n\t// addi r11,r11,21336\n\tctx.r11.s64 = ctx.r11.s64 + 21336;\n\t// lwzx r3,r10,r11\n\tctx.r3.u64 = PPC_LOAD_U32(ctx.r10.u32 + ctx.r11.u32);\n\t// b 0x830d9c7c\n\t__imp__RtlLeaveCriticalSection(ctx, base);\n\treturn;\n}",
+      "status": "bounded_readable_library",
+      "boundary": "Complete selected registers and ordinary RAM, real tail native callback and live wrapper epilogue; other volatile registers, faults, MMIO, concurrency and runtime unverified."
+    },
+    {
+      "address": "82B863B8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "source_line": 15992,
+      "instructions": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "stwu r1,-96(r1)",
+        "li r3,10",
+        "bl 0x82b819c8",
+        "lis r11,-31944",
+        "addi r11,r11,-29312",
+        "lwz r3,148(r31)",
+        "lwz r29,80(r31)",
+        "lwz r1,0(r1)",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "blr"
+      ],
+      "direct_calls": [
+        "82B819C8"
+      ],
+      "native_calls": [],
+      "cfg": {
+        "labels": [],
+        "branches": [
+          "bl 0x82b819c8",
+          "blr"
+        ]
+      },
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82B863B8) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// li r3,10\n\tctx.r3.s64 = 10;\n\t// bl 0x82b819c8\n\tctx.lr = 0x82B863CC;\n\tsub_82B819C8(ctx, base);\n\t// lis r11,-31944\n\tctx.r11.s64 = -2093481984;\n\t// addi r11,r11,-29312\n\tctx.r11.s64 = ctx.r11.s64 + -29312;\n\t// lwz r3,148(r31)\n\tctx.r3.u64 = PPC_LOAD_U32(ctx.r31.u32 + 148);\n\t// lwz r29,80(r31)\n\tctx.r29.u64 = PPC_LOAD_U32(ctx.r31.u32 + 80);\n\t// lwz r1,0(r1)\n\tctx.r1.u64 = PPC_LOAD_U32(ctx.r1.u32 + 0);\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library",
+      "boundary": "Complete selected registers and ordinary RAM, real tail native callback and live wrapper epilogue; other volatile registers, faults, MMIO, concurrency and runtime unverified."
+    }
+  ]
+}
