@@ -1,0 +1,56 @@
+{
+  "schema": "array-code-unit-initializer-v1",
+  "entries": [
+    {
+      "address": "822954D8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+      "source_line": 12670,
+      "instruction_count": 19,
+      "instructions": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "mr r11,r4",
+        "li r10,0",
+        "li r5,8",
+        "li r4,2",
+        "stw r11,4(r31)",
+        "stw r10,0(r31)",
+        "stw r11,8(r31)",
+        "bl 0x8229f678",
+        "mr r3,r31",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr "
+      ],
+      "direct_calls": [
+        "8229F678"
+      ],
+      "native_calls": [],
+      "indirect_calls": 0,
+      "cfg": {
+        "labels": [],
+        "branches": [
+          "bl 0x8229f678",
+          "blr "
+        ]
+      },
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_822954D8) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// std r31,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// mr r31,r3\n\tctx.r31.u64 = ctx.r3.u64;\n\t// mr r11,r4\n\tctx.r11.u64 = ctx.r4.u64;\n\t// li r10,0\n\tctx.r10.s64 = 0;\n\t// li r5,8\n\tctx.r5.s64 = 8;\n\t// li r4,2\n\tctx.r4.s64 = 2;\n\t// stw r11,4(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 4, ctx.r11.u32);\n\t// stw r10,0(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 0, ctx.r10.u32);\n\t// stw r11,8(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 8, ctx.r11.u32);\n\t// bl 0x8229f678\n\tctx.lr = 0x8229550C;\n\tsub_8229F678(ctx, base);\n\t// mr r3,r31\n\tctx.r3.u64 = ctx.r31.u64;\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library",
+      "human_semantics": "Initialize the array header from the low word of the supplied count or capacity, resize two-byte code-unit storage through the accepted array model, and return the full array pointer after restoring the live save slots.",
+      "boundary": "The accepted 8229F678 ResizeArray model preserves its real manager initialization and vtable+8 service contract, but its generic lower ABI does not expose every volatile register, condition bit, or native callback effect. Faults, MMIO, concurrency and runtime integration remain unverified."
+    }
+  ],
+  "validation": {
+    "focused_original_ppc_cases": 4,
+    "unknown_entry_checks": 1,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-array-code-unit-conversion-tests/array-code-unit-initializer-result.json",
+    "library": "Windows-native C++20 /W4 /WX shared MT library; accepted lower models reused",
+    "runtime_validated": false,
+    "complete": false
+  }
+}

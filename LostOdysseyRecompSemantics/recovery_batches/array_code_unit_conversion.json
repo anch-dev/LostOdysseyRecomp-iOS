@@ -1,0 +1,30 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "One array initializer and two byte/code-unit conversion entries; accepted lower models and bounded own ABI only. No runtime acceptance.",
+  "families": [
+    {
+      "name": "array-code-unit-initializer",
+      "manifest": "LostOdysseyRecompSemantics/array_code_unit_initializer_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/array_code_unit_initializer_oracle.cpp",
+      "prelude": "extern \"C\" PPC_FUNC(__imp__sub_822954D8);\nvoid OriginalResize(PPCContext&,std::uint8_t*);\n#define sub_8229F678(ctx,base) OriginalResize(ctx,base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/array_code_unit_initializer.cpp",
+        "LostOdysseyRecompSemantics/src/allocation_array.cpp",
+        "LostOdysseyRecompSemantics/src/memory_move.cpp"
+      ]
+    },
+    {
+      "name": "crt-code-unit-conversion",
+      "manifest": "LostOdysseyRecompSemantics/crt_code_unit_conversion_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/crt_code_unit_conversion_oracle.cpp",
+      "prelude": "extern \"C\" PPC_FUNC(__imp__sub_82B86AB8);\nextern \"C\" PPC_FUNC(__imp__sub_82B86BE0);\nvoid OriginalError(PPCContext&,uint8_t*);\nvoid OriginalInvalid(PPCContext&,uint8_t*);\nvoid OriginalFill(PPCContext&,uint8_t*);\n#define sub_82B7FD78(c,b) OriginalError(c,b)\n#define sub_82B7FEC0(c,b) OriginalInvalid(c,b)\n#define sub_82B7BC40(c,b) OriginalFill(c,b)\n#define sub_82B86AB8(c,b) __imp__sub_82B86AB8(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/crt_code_unit_conversion.cpp",
+        "LostOdysseyRecompSemantics/src/allocation_failure.cpp",
+        "LostOdysseyRecompSemantics/src/crt_thread_data.cpp",
+        "LostOdysseyRecompSemantics/src/invalid_parameter.cpp",
+        "LostOdysseyRecompSemantics/src/memory_fill.cpp"
+      ]
+    }
+  ]
+}

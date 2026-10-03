@@ -12,6 +12,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/allocation.cpp
     src/allocation_backend.cpp
     src/allocation_array.cpp
+    src/array_code_unit_initializer.cpp
     src/special_allocation.cpp
     src/raw_allocation.cpp
     src/allocation_failure.cpp
@@ -27,6 +28,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/crt_stream_io.cpp
     src/crt_stream_operations.cpp
     src/crt_formatting_support.cpp
+    src/crt_code_unit_conversion.cpp
     src/crt_allocation.cpp
     src/crt_reallocate.cpp
     src/invalid_parameter.cpp
