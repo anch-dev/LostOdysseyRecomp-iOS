@@ -1,0 +1,141 @@
+{
+  "schema": "crt-stream-checkpoint-v1",
+  "date": "2026-10-03",
+  "scope": "Human-readable library and bounded original-PPC comparison only. Runtime unchanged.",
+  "baseline_checkpoint": "heap_reallocation_checkpoint.json",
+  "entries_since_baseline": 16,
+  "static_instructions_since_baseline": 488,
+  "focused_cases_since_baseline": 51,
+  "unknown_checks_since_baseline": 6,
+  "families": [
+    {
+      "family": "crt_stream_index_unlock",
+      "manifest": "crt_stream_index_unlock_families.json",
+      "commit": "ead9114e",
+      "entries": 2,
+      "static_instructions": 18,
+      "focused_original_ppc_cases": 4,
+      "unknown_entry_checks": 1,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-stream-index-unlock-tests/crt-stream-index-unlock-result.json",
+      "scope": "selected full PPC registers and committed ordinary RAM; native RtlLeaveCriticalSection explicit, faults/MMIO/concurrency/runtime unverified"
+    },
+    {
+      "family": "crt_stream_pointer_unlock",
+      "manifest": "crt_stream_pointer_unlock_families.json",
+      "commit": "5a3c0c44",
+      "entries": 4,
+      "static_instructions": 48,
+      "focused_original_ppc_cases": 6,
+      "unknown_entry_checks": 1,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-stream-pointer-unlock-tests/crt-stream-pointer-unlock-result.json",
+      "scope": "selected registers, actual four bodies and ordinary RAM; native tail/mutable frame explicit; other native ABI, faults, MMIO, concurrency and runtime unverified"
+    },
+    {
+      "family": "crt_status_error",
+      "manifest": "crt_status_error_families.json",
+      "commit": "90d2767b",
+      "entries": 1,
+      "static_instructions": 13,
+      "focused_original_ppc_cases": 4,
+      "unknown_entry_checks": 1,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-shared-crt-stream-errors-mt-tests/crt-status-error-result.json",
+      "scope": "own frame/selected native callback profile and ordinary RAM; native internals, faults/MMIO/concurrency/runtime unverified"
+    },
+    {
+      "family": "crt_stream_error",
+      "manifest": "crt_stream_error_families.json",
+      "commit": "90d2767b",
+      "entries": 3,
+      "static_instructions": 92,
+      "focused_original_ppc_cases": 9,
+      "unknown_entry_checks": 1,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-shared-crt-stream-errors-mt-tests/crt-stream-error-result.json",
+      "scope": "selected full entry state and RAM; accepted lower models with bounded generic ABI/native contracts; no faults/MMIO/concurrency/runtime proof"
+    },
+    {
+      "family": "crt_stream_locks",
+      "manifest": "crt_stream_locks_families.json",
+      "commit": "e4a41b67",
+      "entries": 4,
+      "static_instructions": 151,
+      "focused_original_ppc_cases": 12,
+      "unknown_entry_checks": 1,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-stream-locks-io-tests/crt-stream-locks-result.json",
+      "scope": "selected state, committed RAM and native events; accepted lower models have bounded ABI; no faults/MMIO/concurrency/runtime acceptance"
+    },
+    {
+      "family": "crt_stream_io",
+      "manifest": "crt_stream_io_families.json",
+      "commit": "e4a41b67",
+      "entries": 2,
+      "static_instructions": 166,
+      "focused_original_ppc_cases": 16,
+      "unknown_entry_checks": 1,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-stream-io-tests/crt-stream-io-result.json",
+      "scope": "selected native/indirect callback profile and ordinary RAM; native internals, faults/MMIO/concurrency/runtime unverified"
+    }
+  ],
+  "progress": {
+    "source": "Committed HEAD e4a41b67; semantic_recovery.py progress",
+    "individual_records": 82,
+    "family_manifests": 86,
+    "unique_mapped_entries": 5169,
+    "cached_catalog_manifest_union": 62627,
+    "entry_mapping_percent": 8.254,
+    "overlap_entries": [
+      "829664E8",
+      "82B84D88"
+    ],
+    "runtime_wrappers": 3168,
+    "default_off_runtime_gates": 8,
+    "complete_individual_records": 0,
+    "note": "Entry mapping percentage is not logical-function or complete semantic recovery percentage."
+  },
+  "shared_tools": {
+    "tool_commit": "d8d13504",
+    "native_environment_reuse_commit": "ea7496bc",
+    "prior_utility_checks_passed": 11,
+    "additional_environment_reuse_check_passed": 1,
+    "shared_header_strict_fixture": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-shared-tools-tests",
+    "shared_batch_receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-shared-crt-stream-errors-mt-tests/semantic-recovery-result.json",
+    "native_environment_setups_per_batch": 1,
+    "new_family_owned_files": [
+      "header",
+      "source",
+      "manifest",
+      "oracle"
+    ],
+    "worker_prompt": "../tools/ghidra/templates/semantic_worker_prompt.md",
+    "workflow": "../tools/ghidra/RECOVERY_WORKFLOW.md",
+    "local_compile_link_observation": {
+      "family": "crt_stream_error",
+      "standalone_seconds": 6.621,
+      "shared_library_seconds": 1.266,
+      "note": "Single local observations; no overall recovery-throughput or performance claim."
+    },
+    "first_framework_batch": {
+      "batch": "recovery_batches/crt_stream_locks_io.json",
+      "new_entries": 6,
+      "static_instructions": 317,
+      "focused_original_ppc_cases": 28,
+      "unknown_entry_checks": 2,
+      "library_build": "Two new sources compiled once strictly /W4 /WX, then same .lib oracle links. Subsequent harness-only corrections reused the library.",
+      "reuse": "I/O 16 cases passed separately while lock fixture was corrected; passing I/O was not rerun.",
+      "failure_corrections": [
+        "Harness CR uint8-to-bool narrowing: explicit boolean conversion.",
+        "RaceCleanup fixture: mutate lock3 during lock10 native Enter before branch reread, preserving expected-path assertion."
+      ],
+      "prior_failure_receipts": [
+        "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-stream-locks-io-tests/first-compile-failure.json",
+        "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-stream-locks-io-tests/first-path-failure.json"
+      ]
+    }
+  },
+  "limitations": [
+    "Ordinary committed RAM and explicit selected register/frame/native callback profiles only.",
+    "Accepted lower model interfaces do not establish every original PPC volatile or native ABI effect.",
+    "U64 helpers use two ordered U32 accesses; original access width, atomicity and faults remain unverified.",
+    "Native internals, unknown indirect implementations, faults, MMIO, concurrency, unwind and runtime/scene acceptance remain unverified.",
+    "Original helpers and per-family frame save/restore order are retained; shared helpers do not supply a generic frame convention."
+  ]
+}

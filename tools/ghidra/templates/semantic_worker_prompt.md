@@ -30,6 +30,8 @@ The manifest's `translated_body` is the only body pin. Do not duplicate script t
 2. Implement only `{{OWNED_PATHS}}`, preserving unrelated edits from neighboring agents.
 3. If changed behavior or build inputs affect `{{FOCUSED_CASES}}`, run the smallest affected check when local checking is allowed. Metadata-only edits, an equivalent worktree, and Git bookkeeping do not require retesting. The default is no compile: the root owns one strict batch CMake build with `--parallel 1` and the shared-library links.
 4. If a case fails, classify the needed correction as source, fixture, ABI adapter, or compiler/tooling setup. Keep the matrix bounded. Apply tail, full-width, callback, `rXX`, stack, or alias cases only when the assigned structure needs them; do not impose the same matrix on every function.
+   - When a harness uses `bool` CR fields, explicitly convert the PPC `uint8_t` bits while populating those fields.
+   - If a fixture changes state before an original-body branch rereads it, perform that mutation at the corresponding native event and retain the expected-path assertion so the fixture tests the intended branch.
 5. Stop after the packet is complete and send the exact receipt below; wait for root integration.
 
 ## Non-goals
