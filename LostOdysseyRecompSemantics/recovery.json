@@ -192,7 +192,7 @@
         {
           "address": "827C9A40",
           "boundary": "AllocationServices::AllocateSpecial",
-          "status": "opaque",
+          "status": "implementation_available",
           "contract": "Special flags 0xa7820007: allocator 0x832471a8, requested bytes."
         },
         {
@@ -203,7 +203,7 @@
         }
       ],
       "open_obligations": [
-        "Recover both allocator implementations, memory initialization, synchronization and failure behavior.",
+        "Both allocator branches have readable implementations; compose them with validated memory-initialization, synchronization and failure adapters.",
         "Validate complete guest ABI forwarding before runtime substitution."
       ]
     },
@@ -238,7 +238,7 @@
         {
           "address": "827C9C60",
           "boundary": "AllocationServices::FreeSpecial",
-          "status": "opaque",
+          "status": "implementation_available",
           "contract": "Special flags 0xa7820007: allocator 0x832471a8, allocation address."
         },
         {
@@ -249,7 +249,7 @@
         }
       ],
       "open_obligations": [
-        "Recover the special deallocator and compose the recovered general deallocator with verified resource/synchronization adapters.",
+        "Special deallocation has a void semantic API; resolve its residual r3 contract before composing this result-forwarding dispatcher.",
         "Validate complete guest ABI forwarding before runtime substitution."
       ]
     },
@@ -600,6 +600,12 @@
           "line": 27167,
           "kind": "generated_ppc",
           "note": "Original body is extracted and pinned by the corresponding oracle runner."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_lifecycle.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "Twelve five-function original-PPC composition cases passed. Test-only adapters replay ABI stack saves/backchains; heap, CRT, kernel and vtable callbacks remain synthetic. No production PPCContext or runtime integration is implied."
         }
       ],
       "dependencies": [],
@@ -1480,6 +1486,788 @@
       "open_obligations": [
         "Expand the composed range bookkeeping and VM fixture to real VM zero-initialization and kernel behavior.",
         "Validate the incoming caller argument spill at frame+236 and actual runtime ABI/lifetimes."
+      ]
+    },
+    {
+      "address": "82B7A0B0",
+      "name": "lo::semantic::gpu::CopyGuestMemory",
+      "module": "gpu/memory",
+      "source": "LostOdysseyRecompSemantics/src/memory_move.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/memory_move.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Full r3 destination, low r4 source, full r5 count, guest r1 stack pointer",
+        "memory": "32-bit guest addresses and big-endian ordinary memory; integer wrap and signed comparisons follow the original.",
+        "scope": "Bounded semantic API; generic ABI prologue/epilogue and complete volatile PPCContext remain adapter obligations.",
+        "return": "Full r3 reloaded from stack_pointer-8, including source/destination aliases."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.175.cpp",
+          "line": 4261,
+          "kind": "generated_ppc",
+          "note": "Original instruction bytes are extracted and pinned by the native Windows differential runner."
+        }
+      ],
+      "dependencies": [],
+      "open_obligations": [
+        "U64 transfers use two big-endian U32 accessors: final ordinary memory is tested; fault, atomic access width, concurrency and MMIO equivalence are not established.",
+        "Validate a complete PPCContext adapter and representative game scenes before runtime replacement."
+      ]
+    },
+    {
+      "address": "82B7C470",
+      "name": "lo::semantic::gpu::MoveGuestMemory",
+      "module": "gpu/memory",
+      "source": "LostOdysseyRecompSemantics/src/memory_move.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/memory_move.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Full r3 destination, low r4 source, full r5 count, guest r1 stack pointer",
+        "memory": "32-bit guest addresses and big-endian ordinary memory; integer wrap and signed comparisons follow the original.",
+        "scope": "Bounded semantic API; generic ABI prologue/epilogue and complete volatile PPCContext remain adapter obligations.",
+        "return": "Full live r3; equal pointers preserve it, signed forward branch returns CopyGuestMemory reload."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.175.cpp",
+          "line": 12320,
+          "kind": "generated_ppc",
+          "note": "Original instruction bytes are extracted and pinned by the native Windows differential runner."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "82B7A0B0",
+          "boundary": "CopyGuestMemory",
+          "status": "implementation_available",
+          "kind": "direct",
+          "contract": "Tail-call on signed32 destination < source, including zero count; equal addresses return without a spill."
+        }
+      ],
+      "open_obligations": [
+        "Bounded overlap, alignment, count-register high halves and signed 2 GiB transitions are compared; arbitrary guest faults and access-width effects remain open.",
+        "Validate a complete PPCContext adapter and representative game scenes before runtime replacement."
+      ]
+    },
+    {
+      "address": "8229F678",
+      "name": "lo::semantic::gpu::ResizeArray",
+      "module": "gpu/allocation",
+      "source": "LostOdysseyRecompSemantics/src/allocation_array.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/allocation_array.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 array header, r4 element size, r5 allocator argument",
+        "memory": "32-bit guest addresses and big-endian ordinary memory; integer wrap and signed comparisons follow the original.",
+        "scope": "Bounded semantic API; generic ABI prologue/epilogue and complete volatile PPCContext remain adapter obligations.",
+        "return": "Void semantic API; original residual r3 is not exposed."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+          "line": 37441,
+          "kind": "generated_ppc",
+          "note": "Original instruction bytes are extracted and pinned by the native Windows differential runner."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "827C5F38",
+          "boundary": "ArrayResizeServices::InitializeManager",
+          "status": "implementation_available",
+          "kind": "direct",
+          "contract": "Initialize global 0x8330b608, then reload it before loading its current vtable."
+        },
+        {
+          "address": "indirect:vtable+8",
+          "boundary": "ArrayResizeServices::ResizeStorage",
+          "status": "opaque",
+          "kind": "indirect",
+          "contract": "Call the current manager vtable +8 (target masked with ~3); preserve actual receiver, prior storage, requested bytes and argument.",
+          "known_targets": [
+            "82295950",
+            "82295530"
+          ],
+          "target_evidence": "out/decomp-index/manager-vtable-targets.json",
+          "target_scope": "Observed in primary 0x82002700 and fallback 0x8201dd90 tables; arbitrary runtime vtable replacement remains unresolved."
+        }
+      ],
+      "open_obligations": [
+        "Recover indirect resize implementation and allocator lifetime.",
+        "Original residual r3 is unmodeled; adapt it before any caller that observes the register.",
+        "Validate a complete PPCContext adapter and representative game scenes before runtime replacement."
+      ]
+    },
+    {
+      "address": "82298AF8",
+      "name": "lo::semantic::gpu::RemoveArrayRange",
+      "module": "gpu/allocation",
+      "source": "LostOdysseyRecompSemantics/src/allocation_array.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/allocation_array.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 array header, r4 first index, r5 count, r6 element size, r7 allocator argument; post-prologue 128-byte frame",
+        "memory": "32-bit guest addresses and big-endian ordinary memory; integer wrap and signed comparisons follow the original.",
+        "scope": "Bounded semantic API; generic ABI prologue/epilogue and complete volatile PPCContext remain adapter obligations.",
+        "return": "Void semantic API; original residual r3 is not exposed."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+          "line": 20894,
+          "kind": "generated_ppc",
+          "note": "Original instruction bytes are extracted and pinned by the native Windows differential runner."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "82B7C470",
+          "boundary": "MoveGuestMemory",
+          "status": "implementation_available",
+          "kind": "direct",
+          "contract": "Move tail bytes with the current 128-byte guest frame as r1; retain the forward copy spill."
+        },
+        {
+          "address": "8229F678",
+          "boundary": "ResizeArray",
+          "status": "implementation_available",
+          "kind": "direct",
+          "contract": "Shrink according to original signed count/capacity thresholds after reloading the potentially aliased header."
+        }
+      ],
+      "open_obligations": [
+        "Original residual r3 and generic nested Resize ABI spills remain adapter obligations.",
+        "Comparison covers bounded ordinary array storage, not arbitrary invalid indices or damaged object graphs.",
+        "Validate a complete PPCContext adapter and representative game scenes before runtime replacement."
+      ]
+    },
+    {
+      "address": "827C9A40",
+      "name": "lo::semantic::gpu::AllocateSpecialBlock",
+      "module": "gpu/allocation",
+      "source": "LostOdysseyRecompSemantics/src/special_allocation.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/special_allocation.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 allocator object, r4 requested bytes; post-prologue 176-byte frame with live pair at +80/+84",
+        "memory": "32-bit guest addresses and big-endian ordinary memory; integer wrap and signed comparisons follow the original.",
+        "scope": "Bounded semantic API; generic ABI prologue/epilogue and complete volatile PPCContext remain adapter obligations.",
+        "return": "Low32 allocated or recycled guest pointer."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+          "line": 20801,
+          "kind": "generated_ppc",
+          "note": "Original instruction bytes are extracted and pinned by the native Windows differential runner."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "82298AF8",
+          "boundary": "RemoveArrayRange",
+          "status": "implementation_available",
+          "kind": "direct",
+          "contract": "Remove matched free entry with nested frame at caller frame-128."
+        },
+        {
+          "address": "827C5F38",
+          "boundary": "ArrayResizeServices::InitializeManager",
+          "status": "implementation_available",
+          "kind": "direct",
+          "contract": "Initialize global 0x8330b608, then reload it before loading its current vtable."
+        },
+        {
+          "address": "indirect:vtable+8",
+          "boundary": "ArrayResizeServices::ResizeStorage",
+          "status": "opaque",
+          "kind": "indirect",
+          "contract": "Call the current manager vtable +8 (target masked with ~3); preserve actual receiver, prior storage, requested bytes and argument.",
+          "known_targets": [
+            "82295950",
+            "82295530"
+          ],
+          "target_evidence": "out/decomp-index/manager-vtable-targets.json",
+          "target_scope": "Observed in primary 0x82002700 and fallback 0x8201dd90 tables; arbitrary runtime vtable replacement remains unresolved."
+        },
+        {
+          "address": "indirect:vtable+16",
+          "boundary": "SpecialAllocationServices::AllocateStorage",
+          "status": "opaque",
+          "kind": "indirect",
+          "contract": "Call current manager vtable +16 with rounded (requested+127)&~127 byte count and zero flags.",
+          "known_targets": [
+            "823F2670",
+            "823F25E0"
+          ],
+          "target_evidence": "out/decomp-index/manager-vtable-targets.json",
+          "target_scope": "Observed in primary 0x82002700 and fallback 0x8201dd90 tables; arbitrary runtime vtable replacement remains unresolved."
+        }
+      ],
+      "open_obligations": [
+        "Recover allocation/reallocation vtable methods, manager synchronization and object lifetime.",
+        "Validate allocator table aliasing and overflow beyond the bounded synthetic cases.",
+        "Validate a complete PPCContext adapter and representative game scenes before runtime replacement."
+      ]
+    },
+    {
+      "address": "827C9C60",
+      "name": "lo::semantic::gpu::FreeSpecialBlock",
+      "module": "gpu/allocation",
+      "source": "LostOdysseyRecompSemantics/src/special_allocation.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/special_allocation.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 allocator object, r4 allocation address; post-prologue 160-byte frame",
+        "memory": "32-bit guest addresses and big-endian ordinary memory; integer wrap and signed comparisons follow the original.",
+        "scope": "Bounded semantic API; generic ABI prologue/epilogue and complete volatile PPCContext remain adapter obligations.",
+        "return": "Void semantic API; original residual r3 remains visible to dispatch callers."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+          "line": 21111,
+          "kind": "generated_ppc",
+          "note": "Original instruction bytes are extracted and pinned by the native Windows differential runner."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "82298AF8",
+          "boundary": "RemoveArrayRange",
+          "status": "implementation_available",
+          "kind": "direct",
+          "contract": "Move matching active entry into free table, then remove active entry with frame at caller frame-128."
+        },
+        {
+          "address": "827C5F38",
+          "boundary": "ArrayResizeServices::InitializeManager",
+          "status": "implementation_available",
+          "kind": "direct",
+          "contract": "Initialize global 0x8330b608, then reload it before loading its current vtable."
+        },
+        {
+          "address": "indirect:vtable+8",
+          "boundary": "ArrayResizeServices::ResizeStorage",
+          "status": "opaque",
+          "kind": "indirect",
+          "contract": "Call the current manager vtable +8 (target masked with ~3); preserve actual receiver, prior storage, requested bytes and argument.",
+          "known_targets": [
+            "82295950",
+            "82295530"
+          ],
+          "target_evidence": "out/decomp-index/manager-vtable-targets.json",
+          "target_scope": "Observed in primary 0x82002700 and fallback 0x8201dd90 tables; arbitrary runtime vtable replacement remains unresolved."
+        }
+      ],
+      "open_obligations": [
+        "Resolve the residual r3 adapter contract before composing with FreeDispatch, whose current service API returns a register value.",
+        "Recover manager resize synchronization and real allocation lifetime.",
+        "Validate a complete PPCContext adapter and representative game scenes before runtime replacement."
+      ]
+    },
+    {
+      "address": "823ACBD0",
+      "name": "lo::semantic::gpu::AllocateRawMemory",
+      "module": "gpu/allocation",
+      "source": "LostOdysseyRecompSemantics/src/raw_allocation.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/raw_allocation.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3 full requested-size register",
+        "return": "Full heap allocation register (even low32 zero); oversized request returns zero.",
+        "memory": "32-bit guest addresses and explicit big-endian memory.",
+        "scope": "Full return register and named live locals; generic ABI saves and full volatile PPCContext require an adapter."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.11.cpp",
+          "line": 27034,
+          "kind": "generated_ppc",
+          "note": "Pinned original function is extracted into the external differential fixture."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_lifecycle.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "Twelve five-function original-PPC composition cases passed. Test-only adapters replay ABI stack saves/backchains; heap, CRT, kernel and vtable callbacks remain synthetic. No production PPCContext or runtime integration is implied."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "823ACC98",
+          "boundary": "GetProcessHeap",
+          "status": "implementation_available",
+          "kind": "direct",
+          "contract": "Read heap before missing-heap callbacks and again before allocating."
+        },
+        {
+          "address": "823ACCB0",
+          "boundary": "RawAllocationServices::AllocateHeap",
+          "status": "implementation_available",
+          "kind": "direct",
+          "contract": "Heap address, zero flags and full requested size, except a size with zero low 32 bits becomes exactly 1."
+        },
+        {
+          "address": "82B7FCE0",
+          "boundary": "RawAllocationServices::EnterMissingHeapPath",
+          "status": "opaque",
+          "kind": "direct",
+          "contract": "First missing-heap callback; may modify process heap global."
+        },
+        {
+          "address": "82B7FC98",
+          "boundary": "RawAllocationServices::ReportMissingHeap",
+          "status": "opaque",
+          "kind": "direct",
+          "contract": "Receive code 30 after first missing-heap callback."
+        },
+        {
+          "address": "82B7BF20",
+          "boundary": "RawAllocationServices::TerminateMissingHeap",
+          "status": "opaque",
+          "kind": "direct",
+          "contract": "Receive code 255; if it returns the original continues to allocate."
+        },
+        {
+          "address": "82B7FE68",
+          "boundary": "RawAllocationServices::RetryAllocation",
+          "status": "opaque",
+          "kind": "direct",
+          "contract": "Full saved requested-size register; low32 nonzero retries for ordinary failure, result ignored for oversized requests."
+        },
+        {
+          "address": "82B7FD78",
+          "boundary": "RawAllocationServices::GetErrorAddress",
+          "status": "opaque",
+          "kind": "direct",
+          "contract": "Return an error-code address each call; repeated lookups and stores of 12 are observable."
+        }
+      ],
+      "open_obligations": [
+        "Recover CRT termination/retry/error-storage and unwind semantics.",
+        "Heap allocation remains a synthetic service in this wrapper oracle; its separately recovered implementation needs composition with the real stack adapter.",
+        "Validate complete PPCContext adapter and representative runtime scenes before replacing generated code."
+      ]
+    },
+    {
+      "address": "827C5F38",
+      "name": "lo::semantic::gpu::InitializeManager",
+      "module": "gpu/allocation",
+      "source": "LostOdysseyRecompSemantics/src/manager_init.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/manager_init.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Post-prologue 112-byte frame; live allocation pointer at +80",
+        "return": "Full result of final vtable +56 callback.",
+        "memory": "32-bit guest addresses and explicit big-endian memory.",
+        "scope": "Full return register and named live locals; generic ABI saves and full volatile PPCContext require an adapter."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+          "line": 11141,
+          "kind": "generated_ppc",
+          "note": "Pinned original function is extracted into the external differential fixture."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_lifecycle.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "Twelve five-function original-PPC composition cases passed. Test-only adapters replay ABI stack saves/backchains; heap, CRT, kernel and vtable callbacks remain synthetic. No production PPCContext or runtime integration is implied."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "823ACBD0",
+          "boundary": "ManagerInitServices::AllocateRaw",
+          "status": "implementation_available",
+          "kind": "direct",
+          "contract": "Allocate 0x48dec bytes, then 36 only on fallback; preserve call order and low-32-bit null checks."
+        },
+        {
+          "address": "827C5970",
+          "boundary": "ManagerInitServices::ConstructPrimary",
+          "status": "implementation_available",
+          "kind": "direct",
+          "contract": "Non-null raw block; write its resulting low 32 bits to global 0x8330b608."
+        },
+        {
+          "address": "827C4ED0",
+          "boundary": "ManagerInitServices::ConstructFallback",
+          "status": "implementation_available",
+          "kind": "direct",
+          "contract": "Non-null 36-byte block plus manager reloaded from the current global."
+        },
+        {
+          "address": "indirect:vtable+60",
+          "boundary": "ManagerInitServices::CallMethod",
+          "status": "opaque",
+          "kind": "indirect",
+          "contract": "Receiver is current full r3; a result with zero low 32 bits selects fallback; the callback may replace the global.",
+          "known_targets": [
+            "829664E8"
+          ],
+          "target_evidence": "out/decomp-index/manager-vtable-targets.json",
+          "target_scope": "Observed in primary 0x82002700 and fallback 0x8201dd90 tables; arbitrary runtime vtable replacement remains unresolved."
+        },
+        {
+          "address": "indirect:vtable+56",
+          "boundary": "ManagerInitServices::CallMethod",
+          "status": "opaque",
+          "kind": "indirect",
+          "contract": "Reload the final receiver and vtable as in the original and forward the complete callback return.",
+          "known_targets": [
+            "827C5D88",
+            "827C5688"
+          ],
+          "target_evidence": "out/decomp-index/manager-vtable-targets.json",
+          "target_scope": "Observed in primary 0x82002700 and fallback 0x8201dd90 tables; arbitrary runtime vtable replacement remains unresolved."
+        }
+      ],
+      "open_obligations": [
+        "The observed virtual targets now have readable implementations; validate their dynamic dispatch, object lifetimes and synchronization in the runtime.",
+        "Null paths still dereference zero as in the original; synthetic mapped page zero is not evidence that failed live allocation is safe.",
+        "Validate complete PPCContext adapter and representative runtime scenes before replacing generated code."
+      ]
+    },
+    {
+      "address": "827C5970",
+      "name": "lo::semantic::gpu::ConstructPrimaryManager",
+      "module": "gpu/allocation",
+      "source": "LostOdysseyRecompSemantics/src/manager_construction.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/manager_construction.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Full r3 allocation and caller r1; scratch pair at r1-16",
+        "return": "Full incoming allocation register.",
+        "memory": "32-bit guest addresses and explicit big-endian memory.",
+        "scope": "Full return register and named live locals; generic ABI saves and full volatile PPCContext require an adapter."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+          "line": 10292,
+          "kind": "generated_ppc",
+          "note": "Pinned original function is extracted into the external differential fixture."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_lifecycle.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "Twelve five-function original-PPC composition cases passed. Test-only adapters replay ABI stack saves/backchains; heap, CRT, kernel and vtable callbacks remain synthetic. No production PPCContext or runtime integration is implied."
+        }
+      ],
+      "dependencies": [],
+      "open_obligations": [
+        "Object field types and lifetimes beyond observed offsets remain provisional.",
+        "Retain big-endian constant load from 0x82000fe8, store order and later scratch reload; ordinary memory comparison does not prove floating-point state or U64 access atomicity.",
+        "Validate complete PPCContext adapter and representative runtime scenes before replacing generated code."
+      ]
+    },
+    {
+      "address": "827C4ED0",
+      "name": "lo::semantic::gpu::ConstructFallbackManager",
+      "module": "gpu/allocation",
+      "source": "LostOdysseyRecompSemantics/src/manager_construction.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/manager_construction.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Full r3 allocation, full r4 previous manager; post-prologue 128-byte frame including +80 and caller spill +148",
+        "return": "Full incoming allocation register.",
+        "memory": "32-bit guest addresses and explicit big-endian memory.",
+        "scope": "Full return register and named live locals; generic ABI saves and full volatile PPCContext require an adapter."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+          "line": 8538,
+          "kind": "generated_ppc",
+          "note": "Pinned original function is extracted into the external differential fixture."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_manager_lifecycle.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "Twelve five-function original-PPC composition cases passed. Test-only adapters replay ABI stack saves/backchains; heap, CRT, kernel and vtable callbacks remain synthetic. No production PPCContext or runtime integration is implied."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "RtlInitializeCriticalSection",
+          "boundary": "ManagerConstructionServices::InitializeCriticalSection",
+          "status": "native_boundary",
+          "kind": "import",
+          "contract": "Call with full allocation register +8 between vtable writes and publishing globals 0x83315fd4 and 0x83315fd8."
+        }
+      ],
+      "open_obligations": [
+        "Real critical-section initialization/lifetime/concurrency remain outside synthetic callback proof.",
+        "Recover vtable methods associated with 0x8201dd90 and 0x8201fa3c.",
+        "Validate complete PPCContext adapter and representative runtime scenes before replacing generated code."
+      ]
+    },
+    {
+      "address": "827C5B30",
+      "name": "lo::semantic::gpu::InitializeStorageBuckets",
+      "module": "gpu/allocation",
+      "source": "LostOdysseyRecompSemantics/src/manager_storage.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/manager_storage.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Full r3 base register; memory uses its low 32 bits.",
+        "return": "Full incoming r3.",
+        "scope": "Final ordinary guest memory and full r3; original generic ABI stack saves are excluded."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+          "line": 10540,
+          "kind": "generated_ppc",
+          "note": "Original PPC body pinned and extracted by test_semantic_manager_storage.py."
+        }
+      ],
+      "dependencies": [],
+      "open_obligations": [
+        "Recover allocation and release operations using these size classes and node links.",
+        "Verify complete PPCContext adapter, memory faults/concurrency and representative runtime scenes before replacement."
+      ]
+    },
+    {
+      "address": "827C5D88",
+      "name": "lo::semantic::gpu::InitializePrimaryManagerStorage",
+      "module": "gpu/allocation",
+      "source": "LostOdysseyRecompSemantics/src/manager_storage.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/manager_storage.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Full r3 base register; memory uses its low 32 bits.",
+        "return": "Full incoming r3 plus 0x20de0 (initialized node-pool base).",
+        "scope": "Final ordinary guest memory and full r3; original generic ABI stack saves are excluded."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+          "line": 10909,
+          "kind": "generated_ppc",
+          "note": "Original PPC body pinned and extracted by test_semantic_manager_storage.py."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "827C5B30",
+          "boundary": "InitializeStorageBuckets",
+          "status": "implementation_available",
+          "kind": "direct",
+          "contract": "Initialize 8192 twenty-byte nodes at manager+0x20de0 after four groups of size classes and the lookup table."
+        }
+      ],
+      "open_obligations": [
+        "Recover allocation and release operations using these size classes and node links.",
+        "Verify complete PPCContext adapter, memory faults/concurrency and representative runtime scenes before replacement."
+      ]
+    },
+    {
+      "address": "829664E8",
+      "name": "lo::semantic::gpu::ReturnZeroStatus",
+      "module": "gpu/allocation",
+      "source": "LostOdysseyRecompSemantics/src/manager_lock.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/manager_lock.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "No semantic arguments; shared zero-return method.",
+        "return": "Full r3 is zero.",
+        "scope": "Full r3 return, ordinary guest bytes and actual callback arguments; generic ABI frame stores are replayed only by test adapters."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.124.cpp",
+          "line": 5199,
+          "kind": "generated_ppc",
+          "note": "Pinned original bodies are extracted by the manager lock runner, including twelve real three-body composed cases."
+        }
+      ],
+      "dependencies": [],
+      "open_obligations": [
+        "Validate the full runtime PPCContext adapter and representative game scenes."
+      ]
+    },
+    {
+      "address": "822958F8",
+      "name": "lo::semantic::gpu::StoreLockAndWaitForEnter",
+      "module": "gpu/allocation",
+      "source": "LostOdysseyRecompSemantics/src/manager_lock.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/manager_lock.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Full r3 holder address and full r4 lock object register.",
+        "return": "Full original holder register.",
+        "scope": "Full r3 return, ordinary guest bytes and actual callback arguments; generic ABI frame stores are replayed only by test adapters."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+          "line": 13287,
+          "kind": "generated_ppc",
+          "note": "Pinned original bodies are extracted by the manager lock runner, including twelve real three-body composed cases."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "RtlTryEnterCriticalSection",
+          "boundary": "ManagerLockServices::TryEnterCriticalSection",
+          "status": "native_boundary",
+          "kind": "import",
+          "contract": "Call with full lock register+4 until result low32 is nonzero; increment guest 0x83315fdc once per failed attempt before retrying."
+        }
+      ],
+      "open_obligations": [
+        "Validate the full runtime PPCContext adapter and representative game scenes.",
+        "Real critical-section concurrency and cancellation/fault/unwind behavior remain unverified; no retry limit is introduced."
+      ]
+    },
+    {
+      "address": "827C5688",
+      "name": "lo::semantic::gpu::InvokeManagerUnderLock",
+      "module": "gpu/allocation",
+      "source": "LostOdysseyRecompSemantics/src/manager_lock.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/manager_lock.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Post-prologue 112-byte guest frame; holder at frame+80.",
+        "return": "Full r3 left by LeaveCriticalSection, not the preceding virtual call.",
+        "scope": "Full r3 return, ordinary guest bytes and actual callback arguments; generic ABI frame stores are replayed only by test adapters."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+          "line": 9802,
+          "kind": "generated_ppc",
+          "note": "Pinned original bodies are extracted by the manager lock runner, including twelve real three-body composed cases."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "822958F8",
+          "boundary": "StoreLockAndWaitForEnter",
+          "status": "implementation_available",
+          "kind": "direct",
+          "contract": "Store section global 0x83315fd4 into frame+80 and acquire its embedded critical section."
+        },
+        {
+          "address": "indirect:vtable+56",
+          "boundary": "ManagerLockServices::CallMethod",
+          "status": "opaque",
+          "kind": "indirect",
+          "known_targets": [
+            "827C5D88",
+            "827C5688"
+          ],
+          "target_evidence": "out/decomp-index/manager-vtable-targets.json",
+          "contract": "After acquisition, reload manager global 0x83315fd8 and current vtable; invoke slot+56 and discard its return."
+        },
+        {
+          "address": "RtlLeaveCriticalSection",
+          "boundary": "ManagerLockServices::LeaveCriticalSection",
+          "status": "native_boundary",
+          "kind": "import",
+          "contract": "Reload frame+80 after the virtual callback and release the section at that low-32-bit pointer+4; return the full callback result."
+        }
+      ],
+      "open_obligations": [
+        "Validate the full runtime PPCContext adapter and representative game scenes.",
+        "Real critical-section concurrency and cancellation/fault/unwind behavior remain unverified; no retry limit is introduced."
       ]
     }
   ]
