@@ -25,3 +25,6 @@ struct Registers
                          gpu::GuestMemory& memory);
 
 } // namespace lo::semantic::field_arithmetic
+
+// The same operations support bounded test memory and native-width runtime memory.
+#include "lo_semantics/detail/field_arithmetic_impl.h"

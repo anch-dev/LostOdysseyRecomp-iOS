@@ -233,6 +233,20 @@ if(LO_ENABLE_SEMANTIC_RUNTIME)
         COMMENT "Generating opt-in semantic accessor wrappers"
         VERBATIM)
     target_sources(LostOdysseyRecomp PRIVATE "${LO_SEMANTIC_ACCESSOR_WRAPPERS}")
+    foreach(LO_SEMANTIC_FIELD_FAMILY IN ITEMS field_bits field_arithmetic)
+        set(LO_SEMANTIC_FIELD_WRAPPERS "${CMAKE_CURRENT_BINARY_DIR}/generated/semantic_${LO_SEMANTIC_FIELD_FAMILY}_wrappers.cpp")
+        add_custom_command(
+            OUTPUT "${LO_SEMANTIC_FIELD_WRAPPERS}"
+            COMMAND "${Python3_EXECUTABLE}" "${CMAKE_SOURCE_DIR}/tools/ghidra/generate_semantic_field_wrappers.py"
+                    --family "${LO_SEMANTIC_FIELD_FAMILY}"
+                    --output "${LO_SEMANTIC_FIELD_WRAPPERS}"
+            DEPENDS
+                "${CMAKE_SOURCE_DIR}/tools/ghidra/generate_semantic_field_wrappers.py"
+                "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/${LO_SEMANTIC_FIELD_FAMILY}_families.json"
+            COMMENT "Generating opt-in semantic ${LO_SEMANTIC_FIELD_FAMILY} wrappers"
+            VERBATIM)
+        target_sources(LostOdysseyRecomp PRIVATE "${LO_SEMANTIC_FIELD_WRAPPERS}")
+    endforeach()
     target_link_libraries(LostOdysseyRecomp PRIVATE LO::Semantics)
 endif()
 if(ANDROID)

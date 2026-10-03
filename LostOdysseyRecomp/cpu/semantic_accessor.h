@@ -18,9 +18,9 @@ inline bool Enabled() noexcept
     return enabled;
 }
 
-// Only the reviewed plain-load/store accessor family uses this backend. Each
+// Reviewed accessor and field operations use this plain-load/store backend. Each
 // access retains the original PPC macro's width, volatility and byte order.
-// eieio/MMIO, atomics and multi-instruction memory functions are not included.
+// It adds no barriers, atomic operations or MMIO handling.
 class NativeAccessorMemory
 {
 public:

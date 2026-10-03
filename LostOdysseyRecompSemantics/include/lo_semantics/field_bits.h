@@ -22,3 +22,6 @@ struct Registers
                          gpu::GuestMemory& memory);
 
 } // namespace lo::semantic::field_bits
+
+// The same operations support bounded test memory and native-width runtime memory.
+#include "lo_semantics/detail/field_bits_impl.h"
