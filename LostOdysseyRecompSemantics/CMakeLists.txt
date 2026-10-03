@@ -79,6 +79,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/metadata_descriptor_lookup.cpp
     src/metadata_descriptor_index.cpp
     src/metadata_descriptor_membership.cpp
+    src/metadata_utf16_slice.cpp
     src/object_startup.cpp
     src/manager_construction.cpp
     src/manager_storage.cpp
