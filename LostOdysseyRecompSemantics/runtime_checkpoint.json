@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-02",
+  "code_commits": ["c4398ee", "b8571cd", "88a429c"],
+  "unique_recovered_entry_addresses": 2266,
+  "available_opt_in_runtime_wrappers": {"leaf": 942, "integer": 296},
+  "build": {
+    "status": "passed",
+    "platform": "Windows x86_64",
+    "compiler": "clang-cl 22.1.8",
+    "configuration": "RelWithDebInfo",
+    "target": "LostOdysseyRecomp",
+    "semantic_runtime_option": true,
+    "ppc_source": "Existing local PPC archive reused with LO_PREBUILT_RECOMP_LIBRARY; both runs used the same executable and archive.",
+    "provenance_limit": "The archive was not rebuilt or independently provenance-audited. The executable's embedded revision predates the commits of the tested source changes."
+  },
+  "scene_smoke": {
+    "status": "passed",
+    "backend": "D3D12",
+    "resolution": [1280, 720],
+    "frame_rate_cap": 30,
+    "anti_aliasing": "off",
+    "upscaling": "off",
+    "hdr": false,
+    "isolation": "Separate copies of the same save/profile/settings seed and separate writable caches; shared read-only game and shader-pack inputs.",
+    "route": "Continue to Map 20, Uhra - Residential Area; send a Y-button pulse to open the main menu.",
+    "original": {
+      "LO_SEMANTIC_LEAF_RUNTIME": "0",
+      "LO_SEMANTIC_INTEGER_RUNTIME": "0",
+      "map": 20,
+      "scene_capture": "original/scene_917.png",
+      "menu_capture": "original/scene_2688.png"
+    },
+    "recovered": {
+      "LO_SEMANTIC_LEAF_RUNTIME": "1",
+      "LO_SEMANTIC_INTEGER_RUNTIME": "1",
+      "map": 20,
+      "scene_capture": "recovered/scene_1049.png",
+      "menu_capture": "recovered/scene_2414.png"
+    },
+    "observed": "Both runs reached the scene, rendered the player and environment, and opened the same main menu without an observed crash. Captures were visually inspected; scene animation timing was not synchronized.",
+    "evidence_directory": "External scratch: semantic-runtime-scenes-20261002; each run retains runtime.log, settings, input requests and captures.",
+    "test_processes_stopped": true
+  },
+  "acceptance_limits": [
+    "No per-entry execution coverage was collected; this does not establish scene acceptance for all 1238 available wrappers.",
+    "The remaining recovered memory and CRT families are not connected to this runtime experiment.",
+    "No pixel-exact comparison, performance benchmark, combat, transition, failure-path, concurrency, MMIO or cross-platform acceptance is claimed.",
+    "Runtime replacements remain disabled by default; full semantic recovery and full-game acceptance remain incomplete."
+  ]
+}
