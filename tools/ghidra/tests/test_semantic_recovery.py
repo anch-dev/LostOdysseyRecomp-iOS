@@ -193,6 +193,36 @@ class SemanticRecoveryTest(unittest.TestCase):
         build.assert_not_called()
         self.assertEqual(json.loads(receipt.read_text())["status"], "failed")
 
+    def test_batch_reuses_one_native_environment_for_build_and_two_oracles(self) -> None:
+        harness = self.root / "oracle.cpp"
+        harness.write_text("", encoding="utf-8")
+        families = []
+        for index, entry in enumerate(self.entries):
+            manifest = self.root / f"family-{index}.json"
+            manifest.write_text(json.dumps({"entries": [entry]}), encoding="utf-8")
+            families.append({"name": f"family-{index}", "manifest": str(manifest),
+                             "harness": str(harness), "sources": []})
+        batch = self.root / "batch.json"
+        batch.write_text(json.dumps({"families": families}), encoding="utf-8")
+        library = self.root / "LostOdysseyRecompSemantics.lib"
+        library.write_bytes(b"synthetic")
+        environment = {"PATH": str(self.root)}
+        completed = SimpleNamespace(returncode=0, stdout="PASS synthetic", stderr="")
+        with patch.object(recovery, "compiler_environment", return_value=environment) as setup, \
+             patch.object(recovery, "_build_library", return_value=(library, 0)) as build, \
+             patch.object(semantic_batch, "compiler_environment") as repeated_setup, \
+             patch.object(semantic_batch.shutil, "which", return_value="clang-cl.exe"), \
+             patch.object(semantic_batch.subprocess, "run", return_value=completed) as run:
+            result = recovery.run_batch(batch, self.root / "result", self.ppc,
+                                        library_build=self.root / "build", msvc_runtime="MT")
+        setup.assert_called_once()
+        repeated_setup.assert_not_called()
+        self.assertIs(build.call_args.kwargs["native_environment"], environment)
+        self.assertEqual(run.call_count, 4)
+        self.assertTrue(all(call.kwargs["env"] is environment for call in run.call_args_list))
+        self.assertEqual(result["status"], "passed")
+        self.assertGreaterEqual(result["compiler_setup_seconds"], 0)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -204,7 +204,8 @@ def _source_paths(family: dict, library_build: Path | None) -> list[Path]:
 
 
 def _build_library(build_dir: Path, output: Path,
-                   library_file: Path | None = None) -> tuple[Path, float]:
+                   library_file: Path | None = None,
+                   native_environment: dict | None = None) -> tuple[Path, float]:
     build_dir = build_dir.resolve()
     cache_path = build_dir / "CMakeCache.txt"
     if not cache_path.is_file():
@@ -219,7 +220,7 @@ def _build_library(build_dir: Path, output: Path,
         if (library_file.name != "LostOdysseyRecompSemantics.lib" or
                 not library_file.is_relative_to(build_dir)):
             raise ValueError(f"library file must be inside this build: {library_file}")
-    environment = compiler_environment()
+    environment = native_environment if native_environment is not None else compiler_environment()
     search_path = next(v for k, v in environment.items() if k.upper() == "PATH")
     cmake = shutil.which("cmake", path=search_path)
     if cmake is None:
@@ -322,6 +323,21 @@ def run_batch(batch_path: Path, output_path: Path, ppc_root: Path,
                 item["error"] = f"{type(exc).__name__}: {exc}"
                 _write(Path(item["receipt"]), item)
                 raise
+        result["phase"] = "compiler_setup"
+        for item in result["families"]:
+            item["phase"] = "compiler_setup"
+            _write(Path(item["receipt"]), item)
+        _write(receipt_path, result)
+        setup_started = time.perf_counter()
+        try:
+            environment = compiler_environment()
+        except Exception as exc:
+            for item in result["families"]:
+                item["error"] = f"{type(exc).__name__}: {exc}"
+                _write(Path(item["receipt"]), item)
+            raise
+        finally:
+            result["compiler_setup_seconds"] = round(time.perf_counter() - setup_started, 3)
         library = None
         if library_build:
             result["phase"] = "library_build"
@@ -331,7 +347,8 @@ def run_batch(batch_path: Path, output_path: Path, ppc_root: Path,
                 _write(Path(item["receipt"]), item)
             _write(receipt_path, result)
             try:
-                library, elapsed = _build_library(library_build, output, library_file)
+                library, elapsed = _build_library(library_build, output, library_file,
+                                                  native_environment=environment)
             except Exception as exc:
                 for item in result["families"]:
                     item["error"] = f"{type(exc).__name__}: {exc}"
@@ -350,7 +367,8 @@ def run_batch(batch_path: Path, output_path: Path, ppc_root: Path,
                                       [] if library else sources, output,
                                       extra_include_dirs=[Path(ppc_root).resolve()],
                                       semantic_library=library,
-                                      msvc_runtime=msvc_runtime or "MD")
+                                      msvc_runtime=msvc_runtime or "MD",
+                                      native_environment=environment)
             finally:
                 # compile_and_run writes the phase and error even on failure.
                 item.update(_json(Path(item["receipt"])))

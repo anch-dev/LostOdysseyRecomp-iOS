@@ -60,7 +60,7 @@ def extract_originals(entries: list[dict], ppc_root: Path) -> bytes:
 def compile_and_run(suite: str, original_cpp: bytes, harness_cpp: bytes | str,
                     semantic_sources: list[Path | str], output: Path,
                     extra_include_dirs=(), semantic_library: Path | None = None,
-                    msvc_runtime: str = "MD") -> dict:
+                    msvc_runtime: str = "MD", native_environment: dict | None = None) -> dict:
     """Build one executable, run it once, and save a compact result and log."""
     if not re.fullmatch(r"[a-zA-Z0-9_-]+", suite):
         raise ValueError("suite must be a simple filename")
@@ -82,7 +82,7 @@ def compile_and_run(suite: str, original_cpp: bytes, harness_cpp: bytes | str,
     try:
         if msvc_runtime not in ("MD", "MDd", "MT", "MTd"):
             raise ValueError(f"unsupported MSVC runtime: {msvc_runtime}")
-        environment = compiler_environment()
+        environment = native_environment if native_environment is not None else compiler_environment()
         search_path = next(v for k, v in environment.items() if k.upper() == "PATH")
         compiler = shutil.which("clang-cl", path=search_path)
         if compiler is None:
