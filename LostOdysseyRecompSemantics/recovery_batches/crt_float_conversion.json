@@ -1,0 +1,23 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Two actual software decimal-conversion entries; lower accepted models reused, selected state and ordinary RAM; native and runtime behavior remain bounded.",
+  "families": [
+    {
+      "name": "crt-float-conversion",
+      "manifest": "LostOdysseyRecompSemantics/crt_float_conversion_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/crt_float_conversion_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nvoid OriginalSave(unsigned,PPCContext&);\nvoid OriginalRestore(unsigned,PPCContext&);\nvoid OriginalCallee(std::uint32_t,PPCContext&,std::uint8_t*);\n#define __savegprlr_14(c,b) OriginalSave(14,c)\n#define __savegprlr_29(c,b) OriginalSave(29,c)\n#define __restgprlr_14(c,b) OriginalRestore(14,c)\n#define __restgprlr_29(c,b) OriginalRestore(29,c)\n#define sub_82B7A0B0(c,b) OriginalCallee(0x82B7A0B0u,c,b)\n#define sub_8231A390(c,b) OriginalCallee(0x8231A390u,c,b)\n#define sub_8231B0D0(c,b) OriginalCallee(0x8231B0D0u,c,b)\n#define sub_82B7FF08(c,b) OriginalCallee(0x82B7FF08u,c,b)\n#define sub_8231A470(c,b) __imp__sub_8231A470(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/memory_move.cpp",
+        "LostOdysseyRecompSemantics/src/memory_fill.cpp",
+        "LostOdysseyRecompSemantics/src/field_arithmetic.cpp",
+        "LostOdysseyRecompSemantics/src/invalid_parameter.cpp",
+        "LostOdysseyRecompSemantics/src/allocation_failure.cpp",
+        "LostOdysseyRecompSemantics/src/crt_thread_data.cpp",
+        "LostOdysseyRecompSemantics/src/crt_float_core_helpers.cpp",
+        "LostOdysseyRecompSemantics/src/crt_float_environment.cpp",
+        "LostOdysseyRecompSemantics/src/crt_float_conversion.cpp"
+      ]
+    }
+  ]
+}
