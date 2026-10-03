@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "family": "RPNaviConstructorChain",
+  "entry_count": 16,
+  "wrapper_count": 8,
+  "callee_count": 8,
+  "entries": [
+    {
+      "address": "82B54518",
+      "kind": "derived_initializer",
+      "lower": "824D5AA8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 3108
+    },
+    {
+      "address": "82B54690",
+      "kind": "derived_initializer",
+      "lower": "825295B0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 3349
+    },
+    {
+      "address": "82B548F8",
+      "kind": "derived_initializer",
+      "lower": "824D83A0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 3743
+    },
+    {
+      "address": "82B54980",
+      "kind": "derived_initializer",
+      "lower": "82B548F8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 3831
+    },
+    {
+      "address": "82B54AF8",
+      "kind": "derived_initializer",
+      "lower": "8249EA88",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 4072
+    },
+    {
+      "address": "82B54C70",
+      "kind": "derived_initializer",
+      "lower": "8249EA88",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 4313
+    },
+    {
+      "address": "82B54DE8",
+      "kind": "derived_initializer",
+      "lower": "825BA8F8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 4554
+    },
+    {
+      "address": "82B55028",
+      "kind": "null_guarded_wrapper",
+      "callee": "82B54518",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 4919
+    },
+    {
+      "address": "82B55068",
+      "kind": "null_guarded_wrapper",
+      "callee": "82B54690",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 4964
+    },
+    {
+      "address": "82B550A8",
+      "kind": "null_guarded_wrapper",
+      "callee": "82B548F8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 5009
+    },
+    {
+      "address": "82B550E8",
+      "kind": "null_guarded_wrapper",
+      "callee": "82B54980",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 5054
+    },
+    {
+      "address": "82B55128",
+      "kind": "null_guarded_wrapper",
+      "callee": "82B54AF8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 5099
+    },
+    {
+      "address": "82B55168",
+      "kind": "null_guarded_wrapper",
+      "callee": "82B54C70",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 5144
+    },
+    {
+      "address": "82B551A8",
+      "kind": "null_guarded_wrapper",
+      "callee": "82B54DE8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 5189
+    },
+    {
+      "address": "82B55FF8",
+      "kind": "derived_initializer",
+      "lower": "824D5AA8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 7380
+    },
+    {
+      "address": "82B56728",
+      "kind": "null_guarded_wrapper",
+      "callee": "82B55FF8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 8749
+    }
+  ],
+  "chains": [
+    {
+      "address": "82B55028",
+      "callee": "82B54518",
+      "lower": "824D5AA8",
+      "base_vtable": "0x8207accc",
+      "derived_vtable": "0x820165B0",
+      "volume_scratch": false,
+      "type_name": "RPNaviSizeVolume",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 4919,
+      "callee_source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "callee_source_line": 3108
+    },
+    {
+      "address": "82B55068",
+      "callee": "82B54690",
+      "lower": "825295B0",
+      "base_vtable": "0x821c64f0",
+      "derived_vtable": "0x820CF850",
+      "volume_scratch": false,
+      "type_name": "RPNaviMoveActor",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 4964,
+      "callee_source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "callee_source_line": 3349
+    },
+    {
+      "address": "82B550A8",
+      "callee": "82B548F8",
+      "lower": "824D83A0",
+      "base_vtable": "0x821afcf8",
+      "derived_vtable": "0x820CFBD0",
+      "volume_scratch": false,
+      "type_name": "RPNaviInsteadPawn",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 5009,
+      "callee_source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "callee_source_line": 3743
+    },
+    {
+      "address": "82B550E8",
+      "callee": "82B54980",
+      "lower": "82B548F8",
+      "base_vtable": "0x00000000",
+      "derived_vtable": "0x820D0008",
+      "volume_scratch": false,
+      "type_name": "RPNaviInsteadPawnWSM",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 5054,
+      "callee_source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "callee_source_line": 3831
+    },
+    {
+      "address": "82B55128",
+      "callee": "82B54AF8",
+      "lower": "8249EA88",
+      "base_vtable": "0x8206a974",
+      "derived_vtable": "0x820D0440",
+      "volume_scratch": false,
+      "type_name": "RPNaviLandmarkActor",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 5099,
+      "callee_source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "callee_source_line": 4072
+    },
+    {
+      "address": "82B55168",
+      "callee": "82B54C70",
+      "lower": "8249EA88",
+      "base_vtable": "0x8206a974",
+      "derived_vtable": "0x820D07C0",
+      "volume_scratch": false,
+      "type_name": "RPNaviManager",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 5144,
+      "callee_source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "callee_source_line": 4313
+    },
+    {
+      "address": "82B551A8",
+      "callee": "82B54DE8",
+      "lower": "825BA8F8",
+      "base_vtable": "0x8200487c",
+      "derived_vtable": "0x820D0B40",
+      "volume_scratch": false,
+      "type_name": "LevelStreamingNavi",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 5189,
+      "callee_source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "callee_source_line": 4554
+    },
+    {
+      "address": "82B56728",
+      "callee": "82B55FF8",
+      "lower": "824D5AA8",
+      "base_vtable": "0x8207accc",
+      "derived_vtable": "0x820D1000",
+      "volume_scratch": true,
+      "type_name": "RPNaviVolume",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "source_line": 8749,
+      "callee_source": "LostOdysseyRecompLib/ppc/ppc_recomp.172.cpp",
+      "callee_source_line": 7380
+    }
+  ],
+  "limitations": [
+    "ordinary mapped-memory observations only; 64-bit std is represented as two word writes",
+    "temporary GPR/CR/LR and fault/MMIO observations are outside the API"
+  ]
+}
