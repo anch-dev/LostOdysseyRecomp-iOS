@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-02",
+  "code_commits": ["0513ef7", "27e9f2d", "31727fb", "0da2ace"],
+  "previous_checkpoint": "runtime_memory_checkpoint.json",
+  "unique_recovered_entry_addresses": 4217,
+  "additional_entry_addresses": 1657,
+  "individually_recorded_entries": 77,
+  "family_manifests": 16,
+  "overlapping_addresses": ["829664E8", "82B84D88"],
+  "new_semantic_recovery": {
+    "registered_constructor": {
+      "additional_addresses": 845,
+      "ordinary_constructors": 129,
+      "constructors_with_stack_scratch": 8,
+      "lazy_singletons": 708,
+      "bounded_comparisons": 1692,
+      "scope": "One parameter table composes the recovered manager allocation and registered-object initialization. It retains full r3, low-word failure checks, two outgoing-store orders, stack scratch, callback-on-failure and singleton reloads.",
+      "runner": "tools/ghidra/test_semantic_registered_constructor_family.py",
+      "receipt": "External scratch: semantic-registered-constructor-tests/registered-constructor-family-result.json"
+    },
+    "registered_callback": {
+      "family_addresses": 708,
+      "additional_individual_addresses": ["82403200"],
+      "bounded_comparisons": 1432,
+      "scope": "Shared graph linking covers eleven instruction structures, including three 128-byte-frame inline variants. The separately recorded shared metadata registrar composes recovered constructors, primary lookup and graph registration. Comparisons cover each table entry's two main branches and selected ready/lazy paths.",
+      "runner": "tools/ghidra/test_semantic_registered_callback_family.py --scope original",
+      "receipt": "External scratch: semantic-registered-callback-tests/registered-callback-family-result.json"
+    },
+    "registered_getter": {
+      "additional_addresses": 52,
+      "bounded_comparisons": 105,
+      "scope": "A shared 96-byte-frame singleton getter calls the recovered constructor, registers even on allocation failure, and reloads the global after registration. Every exact 19-instruction body is checked against the reviewed template; comparisons include existing/fresh globals and a representative allocation failure.",
+      "runner": "tools/ghidra/test_semantic_registered_getter_family.py",
+      "receipt": "External scratch: semantic-registered-getter-tests/registered-getter-family-result.json"
+    },
+    "registered_dependency_registration": {
+      "additional_addresses": 51,
+      "instruction_structures": 6,
+      "bounded_comparisons": 109,
+      "scope": "Dependency registrars share graph linking with the ready-gate snapshot taken before the +52 store, followed by a live self+52 comparison. Each entry has two branch cases, with six ready representatives and one gate/store-alias case.",
+      "runner": "tools/ghidra/test_semantic_registered_callback_family.py --scope dependency",
+      "receipt": "External scratch: semantic-registered-dependency-tests/registered-dependency-callback-family-result.json"
+    },
+    "registered_composition": {
+      "additional_addresses": 0,
+      "representative_existing_addresses": ["824073E8", "8249C688", "8259C4A8", "8271FEF0"],
+      "bounded_comparisons": 13,
+      "scope": "Four representatives cover the affected getter/registration dispatch paths and a fresh getter-to-dependency-registration composition. The remaining unchanged 708-entry cases reuse their passing evidence.",
+      "runner": "tools/ghidra/test_semantic_registered_callback_family.py --scope composition",
+      "receipt": "External scratch: semantic-registered-composition-tests/registered-callback-composition-result.json"
+    }
+  },
+  "validation": {
+    "status": "passed_with_bounded_scope",
+    "new_and_changed_scope_comparisons": 3351,
+    "original_side": "Exact cached generated PPC bodies at the selected entry boundary; already validated lower semantic implementations are reused as stand-ins. Opaque external services remain controlled boundaries.",
+    "build": "One Windows clang-cl 22.1.8 RelWithDebInfo incremental LostOdysseyRecompSemantics build compiled the three new modules and linked the static library successfully.",
+    "build_log": "External scratch: semantic-runtime-build/registered-object-build.log",
+    "fixture_correction": "The dependency fixture initially omitted the 0x83247000 page used by 825A5198. Commit, reset and comparison of that page were added; no production change was needed.",
+    "evidence_reuse": "No source/image hashes, whole-PPC regeneration, old-suite reruns or new game scenes. Diagnostic-output cleanup did not change the passing scenarios and did not trigger another run."
+  },
+  "runtime": {
+    "available_opt_in_wrappers": 2455,
+    "default_off_gates": 6,
+    "new_wrappers": 0,
+    "new_scene_runs": 0,
+    "reused_scene_checkpoint": "runtime_memory_checkpoint.json",
+    "scope": "The registered-object families are library implementations only. They are outside the previous six-gate Map20/menu scene evidence."
+  },
+  "remaining_boundaries": [
+    "Deeper external getters, constructors, registration callbacks, ready vtable methods and manager services are not fully recovered.",
+    "827CE240 remains an explicit external constructor; its miss path from 825A5198 is outside this batch's passing cases.",
+    "Comparisons do not establish generic ABI scratch, volatile context, faults, MMIO, concurrency or whole-game behavior.",
+    "Runtime adapters and representative runtime acceptance for the new families remain pending. Complete semantic recovery remains incomplete."
+  ],
+  "next_cached_candidates": {
+    "source": "out/function-inventory/registered-next-dependencies.json",
+    "handoff": "out/function-inventory/registered-next-dependencies-handoff.md",
+    "addresses": 13,
+    "getter_candidates": 6,
+    "registration_candidates": 5,
+    "special_cases": ["827CE240", "827CE088"],
+    "status": "Static cached candidates only; excluded from recovered counts."
+  },
+  "counting_note": "Counts are unique mapped entry addresses, not independent logical functions or complete-semantics claims."
+}
