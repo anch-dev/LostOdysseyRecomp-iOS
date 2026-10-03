@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-02",
+  "code_commits": ["d6d8d82", "091c8b3", "6b5be34"],
+  "previous_checkpoint": "registered_closure_checkpoint.json",
+  "unique_recovered_entry_addresses": 4833,
+  "additional_entry_addresses": 601,
+  "individually_recorded_entries": 82,
+  "family_manifests": 18,
+  "overlapping_addresses": ["829664E8", "82B84D88"],
+  "instance_initializers": {
+    "manifest": "instance_vtable_families.json",
+    "additional_addresses": 583,
+    "vtable_only": 550,
+    "ordered_fields": 33,
+    "registered_type_references": 644,
+    "implementation": "One readable operation preserves full r3, checks the low word for null and writes the reviewed vtable. Ordered-field entries retain field/vtable/field writes in their original order.",
+    "static_validation": "Every selected complete generated PPC body, instruction list, branch structure and immediate-to-field mapping is checked against the reviewed six- or twelve-instruction form. All 583 entry identities are retained.",
+    "bounded_validation": {
+      "vtable_only_representatives": 5,
+      "vtable_only_comparisons": 11,
+      "ordered_field_representatives": 6,
+      "ordered_field_comparisons": 13,
+      "scope": "Representative parameter ranges and all six ordered-field offsets, nonzero/full-width r3, low-word null with nonzero upper bits, unknown entry and guest-memory effects. Volatile r11/cr6 are outside the readable API.",
+      "runner": "tools/ghidra/test_semantic_instance_vtable_family.py --group vtable_only or --group ordered_fields",
+      "receipts": [
+        "External scratch: semantic-instance-vtable-tests/instance-vtable-family-result.json",
+        "External scratch: semantic-instance-vtable-tests/instance-vtable-ordered-result.json"
+      ]
+    },
+    "remaining_cached_outgoing92_entries": 203,
+    "candidate_source": "out/function-inventory/registered-instance-candidates.json",
+    "cached_originals": "out/function-inventory/registered-instance-originals.cpp.gz"
+  },
+  "metadata_words": {
+    "manifest": "registered_metadata_word_families.json",
+    "additional_family_addresses": 16,
+    "additional_individual_addresses": ["822C42D8", "825F41E8"],
+    "implementation": "AddArrayElements reproduces signed comparison and wrapped capacity growth through the existing ResizeArray. AppendMetadataWord reads its value after growth and returns live count minus one. Constant sequences append to object[52]+364; two special sequences preserve a previous-word high-byte update and a final object-field clear.",
+    "static_validation": "All sixteen complete instruction lists are reconstructed from reviewed constant sequences, store orders and special operations; any different instruction or callee is rejected.",
+    "bounded_validation": {
+      "composed_original_bodies": 18,
+      "base_comparisons": 24,
+      "additional_negative_growth_comparisons": 1,
+      "scope": "One ordinary composition per table entry; helper growth/no-growth, signed comparison, register truncation, count wrap, callback-mutated count and header/stack value aliases. The extra case checks positive new_count with negative wrapped triple and srawi/addze truncation toward zero.",
+      "runner": "tools/ghidra/test_semantic_registered_metadata_words.py; --scope negative-growth runs only the added boundary",
+      "receipts": [
+        "External scratch: semantic-registered-metadata-tests/registered-metadata-words-result.json",
+        "External scratch: semantic-registered-metadata-tests/registered-metadata-negative-growth-result.json"
+      ],
+      "lower_evidence_reuse": "Original and recovered compositions reuse the previously validated ResizeArray at 8229F678 and its guest32 service contract. Generic ABI/volatile state is not established."
+    },
+    "remaining_cached_outgoing100_108_entries": 20,
+    "candidate_source": "out/function-inventory/registered-extra-methods.json"
+  },
+  "validation": {
+    "status": "passed_with_bounded_scope",
+    "focused_comparisons": 49,
+    "parameter_validation": "Full cached-body matching for 583 instance entries and full instruction-list matching for sixteen metadata sequences; no per-entry random test matrices.",
+    "build": "Windows clang-cl RelWithDebInfo incremental LostOdysseyRecompSemantics build passed for both new modules. The 33-entry extension rebuilt only instance_vtable_family.cpp and linked the library.",
+    "build_log": "External scratch: semantic-runtime-build/registered-instance-metadata-build.log",
+    "evidence_reuse": "Prior registered constructor/getter/callback/dependency and runtime suites were reused. The vtable-only scope was not rerun for the ordered-field extension. One updated high-register seed caused a second execution of the new metadata scope; the later negative-growth boundary ran alone, preserving the passing 24-case receipt. No new source/image hashes, whole-PPC scan or game scene run."
+  },
+  "runtime": {
+    "available_opt_in_wrappers": 2455,
+    "default_off_gates": 6,
+    "new_wrappers": 0,
+    "new_scene_runs": 0,
+    "scope": "The new entries are library implementations. Earlier Map20/menu evidence applies only to existing runtime wrappers.",
+    "next_adapter_handoff": "out/function-inventory/registered-runtime-handoff.md",
+    "next_adapter_scope": "58 registered getters: share the recovered algorithm with native memory and live guest-call hooks, then verify full PPCContext/stack behavior before scene validation."
+  },
+  "remaining_boundaries": [
+    "Remaining cached instance initializers and metadata callbacks include nested calls, tail dispatch and more complex field behavior.",
+    "Generic PPCContext, volatile state, ABI saves, faults, MMIO, concurrency and native service contracts remain outside this bounded evidence.",
+    "Original C++ type layouts, runtime adapters and representative scene acceptance remain incomplete.",
+    "Complete semantic recovery of the game remains incomplete."
+  ],
+  "counting_note": "601 additional unique mapped entry addresses, not 601 independent logical operations. Type references and comparison counts do not add recovered entries."
+}

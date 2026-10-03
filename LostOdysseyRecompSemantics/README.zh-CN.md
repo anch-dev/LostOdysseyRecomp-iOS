@@ -1,14 +1,14 @@
 # Lost Odyssey 语义恢复库
 
-本目录是项目首个可读语义恢复代码库。它是独立的 C++20 static library，可以在不依赖私有游戏数据、生成的 PPC 代码、渲染器或游戏 SDK 的情况下用 CMake 配置；Windows C++ 工具链仍需要正常的编译器和 SDK 环境。当前源码已有八十个逐个记录的可读条目，覆盖 query 创建、query-pool 分配／释放、allocator 分派、memory service、guest-memory fill、cache range、heap-core、thread-state、heap allocation helper、heap growth／range／segment、guest memory move/copy、dynamic-array、special/raw allocation、manager 构造／初始化／锁／storage、manager allocation／resize、fallback resize、pointer-vector 清理、manager buffer/array facade、object registration/startup、allocation-failure reporting 以及 CRT service。Guest memory 仍是显式的 32 位大端窗口，尚未恢复契约的 service boundary 保持不透明。
+本目录是项目首个可读语义恢复代码库。它是独立的 C++20 static library，可以在不依赖私有游戏数据、生成的 PPC 代码、渲染器或游戏 SDK 的情况下用 CMake 配置；Windows C++ 工具链仍需要正常的编译器和 SDK 环境。当前源码已有八十二个逐个记录的可读条目，覆盖 query 创建、query-pool 分配／释放、allocator 分派、memory service、guest-memory fill、cache range、heap-core、thread-state、heap allocation helper、heap growth／range／segment、guest memory move/copy、dynamic-array、special/raw allocation、manager 构造／初始化／锁／storage、manager allocation／resize、fallback resize、pointer-vector 清理、manager buffer/array facade、object registration/startup、allocation-failure reporting 以及 CRT service。Guest memory 仍是显式的 32 位大端窗口，尚未恢复契约的 service boundary 保持不透明。
 
 这是研究和行为对照用的代码面，runtime 替换默认关闭；当前不宣称完整恢复、兼容性、性能提升或跨平台验证。恢复记录将可读实现、差分检查、runtime 接入、场景验证和完整语义分别记录；当前完整恢复仍为 0。
 
 另有一个独立的 leaf-family 批次，将 942 个原始 entrypoint 映射到两个共享的可读 C++ 实现（`PreserveR3` 和 `ReturnOne`），使用 3 个精确源码模板。一次 native 编译及 4,710/4,710 条完整 PPCContext 加 4,096 字节普通内存对照均通过。共享批处理流程去除了逐函数编译开销，但不宣称整体加速；逐个跟踪的实现仍单独计数。入口映射见 [leaf_families.json](leaf_families.json)。可用 `python -B tools/ghidra/test_semantic_leaf_family.py --write-map --output "$env:USERPROFILE/worktrees/LostOdysseyRecomp/semantic-leaf-family-tests"` 重现。运行需要已有的 `out/function-inventory/exact-body-families.json` 清单和私有输入；完整 PPC 位于其他 checkout 时，用 `--ppc-root <目录>` 指定。该证据仅限有边界的行为对照，不会启用 runtime 替换，也不代表游戏验收通过。
 
-16 份 family 清单与 `recovery.json` 中的 80 个逐项记录，扣除 `829664E8`（individual/integer）与 `82B84D88`（individual/global-assignment）两个重叠后，共覆盖 4,232 个唯一地址。本检查点新增 15 个映射入口：6 个 registered getter、6 个 dependency-registration callback 和 3 个逐项记录。这是入口地址映射数量，不代表独立逻辑函数数量或完整恢复。
+18 份 family 清单与 `recovery.json` 中的 82 个逐项记录，扣除 `829664E8`（individual/integer）与 `82B84D88`（individual/global-assignment）两个重叠后，共覆盖 4,833 个唯一地址。本检查点新增 601 个映射入口：583 个 instance-initialization、16 个 metadata callback 和 2 个 array helper。这是入口地址映射数量，不代表独立逻辑函数数量或完整恢复。
 
-本轮 closure 详情和有界 receipt 见 [registered_closure_checkpoint.json](registered_closure_checkpoint.json)。更深的服务边界与完整 ABI 仍未覆盖。已接受的类型名索引为 847 个现有 constructor 或 lazy-singleton 入口补上名称，见 [REGISTERED_TYPES.md](REGISTERED_TYPES.md) 和 [registered_type_catalog.json](registered_type_catalog.json)；它不增加恢复入口或验证计数。
+本轮 instance/metadata closure 详情和有界 receipt 见 [registered_instance_metadata_checkpoint.json](registered_instance_metadata_checkpoint.json)。覆盖新增或改变范围的 49 条有界对照已通过，semantics library 增量构建已通过。更深的服务边界与完整 ABI 仍未覆盖。已接受的类型名索引为 847 个现有 constructor 或 lazy-singleton 入口补上名称，见 [REGISTERED_TYPES.md](REGISTERED_TYPES.md) 和 [registered_type_catalog.json](registered_type_catalog.json)；它不增加恢复入口或验证计数。
 
 只对改变的行为运行聚焦对照，并复用现有输出目录：
 
@@ -124,7 +124,7 @@ GuestMemory 表示有边界的 Xbox guest 地址窗口，并显式读写大端�
 - 82298938 ResetTwoByteArray
 
 库内还实现了将 query 创建、槽位初始化和释放串联起来的 PooledQueryServices 组合 adapter；它是库内组合面，不是 runtime 接入。manager lifecycle 组合对原始 PPC 的 InitializeManager、AllocateRawMemory、GetProcessHeap 及 primary／fallback constructor 通过 12 条有边界用例；manager-lock 组合再通过 12 条；manager-startup 组合对 10 个原始／恢复 body 通过 6 条，三个虚表调用均指向真实目标。manager-allocation 和 fallback-resize 组合各通过 12 条补充用例，不增加函数数量。5 个 manager buffer/array facade 另通过 12 条有边界原始 PPC 组合对照；下层 manager 和 array callee 仍是 service stand-in，尚无 runtime/scene 验收。现有逐项新增函数均有独立、有边界的 receipt，包含大小类别边界用例。3 个 lock 函数各有 16、24、24 条用例，2 个 storage 函数各有 18 条。其 test-only adapter 会显式重放 ABI prologue 保存和 backchain；production 仍没有完整 PPCContext adapter。heap、CRT、native-critical-section 和更深 vtable 边界仍为 synthetic，generic ABI scratch 和 volatile context 不纳入。部分测试仍使用有边界的 stub 或合成组合，因此不代表内存已完整恢复。当前工作继续推进 family 与 dependency 恢复，并同步构建 runtime adapter；更深 vtable、CRT／native kernel、unwind、ABI adapter 以及代表性 runtime 场景验证仍待完成。后续按证据和热点扩展，不为所有地址生成占位实现。
-当前 `recovery.json` 的 80 个逐项记录与 16 份 family 清单在扣除上述两个重叠后，共覆盖 4,232 个唯一映射地址；本轮新增／改变的有界对照及 semantics library 增量构建与链接已通过，详情及有界 receipts 见 [registered closure checkpoint](registered_closure_checkpoint.json)。逐入口 runtime 和 scene 验收仍未设置。Runtime wrapper 仍为 2,455 个、由六个默认关闭的 gate 控制；本轮未新增 wrapper 或场景验证，complete 仍为 0。此前 49 函数报告和 receipt 保留为历史检查点；MMIO、fault、concurrency、完整 void r3 和机器码 runtime 验证仍未覆盖，cache 结果也不代表硬件同步已验收。
+当前 `recovery.json` 的 82 个逐项记录与 18 份 family 清单在扣除上述两个重叠后，共覆盖 4,833 个唯一映射地址；覆盖新增或改变范围的 49 条有界对照及 semantics library 增量构建已通过，详情及有界 receipts 见 [registered instance/metadata checkpoint](registered_instance_metadata_checkpoint.json)。逐入口 runtime 和 scene 验收仍未设置。Runtime wrapper 仍为 2,455 个、由六个默认关闭的 gate 控制；本轮未新增 wrapper 或场景验证，complete 仍为 0。此前 49 函数报告和 receipt 保留为历史检查点；MMIO、fault、concurrency、完整 void r3 和机器码 runtime 验证仍未覆盖，cache 结果也不代表硬件同步已验收。
 memory-fill 对照还覆盖未注册的 PPCContext adapter，包括 store address、width、value 和 order。该 adapter 只属于对照 harness，不是 runtime 接入。函数名和字段名是根据 PPC 证据推断的工作名称，不是已恢复的原始 debug symbol。
 fill adapter 不证明 fault 期间的中间 PPCContext 状态，也未在 optimized 或 live path 上测试。
 
