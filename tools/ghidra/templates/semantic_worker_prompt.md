@@ -13,6 +13,9 @@ You are an implementation agent working beside other agents in a shared reposito
 - Remaining known PPC gaps: `{{BOUNDARIES}}`
 - Owned header, source, manifest, and harness: `{{OWNED_PATHS}}`
 - Smallest representative cases: `{{FOCUSED_CASES}}`
+  Prefer 2-10 focused cases for the assigned family. Reuse accepted lower checks;
+  omit routine unknown-entry checks and repeated matrices unless changed behavior
+  requires them. Root alone owns the necessary build and oracle run.
 - Shared tools and invocation notes: `{{SHARED_TOOLS}}`
 - External receipt destination: `{{RECEIPT_OUTPUT}}`
 
@@ -35,12 +38,18 @@ The manifest's `translated_body` is the only body pin. Do not duplicate script t
    - If a fixture changes state before an original-body branch rereads it, perform that mutation at the corresponding native event and retain the expected-path assertion so the fixture tests the intended branch.
    - Preserve compare and dot-form CR effects when replacing PPC branches with C++ conditions. Derive address bases from the complete signed `lis`/`addi` pair. Trace the pinned branches with each fixture's input before handoff: null-output, extent and signed-offset guards can bypass the intended service. A path failure must report the entry, mode and relevant state before changing the fixture.
    - Derive XER carry from the pinned operation's width. An `addic.` body can update a full 64-bit GPR while computing carry from its low 32 bits; do not replace that combination with a host 64-bit carry helper.
+     Retain `srawi` and `addze` carry writes as well; later calls can observe them
+     even when the temporary GPR values are restored.
 5. For guest function-pointer tables, inspect the fixed image slots and the instructions that initialize or replace them. Record the initial and post-initialization targets separately, retain live slot reads, and recover every known PPC target before crediting the caller. An initial fatal/default thunk does not establish the real runtime call closure. Distinguish intra-body jump tables from external calls. Use existing address mappings and narrow reads; do not add hashes or a full image scan.
 6. Stop after the packet is complete and send the exact receipt below; wait for root integration.
 
 ## Non-goals
 
 Do not duplicate verification hashes, scan the whole tree, scan unrelated functions, revive old tests, build the runtime application, commit or push, modify global configuration, or claim completion from entry ratio, function count, or case count. Recover a real hashmap algorithm when it is part of this assigned closure. Direct SCC dependencies must be real accepted implementations: never use an opaque placeholder or stub. If a required call is unresolved, report its exact symbol and source location for root expansion before claiming credit. Do not say `PASS` for a command that was not run. If no output exists, say `not-run`.
+
+Record only necessary implementation and validation scope in the family manifest.
+Do not synchronize general documentation or create another checkpoint per batch;
+the root reports the commit, entry delta, cumulative progress and open scope.
 
 ## Required handoff
 
