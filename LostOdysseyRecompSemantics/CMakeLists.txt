@@ -112,6 +112,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/heap.cpp
     src/heap_free.cpp
     src/heap_lock_exit.cpp
+    src/heap_block_resize.cpp
     src/heap_allocate.cpp
     src/heap_growth.cpp
     src/heap_decommit.cpp
