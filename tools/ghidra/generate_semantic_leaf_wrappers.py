@@ -61,15 +61,49 @@ def generate(manifest: dict) -> str:
     return "\n".join(lines)
 
 
+def generate_integer(manifest: dict) -> str:
+    if manifest.get("schema_version") != 1:
+        raise ValueError("unsupported integer-leaf manifest")
+    entries = manifest.get("entries")
+    if not isinstance(entries, list) or not entries:
+        raise ValueError("empty integer-leaf manifest")
+    lines = [
+        "// Generated from integer_leaf_families.json; do not edit.",
+        '#include "ppc_context.h"',
+        '#include "cpu/semantic_integer.h"',
+        "",
+    ]
+    seen = set()
+    for entry in entries:
+        address = entry.get("address")
+        if not isinstance(address, str) or not re.fullmatch(r"[0-9A-F]{8}", address) or address in seen:
+            raise ValueError(f"invalid or duplicate integer-leaf address: {address}")
+        seen.add(address)
+        symbol = f"sub_{address}"
+        lines.extend([
+            f'extern "C" PPC_FUNC(__imp__{symbol});',
+            f"PPC_FUNC({symbol})",
+            "{",
+            f"    lo::runtime::semantic_integer::Dispatch(0x{address}u, ctx, base, &__imp__{symbol});",
+            "}",
+            "",
+        ])
+    return "\n".join(lines)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--manifest", type=Path, required=True)
+    source_group = parser.add_mutually_exclusive_group(required=True)
+    source_group.add_argument("--manifest", type=Path)
+    source_group.add_argument("--integer-manifest", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    source = generate(json.loads(args.manifest.read_text(encoding="utf-8")))
+    manifest = args.integer_manifest or args.manifest
+    generator = generate_integer if args.integer_manifest else generate
+    source = generator(json.loads(manifest.read_text(encoding="utf-8")))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(source, encoding="utf-8")
-    print(f"Generated {source.count('PPC_FUNC(sub_')} semantic leaf wrappers")
+    print(f"Generated {source.count('PPC_FUNC(sub_')} semantic wrappers")
 
 
 if __name__ == "__main__":
