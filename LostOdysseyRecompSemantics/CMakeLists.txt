@@ -14,6 +14,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/allocation_array.cpp
     src/special_allocation.cpp
     src/raw_allocation.cpp
+    src/allocation_failure.cpp
     src/manager_init.cpp
     src/manager_construction.cpp
     src/manager_storage.cpp

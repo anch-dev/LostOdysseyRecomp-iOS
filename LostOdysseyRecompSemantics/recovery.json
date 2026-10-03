@@ -1862,6 +1862,12 @@
           "line": 1,
           "kind": "composed_differential_runner",
           "note": "Six ten-function startup cases use real recovered/original virtual targets checked in a separately hash-pinned unpacked image. Heap/CRT/kernel services remain synthetic; generic ABI scratch and volatile context are excluded. Image unpacking provenance is not independently proved."
+        },
+        {
+          "path": "tools/ghidra/test_semantic_allocation_failure.py",
+          "line": 1,
+          "kind": "composed_differential_runner",
+          "note": "5 new composed cases use the real original failure-helper bodies and RecoveredRawAllocationServices: success, handler retry, double errno writes, missing-heap reports and oversized requests. Nested ABI frames/volatile state and real external services excluded."
         }
       ],
       "dependencies": [
@@ -1882,37 +1888,47 @@
         {
           "address": "82B7FCE0",
           "boundary": "RawAllocationServices::EnterMissingHeapPath",
-          "status": "opaque",
+          "status": "implementation_available",
           "kind": "direct",
-          "contract": "First missing-heap callback; may modify process heap global."
+          "contract": "First missing-heap callback; may modify process heap global.",
+          "name": "lo::semantic::gpu::ReportMissingHeapBanner",
+          "target_scope": "Bounded return, memory and service-call comparison; runtime ABI and real external services remain pending."
         },
         {
           "address": "82B7FC98",
           "boundary": "RawAllocationServices::ReportMissingHeap",
-          "status": "opaque",
+          "status": "implementation_available",
           "kind": "direct",
-          "contract": "Receive code 30 after first missing-heap callback."
+          "contract": "Receive code 30 after first missing-heap callback.",
+          "name": "lo::semantic::gpu::ReportRuntimeError",
+          "target_scope": "Bounded return, memory and service-call comparison; runtime ABI and real external services remain pending."
         },
         {
           "address": "82B7BF20",
           "boundary": "RawAllocationServices::TerminateMissingHeap",
-          "status": "opaque",
+          "status": "implementation_available",
           "kind": "direct",
-          "contract": "Receive code 255; if it returns the original continues to allocate."
+          "contract": "Receive code 255; if it returns the original continues to allocate.",
+          "name": "lo::semantic::gpu::TerminateAllocationFailure",
+          "target_scope": "Bounded return, memory and service-call comparison; runtime ABI and real external services remain pending."
         },
         {
           "address": "82B7FE68",
           "boundary": "RawAllocationServices::RetryAllocation",
-          "status": "opaque",
+          "status": "implementation_available",
           "kind": "direct",
-          "contract": "Full saved requested-size register; low32 nonzero retries for ordinary failure, result ignored for oversized requests."
+          "contract": "Full saved requested-size register; low32 nonzero retries for ordinary failure, result ignored for oversized requests.",
+          "name": "lo::semantic::gpu::InvokeNewHandler",
+          "target_scope": "Bounded return, memory and service-call comparison; runtime ABI and real external services remain pending."
         },
         {
           "address": "82B7FD78",
           "boundary": "RawAllocationServices::GetErrorAddress",
-          "status": "opaque",
+          "status": "implementation_available",
           "kind": "direct",
-          "contract": "Return an error-code address each call; repeated lookups and stores of 12 are observable."
+          "contract": "Return an error-code address each call; repeated lookups and stores of 12 are observable.",
+          "name": "lo::semantic::gpu::GetAllocationErrorAddress",
+          "target_scope": "Bounded return, memory and service-call comparison; runtime ABI and real external services remain pending."
         }
       ],
       "open_obligations": [
@@ -2709,6 +2725,206 @@
           "status": "native_boundary",
           "kind": "kernel_import",
           "contract": "After zeroing count, reload holder at frame+80 and leave holder+4; forward full return."
+        }
+      ]
+    },
+    {
+      "address": "82B7FC98",
+      "name": "lo::semantic::gpu::ReportRuntimeError",
+      "module": "memory/allocation_failure",
+      "source": "LostOdysseyRecompSemantics/src/allocation_failure.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/allocation_failure.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3: full error-code register; compare low word against 23 table entries",
+        "return": "Full incoming r3 when absent; full message-output return when found",
+        "preserved": "ABI frame/saves and volatile registers remain adapter responsibilities.",
+        "memory": "32-bit big-endian guest memory; callbacks retain their observable memory and call-order effects."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.175.cpp",
+          "line": 21015,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_allocation_failure.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "4 cases in one18-case batch; return, mapped memory and ordered calls compared. Banner composes the real original lookup. External services stubbed; ABI and live runtime excluded."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "823ADD70",
+          "boundary": "AllocationFailureServices::OutputErrorMessage",
+          "status": "opaque"
+        }
+      ]
+    },
+    {
+      "address": "82B7FCE0",
+      "name": "lo::semantic::gpu::ReportMissingHeapBanner",
+      "module": "memory/allocation_failure",
+      "source": "LostOdysseyRecompSemantics/src/allocation_failure.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/allocation_failure.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "No semantic arguments; report error entries252 then255",
+        "return": "Full second report result",
+        "preserved": "ABI frame/saves and volatile registers remain adapter responsibilities.",
+        "memory": "32-bit big-endian guest memory; callbacks retain their observable memory and call-order effects."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.175.cpp",
+          "line": 21070,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_allocation_failure.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "4 cases in one18-case batch; return, mapped memory and ordered calls compared. Banner composes the real original lookup. External services stubbed; ABI and live runtime excluded."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "82B7FC98",
+          "boundary": "ReportRuntimeError",
+          "status": "implementation_available"
+        }
+      ]
+    },
+    {
+      "address": "82B7BF20",
+      "name": "lo::semantic::gpu::TerminateAllocationFailure",
+      "module": "memory/allocation_failure",
+      "source": "LostOdysseyRecompSemantics/src/allocation_failure.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/allocation_failure.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Caller error code ignored; pass0 to KeBugCheck",
+        "return": "Preserve boundary result only if the termination callback returns",
+        "preserved": "ABI frame/saves and volatile registers remain adapter responsibilities.",
+        "memory": "32-bit big-endian guest memory; callbacks retain their observable memory and call-order effects."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.175.cpp",
+          "line": 11384,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_allocation_failure.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "1 cases in one18-case batch; return, mapped memory and ordered calls compared. Banner composes the real original lookup. External services stubbed; ABI and live runtime excluded."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "830DA24C",
+          "boundary": "AllocationFailureServices::BugCheck",
+          "status": "native_boundary"
+        }
+      ]
+    },
+    {
+      "address": "82B7FE68",
+      "name": "lo::semantic::gpu::InvokeNewHandler",
+      "module": "memory/allocation_failure",
+      "source": "LostOdysseyRecompSemantics/src/allocation_failure.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/allocation_failure.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3: full requested bytes; live handler at0x832d3ae8",
+        "return": "0 if no handler or low-word result0, otherwise1",
+        "preserved": "ABI frame/saves and volatile registers remain adapter responsibilities.",
+        "memory": "32-bit big-endian guest memory; callbacks retain their observable memory and call-order effects."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+          "line": 3,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_allocation_failure.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "5 cases in one18-case batch; return, mapped memory and ordered calls compared. Banner composes the real original lookup. External services stubbed; ABI and live runtime excluded."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "indirect:new-handler",
+          "boundary": "AllocationFailureServices::CallNewHandler",
+          "status": "opaque"
+        }
+      ]
+    },
+    {
+      "address": "82B7FD78",
+      "name": "lo::semantic::gpu::GetAllocationErrorAddress",
+      "module": "memory/allocation_failure",
+      "source": "LostOdysseyRecompSemantics/src/allocation_failure.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/allocation_failure.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "No arguments; call822CA048 for thread data",
+        "return": "Full thread-data+8, or sign-extended0xffffffff83215210 when low word iszero",
+        "preserved": "ABI frame/saves and volatile registers remain adapter responsibilities.",
+        "memory": "32-bit big-endian guest memory; callbacks retain their observable memory and call-order effects."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.175.cpp",
+          "line": 21172,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_allocation_failure.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "4 cases in one18-case batch; return, mapped memory and ordered calls compared. Banner composes the real original lookup. External services stubbed; ABI and live runtime excluded."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "822CA048",
+          "boundary": "AllocationFailureServices::GetThreadData",
+          "status": "opaque"
         }
       ]
     }
