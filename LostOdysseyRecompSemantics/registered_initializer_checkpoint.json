@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "previous_checkpoint": "registered_runtime_checkpoint.json",
+  "code_commits": {
+    "loaded_single_and_metadata": "8ae929c",
+    "component_initializers": "fcb0c3b",
+    "integer_initializers": "0fdd814"
+  },
+  "unique_recovered_entry_addresses": 4963,
+  "additional_entry_addresses": 80,
+  "individually_recorded_entries": 82,
+  "family_manifests": 26,
+  "overlapping_addresses": [
+    "829664E8",
+    "82B84D88"
+  ],
+  "counting_note": "Counts are unique readable mapped entry addresses, not independent logical functions or complete semantic recovery. The loaded-single/metadata change adds no mapped addresses. All four new families are library APIs without new runtime wrappers.",
+  "new_library_families": [
+    {
+      "family": "instance_component_initializer",
+      "entries": 13,
+      "manifest": "instance_component_initializer_families.json",
+      "scope": "Complete cached translated bodies and CFG/parameters checked for all 13. Three representatives plus finite alternative, null/full r3, source alias and unknown entry: seven cases passed. Non-null first-lfs flush callback; LoadedSingle format model. Generated-C++ sNaN FPR gap and 64-bit fault/MMIO write width remain outside comparison scope.",
+      "receipt": "External scratch: semantic-instance-component-tests/instance-component-initializer-result.json"
+    },
+    {
+      "family": "instance_scalar_initializer",
+      "entries": 19,
+      "manifest": "instance_scalar_initializer_families.json",
+      "scope": "Complete cached translated bodies and CFG/parameters checked for all 19. Three shared layouts, representative null/non-null full r3 plus unknown entry: seven cases passed. Full r3 and bounded ordinary guest memory; volatile GPR/CR and all-entry dynamic coverage are excluded.",
+      "receipt": "External scratch: semantic-instance-scalar-tests/instance-scalar-initializer-result.json"
+    },
+    {
+      "family": "instance_ui_initializer",
+      "entries": 6,
+      "manifest": "instance_ui_initializer_families.json",
+      "scope": "Complete cached translated bodies and CFG/parameters checked for all six. Four layout representatives plus null/full r3 and unknown entry: six cases passed. Preserves the repeated field write order; comparison covers full r3 and bounded ordinary guest memory.",
+      "receipt": "External scratch: semantic-instance-ui-tests/instance-ui-initializer-result.json"
+    },
+    {
+      "family": "instance_default_fields",
+      "entries": 42,
+      "manifest": "instance_default_fields_families.json",
+      "ordered_writes": 464,
+      "word_writes": 463,
+      "byte_writes": 1,
+      "scope": "Complete cached translated bodies and CFG/constant parameters checked for all 42. Constant folding rejects business memory reads, FP, additional branches/calls and input/base register changes. Shared ordered field-default table retains write width, value and order. Four write-shape representatives plus two null/full r3 cases and unknown entry: seven cases passed. Full r3 and bounded ordinary guest memory; volatile GPR/CR and all-entry dynamic coverage are excluded.",
+      "receipt": "External scratch: semantic-instance-default-fields-tests/instance-default-fields-result.json"
+    }
+  ],
+  "changed_metadata_scope": {
+    "mapped_entries": 3,
+    "new_addresses": 0,
+    "format_helper": "include/lo_semantics/loaded_single.h",
+    "source": "src/registered_metadata_initializers.cpp",
+    "format_reference": "https://www.nxp.com/docs/en/user-guide/MPCFPE.pdf",
+    "model": "PPC Programming Environments Rev. 1 Appendix D.6/D.7: integer mapping for lfs followed by stfs without arithmetic; preserves signaling NaN bits and captured source words. Does not model arbitrary-double stfs or FP arithmetic.",
+    "flush_service": "DisableFlushMode callback at first lfs after preceding integer effects; unknown address makes no call.",
+    "bounded_status": "passed",
+    "bounded_ppc_comparisons": 5,
+    "unknown_entry_checks": 1,
+    "fixed_format_vectors": 7,
+    "signaling_nan_unchanged_store_check": true,
+    "bounded_receipt": "External scratch: semantic-metadata-initializer-tests/registered-metadata-initializers-fp-mode-result.json",
+    "known_gap": {
+      "status": "known_mismatch_reproduced",
+      "semantic_equivalence": false,
+      "address": "825A8448",
+      "source_word": "0x7F800001",
+      "generated_cpp_o2_f0_bits": "0x7FF8000020000000",
+      "documented_model_f0_bits": "0x7FF0000020000000",
+      "o2_store_word_both": "0x7F800001",
+      "hardware_measured": false,
+      "receipt": "External scratch: semantic-metadata-initializer-tests/registered-metadata-initializers-snan-isa-result.json",
+      "previous_host_cast_receipt_retained": "External scratch: semantic-metadata-initializer-tests/registered-metadata-initializers-snan-result.json",
+      "previous_o2_od_diagnostic_retained": "External scratch: semantic-metadata-initializer-tests/snan-optimization-diagnostic.json"
+    },
+    "notes": "FLOAT_LOAD_STORE_NOTES.md"
+  },
+  "build": {
+    "status": "passed",
+    "platform": "Windows x86_64 clang-cl 22.1.8 RelWithDebInfo /W4 /WX",
+    "scope": "Incremental semantic static library compile/link: changed metadata and new component module, followed by new scalar/UI/default-field modules. No full runtime binary rebuild.",
+    "logs": [
+      "External scratch: semantic-runtime-build/registered-component-fp-library-build.log",
+      "External scratch: semantic-runtime-build/registered-integer-initializer-library-build.log"
+    ]
+  },
+  "runtime": {
+    "available_opt_in_wrappers": 2513,
+    "default_off_gates": 7,
+    "wrappers_added": 0,
+    "new_game_scene_runs": 0,
+    "previous_evidence": "registered_runtime_checkpoint.json",
+    "scene_binary_revision": "80abc1c53972",
+    "new_initializers_covered_by_previous_scene": false
+  },
+  "evidence_reuse": "Prior passing library/runtime comparisons and the isolated Map20/menu scene were retained. No old-suite replay, PPC/image scan, hash pass or new game scene was added. Changed metadata was checked only for its new format/flush behavior; its known signaling-NaN counterexample remains separate from passing comparisons.",
+  "remaining_cached_candidates": {
+    "instance_entries": 76,
+    "metadata_entries": 17,
+    "instance_candidates": "out/function-inventory/registered-instance-candidates.json",
+    "instance_bodies": "out/function-inventory/registered-instance-originals.cpp.gz",
+    "metadata_bodies": "out/function-inventory/registered-extra-methods.json"
+  },
+  "remaining_boundaries": [
+    "Generated-C++ signaling-NaN FPR discrepancy remains unresolved; no Xenon hardware NaN measurement.",
+    "Instance initializers still need native runtime adapters and coverage for full ABI, faults, MMIO and concurrency.",
+    "Native constructor/manager service adapters, deeper vtable/CRT/kernel behavior and actual type layouts remain incomplete.",
+    "Complete semantic recovery of the game and broader gameplay/cross-platform acceptance remain incomplete."
+  ]
+}
