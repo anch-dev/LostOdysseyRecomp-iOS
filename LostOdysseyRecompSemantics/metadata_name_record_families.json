@@ -1,0 +1,89 @@
+{
+  "schema": "metadata-name-record-v1",
+  "entries": [
+    {
+      "address": "823F7B08",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.15.cpp",
+      "source_line": 10154,
+      "shape": "utf16-name-record-manager-allocation",
+      "instructions": [
+        "mflr r12",
+        "bl 0x82b7a6e4",
+        "stwu r1,-128(r1)",
+        "mr r30,r3",
+        "mr r29,r4",
+        "mr r28,r6",
+        "bl 0x82296830",
+        "lis r31,-31951",
+        "addi r10,r3,9",
+        "rlwinm r27,r10,1,0,30",
+        "lwz r11,-18936(r31)",
+        "cmplwi cr6,r11,0",
+        "bne cr6,0x823f7b44",
+        "bl 0x827c5f38",
+        "lwz r11,-18936(r31)",
+        "lwz r10,0(r11)",
+        "mr r3,r11",
+        "li r5,8",
+        "mr r4,r27",
+        "lwz r11,4(r10)",
+        "mtctr r11",
+        "bctrl ",
+        "mr r31,r3",
+        "li r11,0",
+        "mr r4,r30",
+        "addi r3,r31,16",
+        "stw r29,0(r31)",
+        "std r11,4(r31)",
+        "stw r28,12(r31)",
+        "bl 0x8230bac0",
+        "mr r3,r31",
+        "addi r1,r1,128",
+        "b 0x82b7a734"
+      ],
+      "cfg": {
+        "branch": "bne cr6,0x823f7b44",
+        "join": "823F7B44"
+      },
+      "calls": [
+        "82296830",
+        "827C5F38",
+        "manager_vtable_plus_4",
+        "8230BAC0"
+      ],
+      "manager_global": "8330B608",
+      "frame_size": 128,
+      "save_first": 27,
+      "fields": [
+        {
+          "offset": 0,
+          "width": 32,
+          "source": "live_r29"
+        },
+        {
+          "offset": 4,
+          "width": 64,
+          "source": "zero"
+        },
+        {
+          "offset": 12,
+          "width": 32,
+          "source": "live_r28"
+        },
+        {
+          "offset": 16,
+          "width": 16,
+          "source": "utf16_until_zero_from_live_r30"
+        }
+      ],
+      "allocation": {
+        "length_add": 9,
+        "byte_scale": 2,
+        "alignment": 8
+      },
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_823F7B08) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// bl 0x82b7a6e4\n\tctx.lr = 0x823F7B10;\n\t__savegprlr_27(ctx, base);\n\t// stwu r1,-128(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-128);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// mr r30,r3\n\tctx.r30.u64 = ctx.r3.u64;\n\t// mr r29,r4\n\tctx.r29.u64 = ctx.r4.u64;\n\t// mr r28,r6\n\tctx.r28.u64 = ctx.r6.u64;\n\t// bl 0x82296830\n\tctx.lr = 0x823F7B24;\n\tsub_82296830(ctx, base);\n\t// lis r31,-31951\n\tctx.r31.s64 = -2093940736;\n\t// addi r10,r3,9\n\tctx.r10.s64 = ctx.r3.s64 + 9;\n\t// rlwinm r27,r10,1,0,30\n\tctx.r27.u64 = __builtin_rotateleft64(ctx.r10.u32 | (ctx.r10.u64 << 32), 1) & 0xFFFFFFFE;\n\t// lwz r11,-18936(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + -18936);\n\t// cmplwi cr6,r11,0\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 0, ctx.xer);\n\t// bne cr6,0x823f7b44\n\tif (!ctx.cr6.eq) goto loc_823F7B44;\n\t// bl 0x827c5f38\n\tctx.lr = 0x823F7B40;\n\tsub_827C5F38(ctx, base);\n\t// lwz r11,-18936(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + -18936);\nloc_823F7B44:\n\t// lwz r10,0(r11)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);\n\t// mr r3,r11\n\tctx.r3.u64 = ctx.r11.u64;\n\t// li r5,8\n\tctx.r5.s64 = 8;\n\t// mr r4,r27\n\tctx.r4.u64 = ctx.r27.u64;\n\t// lwz r11,4(r10)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r10.u32 + 4);\n\t// mtctr r11\n\tctx.ctr.u64 = ctx.r11.u64;\n\t// bctrl \n\tctx.lr = 0x823F7B60;\n\tPPC_CALL_INDIRECT_FUNC(ctx.ctr.u32 & ~3u);\n\t// mr r31,r3\n\tctx.r31.u64 = ctx.r3.u64;\n\t// li r11,0\n\tctx.r11.s64 = 0;\n\t// mr r4,r30\n\tctx.r4.u64 = ctx.r30.u64;\n\t// addi r3,r31,16\n\tctx.r3.s64 = ctx.r31.s64 + 16;\n\t// stw r29,0(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 0, ctx.r29.u32);\n\t// std r11,4(r31)\n\tPPC_STORE_U64(ctx.r31.u32 + 4, ctx.r11.u64);\n\t// stw r28,12(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 12, ctx.r28.u32);\n\t// bl 0x8230bac0\n\tctx.lr = 0x823F7B80;\n\tsub_8230BAC0(ctx, base);\n\t// mr r3,r31\n\tctx.r3.u64 = ctx.r31.u64;\n\t// addi r1,r1,128\n\tctx.r1.s64 = ctx.r1.s64 + 128;\n\t// b 0x82b7a734\n\t__restgprlr_27(ctx, base);\n\treturn;\n}",
+      "status": "bounded_readable_library",
+      "boundary": "manager virtual allocation is an explicit service; ManagerInitServices retains its lower ABI boundary"
+    }
+  ]
+}
