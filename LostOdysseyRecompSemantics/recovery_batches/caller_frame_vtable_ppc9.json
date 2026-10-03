@@ -1,0 +1,16 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Six PPC9 caller-frame vtable unwind funclets through the accepted field helper; eight focused original PPC cases.",
+  "families": [
+    {
+      "name": "caller-frame-vtable-ppc9",
+      "manifest": "LostOdysseyRecompSemantics/caller_frame_vtable_restore_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/caller_frame_vtable_restore_oracle.cpp",
+      "prelude": "#define LO_CALLER_FRAME_VTABLE_PPC9_ONLY\n#include \"ppc_context.h\"\nvoid OriginalDefaultVTable(PPCContext&,std::uint8_t*);\n#define sub_82485C80 OriginalDefaultVTable\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/pointer_fields.cpp",
+        "LostOdysseyRecompSemantics/src/caller_frame_vtable_restore.cpp"
+      ]
+    }
+  ]
+}
