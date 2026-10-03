@@ -35,8 +35,8 @@ def main() -> None:
         raise ValueError("initializer oracle table marker changed")
     if args.scope == "snan":
         text = "#define LO_METADATA_SNAN_ONLY\n" + text
-    suite = ("registered-metadata-initializers-snan" if args.scope == "snan"
-             else "registered-metadata-initializers")
+    suite = ("registered-metadata-initializers-snan-isa" if args.scope == "snan"
+             else "registered-metadata-initializers-fp-mode")
     result = compile_and_run(suite, originals.encode("utf-8"),
                              text.replace("/* ENTRY_TABLE */", rows),
                              ["LostOdysseyRecompSemantics/src/registered_metadata_initializers.cpp"],

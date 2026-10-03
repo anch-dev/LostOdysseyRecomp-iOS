@@ -1,4 +1,5 @@
 #include "lo_semantics/registered_metadata_initializers.h"
+#include "lo_semantics/loaded_single.h"
 
 #include <array>
 #include <bit>
@@ -12,6 +13,18 @@ namespace
 using lo::semantic::gpu::GuestAddress;
 using lo::semantic::gpu::GuestMemory;
 namespace initializer = lo::semantic::gpu::registered_metadata_initializers;
+using lo::semantic::gpu::LoadedSingle;
+
+// Fixed format vectors from the documented exponent/fraction mapping, rather
+// than host arithmetic casts (which quiet signaling NaNs).
+static_assert(LoadedSingle::FromWord(0x3f800000u).FprBits() == 0x3ff0000000000000ull);
+static_assert(LoadedSingle::FromWord(0x00000001u).FprBits() == 0x36a0000000000000ull);
+static_assert(LoadedSingle::FromWord(0x007fffffu).FprBits() == 0x380fffffc0000000ull);
+static_assert(LoadedSingle::FromWord(0x80000000u).FprBits() == 0x8000000000000000ull);
+static_assert(LoadedSingle::FromWord(0xff800000u).FprBits() == 0xfff0000000000000ull);
+static_assert(LoadedSingle::FromWord(0x7fc12345u).FprBits() == 0x7ff82468a0000000ull);
+static_assert(LoadedSingle::FromWord(0x7f800001u).FprBits() == 0x7ff0000020000000ull);
+static_assert(LoadedSingle::FromWord(0x7f800001u).StoreWord() == 0x7f800001u);
 
 constexpr std::size_t Space = std::size_t{1} << 32;
 constexpr GuestAddress Object = 0x10000u;
@@ -88,6 +101,32 @@ PPCContext Seed(GuestAddress object, std::uint32_t host_csr)
     return ctx;
 }
 
+struct FpAdapter final : initializer::FpServices
+{
+    PPCContext& context;
+    GuestMemory& memory;
+    initializer::Effects& effects;
+    GuestAddress address;
+    GuestAddress object;
+    unsigned calls{};
+
+    FpAdapter(PPCContext& context_, GuestMemory& memory_,
+        initializer::Effects& effects_, GuestAddress address_, GuestAddress object_)
+        : context(context_), memory(memory_), effects(effects_),
+          address(address_), object(object_) {}
+
+    void DisableFlushMode() override
+    {
+        if (address == 0x825A8448u &&
+            effects.r10 != (memory.ReadU32(object + 60u) | 0x80000000u))
+            throw std::runtime_error("flush preceded metadata flag load");
+        if (address == 0x8270BBE8u && memory.ReadU32(object + 80u) != 1u)
+            throw std::runtime_error("flush preceded metadata flag store");
+        ++calls;
+        context.fpscr.disableFlushMode();
+    }
+};
+
 bool Compare(const Entry& entry, std::uint32_t f0_word, bool alias,
     Window& original, Window& recovered)
 {
@@ -103,10 +142,10 @@ bool Compare(const Entry& entry, std::uint32_t f0_word, bool alias,
 
     GuestMemory memory(0, {recovered.bytes, Space});
     restored.fpscr.setcsr(restored.fpscr.csr);
-    restored.fpscr.disableFlushMode();
     initializer::Effects effects{};
-    if (!initializer::Apply(entry.address, memory, restored.r3.u64, effects) ||
-        !effects.disable_flush_mode)
+    FpAdapter fp(restored, memory, effects, entry.address, object);
+    if (!initializer::Apply(entry.address, memory, fp, restored.r3.u64, effects) ||
+        !effects.disable_flush_mode || fp.calls != 1)
         throw std::runtime_error("initializer semantic mapping failed");
     restored.r10.u64 = effects.r10;
     restored.r11.u64 = effects.r11;
@@ -124,10 +163,13 @@ bool Compare(const Entry& entry, std::uint32_t f0_word, bool alias,
                 static_cast<unsigned long long>(std::bit_cast<std::uint64_t>(raw.f0.f64)),
                 static_cast<unsigned long long>(std::bit_cast<std::uint64_t>(restored.f0.f64)),
                 raw.fpscr.csr, restored.fpscr.csr);
-    return !same && raw_word == 0x7F800001u &&
-           recovered_word == 0x7FC00001u &&
-           std::memcmp(&raw, &restored, sizeof(PPCContext)) == 0 &&
-           raw.fpscr.csr == restored.fpscr.csr;
+    const bool expected_gap = !same && raw_word == 0x7F800001u &&
+        recovered_word == 0x7F800001u && SameMemory(original, recovered) &&
+        std::bit_cast<std::uint64_t>(raw.f0.f64) == 0x7FF8000020000000ull &&
+        std::bit_cast<std::uint64_t>(restored.f0.f64) == 0x7FF0000020000000ull &&
+        raw.fpscr.csr == restored.fpscr.csr;
+    raw.f0.u64 = restored.f0.u64;
+    return expected_gap && std::memcmp(&raw, &restored, sizeof(PPCContext)) == 0;
 #endif
     if (!same)
     {
@@ -172,7 +214,7 @@ int main()
 #ifdef LO_METADATA_SNAN_ONLY
         if (!Compare(Entries[0], 0x7F800001u, false, original, recovered))
             return 1;
-        std::puts("KNOWN MISMATCH: optimized generated C++ retains signaling-NaN store bits; independent float narrowing quiets it");
+        std::puts("KNOWN MISMATCH: generated C++ quiets the signaling-NaN FPR; documented PPC format mapping retains signaling bits; /O2 store words agree");
         return 0;
 #else
         unsigned comparisons = 0;
@@ -187,14 +229,17 @@ int main()
 
         GuestMemory memory(0, {recovered.bytes, Space});
         initializer::Effects untouched{1, 2, 3.0, 4.0, false};
-        if (initializer::Apply(0xFFFFFFFFu, memory, Object, untouched) ||
+        PPCContext unknown_context{};
+        FpAdapter unknown_fp(unknown_context, memory, untouched, 0xFFFFFFFFu, Object);
+        if (initializer::Apply(0xFFFFFFFFu, memory, unknown_fp, Object, untouched) ||
             untouched.r10 != 1 || untouched.r11 != 2 ||
             untouched.f0 != 3.0 || untouched.f13 != 4.0 ||
-            untouched.disable_flush_mode)
+            untouched.disable_flush_mode || unknown_fp.calls != 0)
             throw std::runtime_error("unknown initializer changed effects");
         std::printf("PASS registered-metadata-initializers %u PPC comparisons + unknown mapping\n",
                     comparisons);
-        std::puts("LIMIT bounded PPCContext and committed guest pages; FPSCR host flush applied by test adapter; signaling-NaN payload, runtime wrapper, and game scene unverified");
+        std::puts("PASS seven documented format vectors + signaling-NaN unchanged store; flush callback order and unknown no-call checked");
+        std::puts("LIMIT bounded PPCContext and committed guest pages; signaling-NaN differs from generated C++ FPR; runtime wrapper, Xenon hardware and game scene unverified");
         return 0;
 #endif
     }

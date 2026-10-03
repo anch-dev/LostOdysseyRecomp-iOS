@@ -77,10 +77,21 @@ def generate(candidates: list[dict]) -> dict:
         })
     return {"schema_version": 1, "family": "registered_metadata_initializer",
             "source": SOURCE, "entry_count": len(entries), "complete": False,
-            "limitations": ["caller_applies_fpscr_flush_disable",
-                            "known_signaling_nan_compiled_o2_differential",
+            "format_model": "PPC Programming Environments Rev. 1 Appendix D.6/D.7; LoadedSingle uses integer format movement and preserves signaling NaN bits, without arbitrary-double stfs or FP arithmetic",
+            "format_reference": "https://www.nxp.com/docs/en/user-guide/MPCFPE.pdf",
+            "fp_service": "DisableFlushMode callback at the first lfs, after preceding integer effects; unknown entry makes no callback",
+            "limitations": ["known_signaling_nan_generated_cpp_fpr_differential",
                             "no_runtime_wrapper_or_scene"],
             "known_differential": {
+                "address": "825A8448",
+                "source_word": "0x7F800001",
+                "generated_cpp_o2_f0_bits": "0x7FF8000020000000",
+                "documented_ppc_f0_bits": "0x7FF0000020000000",
+                "generated_cpp_o2_store": "0x7F800001",
+                "documented_ppc_store": "0x7F800001",
+                "hardware_measured": False,
+            },
+            "historical_host_cast_differential": {
                 "address": "825A8448",
                 "source_address": "0x82000E50",
                 "source_word": "0x7F800001",
