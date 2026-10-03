@@ -1,0 +1,182 @@
+{
+  "schema": "caller-frame-unlock-v1",
+  "entries": [
+    {
+      "address": "82290878",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+      "source_line": 1291,
+      "instruction_count": 3,
+      "instructions": [
+        "lwz r11,0(r3)",
+        "addi r3,r11,4",
+        "b 0x830d9c7c"
+      ],
+      "direct_calls": [],
+      "native_calls": [
+        "RtlLeaveCriticalSection"
+      ],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82290878) {\n\tPPC_FUNC_PROLOGUE();\n\t// lwz r11,0(r3)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 0);\n\t// addi r3,r11,4\n\tctx.r3.s64 = ctx.r11.s64 + 4;\n\t// b 0x830d9c7c\n\t__imp__RtlLeaveCriticalSection(ctx, base);\n\treturn;\n}",
+      "status": "bounded_readable_library"
+    },
+    {
+      "address": "82290708",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+      "source_line": 1052,
+      "instruction_count": 10,
+      "instructions": [
+        "addi r31,r12,-512",
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "stwu r1,-96(r1)",
+        "addi r3,r31,88",
+        "bl 0x82290878",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "blr "
+      ],
+      "direct_calls": [
+        "82290878"
+      ],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82290708) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// addi r31,r12,-512\n\tctx.r31.s64 = ctx.r12.s64 + -512;\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// addi r3,r31,88\n\tctx.r3.s64 = ctx.r31.s64 + 88;\n\t// bl 0x82290878\n\tctx.lr = 0x82290720;\n\tsub_82290878(ctx, base);\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
+    },
+    {
+      "address": "8229587C",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+      "source_line": 13191,
+      "instruction_count": 10,
+      "instructions": [
+        "addi r31,r12,-176",
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "stwu r1,-96(r1)",
+        "addi r3,r31,80",
+        "bl 0x82290878",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "blr "
+      ],
+      "direct_calls": [
+        "82290878"
+      ],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_8229587C) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// addi r31,r12,-176\n\tctx.r31.s64 = ctx.r12.s64 + -176;\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// addi r3,r31,80\n\tctx.r3.s64 = ctx.r31.s64 + 80;\n\t// bl 0x82290878\n\tctx.lr = 0x82295894;\n\tsub_82290878(ctx, base);\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
+    },
+    {
+      "address": "822958A4",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+      "source_line": 13223,
+      "instruction_count": 10,
+      "instructions": [
+        "addi r31,r12,-176",
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "stwu r1,-96(r1)",
+        "addi r3,r31,80",
+        "bl 0x82290878",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "blr "
+      ],
+      "direct_calls": [
+        "82290878"
+      ],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_822958A4) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// addi r31,r12,-176\n\tctx.r31.s64 = ctx.r12.s64 + -176;\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// addi r3,r31,80\n\tctx.r3.s64 = ctx.r31.s64 + 80;\n\t// bl 0x82290878\n\tctx.lr = 0x822958BC;\n\tsub_82290878(ctx, base);\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
+    },
+    {
+      "address": "822958CC",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+      "source_line": 13255,
+      "instruction_count": 10,
+      "instructions": [
+        "addi r31,r12,-176",
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "stwu r1,-96(r1)",
+        "addi r3,r31,80",
+        "bl 0x82290878",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "blr "
+      ],
+      "direct_calls": [
+        "82290878"
+      ],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_822958CC) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// addi r31,r12,-176\n\tctx.r31.s64 = ctx.r12.s64 + -176;\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// addi r3,r31,80\n\tctx.r3.s64 = ctx.r31.s64 + 80;\n\t// bl 0x82290878\n\tctx.lr = 0x822958E4;\n\tsub_82290878(ctx, base);\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
+    },
+    {
+      "address": "8229A8DC",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+      "source_line": 25365,
+      "instruction_count": 10,
+      "instructions": [
+        "addi r31,r12,-128",
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "stwu r1,-96(r1)",
+        "addi r3,r31,80",
+        "bl 0x82290878",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "blr "
+      ],
+      "direct_calls": [
+        "82290878"
+      ],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_8229A8DC) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// addi r31,r12,-128\n\tctx.r31.s64 = ctx.r12.s64 + -128;\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// addi r3,r31,80\n\tctx.r3.s64 = ctx.r31.s64 + 80;\n\t// bl 0x82290878\n\tctx.lr = 0x8229A8F4;\n\tsub_82290878(ctx, base);\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
+    },
+    {
+      "address": "8229A904",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+      "source_line": 25397,
+      "instruction_count": 10,
+      "instructions": [
+        "addi r31,r12,-128",
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "stwu r1,-96(r1)",
+        "addi r3,r31,80",
+        "bl 0x82290878",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "blr "
+      ],
+      "direct_calls": [
+        "82290878"
+      ],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_8229A904) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// addi r31,r12,-128\n\tctx.r31.s64 = ctx.r12.s64 + -128;\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// addi r3,r31,80\n\tctx.r3.s64 = ctx.r31.s64 + 80;\n\t// bl 0x82290878\n\tctx.lr = 0x8229A91C;\n\tsub_82290878(ctx, base);\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
+    }
+  ],
+  "implementation": {
+    "header": "include/lo_semantics/caller_frame_unlock.h",
+    "source": "src/caller_frame_unlock.cpp",
+    "oracle": "tests/caller_frame_unlock_oracle.cpp",
+    "scope": "Dereferenced lock record release and six caller-frame unwind funclets; native LeaveCriticalSection tail boundary."
+  },
+  "validation": {
+    "focused_original_ppc_cases": 8,
+    "unknown_entry_checks": 0,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-caller-frame-unlock-tests/caller-frame-unlock-result.json",
+    "library": "Windows-native /W4 /WX shared MT library",
+    "tested_scope": "All seven entries with high frame/SP/LR/register bits, a changed live record pointer, native target/return-address/frame arguments and explicit mutable native effects. Selected GPR/CR/XER/SP/LR, ordinary RAM and native boundary events.",
+    "unvalidated_scope": "Native critical-section internals, faults, MMIO, concurrency and runtime.",
+    "runtime_validated": false,
+    "complete": false
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Lock-record release and six caller-frame unwind funclets, minimum representatives.",
+  "families": [
+    {
+      "name": "caller-frame-unlock",
+      "manifest": "LostOdysseyRecompSemantics/caller_frame_unlock_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/caller_frame_unlock_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\nvoid OriginalLeave(PPCContext&,std::uint8_t*);\n#define __imp__RtlLeaveCriticalSection OriginalLeave\nextern \"C\" PPC_FUNC(__imp__sub_82290878);\n#define sub_82290878(c,b) __imp__sub_82290878(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/caller_frame_unlock.cpp"
+      ]
+    }
+  ]
+}
