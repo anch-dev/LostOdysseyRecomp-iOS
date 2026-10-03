@@ -76,6 +76,12 @@ bool Apply(GuestAddress entry,GuestMemory& memory,
     case 0x82b8dc18u:
         DestroyObjectRange(memory,dynamic,registers,32u,0x82b8dc58u);
         return true;
+    case 0x82b90340u:
+        DestroyObjectRange(memory,dynamic,registers,20u,0x82b90380u);
+        return true;
+    case 0x82b92068u:
+        DestroyObjectRange(memory,dynamic,registers,48u,0x82b920a8u);
+        return true;
     default:return false;
     }
 }

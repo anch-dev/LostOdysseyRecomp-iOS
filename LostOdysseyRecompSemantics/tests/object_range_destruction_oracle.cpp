@@ -1,4 +1,4 @@
-// Appended after four pinned PPC bodies by semantic_recovery.py.
+// Appended after the pinned PPC bodies by semantic_recovery.py.
 #include "lo_semantics/object_range_destruction.h"
 #include "lo_semantics/recovery_abi.h"
 #include "semantic_oracle_support.h"
@@ -26,6 +26,13 @@ constexpr std::array<Region,1> Regions{{{0u,0x90000u}}};
 enum class Mode {Empty,Two,ZeroSkip};
 struct Case {GuestAddress entry;std::uint32_t stride;Mode mode;
     GuestAddress callback_return;};
+#ifdef LO_OBJECT_RANGE_EXTENSION_ONLY
+constexpr std::array<Case,4> Cases{{
+    {0x82b90340u,20u,Mode::Empty,0x82b90380u},
+    {0x82b90340u,20u,Mode::Two,0x82b90380u},
+    {0x82b92068u,48u,Mode::Empty,0x82b920a8u},
+    {0x82b92068u,48u,Mode::Two,0x82b920a8u}}};
+#else
 constexpr std::array<Case,9> Cases{{
     {0x82b8bde0u,36u,Mode::Empty,0x82b8be20u},
     {0x82b8bde0u,36u,Mode::Two,0x82b8be20u},
@@ -36,6 +43,7 @@ constexpr std::array<Case,9> Cases{{
     {0x82b8dc18u,32u,Mode::Empty,0x82b8dc58u},
     {0x82b8dc18u,32u,Mode::Two,0x82b8dc58u},
     {0x82b8bde0u,36u,Mode::ZeroSkip,0x82b8be20u}}};
+#endif
 
 using Event=std::array<std::uint64_t,7>;
 struct Services final:family::DynamicServices
@@ -191,6 +199,8 @@ bool Check(const Case& item)
     case 0x82b8be48u:__imp__sub_82B8BE48(raw,original.Bytes());break;
     case 0x82b8dbb0u:__imp__sub_82B8DBB0(raw,original.Bytes());break;
     case 0x82b8dc18u:__imp__sub_82B8DC18(raw,original.Bytes());break;
+    case 0x82b90340u:__imp__sub_82B90340(raw,original.Bytes());break;
+    case 0x82b92068u:__imp__sub_82B92068(raw,original.Bytes());break;
     default:throw std::runtime_error("unknown range entry");
     }
     active=nullptr;

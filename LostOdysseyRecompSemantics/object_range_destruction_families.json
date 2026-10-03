@@ -148,22 +148,99 @@
       "native_calls": [],
       "translated_body": "PPC_FUNC_IMPL(__imp__sub_82B8DC18) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// std r30,-24(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -24, ctx.r30.u64);\n\t// std r31,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// mr r31,r3\n\tctx.r31.u64 = ctx.r3.u64;\n\t// mr r30,r4\n\tctx.r30.u64 = ctx.r4.u64;\n\t// b 0x82b8dc5c\n\tgoto loc_82B8DC5C;\nloc_82B8DC38:\n\t// cmplwi cr6,r31,0\n\tctx.cr6.compare<uint32_t>(ctx.r31.u32, 0, ctx.xer);\n\t// beq cr6,0x82b8dc58\n\tif (ctx.cr6.eq) goto loc_82B8DC58;\n\t// lwz r11,0(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + 0);\n\t// li r4,0\n\tctx.r4.s64 = 0;\n\t// mr r3,r31\n\tctx.r3.u64 = ctx.r31.u64;\n\t// lwz r11,8(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 8);\n\t// mtctr r11\n\tctx.ctr.u64 = ctx.r11.u64;\n\t// bctrl \n\tctx.lr = 0x82B8DC58;\n\tPPC_CALL_INDIRECT_FUNC(ctx.ctr.u32 & ~3u);\nloc_82B8DC58:\n\t// addi r31,r31,32\n\tctx.r31.s64 = ctx.r31.s64 + 32;\nloc_82B8DC5C:\n\t// cmplw cr6,r31,r30\n\tctx.cr6.compare<uint32_t>(ctx.r31.u32, ctx.r30.u32, ctx.xer);\n\t// bne cr6,0x82b8dc38\n\tif (!ctx.cr6.eq) goto loc_82B8DC38;\n\t// addi r1,r1,112\n\tctx.r1.s64 = ctx.r1.s64 + 112;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// ld r30,-24(r1)\n\tctx.r30.u64 = PPC_LOAD_U64(ctx.r1.u32 + -24);\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}",
       "status": "bounded_readable_library"
+    },
+    {
+      "address": "82B90340",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.177.cpp",
+      "source_line": 11135,
+      "instruction_count": 25,
+      "instructions": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r30,-24(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-112(r1)",
+        "mr r31,r3",
+        "mr r30,r4",
+        "b 0x82b90384",
+        "cmplwi cr6,r31,0",
+        "beq cr6,0x82b90380",
+        "lwz r11,0(r31)",
+        "li r4,0",
+        "mr r3,r31",
+        "lwz r11,8(r11)",
+        "mtctr r11",
+        "bctrl ",
+        "addi r31,r31,20",
+        "cmplw cr6,r31,r30",
+        "bne cr6,0x82b90360",
+        "addi r1,r1,112",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r30,-24(r1)",
+        "ld r31,-16(r1)",
+        "blr "
+      ],
+      "direct_calls": [],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82B90340) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// std r30,-24(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -24, ctx.r30.u64);\n\t// std r31,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// mr r31,r3\n\tctx.r31.u64 = ctx.r3.u64;\n\t// mr r30,r4\n\tctx.r30.u64 = ctx.r4.u64;\n\t// b 0x82b90384\n\tgoto loc_82B90384;\nloc_82B90360:\n\t// cmplwi cr6,r31,0\n\tctx.cr6.compare<uint32_t>(ctx.r31.u32, 0, ctx.xer);\n\t// beq cr6,0x82b90380\n\tif (ctx.cr6.eq) goto loc_82B90380;\n\t// lwz r11,0(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + 0);\n\t// li r4,0\n\tctx.r4.s64 = 0;\n\t// mr r3,r31\n\tctx.r3.u64 = ctx.r31.u64;\n\t// lwz r11,8(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 8);\n\t// mtctr r11\n\tctx.ctr.u64 = ctx.r11.u64;\n\t// bctrl \n\tctx.lr = 0x82B90380;\n\tPPC_CALL_INDIRECT_FUNC(ctx.ctr.u32 & ~3u);\nloc_82B90380:\n\t// addi r31,r31,20\n\tctx.r31.s64 = ctx.r31.s64 + 20;\nloc_82B90384:\n\t// cmplw cr6,r31,r30\n\tctx.cr6.compare<uint32_t>(ctx.r31.u32, ctx.r30.u32, ctx.xer);\n\t// bne cr6,0x82b90360\n\tif (!ctx.cr6.eq) goto loc_82B90360;\n\t// addi r1,r1,112\n\tctx.r1.s64 = ctx.r1.s64 + 112;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// ld r30,-24(r1)\n\tctx.r30.u64 = PPC_LOAD_U64(ctx.r1.u32 + -24);\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
+    },
+    {
+      "address": "82B92068",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.177.cpp",
+      "source_line": 15751,
+      "instruction_count": 25,
+      "instructions": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r30,-24(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-112(r1)",
+        "mr r31,r3",
+        "mr r30,r4",
+        "b 0x82b920ac",
+        "cmplwi cr6,r31,0",
+        "beq cr6,0x82b920a8",
+        "lwz r11,0(r31)",
+        "li r4,0",
+        "mr r3,r31",
+        "lwz r11,8(r11)",
+        "mtctr r11",
+        "bctrl ",
+        "addi r31,r31,48",
+        "cmplw cr6,r31,r30",
+        "bne cr6,0x82b92088",
+        "addi r1,r1,112",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r30,-24(r1)",
+        "ld r31,-16(r1)",
+        "blr "
+      ],
+      "direct_calls": [],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82B92068) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// std r30,-24(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -24, ctx.r30.u64);\n\t// std r31,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// mr r31,r3\n\tctx.r31.u64 = ctx.r3.u64;\n\t// mr r30,r4\n\tctx.r30.u64 = ctx.r4.u64;\n\t// b 0x82b920ac\n\tgoto loc_82B920AC;\nloc_82B92088:\n\t// cmplwi cr6,r31,0\n\tctx.cr6.compare<uint32_t>(ctx.r31.u32, 0, ctx.xer);\n\t// beq cr6,0x82b920a8\n\tif (ctx.cr6.eq) goto loc_82B920A8;\n\t// lwz r11,0(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + 0);\n\t// li r4,0\n\tctx.r4.s64 = 0;\n\t// mr r3,r31\n\tctx.r3.u64 = ctx.r31.u64;\n\t// lwz r11,8(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 8);\n\t// mtctr r11\n\tctx.ctr.u64 = ctx.r11.u64;\n\t// bctrl \n\tctx.lr = 0x82B920A8;\n\tPPC_CALL_INDIRECT_FUNC(ctx.ctr.u32 & ~3u);\nloc_82B920A8:\n\t// addi r31,r31,48\n\tctx.r31.s64 = ctx.r31.s64 + 48;\nloc_82B920AC:\n\t// cmplw cr6,r31,r30\n\tctx.cr6.compare<uint32_t>(ctx.r31.u32, ctx.r30.u32, ctx.xer);\n\t// bne cr6,0x82b92088\n\tif (!ctx.cr6.eq) goto loc_82B92088;\n\t// addi r1,r1,112\n\tctx.r1.s64 = ctx.r1.s64 + 112;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// ld r30,-24(r1)\n\tctx.r30.u64 = PPC_LOAD_U64(ctx.r1.u32 + -24);\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
     }
   ],
   "implementation": {
     "header": "include/lo_semantics/object_range_destruction.h",
     "source": "src/object_range_destruction.cpp",
     "oracle": "tests/object_range_destruction_oracle.cpp",
-    "scope": "Shared live-vtable destructor range loop with four exact object strides and call return addresses."
+    "scope": "Shared live-vtable destructor range loop with six exact object strides and call return addresses."
   },
   "validation": {
-    "focused_original_ppc_cases": 9,
+    "focused_original_ppc_cases": 13,
     "unknown_entry_checks": 0,
-    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-object-range-destruction-tests/object-range-destruction-result.json",
     "library": "Windows-native /W4 /WX shared MT library",
-    "tested_scope": "Four entries: empty and two-object ranges, null-address skip. Live vtable change between calls, aligned dynamic target, call order and parameters, selected full GPR/CR/XER/SP/LR, ordinary RAM and dynamic boundary events.",
+    "tested_scope": "Original four-entry cohort: nine accepted cases reused. New strides 20/48: four focused empty/two-object comparisons. Live vtable change between calls, aligned dynamic target, call order and parameters, selected full GPR/CR/XER/SP/LR, ordinary RAM and dynamic boundary events.",
     "unvalidated_scope": "Destructor callee internals, invalid or unaligned ranges, faults, MMIO, concurrency and runtime.",
     "runtime_validated": false,
-    "complete": false
+    "complete": false,
+    "receipts": [
+      "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-object-range-destruction-tests/object-range-destruction-result.json",
+      "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-object-range-destruction-extension-tests/object-range-destruction-extension-result.json"
+    ]
   }
 }

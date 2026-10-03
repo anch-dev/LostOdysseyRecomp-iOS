@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Two further exact-stride destructor entries; reuse the passing original cohort and run only four extension cases.",
+  "families": [
+    {
+      "name": "object-range-destruction-extension",
+      "manifest": "LostOdysseyRecompSemantics/object_range_destruction_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/object_range_destruction_oracle.cpp",
+      "prelude": "#define LO_OBJECT_RANGE_EXTENSION_ONLY\n#include \"ppc_context.h\"\n#include <cstdint>\nvoid OriginalIndirect(std::uint32_t,PPCContext&,std::uint8_t*);\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(a) OriginalIndirect((a),ctx,base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/object_range_destruction.cpp"
+      ]
+    }
+  ]
+}
