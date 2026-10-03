@@ -32,6 +32,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/crt_wide_stream_output.cpp
     src/crt_format_dispatch.cpp
     src/crt_float_core_helpers.cpp
+    src/crt_float_environment.cpp
     src/crt_allocation.cpp
     src/crt_reallocate.cpp
     src/invalid_parameter.cpp

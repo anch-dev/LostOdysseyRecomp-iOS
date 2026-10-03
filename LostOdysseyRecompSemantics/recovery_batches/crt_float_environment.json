@@ -1,0 +1,18 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Three string-search/fatal-report/exception-filter entries; actual accepted memory-fill/global exchange/clear-state models and live native/dynamic contracts only.",
+  "families": [
+    {
+      "name": "crt-float-environment",
+      "manifest": "LostOdysseyRecompSemantics/crt_float_environment_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/crt_float_environment_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nvoid OriginalFill(PPCContext&,std::uint8_t*);\nvoid OriginalExchange(PPCContext&,std::uint8_t*);\nvoid OriginalFilter(PPCContext&,std::uint8_t*);\nvoid OriginalClear(PPCContext&,std::uint8_t*);\nvoid OriginalBugCheck(PPCContext&,std::uint8_t*);\nvoid OriginalIndirect(std::uint32_t,PPCContext&,std::uint8_t*);\n#define sub_82B7BC40 OriginalFill\n#define sub_827CAFE0 OriginalExchange\n#define sub_827CB0B0 OriginalFilter\n#define sub_82B84D88 OriginalClear\n#define __imp__KeBugCheck OriginalBugCheck\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(x) OriginalIndirect((x),ctx,base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/memory_fill.cpp",
+        "LostOdysseyRecompSemantics/src/field_arithmetic.cpp",
+        "LostOdysseyRecompSemantics/src/invalid_parameter.cpp",
+        "LostOdysseyRecompSemantics/src/crt_float_environment.cpp"
+      ]
+    }
+  ]
+}
