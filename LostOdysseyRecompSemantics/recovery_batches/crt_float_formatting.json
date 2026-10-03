@@ -1,0 +1,25 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Six float selectors and e/f/a/g wrappers, composing accepted conversion/text/error helpers; minimum representative validation only.",
+  "families": [
+    {
+      "name": "crt-float-formatting",
+      "manifest": "LostOdysseyRecompSemantics/crt_float_formatting_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/crt_float_formatting_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nvoid OriginalError(PPCContext&,std::uint8_t*);\nvoid OriginalInvalid(PPCContext&,std::uint8_t*);\nvoid OriginalConvert(PPCContext&,std::uint8_t*);\nvoid OriginalRound(PPCContext&,std::uint8_t*);\nvoid OriginalScientificText(PPCContext&,std::uint8_t*);\nvoid OriginalFixedText(PPCContext&,std::uint8_t*);\nvoid OriginalSearch(PPCContext&,std::uint8_t*);\nvoid OriginalScientific(PPCContext&,std::uint8_t*);\nvoid OriginalFixed(PPCContext&,std::uint8_t*);\nvoid OriginalHex(PPCContext&,std::uint8_t*);\nvoid OriginalGeneral(PPCContext&,std::uint8_t*);\nvoid OriginalSave25(PPCContext&,std::uint8_t*);\nvoid OriginalRestore25(PPCContext&,std::uint8_t*);\nvoid OriginalSave26(PPCContext&,std::uint8_t*);\nvoid OriginalRestore26(PPCContext&,std::uint8_t*);\nvoid OriginalSave27(PPCContext&,std::uint8_t*);\nvoid OriginalRestore27(PPCContext&,std::uint8_t*);\nvoid OriginalSave28(PPCContext&,std::uint8_t*);\nvoid OriginalRestore28(PPCContext&,std::uint8_t*);\n#define sub_82B7FD78 OriginalError\n#define sub_82B7FEC0 OriginalInvalid\n#define sub_8231A2F0 OriginalConvert\n#define sub_8231B1B8 OriginalRound\n#define sub_82B7F048 OriginalScientificText\n#define sub_82B7F828 OriginalFixedText\n#define sub_82B7E580 OriginalSearch\n#define sub_82B7F2C8 OriginalScientific\n#define sub_82B7FA00 OriginalFixed\n#define sub_82B7F3E0 OriginalHex\n#define sub_82B7FAF0 OriginalGeneral\n#define __savegprlr_25 OriginalSave25\n#define __restgprlr_25 OriginalRestore25\n#define __savegprlr_26 OriginalSave26\n#define __restgprlr_26 OriginalRestore26\n#define __savegprlr_27 OriginalSave27\n#define __restgprlr_27 OriginalRestore27\n#define __savegprlr_28 OriginalSave28\n#define __restgprlr_28 OriginalRestore28\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/memory_move.cpp",
+        "LostOdysseyRecompSemantics/src/memory_fill.cpp",
+        "LostOdysseyRecompSemantics/src/field_arithmetic.cpp",
+        "LostOdysseyRecompSemantics/src/allocation_failure.cpp",
+        "LostOdysseyRecompSemantics/src/crt_thread_data.cpp",
+        "LostOdysseyRecompSemantics/src/invalid_parameter.cpp",
+        "LostOdysseyRecompSemantics/src/crt_float_core_helpers.cpp",
+        "LostOdysseyRecompSemantics/src/crt_float_environment.cpp",
+        "LostOdysseyRecompSemantics/src/crt_float_conversion.cpp",
+        "LostOdysseyRecompSemantics/src/crt_float_text_helpers.cpp",
+        "LostOdysseyRecompSemantics/src/crt_float_formatting.cpp"
+      ]
+    }
+  ]
+}
