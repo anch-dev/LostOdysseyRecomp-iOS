@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "family": "instance_component_initializer",
+  "source": "out/function-inventory/registered-instance-candidates.json",
+  "entry_count": 13,
+  "float_constant_addresses": [
+    "0x8218958C",
+    "0x82000E50"
+  ],
+  "limitations": [
+    "Finite inputs are compared with cached generated PPC; signaling-NaN word movement follows LoadedSingle's ISA mapping, which can differ from the generated C++ baseline, and has no hardware measurement.",
+    "The original std zero store at object+476 is modeled as two word writes in ordinary bounded GuestMemory; fault/MMIO width is not covered."
+  ],
+  "registered_type_reference_count": 13,
+  "entries": [
+    {
+      "address": "825C2C28",
+      "vtable": "0x821DB7C8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.43.cpp",
+      "source_line": 44269,
+      "registered_types": [
+        {
+          "constructor": "8241E140",
+          "type_name": "RB_RadialImpulseComponent",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "825E03D8",
+      "vtable": "0x821DDBF0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
+      "source_line": 33584,
+      "registered_types": [
+        {
+          "constructor": "82461C60",
+          "type_name": "DrawLightConeComponent",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "825E0538",
+      "vtable": "0x821DDDD8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
+      "source_line": 33817,
+      "registered_types": [
+        {
+          "constructor": "82461D20",
+          "type_name": "DrawConeComponent",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "825E05B8",
+      "vtable": "0x821DD630",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
+      "source_line": 33909,
+      "registered_types": [
+        {
+          "constructor": "82461BA0",
+          "type_name": "DrawSphereComponent",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "825E0788",
+      "vtable": "0x8200B370",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
+      "source_line": 34223,
+      "registered_types": [
+        {
+          "constructor": "825DB718",
+          "type_name": "CylinderComponent",
+          "kind": "constructor"
+        }
+      ]
+    },
+    {
+      "address": "825E0938",
+      "vtable": "0x821D2C98",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
+      "source_line": 34538,
+      "registered_types": [
+        {
+          "constructor": "825DB3A8",
+          "type_name": "MeshComponent",
+          "kind": "constructor"
+        }
+      ]
+    },
+    {
+      "address": "825F74E8",
+      "vtable": "0x821E1488",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.47.cpp",
+      "source_line": 13788,
+      "registered_types": [
+        {
+          "constructor": "8241DFD8",
+          "type_name": "RB_ConstraintDrawComponent",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "826042B8",
+      "vtable": "0x8200EE88",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.48.cpp",
+      "source_line": 9635,
+      "registered_types": [
+        {
+          "constructor": "82604DD0",
+          "type_name": "ParticleSystemComponent",
+          "kind": "constructor"
+        }
+      ]
+    },
+    {
+      "address": "826B6478",
+      "vtable": "0x82200168",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.60.cpp",
+      "source_line": 36369,
+      "registered_types": [
+        {
+          "constructor": "82446700",
+          "type_name": "FoliageComponent",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "826F8010",
+      "vtable": "0x82207508",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.64.cpp",
+      "source_line": 21271,
+      "registered_types": [
+        {
+          "constructor": "826F7BA0",
+          "type_name": "DrawLightRadiusComponent",
+          "kind": "constructor"
+        }
+      ]
+    },
+    {
+      "address": "82715F70",
+      "vtable": "0x8220C998",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.66.cpp",
+      "source_line": 35368,
+      "registered_types": [
+        {
+          "constructor": "8245E2D0",
+          "type_name": "SpriteComponent",
+          "kind": "lazy_singleton"
+        }
+      ]
+    },
+    {
+      "address": "8271CC88",
+      "vtable": "0x8220E338",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.67.cpp",
+      "source_line": 10721,
+      "registered_types": [
+        {
+          "constructor": "8271CD58",
+          "type_name": "DecalComponent",
+          "kind": "constructor"
+        }
+      ]
+    },
+    {
+      "address": "827203C8",
+      "vtable": "0x8220E7E8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.67.cpp",
+      "source_line": 19142,
+      "registered_types": [
+        {
+          "constructor": "8241D190",
+          "type_name": "PathRenderingComponent",
+          "kind": "lazy_singleton"
+        }
+      ]
+    }
+  ]
+}
