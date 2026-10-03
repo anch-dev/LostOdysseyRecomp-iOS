@@ -1,0 +1,54 @@
+{
+  "schema": "crt-last-error-v1",
+  "entries": [
+    {
+      "address": "822CA108",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+      "source_line": 40799,
+      "instructions": [
+        "lwz r11,336(r13)",
+        "cmplwi cr6,r11,0",
+        "bne cr6,0x822ca120",
+        "lwz r11,256(r13)",
+        "lwz r3,352(r11)",
+        "blr ",
+        "li r3,0",
+        "blr "
+      ],
+      "direct_calls": [],
+      "cfg": {
+        "labels": [
+          "822CA120"
+        ],
+        "branches": [
+          "bne cr6,0x822ca120",
+          "blr ",
+          "blr "
+        ]
+      },
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_822CA108) {\n\tPPC_FUNC_PROLOGUE();\n\t// lwz r11,336(r13)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r13.u32 + 336);\n\t// cmplwi cr6,r11,0\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 0, ctx.xer);\n\t// bne cr6,0x822ca120\n\tif (!ctx.cr6.eq) goto loc_822CA120;\n\t// lwz r11,256(r13)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r13.u32 + 256);\n\t// lwz r3,352(r11)\n\tctx.r3.u64 = PPC_LOAD_U32(ctx.r11.u32 + 352);\n\t// blr \n\treturn;\nloc_822CA120:\n\t// li r3,0\n\tctx.r3.s64 = 0;\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library",
+      "boundary": "Complete selected getter/tail PPCContext and unchanged ordinary RAM; faults/MMIO/concurrency and runtime not verified."
+    },
+    {
+      "address": "822CA100",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+      "source_line": 40788,
+      "instructions": [
+        "b 0x822ca108"
+      ],
+      "direct_calls": [
+        "822CA108"
+      ],
+      "cfg": {
+        "labels": [],
+        "branches": [
+          "b 0x822ca108"
+        ]
+      },
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_822CA100) {\n\tPPC_FUNC_PROLOGUE();\n\t// b 0x822ca108\n\tsub_822CA108(ctx, base);\n\treturn;\n}",
+      "status": "bounded_readable_library",
+      "boundary": "Complete selected getter/tail PPCContext and unchanged ordinary RAM; faults/MMIO/concurrency and runtime not verified."
+    }
+  ]
+}

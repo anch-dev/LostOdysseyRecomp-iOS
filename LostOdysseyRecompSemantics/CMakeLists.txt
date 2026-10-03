@@ -16,6 +16,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/raw_allocation.cpp
     src/allocation_failure.cpp
     src/crt_thread_data.cpp
+    src/crt_last_error.cpp
     src/crt_lifecycle.cpp
     src/crt_allocation.cpp
     src/invalid_parameter.cpp
