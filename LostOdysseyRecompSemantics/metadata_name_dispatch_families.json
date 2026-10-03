@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "family": "metadata_name_dispatch",
+  "entry_count": 1,
+  "entries": [
+    {
+      "address": "825E7600",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.46.cpp",
+      "line": 9576,
+      "instruction_count": 37,
+      "instruction_sequence": [
+        "mflr r12",
+        "bl 0x82b7a6ec",
+        "stwu r1,-112(r1)",
+        "lis r10,-32230",
+        "mr r31,r3",
+        "mr r11,r7",
+        "addi r10,r10,32112",
+        "li r9,1",
+        "li r30,0",
+        "mr r29,r5",
+        "mr r4,r6",
+        "std r11,76(r31)",
+        "li r7,1",
+        "stw r10,0(r31)",
+        "li r6,1",
+        "stw r9,68(r31)",
+        "li r5,0",
+        "stw r30,60(r31)",
+        "addi r3,r31,84",
+        "bl 0x82296d30",
+        "li r12,4097",
+        "ld r11,8(r31)",
+        "mr r4,r31",
+        "rldicr r12,r12,46,17",
+        "lwz r3,40(r31)",
+        "stw r30,96(r31)",
+        "or r11,r11,r12",
+        "stw r29,100(r31)",
+        "stw r30,116(r31)",
+        "std r11,8(r31)",
+        "lwz r11,0(r3)",
+        "lwz r11,264(r11)",
+        "mtctr r11",
+        "bctrl",
+        "mr r3,r31",
+        "addi r1,r1,112",
+        "b 0x82b7a73c"
+      ],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_825E7600) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// bl 0x82b7a6ec\n\tctx.lr = 0x825E7608;\n\t__savegprlr_29(ctx, base);\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// lis r10,-32230\n\tctx.r10.s64 = -2112225280;\n\t// mr r31,r3\n\tctx.r31.u64 = ctx.r3.u64;\n\t// mr r11,r7\n\tctx.r11.u64 = ctx.r7.u64;\n\t// addi r10,r10,32112\n\tctx.r10.s64 = ctx.r10.s64 + 32112;\n\t// li r9,1\n\tctx.r9.s64 = 1;\n\t// li r30,0\n\tctx.r30.s64 = 0;\n\t// mr r29,r5\n\tctx.r29.u64 = ctx.r5.u64;\n\t// mr r4,r6\n\tctx.r4.u64 = ctx.r6.u64;\n\t// std r11,76(r31)\n\tPPC_STORE_U64(ctx.r31.u32 + 76, ctx.r11.u64);\n\t// li r7,1\n\tctx.r7.s64 = 1;\n\t// stw r10,0(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 0, ctx.r10.u32);\n\t// li r6,1\n\tctx.r6.s64 = 1;\n\t// stw r9,68(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 68, ctx.r9.u32);\n\t// li r5,0\n\tctx.r5.s64 = 0;\n\t// stw r30,60(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 60, ctx.r30.u32);\n\t// addi r3,r31,84\n\tctx.r3.s64 = ctx.r31.s64 + 84;\n\t// bl 0x82296d30\n\tctx.lr = 0x825E7650;\n\tsub_82296D30(ctx, base);\n\t// li r12,4097\n\tctx.r12.s64 = 4097;\n\t// ld r11,8(r31)\n\tctx.r11.u64 = PPC_LOAD_U64(ctx.r31.u32 + 8);\n\t// mr r4,r31\n\tctx.r4.u64 = ctx.r31.u64;\n\t// rldicr r12,r12,46,17\n\tctx.r12.u64 = __builtin_rotateleft64(ctx.r12.u64, 46) & 0xFFFFC00000000000;\n\t// lwz r3,40(r31)\n\tctx.r3.u64 = PPC_LOAD_U32(ctx.r31.u32 + 40);\n\t// stw r30,96(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 96, ctx.r30.u32);\n\t// or r11,r11,r12\n\tctx.r11.u64 = ctx.r11.u64 | ctx.r12.u64;\n\t// stw r29,100(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 100, ctx.r29.u32);\n\t// stw r30,116(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 116, ctx.r30.u32);\n\t// std r11,8(r31)\n\tPPC_STORE_U64(ctx.r31.u32 + 8, ctx.r11.u64);\n\t// lwz r11,0(r3)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 0);\n\t// lwz r11,264(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 264);\n\t// mtctr r11\n\tctx.ctr.u64 = ctx.r11.u64;\n\t// bctrl \n\tctx.lr = 0x825E7688;\n\tPPC_CALL_INDIRECT_FUNC(ctx.ctr.u32 & ~3u);\n\t// mr r3,r31\n\tctx.r3.u64 = ctx.r31.u64;\n\t// addi r1,r1,112\n\tctx.r1.s64 = ctx.r1.s64 + 112;\n\t// b 0x82b7a73c\n\t__restgprlr_29(ctx, base);\n\treturn;\n}\n",
+      "direct_calls": [
+        "82B7A6EC",
+        "82296D30"
+      ],
+      "indirect_calls": [
+        {
+          "kind": "vtable+264",
+          "return_address": "825E7688",
+          "target_mask": "~3"
+        }
+      ],
+      "cfg": {
+        "labels": [],
+        "branches": [
+          "bl 0x82b7a6ec",
+          "bl 0x82296d30",
+          "bctrl",
+          "b 0x82b7a73c"
+        ]
+      },
+      "parameters": {
+        "r3": "full object pointer",
+        "r5": "full word stored at object+100",
+        "r6": "full lookup argument r4",
+        "r7": "full 64-bit value stored at object+76",
+        "caller_sp": "full entry stack pointer",
+        "unused_input": "r4"
+      }
+    }
+  ],
+  "limitations": [
+    "82296D30 is composed through its accepted bounded model, not a direct-call stand-in.",
+    "The vtable+264 target is an explicit dynamic service; its implementation is not recovered.",
+    "Only explicit post-lookup full r3/r4, SP and LR inputs are guaranteed to that service; generic lower volatile r5-r7 effects are not exposed by the lookup API.",
+    "Ordinary guest RAM and own known frame aliases are modeled; lower generic ABI and hardware/MMIO faults are excluded."
+  ]
+}
