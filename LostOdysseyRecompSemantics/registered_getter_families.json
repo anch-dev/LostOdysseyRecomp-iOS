@@ -1,0 +1,527 @@
+{
+  "schema_version": 1,
+  "family": "registered_getter",
+  "entry_count": 52,
+  "entries": [
+    {
+      "address": "822A1DD8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.1.cpp",
+      "source_line": 1024,
+      "singleton_address": "0x8331811C",
+      "constructor": "824C5CF0",
+      "registration": "824C5DA8",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "822A2500",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.1.cpp",
+      "source_line": 2125,
+      "singleton_address": "0x833184A0",
+      "constructor": "82537698",
+      "registration": "82537750",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "822A2700",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.1.cpp",
+      "source_line": 2447,
+      "singleton_address": "0x833181E4",
+      "constructor": "824C94B8",
+      "registration": "824C9570",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "822A8828",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.1.cpp",
+      "source_line": 17599,
+      "singleton_address": "0x83318760",
+      "constructor": "825BABE8",
+      "registration": "825BACA0",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "822A8978",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.1.cpp",
+      "source_line": 17811,
+      "singleton_address": "0x833184C8",
+      "constructor": "8255EF80",
+      "registration": "8255F038",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "822B1FD0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.1.cpp",
+      "source_line": 40533,
+      "singleton_address": "0x83318528",
+      "constructor": "8256C500",
+      "registration": "8256C5B8",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "822C0F50",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+      "source_line": 18539,
+      "singleton_address": "0x83318788",
+      "constructor": "825DB1F0",
+      "registration": "825DB2A8",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "822F9658",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.4.cpp",
+      "source_line": 2054,
+      "singleton_address": "0x83318CB8",
+      "constructor": "826816B0",
+      "registration": "82681768",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "823065C0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.4.cpp",
+      "source_line": 32976,
+      "singleton_address": "0x83318CCC",
+      "constructor": "82681DD8",
+      "registration": "82681E90",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "8236C358",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.8.cpp",
+      "source_line": 51548,
+      "singleton_address": "0x83318474",
+      "constructor": "825249C0",
+      "registration": "82524A78",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "824069E8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.15.cpp",
+      "source_line": 45433,
+      "singleton_address": "0x83315F80",
+      "constructor": "82409540",
+      "registration": "824095F8",
+      "owner": "0xFFFFFFFF8218C210",
+      "frame_size": 96
+    },
+    {
+      "address": "82406CC0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.15.cpp",
+      "source_line": 45872,
+      "singleton_address": "0x83315F60",
+      "constructor": "82403148",
+      "registration": "82403200",
+      "owner": "0xFFFFFFFF8218C210",
+      "frame_size": 96
+    },
+    {
+      "address": "8240C090",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp",
+      "source_line": 6406,
+      "singleton_address": "0x83318830",
+      "constructor": "825F6A60",
+      "registration": "825F6B18",
+      "owner": "0xFFFFFFFF8218C210",
+      "frame_size": 96
+    },
+    {
+      "address": "8241C328",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.17.cpp",
+      "source_line": 6612,
+      "singleton_address": "0x833186C8",
+      "constructor": "8259F000",
+      "registration": "8259F0B8",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "82422370",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.17.cpp",
+      "source_line": 20978,
+      "singleton_address": "0x833182C0",
+      "constructor": "824EE758",
+      "registration": "824EE810",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "824223C0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.17.cpp",
+      "source_line": 21030,
+      "singleton_address": "0x833182C4",
+      "constructor": "824EE8E8",
+      "registration": "824EE9A0",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "82422E78",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.17.cpp",
+      "source_line": 22652,
+      "singleton_address": "0x833183D8",
+      "constructor": "824F3118",
+      "registration": "824F31D0",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "824246E8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.17.cpp",
+      "source_line": 26355,
+      "singleton_address": "0x833182E0",
+      "constructor": "824EF190",
+      "registration": "824EF248",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "82425FF8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.18.cpp",
+      "source_line": 342,
+      "singleton_address": "0x833182C8",
+      "constructor": "824EEAB8",
+      "registration": "824EEB70",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "82426888",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.18.cpp",
+      "source_line": 1637,
+      "singleton_address": "0x833182CC",
+      "constructor": "824EEC48",
+      "registration": "824EED00",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "82428218",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.18.cpp",
+      "source_line": 5513,
+      "singleton_address": "0x83318558",
+      "constructor": "825726A0",
+      "registration": "82572758",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "824283E8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.18.cpp",
+      "source_line": 5791,
+      "singleton_address": "0x83318574",
+      "constructor": "82573180",
+      "registration": "82573238",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "82428788",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.18.cpp",
+      "source_line": 6347,
+      "singleton_address": "0x83318578",
+      "constructor": "825733A8",
+      "registration": "82573460",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "82428B98",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.18.cpp",
+      "source_line": 6964,
+      "singleton_address": "0x83318568",
+      "constructor": "82572D20",
+      "registration": "82572DD8",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "8242B638",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.18.cpp",
+      "source_line": 13364,
+      "singleton_address": "0x833188D0",
+      "constructor": "8260C2C0",
+      "registration": "8260C378",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "8242C048",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.18.cpp",
+      "source_line": 14885,
+      "singleton_address": "0x83318934",
+      "constructor": "82612220",
+      "registration": "826122D8",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "8242C9E8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.18.cpp",
+      "source_line": 16345,
+      "singleton_address": "0x833188F8",
+      "constructor": "82610D58",
+      "registration": "82610E10",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "8242D0F8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.18.cpp",
+      "source_line": 17414,
+      "singleton_address": "0x83318904",
+      "constructor": "82611100",
+      "registration": "826111B8",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "8242D448",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.18.cpp",
+      "source_line": 17918,
+      "singleton_address": "0x83318948",
+      "constructor": "82614E90",
+      "registration": "82614F48",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "8242D918",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.18.cpp",
+      "source_line": 18648,
+      "singleton_address": "0x83318908",
+      "constructor": "826112B8",
+      "registration": "82611370",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "8242DAE8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.18.cpp",
+      "source_line": 18926,
+      "singleton_address": "0x8331890C",
+      "constructor": "82611470",
+      "registration": "82611528",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "8242DD08",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.18.cpp",
+      "source_line": 19256,
+      "singleton_address": "0x83318910",
+      "constructor": "82611628",
+      "registration": "826116E0",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "8242DF28",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.18.cpp",
+      "source_line": 19586,
+      "singleton_address": "0x83318914",
+      "constructor": "826117E0",
+      "registration": "82611898",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "8242E3F8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.18.cpp",
+      "source_line": 20316,
+      "singleton_address": "0x8331891C",
+      "constructor": "82611A90",
+      "registration": "82611B48",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "8242E688",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.18.cpp",
+      "source_line": 20707,
+      "singleton_address": "0x83318EA0",
+      "constructor": "826F5618",
+      "registration": "826F56D0",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "8242E918",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.18.cpp",
+      "source_line": 21098,
+      "singleton_address": "0x83318920",
+      "constructor": "82611C48",
+      "registration": "82611D00",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "8245D728",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.21.cpp",
+      "source_line": 45995,
+      "singleton_address": "0x83318200",
+      "constructor": "824C9CA8",
+      "registration": "824C9D60",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "8245DD10",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.21.cpp",
+      "source_line": 46892,
+      "singleton_address": "0x8331871C",
+      "constructor": "825A8178",
+      "registration": "825A8230",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "8245DD60",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.21.cpp",
+      "source_line": 46944,
+      "singleton_address": "0x8331809C",
+      "constructor": "8248BDE0",
+      "registration": "8248BE98",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "8245E230",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.21.cpp",
+      "source_line": 47674,
+      "singleton_address": "0x83318790",
+      "constructor": "825DB560",
+      "registration": "825DB618",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "8245F818",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.21.cpp",
+      "source_line": 50991,
+      "singleton_address": "0x8331877C",
+      "constructor": "825CC9F0",
+      "registration": "825CCAA8",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "8245FB68",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.21.cpp",
+      "source_line": 51495,
+      "singleton_address": "0x83318FDC",
+      "constructor": "827262A8",
+      "registration": "82726360",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "8245FF08",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.21.cpp",
+      "source_line": 52051,
+      "singleton_address": "0x83318204",
+      "constructor": "824C9E78",
+      "registration": "824C9F30",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "82460368",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.21.cpp",
+      "source_line": 52720,
+      "singleton_address": "0x83318194",
+      "constructor": "824C7C70",
+      "registration": "824C7D28",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "82460818",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.21.cpp",
+      "source_line": 53441,
+      "singleton_address": "0x8331861C",
+      "constructor": "8259C2F0",
+      "registration": "8259C3A8",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "82460868",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.21.cpp",
+      "source_line": 53493,
+      "singleton_address": "0x83318718",
+      "constructor": "825A50E0",
+      "registration": "825A5198",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "82460CC8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.21.cpp",
+      "source_line": 54162,
+      "singleton_address": "0x83318114",
+      "constructor": "824C37F8",
+      "registration": "824C38B0",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "82460D18",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.21.cpp",
+      "source_line": 54214,
+      "singleton_address": "0x83318120",
+      "constructor": "824C5EA0",
+      "registration": "824C5F58",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "82460FA8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.21.cpp",
+      "source_line": 54605,
+      "singleton_address": "0x83318730",
+      "constructor": "825AA7F8",
+      "registration": "825AA8B8",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "824614C8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.21.cpp",
+      "source_line": 55387,
+      "singleton_address": "0x83318564",
+      "constructor": "82572B70",
+      "registration": "82572C28",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "82463F40",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.22.cpp",
+      "source_line": 3472,
+      "singleton_address": "0x83318C6C",
+      "constructor": "8267D950",
+      "registration": "8267DA08",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    },
+    {
+      "address": "82463F90",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.22.cpp",
+      "source_line": 3524,
+      "singleton_address": "0x833180F4",
+      "constructor": "824C1728",
+      "registration": "824C17E0",
+      "owner": "0xFFFFFFFF8218C21C",
+      "frame_size": 96
+    }
+  ]
+}
