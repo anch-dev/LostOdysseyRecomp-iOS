@@ -1,0 +1,88 @@
+{
+  "schema": "crt-wide-stream-output-checkpoint-v1",
+  "date": "2026-10-03",
+  "scope": "Three connected wide stream/output entries; buildable readable library and bounded original-PPC comparisons, no runtime or scene increment.",
+  "baseline_checkpoint": "array_code_unit_conversion_checkpoint.json",
+  "entries_since_baseline": 3,
+  "static_instructions_since_baseline": 326,
+  "focused_cases_since_baseline": 13,
+  "unknown_checks_since_baseline": 1,
+  "families": [
+    {
+      "family": "crt_wide_stream_output",
+      "manifest": "crt_wide_stream_output_families.json",
+      "commit": "5f4a77d",
+      "entries": 3,
+      "static_instructions": 326,
+      "focused_original_ppc_cases": 13,
+      "unknown_entry_checks": 1,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-wide-stream-output-tests/crt-wide-stream-output-result.json",
+      "summary": "PASS crt-wide-stream-output 13 original PPC cases + unknown\nLIMIT selected state/RAM and accepted lower ABI; native internals, faults, MMIO, concurrency and runtime remain open"
+    }
+  ],
+  "progress": {
+    "source": "Committed HEAD5f4a77d; semantic_recovery.py progress",
+    "individual_records": 82,
+    "family_manifests": 91,
+    "unique_mapped_entries": 5183,
+    "cached_catalog_baseline": 62627,
+    "entry_mapping_percent_against_cached_baseline": 8.276,
+    "runtime_wrappers": 3168,
+    "default_off_runtime_gates": 8,
+    "complete_individual_records": 0,
+    "note": "Fixed historical cached denominator, not a refreshed census, logical-function count or complete semantic percentage."
+  },
+  "library_build": {
+    "directory": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-runtime-build",
+    "msvc_runtime": "MT",
+    "strict_flags": "/W4 /WX",
+    "new_sources": 1,
+    "native_jobs": 1,
+    "log": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-wide-stream-output-tests/semantic-library-build.log",
+    "compiler_setup_seconds": 2.34,
+    "library_build_seconds": 3.951,
+    "oracle_compile_seconds": 1.339,
+    "oracle_execute_seconds": 0.023,
+    "total_seconds": 7.724,
+    "reuse": "Accepted lower models and existing MT .lib reused; no old suites, hashes or full runtime build. No runtime acceptance increment."
+  },
+  "integration_review": {
+    "corrections_before_build": [
+      "After positive pending-byte flush, reload stream buffer base and store the current U16 before checking the flush result.",
+      "Reserved Unicode branch sets the original bl return address822A06B0 before invoking accepted error output."
+    ],
+    "failures_after_build": 0
+  },
+  "next_dependency_order": [
+    {
+      "entries": [
+        "82B7A5E0",
+        "82B7A678"
+      ],
+      "requires": "Actual live floating-format table initialization; scoped packet under audit."
+    },
+    {
+      "entries": [
+        "8231A2A0",
+        "82B7EEF8",
+        "82B7EE58"
+      ],
+      "requires": "Real initialized targets from the float dispatch table; recovery closure still under audit."
+    },
+    {
+      "entries": [
+        "82B7D158",
+        "82B7D020",
+        "82319330"
+      ],
+      "static_instructions": 802,
+      "requires": "Formatter SCC needs the real float targets above plus the now-accepted wide stream family; design pin only, not credited."
+    }
+  ],
+  "limitations": [
+    "Selected full SP/LR/GPR/CR/XER, own frames and ordinary committed RAM; representative branch cases only.",
+    "Known direct lower models are real accepted implementations; generic lower ABI and native internals remain bounded.",
+    "U64 memory helpers are ordered U32 accesses without atomicity/fault guarantees.",
+    "Faults, MMIO, concurrency, unwind, runtime/scene acceptance and complete semantics remain unverified."
+  ]
+}
