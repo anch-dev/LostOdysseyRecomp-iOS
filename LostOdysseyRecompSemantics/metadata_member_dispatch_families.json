@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "family": "metadata_member_dispatch",
+  "entry_count": 1,
+  "entries": [
+    {
+      "address": "823FD400",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.15.cpp",
+      "line": 23236,
+      "instruction_count": 31,
+      "instruction_sequence": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r30,-24(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-112(r1)",
+        "lwz r31,120(r4)",
+        "mr r30,r3",
+        "cmplwi cr6,r31,0",
+        "beq cr6,0x823fd464",
+        "li r12,1",
+        "ld r11,8(r31)",
+        "rldicr r12,r12,41,63",
+        "and r11,r11,r12",
+        "cmpldi cr6,r11,0",
+        "bne cr6,0x823fd458",
+        "lwz r10,0(r31)",
+        "mr r3,r31",
+        "lwz r11,100(r31)",
+        "add r4,r11,r30",
+        "lwz r11,340(r10)",
+        "mtctr r11",
+        "bctrl",
+        "lwz r31,112(r31)",
+        "cmplwi cr6,r31,0",
+        "bne cr6,0x823fd424",
+        "addi r1,r1,112",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r30,-24(r1)",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_823FD400) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// std r30,-24(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -24, ctx.r30.u64);\n\t// std r31,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// lwz r31,120(r4)\n\tctx.r31.u64 = PPC_LOAD_U32(ctx.r4.u32 + 120);\n\t// mr r30,r3\n\tctx.r30.u64 = ctx.r3.u64;\n\t// cmplwi cr6,r31,0\n\tctx.cr6.compare<uint32_t>(ctx.r31.u32, 0, ctx.xer);\n\t// beq cr6,0x823fd464\n\tif (ctx.cr6.eq) goto loc_823FD464;\nloc_823FD424:\n\t// li r12,1\n\tctx.r12.s64 = 1;\n\t// ld r11,8(r31)\n\tctx.r11.u64 = PPC_LOAD_U64(ctx.r31.u32 + 8);\n\t// rldicr r12,r12,41,63\n\tctx.r12.u64 = __builtin_rotateleft64(ctx.r12.u64, 41) & 0xFFFFFFFFFFFFFFFF;\n\t// and r11,r11,r12\n\tctx.r11.u64 = ctx.r11.u64 & ctx.r12.u64;\n\t// cmpldi cr6,r11,0\n\tctx.cr6.compare<uint64_t>(ctx.r11.u64, 0, ctx.xer);\n\t// bne cr6,0x823fd458\n\tif (!ctx.cr6.eq) goto loc_823FD458;\n\t// lwz r10,0(r31)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r31.u32 + 0);\n\t// mr r3,r31\n\tctx.r3.u64 = ctx.r31.u64;\n\t// lwz r11,100(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + 100);\n\t// add r4,r11,r30\n\tctx.r4.u64 = ctx.r11.u64 + ctx.r30.u64;\n\t// lwz r11,340(r10)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r10.u32 + 340);\n\t// mtctr r11\n\tctx.ctr.u64 = ctx.r11.u64;\n\t// bctrl \n\tctx.lr = 0x823FD458;\n\tPPC_CALL_INDIRECT_FUNC(ctx.ctr.u32 & ~3u);\nloc_823FD458:\n\t// lwz r31,112(r31)\n\tctx.r31.u64 = PPC_LOAD_U32(ctx.r31.u32 + 112);\n\t// cmplwi cr6,r31,0\n\tctx.cr6.compare<uint32_t>(ctx.r31.u32, 0, ctx.xer);\n\t// bne cr6,0x823fd424\n\tif (!ctx.cr6.eq) goto loc_823FD424;\nloc_823FD464:\n\t// addi r1,r1,112\n\tctx.r1.s64 = ctx.r1.s64 + 112;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// ld r30,-24(r1)\n\tctx.r30.u64 = PPC_LOAD_U64(ctx.r1.u32 + -24);\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}\n",
+      "direct_calls": [],
+      "indirect_calls": [
+        "live member vtable+340"
+      ],
+      "cfg": {
+        "labels": [
+          "loc_823FD424",
+          "loc_823FD458",
+          "loc_823FD464"
+        ],
+        "branches": [
+          "beq cr6,0x823fd464",
+          "bne cr6,0x823fd458",
+          "bctrl",
+          "bne cr6,0x823fd424",
+          "blr"
+        ]
+      },
+      "parameters": {
+        "r3": "full destination receiver",
+        "r4": "full type pointer with member list at +120",
+        "caller_sp": "full entry SP",
+        "result": "full live r3, last method result or entry receiver"
+      }
+    }
+  ],
+  "limitations": [
+    "The actual dynamic vtable+340 target and full r3/r4/SP/LR are exposed as an explicit service.",
+    "Selected live r30/r31/CTR/LR and own saved frame are modeled; other volatile ABI effects and target internals are external.",
+    "Ordinary mapped RAM only; faults/MMIO and concurrent mutation excluded."
+  ]
+}
