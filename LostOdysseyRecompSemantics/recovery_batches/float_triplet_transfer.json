@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Two short ordered lfs/stfs triplet transfers, four focused original-PPC cases.",
+  "families": [
+    {
+      "name": "float-triplet-transfer",
+      "manifest": "LostOdysseyRecompSemantics/float_triplet_transfer_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/float_triplet_transfer_oracle.cpp",
+      "prelude": "",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/float_triplet_transfer.cpp"
+      ]
+    }
+  ]
+}

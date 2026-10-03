@@ -1,0 +1,61 @@
+{
+  "schema": "float-triplet-transfer-v1",
+  "entries": [
+    {
+      "address": "822C4D18",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+      "source_line": 27852,
+      "instruction_count": 9,
+      "instructions": [
+        "lfs f0,0(r4)",
+        "li r11,1",
+        "stfs f0,80(r3)",
+        "lfs f0,4(r4)",
+        "stfs f0,84(r3)",
+        "lfs f0,8(r4)",
+        "stfs f0,88(r3)",
+        "stw r11,92(r3)",
+        "blr"
+      ],
+      "direct_calls": [],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_822C4D18) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// lfs f0,0(r4)\n\tctx.fpscr.disableFlushMode();\n\ttemp.u32 = PPC_LOAD_U32(ctx.r4.u32 + 0);\n\tctx.f0.f64 = double(temp.f32);\n\t// li r11,1\n\tctx.r11.s64 = 1;\n\t// stfs f0,80(r3)\n\ttemp.f32 = float(ctx.f0.f64);\n\tPPC_STORE_U32(ctx.r3.u32 + 80, temp.u32);\n\t// lfs f0,4(r4)\n\ttemp.u32 = PPC_LOAD_U32(ctx.r4.u32 + 4);\n\tctx.f0.f64 = double(temp.f32);\n\t// stfs f0,84(r3)\n\ttemp.f32 = float(ctx.f0.f64);\n\tPPC_STORE_U32(ctx.r3.u32 + 84, temp.u32);\n\t// lfs f0,8(r4)\n\ttemp.u32 = PPC_LOAD_U32(ctx.r4.u32 + 8);\n\tctx.f0.f64 = double(temp.f32);\n\t// stfs f0,88(r3)\n\ttemp.f32 = float(ctx.f0.f64);\n\tPPC_STORE_U32(ctx.r3.u32 + 88, temp.u32);\n\t// stw r11,92(r3)\n\tPPC_STORE_U32(ctx.r3.u32 + 92, ctx.r11.u32);\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
+    },
+    {
+      "address": "822C4DD0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+      "source_line": 27976,
+      "instruction_count": 7,
+      "instructions": [
+        "lfs f0,1132(r3)",
+        "stfs f0,0(r4)",
+        "lfs f0,1136(r3)",
+        "stfs f0,4(r4)",
+        "lfs f0,1140(r3)",
+        "stfs f0,8(r4)",
+        "blr"
+      ],
+      "direct_calls": [],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_822C4DD0) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// lfs f0,1132(r3)\n\tctx.fpscr.disableFlushMode();\n\ttemp.u32 = PPC_LOAD_U32(ctx.r3.u32 + 1132);\n\tctx.f0.f64 = double(temp.f32);\n\t// stfs f0,0(r4)\n\ttemp.f32 = float(ctx.f0.f64);\n\tPPC_STORE_U32(ctx.r4.u32 + 0, temp.u32);\n\t// lfs f0,1136(r3)\n\ttemp.u32 = PPC_LOAD_U32(ctx.r3.u32 + 1136);\n\tctx.f0.f64 = double(temp.f32);\n\t// stfs f0,4(r4)\n\ttemp.f32 = float(ctx.f0.f64);\n\tPPC_STORE_U32(ctx.r4.u32 + 4, temp.u32);\n\t// lfs f0,1140(r3)\n\ttemp.u32 = PPC_LOAD_U32(ctx.r3.u32 + 1140);\n\tctx.f0.f64 = double(temp.f32);\n\t// stfs f0,8(r4)\n\ttemp.f32 = float(ctx.f0.f64);\n\tPPC_STORE_U32(ctx.r4.u32 + 8, temp.u32);\n\t// blr \n\treturn;\n}",
+      "status": "bounded_readable_library"
+    }
+  ],
+  "implementation": {
+    "header": "include/lo_semantics/float_triplet_transfer.h",
+    "source": "src/float_triplet_transfer.cpp",
+    "oracle": "tests/float_triplet_transfer_oracle.cpp",
+    "scope": "Two instruction-ordered lfs/stfs triplet transfers, including sequential overlapping writes, f0 widening and a destination flag store. Selected cached x64 FPSCR flush bits and the host-control callback are modeled."
+  },
+  "validation": {
+    "focused_original_ppc_cases": 4,
+    "unknown_entry_checks": 0,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-float-triplet-transfer-tests/float-triplet-transfer-result.json",
+    "library": "Windows-native /W4 /WX MT static library",
+    "tested_scope": "One disjoint and one cascading overlap per entry; finite values, negative zero and infinity; high guest-pointer/register bits, selected GPR/FPR and cached x64 FPSCR, host flush-control callback and ordinary RAM.",
+    "unvalidated_scope": "Signaling NaNs, subnormals, other FP inputs, host exceptions and unselected ABI/FP state, non-x64 host control, faults, MMIO, concurrency and runtime behavior.",
+    "runtime_validated": false,
+    "complete": false
+  }
+}
