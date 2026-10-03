@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "previous_checkpoint": "registered_instance_metadata_checkpoint.json",
+  "runtime_code_commit": "8c869b7",
+  "scene_binary_revision": "80abc1c53972",
+  "registered_getter_adapter": {
+    "entry_count": 58,
+    "new_mapped_entry_addresses": 0,
+    "manifest": "registered_getter_families.json",
+    "gate": "LO_SEMANTIC_REGISTERED_RUNTIME",
+    "default_enabled": false,
+    "source": "LostOdysseyRecomp/cpu/semantic_registered.h",
+    "generator": "tools/ghidra/generate_semantic_registered_wrappers.py",
+    "implementation": "The library and native adapter share the singleton table and FetchWith algorithm. Native access retains PPC volatile widths and byte order; the adapter replays the 96-byte frame and live r3/r11/r12/r31, cr6 and LR operations. First-use constructor and registration calls use the existing guest function table and full PPCContext.",
+    "live_state": "The global address is recomputed from live r31 after guest calls, registration runs even for a low-word null construction result and its final global is reloaded.",
+    "symbol_validation": "The shared table matches the manifest. Generation checks other family maps and hand-written runtime symbols for collisions. The production linker map binds all 58 public getter symbols to semantic_registered_wrappers.cpp.obj, with the original fallback bodies retained in the PPC archive.",
+    "bounded_validation": {
+      "status": "passed",
+      "comparisons": 126,
+      "scenarios_per_gate": 63,
+      "initialized_entry_cases_per_gate": 58,
+      "first_use_cases_per_gate": 5,
+      "scope": "All getter symbols on the initialized branch, alternating actual direct and function-table wrapper calls; five first-use cases cover two owner constants, inline target, callback global mutation, low-word allocation failure and a callee-mutated r31. Full PPCContext, selected RAM/stack, nested SP/LR/full r3 events, table dispatch and fallback counts match the cached original getter bodies in both gate modes.",
+      "runner": "tools/ghidra/test_semantic_registered_runtime.py",
+      "receipt": "External scratch: semantic-registered-runtime-tests/registered-getter-runtime-result.json",
+      "lower_boundary": "The bounded oracle uses deterministic guest constructor and registration stubs. The live runtime forwards to the existing guest table; no new native manager/constructor bridge is claimed."
+    }
+  },
+  "runtime": {
+    "available_opt_in_wrappers": 2513,
+    "default_off_gates": 7,
+    "wrappers_added": 58
+  },
+  "build": {
+    "status": "passed",
+    "platform": "Windows x86_64 clang-cl 22.1.8 RelWithDebInfo",
+    "scope": "Incremental native runtime compile/link, using the existing PPC archive; the 19 field and 15 Property library entries also compiled and linked. A lookup-macro parentheses compilation error was corrected before the successful build and comparison. A later library-only incremental build compiled the marker and bounded metadata modules and linked the semantic library; those later entries have no runtime wrappers and were not included in the recorded scene binary.",
+    "logs": [
+      "External scratch: semantic-runtime-build/registered-getter-runtime-build-fixed.log",
+      "External scratch: semantic-runtime-build/registered-property-runtime-build.log",
+      "External scratch: semantic-runtime-build/registered-marker-metadata-library-build.log"
+    ]
+  },
+  "scene_smoke": {
+    "status": "passed",
+    "runs_added": 1,
+    "enabled_gates": [
+      "LO_SEMANTIC_LEAF_RUNTIME",
+      "LO_SEMANTIC_INTEGER_RUNTIME",
+      "LO_SEMANTIC_ACCESSOR_RUNTIME",
+      "LO_SEMANTIC_FIELDS_RUNTIME",
+      "LO_SEMANTIC_OBJECT_RUNTIME",
+      "LO_SEMANTIC_MEMORY_RUNTIME",
+      "LO_SEMANTIC_REGISTERED_RUNTIME"
+    ],
+    "configuration": "Windows D3D12, 1280x720, 30 FPS; AA/upscaling/HDR/frame generation off; one isolated writable save/profile copied from the previous scene seed; existing original scene observations reused.",
+    "observed": "Reached Map 20, Uhra - Residential Area. The scene capture shows the player, environment and HUD; one Y-button pulse opened the main menu. No crash or visible structural regression was observed.",
+    "evidence_directory": "External scratch: semantic-runtime-registered-scene-20261003",
+    "scene_capture": "scene_1805.png",
+    "menu_capture": "scene_3951.png",
+    "log": "runtime.log",
+    "test_process_stopped": true,
+    "scope": "A smoke run with the new gate enabled, without individual traces for all 58 getters. Later library-only initializer additions are outside this binary and scene scope."
+  },
+  "evidence_reuse": "Prior constructor/callback/getter library comparisons, runtime suites and baseline scenes were reused. No source/image hash pass, full PPC scan or regeneration, broad regression replay or performance measurement was added.",
+  "remaining_boundaries": [
+    "Native constructor/manager service adapters and deeper vtable/CRT/kernel behavior remain pending.",
+    "The scene does not establish per-entry coverage, pixel identity, performance, combat, transitions, faults, MMIO, concurrency or cross-platform acceptance.",
+    "Original type layouts and complete semantic recovery of the game remain incomplete."
+  ],
+  "counting_note": "50 additional readable mapped entries (47 instance initializers plus three bounded metadata initializers); the three floating-point initializers retain a known signaling-NaN comparison gap. The 58 new runtime wrappers integrate already-mapped getters and add no recovered addresses. Mapped addresses are not counts of independent logical functions.",
+  "unique_recovered_entry_addresses": 4883,
+  "additional_entry_addresses": 50,
+  "individually_recorded_entries": 82,
+  "family_manifests": 22,
+  "overlapping_addresses": [
+    "829664E8",
+    "82B84D88"
+  ],
+  "new_library_families": {
+    "instance_field_initializer": {
+      "entries": 19,
+      "manifest": "instance_field_initializer_families.json",
+      "code_commit": "40e7097",
+      "validation": "Three field-layout representatives with null/non-null full r3 and an unknown entry: seven checks passed; complete generated PPC bodies and parameters are statically matched.",
+      "receipt": "External scratch: semantic-instance-field-tests/instance-field-initializer-result.json"
+    },
+    "instance_property_initializer": {
+      "entries": 15,
+      "manifest": "instance_property_initializer_families.json",
+      "code_commit": "80abc1c",
+      "validation": "Three vtable-immediate representatives with null/non-null full r3 and an unknown entry: seven checks passed; complete generated PPC bodies and the five ordered default-field writes are statically matched.",
+      "receipt": "External scratch: semantic-instance-property-tests/instance-property-initializer-result.json"
+    },
+    "instance_marker_initializer": {
+      "entries": 13,
+      "manifest": "instance_marker_initializer_families.json",
+      "code_commit": "6cc37b2",
+      "validation": "Three vtable-immediate representatives with null/non-null full r3 and an unknown entry: seven checks passed, including the byte-width neighbor check; complete generated PPC bodies and parameters are statically matched.",
+      "receipt": "External scratch: semantic-instance-marker-tests/instance-marker-initializer-result.json"
+    },
+    "registered_metadata_initializer": {
+      "entries": 3,
+      "manifest": "registered_metadata_initializer_families.json",
+      "validation": "Five bounded PPC comparisons plus an unknown entry check passed for finite values, minimum subnormal, negative zero and a write/source alias. All three complete instruction lists are checked. Caller-provided FPSCR flush-disable behavior remains an adapter boundary.",
+      "receipt": "External scratch: semantic-metadata-initializer-tests/registered-metadata-initializers-result.json",
+      "known_gap": {
+        "status": "known_mismatch_reproduced",
+        "address": "825A8448",
+        "source_word": "0x7F800001",
+        "original_generated_cpp_o2_store": "0x7F800001",
+        "semantic_o2_store": "0x7FC00001",
+        "original_generated_cpp_od_store": "0x7FC00001",
+        "scope": "Signaling-NaN memory payload differs under clang-cl /O2 while observed FPR and FPSCR agree; /Od stores agree. This is an unresolved compiler-dependent original-C++ baseline discrepancy, not a passing semantic comparison. The entries remain incomplete and have no runtime wrapper.",
+        "receipt": "External scratch: semantic-metadata-initializer-tests/registered-metadata-initializers-snan-result.json",
+        "diagnostic": "External scratch: semantic-metadata-initializer-tests/snan-optimization-diagnostic.json"
+      },
+      "code_commit": "b0e1949"
+    }
+  },
+  "remaining_cached_candidates": {
+    "instance_entries": 156,
+    "metadata_entries": 17,
+    "instance_handoff": "out/function-inventory/registered-instance-handoff.md",
+    "instance_bodies": "out/function-inventory/registered-instance-originals.cpp.gz",
+    "metadata_bodies": "out/function-inventory/registered-extra-methods.json"
+  }
+}
