@@ -438,7 +438,7 @@ def progress(runtime_wrappers: int | None = None) -> dict:
               "family_unique": len(family), "overlaps": len(individual & family),
               "unique": len(individual | family), "cached_total": 62627,
               "cached_entry_mapping_percent": round(100 * len(individual | family) / 62627, 3),
-              "scope_note": "entry address mapping, not full semantic completion"}
+              "scope_note": "entry address mapping against fixed cached baseline, not a refreshed whole-game census or full semantic completion"}
     if runtime_wrappers is not None:
         result["runtime_wrappers_supplied"] = runtime_wrappers
     return result

@@ -1,0 +1,92 @@
+{
+  "schema": "array-code-unit-conversion-checkpoint-v1",
+  "date": "2026-10-03",
+  "scope": "One array initializer and two CRT code-unit conversion entries; buildable readable models and bounded original-PPC comparisons, no runtime or scene increment.",
+  "baseline_checkpoint": "crt_stream_operations_checkpoint.json",
+  "entries_since_baseline": 3,
+  "static_instructions_since_baseline": 94,
+  "focused_cases_since_baseline": 14,
+  "unknown_checks_since_baseline": 2,
+  "families": [
+    {
+      "family": "array_code_unit_initializer",
+      "manifest": "array_code_unit_initializer_families.json",
+      "commit": "81fb3dc",
+      "entries": 1,
+      "static_instructions": 19,
+      "focused_original_ppc_cases": 4,
+      "unknown_entry_checks": 1,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-array-code-unit-conversion-tests/array-code-unit-initializer-result.json",
+      "summary": "PASS array-code-unit-initializer 4 original PPC cases + unknown\nLIMIT selected wrapper ABI and ordinary RAM; accepted ResizeArray has generic lower ABI and external manager/vtable service; no faults/MMIO/concurrency/runtime acceptance"
+    },
+    {
+      "family": "crt_code_unit_conversion",
+      "manifest": "crt_code_unit_conversion_families.json",
+      "commit": "81fb3dc",
+      "entries": 2,
+      "static_instructions": 75,
+      "focused_original_ppc_cases": 10,
+      "unknown_entry_checks": 1,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-array-code-unit-conversion-tests/crt-code-unit-conversion-result.json",
+      "summary": "PASS crt-code-unit-conversion 10 original PPC cases + unknown\nLIMIT selected state/RAM; accepted lower ABI and native internals, faults, MMIO, concurrency and runtime remain open"
+    }
+  ],
+  "progress": {
+    "source": "Committed HEAD 81fb3dc; semantic_recovery.py progress",
+    "individual_records": 82,
+    "family_manifests": 90,
+    "unique_mapped_entries": 5180,
+    "cached_catalog_baseline": 62627,
+    "entry_mapping_percent_against_cached_baseline": 8.271,
+    "runtime_wrappers": 3168,
+    "default_off_runtime_gates": 8,
+    "complete_individual_records": 0,
+    "note": "Fixed historical catalog/manifest baseline, not a refreshed whole-game census or logical-function/complete semantics percentage. Tail entry82B86BE0 is present in complete generated PPC but absent from catalog.functions."
+  },
+  "library_build": {
+    "directory": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-runtime-build",
+    "msvc_runtime": "MT",
+    "strict_flags": "/W4 /WX",
+    "new_sources": 2,
+    "native_jobs": 1,
+    "log": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-array-code-unit-conversion-tests/initial-shared-library-build.log",
+    "reuse": "Array4 passed first and was not rerun. Conversion-only harness correction reused the built .lib."
+  },
+  "failure_correction": {
+    "category": "fixture",
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-array-code-unit-conversion-tests/first-conversion-path-failure.json",
+    "correction": "SecondGetter input had null output and nonzero extent, which correctly returned0 before errno calls. Use nonnull output/extent1/codeunit0x100 and retain two live getter calls, distinct record readback and buffer-clear assertions."
+  },
+  "next_dependency_order": [
+    {
+      "entries": [
+        "82B87868"
+      ],
+      "static_instructions": 116,
+      "ready": "Known lower entries are now accepted: wide stream buffer/flush helper can reuse stream-operation adapters."
+    },
+    {
+      "entries": [
+        "822A03D8",
+        "82B84A08"
+      ],
+      "static_instructions": 210,
+      "requires": "82B87868 plus accepted code-unit-conversion and stream/formatting models."
+    },
+    {
+      "entries": [
+        "82B7D158",
+        "82B7D020",
+        "82319330"
+      ],
+      "static_instructions": 802,
+      "requires": "Wide-output closure; recover the actual mutually recursive formatter SCC, preserve three true indirect boundaries."
+    }
+  ],
+  "limitations": [
+    "Selected full wrapper state, own frames/save order and ordinary committed RAM only.",
+    "ResizeArray manager initialization/vtable service contract, live CRT errno getters, invalid-parameter and fill operations use accepted real lower models; generic lower PPCContext ABI/native internals remain bounded.",
+    "U64 helpers use ordered U32 accesses without atomicity/fault guarantees.",
+    "Faults, MMIO, concurrency, unwind, runtime/scene acceptance and complete semantics remain unverified."
+  ]
+}

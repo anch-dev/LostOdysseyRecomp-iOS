@@ -32,7 +32,7 @@ The manifest's `translated_body` is the only body pin. Do not duplicate script t
 4. If a case fails, classify the needed correction as source, fixture, ABI adapter, or compiler/tooling setup. Keep the matrix bounded. Apply tail, full-width, callback, `rXX`, stack, or alias cases only when the assigned structure needs them; do not impose the same matrix on every function.
    - When a harness uses `bool` CR fields, explicitly convert the PPC `uint8_t` bits while populating those fields.
    - If a fixture changes state before an original-body branch rereads it, perform that mutation at the corresponding native event and retain the expected-path assertion so the fixture tests the intended branch.
-   - Preserve compare and dot-form CR effects when replacing PPC branches with C++ conditions. Derive address bases from the complete signed `lis`/`addi` pair. A fixture's full-width signed input must actually reach its intended native path; a path failure must report the entry, mode and relevant state before changing the fixture.
+   - Preserve compare and dot-form CR effects when replacing PPC branches with C++ conditions. Derive address bases from the complete signed `lis`/`addi` pair. Trace the pinned branches with each fixture's input before handoff: null-output, extent and signed-offset guards can bypass the intended service. A path failure must report the entry, mode and relevant state before changing the fixture.
 5. Stop after the packet is complete and send the exact receipt below; wait for root integration.
 
 ## Non-goals
