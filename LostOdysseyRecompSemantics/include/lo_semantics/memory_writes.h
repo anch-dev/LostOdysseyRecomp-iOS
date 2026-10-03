@@ -13,6 +13,7 @@ struct Registers
 {
     std::uint64_t r3 = 0, r4 = 0, r5 = 0, r6 = 0, r7 = 0;
     std::uint64_t r8 = 0, r9 = 0, r10 = 0, r11 = 0;
+    std::uint64_t r1 = 0;
 };
 
 // Returns false, without changing registers or memory, for an unknown address.

@@ -1,6 +1,7 @@
 // The runner prepends the original generated PPC implementations.
 #include "lo_semantics/memory_writes.h"
 
+#include <algorithm>
 #include <array>
 #include <cstddef>
 #include <cstdint>
@@ -26,6 +27,7 @@ constexpr std::uint32_t kInput = 0x30000;
 constexpr std::uint32_t kOutput = 0x40000;
 constexpr std::uint32_t kPointer = 0x50000;
 constexpr std::uint32_t kNeighbor = 0x60000;
+constexpr std::uint32_t kStack = 0x70000;
 
 struct TestEntry
 {
@@ -65,6 +67,7 @@ public:
         TrackRange(kOutput, 0x2000);
         TrackRange(kPointer, 0x2000);
         TrackRange(kNeighbor, 0x2000);
+        TrackRange(kStack - kPageSize, 0x2000);
     }
 
     void TrackRange(std::uint32_t address, std::uint32_t size)
@@ -72,6 +75,8 @@ public:
         for (auto page = address & ~(kPageSize - 1u);
              page < address + size; page += kPageSize)
         {
+            if (std::find(pages_.begin(), pages_.end(), page) != pages_.end())
+                continue;
             if (!VirtualAlloc(base_ + page, kPageSize, MEM_COMMIT, PAGE_READWRITE))
                 throw std::runtime_error("commit guest test page");
             std::memset(base_ + page, static_cast<int>((page >> 8) ^ 0xa5), kPageSize);
@@ -82,6 +87,11 @@ public:
     void Put32(std::uint32_t address, std::uint32_t value)
     {
         memory().WriteU32(address, value);
+    }
+
+    void TrackGlobal(std::uint32_t address)
+    {
+        TrackRange(address & ~(kPageSize - 1u), kPageSize);
     }
 
     [[nodiscard]] std::vector<PageImage> Snapshot() const
@@ -112,6 +122,11 @@ std::uint32_t At(std::uint64_t base, std::uint32_t offset = 0)
     return static_cast<std::uint32_t>(base) + offset;
 }
 
+std::uint32_t Global(std::int32_t base, std::int32_t offset)
+{
+    return static_cast<std::uint32_t>(base) + static_cast<std::uint32_t>(offset);
+}
+
 void FillContext(PPCContext& context, std::uint32_t address, unsigned case_index)
 {
     auto* bytes = reinterpret_cast<std::uint8_t*>(&context);
@@ -124,6 +139,7 @@ void FillContext(PPCContext& context, std::uint32_t address, unsigned case_index
     context.r5.u64 = high | kOutput;
     context.r6.u64 = (high ^ 0x5555555500000000ull) | 0x12345678u;
     context.r7.u64 = (high ^ 0xaaaaaaaa00000000ull) | 0x87654321u;
+    context.r1.u64 = high | kStack;
 }
 
 void Seed(const TestEntry& entry, unsigned case_index,
@@ -182,6 +198,88 @@ void Seed(const TestEntry& entry, unsigned case_index,
             context.r5.u64 = context.r3.u64 + 24420;
         }
         break;
+    case 0x822D06D0u:
+    case 0x822D1FA0u:
+        context.r6.u64 = (context.r6.u64 & 0xffffffff00000000ull) | kPointer;
+        context.r7.u64 = (context.r7.u64 & 0xffffffff00000000ull) | kNeighbor;
+        context.r8.u64 = (context.r8.u64 & 0xffffffff00000000ull) | kOutput;
+        break;
+    case 0x822FD7B0u:
+    case 0x823AF248u:
+        space.Put32(At(context.r4.u64, 12), kPointer);
+        if (case_index == 5)
+            context.r5.u64 = context.r4.u64 + 12;
+        break;
+    case 0x824A05A0u:
+        space.TrackGlobal(Global(-2093940736, -18908));
+        break;
+    case 0x825BB9D0u:
+    case 0x82AF7518u:
+    case 0x82BF0188u:
+        space.Put32(At(context.r3.u64, 24), kPointer);
+        break;
+    case 0x826AA1E8u:
+    case 0x826AA330u:
+    case 0x826AA3C8u:
+        space.TrackRange(Global(-2093875200, -29280), 16);
+        break;
+    case 0x82735E60u:
+        space.Put32(At(context.r3.u64, 28), kPointer);
+        break;
+    case 0x8285C288u:
+        space.TrackGlobal(Global(-2094661632, 20576 + 388));
+        break;
+    case 0x829DC588u:
+        space.TrackRange(Global(-2094202880, -27200 + 564), 8);
+        break;
+    case 0x82A43308u:
+    {
+        const auto address = Global(-2095120384, 7008);
+        space.TrackGlobal(address);
+        space.Put32(address, kPointer);
+        break;
+    }
+    case 0x82AE4AE0u:
+        space.TrackRange(Global(-2094202880, -16292 + 96), 8);
+        context.r5.u64 = (context.r5.u64 & 0xffffffff00000000ull) |
+            (case_index == 0 ? 0u : case_index);
+        break;
+    case 0x82AE6FC8u:
+    case 0x82AE70F8u:
+        space.TrackRange(Global(-2094202880, -24352 + 5128), 8);
+        context.r4.u64 = (context.r4.u64 & 0xffffffff00000000ull) |
+            (case_index == 0 ? 0u : case_index);
+        break;
+    case 0x82CBBA90u:
+    case 0x82CBD3F0u:
+        space.Put32(At(context.r3.u64, 456), kPointer);
+        break;
+    case 0x82CCD378u:
+        space.TrackGlobal(Global(-2112815104, -28200));
+        break;
+    case 0x82CFCB30u:
+        space.Put32(At(context.r3.u64, 20), kPointer);
+        space.Put32(At(context.r4.u64, 20), kNeighbor);
+        break;
+    case 0x82D18990u:
+        context.r4.u64 = (context.r4.u64 & 0xffffffff00000000ull) | kPointer;
+        context.r6.u64 = (context.r6.u64 & 0xffffffff00000000ull) | case_index;
+        break;
+    case 0x82E441A8u:
+        if (case_index == 5)
+            context.r4.u64 = context.r3.u64 + 244;
+        break;
+    case 0x82F59338u:
+    case 0x82F73C08u:
+        space.Put32(At(context.r3.u64, 4), kPointer);
+        break;
+    case 0x82F917F8u:
+        space.Put32(At(context.r3.u64, 112), kPointer);
+        break;
+    case 0x83054980u:
+        if (case_index == 5)
+            context.r4.u64 = context.r3.u64;
+        break;
     default: break;
     }
 }
@@ -202,7 +300,8 @@ bool Test(const TestEntry& entry, unsigned case_index, SparseGuestSpace& space)
 
     Registers registers{recovered.r3.u64, recovered.r4.u64, recovered.r5.u64,
                         recovered.r6.u64, recovered.r7.u64, recovered.r8.u64,
-                        recovered.r9.u64, recovered.r10.u64, recovered.r11.u64};
+                        recovered.r9.u64, recovered.r10.u64, recovered.r11.u64,
+                        recovered.r1.u64};
     auto memory = space.memory();
     if (!lo::semantic::memory_writes::Apply(entry.address, registers, memory))
     {
@@ -218,6 +317,7 @@ bool Test(const TestEntry& entry, unsigned case_index, SparseGuestSpace& space)
     recovered.r9.u64 = registers.r9;
     recovered.r10.u64 = registers.r10;
     recovered.r11.u64 = registers.r11;
+    recovered.r1.u64 = registers.r1;
     if (std::memcmp(&original, &recovered, sizeof(original)) != 0)
     {
         std::fprintf(stderr, "FAIL context %08X case %u:"
@@ -255,11 +355,12 @@ int main()
 
     std::array<std::uint8_t, 4> bytes{};
     GuestMemory memory(0, bytes);
-    Registers unknown{1, 2, 3, 4, 5, 6, 7, 8, 9};
+    Registers unknown{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     if (lo::semantic::memory_writes::Apply(0, unknown, memory) ||
         unknown.r3 != 1 || unknown.r4 != 2 || unknown.r5 != 3 ||
         unknown.r6 != 4 || unknown.r7 != 5 || unknown.r8 != 6 ||
-        unknown.r9 != 7 || unknown.r10 != 8 || unknown.r11 != 9)
+        unknown.r9 != 7 || unknown.r10 != 8 || unknown.r11 != 9 ||
+        unknown.r1 != 10)
         return 1;
 
     std::printf("PASS memory-writes %zu entries %zu cases\n",

@@ -37,6 +37,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/field_arithmetic.cpp
     src/read_only_fields.cpp
     src/memory_writes.cpp
+    src/single_write_fields.cpp
     src/memory_services.cpp
     src/memory_fill.cpp
     src/memory_move.cpp

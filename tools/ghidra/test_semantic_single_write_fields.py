@@ -1,4 +1,4 @@
-"""Compare recovered memory-write operations with their original PPC bodies."""
+"""Compare 46 recovered single-store functions with their original PPC bodies."""
 
 from __future__ import annotations
 
@@ -12,24 +12,25 @@ from semantic_batch import compile_and_run, extract_originals
 
 
 ROOT = Path(__file__).resolve().parents[2]
-MANIFEST = ROOT / "LostOdysseyRecompSemantics/memory_write_families.json"
-ORACLE = ROOT / "LostOdysseyRecompSemantics/tests/memory_writes_oracle.cpp"
-SOURCE = ROOT / "LostOdysseyRecompSemantics/src/memory_writes.cpp"
+MANIFEST = ROOT / "LostOdysseyRecompSemantics/single_write_field_families.json"
+ORACLE = ROOT / "LostOdysseyRecompSemantics/tests/single_write_fields_oracle.cpp"
+SOURCE = ROOT / "LostOdysseyRecompSemantics/src/single_write_fields.cpp"
 DEFAULT_PPC_ROOT = ROOT / "LostOdysseyRecompLib/ppc"
-DEFAULT_OUTPUT = Path.home() / "worktrees/LostOdysseyRecomp/semantic-memory-write-tests"
+DEFAULT_OUTPUT = Path.home() / "worktrees/LostOdysseyRecomp/semantic-single-write-tests"
 BODY = re.compile(rb"PPC_FUNC_IMPL\(__imp__sub_([0-9A-F]{8})\) \{\r?\n.*?\r?\n\}", re.S)
 
 
 def entries_from_manifest() -> list[dict]:
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     entries = manifest["entries"]
-    if manifest.get("schema_version") != 1 or manifest.get("kind") != "memory_write_semantics":
-        raise ValueError("memory-write manifest schema changed")
-    if len(entries) != 71 or [e["address"] for e in entries] != sorted(
+    if manifest.get("schema_version") != 1 or \
+            manifest.get("kind") != "single_write_field_semantics":
+        raise ValueError("single-write manifest schema changed")
+    if len(entries) != 46 or [e["address"] for e in entries] != sorted(
             {e["address"] for e in entries}):
-        raise ValueError("memory-write address membership changed")
+        raise ValueError("single-write address membership changed")
     if dict(Counter(e["family"] for e in entries)) != manifest["family_counts"]:
-        raise ValueError("memory-write family counts changed")
+        raise ValueError("single-write family counts changed")
     for entry in entries:
         effects = entry["instruction_effects"]
         sequence = entry["instruction_sequence"]
@@ -42,8 +43,8 @@ def entries_from_manifest() -> list[dict]:
         if entry["generated_statements"] != ["PPC_FUNC_PROLOGUE();", *statements] or \
                 statements[-1] != "return;":
             raise ValueError(f"generated effects changed: {entry['address']}")
-        if sum("PPC_STORE_" in statement for statement in statements) < 2:
-            raise ValueError(f"expected multiple writes: {entry['address']}")
+        if sum("PPC_STORE_" in statement for statement in statements) != 1:
+            raise ValueError(f"expected exactly one write: {entry['address']}")
     return entries
 
 
@@ -78,19 +79,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--ppc-root", type=Path, default=DEFAULT_PPC_ROOT)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
-    parser.add_argument("--new-only", action="store_true",
-                        help="compare only the newly recovered 43 multi-write addresses")
     args = parser.parse_args()
     entries = entries_from_manifest()
-    if args.new_only:
-        entries = [entry for entry in entries
-                   if entry.get("batch") == "multi_write_followup"]
-        if len(entries) != 43:
-            raise ValueError("new multi-write batch membership changed")
     originals = extract_originals(entries, args.ppc_root)
     check_originals(entries, originals)
-    suite = "memory-writes-new" if args.new_only else "memory-writes"
-    result = compile_and_run(suite, originals, make_harness(entries),
+    result = compile_and_run("single-write-fields", originals, make_harness(entries),
                              [SOURCE], args.output)
     print(json.dumps(result, indent=2))
 
