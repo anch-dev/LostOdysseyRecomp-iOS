@@ -8,15 +8,6 @@ namespace lo::semantic::gpu::instance_vtable_family
 namespace
 {
 
-struct Spec
-{
-    GuestAddress address;
-    GuestAddress vtable;
-    GuestAddress field_offset;
-    GuestAddress initial_field_word;
-    GuestAddress final_field_word;
-};
-
 // The generator validates each entire six- or twelve-instruction PPC body
 // before emitting parameters. Zero field offset marks the one-write form.
 constexpr Spec kSpecs[] = {
@@ -609,24 +600,20 @@ constexpr Spec kSpecs[] = {
 
 } // namespace
 
-bool Apply(GuestAddress address, GuestMemory& memory,
-    std::uint64_t incoming_r3, std::uint64_t& result)
+const Spec* Find(GuestAddress address)
 {
     const Spec* spec = std::lower_bound(std::begin(kSpecs), std::end(kSpecs),
         address, [](const Spec& entry, GuestAddress target)
         { return entry.address < target; });
-    if (spec == std::end(kSpecs) || spec->address != address)
-        return false;
+    return spec != std::end(kSpecs) && spec->address == address ? spec : nullptr;
+}
 
-    const GuestAddress object = static_cast<GuestAddress>(incoming_r3);
-    if (object != 0)
-    {
-        if (spec->field_offset != 0)
-            memory.WriteU32(object + spec->field_offset, spec->initial_field_word);
-        memory.WriteU32(object, spec->vtable);
-        if (spec->field_offset != 0)
-            memory.WriteU32(object + spec->field_offset, spec->final_field_word);
-    }
+bool Apply(GuestAddress address, GuestMemory& memory,
+    std::uint64_t incoming_r3, std::uint64_t& result)
+{
+    const Spec* spec = Find(address);
+    if (!spec) return false;
+    InitializeWith(*spec, memory, static_cast<GuestAddress>(incoming_r3));
     result = incoming_r3;
     return true;
 }

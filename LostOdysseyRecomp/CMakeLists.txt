@@ -292,6 +292,29 @@ if(LO_ENABLE_SEMANTIC_RUNTIME)
         COMMENT "Generating opt-in semantic registered getter wrappers"
         VERBATIM)
     target_sources(LostOdysseyRecomp PRIVATE "${LO_SEMANTIC_REGISTERED_WRAPPERS}")
+    set(LO_SEMANTIC_INSTANCE_WRAPPERS "${CMAKE_CURRENT_BINARY_DIR}/generated/semantic_instance_wrappers.cpp")
+    add_custom_command(
+        OUTPUT "${LO_SEMANTIC_INSTANCE_WRAPPERS}"
+        COMMAND "${Python3_EXECUTABLE}" "${CMAKE_SOURCE_DIR}/tools/ghidra/generate_semantic_instance_wrappers.py"
+                --output "${LO_SEMANTIC_INSTANCE_WRAPPERS}"
+        DEPENDS
+            "${CMAKE_SOURCE_DIR}/tools/ghidra/generate_semantic_instance_wrappers.py"
+            "${CMAKE_SOURCE_DIR}/tools/ghidra/generate_instance_vtable_family.py"
+            "${CMAKE_SOURCE_DIR}/tools/ghidra/generate_instance_field_initializer_family.py"
+            "${CMAKE_SOURCE_DIR}/tools/ghidra/generate_instance_property_initializer_family.py"
+            "${CMAKE_SOURCE_DIR}/tools/ghidra/generate_instance_marker_initializer_family.py"
+            "${CMAKE_SOURCE_DIR}/tools/ghidra/generate_instance_scalar_initializer_family.py"
+            "${CMAKE_SOURCE_DIR}/tools/ghidra/generate_instance_ui_initializer_family.py"
+            "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/instance_vtable_families.json"
+            "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/instance_field_initializer_families.json"
+            "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/instance_property_initializer_families.json"
+            "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/instance_marker_initializer_families.json"
+            "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/instance_scalar_initializer_families.json"
+            "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/instance_ui_initializer_families.json"
+            "${CMAKE_SOURCE_DIR}/LostOdysseyRecompSemantics/instance_runtime_abi.json"
+        COMMENT "Generating opt-in semantic instance initializer wrappers"
+        VERBATIM)
+    target_sources(LostOdysseyRecomp PRIVATE "${LO_SEMANTIC_INSTANCE_WRAPPERS}")
     target_link_libraries(LostOdysseyRecomp PRIVATE LO::Semantics)
 endif()
 if(ANDROID)

@@ -8,12 +8,6 @@ namespace lo::semantic::gpu::instance_marker_initializer_family
 namespace
 {
 
-struct Spec
-{
-    GuestAddress address;
-    GuestAddress vtable;
-};
-
 // Each full ten-instruction body is validated before emitting its vtable.
 constexpr Spec kSpecs[] = {
     // BEGIN GENERATED INSTANCE MARKER PARAMETERS
@@ -35,23 +29,20 @@ constexpr Spec kSpecs[] = {
 
 } // namespace
 
-bool Apply(GuestAddress address, GuestMemory& memory,
-    std::uint64_t incoming_r3, std::uint64_t& result)
+const Spec* Find(GuestAddress address)
 {
     const Spec* spec = std::lower_bound(std::begin(kSpecs), std::end(kSpecs),
         address, [](const Spec& entry, GuestAddress target)
         { return entry.address < target; });
-    if (spec == std::end(kSpecs) || spec->address != address)
-        return false;
+    return spec != std::end(kSpecs) && spec->address == address ? spec : nullptr;
+}
 
-    const GuestAddress object = static_cast<GuestAddress>(incoming_r3);
-    if (object != 0)
-    {
-        memory.WriteU32(object + 560u, 0u);
-        memory.WriteU32(object + 564u, 0u);
-        memory.WriteU8(object + 568u, 0u);
-        memory.WriteU32(object, spec->vtable);
-    }
+bool Apply(GuestAddress address, GuestMemory& memory,
+    std::uint64_t incoming_r3, std::uint64_t& result)
+{
+    const Spec* spec = Find(address);
+    if (!spec) return false;
+    InitializeWith(*spec, memory, static_cast<GuestAddress>(incoming_r3));
     result = incoming_r3;
     return true;
 }

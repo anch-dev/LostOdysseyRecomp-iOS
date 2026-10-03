@@ -8,17 +8,6 @@ namespace lo::semantic::gpu::instance_field_initializer_family
 namespace
 {
 
-struct Spec
-{
-    GuestAddress address;
-    GuestAddress first_field_offset;
-    GuestAddress first_initial_word;
-    GuestAddress second_initial_word;
-    GuestAddress vtable;
-    GuestAddress first_final_word;
-    GuestAddress second_final_word;
-};
-
 // Every source body is checked in full before its parameters are emitted.
 constexpr Spec kSpecs[] = {
     // BEGIN GENERATED INSTANCE FIELD INITIALIZER PARAMETERS
@@ -46,28 +35,20 @@ constexpr Spec kSpecs[] = {
 
 } // namespace
 
-bool Apply(GuestAddress address, GuestMemory& memory,
-    std::uint64_t incoming_r3, std::uint64_t& result)
+const Spec* Find(GuestAddress address)
 {
     const Spec* spec = std::lower_bound(std::begin(kSpecs), std::end(kSpecs),
         address, [](const Spec& entry, GuestAddress target)
         { return entry.address < target; });
-    if (spec == std::end(kSpecs) || spec->address != address)
-        return false;
+    return spec != std::end(kSpecs) && spec->address == address ? spec : nullptr;
+}
 
-    const GuestAddress object = static_cast<GuestAddress>(incoming_r3);
-    if (object != 0)
-    {
-        memory.WriteU32(object + spec->first_field_offset,
-            spec->first_initial_word);
-        memory.WriteU32(object + spec->first_field_offset + 4u,
-            spec->second_initial_word);
-        memory.WriteU32(object, spec->vtable);
-        memory.WriteU32(object + spec->first_field_offset,
-            spec->first_final_word);
-        memory.WriteU32(object + spec->first_field_offset + 4u,
-            spec->second_final_word);
-    }
+bool Apply(GuestAddress address, GuestMemory& memory,
+    std::uint64_t incoming_r3, std::uint64_t& result)
+{
+    const Spec* spec = Find(address);
+    if (!spec) return false;
+    InitializeWith(*spec, memory, static_cast<GuestAddress>(incoming_r3));
     result = incoming_r3;
     return true;
 }

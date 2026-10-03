@@ -7,16 +7,6 @@ namespace lo::semantic::gpu::instance_scalar_initializer_family
 {
 namespace
 {
-enum class Layout : std::uint8_t { ClearBeforeVtable, FourZerosAndEight, ThreeZeros };
-
-struct Spec
-{
-    GuestAddress address;
-    GuestAddress vtable;
-    std::uint16_t first_field;
-    Layout layout;
-};
-
 // Each row is admitted only after matching its full cached PPC body and CFG.
 constexpr Spec kSpecs[] = {
     // BEGIN GENERATED INSTANCE SCALAR PARAMETERS
@@ -43,33 +33,20 @@ constexpr Spec kSpecs[] = {
 };
 } // namespace
 
-bool Apply(GuestAddress address, GuestMemory& memory,
-    std::uint64_t incoming_r3, std::uint64_t& result)
+const Spec* Find(GuestAddress address)
 {
     const Spec* spec = std::lower_bound(std::begin(kSpecs), std::end(kSpecs),
         address, [](const Spec& entry, GuestAddress target)
         { return entry.address < target; });
-    if (spec == std::end(kSpecs) || spec->address != address)
-        return false;
+    return spec != std::end(kSpecs) && spec->address == address ? spec : nullptr;
+}
 
-    const GuestAddress object = static_cast<GuestAddress>(incoming_r3);
-    if (object != 0)
-    {
-        if (spec->layout == Layout::ClearBeforeVtable)
-        {
-            memory.WriteU32(object + spec->first_field, 0);
-            memory.WriteU32(object, spec->vtable);
-        }
-        else
-        {
-            memory.WriteU32(object, spec->vtable);
-            const unsigned zeros = spec->layout == Layout::FourZerosAndEight ? 4u : 3u;
-            for (unsigned index = 0; index < zeros; ++index)
-                memory.WriteU32(object + spec->first_field + index * 4u, 0);
-            if (spec->layout == Layout::FourZerosAndEight)
-                memory.WriteU32(object + spec->first_field + 16u, 8);
-        }
-    }
+bool Apply(GuestAddress address, GuestMemory& memory,
+    std::uint64_t incoming_r3, std::uint64_t& result)
+{
+    const Spec* spec = Find(address);
+    if (!spec) return false;
+    InitializeWith(*spec, memory, static_cast<GuestAddress>(incoming_r3));
     result = incoming_r3;
     return true;
 }

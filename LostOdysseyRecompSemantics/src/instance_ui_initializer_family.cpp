@@ -8,16 +8,6 @@ namespace lo::semantic::gpu::instance_ui_initializer_family
 namespace
 {
 
-struct Spec
-{
-    GuestAddress address;
-    GuestAddress first_field_offset;
-    GuestAddress zero_field_offset;
-    GuestAddress initial_field_word;
-    GuestAddress vtable;
-    GuestAddress final_field_word;
-};
-
 // Complete generated PPC bodies are checked before emitting parameters.
 constexpr Spec kSpecs[] = {
     // BEGIN GENERATED INSTANCE UI PARAMETERS
@@ -32,26 +22,20 @@ constexpr Spec kSpecs[] = {
 
 } // namespace
 
-bool Apply(GuestAddress address, GuestMemory& memory,
-    std::uint64_t incoming_r3, std::uint64_t& result)
+const Spec* Find(GuestAddress address)
 {
     const Spec* spec = std::lower_bound(std::begin(kSpecs), std::end(kSpecs),
         address, [](const Spec& entry, GuestAddress target)
         { return entry.address < target; });
-    if (spec == std::end(kSpecs) || spec->address != address)
-        return false;
+    return spec != std::end(kSpecs) && spec->address == address ? spec : nullptr;
+}
 
-    const GuestAddress object = static_cast<GuestAddress>(incoming_r3);
-    if (object != 0)
-    {
-        memory.WriteU32(object + spec->first_field_offset,
-            spec->initial_field_word);
-        memory.WriteU32(object, spec->vtable);
-        memory.WriteU32(object + spec->first_field_offset,
-            spec->final_field_word);
-        memory.WriteU32(object + spec->zero_field_offset, 0u);
-        memory.WriteU32(object + spec->zero_field_offset + 4u, 0u);
-    }
+bool Apply(GuestAddress address, GuestMemory& memory,
+    std::uint64_t incoming_r3, std::uint64_t& result)
+{
+    const Spec* spec = Find(address);
+    if (!spec) return false;
+    InitializeWith(*spec, memory, static_cast<GuestAddress>(incoming_r3));
     result = incoming_r3;
     return true;
 }
