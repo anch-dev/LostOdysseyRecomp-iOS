@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "previous_checkpoint": "queue_composition_checkpoint.json",
+  "code_commit": "c243fc26",
+  "unique_recovered_entry_addresses": 5105,
+  "additional_entry_addresses": 17,
+  "individually_recorded_entries": 82,
+  "family_manifests": 56,
+  "overlapping_addresses": [
+    "829664E8",
+    "82B84D88"
+  ],
+  "progress": {
+    "readable_entry_address_numerator": 5105,
+    "cached_candidate_address_denominator": 62627,
+    "readable_entry_coverage_percent": 8.151,
+    "denominator_source": "Previously audited out/function-inventory/summary.json candidate_addresses, reused without a full PPC scan or image/source hashes.",
+    "logical_function_total": null,
+    "complete_semantic_recovery_percent": null,
+    "counting_note": "Coverage of unique readable mapped entry addresses within the cached work inventory. It is not independent logical-function count or full semantic completion; entries have different complexity and bounded validation."
+  },
+  "new_library_families": [
+    {
+      "family": "ring_reservation",
+      "entries": 1,
+      "code_commit": "721ce6f0",
+      "manifest": "ring_reservation_families.json",
+      "original_ppc_comparisons": 4,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, instructions, CFG/calls and parameters checked at recorded source locations; no full scan or hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Exact 39-instruction ring reservation body, full descriptor/ring/request, live producer/consumer reload, ordinary finite allocation, gap, wrap and descriptor alias paths. lwsync remains an explicit service; generated PPC's no-op does not verify hardware synchronization, concurrency or stalled-wait wakeup.",
+        "receipt": "External scratch: semantic-ring-reservation-tests/ring-reservation-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/ring-reservation-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5089,
+      "readable_entry_coverage_percent_at_commit": 8.126,
+      "available_opt_in_wrappers_at_commit": 3168
+    },
+    {
+      "family": "manager_ring_node",
+      "entries": 1,
+      "code_commit": "a39fe9d4",
+      "manifest": "manager_ring_node_families.json",
+      "original_ppc_comparisons": 6,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, instructions, CFG/calls and parameters checked at recorded source locations; no full scan or hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Exact node-construction body plus actual save/rest28, ring reservation and recovered initializer. Ring/heap, zero allocation/storage, full object/key/SP, dynamic method live owner and FPR mutation, saved-frame alias. Zero paths preserve unconditional indirect dispatch. Allocation lower model, dynamic method internals, generic lower ABI and hardware synchronization remain bounded.",
+        "receipt": "External scratch: semantic-manager-ring-node-tests/manager-ring-node-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/manager-ring-node-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5090,
+      "readable_entry_coverage_percent_at_commit": 8.127,
+      "available_opt_in_wrappers_at_commit": 3168
+    },
+    {
+      "family": "manager_index_tables",
+      "entries": 4,
+      "code_commit": "fe7a3aef",
+      "manifest": "manager_index_tables_families.json",
+      "original_ppc_comparisons": 11,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, instructions, CFG/calls and parameters checked at recorded source locations; no full scan or hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Four full bucket-rebuild/28-byte append/keyed-upsert bodies plus real save/rest28/29. 16/28-byte strides, full allocation result, live counts, hit/miss/empty table, source/table/stack aliases. Existing manager and array lower algorithms reused; lower callback register redirection remains outside their generic ABI.",
+        "receipt": "External scratch: semantic-manager-index-tests/manager-index-tables-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/manager-index-tables-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5094,
+      "readable_entry_coverage_percent_at_commit": 8.134,
+      "available_opt_in_wrappers_at_commit": 3168
+    },
+    {
+      "family": "manager_object_registration",
+      "entries": 2,
+      "code_commit": "7044ba80",
+      "manifest": "manager_object_registration_families.json",
+      "original_ppc_comparisons": 6,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, instructions, CFG/calls and parameters checked at recorded source locations; no full scan or hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Two full shared-registration lookup/padded UTF16 copy bodies. Existing constructor and secondary registration algorithms reused. Full-SP external bridge, ready callback global/saved-LR/saved-r31 mutation, zero count, early terminator and overlap checked. Dynamic target internals and lower generic ABI remain excluded; 8256F6B8/823FFDD8 remain open.",
+        "receipt": "External scratch: semantic-manager-object-registration-tests/manager-object-registration-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/manager-object-registration-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5096,
+      "readable_entry_coverage_percent_at_commit": 8.137,
+      "available_opt_in_wrappers_at_commit": 3168
+    },
+    {
+      "family": "manager_index_operations",
+      "entries": 2,
+      "code_commit": "3ce9b873",
+      "manifest": "manager_index_operations_families.json",
+      "original_ppc_comparisons": 8,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, instructions, CFG/calls and parameters checked at recorded source locations; no full scan or hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Two full integer/FP upsert bodies plus real save/rest28/29, existing ResizeArray and new bucket rebuild. Full key/r3/SP, hit/miss/resize/rehash/initial table and saved-f31 alias. Finite FPR store/flush effects checked; signaling NaNs, hardware FPSCR and lower callback register redirection excluded.",
+        "receipt": "External scratch: semantic-manager-index-operations-tests/manager-index-operations-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/manager-index-operations-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5098,
+      "readable_entry_coverage_percent_at_commit": 8.14,
+      "available_opt_in_wrappers_at_commit": 3168
+    },
+    {
+      "family": "manager_metadata_compare",
+      "entries": 1,
+      "code_commit": "729f7730",
+      "manifest": "manager_metadata_compare_families.json",
+      "original_ppc_comparisons": 6,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, instructions, CFG/calls and parameters checked at recorded source locations; no full scan or hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Full UTF16 ASCII-fold comparison and null error branches. Full cursor, exposed r3-r10/r13, errno lookup composed with CRT thread-data and invalid-parameter algorithms, errno saved-LR alias, handler frame/r13 mutation and returning trap boundary. Generic lower volatile ABI/frame writes, actual trap termination and dynamic target internals remain excluded.",
+        "receipt": "External scratch: semantic-manager-metadata-compare-tests/manager-metadata-compare-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/manager-metadata-compare-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5099,
+      "readable_entry_coverage_percent_at_commit": 8.142,
+      "available_opt_in_wrappers_at_commit": 3168
+    },
+    {
+      "family": "manager_metadata_parsing",
+      "entries": 6,
+      "code_commit": "c243fc26",
+      "manifest": "manager_metadata_parsing_families.json",
+      "original_ppc_comparisons": 13,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete translated bodies, instructions, CFG/calls and parameters checked at recorded source locations; no full scan or hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Six complete UTF16 classification/Unicode decimal/integer parse/tail adapter/metadata numeric-suffix bodies. Exact original bodies and recovered lower error, length/copy algorithms reused. Signs, bases, end pointer, no digits, signed/unsigned full results, overflow, invalid base and suffix composition checked. Reviewed full64 generated mullw product and live invalid-handler r8/r9/r10=22/r13/save-slot correction passed this new scope. Generated-C++ multiplication comparison does not establish hardware PPC intermediate semantics. Generic lower volatile ABI, external TLS/handler internals, traps and faults/MMIO remain bounded.",
+        "receipt": "External scratch: semantic-manager-metadata-parsing-tests/manager-metadata-parsing-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/manager-metadata-parsing-library-build.log"
+      },
+      "cumulative_unique_entries_at_commit": 5105,
+      "readable_entry_coverage_percent_at_commit": 8.151,
+      "available_opt_in_wrappers_at_commit": 3168
+    }
+  ],
+  "validation_totals": {
+    "original_ppc_comparisons": 54,
+    "unknown_entry_checks": 7,
+    "scope": "Only this increment; earlier lower-helper/runtime/scene evidence reused."
+  },
+  "build": {
+    "status": "passed",
+    "platform": "Windows x86_64 clang-cl 22.1.8 RelWithDebInfo /W4 /WX",
+    "scope": "Seven new sources incrementally compiled and the semantics library linked in seven single-job builds. At most two concurrent native compiler jobs. No full runtime rebuild."
+  },
+  "runtime": {
+    "available_opt_in_wrappers": 3168,
+    "default_off_gates": 8,
+    "wrappers_added": 0,
+    "reused_checkpoint": "instance_runtime_checkpoint.json",
+    "scene_binary_revision": "ee9239d965cc",
+    "scene_scope": "Prior eight-gate Windows Vulkan Map20/Uhra/menu and 655-wrapper adapter evidence reused. New library entries have no runtime adapters or new scene validation."
+  },
+  "remaining_cached_candidates": {
+    "instance_entries": 5,
+    "metadata_entries": 9,
+    "scope": "Cached subsets only, not whole-game remaining counts.",
+    "next_dependency_work": "Manager ring/index callers are now available, but 823262B8, 827010D0 and 82700D10 still need 8256F6B8/823FFDD8. Metadata number/compare helpers are available; 82296D30 still needs 823F4700's 446 ordered named-metadata registrations. Next actual closure candidates: 82296FE8 case fold -> 82296F68 index hash -> 823F44E8 insertion, plus 823F7B08 name allocation/copy, then 823F4700. Other metadata/registration chains continue through 82400CE8, 8229C948, 823FF338 and 82400620. Unclosed callers and these five planned entries receive no recovered credit.",
+    "handoffs": [
+      "out/function-inventory/instance-manager-link-handoff.md",
+      "out/function-inventory/manager-object-registration-handoff.md",
+      "out/function-inventory/metadata-parser-next-handoff.md"
+    ]
+  },
+  "evidence_reuse": "Recovered lower models and external service contracts reused. Generic lower callback register/frame-pointer redirection and lower frame writes remain bounded by their existing APIs. Own frames and explicitly exposed direct callback state are modeled. Dynamic target internals, untracked volatile/CR/FPSCR, hardware synchronization, concurrency, faults/MMIO and access widths remain open. Known signaling-NaN discrepancy retained in FLOAT_LOAD_STORE_NOTES.md.",
+  "whole_game_semantics_complete": false,
+  "delivery": {
+    "scope": "Local commits on trail/semantic-recovery; this increment is not pushed or released."
+  }
+}
