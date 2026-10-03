@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "previous_checkpoint": "instance_integer_sequence_checkpoint.json",
+  "code_commit": "f5f74d9",
+  "unique_recovered_entry_addresses": 5045,
+  "additional_entry_addresses": 35,
+  "individually_recorded_entries": 82,
+  "family_manifests": 38,
+  "overlapping_addresses": [
+    "829664E8",
+    "82B84D88"
+  ],
+  "progress": {
+    "readable_entry_address_numerator": 5045,
+    "cached_candidate_address_denominator": 62627,
+    "readable_entry_coverage_percent": 8.056,
+    "denominator_source": "Previously audited out/function-inventory/summary.json candidate_addresses, reused without a full PPC scan or image/source hashes.",
+    "logical_function_total": null,
+    "complete_semantic_recovery_percent": null,
+    "counting_note": "Coverage of unique readable mapped entry addresses within the cached work inventory. It is not independent logical-function count or full semantic completion; entries have different complexity and bounded validation."
+  },
+  "new_library_families": [
+    {
+      "family": "instance_fp_extension",
+      "entries": 7,
+      "code_commit": "cd6c064",
+      "manifest": "instance_fp_extension_families.json",
+      "original_ppc_comparisons": 10,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete original translated body, instruction/CFG/call/parameter records checked at cached or recorded locations. No whole-tree scan or source/image hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Seven loaded-single extension layouts preserve first-lfs flush callback, capture/read/store order and null/full-r3 behavior. Finite original-word, alternate finite, source-alias and null comparisons. LoadedSingle's known signaling-NaN FPR discrepancy remains.",
+        "receipt": "External scratch: semantic-instance-fp-extension-tests/instance-fp-extension-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/instance-fp-extension-library-build.log"
+      }
+    },
+    {
+      "family": "instance_copy_initializer",
+      "entries": 1,
+      "code_commit": "03edb3a",
+      "manifest": "instance_copy_initializer_families.json",
+      "original_ppc_comparisons": 6,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete original translated body, instruction/CFG/call/parameter records checked at cached or recorded locations. No whole-tree scan or source/image hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "SceneCapture2D ordered vtable/flag writes and two 64-byte copies use the existing CopyGuestMemory algorithm. Actual cached original copy body used with synthetic source bytes. Preserves its stack-derived second return, own frame saves/reloads, source overlap and stack aliases.",
+        "receipt": "External scratch: semantic-instance-copy-tests/instance-copy-initializer-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/instance-copy-initializer-library-build.log"
+      }
+    },
+    {
+      "family": "instance_composed_initializer",
+      "entries": 11,
+      "code_commit": "528efef",
+      "manifest": "instance_composed_initializer_families.json",
+      "original_ppc_comparisons": 22,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete original translated body, instruction/CFG/call/parameter records checked at cached or recorded locations. No whole-tree scan or source/image hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Four callees plus four null tails and three wrappers reuse AllocateManagerBuffer and AppendMetadataWord. Original parents/callees composed with recovered lower models. Allocation failure, branch flags, nested frame aliases, FP sources, metadata gate/growth/callback mutation covered. Generic lower ABI and signaling-NaN discrepancy excluded.",
+        "receipt": "External scratch: semantic-instance-composed-tests/instance-composed-initializer-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/instance-composed-initializer-library-build.log"
+      }
+    },
+    {
+      "family": "registered_metadata_range",
+      "entries": 5,
+      "code_commit": "408078f",
+      "manifest": "registered_metadata_range_families.json",
+      "original_ppc_comparisons": 8,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete original translated body, instruction/CFG/call/parameter records checked at cached or recorded locations. No whole-tree scan or source/image hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "One range helper and four parents append header/size/sentinel and ordered words, then reread live count/storage/last byte for backfill. Original five bodies with actual AddArrayElements/AppendMetadataWord bodies and a recovered ResizeArray model. Growth and own-frame save aliases covered.",
+        "receipt": "External scratch: semantic-metadata-range-tests/metadata-range-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/metadata-range-library-build.log"
+      }
+    },
+    {
+      "family": "instance_linker_composed",
+      "entries": 3,
+      "code_commit": "2f05614",
+      "manifest": "instance_linker_composed_families.json",
+      "original_ppc_comparisons": 9,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete original translated body, instruction/CFG/call/parameter records checked at cached or recorded locations. No whole-tree scan or source/image hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "One archive field initializer and two wrappers preserve interleaved global reads and nested Linker frame saves/restores; post-call subobject selection uses restored live r31. Actual original Linker and Fill bodies used on the oracle side; production reuses their recovered algorithms. Null/full-r3, global alias and lower saved-r31 overwrite covered.",
+        "receipt": "External scratch: semantic-instance-linker-composed-tests/instance-linker-composed-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/instance-linker-composed-library-build.log"
+      }
+    },
+    {
+      "family": "registered_metadata_string",
+      "entries": 6,
+      "code_commit": "522af87",
+      "manifest": "registered_metadata_string_families.json",
+      "original_ppc_comparisons": 12,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete original translated body, instruction/CFG/call/parameter records checked at cached or recorded locations. No whole-tree scan or source/image hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "UTF-16 signed-word length, string initialization/assignment, self-storage early return and three registration/metadata parents. Original six bodies composed with recovered resize/copy/metadata/singleton models. Empty/nonempty, full-r3, field aliases and resize callback count mutation covered; singleton allocation branch and generic ABI saves outside these samples. 824070C8 clears bit31 and sets bit29.",
+        "receipt": "External scratch: semantic-metadata-string-tests/registered-metadata-string-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/metadata-string-library-build.log"
+      }
+    },
+    {
+      "family": "instance_string_initializer",
+      "entries": 2,
+      "code_commit": "f5f74d9",
+      "manifest": "instance_string_initializer_families.json",
+      "original_ppc_comparisons": 5,
+      "unknown_entry_checks": 1,
+      "strict_validation": "Complete original translated body, instruction/CFG/call/parameter records checked at cached or recorded locations. No whole-tree scan or source/image hashes.",
+      "bounded_validation": {
+        "status": "passed",
+        "scope": "Two original initializer bodies overwrite incoming r4 with the same constant UTF-16 pointer, preserve ordered object/subobject vtables and their own frame saves/reloads, and reuse the newly validated InitializeString model. Direct/tail/null, source/vtable overlap and own saved-r31 alias covered; lower generic ABI frames excluded.",
+        "receipt": "External scratch: semantic-instance-string-initializer-tests/instance-string-initializer-result.json"
+      },
+      "library_build": {
+        "status": "passed",
+        "log": "External scratch: semantic-runtime-build/instance-string-initializer-library-build.log"
+      }
+    }
+  ],
+  "validation_totals": {
+    "original_ppc_comparisons": 72,
+    "unknown_entry_checks": 7,
+    "scope": "Only this increment. These counts do not include previously passing helper/runtime/scene suites."
+  },
+  "build": {
+    "status": "passed",
+    "platform": "Windows x86_64 clang-cl 22.1.8 RelWithDebInfo /W4 /WX",
+    "scope": "Seven new sources incrementally compiled and the semantics static library linked; one build job per integration. Native oracles used at most two simultaneous single-compiler jobs. No full runtime rebuild."
+  },
+  "runtime": {
+    "available_opt_in_wrappers": 3168,
+    "default_off_gates": 8,
+    "wrappers_added": 0,
+    "reused_checkpoint": "instance_runtime_checkpoint.json",
+    "scene_binary_revision": "ee9239d965cc",
+    "scene_scope": "Previous eight-gate Windows Vulkan Map20/Uhra/menu smoke and 655-wrapper adapter results reused. The 35 new library entries have no runtime wrappers or new scene validation."
+  },
+  "remaining_cached_candidates": {
+    "instance_entries": 23,
+    "metadata_entries": 10,
+    "scope": "Cached subsets only, not whole-game remaining function counts.",
+    "next_closed_path": "822A06C0 and 82496948, then nine dependent initializers/callers: eleven potential new unique addresses. This is a plan, not recovered or validated entries.",
+    "handoff": "out/function-inventory/next-instance-closure-handoff.md",
+    "open_hubs": "823FA008 and 823FDAB0 contain real indirect calls. Full-body inspection also found 82406A38 missing from the catalog static-call list; do not infer closure from that list alone."
+  },
+  "evidence_reuse": "Existing helper, runtime and scene results reused. New families retain ordinary-memory/service boundaries; volatile registers, generic lower ABI, fault/MMIO access widths and concurrency are not established. LoadedSingle's signaling-NaN generated-C++ mismatch remains in FLOAT_LOAD_STORE_NOTES.md.",
+  "whole_game_semantics_complete": false,
+  "delivery": {
+    "scope": "Local incremental commits on trail/semantic-recovery; this increment has not been pushed or released."
+  }
+}
