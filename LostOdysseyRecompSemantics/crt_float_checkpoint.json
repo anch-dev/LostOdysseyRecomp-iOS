@@ -1,0 +1,159 @@
+{
+  "schema": "crt-float-support-checkpoint-v1",
+  "date": "2026-10-03",
+  "scope": "Float dispatch initialization, two text transforms, ASCII normalization, fatal-tail thunk, raw binary64-to-extended input and bounded-copy helpers; no main float formatter or runtime increment.",
+  "baseline_checkpoint": "crt_wide_stream_output_checkpoint.json",
+  "entries_since_baseline": 8,
+  "static_instructions_since_baseline": 243,
+  "focused_cases_since_baseline": 24,
+  "unknown_checks_since_baseline": 2,
+  "families": [
+    {
+      "family": "crt_format_dispatch",
+      "manifest": "crt_format_dispatch_families.json",
+      "commit": "f6cdd0a7",
+      "entries": 6,
+      "static_instructions": 130,
+      "focused_original_ppc_cases": 14,
+      "unknown_entry_checks": 1,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-format-dispatch-tests/crt-format-dispatch-result.json",
+      "summary": "PASS crt-format-dispatch 14 original PPC cases + unknown\nLIMIT selected PPC state/ordinary RAM; accepted character-table and fatal models; no large float conversion, native internals, faults, MMIO, concurrency or runtime proof",
+      "library_build_log": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-format-dispatch-tests/semantic-library-build.log",
+      "compiler_setup_seconds": 3.979,
+      "library_build_seconds": 0.48,
+      "oracle_compile_seconds": 1.562,
+      "oracle_execute_seconds": 0.02,
+      "final_run_seconds": 6.117
+    },
+    {
+      "family": "crt_float_core_helpers",
+      "manifest": "crt_float_core_helpers_families.json",
+      "commit": "85a39f2",
+      "entries": 2,
+      "static_instructions": 113,
+      "focused_original_ppc_cases": 10,
+      "unknown_entry_checks": 1,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-float-core-helper-tests/crt-float-core-helpers-result.json",
+      "summary": "PASS crt-float-core-helpers 10 original PPC cases + unknown\nLIMIT selected state/RAM; accepted lower ABI and native internals, faults, MMIO, concurrency and runtime remain open",
+      "library_build_log": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-float-core-helper-tests/semantic-library-build.log",
+      "compiler_setup_seconds": 3.679,
+      "library_build_seconds": 7.463,
+      "oracle_compile_seconds": 1.615,
+      "oracle_execute_seconds": 0.023,
+      "final_run_seconds": 12.862
+    }
+  ],
+  "goal_turn_delta": {
+    "entries": 11,
+    "static_instructions": 569,
+    "focused_original_ppc_cases": 37,
+    "unknown_entry_checks": 3,
+    "includes": "wide stream output3/326/13/1 plus this checkpoint8/243/24/2"
+  },
+  "progress": {
+    "source": "Committed HEAD85a39f2; semantic_recovery.py progress",
+    "individual_records": 82,
+    "family_manifests": 93,
+    "unique_mapped_entries": 5191,
+    "cached_catalog_baseline": 62627,
+    "entry_mapping_percent_against_cached_baseline": 8.289,
+    "runtime_wrappers": 3168,
+    "default_off_runtime_gates": 8,
+    "complete_individual_records": 0,
+    "note": "Fixed historical cached denominator; address mapping is not full semantics completion."
+  },
+  "crt_cumulative": {
+    "entries": 37,
+    "static_instructions": 1655,
+    "focused_original_ppc_cases": 125,
+    "unknown_entry_checks": 12,
+    "separate_array_initializer": {
+      "entries": 1,
+      "static_instructions": 19,
+      "focused_original_ppc_cases": 4,
+      "unknown_entry_checks": 1
+    }
+  },
+  "native_build": {
+    "directory": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-runtime-build",
+    "msvc_runtime": "MT",
+    "strict_flags": "/W4 /WX",
+    "native_jobs": 1,
+    "source_target_standard": "minimum C++20; configured parent compiler C++23",
+    "oracle_standard": "C++20",
+    "reuse": "Accepted lower implementations and existing .lib; helper4-source dependencies, no hashes, old suites or full runtime build."
+  },
+  "integration_corrections": {
+    "source": "Remove unused kFloatDispatch constant rejected by /WX.",
+    "oracle": "Qualify global read_only_fields bridge with lo::semantic namespace.",
+    "first_build_failure": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-format-dispatch-tests/first-build-failure.json",
+    "first_oracle_compile_failure": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-format-dispatch-tests/first-oracle-compile-failure.json",
+    "accepted_library_log": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-format-dispatch-tests/accepted-library-build.log",
+    "reuse": "After source compile passed, the namespace-only oracle correction reused unchanged library. No behavioral mismatch found in the focused cases."
+  },
+  "dispatch_identity_audit": {
+    "table_base": "83214FC8",
+    "static_image_target": "82B84C90",
+    "initializer": "82B7A5E0",
+    "tail_initializer": "82B7A678",
+    "post_initialization_formatter_slots": {
+      "24": "8231A2A0",
+      "32": "82B7EEF8",
+      "36": "82B7EE58"
+    },
+    "static_read_source": "LostOdysseyRecompLib/private/image_disc1.bin; existing guest_address-82000000 mapping and big-endian U32/U16 reads; worktree and primary file samefile at audit time. No new hash or image scan.",
+    "intra_body_jump_tables": {
+      "820D36D0": 8,
+      "820D3660": 56,
+      "scope": "Static target offsets all inside82319330; live table behavior still belongs to eventual formatter recovery."
+    },
+    "limits": "Unpacked-image provenance chain and machine-code/runtime identity are not independently established by this narrow audit."
+  },
+  "next_dependency_order": [
+    {
+      "entries": [
+        "82B7FF08",
+        "82B7C470",
+        "82B7E580"
+      ],
+      "requires": "Review these identified float lower helpers against accepted dependency APIs before assigning the next closed packet; no credit."
+    },
+    {
+      "entries": [
+        "8231A470",
+        "8231A2F0",
+        "8231B1B8",
+        "82B7F048",
+        "82B7F828",
+        "82B7A0B0"
+      ],
+      "requires": "Actual software conversion closure. Historical sampled nodes from8231A2A0 totaled2219 instructions, not a complete closure census; two113-instruction helpers are now accepted."
+    },
+    {
+      "entries": [
+        "8231A2A0",
+        "82B7F2C8",
+        "82B7FA00",
+        "82B7F3E0",
+        "82B7FAF0"
+      ],
+      "requires": "Selector and format-specific wrappers compose the actual software lower conversion once accepted."
+    },
+    {
+      "entries": [
+        "82B7D158",
+        "82B7D020",
+        "82319330"
+      ],
+      "static_instructions": 802,
+      "requires": "Mutually recursive main formatter. Preserve call-time guest function slots and both in-body jump tables. Pin/design only; not credited."
+    }
+  ],
+  "limitations": [
+    "Selected wrapper GPR/CR/XER/SP/LR and ordinary committed RAM; focused representative paths only.",
+    "Raw floating input is transformed as integer bits; this does not close the separate LoadedSingle sNaN/FPR gap.",
+    "Actual accepted character classification, fatal, errno and invalid-parameter lower models; their generic ABI/native internals remain bounded.",
+    "Ordered U32 U64 access helpers do not prove atomicity, access width or fault behavior.",
+    "Main float conversion, generic ABI, faults, MMIO, concurrency, unwind, runtime/scene acceptance and complete semantics remain open."
+  ]
+}
