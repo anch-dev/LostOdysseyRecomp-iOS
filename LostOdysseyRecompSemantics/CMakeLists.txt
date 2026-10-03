@@ -22,6 +22,9 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/manager_resize.cpp
     src/fallback_resize.cpp
     src/leaf_family.cpp
+    src/accessor_family.cpp
+    src/integer_leaf.cpp
+    src/pointer_vector.cpp
     src/memory_services.cpp
     src/memory_fill.cpp
     src/memory_move.cpp

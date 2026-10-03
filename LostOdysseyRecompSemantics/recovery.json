@@ -2577,7 +2577,10 @@
         {
           "address": "827C4FA0",
           "boundary": "FallbackResizeServices::GrowPointerVector",
-          "status": "opaque"
+          "status": "implementation_available",
+          "name": "lo::semantic::gpu::FlushPointerVector",
+          "contract": "Flush cached pointers via current manager vtable +12, then zero live count; does not grow capacity. GrowPointerVector is the retained legacy boundary name.",
+          "target_scope": "Bounded return, memory and ordered-call comparison; guest ABI adapter and runtime service wiring remain pending."
         }
       ],
       "open_obligations": [
@@ -2652,6 +2655,61 @@
       "open_obligations": [
         "Resolve remaining service, indirect-call, allocation lifetime and object contracts beyond the bounded fixtures.",
         "Validate production PPCContext/stack adapters, faults, concurrency and representative game scenes before runtime replacement."
+      ]
+    },
+    {
+      "address": "827C4FA0",
+      "name": "lo::semantic::gpu::FlushPointerVector",
+      "module": "memory/pointer_vector",
+      "source": "LostOdysseyRecompSemantics/src/pointer_vector.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/pointer_vector.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "r3: guest pointer-cache descriptor; frame_base: post-prologue 144-byte guest frame",
+        "return": "Full r3 from RtlLeaveCriticalSection",
+        "preserved": "Nonvolatile registers and ABI frame saves are adapter responsibilities, excluded from this comparison.",
+        "memory": "32-bit guest addresses and big-endian fields. Descriptor +0 backing, +12 signed live count, +16 capacity remains unchanged."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+          "line": 8674,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_pointer_vector.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "10 cases passed: empty/negative counts, live count shrink/growth, manager/backing/holder mutation. Return, mapped memory and ordered calls compared; ABI saves/volatile state and real kernel effects excluded."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "822958F8",
+          "boundary": "StoreLockAndWaitForEnter",
+          "status": "implementation_available",
+          "contract": "Store holder, acquire embedded section; current flush test stubs this original call."
+        },
+        {
+          "address": "indirect:vtable+12",
+          "boundary": "FallbackResizeServices::ReleaseThroughManager",
+          "status": "opaque",
+          "kind": "indirect",
+          "contract": "Reload manager, backing and vtable each iteration; mask method address ~3; reload signed count after each release."
+        },
+        {
+          "address": "830D9C7C",
+          "boundary": "ManagerLockServices::LeaveCriticalSection",
+          "status": "native_boundary",
+          "kind": "kernel_import",
+          "contract": "After zeroing count, reload holder at frame+80 and leave holder+4; forward full return."
+        }
       ]
     }
   ]

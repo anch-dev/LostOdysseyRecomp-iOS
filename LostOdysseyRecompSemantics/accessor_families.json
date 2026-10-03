@@ -1,0 +1,3050 @@
+{
+  "schema_version": 1,
+  "kind": "fixed_offset_integer_accessor_families",
+  "semantics": {
+    "getter": "lo::semantic::gpu::ReadField",
+    "setter": "lo::semantic::gpu::WriteField"
+  },
+  "entries": [
+    {
+      "address": "82292DD0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 24,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+      "line": 6946
+    },
+    {
+      "address": "8229DFD0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 1108,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+      "line": 33747
+    },
+    {
+      "address": "8229EF00",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 84,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+      "line": 36208
+    },
+    {
+      "address": "8229F1C0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 716,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+      "line": 36645
+    },
+    {
+      "address": "822B2600",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 268,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.1.cpp",
+      "line": 41616
+    },
+    {
+      "address": "822B5848",
+      "kind": "setter",
+      "width": "Byte",
+      "displacement": 201,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.1.cpp",
+      "line": 49377
+    },
+    {
+      "address": "822BCF60",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 1104,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+      "line": 8751
+    },
+    {
+      "address": "822C0038",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 276,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+      "line": 16121
+    },
+    {
+      "address": "822D2550",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 244,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.3.cpp",
+      "line": 5051
+    },
+    {
+      "address": "822D3498",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 1172,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.3.cpp",
+      "line": 7411
+    },
+    {
+      "address": "822DA120",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 288,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.3.cpp",
+      "line": 23864
+    },
+    {
+      "address": "822FC548",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 33,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.4.cpp",
+      "line": 9198
+    },
+    {
+      "address": "823037F0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 80,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.4.cpp",
+      "line": 26137
+    },
+    {
+      "address": "82308888",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 0,
+      "base_register": 5,
+      "value_register": 3,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.4.cpp",
+      "line": 38403
+    },
+    {
+      "address": "8233B558",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 60,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.6.cpp",
+      "line": 49684
+    },
+    {
+      "address": "82352B20",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 1236,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.7.cpp",
+      "line": 49037
+    },
+    {
+      "address": "82352B28",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 1880,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.7.cpp",
+      "line": 49049
+    },
+    {
+      "address": "823725E8",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 389,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.9.cpp",
+      "line": 9921
+    },
+    {
+      "address": "823725F0",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 388,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.9.cpp",
+      "line": 9933
+    },
+    {
+      "address": "823A81A0",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 132,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.11.cpp",
+      "line": 16455
+    },
+    {
+      "address": "823EE938",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 180,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.14.cpp",
+      "line": 19325
+    },
+    {
+      "address": "823EE9C0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 176,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.14.cpp",
+      "line": 19415
+    },
+    {
+      "address": "823EEC28",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 200,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.14.cpp",
+      "line": 19810
+    },
+    {
+      "address": "823F03F0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 212,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.14.cpp",
+      "line": 23421
+    },
+    {
+      "address": "823F03F8",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 216,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.14.cpp",
+      "line": 23433
+    },
+    {
+      "address": "823F0FB8",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 228,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.14.cpp",
+      "line": 25294
+    },
+    {
+      "address": "823F10B0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 68,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.14.cpp",
+      "line": 25471
+    },
+    {
+      "address": "823F12B8",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 220,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.14.cpp",
+      "line": 25810
+    },
+    {
+      "address": "824195C0",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 116,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp",
+      "line": 38076
+    },
+    {
+      "address": "82485AF0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 0,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.24.cpp",
+      "line": 4778
+    },
+    {
+      "address": "82495488",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 128,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.25.cpp",
+      "line": 5924
+    },
+    {
+      "address": "824D87E0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 1036,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "line": 28297
+    },
+    {
+      "address": "82535D78",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 724,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.35.cpp",
+      "line": 15861
+    },
+    {
+      "address": "82558780",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 524,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.36.cpp",
+      "line": 30549
+    },
+    {
+      "address": "8257D1A0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 92,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "line": 9959
+    },
+    {
+      "address": "8257E150",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 132,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "line": 12488
+    },
+    {
+      "address": "8257F5A8",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 112,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "line": 15655
+    },
+    {
+      "address": "82580C70",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 104,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "line": 19310
+    },
+    {
+      "address": "825B0650",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 828,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.43.cpp",
+      "line": 440
+    },
+    {
+      "address": "825E7138",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 120,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.46.cpp",
+      "line": 8832
+    },
+    {
+      "address": "825E7288",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 112,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.46.cpp",
+      "line": 9048
+    },
+    {
+      "address": "825ED248",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 128,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.46.cpp",
+      "line": 23819
+    },
+    {
+      "address": "82607EE8",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 62,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.48.cpp",
+      "line": 18819
+    },
+    {
+      "address": "82607EF0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 188,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.48.cpp",
+      "line": 18831
+    },
+    {
+      "address": "82607F20",
+      "kind": "setter",
+      "width": "Byte",
+      "displacement": 62,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.48.cpp",
+      "line": 18877
+    },
+    {
+      "address": "8262D1F8",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 72,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.50.cpp",
+      "line": 52692
+    },
+    {
+      "address": "82631460",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 304,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.51.cpp",
+      "line": 1201
+    },
+    {
+      "address": "8264F4F0",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 64,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.53.cpp",
+      "line": 4275
+    },
+    {
+      "address": "82680AB8",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 100,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.57.cpp",
+      "line": 4835
+    },
+    {
+      "address": "8269CE88",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 964,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.59.cpp",
+      "line": 12982
+    },
+    {
+      "address": "826D70F0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 148,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.62.cpp",
+      "line": 11424
+    },
+    {
+      "address": "826DCE00",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 8,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.62.cpp",
+      "line": 25266
+    },
+    {
+      "address": "826DCE10",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 4,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.62.cpp",
+      "line": 25291
+    },
+    {
+      "address": "8270BCB8",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 116,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.66.cpp",
+      "line": 10435
+    },
+    {
+      "address": "8270BCC0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 120,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.66.cpp",
+      "line": 10447
+    },
+    {
+      "address": "8272FFE0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 1168,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.68.cpp",
+      "line": 19901
+    },
+    {
+      "address": "82792750",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 108,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.72.cpp",
+      "line": 16996
+    },
+    {
+      "address": "827B2F48",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 11868,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.73.cpp",
+      "line": 36608
+    },
+    {
+      "address": "827B2F70",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 11872,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.73.cpp",
+      "line": 36648
+    },
+    {
+      "address": "827B3008",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 10499,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.73.cpp",
+      "line": 36786
+    },
+    {
+      "address": "827B3010",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 10498,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.73.cpp",
+      "line": 36798
+    },
+    {
+      "address": "827B3018",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 10497,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.73.cpp",
+      "line": 36810
+    },
+    {
+      "address": "827B3038",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 10495,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.73.cpp",
+      "line": 36840
+    },
+    {
+      "address": "827B3058",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 10494,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.73.cpp",
+      "line": 36870
+    },
+    {
+      "address": "827B3078",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 10493,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.73.cpp",
+      "line": 36900
+    },
+    {
+      "address": "827B30D0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 11848,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.73.cpp",
+      "line": 36970
+    },
+    {
+      "address": "827B3150",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 10752,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.73.cpp",
+      "line": 37085
+    },
+    {
+      "address": "827B3158",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 11852,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.73.cpp",
+      "line": 37097
+    },
+    {
+      "address": "827B3198",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 11856,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.73.cpp",
+      "line": 37146
+    },
+    {
+      "address": "827B31D8",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 11860,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.73.cpp",
+      "line": 37195
+    },
+    {
+      "address": "827B3218",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 11864,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.73.cpp",
+      "line": 37244
+    },
+    {
+      "address": "827B3220",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 11876,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.73.cpp",
+      "line": 37256
+    },
+    {
+      "address": "827B3228",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 11876,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.73.cpp",
+      "line": 37268
+    },
+    {
+      "address": "827B36F0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 12020,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.74.cpp",
+      "line": 753
+    },
+    {
+      "address": "827B37A0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 12024,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.74.cpp",
+      "line": 857
+    },
+    {
+      "address": "827B3850",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 12028,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.74.cpp",
+      "line": 961
+    },
+    {
+      "address": "827B3900",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 12032,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.74.cpp",
+      "line": 1065
+    },
+    {
+      "address": "827B3A38",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 10456,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.74.cpp",
+      "line": 1315
+    },
+    {
+      "address": "827B3AD0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 10700,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.74.cpp",
+      "line": 1433
+    },
+    {
+      "address": "827B3B00",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 10692,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.74.cpp",
+      "line": 1475
+    },
+    {
+      "address": "827B3B28",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 10704,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.74.cpp",
+      "line": 1513
+    },
+    {
+      "address": "827B3B58",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 10696,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.74.cpp",
+      "line": 1555
+    },
+    {
+      "address": "827B3C28",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 10562,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.74.cpp",
+      "line": 1712
+    },
+    {
+      "address": "827B3C30",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 13580,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.74.cpp",
+      "line": 1724
+    },
+    {
+      "address": "827B3C38",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 13580,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.74.cpp",
+      "line": 1736
+    },
+    {
+      "address": "827CB0A8",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 268,
+      "base_register": 13,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+      "line": 24311
+    },
+    {
+      "address": "827F7860",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 96,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.82.cpp",
+      "line": 880
+    },
+    {
+      "address": "82804B60",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 80,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.83.cpp",
+      "line": 13337
+    },
+    {
+      "address": "82849260",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 140,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.92.cpp",
+      "line": 12107
+    },
+    {
+      "address": "82849268",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 136,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.92.cpp",
+      "line": 12119
+    },
+    {
+      "address": "828619C0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 672,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.95.cpp",
+      "line": 3416
+    },
+    {
+      "address": "828619F0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 684,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.95.cpp",
+      "line": 3455
+    },
+    {
+      "address": "82861A28",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 660,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.95.cpp",
+      "line": 3498
+    },
+    {
+      "address": "82868EC8",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 768,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.96.cpp",
+      "line": 1263
+    },
+    {
+      "address": "828725A0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 2048,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.97.cpp",
+      "line": 5156
+    },
+    {
+      "address": "82881138",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 17952,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.98.cpp",
+      "line": 8617
+    },
+    {
+      "address": "82881148",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 17992,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.98.cpp",
+      "line": 8644
+    },
+    {
+      "address": "82881150",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 18000,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.98.cpp",
+      "line": 8656
+    },
+    {
+      "address": "82881158",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 18004,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.98.cpp",
+      "line": 8668
+    },
+    {
+      "address": "82881160",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 18008,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.98.cpp",
+      "line": 8680
+    },
+    {
+      "address": "82893CA0",
+      "kind": "setter",
+      "width": "Byte",
+      "displacement": 28,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.100.cpp",
+      "line": 23593
+    },
+    {
+      "address": "82894038",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 172,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.100.cpp",
+      "line": 24251
+    },
+    {
+      "address": "82897200",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 36,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.101.cpp",
+      "line": 3478
+    },
+    {
+      "address": "828995C0",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 176,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.101.cpp",
+      "line": 9059
+    },
+    {
+      "address": "8289F300",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 220,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.101.cpp",
+      "line": 24036
+    },
+    {
+      "address": "8289F310",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 276,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.101.cpp",
+      "line": 24063
+    },
+    {
+      "address": "8289F318",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 252,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.101.cpp",
+      "line": 24075
+    },
+    {
+      "address": "8289F328",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 280,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.101.cpp",
+      "line": 24102
+    },
+    {
+      "address": "828A09C8",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 628,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.101.cpp",
+      "line": 27530
+    },
+    {
+      "address": "828A09D0",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 612,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.101.cpp",
+      "line": 27542
+    },
+    {
+      "address": "828A2C58",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 96,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.102.cpp",
+      "line": 4784
+    },
+    {
+      "address": "828BCB80",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 208,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.105.cpp",
+      "line": 3113
+    },
+    {
+      "address": "828BD240",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 204,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.105.cpp",
+      "line": 4251
+    },
+    {
+      "address": "828BD698",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 212,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.105.cpp",
+      "line": 4972
+    },
+    {
+      "address": "828D5A00",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 1940,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.107.cpp",
+      "line": 18834
+    },
+    {
+      "address": "828D8738",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 208,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.107.cpp",
+      "line": 26037
+    },
+    {
+      "address": "828F9B00",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 185,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.110.cpp",
+      "line": 16906
+    },
+    {
+      "address": "82905FA0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 76,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.112.cpp",
+      "line": 3475
+    },
+    {
+      "address": "829294E8",
+      "kind": "setter",
+      "width": "Byte",
+      "displacement": 68,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.116.cpp",
+      "line": 25805
+    },
+    {
+      "address": "82961258",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 520,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.123.cpp",
+      "line": 13545
+    },
+    {
+      "address": "82962C50",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 124,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.123.cpp",
+      "line": 17823
+    },
+    {
+      "address": "8298E510",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 23888,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.129.cpp",
+      "line": 21030
+    },
+    {
+      "address": "829B0000",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 12212,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.132.cpp",
+      "line": 25857
+    },
+    {
+      "address": "829E5528",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 836,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.138.cpp",
+      "line": 4892
+    },
+    {
+      "address": "829E5530",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 804,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.138.cpp",
+      "line": 4904
+    },
+    {
+      "address": "829FC198",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 604,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.140.cpp",
+      "line": 8554
+    },
+    {
+      "address": "82A6BFC8",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 64,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.150.cpp",
+      "line": 1250
+    },
+    {
+      "address": "82AD8F60",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 1404,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.161.cpp",
+      "line": 8643
+    },
+    {
+      "address": "82AD91A0",
+      "kind": "setter",
+      "width": "Byte",
+      "displacement": 1405,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.161.cpp",
+      "line": 8995
+    },
+    {
+      "address": "82AD91A8",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 1405,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.161.cpp",
+      "line": 9007
+    },
+    {
+      "address": "82AF4218",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 532,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.164.cpp",
+      "line": 3
+    },
+    {
+      "address": "82B72DF8",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 43,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.174.cpp",
+      "line": 19129
+    },
+    {
+      "address": "82B88828",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 4,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "line": 21705
+    },
+    {
+      "address": "82B88908",
+      "kind": "setter",
+      "width": "Byte",
+      "displacement": 53,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "line": 21841
+    },
+    {
+      "address": "82B8BA40",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 52,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "line": 29523
+    },
+    {
+      "address": "82B8BA48",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 80,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "line": 29535
+    },
+    {
+      "address": "82B8BA50",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 84,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "line": 29547
+    },
+    {
+      "address": "82B8D358",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 80,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.177.cpp",
+      "line": 3358
+    },
+    {
+      "address": "82B8D360",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 84,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.177.cpp",
+      "line": 3370
+    },
+    {
+      "address": "82B8D368",
+      "kind": "setter",
+      "width": "Byte",
+      "displacement": 84,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.177.cpp",
+      "line": 3382
+    },
+    {
+      "address": "82B8D9D8",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 12,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.177.cpp",
+      "line": 4469
+    },
+    {
+      "address": "82B8DB08",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 20,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.177.cpp",
+      "line": 4707
+    },
+    {
+      "address": "82B90270",
+      "kind": "setter",
+      "width": "Byte",
+      "displacement": 8,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.177.cpp",
+      "line": 11007
+    },
+    {
+      "address": "82B926C0",
+      "kind": "getter",
+      "width": "Halfword",
+      "displacement": 4,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.177.cpp",
+      "line": 16785
+    },
+    {
+      "address": "82B926C8",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 16,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.177.cpp",
+      "line": 16797
+    },
+    {
+      "address": "82B94670",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 40,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.178.cpp",
+      "line": 1297
+    },
+    {
+      "address": "82B97030",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 28,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.178.cpp",
+      "line": 7891
+    },
+    {
+      "address": "82B970E8",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 56,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.178.cpp",
+      "line": 8038
+    },
+    {
+      "address": "82B9B198",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 88,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.179.cpp",
+      "line": 432
+    },
+    {
+      "address": "82B9B1A0",
+      "kind": "setter",
+      "width": "Byte",
+      "displacement": 88,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.179.cpp",
+      "line": 444
+    },
+    {
+      "address": "82B9B570",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 16,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.179.cpp",
+      "line": 1116
+    },
+    {
+      "address": "82B9B578",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 4,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.179.cpp",
+      "line": 1128
+    },
+    {
+      "address": "82B9B818",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 8,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.179.cpp",
+      "line": 1565
+    },
+    {
+      "address": "82B9C660",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 260,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.179.cpp",
+      "line": 3883
+    },
+    {
+      "address": "82B9C668",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 260,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.179.cpp",
+      "line": 3895
+    },
+    {
+      "address": "82B9CE90",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 204,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.179.cpp",
+      "line": 5202
+    },
+    {
+      "address": "82B9F188",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 168,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.179.cpp",
+      "line": 10629
+    },
+    {
+      "address": "82B9F190",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 160,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.179.cpp",
+      "line": 10641
+    },
+    {
+      "address": "82BC5198",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": -180,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.180.cpp",
+      "line": 39358
+    },
+    {
+      "address": "82BC51A0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": -176,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.180.cpp",
+      "line": 39370
+    },
+    {
+      "address": "82BC51B8",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": -156,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.180.cpp",
+      "line": 39408
+    },
+    {
+      "address": "82BC51D8",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": -152,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.180.cpp",
+      "line": 39440
+    },
+    {
+      "address": "82BC51E0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": -140,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.180.cpp",
+      "line": 39452
+    },
+    {
+      "address": "82BC8A98",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 4,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.180.cpp",
+      "line": 48101
+    },
+    {
+      "address": "82C0E9B8",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 52,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.184.cpp",
+      "line": 120
+    },
+    {
+      "address": "82CBBBE8",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 0,
+      "base_register": 6,
+      "value_register": 5,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.189.cpp",
+      "line": 9334
+    },
+    {
+      "address": "82CD01C8",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 100,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.190.cpp",
+      "line": 20080
+    },
+    {
+      "address": "82CD5A38",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 0,
+      "base_register": 4,
+      "value_register": 3,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.190.cpp",
+      "line": 33696
+    },
+    {
+      "address": "82CEA9B0",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 68,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.191.cpp",
+      "line": 48816
+    },
+    {
+      "address": "82CEA9B8",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 76,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.191.cpp",
+      "line": 48828
+    },
+    {
+      "address": "82CF0788",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 512,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp",
+      "line": 5381
+    },
+    {
+      "address": "82CF3CE8",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 284,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp",
+      "line": 13934
+    },
+    {
+      "address": "82CF5F58",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 444,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp",
+      "line": 18956
+    },
+    {
+      "address": "82CF5F60",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 444,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp",
+      "line": 18968
+    },
+    {
+      "address": "82CF5F68",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 448,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp",
+      "line": 18980
+    },
+    {
+      "address": "82CF5F70",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 448,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp",
+      "line": 18992
+    },
+    {
+      "address": "82CF7B28",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 224,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp",
+      "line": 23513
+    },
+    {
+      "address": "82DED050",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 940,
+      "base_register": 4,
+      "value_register": 3,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.201.cpp",
+      "line": 11003
+    },
+    {
+      "address": "82DF7558",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 48,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.203.cpp",
+      "line": 8359
+    },
+    {
+      "address": "82DF7578",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 72,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.203.cpp",
+      "line": 8390
+    },
+    {
+      "address": "82DFBB80",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 172,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.203.cpp",
+      "line": 18589
+    },
+    {
+      "address": "82DFEDC0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 1200,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.203.cpp",
+      "line": 26851
+    },
+    {
+      "address": "82DFFC20",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 1144,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.204.cpp",
+      "line": 734
+    },
+    {
+      "address": "82DFFCB0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 1152,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.204.cpp",
+      "line": 830
+    },
+    {
+      "address": "82DFFD58",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 1156,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.204.cpp",
+      "line": 941
+    },
+    {
+      "address": "82DFFE00",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 1160,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.204.cpp",
+      "line": 1052
+    },
+    {
+      "address": "82DFFE08",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 1164,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.204.cpp",
+      "line": 1064
+    },
+    {
+      "address": "82E00D00",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 1080,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.204.cpp",
+      "line": 3418
+    },
+    {
+      "address": "82E022C0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 912,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.204.cpp",
+      "line": 6960
+    },
+    {
+      "address": "82E022E0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 760,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.204.cpp",
+      "line": 6991
+    },
+    {
+      "address": "82E024A0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 872,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.204.cpp",
+      "line": 7297
+    },
+    {
+      "address": "82E024C0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 892,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.204.cpp",
+      "line": 7328
+    },
+    {
+      "address": "82E0D340",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 48,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.204.cpp",
+      "line": 33335
+    },
+    {
+      "address": "82E15330",
+      "kind": "getter",
+      "width": "Halfword",
+      "displacement": 128,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.205.cpp",
+      "line": 15080
+    },
+    {
+      "address": "82E15DA0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 296,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.205.cpp",
+      "line": 16838
+    },
+    {
+      "address": "82E29058",
+      "kind": "getter",
+      "width": "Halfword",
+      "displacement": 56,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.206.cpp",
+      "line": 35224
+    },
+    {
+      "address": "82E291B0",
+      "kind": "getter",
+      "width": "Halfword",
+      "displacement": 58,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.206.cpp",
+      "line": 35434
+    },
+    {
+      "address": "82E42EF0",
+      "kind": "getter",
+      "width": "Halfword",
+      "displacement": 24,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.207.cpp",
+      "line": 35730
+    },
+    {
+      "address": "82E43ED8",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 360,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.207.cpp",
+      "line": 38156
+    },
+    {
+      "address": "82E44190",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 324,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.207.cpp",
+      "line": 38659
+    },
+    {
+      "address": "82E44198",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 324,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.207.cpp",
+      "line": 38671
+    },
+    {
+      "address": "82E441A0",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 332,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.207.cpp",
+      "line": 38683
+    },
+    {
+      "address": "82E443D0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 348,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.207.cpp",
+      "line": 39050
+    },
+    {
+      "address": "82E443D8",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 352,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.207.cpp",
+      "line": 39062
+    },
+    {
+      "address": "82E443E0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 236,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.207.cpp",
+      "line": 39074
+    },
+    {
+      "address": "82E44720",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 584,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.207.cpp",
+      "line": 39639
+    },
+    {
+      "address": "82E44878",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 644,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.207.cpp",
+      "line": 39862
+    },
+    {
+      "address": "82E448F8",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 272,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.207.cpp",
+      "line": 39975
+    },
+    {
+      "address": "82E44A20",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 240,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.207.cpp",
+      "line": 40173
+    },
+    {
+      "address": "82E4E6C8",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 360,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.208.cpp",
+      "line": 19020
+    },
+    {
+      "address": "82E4E6D0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 156,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.208.cpp",
+      "line": 19032
+    },
+    {
+      "address": "82E5D5D0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": -8,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.208.cpp",
+      "line": 54874
+    },
+    {
+      "address": "82E5D670",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": -12,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.208.cpp",
+      "line": 54976
+    },
+    {
+      "address": "82E5D700",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": -4,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.208.cpp",
+      "line": 55077
+    },
+    {
+      "address": "82E6AF38",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 28,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.209.cpp",
+      "line": 23311
+    },
+    {
+      "address": "82E703D8",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 392,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 7824
+    },
+    {
+      "address": "82E70FB8",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 464,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 9945
+    },
+    {
+      "address": "82E70FE8",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 572,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 10008
+    },
+    {
+      "address": "82E70FF0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 284,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 10020
+    },
+    {
+      "address": "82E74198",
+      "kind": "getter",
+      "width": "Halfword",
+      "displacement": 52,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 17947
+    },
+    {
+      "address": "82E742A8",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 36,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 18254
+    },
+    {
+      "address": "82E742B0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 36,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 18266
+    },
+    {
+      "address": "82E742B8",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 40,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 18278
+    },
+    {
+      "address": "82E742C0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 40,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 18290
+    },
+    {
+      "address": "82E742C8",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 44,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 18302
+    },
+    {
+      "address": "82E742D0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 44,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 18314
+    },
+    {
+      "address": "82E742D8",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 56,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 18326
+    },
+    {
+      "address": "82E742E0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 56,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 18338
+    },
+    {
+      "address": "82E75298",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 280,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 20713
+    },
+    {
+      "address": "82E75C80",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 60,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 22381
+    },
+    {
+      "address": "82E78A18",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 32,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 29435
+    },
+    {
+      "address": "82E7B110",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 12,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 35391
+    },
+    {
+      "address": "82E7C9F0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 320,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 2479
+    },
+    {
+      "address": "82E7CF48",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 264,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 3263
+    },
+    {
+      "address": "82E7D210",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 328,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 3713
+    },
+    {
+      "address": "82E7D218",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 328,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 3725
+    },
+    {
+      "address": "82E7D248",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 144,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 3779
+    },
+    {
+      "address": "82E7D250",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 292,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 3791
+    },
+    {
+      "address": "82E7D270",
+      "kind": "getter",
+      "width": "Halfword",
+      "displacement": 306,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 3823
+    },
+    {
+      "address": "82E7D280",
+      "kind": "getter",
+      "width": "Halfword",
+      "displacement": 304,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 3850
+    },
+    {
+      "address": "82E7D2B0",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 300,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 3890
+    },
+    {
+      "address": "82E7D2B8",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 312,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 3902
+    },
+    {
+      "address": "82E7F8D0",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 712,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 9925
+    },
+    {
+      "address": "82E7F8D8",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 712,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 9937
+    },
+    {
+      "address": "82E7F980",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 728,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 10132
+    },
+    {
+      "address": "82E7F988",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 728,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 10144
+    },
+    {
+      "address": "82E93130",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 336,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 56347
+    },
+    {
+      "address": "82E93138",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 356,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 56359
+    },
+    {
+      "address": "82E95F08",
+      "kind": "getter",
+      "width": "Halfword",
+      "displacement": 352,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 62943
+    },
+    {
+      "address": "82E95F10",
+      "kind": "getter",
+      "width": "Halfword",
+      "displacement": 354,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 62955
+    },
+    {
+      "address": "82EA1410",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 340,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 89415
+    },
+    {
+      "address": "82EA6C70",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 340,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 102564
+    },
+    {
+      "address": "82EA6C78",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 344,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 102576
+    },
+    {
+      "address": "82EA6C80",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 344,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 102588
+    },
+    {
+      "address": "82EBAE78",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 356,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "line": 47116
+    },
+    {
+      "address": "82EBD088",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 396,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "line": 52417
+    },
+    {
+      "address": "82EBF2F8",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 316,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "line": 57738
+    },
+    {
+      "address": "82EBF330",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 316,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "line": 57791
+    },
+    {
+      "address": "82EBFF08",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 332,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "line": 59684
+    },
+    {
+      "address": "82EC2058",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 588,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "line": 64969
+    },
+    {
+      "address": "82F01800",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 124,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.213.cpp",
+      "line": 137620
+    },
+    {
+      "address": "82F01858",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 152,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.213.cpp",
+      "line": 137715
+    },
+    {
+      "address": "82F018E8",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 8,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.213.cpp",
+      "line": 137922
+    },
+    {
+      "address": "82F018F8",
+      "kind": "setter",
+      "width": "Halfword",
+      "displacement": 172,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.213.cpp",
+      "line": 137946
+    },
+    {
+      "address": "82F01900",
+      "kind": "getter",
+      "width": "Halfword",
+      "displacement": 172,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.213.cpp",
+      "line": 137958
+    },
+    {
+      "address": "82F01948",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 480,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.213.cpp",
+      "line": 138027
+    },
+    {
+      "address": "82F4C890",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 52,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.216.cpp",
+      "line": 7837
+    },
+    {
+      "address": "82F51D18",
+      "kind": "setter",
+      "width": "Byte",
+      "displacement": 4,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.216.cpp",
+      "line": 20686
+    },
+    {
+      "address": "82F51D20",
+      "kind": "setter",
+      "width": "Byte",
+      "displacement": 5,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.216.cpp",
+      "line": 20698
+    },
+    {
+      "address": "82F51D28",
+      "kind": "setter",
+      "width": "Byte",
+      "displacement": 6,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.216.cpp",
+      "line": 20710
+    },
+    {
+      "address": "82F51D30",
+      "kind": "setter",
+      "width": "Byte",
+      "displacement": 7,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.216.cpp",
+      "line": 20722
+    },
+    {
+      "address": "82F51D38",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 4,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.216.cpp",
+      "line": 20734
+    },
+    {
+      "address": "82F51D40",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 5,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.216.cpp",
+      "line": 20746
+    },
+    {
+      "address": "82F51D48",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 6,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.216.cpp",
+      "line": 20758
+    },
+    {
+      "address": "82F51D50",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 7,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.216.cpp",
+      "line": 20770
+    },
+    {
+      "address": "82F51EB8",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 24,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.216.cpp",
+      "line": 21039
+    },
+    {
+      "address": "82F59350",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 24,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 276
+    },
+    {
+      "address": "82F59358",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 16,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 288
+    },
+    {
+      "address": "82F5A5F0",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 20,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 3215
+    },
+    {
+      "address": "82F5AD18",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 92,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 4451
+    },
+    {
+      "address": "82F5C510",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 200,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 8286
+    },
+    {
+      "address": "82F5C518",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 201,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 8298
+    },
+    {
+      "address": "82F5C520",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 164,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 8310
+    },
+    {
+      "address": "82F5C528",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 164,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 8322
+    },
+    {
+      "address": "82F5C530",
+      "kind": "setter",
+      "width": "Byte",
+      "displacement": 202,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 8334
+    },
+    {
+      "address": "82F5C538",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 202,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 8346
+    },
+    {
+      "address": "82F5DC50",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 88,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 11960
+    },
+    {
+      "address": "82F5DC58",
+      "kind": "setter",
+      "width": "Byte",
+      "displacement": 88,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 11972
+    },
+    {
+      "address": "82F5E150",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 120,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 12916
+    },
+    {
+      "address": "82F5E158",
+      "kind": "setter",
+      "width": "Byte",
+      "displacement": 120,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 12928
+    },
+    {
+      "address": "82F5E160",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 121,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 12940
+    },
+    {
+      "address": "82F5E168",
+      "kind": "setter",
+      "width": "Byte",
+      "displacement": 121,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 12952
+    },
+    {
+      "address": "82F5F128",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 332,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 15730
+    },
+    {
+      "address": "82F5F130",
+      "kind": "setter",
+      "width": "Byte",
+      "displacement": 332,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 15742
+    },
+    {
+      "address": "82F5F138",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 367,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 15754
+    },
+    {
+      "address": "8303EB68",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 1188,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.224.cpp",
+      "line": 55874
+    },
+    {
+      "address": "830677B8",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 2144,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.226.cpp",
+      "line": 4433
+    },
+    {
+      "address": "830678A0",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 2072,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.226.cpp",
+      "line": 4590
+    },
+    {
+      "address": "830678A8",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 2076,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.226.cpp",
+      "line": 4602
+    },
+    {
+      "address": "830678B0",
+      "kind": "getter",
+      "width": "Byte",
+      "displacement": 2073,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.226.cpp",
+      "line": 4614
+    },
+    {
+      "address": "830765C8",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 900,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.226.cpp",
+      "line": 39641
+    },
+    {
+      "address": "83076798",
+      "kind": "setter",
+      "width": "Word",
+      "displacement": 0,
+      "base_register": 3,
+      "value_register": 4,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.226.cpp",
+      "line": 39933
+    },
+    {
+      "address": "83081540",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 20,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 8530
+    },
+    {
+      "address": "83081548",
+      "kind": "getter",
+      "width": "Word",
+      "displacement": 16,
+      "base_register": 3,
+      "value_register": null,
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 8542
+    }
+  ]
+}

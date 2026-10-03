@@ -12,6 +12,7 @@ class FallbackResizeServices
 {
 public:
     virtual ~FallbackResizeServices() = default;
+    // Historical boundary name: 827C4FA0 flushes cached pointers, not capacity.
     virtual std::uint64_t GrowPointerVector(
         std::uint64_t vector_register, std::uint64_t value_register) = 0;
     virtual std::uint64_t ReallocateThroughManager(
@@ -23,7 +24,8 @@ public:
         std::uint64_t old_register) = 0;
 };
 
-// 827C5050. The optional 827C4FA0 call is the GrowPointerVector boundary.
+// 827C5050. The optional 827C4FA0 call flushes a full pointer cache through
+// the historically named GrowPointerVector boundary.
 // Its full r3 return remains live; count and backing pointer are reloaded
 // after that callback. ABI frame saves/backchain are adapter responsibilities.
 [[nodiscard]] std::uint64_t AppendPointerToVector(

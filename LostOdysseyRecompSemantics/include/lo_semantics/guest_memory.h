@@ -27,6 +27,13 @@ public:
         return bytes_[Offset(address, 1)];
     }
 
+    [[nodiscard]] std::uint16_t ReadU16(GuestAddress address) const
+    {
+        const auto offset = Offset(address, 2);
+        return static_cast<std::uint16_t>((std::uint16_t{bytes_[offset]} << 8) |
+                                          bytes_[offset + 1]);
+    }
+
     [[nodiscard]] std::uint32_t ReadU32(GuestAddress address) const
     {
         const auto offset = Offset(address, 4);
@@ -39,6 +46,13 @@ public:
     void WriteU8(GuestAddress address, std::uint8_t value)
     {
         bytes_[Offset(address, 1)] = value;
+    }
+
+    void WriteU16(GuestAddress address, std::uint16_t value)
+    {
+        const auto offset = Offset(address, 2);
+        bytes_[offset] = static_cast<std::uint8_t>(value >> 8);
+        bytes_[offset + 1] = static_cast<std::uint8_t>(value);
     }
 
     void WriteU32(GuestAddress address, std::uint32_t value)

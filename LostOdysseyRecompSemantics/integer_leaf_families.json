@@ -1,0 +1,5491 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "address": "822A03C8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.0.cpp",
+      "line": 39515,
+      "instruction_sequence": [
+        "lis r11,-31967",
+        "addi r3,r11,19184",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094989312;",
+        "ctx.r3.s64 = ctx.r11.s64 + 19184;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614581488,
+      "auxiliary": 18446744071614562304,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "822CC4B0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.2.cpp",
+      "line": 46381,
+      "instruction_sequence": [
+        "lis r11,-31964",
+        "addi r3,r11,13848",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094792704;",
+        "ctx.r3.s64 = ctx.r11.s64 + 13848;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614772760,
+      "auxiliary": 18446744071614758912,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "822D1128",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.3.cpp",
+      "line": 1940,
+      "instruction_sequence": [
+        "lis r11,-31969",
+        "addi r3,r11,-16784",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2095120384;",
+        "ctx.r3.s64 = ctx.r11.s64 + -16784;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614414448,
+      "auxiliary": 18446744071614431232,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82341C40",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.7.cpp",
+      "line": 7341,
+      "instruction_sequence": [
+        "lis r11,-31964",
+        "addi r3,r11,-30168",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094792704;",
+        "ctx.r3.s64 = ctx.r11.s64 + -30168;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614728744,
+      "auxiliary": 18446744071614758912,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "823688E8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.8.cpp",
+      "line": 42466,
+      "instruction_sequence": [
+        "lis r11,-31964",
+        "addi r3,r11,13856",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094792704;",
+        "ctx.r3.s64 = ctx.r11.s64 + 13856;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614772768,
+      "auxiliary": 18446744071614758912,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "823731B0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.9.cpp",
+      "line": 11851,
+      "instruction_sequence": [
+        "li r3,1006",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 1006;"
+      ],
+      "family": "Constant",
+      "value": 1006,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8237BE50",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.9.cpp",
+      "line": 33493,
+      "instruction_sequence": [
+        "lis r11,-31964",
+        "addi r3,r11,13840",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094792704;",
+        "ctx.r3.s64 = ctx.r11.s64 + 13840;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614772752,
+      "auxiliary": 18446744071614758912,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82389B78",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.10.cpp",
+      "line": 18970,
+      "instruction_sequence": [
+        "lis r11,-31955",
+        "addi r11,r11,-24352",
+        "addi r3,r11,8",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094202880;",
+        "ctx.r11.s64 = ctx.r11.s64 + -24352;",
+        "ctx.r3.s64 = ctx.r11.s64 + 8;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615324392,
+      "auxiliary": 18446744071615324384,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "823C93A8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.12.cpp",
+      "line": 49867,
+      "instruction_sequence": [
+        "lis r11,-31953",
+        "addi r3,r11,-13460",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094071808;",
+        "ctx.r3.s64 = ctx.r11.s64 + -13460;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615466348,
+      "auxiliary": 18446744071615479808,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "823CB2B0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.12.cpp",
+      "line": 54527,
+      "instruction_sequence": [
+        "addi r3,r3,96",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 96;"
+      ],
+      "family": "OffsetR3",
+      "value": 96,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "823CB8A8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.12.cpp",
+      "line": 55413,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-14032",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -14032;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615990064,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "823D7788",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.13.cpp",
+      "line": 21350,
+      "instruction_sequence": [
+        "lis r11,-31964",
+        "addi r3,r11,29216",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094792704;",
+        "ctx.r3.s64 = ctx.r11.s64 + 29216;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614788128,
+      "auxiliary": 18446744071614758912,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "823DAF70",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.13.cpp",
+      "line": 29667,
+      "instruction_sequence": [
+        "mulli r11,r4,88",
+        "add r11,r11,r3",
+        "addi r3,r11,448",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = ctx.r4.s64 * 88;",
+        "ctx.r11.u64 = ctx.r11.u64 + ctx.r3.u64;",
+        "ctx.r3.s64 = ctx.r11.s64 + 448;"
+      ],
+      "family": "ScaledIndex88",
+      "value": 448,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "823E0208",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.13.cpp",
+      "line": 41827,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-13760",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -13760;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615990336,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "823E1FE0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.13.cpp",
+      "line": 46310,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-13808",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -13808;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615990288,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "823F3810",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.15.cpp",
+      "line": 178,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-11992",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -11992;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615992104,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "823F3970",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.15.cpp",
+      "line": 404,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-13400",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -13400;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615990696,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824120F0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp",
+      "line": 20783,
+      "instruction_sequence": [
+        "lis r11,-32231",
+        "addi r3,r11,5292",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112290816;",
+        "ctx.r3.s64 = ctx.r11.s64 + 5292;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597266092,
+      "auxiliary": 18446744071597260800,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82419480",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.16.cpp",
+      "line": 37863,
+      "instruction_sequence": [
+        "addi r3,r3,-240",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + -240;"
+      ],
+      "family": "OffsetR3",
+      "value": 18446744073709551376,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824800A0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.23.cpp",
+      "line": 35298,
+      "instruction_sequence": [
+        "lis r11,-31951",
+        "addi r3,r11,24576",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093940736;",
+        "ctx.r3.s64 = ctx.r11.s64 + 24576;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615635456,
+      "auxiliary": 18446744071615610880,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82485AE0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.24.cpp",
+      "line": 4764,
+      "instruction_sequence": [
+        "lis r11,-32229",
+        "addi r3,r11,-29036",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112159744;",
+        "ctx.r3.s64 = ctx.r11.s64 + -29036;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597362836,
+      "auxiliary": 18446744071597391872,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82485C08",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.24.cpp",
+      "line": 4958,
+      "instruction_sequence": [
+        "lis r11,-32229",
+        "addi r3,r11,-29008",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112159744;",
+        "ctx.r3.s64 = ctx.r11.s64 + -29008;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597362864,
+      "auxiliary": 18446744071597391872,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82486BF8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.24.cpp",
+      "line": 7309,
+      "instruction_sequence": [
+        "lis r11,-32229",
+        "addi r3,r11,-27444",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112159744;",
+        "ctx.r3.s64 = ctx.r11.s64 + -27444;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597364428,
+      "auxiliary": 18446744071597391872,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82498F30",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.25.cpp",
+      "line": 14816,
+      "instruction_sequence": [
+        "li r3,0",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 0;"
+      ],
+      "family": "Constant",
+      "value": 0,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8249B780",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.25.cpp",
+      "line": 20706,
+      "instruction_sequence": [
+        "lis r11,-32229",
+        "addi r3,r11,-22148",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112159744;",
+        "ctx.r3.s64 = ctx.r11.s64 + -22148;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597369724,
+      "auxiliary": 18446744071597391872,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8249B790",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.25.cpp",
+      "line": 20720,
+      "instruction_sequence": [
+        "lis r11,-32229",
+        "addi r3,r11,-22176",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112159744;",
+        "ctx.r3.s64 = ctx.r11.s64 + -22176;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597369696,
+      "auxiliary": 18446744071597391872,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B2020",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.26.cpp",
+      "line": 40168,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-21700",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -21700;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615982396,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B2138",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 174,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-21692",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -21692;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615982404,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B21F0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 304,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-21684",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -21684;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615982412,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B2258",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 373,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-21676",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -21676;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615982420,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B22D0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 460,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-21668",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -21668;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615982428,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B23F8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 653,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-21660",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -21660;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615982436,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B24F8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 822,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-21652",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -21652;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615982444,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B2678",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 1066,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-21644",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -21644;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615982452,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B2740",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 1213,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-21636",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -21636;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615982460,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B2840",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 1385,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-21628",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -21628;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615982468,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B2900",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 1511,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-21620",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -21620;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615982476,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B2A08",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 1683,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-21612",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -21612;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615982484,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B2A78",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 1756,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-21604",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -21604;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615982492,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B2BB0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 1958,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-21596",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -21596;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615982500,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B2DB0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 2285,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-21588",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -21588;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615982508,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B2F08",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 2515,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-21580",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -21580;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615982516,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B3178",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 2904,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-21572",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -21572;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615982524,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B32F8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 3144,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-21564",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -21564;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615982532,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B3488",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 3401,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-21556",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -21556;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615982540,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B3578",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 3557,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-21548",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -21548;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615982548,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B5124",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 7486,
+      "instruction_sequence": [
+        "lis r11,-32229",
+        "addi r3,r11,-16216",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112159744;",
+        "ctx.r3.s64 = ctx.r11.s64 + -16216;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597375656,
+      "auxiliary": 18446744071597391872,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B5130",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 7500,
+      "instruction_sequence": [
+        "lis r11,-32229",
+        "addi r3,r11,-16200",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112159744;",
+        "ctx.r3.s64 = ctx.r11.s64 + -16200;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597375672,
+      "auxiliary": 18446744071597391872,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B513C",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 7514,
+      "instruction_sequence": [
+        "lis r11,-32229",
+        "addi r3,r11,-16184",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112159744;",
+        "ctx.r3.s64 = ctx.r11.s64 + -16184;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597375688,
+      "auxiliary": 18446744071597391872,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B5148",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 7528,
+      "instruction_sequence": [
+        "lis r11,-32229",
+        "addi r3,r11,-16168",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112159744;",
+        "ctx.r3.s64 = ctx.r11.s64 + -16168;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597375704,
+      "auxiliary": 18446744071597391872,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B5154",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 7542,
+      "instruction_sequence": [
+        "lis r11,-32229",
+        "addi r3,r11,-16156",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112159744;",
+        "ctx.r3.s64 = ctx.r11.s64 + -16156;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597375716,
+      "auxiliary": 18446744071597391872,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B5160",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 7556,
+      "instruction_sequence": [
+        "lis r11,-32229",
+        "addi r3,r11,-16136",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112159744;",
+        "ctx.r3.s64 = ctx.r11.s64 + -16136;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597375736,
+      "auxiliary": 18446744071597391872,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824B516C",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.27.cpp",
+      "line": 7570,
+      "instruction_sequence": [
+        "lis r11,-32229",
+        "addi r3,r11,-16112",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112159744;",
+        "ctx.r3.s64 = ctx.r11.s64 + -16112;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597375760,
+      "auxiliary": 18446744071597391872,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824C1520",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.28.cpp",
+      "line": 2199,
+      "instruction_sequence": [
+        "lis r11,-32229",
+        "addi r3,r11,-11136",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112159744;",
+        "ctx.r3.s64 = ctx.r11.s64 + -11136;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597380736,
+      "auxiliary": 18446744071597391872,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824C1610",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.28.cpp",
+      "line": 2350,
+      "instruction_sequence": [
+        "lis r11,-32229",
+        "addi r3,r11,-11112",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112159744;",
+        "ctx.r3.s64 = ctx.r11.s64 + -11112;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597380760,
+      "auxiliary": 18446744071597391872,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824C1718",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.28.cpp",
+      "line": 2513,
+      "instruction_sequence": [
+        "lis r11,-32229",
+        "addi r3,r11,-11084",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112159744;",
+        "ctx.r3.s64 = ctx.r11.s64 + -11084;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597380788,
+      "auxiliary": 18446744071597391872,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824D4E70",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.29.cpp",
+      "line": 18946,
+      "instruction_sequence": [
+        "subf r11,r5,r3",
+        "cntlzw r11,r11",
+        "rlwinm r3,r11,27,31,31",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = ctx.r3.s64 - ctx.r5.s64;",
+        "ctx.r11.u64 = ctx.r11.u32 == 0 ? 32 : __builtin_clz(ctx.r11.u32);",
+        "ctx.r3.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 27) & 0x1;"
+      ],
+      "family": "EqualR3R5Low32",
+      "value": 0,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824D9250",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.30.cpp",
+      "line": 354,
+      "instruction_sequence": [
+        "lis r11,-32231",
+        "addi r3,r11,-20552",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112290816;",
+        "ctx.r3.s64 = ctx.r11.s64 + -20552;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597240248,
+      "auxiliary": 18446744071597260800,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824E1AC0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.30.cpp",
+      "line": 21168,
+      "instruction_sequence": [
+        "cntlzw r11,r3",
+        "rlwinm r3,r11,27,31,31",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.u64 = ctx.r3.u32 == 0 ? 32 : __builtin_clz(ctx.r3.u32);",
+        "ctx.r3.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 27) & 0x1;"
+      ],
+      "family": "ZeroR3Low32",
+      "value": 0,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824FD308",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.32.cpp",
+      "line": 38344,
+      "instruction_sequence": [
+        "addi r3,r3,152",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 152;"
+      ],
+      "family": "OffsetR3",
+      "value": 152,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824FD310",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.32.cpp",
+      "line": 38356,
+      "instruction_sequence": [
+        "addi r3,r3,156",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 156;"
+      ],
+      "family": "OffsetR3",
+      "value": 156,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824FD318",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.32.cpp",
+      "line": 38368,
+      "instruction_sequence": [
+        "addi r3,r3,160",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 160;"
+      ],
+      "family": "OffsetR3",
+      "value": 160,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "824FD320",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.32.cpp",
+      "line": 38380,
+      "instruction_sequence": [
+        "addi r3,r3,164",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 164;"
+      ],
+      "family": "OffsetR3",
+      "value": 164,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82521C00",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.34.cpp",
+      "line": 21424,
+      "instruction_sequence": [
+        "subf r11,r3,r4",
+        "cntlzw r11,r11",
+        "rlwinm r3,r11,27,31,31",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = ctx.r4.s64 - ctx.r3.s64;",
+        "ctx.r11.u64 = ctx.r11.u32 == 0 ? 32 : __builtin_clz(ctx.r11.u32);",
+        "ctx.r3.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 27) & 0x1;"
+      ],
+      "family": "EqualR4R3Low32",
+      "value": 0,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8255C540",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.36.cpp",
+      "line": 39856,
+      "instruction_sequence": [
+        "li r3,1007",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 1007;"
+      ],
+      "family": "Constant",
+      "value": 1007,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82582938",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.39.cpp",
+      "line": 23844,
+      "instruction_sequence": [
+        "addi r3,r3,-64",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + -64;"
+      ],
+      "family": "OffsetR3",
+      "value": 18446744073709551552,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825929F0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.40.cpp",
+      "line": 21334,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-15600",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -15600;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615988496,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825945C0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.40.cpp",
+      "line": 25506,
+      "instruction_sequence": [
+        "lis r11,-32227",
+        "addi r3,r11,12544",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112028672;",
+        "ctx.r3.s64 = ctx.r11.s64 + 12544;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597535488,
+      "auxiliary": 18446744071597522944,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82594E98",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.40.cpp",
+      "line": 26844,
+      "instruction_sequence": [
+        "lis r11,-32227",
+        "addi r3,r11,12572",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112028672;",
+        "ctx.r3.s64 = ctx.r11.s64 + 12572;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597535516,
+      "auxiliary": 18446744071597522944,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825A08E8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.41.cpp",
+      "line": 15336,
+      "instruction_sequence": [
+        "lis r11,-32227",
+        "addi r3,r11,17632",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112028672;",
+        "ctx.r3.s64 = ctx.r11.s64 + 17632;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597540576,
+      "auxiliary": 18446744071597522944,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825A0A10",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.41.cpp",
+      "line": 15525,
+      "instruction_sequence": [
+        "lis r11,-32227",
+        "addi r3,r11,17700",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112028672;",
+        "ctx.r3.s64 = ctx.r11.s64 + 17700;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597540644,
+      "auxiliary": 18446744071597522944,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825A0B80",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.41.cpp",
+      "line": 15762,
+      "instruction_sequence": [
+        "lis r11,-32227",
+        "addi r3,r11,17832",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112028672;",
+        "ctx.r3.s64 = ctx.r11.s64 + 17832;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597540776,
+      "auxiliary": 18446744071597522944,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825A0EC0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.41.cpp",
+      "line": 16257,
+      "instruction_sequence": [
+        "lis r11,-32227",
+        "addi r3,r11,17984",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112028672;",
+        "ctx.r3.s64 = ctx.r11.s64 + 17984;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597540928,
+      "auxiliary": 18446744071597522944,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825A9968",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.42.cpp",
+      "line": 16685,
+      "instruction_sequence": [
+        "lis r11,-32226",
+        "addi r3,r11,-23916",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111963136;",
+        "ctx.r3.s64 = ctx.r11.s64 + -23916;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597564564,
+      "auxiliary": 18446744071597588480,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825A9A78",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.42.cpp",
+      "line": 16859,
+      "instruction_sequence": [
+        "lis r11,-32226",
+        "addi r3,r11,-23868",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111963136;",
+        "ctx.r3.s64 = ctx.r11.s64 + -23868;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597564612,
+      "auxiliary": 18446744071597588480,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825A9B48",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.42.cpp",
+      "line": 16987,
+      "instruction_sequence": [
+        "lis r11,-32226",
+        "addi r3,r11,-23816",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111963136;",
+        "ctx.r3.s64 = ctx.r11.s64 + -23816;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597564664,
+      "auxiliary": 18446744071597588480,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825AFD30",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.42.cpp",
+      "line": 31681,
+      "instruction_sequence": [
+        "lis r11,-32226",
+        "addi r3,r11,-23044",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111963136;",
+        "ctx.r3.s64 = ctx.r11.s64 + -23044;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597565436,
+      "auxiliary": 18446744071597588480,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825AFD40",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.42.cpp",
+      "line": 31695,
+      "instruction_sequence": [
+        "lis r11,-32226",
+        "addi r3,r11,-23000",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111963136;",
+        "ctx.r3.s64 = ctx.r11.s64 + -23000;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597565480,
+      "auxiliary": 18446744071597588480,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825AFD98",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.42.cpp",
+      "line": 31758,
+      "instruction_sequence": [
+        "lis r11,-32226",
+        "addi r3,r11,-22952",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111963136;",
+        "ctx.r3.s64 = ctx.r11.s64 + -22952;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597565528,
+      "auxiliary": 18446744071597588480,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825B0100",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.42.cpp",
+      "line": 32274,
+      "instruction_sequence": [
+        "lis r11,-32226",
+        "addi r3,r11,-22904",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111963136;",
+        "ctx.r3.s64 = ctx.r11.s64 + -22904;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597565576,
+      "auxiliary": 18446744071597588480,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825B0380",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.43.cpp",
+      "line": 3,
+      "instruction_sequence": [
+        "lis r11,-32226",
+        "addi r3,r11,-22868",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111963136;",
+        "ctx.r3.s64 = ctx.r11.s64 + -22868;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597565612,
+      "auxiliary": 18446744071597588480,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825B04F8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.43.cpp",
+      "line": 232,
+      "instruction_sequence": [
+        "lis r11,-32226",
+        "addi r3,r11,-22828",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111963136;",
+        "ctx.r3.s64 = ctx.r11.s64 + -22828;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597565652,
+      "auxiliary": 18446744071597588480,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825B07E0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.43.cpp",
+      "line": 688,
+      "instruction_sequence": [
+        "lis r11,-32226",
+        "addi r3,r11,-22796",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111963136;",
+        "ctx.r3.s64 = ctx.r11.s64 + -22796;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597565684,
+      "auxiliary": 18446744071597588480,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825B09C0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.43.cpp",
+      "line": 978,
+      "instruction_sequence": [
+        "lis r11,-32226",
+        "addi r3,r11,-22744",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111963136;",
+        "ctx.r3.s64 = ctx.r11.s64 + -22744;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597565736,
+      "auxiliary": 18446744071597588480,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825B0B00",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.43.cpp",
+      "line": 1179,
+      "instruction_sequence": [
+        "lis r11,-32226",
+        "addi r3,r11,-22696",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111963136;",
+        "ctx.r3.s64 = ctx.r11.s64 + -22696;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597565784,
+      "auxiliary": 18446744071597588480,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825B0C50",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.43.cpp",
+      "line": 1386,
+      "instruction_sequence": [
+        "lis r11,-32226",
+        "addi r3,r11,-22652",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111963136;",
+        "ctx.r3.s64 = ctx.r11.s64 + -22652;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597565828,
+      "auxiliary": 18446744071597588480,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825B2AF0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.43.cpp",
+      "line": 6026,
+      "instruction_sequence": [
+        "lis r11,-32226",
+        "addi r3,r11,-22252",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111963136;",
+        "ctx.r3.s64 = ctx.r11.s64 + -22252;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597566228,
+      "auxiliary": 18446744071597588480,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825B2BF0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.43.cpp",
+      "line": 6177,
+      "instruction_sequence": [
+        "lis r11,-32226",
+        "addi r3,r11,-22216",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111963136;",
+        "ctx.r3.s64 = ctx.r11.s64 + -22216;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597566264,
+      "auxiliary": 18446744071597588480,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825D2FA0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
+      "line": 1645,
+      "instruction_sequence": [
+        "lis r3,152",
+        "ori r3,r3,38528",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 9961472;",
+        "ctx.r3.u64 = ctx.r3.u64 | 38528;"
+      ],
+      "family": "Constant",
+      "value": 10000000,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825D32B8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
+      "line": 2127,
+      "instruction_sequence": [
+        "mr r3,r7",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.u64 = ctx.r7.u64;"
+      ],
+      "family": "CopyR7",
+      "value": 0,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825D9C18",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
+      "line": 17635,
+      "instruction_sequence": [
+        "lis r11,-32226",
+        "addi r3,r11,-12688",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111963136;",
+        "ctx.r3.s64 = ctx.r11.s64 + -12688;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597575792,
+      "auxiliary": 18446744071597588480,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825D9C58",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
+      "line": 17685,
+      "instruction_sequence": [
+        "lis r11,-32226",
+        "addi r3,r11,-12652",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111963136;",
+        "ctx.r3.s64 = ctx.r11.s64 + -12652;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597575828,
+      "auxiliary": 18446744071597588480,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825DC428",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
+      "line": 23732,
+      "instruction_sequence": [
+        "lis r11,-32226",
+        "addi r3,r11,-12192",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111963136;",
+        "ctx.r3.s64 = ctx.r11.s64 + -12192;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597576288,
+      "auxiliary": 18446744071597588480,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825DC638",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.45.cpp",
+      "line": 24058,
+      "instruction_sequence": [
+        "lis r11,-32226",
+        "addi r3,r11,-12152",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111963136;",
+        "ctx.r3.s64 = ctx.r11.s64 + -12152;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597576328,
+      "auxiliary": 18446744071597588480,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825EDB48",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.46.cpp",
+      "line": 25190,
+      "instruction_sequence": [
+        "mr r3,r4",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.u64 = ctx.r4.u64;"
+      ],
+      "family": "CopyR4",
+      "value": 0,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "825F3798",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.47.cpp",
+      "line": 4528,
+      "instruction_sequence": [
+        "li r3,2",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 2;"
+      ],
+      "family": "Constant",
+      "value": 2,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826293C8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.50.cpp",
+      "line": 42889,
+      "instruction_sequence": [
+        "li r3,20",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 20;"
+      ],
+      "family": "Constant",
+      "value": 20,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8262C5F8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.50.cpp",
+      "line": 50746,
+      "instruction_sequence": [
+        "lis r11,-31964",
+        "addi r3,r11,13888",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094792704;",
+        "ctx.r3.s64 = ctx.r11.s64 + 13888;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614772800,
+      "auxiliary": 18446744071614758912,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82631B10",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.51.cpp",
+      "line": 2328,
+      "instruction_sequence": [
+        "addi r3,r3,-656",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + -656;"
+      ],
+      "family": "OffsetR3",
+      "value": 18446744073709550960,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8264E488",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.53.cpp",
+      "line": 1650,
+      "instruction_sequence": [
+        "addi r3,r3,-60",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + -60;"
+      ],
+      "family": "OffsetR3",
+      "value": 18446744073709551556,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82656DE0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.53.cpp",
+      "line": 23022,
+      "instruction_sequence": [
+        "addi r3,r3,-88",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + -88;"
+      ],
+      "family": "OffsetR3",
+      "value": 18446744073709551528,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82656DE8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.53.cpp",
+      "line": 23034,
+      "instruction_sequence": [
+        "addi r3,r3,-92",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + -92;"
+      ],
+      "family": "OffsetR3",
+      "value": 18446744073709551524,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82657970",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.53.cpp",
+      "line": 24985,
+      "instruction_sequence": [
+        "addi r3,r3,-120",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + -120;"
+      ],
+      "family": "OffsetR3",
+      "value": 18446744073709551496,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82657978",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.53.cpp",
+      "line": 24997,
+      "instruction_sequence": [
+        "addi r3,r3,-124",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + -124;"
+      ],
+      "family": "OffsetR3",
+      "value": 18446744073709551492,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826587D0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.54.cpp",
+      "line": 2240,
+      "instruction_sequence": [
+        "addi r3,r3,-100",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + -100;"
+      ],
+      "family": "OffsetR3",
+      "value": 18446744073709551516,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8266BB80",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.55.cpp",
+      "line": 16196,
+      "instruction_sequence": [
+        "addi r3,r3,56",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 56;"
+      ],
+      "family": "OffsetR3",
+      "value": 56,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82681590",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.57.cpp",
+      "line": 6646,
+      "instruction_sequence": [
+        "lis r11,-32231",
+        "addi r3,r11,-25396",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112290816;",
+        "ctx.r3.s64 = ctx.r11.s64 + -25396;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597235404,
+      "auxiliary": 18446744071597260800,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8269CB60",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.59.cpp",
+      "line": 12464,
+      "instruction_sequence": [
+        "addi r3,r3,-608",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + -608;"
+      ],
+      "family": "OffsetR3",
+      "value": 18446744073709551008,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8269CB68",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.59.cpp",
+      "line": 12476,
+      "instruction_sequence": [
+        "addi r3,r3,-612",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + -612;"
+      ],
+      "family": "OffsetR3",
+      "value": 18446744073709551004,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826A0CD0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.59.cpp",
+      "line": 22385,
+      "instruction_sequence": [
+        "addi r3,r3,-112",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + -112;"
+      ],
+      "family": "OffsetR3",
+      "value": 18446744073709551504,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826A0D80",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.59.cpp",
+      "line": 22501,
+      "instruction_sequence": [
+        "addi r3,r3,-108",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + -108;"
+      ],
+      "family": "OffsetR3",
+      "value": 18446744073709551508,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826AF218",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.60.cpp",
+      "line": 19156,
+      "instruction_sequence": [
+        "lis r11,-32224",
+        "addi r3,r11,-4420",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111832064;",
+        "ctx.r3.s64 = ctx.r11.s64 + -4420;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597715132,
+      "auxiliary": 18446744071597719552,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826B5F48",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.60.cpp",
+      "line": 35532,
+      "instruction_sequence": [
+        "li r3,32",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 32;"
+      ],
+      "family": "Constant",
+      "value": 32,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826BE700",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.61.cpp",
+      "line": 13465,
+      "instruction_sequence": [
+        "li r3,1009",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 1009;"
+      ],
+      "family": "Constant",
+      "value": 1009,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826C02B8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.61.cpp",
+      "line": 17706,
+      "instruction_sequence": [
+        "addi r3,r3,-148",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + -148;"
+      ],
+      "family": "OffsetR3",
+      "value": 18446744073709551468,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826C3478",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.61.cpp",
+      "line": 25103,
+      "instruction_sequence": [
+        "rlwinm r3,r6,0,18,18",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.u64 = __builtin_rotateleft64(ctx.r6.u32 | (ctx.r6.u64 << 32), 0) & 0x2000;"
+      ],
+      "family": "MaskR6Bit13",
+      "value": 0,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826D6C00",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.62.cpp",
+      "line": 10577,
+      "instruction_sequence": [
+        "lis r11,-32224",
+        "addi r3,r11,9704",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111832064;",
+        "ctx.r3.s64 = ctx.r11.s64 + 9704;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597729256,
+      "auxiliary": 18446744071597719552,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826D8638",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.62.cpp",
+      "line": 14618,
+      "instruction_sequence": [
+        "li r3,252",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 252;"
+      ],
+      "family": "Constant",
+      "value": 252,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826DCDF8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.62.cpp",
+      "line": 25254,
+      "instruction_sequence": [
+        "li r3,40",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 40;"
+      ],
+      "family": "Constant",
+      "value": 40,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826DCE18",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.62.cpp",
+      "line": 25303,
+      "instruction_sequence": [
+        "li r3,48",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 48;"
+      ],
+      "family": "Constant",
+      "value": 48,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826DCE40",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.62.cpp",
+      "line": 25346,
+      "instruction_sequence": [
+        "li r3,56",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 56;"
+      ],
+      "family": "Constant",
+      "value": 56,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826DCE60",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.62.cpp",
+      "line": 25385,
+      "instruction_sequence": [
+        "li r3,64",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 64;"
+      ],
+      "family": "Constant",
+      "value": 64,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826DEE00",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.62.cpp",
+      "line": 30141,
+      "instruction_sequence": [
+        "addi r3,r3,8",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 8;"
+      ],
+      "family": "OffsetR3",
+      "value": 8,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826E0718",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.63.cpp",
+      "line": 3,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-15556",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -15556;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615988540,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826E8548",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.63.cpp",
+      "line": 19645,
+      "instruction_sequence": [
+        "li r3,3",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 3;"
+      ],
+      "family": "Constant",
+      "value": 3,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826ECA30",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.63.cpp",
+      "line": 30314,
+      "instruction_sequence": [
+        "mulli r11,r4,88",
+        "add r11,r11,r3",
+        "addi r3,r11,464",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = ctx.r4.s64 * 88;",
+        "ctx.r11.u64 = ctx.r11.u64 + ctx.r3.u64;",
+        "ctx.r3.s64 = ctx.r11.s64 + 464;"
+      ],
+      "family": "ScaledIndex88",
+      "value": 464,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826ECA90",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.63.cpp",
+      "line": 30401,
+      "instruction_sequence": [
+        "addi r3,r3,364",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 364;"
+      ],
+      "family": "OffsetR3",
+      "value": 364,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826F6850",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.64.cpp",
+      "line": 17559,
+      "instruction_sequence": [
+        "li r3,36",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 36;"
+      ],
+      "family": "Constant",
+      "value": 36,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826F7670",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.64.cpp",
+      "line": 19754,
+      "instruction_sequence": [
+        "lis r11,-32224",
+        "addi r3,r11,29252",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111832064;",
+        "ctx.r3.s64 = ctx.r11.s64 + 29252;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597748804,
+      "auxiliary": 18446744071597719552,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "826F7778",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.64.cpp",
+      "line": 19907,
+      "instruction_sequence": [
+        "li r3,16",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 16;"
+      ],
+      "family": "Constant",
+      "value": 16,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8270AE90",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.66.cpp",
+      "line": 8339,
+      "instruction_sequence": [
+        "lis r11,-32223",
+        "addi r3,r11,-20560",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111766528;",
+        "ctx.r3.s64 = ctx.r11.s64 + -20560;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597764528,
+      "auxiliary": 18446744071597785088,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8270B4F0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.66.cpp",
+      "line": 9244,
+      "instruction_sequence": [
+        "lis r11,-32223",
+        "addi r3,r11,-20472",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111766528;",
+        "ctx.r3.s64 = ctx.r11.s64 + -20472;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597764616,
+      "auxiliary": 18446744071597785088,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8270B538",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.66.cpp",
+      "line": 9296,
+      "instruction_sequence": [
+        "lis r11,-32223",
+        "addi r3,r11,-20432",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111766528;",
+        "ctx.r3.s64 = ctx.r11.s64 + -20432;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597764656,
+      "auxiliary": 18446744071597785088,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82713428",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.66.cpp",
+      "line": 28576,
+      "instruction_sequence": [
+        "lis r11,-32231",
+        "addi r3,r11,-24100",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112290816;",
+        "ctx.r3.s64 = ctx.r11.s64 + -24100;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597236700,
+      "auxiliary": 18446744071597260800,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8271E1D8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.67.cpp",
+      "line": 13918,
+      "instruction_sequence": [
+        "lis r11,-32223",
+        "addi r3,r11,-7428",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111766528;",
+        "ctx.r3.s64 = ctx.r11.s64 + -7428;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597777660,
+      "auxiliary": 18446744071597785088,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8272CE50",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.68.cpp",
+      "line": 12495,
+      "instruction_sequence": [
+        "lis r11,-32231",
+        "addi r3,r11,-15844",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112290816;",
+        "ctx.r3.s64 = ctx.r11.s64 + -15844;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597244956,
+      "auxiliary": 18446744071597260800,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82736960",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.68.cpp",
+      "line": 35876,
+      "instruction_sequence": [
+        "li r3,9",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 9;"
+      ],
+      "family": "Constant",
+      "value": 9,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82746C68",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.69.cpp",
+      "line": 38965,
+      "instruction_sequence": [
+        "lis r11,-32229",
+        "addi r3,r11,-31792",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112159744;",
+        "ctx.r3.s64 = ctx.r11.s64 + -31792;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597360080,
+      "auxiliary": 18446744071597391872,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "827494D0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.69.cpp",
+      "line": 45129,
+      "instruction_sequence": [
+        "lis r11,-32223",
+        "addi r3,r11,10524",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111766528;",
+        "ctx.r3.s64 = ctx.r11.s64 + 10524;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597795612,
+      "auxiliary": 18446744071597785088,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8274AA48",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.69.cpp",
+      "line": 48236,
+      "instruction_sequence": [
+        "lis r11,-32229",
+        "addi r3,r11,-12084",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112159744;",
+        "ctx.r3.s64 = ctx.r11.s64 + -12084;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597379788,
+      "auxiliary": 18446744071597391872,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "827551C0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.70.cpp",
+      "line": 7821,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-13944",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -13944;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615990152,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "827551D0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.70.cpp",
+      "line": 7835,
+      "instruction_sequence": [
+        "addi r3,r3,-272",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + -272;"
+      ],
+      "family": "OffsetR3",
+      "value": 18446744073709551344,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82755A08",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.70.cpp",
+      "line": 9128,
+      "instruction_sequence": [
+        "lis r11,-32223",
+        "addi r3,r11,13112",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111766528;",
+        "ctx.r3.s64 = ctx.r11.s64 + 13112;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597798200,
+      "auxiliary": 18446744071597785088,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82757468",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.70.cpp",
+      "line": 13070,
+      "instruction_sequence": [
+        "lis r11,-32225",
+        "addi r3,r11,-30480",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111897600;",
+        "ctx.r3.s64 = ctx.r11.s64 + -30480;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597623536,
+      "auxiliary": 18446744071597654016,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8275CF38",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.70.cpp",
+      "line": 26787,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-13856",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -13856;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615990240,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8275CF48",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.70.cpp",
+      "line": 26801,
+      "instruction_sequence": [
+        "addi r3,r3,-256",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + -256;"
+      ],
+      "family": "OffsetR3",
+      "value": 18446744073709551360,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82760460",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.70.cpp",
+      "line": 34674,
+      "instruction_sequence": [
+        "lis r11,-32223",
+        "addi r3,r11,13996",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111766528;",
+        "ctx.r3.s64 = ctx.r11.s64 + 13996;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597799084,
+      "auxiliary": 18446744071597785088,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "827610F0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.70.cpp",
+      "line": 36572,
+      "instruction_sequence": [
+        "addi r11,r3,-3",
+        "cntlzw r11,r11",
+        "rlwinm r3,r11,27,31,31",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = ctx.r3.s64 + -3;",
+        "ctx.r11.u64 = ctx.r11.u32 == 0 ? 32 : __builtin_clz(ctx.r11.u32);",
+        "ctx.r3.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 27) & 0x1;"
+      ],
+      "family": "EqualR3ConstantLow32",
+      "value": 18446744073709551613,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82777ED0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.71.cpp",
+      "line": 44846,
+      "instruction_sequence": [
+        "lis r11,-32223",
+        "addi r3,r11,19580",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111766528;",
+        "ctx.r3.s64 = ctx.r11.s64 + 19580;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597804668,
+      "auxiliary": 18446744071597785088,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82778798",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.71.cpp",
+      "line": 46247,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-13712",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -13712;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615990384,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82782340",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.71.cpp",
+      "line": 69237,
+      "instruction_sequence": [
+        "lis r11,-31964",
+        "addi r3,r11,13880",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094792704;",
+        "ctx.r3.s64 = ctx.r11.s64 + 13880;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614772792,
+      "auxiliary": 18446744071614758912,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82782408",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.71.cpp",
+      "line": 69357,
+      "instruction_sequence": [
+        "lis r11,-31964",
+        "addi r3,r11,13872",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094792704;",
+        "ctx.r3.s64 = ctx.r11.s64 + 13872;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614772784,
+      "auxiliary": 18446744071614758912,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82782468",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.71.cpp",
+      "line": 69419,
+      "instruction_sequence": [
+        "lis r11,-31964",
+        "addi r3,r11,13864",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094792704;",
+        "ctx.r3.s64 = ctx.r11.s64 + 13864;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614772776,
+      "auxiliary": 18446744071614758912,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82794508",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.72.cpp",
+      "line": 21338,
+      "instruction_sequence": [
+        "lis r11,-32223",
+        "addi r3,r11,21448",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111766528;",
+        "ctx.r3.s64 = ctx.r11.s64 + 21448;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597806536,
+      "auxiliary": 18446744071597785088,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82796AA0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.72.cpp",
+      "line": 26951,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-13448",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -13448;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615990648,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82796AB0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.72.cpp",
+      "line": 26965,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-13492",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -13492;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615990604,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82796AC0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.72.cpp",
+      "line": 26979,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-13536",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -13536;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615990560,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82796AD0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.72.cpp",
+      "line": 26993,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-13580",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -13580;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615990516,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82796AE0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.72.cpp",
+      "line": 27007,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-13624",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -13624;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615990472,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82796B30",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.72.cpp",
+      "line": 27074,
+      "instruction_sequence": [
+        "lis r11,-31945",
+        "addi r3,r11,-13668",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2093547520;",
+        "ctx.r3.s64 = ctx.r11.s64 + -13668;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615990428,
+      "auxiliary": 18446744071616004096,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82799BB8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.72.cpp",
+      "line": 34239,
+      "instruction_sequence": [
+        "li r3,1008",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 1008;"
+      ],
+      "family": "Constant",
+      "value": 1008,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "827C57A8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.75.cpp",
+      "line": 9992,
+      "instruction_sequence": [
+        "lis r11,-32254",
+        "addi r3,r11,-88",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2113798144;",
+        "ctx.r3.s64 = ctx.r11.s64 + -88;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071595753384,
+      "auxiliary": 18446744071595753472,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "827CE740",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.76.cpp",
+      "line": 8026,
+      "instruction_sequence": [
+        "addi r11,r3,-2",
+        "cntlzw r11,r11",
+        "rlwinm r11,r11,27,31,31",
+        "xori r3,r11,1",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = ctx.r3.s64 + -2;",
+        "ctx.r11.u64 = ctx.r11.u32 == 0 ? 32 : __builtin_clz(ctx.r11.u32);",
+        "ctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 27) & 0x1;",
+        "ctx.r3.u64 = ctx.r11.u64 ^ 1;"
+      ],
+      "family": "NotEqualR3ConstantLow32",
+      "value": 18446744073709551614,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "827CE758",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.76.cpp",
+      "line": 8044,
+      "instruction_sequence": [
+        "addi r11,r3,-3",
+        "cntlzw r11,r11",
+        "rlwinm r11,r11,27,31,31",
+        "xori r3,r11,1",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = ctx.r3.s64 + -3;",
+        "ctx.r11.u64 = ctx.r11.u32 == 0 ? 32 : __builtin_clz(ctx.r11.u32);",
+        "ctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 27) & 0x1;",
+        "ctx.r3.u64 = ctx.r11.u64 ^ 1;"
+      ],
+      "family": "NotEqualR3ConstantLow32",
+      "value": 18446744073709551613,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "827D8318",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.77.cpp",
+      "line": 13819,
+      "instruction_sequence": [
+        "lis r11,-32254",
+        "addi r3,r11,26804",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2113798144;",
+        "ctx.r3.s64 = ctx.r11.s64 + 26804;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071595780276,
+      "auxiliary": 18446744071595753472,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82806FB0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.84.cpp",
+      "line": 3899,
+      "instruction_sequence": [
+        "lis r11,-32253",
+        "addi r3,r11,22328",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2113732608;",
+        "ctx.r3.s64 = ctx.r11.s64 + 22328;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071595841336,
+      "auxiliary": 18446744071595819008,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "828138C0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.85.cpp",
+      "line": 10483,
+      "instruction_sequence": [
+        "lis r11,-32253",
+        "addi r3,r11,31600",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2113732608;",
+        "ctx.r3.s64 = ctx.r11.s64 + 31600;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071595850608,
+      "auxiliary": 18446744071595819008,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "828138D0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.85.cpp",
+      "line": 10497,
+      "instruction_sequence": [
+        "lis r11,-32253",
+        "addi r3,r11,31656",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2113732608;",
+        "ctx.r3.s64 = ctx.r11.s64 + 31656;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071595850664,
+      "auxiliary": 18446744071595819008,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "828138E0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.85.cpp",
+      "line": 10511,
+      "instruction_sequence": [
+        "lis r11,-32253",
+        "addi r3,r11,31712",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2113732608;",
+        "ctx.r3.s64 = ctx.r11.s64 + 31712;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071595850720,
+      "auxiliary": 18446744071595819008,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82813BA0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.85.cpp",
+      "line": 10945,
+      "instruction_sequence": [
+        "lis r11,-32253",
+        "addi r3,r11,31800",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2113732608;",
+        "ctx.r3.s64 = ctx.r11.s64 + 31800;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071595850808,
+      "auxiliary": 18446744071595819008,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82849380",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.92.cpp",
+      "line": 12308,
+      "instruction_sequence": [
+        "li r3,-1",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = -1;"
+      ],
+      "family": "Constant",
+      "value": 18446744073709551615,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8291C3E8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.115.cpp",
+      "line": 10554,
+      "instruction_sequence": [
+        "li r3,224",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 224;"
+      ],
+      "family": "Constant",
+      "value": 224,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8292BAD0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.116.cpp",
+      "line": 31743,
+      "instruction_sequence": [
+        "lis r11,-31969",
+        "addi r3,r11,-17088",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2095120384;",
+        "ctx.r3.s64 = ctx.r11.s64 + -17088;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614414144,
+      "auxiliary": 18446744071614431232,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82930020",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.117.cpp",
+      "line": 6168,
+      "instruction_sequence": [
+        "lis r11,-31969",
+        "addi r3,r11,-16932",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2095120384;",
+        "ctx.r3.s64 = ctx.r11.s64 + -16932;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614414300,
+      "auxiliary": 18446744071614431232,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82935568",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.117.cpp",
+      "line": 19177,
+      "instruction_sequence": [
+        "lis r11,-31969",
+        "addi r3,r11,-16624",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2095120384;",
+        "ctx.r3.s64 = ctx.r11.s64 + -16624;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614414608,
+      "auxiliary": 18446744071614431232,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "829370E8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.117.cpp",
+      "line": 23573,
+      "instruction_sequence": [
+        "li r3,28",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 28;"
+      ],
+      "family": "Constant",
+      "value": 28,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82938280",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.117.cpp",
+      "line": 26604,
+      "instruction_sequence": [
+        "li r3,160",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 160;"
+      ],
+      "family": "Constant",
+      "value": 160,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8293CD40",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.118.cpp",
+      "line": 11358,
+      "instruction_sequence": [
+        "li r3,8",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 8;"
+      ],
+      "family": "Constant",
+      "value": 8,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8293CD48",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.118.cpp",
+      "line": 11370,
+      "instruction_sequence": [
+        "li r3,4",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 4;"
+      ],
+      "family": "Constant",
+      "value": 4,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8293DF38",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.118.cpp",
+      "line": 14341,
+      "instruction_sequence": [
+        "li r3,24",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 24;"
+      ],
+      "family": "Constant",
+      "value": 24,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82940178",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.119.cpp",
+      "line": 244,
+      "instruction_sequence": [
+        "li r3,112",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 112;"
+      ],
+      "family": "Constant",
+      "value": 112,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82941FE0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.119.cpp",
+      "line": 5126,
+      "instruction_sequence": [
+        "li r3,5",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 5;"
+      ],
+      "family": "Constant",
+      "value": 5,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "829664E8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.124.cpp",
+      "line": 5199,
+      "instruction_sequence": [
+        "li r3,0",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 0;"
+      ],
+      "family": "Constant",
+      "value": 0,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": true
+    },
+    {
+      "address": "82972120",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.125.cpp",
+      "line": 18379,
+      "instruction_sequence": [
+        "lis r11,-32248",
+        "addi r3,r11,328",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2113404928;",
+        "ctx.r3.s64 = ctx.r11.s64 + 328;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071596147016,
+      "auxiliary": 18446744071596146688,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "829DAB98",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.137.cpp",
+      "line": 14095,
+      "instruction_sequence": [
+        "lis r11,-32231",
+        "addi r3,r11,-20552",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112290816;",
+        "ctx.r3.s64 = ctx.r11.s64 + -20552;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597240248,
+      "auxiliary": 18446744071597260800,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "829E5538",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.138.cpp",
+      "line": 4916,
+      "instruction_sequence": [
+        "li r3,0",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 0;"
+      ],
+      "family": "Constant",
+      "value": 0,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82A680C0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.149.cpp",
+      "line": 17406,
+      "instruction_sequence": [
+        "lis r11,-32245",
+        "addi r3,r11,-31408",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2113208320;",
+        "ctx.r3.s64 = ctx.r11.s64 + -31408;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071596311888,
+      "auxiliary": 18446744071596343296,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82A69018",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.149.cpp",
+      "line": 19825,
+      "instruction_sequence": [
+        "lis r11,-32245",
+        "addi r3,r11,-30452",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2113208320;",
+        "ctx.r3.s64 = ctx.r11.s64 + -30452;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071596312844,
+      "auxiliary": 18446744071596343296,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82AB0100",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.158.cpp",
+      "line": 6793,
+      "instruction_sequence": [
+        "lis r11,-31955",
+        "addi r11,r11,-24352",
+        "addi r3,r11,5232",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094202880;",
+        "ctx.r11.s64 = ctx.r11.s64 + -24352;",
+        "ctx.r3.s64 = ctx.r11.s64 + 5232;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615329616,
+      "auxiliary": 18446744071615324384,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82AF40C8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.163.cpp",
+      "line": 31570,
+      "instruction_sequence": [
+        "clrlwi r3,r4,24",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.u64 = ctx.r4.u32 & 0xFF;"
+      ],
+      "family": "LowByteR4",
+      "value": 0,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82B02E70",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.165.cpp",
+      "line": 2337,
+      "instruction_sequence": [
+        "mr r3,r10",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.u64 = ctx.r10.u64;"
+      ],
+      "family": "CopyR10",
+      "value": 0,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82B8B878",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "line": 29229,
+      "instruction_sequence": [
+        "li r3,1610",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 1610;"
+      ],
+      "family": "Constant",
+      "value": 1610,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82B8B880",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "line": 29241,
+      "instruction_sequence": [
+        "li r3,1000",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 1000;"
+      ],
+      "family": "Constant",
+      "value": 1000,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82B927D0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.177.cpp",
+      "line": 16968,
+      "instruction_sequence": [
+        "subf r11,r3,r4",
+        "cntlzw r11,r11",
+        "rlwinm r11,r11,27,31,31",
+        "clrlwi r3,r11,24",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = ctx.r4.s64 - ctx.r3.s64;",
+        "ctx.r11.u64 = ctx.r11.u32 == 0 ? 32 : __builtin_clz(ctx.r11.u32);",
+        "ctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 27) & 0x1;",
+        "ctx.r3.u64 = ctx.r11.u32 & 0xFF;"
+      ],
+      "family": "EqualR4R3Low32WithFlag",
+      "value": 0,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82B93A98",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.177.cpp",
+      "line": 19994,
+      "instruction_sequence": [
+        "addi r3,r3,8",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 8;"
+      ],
+      "family": "OffsetR3",
+      "value": 8,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82B93AA0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.177.cpp",
+      "line": 20006,
+      "instruction_sequence": [
+        "addi r3,r3,12",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 12;"
+      ],
+      "family": "OffsetR3",
+      "value": 12,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82B96250",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.178.cpp",
+      "line": 5665,
+      "instruction_sequence": [
+        "li r3,0",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 0;"
+      ],
+      "family": "Constant",
+      "value": 0,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82B970D0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.178.cpp",
+      "line": 8009,
+      "instruction_sequence": [
+        "addi r3,r3,36",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 36;"
+      ],
+      "family": "OffsetR3",
+      "value": 36,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82B9B4C8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.179.cpp",
+      "line": 1003,
+      "instruction_sequence": [
+        "li r3,8",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 8;"
+      ],
+      "family": "Constant",
+      "value": 8,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82B9B598",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.179.cpp",
+      "line": 1159,
+      "instruction_sequence": [
+        "li r3,20",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 20;"
+      ],
+      "family": "Constant",
+      "value": 20,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82B9CB60",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.179.cpp",
+      "line": 4689,
+      "instruction_sequence": [
+        "lis r11,-31954",
+        "addi r3,r11,-16000",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094137344;",
+        "ctx.r3.s64 = ctx.r11.s64 + -16000;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615398272,
+      "auxiliary": 18446744071615414272,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82BC5190",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.180.cpp",
+      "line": 39346,
+      "instruction_sequence": [
+        "addi r3,r3,-168",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + -168;"
+      ],
+      "family": "OffsetR3",
+      "value": 18446744073709551448,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82BDBEB0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.181.cpp",
+      "line": 30162,
+      "instruction_sequence": [
+        "cntlzw r11,r4",
+        "rlwinm r11,r11,27,31,31",
+        "xori r3,r11,1",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.u64 = ctx.r4.u32 == 0 ? 32 : __builtin_clz(ctx.r4.u32);",
+        "ctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 27) & 0x1;",
+        "ctx.r3.u64 = ctx.r11.u64 ^ 1;"
+      ],
+      "family": "NonzeroR4Low32",
+      "value": 0,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82BDE0D8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.181.cpp",
+      "line": 35383,
+      "instruction_sequence": [
+        "lis r11,-31967",
+        "addi r3,r11,26240",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094989312;",
+        "ctx.r3.s64 = ctx.r11.s64 + 26240;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614588544,
+      "auxiliary": 18446744071614562304,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82BDE0E8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.181.cpp",
+      "line": 35397,
+      "instruction_sequence": [
+        "lis r11,-31967",
+        "addi r3,r11,26336",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094989312;",
+        "ctx.r3.s64 = ctx.r11.s64 + 26336;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614588640,
+      "auxiliary": 18446744071614562304,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82BDE0F8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.181.cpp",
+      "line": 35411,
+      "instruction_sequence": [
+        "lis r11,-31967",
+        "addi r3,r11,26432",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094989312;",
+        "ctx.r3.s64 = ctx.r11.s64 + 26432;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614588736,
+      "auxiliary": 18446744071614562304,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82C460E8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.185.cpp",
+      "line": 38838,
+      "instruction_sequence": [
+        "lis r3,-32768",
+        "ori r3,r3,16389",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = -2147483648;",
+        "ctx.r3.u64 = ctx.r3.u64 | 16389;"
+      ],
+      "family": "Constant",
+      "value": 18446744071562084357,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82CB7CF0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.189.cpp",
+      "line": 301,
+      "instruction_sequence": [
+        "lis r3,15",
+        "ori r3,r3,16960",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 983040;",
+        "ctx.r3.u64 = ctx.r3.u64 | 16960;"
+      ],
+      "family": "Constant",
+      "value": 1000000,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82CEEB98",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp",
+      "line": 1144,
+      "instruction_sequence": [
+        "lis r3,-32768",
+        "ori r3,r3,16385",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = -2147483648;",
+        "ctx.r3.u64 = ctx.r3.u64 | 16385;"
+      ],
+      "family": "Constant",
+      "value": 18446744071562084353,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82CF5F90",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp",
+      "line": 19025,
+      "instruction_sequence": [
+        "addi r3,r3,124",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 124;"
+      ],
+      "family": "OffsetR3",
+      "value": 124,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82CF5FC8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp",
+      "line": 19079,
+      "instruction_sequence": [
+        "addi r3,r3,284",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 284;"
+      ],
+      "family": "OffsetR3",
+      "value": 284,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82CF5FE8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp",
+      "line": 19112,
+      "instruction_sequence": [
+        "addi r3,r3,204",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 204;"
+      ],
+      "family": "OffsetR3",
+      "value": 204,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82CFA668",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.192.cpp",
+      "line": 29890,
+      "instruction_sequence": [
+        "addi r3,r3,72",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 72;"
+      ],
+      "family": "OffsetR3",
+      "value": 72,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82CFCB50",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.193.cpp",
+      "line": 3975,
+      "instruction_sequence": [
+        "lis r3,-32688",
+        "ori r3,r3,2",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = -2142240768;",
+        "ctx.r3.u64 = ctx.r3.u64 | 2;"
+      ],
+      "family": "Constant",
+      "value": 18446744071567310850,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82CFD040",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.193.cpp",
+      "line": 4739,
+      "instruction_sequence": [
+        "addi r3,r3,44",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 44;"
+      ],
+      "family": "OffsetR3",
+      "value": 44,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82DF6928",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.203.cpp",
+      "line": 6002,
+      "instruction_sequence": [
+        "lis r11,-31966",
+        "addi r3,r11,-72",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094923776;",
+        "ctx.r3.s64 = ctx.r11.s64 + -72;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614627768,
+      "auxiliary": 18446744071614627840,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82DF6938",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.203.cpp",
+      "line": 6016,
+      "instruction_sequence": [
+        "lis r11,-31966",
+        "addi r3,r11,-248",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094923776;",
+        "ctx.r3.s64 = ctx.r11.s64 + -248;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614627592,
+      "auxiliary": 18446744071614627840,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82DF6DE8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.203.cpp",
+      "line": 6769,
+      "instruction_sequence": [
+        "lis r11,-31966",
+        "addi r3,r11,-60",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094923776;",
+        "ctx.r3.s64 = ctx.r11.s64 + -60;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614627780,
+      "auxiliary": 18446744071614627840,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82DF7370",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.203.cpp",
+      "line": 8039,
+      "instruction_sequence": [
+        "li r3,100",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 100;"
+      ],
+      "family": "Constant",
+      "value": 100,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82DFBB78",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.203.cpp",
+      "line": 18577,
+      "instruction_sequence": [
+        "addi r3,r3,188",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 188;"
+      ],
+      "family": "OffsetR3",
+      "value": 188,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82E4E6D8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.208.cpp",
+      "line": 19044,
+      "instruction_sequence": [
+        "addi r3,r3,648",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 648;"
+      ],
+      "family": "OffsetR3",
+      "value": 648,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82E4E6E0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.208.cpp",
+      "line": 19056,
+      "instruction_sequence": [
+        "addi r3,r3,1212",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 1212;"
+      ],
+      "family": "OffsetR3",
+      "value": 1212,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82E73898",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.210.cpp",
+      "line": 16503,
+      "instruction_sequence": [
+        "addi r3,r3,-4",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + -4;"
+      ],
+      "family": "OffsetR3",
+      "value": 18446744073709551612,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82E7D208",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.211.cpp",
+      "line": 3701,
+      "instruction_sequence": [
+        "addi r3,r3,144",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 144;"
+      ],
+      "family": "OffsetR3",
+      "value": 144,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82EAF1F8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "line": 18293,
+      "instruction_sequence": [
+        "addi r3,r3,16",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 16;"
+      ],
+      "family": "OffsetR3",
+      "value": 16,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82EAF200",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "line": 18305,
+      "instruction_sequence": [
+        "li r3,6",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 6;"
+      ],
+      "family": "Constant",
+      "value": 6,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82EAF208",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "line": 18317,
+      "instruction_sequence": [
+        "rlwinm r11,r4,3,0,28",
+        "add r11,r4,r11",
+        "rlwinm r11,r11,2,0,29",
+        "add r11,r11,r3",
+        "addi r3,r11,112",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.u64 = __builtin_rotateleft64(ctx.r4.u32 | (ctx.r4.u64 << 32), 3) & 0xFFFFFFF8;",
+        "ctx.r11.u64 = ctx.r4.u64 + ctx.r11.u64;",
+        "ctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 2) & 0xFFFFFFFC;",
+        "ctx.r11.u64 = ctx.r11.u64 + ctx.r3.u64;",
+        "ctx.r3.s64 = ctx.r11.s64 + 112;"
+      ],
+      "family": "ScaledIndex36",
+      "value": 112,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82EAF220",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "line": 18337,
+      "instruction_sequence": [
+        "addi r3,r3,112",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 112;"
+      ],
+      "family": "OffsetR3",
+      "value": 112,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82EAF228",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "line": 18349,
+      "instruction_sequence": [
+        "li r3,12",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 12;"
+      ],
+      "family": "Constant",
+      "value": 12,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82EAF230",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "line": 18361,
+      "instruction_sequence": [
+        "lis r11,-31966",
+        "addi r3,r11,520",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094923776;",
+        "ctx.r3.s64 = ctx.r11.s64 + 520;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614628360,
+      "auxiliary": 18446744071614627840,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82EAF240",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "line": 18375,
+      "instruction_sequence": [
+        "lis r11,-31966",
+        "addi r3,r11,544",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094923776;",
+        "ctx.r3.s64 = ctx.r11.s64 + 544;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614628384,
+      "auxiliary": 18446744071614627840,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82EAF250",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.212.cpp",
+      "line": 18389,
+      "instruction_sequence": [
+        "lis r11,-31966",
+        "addi r3,r11,640",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094923776;",
+        "ctx.r3.s64 = ctx.r11.s64 + 640;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614628480,
+      "auxiliary": 18446744071614627840,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82EF7C08",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.213.cpp",
+      "line": 113547,
+      "instruction_sequence": [
+        "addi r3,r3,200",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 200;"
+      ],
+      "family": "OffsetR3",
+      "value": 200,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F018F0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.213.cpp",
+      "line": 137934,
+      "instruction_sequence": [
+        "li r3,128",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 128;"
+      ],
+      "family": "Constant",
+      "value": 128,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F01930",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.213.cpp",
+      "line": 137998,
+      "instruction_sequence": [
+        "addi r3,r3,176",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 176;"
+      ],
+      "family": "OffsetR3",
+      "value": 176,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F27258",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.214.cpp",
+      "line": 90441,
+      "instruction_sequence": [
+        "lis r11,-31966",
+        "addi r3,r11,1520",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094923776;",
+        "ctx.r3.s64 = ctx.r11.s64 + 1520;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614629360,
+      "auxiliary": 18446744071614627840,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F27268",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.214.cpp",
+      "line": 90455,
+      "instruction_sequence": [
+        "lis r11,-31966",
+        "addi r3,r11,1616",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094923776;",
+        "ctx.r3.s64 = ctx.r11.s64 + 1616;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614629456,
+      "auxiliary": 18446744071614627840,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F27278",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.214.cpp",
+      "line": 90469,
+      "instruction_sequence": [
+        "lis r11,-31966",
+        "addi r3,r11,1664",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094923776;",
+        "ctx.r3.s64 = ctx.r11.s64 + 1664;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614629504,
+      "auxiliary": 18446744071614627840,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F27288",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.214.cpp",
+      "line": 90483,
+      "instruction_sequence": [
+        "lis r11,-31966",
+        "addi r3,r11,1808",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094923776;",
+        "ctx.r3.s64 = ctx.r11.s64 + 1808;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614629648,
+      "auxiliary": 18446744071614627840,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F278D8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.214.cpp",
+      "line": 91542,
+      "instruction_sequence": [
+        "lis r11,-31966",
+        "addi r3,r11,1952",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094923776;",
+        "ctx.r3.s64 = ctx.r11.s64 + 1952;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614629792,
+      "auxiliary": 18446744071614627840,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F278E8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.214.cpp",
+      "line": 91556,
+      "instruction_sequence": [
+        "rlwinm r10,r3,1,0,30",
+        "lis r11,-31966",
+        "add r10,r3,r10",
+        "addi r11,r11,2048",
+        "rlwinm r10,r10,2,0,29",
+        "add r3,r10,r11",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r10.u64 = __builtin_rotateleft64(ctx.r3.u32 | (ctx.r3.u64 << 32), 1) & 0xFFFFFFFE;",
+        "ctx.r11.s64 = -2094923776;",
+        "ctx.r10.u64 = ctx.r3.u64 + ctx.r10.u64;",
+        "ctx.r11.s64 = ctx.r11.s64 + 2048;",
+        "ctx.r10.u64 = __builtin_rotateleft64(ctx.r10.u32 | (ctx.r10.u64 << 32), 2) & 0xFFFFFFFC;",
+        "ctx.r3.u64 = ctx.r10.u64 + ctx.r11.u64;"
+      ],
+      "family": "ScaledIndexStaticBase",
+      "value": 18446744071614629888,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F2E8F8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.215.cpp",
+      "line": 1842,
+      "instruction_sequence": [
+        "lis r11,-31966",
+        "addi r3,r11,2208",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094923776;",
+        "ctx.r3.s64 = ctx.r11.s64 + 2208;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071614630048,
+      "auxiliary": 18446744071614627840,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F4C898",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.216.cpp",
+      "line": 7849,
+      "instruction_sequence": [
+        "clrlwi r11,r4,12",
+        "addi r11,r11,25",
+        "rlwinm r10,r11,1,0,30",
+        "add r11,r11,r10",
+        "rlwinm r11,r11,2,0,29",
+        "add r3,r11,r3",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.u64 = ctx.r4.u32 & 0xFFFFF;",
+        "ctx.r11.s64 = ctx.r11.s64 + 25;",
+        "ctx.r10.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 1) & 0xFFFFFFFE;",
+        "ctx.r11.u64 = ctx.r11.u64 + ctx.r10.u64;",
+        "ctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 2) & 0xFFFFFFFC;",
+        "ctx.r3.u64 = ctx.r11.u64 + ctx.r3.u64;"
+      ],
+      "family": "ScaledClampedIndex",
+      "value": 0,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F51D78",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.216.cpp",
+      "line": 20806,
+      "instruction_sequence": [
+        "addi r3,r3,28",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 28;"
+      ],
+      "family": "OffsetR3",
+      "value": 28,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F51E00",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.216.cpp",
+      "line": 20901,
+      "instruction_sequence": [
+        "addi r3,r3,40",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 40;"
+      ],
+      "family": "OffsetR3",
+      "value": 40,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F5AC18",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 4219,
+      "instruction_sequence": [
+        "lis r3,16384",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 1073741824;"
+      ],
+      "family": "Constant",
+      "value": 1073741824,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F5C370",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 7934,
+      "instruction_sequence": [
+        "addi r3,r3,100",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 100;"
+      ],
+      "family": "OffsetR3",
+      "value": 100,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F5C378",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 7946,
+      "instruction_sequence": [
+        "addi r3,r3,52",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 52;"
+      ],
+      "family": "OffsetR3",
+      "value": 52,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F5E0F8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 12820,
+      "instruction_sequence": [
+        "addi r3,r3,68",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 68;"
+      ],
+      "family": "OffsetR3",
+      "value": 68,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F5E120",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 12862,
+      "instruction_sequence": [
+        "addi r3,r3,80",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 80;"
+      ],
+      "family": "OffsetR3",
+      "value": 80,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F5E148",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 12904,
+      "instruction_sequence": [
+        "addi r3,r3,140",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 140;"
+      ],
+      "family": "OffsetR3",
+      "value": 140,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F5ED10",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 14861,
+      "instruction_sequence": [
+        "addi r3,r3,12",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 12;"
+      ],
+      "family": "OffsetR3",
+      "value": 12,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F5F018",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.217.cpp",
+      "line": 15508,
+      "instruction_sequence": [
+        "addi r3,r3,268",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 268;"
+      ],
+      "family": "OffsetR3",
+      "value": 268,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F8B020",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.218.cpp",
+      "line": 83115,
+      "instruction_sequence": [
+        "lis r11,-31953",
+        "addi r3,r11,-10108",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2094071808;",
+        "ctx.r3.s64 = ctx.r11.s64 + -10108;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071615469700,
+      "auxiliary": 18446744071615479808,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F8B030",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.218.cpp",
+      "line": 83129,
+      "instruction_sequence": [
+        "rlwinm r11,r4,3,0,28",
+        "add r11,r4,r11",
+        "rlwinm r11,r11,2,0,29",
+        "add r11,r11,r3",
+        "addi r3,r11,104",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.u64 = __builtin_rotateleft64(ctx.r4.u32 | (ctx.r4.u64 << 32), 3) & 0xFFFFFFF8;",
+        "ctx.r11.u64 = ctx.r4.u64 + ctx.r11.u64;",
+        "ctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 2) & 0xFFFFFFFC;",
+        "ctx.r11.u64 = ctx.r11.u64 + ctx.r3.u64;",
+        "ctx.r3.s64 = ctx.r11.s64 + 104;"
+      ],
+      "family": "ScaledIndex36",
+      "value": 104,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82F8B048",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.218.cpp",
+      "line": 83149,
+      "instruction_sequence": [
+        "addi r3,r3,104",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 104;"
+      ],
+      "family": "OffsetR3",
+      "value": 104,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "82FA6E60",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.220.cpp",
+      "line": 19550,
+      "instruction_sequence": [
+        "addi r3,r3,128",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = ctx.r3.s64 + 128;"
+      ],
+      "family": "OffsetR3",
+      "value": 128,
+      "auxiliary": 0,
+      "group": "straight_line_integer_leaf_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8303CEF0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.224.cpp",
+      "line": 51572,
+      "instruction_sequence": [
+        "li r3,13",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r3.s64 = 13;"
+      ],
+      "family": "Constant",
+      "value": 13,
+      "auxiliary": 0,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83081550",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 8554,
+      "instruction_sequence": [
+        "lis r11,-32240",
+        "addi r3,r11,4424",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112880640;",
+        "ctx.r3.s64 = ctx.r11.s64 + 4424;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071596675400,
+      "auxiliary": 18446744071596670976,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83081560",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 8568,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-27008",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -27008;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597168256,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83088850",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 26413,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-13304",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -13304;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597181960,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "830888D0",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 26496,
+      "instruction_sequence": [
+        "lis r11,-32223",
+        "addi r3,r11,29248",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2111766528;",
+        "ctx.r3.s64 = ctx.r11.s64 + 29248;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597814336,
+      "auxiliary": 18446744071597785088,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83088938",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 26567,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-13088",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -13088;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597182176,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83088948",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 26581,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-13076",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -13076;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597182188,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83088998",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 26637,
+      "instruction_sequence": [
+        "lis r11,-32233",
+        "addi r3,r11,-14304",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112421888;",
+        "ctx.r3.s64 = ctx.r11.s64 + -14304;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597115424,
+      "auxiliary": 18446744071597129728,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "830889E8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 26693,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-12856",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -12856;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597182408,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83088A40",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 26755,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-12744",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -12744;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597182520,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83088B00",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 26881,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-12624",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -12624;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597182640,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83088BC8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 27009,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-12504",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -12504;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597182760,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83088C18",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 27065,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-12384",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -12384;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597182880,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83088C68",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 27121,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-12264",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -12264;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597183000,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83088CE8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 27202,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-12152",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -12152;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597183112,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83088D38",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 27258,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-12040",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -12040;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597183224,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83088D48",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 27272,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-11920",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -11920;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597183344,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83088D58",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 27286,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-11800",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -11800;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597183464,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83088D68",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 27300,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-11680",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -11680;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597183584,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83088DC8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 27366,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-11560",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -11560;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597183704,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83088DD8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 27380,
+      "instruction_sequence": [
+        "lis r11,-32233",
+        "addi r3,r11,6468",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112421888;",
+        "ctx.r3.s64 = ctx.r11.s64 + 6468;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597136196,
+      "auxiliary": 18446744071597129728,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83088FC8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 27680,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-11232",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -11232;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597184032,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83089060",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 27775,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-11104",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -11104;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597184160,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "830890E8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 27860,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-10992",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -10992;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597184272,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83089170",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 27947,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-10880",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -10880;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597184384,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "830891F8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 28032,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-10760",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -10760;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597184504,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "83089280",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 28117,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-10640",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -10640;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597184624,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8308AAC8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.227.cpp",
+      "line": 32005,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-10020",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -10020;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597185244,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8308B328",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.228.cpp",
+      "line": 1252,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-9936",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -9936;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597185328,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8308B378",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.228.cpp",
+      "line": 1308,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-9880",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -9880;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597185384,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8308B418",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.228.cpp",
+      "line": 1413,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-9820",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -9820;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597185444,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8308B478",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.228.cpp",
+      "line": 1479,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-9760",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -9760;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597185504,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8308B4D8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.228.cpp",
+      "line": 1545,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-9704",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -9704;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597185560,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8308B4E8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.228.cpp",
+      "line": 1559,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-9644",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -9644;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597185620,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8308B4F8",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.228.cpp",
+      "line": 1573,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-9584",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -9584;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597185680,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8308B508",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.228.cpp",
+      "line": 1587,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-9516",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -9516;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597185748,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8308B518",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.228.cpp",
+      "line": 1601,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-9456",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -9456;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597185808,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8308B690",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.228.cpp",
+      "line": 1835,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-9396",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -9396;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597185868,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    },
+    {
+      "address": "8308B838",
+      "generated_ppc_path": "LostOdysseyRecompLib/ppc/ppc_recomp.228.cpp",
+      "line": 2098,
+      "instruction_sequence": [
+        "lis r11,-32232",
+        "addi r3,r11,-9332",
+        "blr"
+      ],
+      "generated_effect_statements": [
+        "ctx.r11.s64 = -2112356352;",
+        "ctx.r3.s64 = ctx.r11.s64 + -9332;"
+      ],
+      "family": "ConstantWithR11",
+      "value": 18446744071597185932,
+      "auxiliary": 18446744071597195264,
+      "group": "constant_return_with_all_gpr_effects",
+      "already_in_recovery_manifest": false
+    }
+  ]
+}
