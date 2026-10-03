@@ -3701,17 +3701,20 @@
         {
           "address": "824059D8",
           "boundary": "ObjectRegistrationServices::GetPrimaryObject",
-          "status": "opaque"
+          "status": "implementation_available",
+          "note": "The registered callback Composition adapter connects the recovered target; the standalone service interface remains available."
         },
         {
           "address": "82408438",
           "boundary": "ObjectRegistrationServices::CreateSecondary",
-          "status": "opaque"
+          "status": "implementation_available",
+          "note": "The registered callback Composition adapter connects the recovered target; the standalone service interface remains available."
         },
         {
           "address": "824084F0",
           "boundary": "ObjectRegistrationServices::RegisterSecondary",
-          "status": "opaque"
+          "status": "implementation_available",
+          "note": "The registered callback Composition adapter connects the recovered target; the standalone service interface remains available."
         },
         {
           "address": "indirect:primary-vtable+124",
@@ -3977,6 +3980,175 @@
         "Recover remaining deeper registration/vtable behavior and establish object lifetime contracts.",
         "Validate a runtime ABI adapter and representative scenes before replacement.",
         "Faults, MMIO, concurrency and generic ABI scratch are outside the bounded comparison."
+      ]
+    },
+    {
+      "address": "827CE240",
+      "name": "lo::semantic::gpu::ConstructInlineManagedRegisteredObject",
+      "module": "object/registered_inline_constructor",
+      "source": "LostOdysseyRecompSemantics/src/registered_inline_constructor.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/registered_inline_constructor.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Full r3 supplies the owner; caller_sp is guest r1 at entry. The local frame is caller_sp - 160.",
+        "return": "Return zero when the allocation low word is zero; otherwise retain the full initializer r3.",
+        "memory": "Initialize the manager if missing, allocate 376 bytes directly through vtable+4, store the allocation low word at frame+112 even on failure, and preserve the outgoing-store order for the size-76/category-1 AbstractMaterialRPG descriptor."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.76.cpp",
+          "line": 7234,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_registered_inline_constructor.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "Four cached original-PPC cases passed: existing/cold manager, full-width allocation success, low-word-zero failure, outgoing-stack alias and frame+112 scratch. Lower manager/object initializer implementations reuse prior evidence."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "827C5F38",
+          "boundary": "InitializeManager",
+          "status": "implementation_available"
+        },
+        {
+          "address": "82410A28",
+          "boundary": "InitializeRegisteredObject",
+          "status": "implementation_available"
+        },
+        {
+          "address": "indirect:manager-vtable+4",
+          "boundary": "ManagerFacadeServices::AllocateStorage",
+          "status": "external_boundary"
+        }
+      ],
+      "open_obligations": [
+        "Runtime ABI/stack adapters and representative scenes remain pending.",
+        "External manager and virtual methods, faults, MMIO and concurrency remain outside bounded recovery."
+      ]
+    },
+    {
+      "address": "827CE088",
+      "name": "lo::semantic::gpu::registered_callback_family::RegisterInlineParentObject",
+      "module": "object/registered_callback_family",
+      "source": "LostOdysseyRecompSemantics/src/registered_callback_family.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/registered_callback_family.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Full incoming r3 and caller_sp; the local frame is caller_sp - 128.",
+        "return": "With readiness disabled return the zero-extended ready-gate word; otherwise retain the full r3 from the selected ready path.",
+        "memory": "Link AbstractMaterialRPG through its lazy parent, shared metadata and primary globals. Preserve parent rechecks, stores at +60/+196/+52, the gate call after +52, and conditional self reloads."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.76.cpp",
+          "line": 6959,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_registered_callback_family.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "--scope special passed nine original-PPC cases across the two entries, covering equal/different parent, readiness, gate/store alias, and a parent-miss constructor/registration composition. Existing lower implementations and external service boundaries remain bounded."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "824B0AA8",
+          "boundary": "registered_constructor_family::Apply",
+          "status": "implementation_available"
+        },
+        {
+          "address": "824B0B60",
+          "boundary": "registered_callback_family::LinkRegisteredObject",
+          "status": "implementation_available"
+        },
+        {
+          "address": "82403200",
+          "boundary": "registered_callback_family::RegisterSharedMetadataObject",
+          "status": "implementation_available"
+        },
+        {
+          "address": "824009F8",
+          "boundary": "registered_callback_family::ReadRegistrationReadyGate",
+          "status": "implementation_available"
+        }
+      ],
+      "open_obligations": [
+        "Runtime ABI/stack adapters and representative scenes remain pending.",
+        "External manager and virtual methods, faults, MMIO and concurrency remain outside bounded recovery."
+      ]
+    },
+    {
+      "address": "824084F0",
+      "name": "lo::semantic::gpu::registered_callback_family::RegisterSecondaryObject",
+      "module": "object/registered_callback_family",
+      "source": "LostOdysseyRecompSemantics/src/registered_callback_family.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/registered_callback_family.h",
+      "stages": {
+        "readable_implementation": true,
+        "differential_validation": true,
+        "runtime_integration": false,
+        "scene_validation": false,
+        "complete_semantics": false
+      },
+      "abi": {
+        "arguments": "Full incoming r3 and caller_sp; the local frame is caller_sp - 128.",
+        "return": "With readiness disabled, retain incoming r3 or the last nested call result. When enabled, return the selected self address or the full r3 from the ready method.",
+        "memory": "Link global 0x83315F7C through shared metadata and primary objects. Read the ready gate before the +52 store; capture live self+52 and preserve conditional self reloads before vtable+124."
+      },
+      "evidence": [
+        {
+          "path": "LostOdysseyRecompLib/ppc/ppc_recomp.15.cpp",
+          "line": 49594,
+          "kind": "generated_ppc"
+        },
+        {
+          "path": "tools/ghidra/test_semantic_registered_callback_family.py",
+          "line": 1,
+          "kind": "bounded_differential_runner",
+          "note": "--scope special passed nine original-PPC cases across the two entries, covering equal/different parent, readiness, gate/store alias, and a parent-miss constructor/registration composition. Existing lower implementations and external service boundaries remain bounded."
+        }
+      ],
+      "dependencies": [
+        {
+          "address": "82403148",
+          "boundary": "registered_constructor_family::Apply",
+          "status": "implementation_available"
+        },
+        {
+          "address": "82403200",
+          "boundary": "registered_callback_family::RegisterSharedMetadataObject",
+          "status": "implementation_available"
+        },
+        {
+          "address": "82410B90",
+          "boundary": "ConstructRegisteredObject",
+          "status": "implementation_available"
+        },
+        {
+          "address": "82410C48",
+          "boundary": "RegisterObjectGraph",
+          "status": "implementation_available"
+        }
+      ],
+      "open_obligations": [
+        "Runtime ABI/stack adapters and representative scenes remain pending.",
+        "External manager and virtual methods, faults, MMIO and concurrency remain outside bounded recovery."
       ]
     }
   ]

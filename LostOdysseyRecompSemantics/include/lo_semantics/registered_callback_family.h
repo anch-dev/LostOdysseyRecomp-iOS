@@ -14,12 +14,8 @@ public:
     virtual ~Services() = default;
     virtual std::uint64_t CallExternalGetter(GuestAddress target,
         std::uint64_t incoming_r3, GuestAddress caller_sp) = 0;
-    virtual std::uint64_t CallExternalConstructor(GuestAddress target,
-        std::uint64_t incoming_r3, GuestAddress caller_sp) = 0;
     virtual std::uint64_t CallExternalRegistration(GuestAddress target,
         std::uint64_t incoming_r3, GuestAddress caller_sp) = 0;
-    virtual std::uint64_t RegisterSecondary(std::uint64_t incoming_r3,
-        GuestAddress caller_sp) = 0; // 824084F0
     virtual std::uint64_t CallReadyMethod(GuestAddress method,
         std::uint64_t receiver, GuestAddress caller_sp) = 0;
 };
@@ -35,6 +31,18 @@ public:
 // 82403200: link the shared metadata object. The function may recursively
 // call itself if the singleton remains empty after construction.
 [[nodiscard]] std::uint64_t RegisterSharedMetadataObject(GuestMemory& memory,
+    ManagerFacadeServices& manager_services, Services& services,
+    std::uint64_t incoming_r3, GuestAddress caller_sp);
+
+// 824009F8 returns the zero-extended live ready gate word.
+[[nodiscard]] std::uint64_t ReadRegistrationReadyGate(GuestMemory& memory);
+
+// 827CE088 and 824084F0: link inline parent/metadata/primary objects with
+// their original 128-byte frames and conditional reloads.
+[[nodiscard]] std::uint64_t RegisterInlineParentObject(GuestMemory& memory,
+    ManagerFacadeServices& manager_services, Services& services,
+    std::uint64_t incoming_r3, GuestAddress caller_sp);
+[[nodiscard]] std::uint64_t RegisterSecondaryObject(GuestMemory& memory,
     ManagerFacadeServices& manager_services, Services& services,
     std::uint64_t incoming_r3, GuestAddress caller_sp);
 

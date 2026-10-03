@@ -4,6 +4,7 @@
 #include "lo_semantics/object_startup.h"
 #include "lo_semantics/registered_constructor_family.h"
 #include "lo_semantics/registered_getter_family.h"
+#include "lo_semantics/registered_inline_constructor.h"
 
 #include <algorithm>
 #include <cstdint>
@@ -757,11 +758,13 @@ constexpr Spec kDependencySpecs[] = {
     // BEGIN GENERATED REGISTERED DEPENDENCY PARAMETERS
     {0x824095F8, 102, 112, 0x83315F80, {true, 0x82406CC0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x8248BE98, 103, 112, 0x8331809C, {false, 0x8245E0B0, 0, 0, 0, 0}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x824B0B60, 103, 112, 0x833180DC, {false, 0x8245E0B0, 0, 0, 0, 0}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x824C17E0, 104, 112, 0x833180F4, {true, 0x824069E8, 0x83315F80, 0x82409540, 0x824095F8, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x824C38B0, 101, 112, 0x83318114, {true, 0x82463F90, 0x833180F4, 0x824C1728, 0x824C17E0, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x824C5DA8, 102, 112, 0x8331811C, {true, 0x82406CC0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x824C5F58, 101, 112, 0x83318120, {true, 0x822A1DD8, 0x8331811C, 0x824C5CF0, 0x824C5DA8, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x824C7D28, 101, 112, 0x83318194, {true, 0x822A1DD8, 0x8331811C, 0x824C5CF0, 0x824C5DA8, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x824C9190, 101, 112, 0x833181DC, {true, 0x822A1DD8, 0x8331811C, 0x824C5CF0, 0x824C5DA8, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x824C9570, 101, 112, 0x833181E4, {true, 0x82462980, 0x833181DC, 0x824C90D8, 0x824C9190, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x824C9D60, 103, 112, 0x83318200, {false, 0x82462E38, 0, 0, 0, 0}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x824C9F30, 101, 112, 0x83318204, {true, 0x8245D728, 0x83318200, 0x824C9CA8, 0x824C9D60, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
@@ -773,7 +776,9 @@ constexpr Spec kDependencySpecs[] = {
     {0x824F31D0, 101, 112, 0x833183D8, {true, 0x824223C0, 0x833182C4, 0x824EE8E8, 0x824EE9A0, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x82524A78, 101, 112, 0x83318474, {true, 0x822C9910, 0x83318E54, 0x826D82C8, 0x826D8380, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x82537750, 101, 112, 0x833184A0, {true, 0x822A1DD8, 0x8331811C, 0x824C5CF0, 0x824C5DA8, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x8255EE88, 102, 112, 0x833184C4, {true, 0x82406CC0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x8255F038, 101, 112, 0x833184C8, {true, 0x8242FDD0, 0x833184C4, 0x8255EDD0, 0x8255EE88, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x8256C408, 102, 112, 0x83318524, {true, 0x82406CC0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x8256C5B8, 101, 112, 0x83318528, {true, 0x82432DC0, 0x83318524, 0x8256C350, 0x8256C408, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x82572758, 102, 112, 0x83318558, {true, 0x82406CC0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x82572C28, 102, 112, 0x83318564, {true, 0x82406CC0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
@@ -788,6 +793,7 @@ constexpr Spec kDependencySpecs[] = {
     {0x825BACA0, 101, 112, 0x83318760, {true, 0x8242FDD0, 0x833184C4, 0x8255EDD0, 0x8255EE88, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x825CCAA8, 102, 112, 0x8331877C, {true, 0x82406CC0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x825DB2A8, 101, 112, 0x83318788, {true, 0x82463F90, 0x833180F4, 0x824C1728, 0x824C17E0, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x825DB460, 101, 112, 0x8331878C, {true, 0x822C0F50, 0x83318788, 0x825DB1F0, 0x825DB2A8, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x825DB618, 101, 112, 0x83318790, {true, 0x824605F8, 0x8331878C, 0x825DB3A8, 0x825DB460, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x825F6B18, 104, 112, 0x83318830, {true, 0x824069E8, 0x83315F80, 0x82409540, 0x824095F8, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x8260C378, 102, 112, 0x833188D0, {true, 0x82406CC0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
@@ -804,6 +810,7 @@ constexpr Spec kDependencySpecs[] = {
     {0x8267DA08, 102, 112, 0x83318C6C, {true, 0x82406CC0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x82681768, 104, 112, 0x83318CB8, {true, 0x8240C090, 0x83318830, 0x825F6A60, 0x825F6B18, 0xFFFFFFFF8218C210}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x82681E90, 103, 112, 0x83318CCC, {false, 0x8240BFC8, 0, 0, 0, 0}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
+    {0x826D8380, 101, 112, 0x83318E54, {true, 0x822A1DD8, 0x8331811C, 0x824C5CF0, 0x824C5DA8, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x826F56D0, 101, 112, 0x83318EA0, {true, 0x8242C048, 0x83318934, 0x82612220, 0x826122D8, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
     {0x82726360, 101, 112, 0x83318FDC, {true, 0x82460CC8, 0x83318114, 0x824C37F8, 0x824C38B0, 0xFFFFFFFF8218C21C}, {true, 0, 0x83315F60, 0x82403148, 0x82403200, 0xFFFFFFFF8218C210}, false},
         // END GENERATED REGISTERED DEPENDENCY PARAMETERS
@@ -895,6 +902,89 @@ public:
     }
 
 private:
+    std::uint64_t RunInlineLink(GuestAddress self_global,
+        GuestAddress parent_global, GuestAddress parent_constructor,
+        GuestAddress parent_registration, std::uint64_t parent_descriptor,
+        bool gate_via_getter, std::uint64_t r3, GuestAddress caller_sp)
+    {
+        const GuestAddress frame = caller_sp - 128u;
+        GuestAddress parent = memory_.ReadU32(parent_global);
+        if (parent == 0)
+        {
+            r3 = Getter(parent_constructor, parent_descriptor, frame);
+            memory_.WriteU32(parent_global, static_cast<GuestAddress>(r3));
+            r3 = Registration(parent_registration, r3, frame);
+            parent = memory_.ReadU32(parent_global);
+        }
+        GuestAddress self = memory_.ReadU32(self_global);
+        if (parent == self)
+            parent = 0;
+        else if (parent == 0)
+        {
+            r3 = Getter(parent_constructor, parent_descriptor, frame);
+            memory_.WriteU32(parent_global, static_cast<GuestAddress>(r3));
+            r3 = Registration(parent_registration, r3, frame);
+            self = memory_.ReadU32(self_global);
+            parent = memory_.ReadU32(parent_global);
+        }
+        memory_.WriteU32(self + 60u, parent);
+
+        GuestAddress meta = memory_.ReadU32(kSharedMetaGlobal);
+        if (meta == 0)
+        {
+            r3 = Getter(0x82403148u, kPrimaryDescriptor, frame);
+            memory_.WriteU32(kSharedMetaGlobal, static_cast<GuestAddress>(r3));
+            r3 = Registration(0x82403200u, r3, frame);
+            meta = memory_.ReadU32(kSharedMetaGlobal);
+        }
+        self = memory_.ReadU32(self_global);
+        memory_.WriteU32(self + 196u, meta);
+
+        GuestAddress primary = memory_.ReadU32(kPrimaryGlobal);
+        if (primary == 0)
+        {
+            r3 = ConstructRegisteredObject(memory_, manager_,
+                kPrimaryDescriptor, frame);
+            memory_.WriteU32(kPrimaryGlobal, static_cast<GuestAddress>(r3));
+            r3 = Graph(frame, r3);
+            primary = memory_.ReadU32(kPrimaryGlobal);
+        }
+
+        bool ready = false;
+        if (gate_via_getter)
+            self = memory_.ReadU32(self_global);
+        else
+        {
+            ready = memory_.ReadU32(kReadyGate) != 0;
+            self = memory_.ReadU32(self_global);
+        }
+        memory_.WriteU32(self + 52u, primary);
+        if (gate_via_getter)
+        {
+            r3 = ReadRegistrationReadyGate(memory_);
+            ready = static_cast<std::int32_t>(r3) != 0;
+        }
+        if (!ready)
+            return r3;
+
+        r3 = memory_.ReadU32(self_global);
+        GuestAddress current = memory_.ReadU32(kPrimaryGlobal);
+        const GuestAddress captured = memory_.ReadU32(
+            static_cast<GuestAddress>(r3) + 52u);
+        if (current == 0)
+        {
+            r3 = ConstructRegisteredObject(memory_, manager_,
+                kPrimaryDescriptor, frame);
+            memory_.WriteU32(kPrimaryGlobal, static_cast<GuestAddress>(r3));
+            r3 = Graph(frame, r3);
+            r3 = memory_.ReadU32(self_global);
+            current = memory_.ReadU32(kPrimaryGlobal);
+        }
+        if (captured == current)
+            r3 = Ready(static_cast<GuestAddress>(r3), frame);
+        return r3;
+    }
+
     // These registrars snapshot the ready gate before writing +52, then
     // compare a live reload of self+52 after that write.
     std::uint64_t RunDependency(const Spec& spec, std::uint64_t r3,
@@ -946,7 +1036,7 @@ private:
         }
         std::uint64_t RegisterSecondary(std::uint64_t incoming) override
         {
-            r3_ = owner_.services_.RegisterSecondary(incoming, frame_);
+            r3_ = owner_.Registration(0x824084f0u, incoming, frame_);
             return r3_;
         }
         std::uint64_t CallReadyMethod(GuestAddress method,
@@ -991,8 +1081,8 @@ private:
         if (target == 0x82406b00u)
             return PrimaryGetter(incoming_r3, caller_sp);
         if (target == 0x827ce240u)
-            return services_.CallExternalConstructor(target, incoming_r3,
-                caller_sp);
+            return ConstructInlineManagedRegisteredObject(memory_, manager_,
+                incoming_r3, caller_sp);
         return services_.CallExternalGetter(target, incoming_r3, caller_sp);
     }
 
@@ -1001,6 +1091,14 @@ private:
     {
         if (target == 0x82403200u)
             return RegisterSharedMetadataObject(incoming_r3, caller_sp);
+        if (target == 0x827ce088u)
+            return RunInlineLink(0x83247210u, 0x833180dcu, 0x824b0aa8u,
+                0x824b0b60u, 0xffffffff8218c21cull, true,
+                incoming_r3, caller_sp);
+        if (target == 0x824084f0u)
+            return RunInlineLink(0x83315f7cu, kSharedMetaGlobal,
+                0x82403148u, 0x82403200u, kPrimaryDescriptor, false,
+                incoming_r3, caller_sp);
         if (const Spec* spec = Find(target))
             return Run(*spec, incoming_r3, caller_sp);
         if (const Spec* spec = FindDependency(target))
@@ -1151,6 +1249,12 @@ bool LinkRegisteredObject(GuestAddress address, GuestMemory& memory,
     ManagerFacadeServices& manager_services, Services& services,
     std::uint64_t incoming_r3, GuestAddress caller_sp, std::uint64_t& result)
 {
+    if (address == 0x827ce088u || address == 0x824084f0u)
+    {
+        Composition composition(memory, manager_services, services);
+        result = composition.Register(address, incoming_r3, caller_sp);
+        return true;
+    }
     const Spec* spec = Find(address);
     if (spec == nullptr)
         spec = FindDependency(address);
@@ -1167,6 +1271,27 @@ std::uint64_t RegisterSharedMetadataObject(GuestMemory& memory,
 {
     Composition composition(memory, manager_services, services);
     return composition.Register(0x82403200u, incoming_r3, caller_sp);
+}
+
+std::uint64_t ReadRegistrationReadyGate(GuestMemory& memory)
+{
+    return memory.ReadU32(kReadyGate);
+}
+
+std::uint64_t RegisterInlineParentObject(GuestMemory& memory,
+    ManagerFacadeServices& manager_services, Services& services,
+    std::uint64_t incoming_r3, GuestAddress caller_sp)
+{
+    Composition composition(memory, manager_services, services);
+    return composition.Register(0x827ce088u, incoming_r3, caller_sp);
+}
+
+std::uint64_t RegisterSecondaryObject(GuestMemory& memory,
+    ManagerFacadeServices& manager_services, Services& services,
+    std::uint64_t incoming_r3, GuestAddress caller_sp)
+{
+    Composition composition(memory, manager_services, services);
+    return composition.Register(0x824084f0u, incoming_r3, caller_sp);
 }
 
 } // namespace lo::semantic::gpu::registered_callback_family

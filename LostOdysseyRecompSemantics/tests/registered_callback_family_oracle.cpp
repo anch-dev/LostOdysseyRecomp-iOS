@@ -34,7 +34,7 @@ constexpr std::uint64_t InitialR3 = 0xabcddcba00007777ull;
 constexpr std::uint64_t AllocatedR3 = 0x1234567800030000ull;
 
 enum class Mode { Equal, Different, Ready, MetaMissing, ParentMissing,
-    GateAlias };
+    GateAlias, GraphSecondary };
 struct Entry
 {
     GuestAddress address, self_global, parent_getter, parent_singleton,
@@ -134,7 +134,8 @@ struct Services final : ManagerFacadeServices, callback::Services,
         GuestAddress caller_sp) override
     {
         events.push_back({'G', {target, r3, caller_sp, 0}});
-        if (target != entry.parent_getter)
+        if (target != entry.parent_getter &&
+            !(std::size(Entries) == 2 && target == 0x8245e0b0u))
         {
             std::fprintf(stderr, "unexpected getter target %08x in %08x mode %u\n",
                 target, entry.address, static_cast<unsigned>(mode));
@@ -142,9 +143,6 @@ struct Services final : ManagerFacadeServices, callback::Services,
         }
         return mode == Mode::Equal ? Self : Parent;
     }
-    std::uint64_t CallExternalConstructor(GuestAddress, std::uint64_t,
-        GuestAddress) override
-    { throw std::runtime_error("unexpected external constructor"); }
     std::uint64_t CallExternalRegistration(GuestAddress target,
         std::uint64_t r3, GuestAddress caller_sp) override
     {
@@ -153,12 +151,6 @@ struct Services final : ManagerFacadeServices, callback::Services,
             memory.WriteU32(entry.parent_global, Parent);
         return 0x8765432100000000ull | static_cast<std::uint64_t>(r3 & 0xffffffffu);
     }
-    std::uint64_t RegisterSecondary(std::uint64_t r3,
-        GuestAddress caller_sp) override
-    {
-        events.push_back({'S', {r3, caller_sp, 0, 0}});
-        return 0x4567000000000000ull | (r3 & 0xffffffffu);
-    }
     std::uint64_t CallReadyMethod(GuestAddress method, std::uint64_t receiver,
         GuestAddress caller_sp) override
     {
@@ -166,11 +158,35 @@ struct Services final : ManagerFacadeServices, callback::Services,
         return 0x76543210abcdef01ull;
     }
     std::uint64_t GetPrimaryObject() override
-    { throw std::runtime_error("unexpected graph primary getter"); }
-    std::uint64_t CreateSecondary(std::uint64_t) override
-    { throw std::runtime_error("unexpected graph secondary creation"); }
+    {
+        if (mode != Mode::GraphSecondary)
+            throw std::runtime_error("unexpected graph primary getter");
+        events.push_back({'Q', {Primary, 0, 0, 0}});
+        return Primary;
+    }
+    std::uint64_t CreateSecondary(std::uint64_t descriptor) override
+    {
+        if (mode != Mode::GraphSecondary ||
+            descriptor != 0xffffffff8218c210ull)
+            throw std::runtime_error("unexpected graph secondary creation");
+        events.push_back({'C', {descriptor, Self, 0, 0}});
+        return 0x1234567800010000ull;
+    }
     std::uint64_t RegisterSecondary(std::uint64_t r3) override
-    { return RegisterSecondary(r3, 0); }
+    {
+        if (mode != Mode::GraphSecondary || entry.address != 0x824084f0u)
+            throw std::runtime_error("unexpected graph secondary registration");
+        const GuestAddress callback_sp = Stack - 112u;
+        if (!original_side)
+            return callback::RegisterSecondaryObject(memory, *this, *this,
+                r3, callback_sp);
+        PPCContext nested{};
+        nested.r1.u64 = callback_sp;
+        nested.r3.u64 = r3;
+        nested.lr = 0x82200000u;
+        entry.original(nested, bytes);
+        return nested.r3.u64;
+    }
     std::uint64_t CallReadyMethod(GuestAddress method,
         std::uint64_t receiver) override
     { return CallReadyMethod(method, receiver, 0); }
@@ -226,9 +242,12 @@ void Initialize(std::uint8_t* bytes, const Entry& entry, Mode mode)
     if (entry.parent_global && entry.parent_global == entry.meta_global &&
         mode == Mode::Equal)
         memory.WriteU32(entry.parent_global, Self);
+    if (mode == Mode::GraphSecondary)
+        memory.WriteU32(entry.self_global, 0);
     memory.WriteU32(PrimaryGlobal, Primary);
     memory.WriteU32(ReadyGate, mode == Mode::Ready ? 1u : 0u);
     memory.WriteU32(Self, SelfVtable);
+    memory.WriteU32(Primary, SelfVtable);
     if (mode == Mode::GateAlias) memory.WriteU32(self, SelfVtable);
     memory.WriteU32(Meta, SelfVtable);
     memory.WriteU32(SelfVtable + 124u, ReadyMethod | 3u);
@@ -324,6 +343,34 @@ bool CompareShared(Mode mode, Window& original, Window& recovered)
             expected.events.size(), actual.events.size());
     return same;
 }
+
+bool CompareGraphSecondary(const Entry& secondary, Window& original,
+    Window& recovered)
+{
+    Initialize(original.bytes, secondary, Mode::GraphSecondary);
+    Initialize(recovered.bytes, secondary, Mode::GraphSecondary);
+    Services expected(original.bytes, secondary, Mode::GraphSecondary, true);
+    Services actual(recovered.bytes, secondary, Mode::GraphSecondary, false);
+    saved_gprs.clear();
+    active = &expected;
+    const auto raw_graph_result = RegisterObjectGraph(expected.memory, expected);
+    active = &actual;
+    const auto recovered_graph_result = RegisterObjectGraph(actual.memory, actual);
+    const bool same = raw_graph_result == recovered_graph_result &&
+        saved_gprs.empty() && expected.events == actual.events &&
+        std::memcmp(original.bytes, recovered.bytes, Stack - 0x1000u) == 0 &&
+        std::memcmp(original.bytes + 0x83315000u,
+            recovered.bytes + 0x83315000u, 0x5000) == 0;
+    if (!same)
+        std::fprintf(stderr,
+            "FAIL graph to secondary r3 %llx/%llx events %zu/%zu secondary %08x/%08x\n",
+            static_cast<unsigned long long>(raw_graph_result),
+            static_cast<unsigned long long>(recovered_graph_result),
+            expected.events.size(), actual.events.size(),
+            expected.memory.ReadU32(secondary.self_global),
+            actual.memory.ReadU32(secondary.self_global));
+    return same;
+}
 } // namespace
 
 PPC_FUNC(__savegprlr_28) { (void)base; SaveGprs(ctx, 28); }
@@ -408,6 +455,23 @@ int main()
             (!lazy_parent || !CompareOne(*lazy_parent,
                 Mode::ParentMissing, cases++, original, recovered)))
             return 1;
+        if (std::size(Entries) == 2)
+        {
+            const Entry* secondary = nullptr;
+            for (const Entry& entry : Entries)
+            {
+                if (!CompareOne(entry, Mode::GateAlias, cases++, original,
+                        recovered)) return 1;
+                if (entry.address == 0x824084f0u) secondary = &entry;
+            }
+            for (const Entry& entry : Entries)
+                if (entry.address == 0x827ce088u &&
+                    !CompareOne(entry, Mode::ParentMissing, cases++, original,
+                        recovered)) return 1;
+            if (!secondary || !CompareGraphSecondary(*secondary, original,
+                    recovered)) return 1;
+            ++cases;
+        }
         std::printf("PASS registered-callback %zu entries %u cases\n",
             std::size(Entries), cases);
         std::puts("LIMIT original PPC callback bodies; recovered constructor/get-primary stand-ins; external getter/registration and ABI scratch are explicit boundaries");

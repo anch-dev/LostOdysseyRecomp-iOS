@@ -15,6 +15,7 @@ CANDIDATES = ROOT / "out/function-inventory/registered-dependency-candidates.jso
 SHAPES = ROOT / "out/function-inventory/registered-dependency-shapes.json"
 CONSTRUCTORS = ROOT / "LostOdysseyRecompSemantics/registered_constructor_families.json"
 NEXT = ROOT / "out/function-inventory/registered-next-dependencies.json"
+FINAL = ROOT / "out/function-inventory/registered-final-dependency.json"
 OUTPUT = ROOT / "LostOdysseyRecompSemantics/registered_dependency_registration_families.json"
 START = "    // BEGIN GENERATED REGISTERED DEPENDENCY PARAMETERS"
 END = "    // END GENERATED REGISTERED DEPENDENCY PARAMETERS"
@@ -61,6 +62,24 @@ def main() -> None:
              for group in LAYOUT}
     flow = {group: control_flow(int(candidate["address"], 16),
             candidate["instructions"]) for group, candidate in first.items()}
+    extra_addresses = {0x824c9190, 0x826d8380, 0x825db460,
+                       0x8255ee88, 0x8256c408, 0x824b0b60}
+    extra = [item for item in json.loads(NEXT.read_text(encoding="utf-8"))
+             if int(item["address"], 16) in extra_addresses]
+    extra.append(json.loads(FINAL.read_text(encoding="utf-8")))
+    require({int(item["address"], 16) for item in extra} == extra_addresses,
+            "six ordinary dependency callbacks changed")
+    for item in extra:
+        address = int(item["address"], 16)
+        matches = [group for group in LAYOUT
+                   if [normalized(value) for value in item["instructions"]] ==
+                   shapes[group]["instruction_shape"] and
+                   control_flow(address, item["instructions"]) == flow[group]]
+        require(len(matches) == 1,
+                f"ordinary dependency shape/CFG changed: {address:08X}")
+        group_of[address] = matches[0]
+    selected.extend(extra)
+    require(len(selected) == 57, "expanded dependency count changed")
     known_registration = ({int(item["address"], 16) for item in selected}
                           | set(next_entries)
                           | {0x82403200})
@@ -109,12 +128,12 @@ def main() -> None:
                         "ready_gate_before_primary_store": True,
                         "ready_capture_from_self_field": True})
     entries.sort(key=lambda entry: entry["address"])
-    require(len({entry["address"] for entry in entries}) == 51,
+    require(len({entry["address"] for entry in entries}) == 57,
             "duplicate registration dependency")
     payload = {"schema_version": 1,
                "source": str(CANDIDATES.relative_to(ROOT)).replace("\\", "/"),
                "family": "registered_dependency_registration",
-               "entry_count": 51, "entries": entries}
+               "entry_count": 57, "entries": entries}
     output = json.dumps(payload, indent=2, ensure_ascii=False) + "\n"
     if not OUTPUT.exists() or OUTPUT.read_text(encoding="utf-8") != output:
         OUTPUT.write_text(output, encoding="utf-8")
@@ -140,7 +159,7 @@ def main() -> None:
     updated = source[:start] + "\n" + "\n".join(rows) + "\n    " + source[end:]
     if updated != source:
         SOURCE.write_text(updated, encoding="utf-8")
-    print("classified 51 registered dependency callbacks")
+    print("classified 57 registered dependency callbacks (51 existing, 6 new)")
 
 
 if __name__ == "__main__":
