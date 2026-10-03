@@ -1,0 +1,23 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Three decimal-rounding/scientific/fixed layout helpers, accepted live error/native/lower memory models; no runtime/scene proof.",
+  "families": [
+    {
+      "name": "crt-float-text-helpers",
+      "manifest": "LostOdysseyRecompSemantics/crt_float_text_helpers_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/crt_float_text_helpers_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nvoid OriginalError(PPCContext&,std::uint8_t*);\nvoid OriginalInvalid(PPCContext&,std::uint8_t*);\nvoid OriginalMove(PPCContext&,std::uint8_t*);\nvoid OriginalFill(PPCContext&,std::uint8_t*);\nvoid OriginalBoundedCopy(PPCContext&,std::uint8_t*);\nvoid OriginalFatal(PPCContext&,std::uint8_t*);\nvoid OriginalSave25(PPCContext&,std::uint8_t*);\nvoid OriginalSave26(PPCContext&,std::uint8_t*);\nvoid OriginalRestore25(PPCContext&,std::uint8_t*);\nvoid OriginalRestore26(PPCContext&,std::uint8_t*);\n#define sub_82B7FD78 OriginalError\n#define sub_82B7FEC0 OriginalInvalid\n#define sub_82B7C470 OriginalMove\n#define sub_82B7BC40 OriginalFill\n#define sub_8231B0D0 OriginalBoundedCopy\n#define sub_82B7FF08 OriginalFatal\n#define __savegprlr_25 OriginalSave25\n#define __savegprlr_26 OriginalSave26\n#define __restgprlr_25 OriginalRestore25\n#define __restgprlr_26 OriginalRestore26\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/memory_move.cpp",
+        "LostOdysseyRecompSemantics/src/memory_fill.cpp",
+        "LostOdysseyRecompSemantics/src/field_arithmetic.cpp",
+        "LostOdysseyRecompSemantics/src/allocation_failure.cpp",
+        "LostOdysseyRecompSemantics/src/crt_thread_data.cpp",
+        "LostOdysseyRecompSemantics/src/invalid_parameter.cpp",
+        "LostOdysseyRecompSemantics/src/crt_float_core_helpers.cpp",
+        "LostOdysseyRecompSemantics/src/crt_float_environment.cpp",
+        "LostOdysseyRecompSemantics/src/crt_float_text_helpers.cpp"
+      ]
+    }
+  ]
+}
