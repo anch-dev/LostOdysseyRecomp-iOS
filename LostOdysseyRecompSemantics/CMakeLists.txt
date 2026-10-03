@@ -43,6 +43,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/instance_tail_initializer_family.cpp
     src/instance_integer_sequence_family.cpp
     src/instance_fp_extension_family.cpp
+    src/instance_copy_initializer_family.cpp
     src/object_startup.cpp
     src/manager_construction.cpp
     src/manager_storage.cpp
