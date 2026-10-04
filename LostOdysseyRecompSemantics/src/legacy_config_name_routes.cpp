@@ -909,4 +909,15 @@ bool Apply(GuestAddress entry, GuestMemory& memory,
     registers = ToRegisters(context);
     return true;
 }
+
+bool ApplyParsingLower(GuestAddress entry, GuestMemory& memory,
+    Dependencies dependencies, Registers& registers)
+{
+    if (entry != 0x82296e80u && entry != 0x82296f68u && entry != 0x822971e0u)
+        return false;
+    auto context = ToContext(registers);
+    CallLower(entry, context, memory, dependencies);
+    registers = ToRegisters(context);
+    return true;
+}
 } // namespace lo::semantic::gpu::legacy_config_name_routes

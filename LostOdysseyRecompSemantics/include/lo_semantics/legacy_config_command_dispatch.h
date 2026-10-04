@@ -26,6 +26,10 @@ public:
     // fields and ordinary guest RAM; other PPC context is outside this ABI.
     virtual void Call(GuestAddress entry, GuestMemory& memory,
         Registers& registers) = 0;
+    // A composed adapter can provide the accepted parsing lower's selected
+    // context. Returning false retains the original typed lower dispatch.
+    virtual bool TryApplyLower(GuestAddress, GuestMemory&, Registers&)
+    { return false; }
     virtual void SetHostFpControl(std::uint32_t control) = 0;
 };
 

@@ -139,6 +139,11 @@ void CallLower(GuestAddress entry, Context& context, GuestMemory& memory,
     Dependencies dependencies)
 {
     auto state = ToRegisters(context);
+    if (dependencies.guests.TryApplyLower(entry, memory, state))
+    {
+        context = ToContext(state);
+        return;
+    }
     bool handled = false;
     switch (entry)
     {

@@ -28,4 +28,9 @@ struct Dependencies
 // callbacks retain the lower service's explicit ABI boundary.
 [[nodiscard]] bool Apply(GuestAddress entry, GuestMemory& memory,
     Dependencies dependencies, Registers& registers);
+
+// Exposes the same accepted parsing/hash/compare selected-context adapters
+// for callers that enter those lower bodies directly.
+[[nodiscard]] bool ApplyParsingLower(GuestAddress entry, GuestMemory& memory,
+    Dependencies dependencies, Registers& registers);
 } // namespace lo::semantic::gpu::legacy_config_name_routes

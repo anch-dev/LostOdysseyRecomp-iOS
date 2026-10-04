@@ -20,6 +20,9 @@ public:
     }
     void SetHostFpControl(std::uint32_t control) override
     { dependencies_.command.guests.SetHostFpControl(control); }
+    bool TryApplyLower(GuestAddress entry, GuestMemory& memory,
+        Registers& state) override
+    { return dependencies_.command.guests.TryApplyLower(entry, memory, state); }
 private:
     Dependencies dependencies_;
 };

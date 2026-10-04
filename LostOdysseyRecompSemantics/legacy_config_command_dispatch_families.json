@@ -541,6 +541,17 @@
       "runtime_validated": false,
       "complete": false,
       "unvalidated_scope": "Other command guests, lower registry/constructor/native services, unexposed PPCContext fields, faults, MMIO and runtime remain open."
+    },
+    {
+      "name": "legacy_config_command_line_chain",
+      "status": "passed",
+      "focused_original_ppc_cases": 5,
+      "mapping_credit": 0,
+      "implementation": "src/legacy_config_command_line_chain.cpp",
+      "header": "include/lo_semantics/legacy_config_command_line_chain.h",
+      "original_body_pin": "recovery_drafts/legacy_config_command_line_chain.json",
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-legacy-config-command-line-chain-tests/legacy-config-command-line-chain-result.json",
+      "scope": "18 actual PPC bodies compose command/name parsing with real keybinding multiline handling and warm query/getter. Primary, fallback, two-line, OnRelease and missing-key cases; selected GPR/FPR/CR/XER/SP/LR/CTR and ordinary RAM. Dynamic line methods, unselected registry/numeric branches, unexposed lower context, faults, MMIO and runtime remain open."
     }
   ]
 }

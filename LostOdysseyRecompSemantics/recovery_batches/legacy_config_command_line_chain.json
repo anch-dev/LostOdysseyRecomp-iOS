@@ -1,0 +1,43 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Actual command selection -> multi-line dispatch and warm manager query; five focused keybinding cases, no new mapping credit.",
+  "families": [
+    {
+      "name": "legacy-config-command-line-chain",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/legacy_config_command_line_chain.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_config_command_line_chain_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\nvoid OriginalSave26(PPCContext&, std::uint8_t*);\nvoid OriginalRestore26(PPCContext&, std::uint8_t*);\nvoid OriginalGuest(std::uint32_t, PPCContext&, std::uint8_t*);\nvoid OriginalUnselected(PPCContext&, std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_82296740);\nextern \"C\" PPC_FUNC(__imp__sub_82296830);\nextern \"C\" PPC_FUNC(__imp__sub_82296858);\nextern \"C\" PPC_FUNC(__imp__sub_82296938);\nextern \"C\" PPC_FUNC(__imp__sub_82483AC8);\nextern \"C\" PPC_FUNC(__imp__sub_822969A0);\n#define __savegprlr_26(c,b) OriginalSave26(c,b)\n#define __restgprlr_26(c,b) OriginalRestore26(c,b)\n#define sub_822969A0(c,b) __imp__sub_822969A0(c,b)\n#define sub_82713828(c,b) __imp__sub_82713828(c,b)\n#define sub_82296B00(c,b) __imp__sub_82296B00(c,b)\n#define sub_82479058(c,b) OriginalUnselected(c,b)\n#define sub_824790A8(c,b) OriginalUnselected(c,b)\n#define sub_82297338(c,b) OriginalUnselected(c,b)\n#define sub_822988E0(c,b) OriginalUnselected(c,b)\n#define sub_82295DA8(c,b) __imp__sub_82295DA8(c,b)\n#include \"ppc_context.h\"\nvoid OriginalSaveName(PPCContext&, std::uint8_t*, unsigned);\nvoid OriginalRestoreName(PPCContext&, std::uint8_t*, unsigned);\nvoid OriginalUnselectedName(PPCContext&, std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_82296B00);\nextern \"C\" PPC_FUNC(__imp__sub_82713828);\nextern \"C\" PPC_FUNC(__imp__sub_822972A8);\nextern \"C\" PPC_FUNC(__imp__sub_822971E0);\nextern \"C\" PPC_FUNC(__imp__sub_82296E80);\nextern \"C\" PPC_FUNC(__imp__sub_82296FE8);\nextern \"C\" PPC_FUNC(__imp__sub_82296F68);\nextern \"C\" PPC_FUNC(__imp__sub_82296830);\n#define __savegprlr_25(c,b) OriginalSaveName(c,b,25u)\n#define __restgprlr_25(c,b) OriginalRestoreName(c,b,25u)\n#define __savegprlr_29(c,b) OriginalSaveName(c,b,29u)\n#define __restgprlr_29(c,b) OriginalRestoreName(c,b,29u)\n#define sub_822972A8(c,b) __imp__sub_822972A8(c,b)\n#define sub_822971E0(c,b) __imp__sub_822971E0(c,b)\n#define sub_82296E80(c,b) __imp__sub_82296E80(c,b)\n#define sub_82296FE8(c,b) __imp__sub_82296FE8(c,b)\n#define sub_82296F68(c,b) __imp__sub_82296F68(c,b)\n#define sub_823F4700(c,b) OriginalUnselectedName(c,b)\n#define sub_82296D30(c,b) OriginalUnselectedName(c,b)\n#define sub_8240BCA8(c,b) OriginalUnselectedName(c,b)\n#define sub_8240C400(c,b) OriginalUnselectedName(c,b)\n#define sub_82713CF8(c,b) OriginalUnselectedName(c,b)\n#define sub_82376F98(c,b) OriginalUnselectedName(c,b)\n#define sub_8232D318(c,b) OriginalUnselectedName(c,b)\n#include \"ppc_context.h\"\nvoid OriginalSaveLine(PPCContext&, std::uint8_t*);\nvoid OriginalRestoreLine(PPCContext&, std::uint8_t*);\nvoid OriginalVirtualLine(PPCContext&, std::uint8_t*);\nvoid OriginalUnselectedLine(PPCContext&, std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_82295DA8);\nextern \"C\" PPC_FUNC(__imp__sub_8231A220);\nextern \"C\" PPC_FUNC(__imp__sub_82295EE0);\nextern \"C\" PPC_FUNC(__imp__sub_82296740);\nextern \"C\" PPC_FUNC(__imp__sub_82296830);\nextern \"C\" PPC_FUNC(__imp__sub_82296858);\nextern \"C\" PPC_FUNC(__imp__sub_82296938);\nextern \"C\" PPC_FUNC(__imp__sub_82483AC8);\nextern \"C\" PPC_FUNC(__imp__sub_822A2700);\n#define __savegprlr_27(c,b) OriginalSaveLine(c,b)\n#define __restgprlr_27(c,b) OriginalRestoreLine(c,b)\n#define sub_82295EE0(c,b) __imp__sub_82295EE0(c,b)\n#define sub_8231A220(c,b) __imp__sub_8231A220(c,b)\n#define sub_82296740(c,b) __imp__sub_82296740(c,b)\n#define sub_82296830(c,b) __imp__sub_82296830(c,b)\n#define sub_82296858(c,b) __imp__sub_82296858(c,b)\n#define sub_82296938(c,b) __imp__sub_82296938(c,b)\n#define sub_82483AC8(c,b) __imp__sub_82483AC8(c,b)\n#define sub_822A2700(c,b) __imp__sub_822A2700(c,b)\n#define sub_824C94B8(c,b) OriginalUnselectedLine(c,b)\n#define sub_824C9570(c,b) OriginalUnselectedLine(c,b)\n#define sub_82B7FD78(c,b) OriginalUnselectedLine(c,b)\n#define sub_82B7FEC0(c,b) OriginalUnselectedLine(c,b)\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(t) OriginalVirtualLine(ctx,base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_config_command_dispatch.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_utf16_prefix_cursor.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_character_cursor.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_utf16_line_token_number.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_token_float_cursor.cpp",
+        "LostOdysseyRecompSemantics/src/metadata_name_index.cpp",
+        "LostOdysseyRecompSemantics/src/manager_metadata_compare.cpp",
+        "LostOdysseyRecompSemantics/src/manager_metadata_parsing.cpp",
+        "LostOdysseyRecompSemantics/src/metadata_name_registry.cpp",
+        "LostOdysseyRecompSemantics/src/metadata_option_match.cpp",
+        "LostOdysseyRecompSemantics/src/registered_metadata_string.cpp",
+        "LostOdysseyRecompSemantics/src/metadata_name_record.cpp",
+        "LostOdysseyRecompSemantics/src/allocation_array.cpp",
+        "LostOdysseyRecompSemantics/src/allocation_failure.cpp",
+        "LostOdysseyRecompSemantics/src/crt_thread_data.cpp",
+        "LostOdysseyRecompSemantics/src/invalid_parameter.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_config_name_routes.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_token_lookup_flags.cpp",
+        "LostOdysseyRecompSemantics/src/metadata_name_lookup.cpp",
+        "LostOdysseyRecompSemantics/src/registered_constructor_family.cpp",
+        "LostOdysseyRecompSemantics/src/manager_index_operations.cpp",
+        "LostOdysseyRecompSemantics/src/manager_facade.cpp",
+        "LostOdysseyRecompSemantics/src/manager_index_tables.cpp",
+        "LostOdysseyRecompSemantics/src/manager_init.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_config_command_name_chain.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_config_line_dispatch.cpp",
+        "LostOdysseyRecompSemantics/src/registered_getter_family.cpp",
+        "LostOdysseyRecompSemantics/src/registered_inline_constructor.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_config_command_line_chain.cpp"
+      ]
+    }
+  ]
+}
