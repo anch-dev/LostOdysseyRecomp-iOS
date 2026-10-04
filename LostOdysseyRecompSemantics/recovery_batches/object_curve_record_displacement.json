@@ -1,0 +1,17 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Two new actual 375+30 instruction indexed record curve displacement/normalizer bodies plus four accepted direct/nested lower PPC bodies; ten focused finite cases, two mapping candidates.",
+  "families": [
+    {
+      "name": "object-curve-record-displacement",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/object_curve_record_displacement_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/object_curve_record_displacement_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_826276B8);\nextern \"C\" PPC_FUNC(__imp__sub_8229F208);\nextern \"C\" PPC_FUNC(__imp__sub_82607318);\nextern \"C\" PPC_FUNC(__imp__sub_822C7388);\nextern \"C\" PPC_FUNC(__imp__sub_822C73E8);\nextern \"C\" PPC_FUNC(__imp__sub_822C78D8);\nvoid OriginalSave24(PPCContext&,std::uint8_t*);\nvoid OriginalRestore24(PPCContext&,std::uint8_t*);\nvoid OriginalSaveF14(PPCContext&,std::uint8_t*);\nvoid OriginalRestoreF14(PPCContext&,std::uint8_t*);\nvoid OriginalSave27(PPCContext&,std::uint8_t*);\nvoid OriginalRestore27(PPCContext&,std::uint8_t*);\nvoid OriginalIndirect(std::uint32_t,PPCContext&,std::uint8_t*);\n#define __savegprlr_24(c,b) OriginalSave24(c,b)\n#define __restgprlr_24(c,b) OriginalRestore24(c,b)\n#define __savefpr_14(c,b) OriginalSaveF14(c,b)\n#define __restfpr_14(c,b) OriginalRestoreF14(c,b)\n#define __savegprlr_27(c,b) OriginalSave27(c,b)\n#define __restgprlr_27(c,b) OriginalRestore27(c,b)\n#define sub_8229F208(c,b) __imp__sub_8229F208(c,b)\n#define sub_82607318(c,b) __imp__sub_82607318(c,b)\n#define sub_822C7388(c,b) __imp__sub_822C7388(c,b)\n#define sub_822C73E8(c,b) __imp__sub_822C73E8(c,b)\n#define sub_822C78D8(c,b) __imp__sub_822C78D8(c,b)\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(t) OriginalIndirect((t),ctx,base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/object_curve_record_displacement.cpp",
+        "LostOdysseyRecompSemantics/src/object_curve_sample.cpp",
+        "LostOdysseyRecompSemantics/src/object_sample_accumulator.cpp"
+      ]
+    }
+  ]
+}
