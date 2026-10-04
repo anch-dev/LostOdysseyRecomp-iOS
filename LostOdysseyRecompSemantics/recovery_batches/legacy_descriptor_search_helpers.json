@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Complete five 107-instruction descriptor search helpers; 82FB71D0 tail composes actual 83057B58. Ten focused cases, no parent 83058FC8 credit.",
+  "families": [
+    {
+      "name": "legacy-descriptor-search-helpers",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/legacy_descriptor_search_helpers_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_descriptor_search_helpers_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\nextern \"C\" PPC_FUNC(__imp__sub_82FAC070);\nextern \"C\" PPC_FUNC(__imp__sub_82FAC608);\nextern \"C\" PPC_FUNC(__imp__sub_83054600);\nextern \"C\" PPC_FUNC(__imp__sub_82FB71D0);\nextern \"C\" PPC_FUNC(__imp__sub_83057B58);\n#define sub_83057B58(c,b) __imp__sub_83057B58(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_descriptor_search_helpers.cpp"
+      ]
+    }
+  ]
+}

@@ -80,6 +80,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/legacy_descriptor_array_callers.cpp
     src/legacy_descriptor_numeric_read.cpp
     src/legacy_descriptor_clone_chain.cpp
+    src/legacy_descriptor_search_helpers.cpp
     src/legacy_utf16_line_token_number.cpp
     src/legacy_config_command_dispatch.cpp
     src/legacy_config_command_name_chain.cpp

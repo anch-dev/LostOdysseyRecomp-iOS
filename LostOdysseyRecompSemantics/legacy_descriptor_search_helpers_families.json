@@ -1,0 +1,278 @@
+{
+  "schema": "legacy-descriptor-search-helpers-v1",
+  "implementation": {
+    "header": "include/lo_semantics/legacy_descriptor_search_helpers.h",
+    "source": "src/legacy_descriptor_search_helpers.cpp",
+    "oracle": "tests/legacy_descriptor_search_helpers_oracle.cpp"
+  },
+  "validation": {
+    "status": "passed",
+    "planned_input_cases": 10,
+    "entry_comparisons": 10,
+    "mapping_credit_entries": [
+      "82FAC070",
+      "82FAC608",
+      "83054600",
+      "82FB71D0",
+      "83057B58"
+    ],
+    "runtime_validated": false,
+    "complete": false,
+    "unvalidated_scope": "Parent 83058FC8 and unrelated allocator/diagnostic/runtime behavior remain open.",
+    "focused_original_ppc_cases": 10,
+    "mapping_credit": 5,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-legacy-descriptor-search-helpers-tests/legacy-descriptor-search-helpers-result.json",
+    "library": "Windows-native /W4 /WX MT static library passed",
+    "original_body_pin": "recovery_drafts/legacy_descriptor_search_helpers_validation.json"
+  },
+  "entries": [
+    {
+      "address": "82FAC070",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.220.cpp",
+      "source_line": 32075,
+      "instruction_count": 22,
+      "instructions": [
+        "lwz r11,8(r3)",
+        "rlwinm r11,r11,25,25,31",
+        "cmplwi cr6,r11,21",
+        "blt cr6,0x82fac08c",
+        "cmplwi cr6,r11,24",
+        "li r10,1",
+        "ble cr6,0x82fac090",
+        "li r10,0",
+        "clrlwi. r10,r10,24",
+        "bne 0x82fac0bc",
+        "cmplwi cr6,r11,62",
+        "blt cr6,0x82fac0a8",
+        "cmplwi cr6,r11,65",
+        "ble cr6,0x82fac0bc",
+        "cmplwi cr6,r11,108",
+        "beq cr6,0x82fac0bc",
+        "cmplwi cr6,r11,107",
+        "li r11,0",
+        "bne cr6,0x82fac0c0",
+        "li r11,1",
+        "clrlwi r3,r11,24",
+        "blr"
+      ],
+      "cfg": {
+        "labels": [
+          "82FAC08C",
+          "82FAC090",
+          "82FAC0A8",
+          "82FAC0BC",
+          "82FAC0C0"
+        ],
+        "branches": [
+          "blt cr6,0x82fac08c",
+          "ble cr6,0x82fac090",
+          "bne 0x82fac0bc",
+          "blt cr6,0x82fac0a8",
+          "ble cr6,0x82fac0bc",
+          "beq cr6,0x82fac0bc",
+          "bne cr6,0x82fac0c0",
+          "blr"
+        ]
+      },
+      "direct_calls": [],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82FAC070) {\n\tPPC_FUNC_PROLOGUE();\n\t// lwz r11,8(r3)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 8);\n\t// rlwinm r11,r11,25,25,31\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 25) & 0x7F;\n\t// cmplwi cr6,r11,21\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 21, ctx.xer);\n\t// blt cr6,0x82fac08c\n\tif (ctx.cr6.lt) goto loc_82FAC08C;\n\t// cmplwi cr6,r11,24\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 24, ctx.xer);\n\t// li r10,1\n\tctx.r10.s64 = 1;\n\t// ble cr6,0x82fac090\n\tif (!ctx.cr6.gt) goto loc_82FAC090;\nloc_82FAC08C:\n\t// li r10,0\n\tctx.r10.s64 = 0;\nloc_82FAC090:\n\t// clrlwi. r10,r10,24\n\tctx.r10.u64 = ctx.r10.u32 & 0xFF;\n\tctx.cr0.compare<int32_t>(ctx.r10.s32, 0, ctx.xer);\n\t// bne 0x82fac0bc\n\tif (!ctx.cr0.eq) goto loc_82FAC0BC;\n\t// cmplwi cr6,r11,62\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 62, ctx.xer);\n\t// blt cr6,0x82fac0a8\n\tif (ctx.cr6.lt) goto loc_82FAC0A8;\n\t// cmplwi cr6,r11,65\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 65, ctx.xer);\n\t// ble cr6,0x82fac0bc\n\tif (!ctx.cr6.gt) goto loc_82FAC0BC;\nloc_82FAC0A8:\n\t// cmplwi cr6,r11,108\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 108, ctx.xer);\n\t// beq cr6,0x82fac0bc\n\tif (ctx.cr6.eq) goto loc_82FAC0BC;\n\t// cmplwi cr6,r11,107\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 107, ctx.xer);\n\t// li r11,0\n\tctx.r11.s64 = 0;\n\t// bne cr6,0x82fac0c0\n\tif (!ctx.cr6.eq) goto loc_82FAC0C0;\nloc_82FAC0BC:\n\t// li r11,1\n\tctx.r11.s64 = 1;\nloc_82FAC0C0:\n\t// clrlwi r3,r11,24\n\tctx.r3.u64 = ctx.r11.u32 & 0xFF;\n\t// blr \n\treturn;\n}\n",
+      "status": "original_ppc_validated"
+    },
+    {
+      "address": "82FAC608",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.220.cpp",
+      "source_line": 33062,
+      "instruction_count": 21,
+      "instructions": [
+        "lwz r11,0(r3)",
+        "rlwinm. r11,r11,0,4,6",
+        "beq 0x82fac650",
+        "lwz r10,12(r3)",
+        "lwz r11,8(r10)",
+        "rlwinm r11,r11,25,25,31",
+        "cmplwi cr6,r11,124",
+        "beq cr6,0x82fac634",
+        "cmplwi cr6,r11,123",
+        "li r11,0",
+        "bne cr6,0x82fac638",
+        "li r11,1",
+        "clrlwi. r11,r11,24",
+        "bne 0x82fac650",
+        "lwz r11,8(r10)",
+        "rlwinm. r11,r11,27,31,31",
+        "li r11,1",
+        "beq 0x82fac654",
+        "li r11,0",
+        "clrlwi r3,r11,24",
+        "blr"
+      ],
+      "cfg": {
+        "labels": [
+          "82FAC634",
+          "82FAC638",
+          "82FAC650",
+          "82FAC654"
+        ],
+        "branches": [
+          "beq 0x82fac650",
+          "beq cr6,0x82fac634",
+          "bne cr6,0x82fac638",
+          "bne 0x82fac650",
+          "beq 0x82fac654",
+          "blr"
+        ]
+      },
+      "direct_calls": [],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82FAC608) {\n\tPPC_FUNC_PROLOGUE();\n\t// lwz r11,0(r3)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 0);\n\t// rlwinm. r11,r11,0,4,6\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 0) & 0xE000000;\n\tctx.cr0.compare<int32_t>(ctx.r11.s32, 0, ctx.xer);\n\t// beq 0x82fac650\n\tif (ctx.cr0.eq) goto loc_82FAC650;\n\t// lwz r10,12(r3)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r3.u32 + 12);\n\t// lwz r11,8(r10)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r10.u32 + 8);\n\t// rlwinm r11,r11,25,25,31\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 25) & 0x7F;\n\t// cmplwi cr6,r11,124\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 124, ctx.xer);\n\t// beq cr6,0x82fac634\n\tif (ctx.cr6.eq) goto loc_82FAC634;\n\t// cmplwi cr6,r11,123\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 123, ctx.xer);\n\t// li r11,0\n\tctx.r11.s64 = 0;\n\t// bne cr6,0x82fac638\n\tif (!ctx.cr6.eq) goto loc_82FAC638;\nloc_82FAC634:\n\t// li r11,1\n\tctx.r11.s64 = 1;\nloc_82FAC638:\n\t// clrlwi. r11,r11,24\n\tctx.r11.u64 = ctx.r11.u32 & 0xFF;\n\tctx.cr0.compare<int32_t>(ctx.r11.s32, 0, ctx.xer);\n\t// bne 0x82fac650\n\tif (!ctx.cr0.eq) goto loc_82FAC650;\n\t// lwz r11,8(r10)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r10.u32 + 8);\n\t// rlwinm. r11,r11,27,31,31\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 27) & 0x1;\n\tctx.cr0.compare<int32_t>(ctx.r11.s32, 0, ctx.xer);\n\t// li r11,1\n\tctx.r11.s64 = 1;\n\t// beq 0x82fac654\n\tif (ctx.cr0.eq) goto loc_82FAC654;\nloc_82FAC650:\n\t// li r11,0\n\tctx.r11.s64 = 0;\nloc_82FAC654:\n\t// clrlwi r3,r11,24\n\tctx.r3.u64 = ctx.r11.u32 & 0xFF;\n\t// blr \n\treturn;\n}\n",
+      "status": "original_ppc_validated"
+    },
+    {
+      "address": "83054600",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.225.cpp",
+      "source_line": 12342,
+      "instruction_count": 17,
+      "instructions": [
+        "li r9,0",
+        "li r10,0",
+        "li r11,0",
+        "srw r8,r3,r11",
+        "li r7,3",
+        "add r8,r8,r10",
+        "addi r10,r10,1",
+        "clrlwi r8,r8,30",
+        "slw r7,r7,r11",
+        "andc r9,r9,r7",
+        "slw r8,r8,r11",
+        "addi r11,r11,2",
+        "or r9,r8,r9",
+        "cmplwi cr6,r11,8",
+        "blt cr6,0x8305460c",
+        "mr r3,r9",
+        "blr"
+      ],
+      "cfg": {
+        "labels": [
+          "8305460C"
+        ],
+        "branches": [
+          "blt cr6,0x8305460c",
+          "blr"
+        ]
+      },
+      "direct_calls": [],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_83054600) {\n\tPPC_FUNC_PROLOGUE();\n\t// li r9,0\n\tctx.r9.s64 = 0;\n\t// li r10,0\n\tctx.r10.s64 = 0;\n\t// li r11,0\n\tctx.r11.s64 = 0;\nloc_8305460C:\n\t// srw r8,r3,r11\n\tctx.r8.u64 = ctx.r11.u8 & 0x20 ? 0 : (ctx.r3.u32 >> (ctx.r11.u8 & 0x3F));\n\t// li r7,3\n\tctx.r7.s64 = 3;\n\t// add r8,r8,r10\n\tctx.r8.u64 = ctx.r8.u64 + ctx.r10.u64;\n\t// addi r10,r10,1\n\tctx.r10.s64 = ctx.r10.s64 + 1;\n\t// clrlwi r8,r8,30\n\tctx.r8.u64 = ctx.r8.u32 & 0x3;\n\t// slw r7,r7,r11\n\tctx.r7.u64 = ctx.r11.u8 & 0x20 ? 0 : (ctx.r7.u32 << (ctx.r11.u8 & 0x3F));\n\t// andc r9,r9,r7\n\tctx.r9.u64 = ctx.r9.u64 & ~ctx.r7.u64;\n\t// slw r8,r8,r11\n\tctx.r8.u64 = ctx.r11.u8 & 0x20 ? 0 : (ctx.r8.u32 << (ctx.r11.u8 & 0x3F));\n\t// addi r11,r11,2\n\tctx.r11.s64 = ctx.r11.s64 + 2;\n\t// or r9,r8,r9\n\tctx.r9.u64 = ctx.r8.u64 | ctx.r9.u64;\n\t// cmplwi cr6,r11,8\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 8, ctx.xer);\n\t// blt cr6,0x8305460c\n\tif (ctx.cr6.lt) goto loc_8305460C;\n\t// mr r3,r9\n\tctx.r3.u64 = ctx.r9.u64;\n\t// blr \n\treturn;\n}\n",
+      "status": "original_ppc_validated"
+    },
+    {
+      "address": "82FB71D0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.221.cpp",
+      "source_line": 6246,
+      "instruction_count": 33,
+      "instructions": [
+        "mr r11,r3",
+        "mr r3,r4",
+        "lbz r10,12(r11)",
+        "clrlwi. r10,r10,31",
+        "beq 0x82fb724c",
+        "lbz r10,12(r3)",
+        "clrlwi. r10,r10,31",
+        "beq 0x82fb724c",
+        "lwz r10,16(r11)",
+        "lwz r9,16(r3)",
+        "clrlwi r10,r10,19",
+        "clrlwi r9,r9,19",
+        "cmplw cr6,r10,r9",
+        "ble cr6,0x82fb7210",
+        "li r3,1",
+        "blr",
+        "rlwinm r11,r11,0,0,30",
+        "lwz r11,36(r11)",
+        "clrlwi. r9,r11,31",
+        "bne 0x82fb7244",
+        "cmplwi cr6,r11,0",
+        "beq cr6,0x82fb7244",
+        "lwz r9,16(r11)",
+        "clrlwi r9,r9,19",
+        "cmplw cr6,r9,r10",
+        "blt cr6,0x82fb7244",
+        "cmplw cr6,r11,r3",
+        "bne cr6,0x82fb7210",
+        "b 0x82fb7208",
+        "li r3,0",
+        "blr",
+        "mr r4,r11",
+        "b 0x83057b58"
+      ],
+      "cfg": {
+        "labels": [
+          "82FB7208",
+          "82FB7210",
+          "82FB7244",
+          "82FB724C"
+        ],
+        "branches": [
+          "beq 0x82fb724c",
+          "beq 0x82fb724c",
+          "ble cr6,0x82fb7210",
+          "blr",
+          "bne 0x82fb7244",
+          "beq cr6,0x82fb7244",
+          "blt cr6,0x82fb7244",
+          "bne cr6,0x82fb7210",
+          "b 0x82fb7208",
+          "blr",
+          "b 0x83057b58"
+        ]
+      },
+      "direct_calls": [
+        "83057B58"
+      ],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82FB71D0) {\n\tPPC_FUNC_PROLOGUE();\n\t// mr r11,r3\n\tctx.r11.u64 = ctx.r3.u64;\n\t// mr r3,r4\n\tctx.r3.u64 = ctx.r4.u64;\n\t// lbz r10,12(r11)\n\tctx.r10.u64 = PPC_LOAD_U8(ctx.r11.u32 + 12);\n\t// clrlwi. r10,r10,31\n\tctx.r10.u64 = ctx.r10.u32 & 0x1;\n\tctx.cr0.compare<int32_t>(ctx.r10.s32, 0, ctx.xer);\n\t// beq 0x82fb724c\n\tif (ctx.cr0.eq) goto loc_82FB724C;\n\t// lbz r10,12(r3)\n\tctx.r10.u64 = PPC_LOAD_U8(ctx.r3.u32 + 12);\n\t// clrlwi. r10,r10,31\n\tctx.r10.u64 = ctx.r10.u32 & 0x1;\n\tctx.cr0.compare<int32_t>(ctx.r10.s32, 0, ctx.xer);\n\t// beq 0x82fb724c\n\tif (ctx.cr0.eq) goto loc_82FB724C;\n\t// lwz r10,16(r11)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 16);\n\t// lwz r9,16(r3)\n\tctx.r9.u64 = PPC_LOAD_U32(ctx.r3.u32 + 16);\n\t// clrlwi r10,r10,19\n\tctx.r10.u64 = ctx.r10.u32 & 0x1FFF;\n\t// clrlwi r9,r9,19\n\tctx.r9.u64 = ctx.r9.u32 & 0x1FFF;\n\t// cmplw cr6,r10,r9\n\tctx.cr6.compare<uint32_t>(ctx.r10.u32, ctx.r9.u32, ctx.xer);\n\t// ble cr6,0x82fb7210\n\tif (!ctx.cr6.gt) goto loc_82FB7210;\nloc_82FB7208:\n\t// li r3,1\n\tctx.r3.s64 = 1;\n\t// blr \n\treturn;\nloc_82FB7210:\n\t// rlwinm r11,r11,0,0,30\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 0) & 0xFFFFFFFE;\n\t// lwz r11,36(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 36);\n\t// clrlwi. r9,r11,31\n\tctx.r9.u64 = ctx.r11.u32 & 0x1;\n\tctx.cr0.compare<int32_t>(ctx.r9.s32, 0, ctx.xer);\n\t// bne 0x82fb7244\n\tif (!ctx.cr0.eq) goto loc_82FB7244;\n\t// cmplwi cr6,r11,0\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 0, ctx.xer);\n\t// beq cr6,0x82fb7244\n\tif (ctx.cr6.eq) goto loc_82FB7244;\n\t// lwz r9,16(r11)\n\tctx.r9.u64 = PPC_LOAD_U32(ctx.r11.u32 + 16);\n\t// clrlwi r9,r9,19\n\tctx.r9.u64 = ctx.r9.u32 & 0x1FFF;\n\t// cmplw cr6,r9,r10\n\tctx.cr6.compare<uint32_t>(ctx.r9.u32, ctx.r10.u32, ctx.xer);\n\t// blt cr6,0x82fb7244\n\tif (ctx.cr6.lt) goto loc_82FB7244;\n\t// cmplw cr6,r11,r3\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, ctx.r3.u32, ctx.xer);\n\t// bne cr6,0x82fb7210\n\tif (!ctx.cr6.eq) goto loc_82FB7210;\n\t// b 0x82fb7208\n\tgoto loc_82FB7208;\nloc_82FB7244:\n\t// li r3,0\n\tctx.r3.s64 = 0;\n\t// blr \n\treturn;\nloc_82FB724C:\n\t// mr r4,r11\n\tctx.r4.u64 = ctx.r11.u64;\n\t// b 0x83057b58\n\tsub_83057B58(ctx, base);\n\treturn;\n}\n",
+      "status": "original_ppc_validated"
+    },
+    {
+      "address": "83057B58",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.225.cpp",
+      "source_line": 20446,
+      "instruction_count": 14,
+      "instructions": [
+        "mr r11,r3",
+        "rlwinm r11,r11,0,0,30",
+        "lwz r11,32(r11)",
+        "clrlwi. r10,r11,31",
+        "bne 0x83057b88",
+        "rlwinm r11,r11,0,0,30",
+        "addic. r11,r11,-36",
+        "beq 0x83057b88",
+        "cmplw cr6,r11,r4",
+        "bne cr6,0x83057b5c",
+        "li r3,1",
+        "blr",
+        "li r3,0",
+        "blr"
+      ],
+      "cfg": {
+        "labels": [
+          "83057B5C",
+          "83057B88"
+        ],
+        "branches": [
+          "bne 0x83057b88",
+          "beq 0x83057b88",
+          "bne cr6,0x83057b5c",
+          "blr",
+          "blr"
+        ]
+      },
+      "direct_calls": [],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_83057B58) {\n\tPPC_FUNC_PROLOGUE();\n\t// mr r11,r3\n\tctx.r11.u64 = ctx.r3.u64;\nloc_83057B5C:\n\t// rlwinm r11,r11,0,0,30\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 0) & 0xFFFFFFFE;\n\t// lwz r11,32(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 32);\n\t// clrlwi. r10,r11,31\n\tctx.r10.u64 = ctx.r11.u32 & 0x1;\n\tctx.cr0.compare<int32_t>(ctx.r10.s32, 0, ctx.xer);\n\t// bne 0x83057b88\n\tif (!ctx.cr0.eq) goto loc_83057B88;\n\t// rlwinm r11,r11,0,0,30\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 0) & 0xFFFFFFFE;\n\t// addic. r11,r11,-36\n\tctx.xer.ca = ctx.r11.u32 > 35;\n\tctx.r11.s64 = ctx.r11.s64 + -36;\n\tctx.cr0.compare<int32_t>(ctx.r11.s32, 0, ctx.xer);\n\t// beq 0x83057b88\n\tif (ctx.cr0.eq) goto loc_83057B88;\n\t// cmplw cr6,r11,r4\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, ctx.r4.u32, ctx.xer);\n\t// bne cr6,0x83057b5c\n\tif (!ctx.cr6.eq) goto loc_83057B5C;\n\t// li r3,1\n\tctx.r3.s64 = 1;\n\t// blr \n\treturn;\nloc_83057B88:\n\t// li r3,0\n\tctx.r3.s64 = 0;\n\t// blr \n\treturn;\n}\n",
+      "status": "original_ppc_validated"
+    }
+  ],
+  "scope": "Complete 82FAC070/82FAC608 descriptor predicates, 83054600 two-bit normalization, 82FB71D0 interval overlap with actual 83057B58 linked-walk tail."
+}
