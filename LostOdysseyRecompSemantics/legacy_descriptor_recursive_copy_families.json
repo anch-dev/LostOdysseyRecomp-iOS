@@ -170,6 +170,13 @@
     "runtime_validated": false,
     "complete": false,
     "mapping_credit": 1,
-    "original_body_pin": "recovery_drafts/legacy_descriptor_recursive_copy_validation.json"
+    "original_body_pin": "recovery_drafts/legacy_descriptor_recursive_copy_validation.json",
+    "unvalidated_scope": "Guest83025E68/830574D0/8305B568 and diagnostic82F99F48 retain mutable boundaries; allocator82FAC428 and lower native behavior modeled. Unselected kinds, faults, MMIO, concurrency and runtime remain open."
+  },
+  "scope": "Complete 83026C80(101) selected recursive body with accepted real value-intern and attachment-clone implementations; six type1/type2/type3/type0 focused paths compare integer/FP state, cache, RAM and callback order.",
+  "implementation": {
+    "header": "include/lo_semantics/legacy_descriptor_recursive_copy.h",
+    "source": "src/legacy_descriptor_recursive_copy.cpp",
+    "oracle": "tests/legacy_descriptor_recursive_copy_oracle.cpp"
   }
 }
