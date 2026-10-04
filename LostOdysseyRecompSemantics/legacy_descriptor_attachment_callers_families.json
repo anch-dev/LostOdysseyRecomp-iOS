@@ -176,6 +176,6 @@
     "library": "Windows-native /W4 /WX MT static library passed",
     "original_body_pin": "recovery_drafts/legacy_descriptor_attachment_callers_validation.json",
     "scope": "Unowned/owned first and second attachment, low-bit inputs, packed count and existing ring paths; selected integer, FP/cache/host state and ordinary RAM.",
-    "unvalidated_scope": "Native exhausted-pool implementation, arbitrary descriptor layouts, other PPCContext state, faults, MMIO, concurrency and runtime."
+    "unvalidated_scope": "Guest 82FAC428 exhausted-pool allocator and deeper import implementations, arbitrary descriptor layouts, other PPCContext state, faults, MMIO, concurrency and runtime."
   }
 }

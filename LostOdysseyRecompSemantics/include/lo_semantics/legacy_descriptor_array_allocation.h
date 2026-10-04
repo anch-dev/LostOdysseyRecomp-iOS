@@ -15,7 +15,7 @@ class Services
 {
 public:
     virtual ~Services() = default;
-    // The exhausted-pool 82FAC428 branch remains an explicit native boundary.
+    // The exhausted-pool 82FAC428 guest allocator remains an explicit boundary.
     virtual void AllocateFromPool(GuestMemory& memory,
         crt_stream_operations::Registers& integer) = 0;
     virtual void SetHostFpControl(std::uint32_t control) = 0;

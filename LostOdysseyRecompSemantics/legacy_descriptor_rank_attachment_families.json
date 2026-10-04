@@ -84,7 +84,7 @@
     "complete": false,
     "runtime_validated": false,
     "original_body_pin": "recovery_drafts/legacy_descriptor_rank_attachment_validation.json",
-    "unvalidated_scope": "Pool exhaustion/native implementation, arbitrary malformed descriptors, other PPCContext fields, faults, MMIO, concurrency and runtime.",
+    "unvalidated_scope": "Guest 82FAC428 exhausted-pool allocator and deeper import implementations, arbitrary malformed descriptors, other PPCContext fields, faults, MMIO, concurrency and runtime.",
     "focused_original_ppc_cases": 4,
     "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-legacy-descriptor-rank-attachment-tests/legacy-descriptor-rank-attachment-result.json",
     "library": "Windows-native /W4 /WX MT static library passed"

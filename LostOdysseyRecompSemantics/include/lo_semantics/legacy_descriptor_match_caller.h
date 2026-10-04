@@ -29,7 +29,7 @@ struct Dependencies
 
 // Complete 8305A868 selected control flow. The accepted selector, numeric
 // extraction/match and typed scalar caller run through their actual lowers;
-// only the diagnostic continuation and deeper scalar native services retain
+// only the diagnostic continuation, guest allocator and deeper imports retain
 // explicit mutable boundaries. Faults, MMIO and unexposed FP state remain open.
 [[nodiscard]] bool Apply(GuestAddress entry, GuestMemory& memory,
     Dependencies dependencies, Registers& registers);
