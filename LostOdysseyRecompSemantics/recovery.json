@@ -1406,6 +1406,16 @@
           "original_body_pin": "recovery_drafts/heap_decommit_context_validation.json",
           "implementation": "src/heap_decommit_context.cpp",
           "scope": "Complete 216-instruction selected 32-GPR/CR0/6/SO/CA/SP/LR/CTR and ordinary-RAM decommit control flow, composed with accepted complete 77-instruction insert implementation; gate fallback, no-whole-page fallback, VM success/failure and prefix remainder. Recovered oracle still uses actual original 827CB498/827CB658 as validation-only mutable guest boundaries, not restored selected implementations. Kernel VM import modeled; native implementation, other PPCContext fields, faults, unwind, MMIO, concurrency and runtime remain open."
+        },
+        {
+          "name": "heap_decommit_range_chain",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 3,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-heap-decommit-range-chain-tests/heap-decommit-range-chain-result.json",
+          "original_body_pin": "recovery_drafts/heap_decommit_range_chain_validation.json",
+          "implementation": "src/heap_decommit_range_chain.cpp",
+          "scope": "Actual selected guest composition 827CC668(216) to 827CB498(112)/827CB658(72)/827CBA60(77), removing the recovered-side actual-PPC bridges retained in the previous heap_decommit_context extension. Three focused top-level decommit VM-success/failure and leading-remainder cases compare all selected integer/CR/XER/LR/CTR, RAM and native events. Kernel allocation/free imports remain mutable models; other PPCContext fields, faults, unwind, MMIO, concurrency and runtime remain open."
         }
       ]
     },
