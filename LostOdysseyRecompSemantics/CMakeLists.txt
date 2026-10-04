@@ -63,6 +63,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/legacy_float_binary_conversion.cpp
     src/legacy_float_digit_accumulator.cpp
     src/legacy_float_text_parser.cpp
+    src/legacy_float_text_parser_digit_chain.cpp
     src/object_float_record_post_chain.cpp
     src/object_child_float_record_chain.cpp
     src/crt_allocation.cpp
