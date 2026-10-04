@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "New 822C8430 record update plus two actual lookup lowers 822C85B0/822C7B88; three mapping candidates, finite normal FP selected ABI.",
+  "families": [
+    {
+      "name": "object-record-property-apply",
+      "manifest": "LostOdysseyRecompSemantics/object_record_property_apply_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/object_record_property_apply_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_822C8430);\nextern \"C\" PPC_FUNC(__imp__sub_822C85B0);\nextern \"C\" PPC_FUNC(__imp__sub_822C7B88);\nvoid OriginalSave28(PPCContext&,std::uint8_t*);\nvoid OriginalRestore28(PPCContext&,std::uint8_t*);\n#define __savegprlr_28(c,b) OriginalSave28(c,b)\n#define __restgprlr_28(c,b) OriginalRestore28(c,b)\n#define sub_822C85B0(c,b) __imp__sub_822C85B0(c,b)\n#define sub_822C7B88(c,b) __imp__sub_822C7B88(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/object_record_property_apply.cpp"
+      ]
+    }
+  ]
+}
