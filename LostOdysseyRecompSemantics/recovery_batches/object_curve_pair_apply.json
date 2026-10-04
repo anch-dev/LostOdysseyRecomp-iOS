@@ -1,0 +1,16 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Two new actual object curve pair bodies, two accepted actual curve lowers, eight focused cases; two mapping candidates, dynamic vtable+268 boundary.",
+  "families": [
+    {
+      "name": "object-curve-pair-apply",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/object_curve_pair_apply_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/object_curve_pair_apply_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_822CEAB0);\nextern \"C\" PPC_FUNC(__imp__sub_822C7FB8);\nextern \"C\" PPC_FUNC(__imp__sub_822C73E8);\nextern \"C\" PPC_FUNC(__imp__sub_822C78D8);\nvoid OriginalSave25(PPCContext&,std::uint8_t*);\nvoid OriginalRestore25(PPCContext&,std::uint8_t*);\nvoid OriginalSave27(PPCContext&,std::uint8_t*);\nvoid OriginalRestore27(PPCContext&,std::uint8_t*);\nvoid OriginalIndirect(std::uint32_t,PPCContext&,std::uint8_t*);\n#define __savegprlr_25(c,b) OriginalSave25(c,b)\n#define __restgprlr_25(c,b) OriginalRestore25(c,b)\n#define __savegprlr_27(c,b) OriginalSave27(c,b)\n#define __restgprlr_27(c,b) OriginalRestore27(c,b)\n#define sub_822C7FB8(c,b) __imp__sub_822C7FB8(c,b)\n#define sub_822C73E8(c,b) __imp__sub_822C73E8(c,b)\n#define sub_822C78D8(c,b) __imp__sub_822C78D8(c,b)\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(t) OriginalIndirect((t),ctx,base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/object_curve_pair_apply.cpp",
+        "LostOdysseyRecompSemantics/src/object_curve_sample.cpp"
+      ]
+    }
+  ]
+}
