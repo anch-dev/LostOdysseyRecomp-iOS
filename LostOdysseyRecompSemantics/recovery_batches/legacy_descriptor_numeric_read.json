@@ -1,0 +1,18 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Complete scalar type decoding and output-record conversion with accepted flag/clamp/sign bodies and mutable diagnostic selected boundary.",
+  "families": [
+    {
+      "name": "legacy-descriptor-numeric-read",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/legacy_descriptor_numeric_read_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_descriptor_numeric_read_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_83053360);\nextern \"C\" PPC_FUNC(__imp__sub_82B7DEF0);\nextern \"C\" PPC_FUNC(__imp__sub_82B7DF28);\nextern \"C\" PPC_FUNC(__imp__sub_82B7DFC0);\nextern \"C\" PPC_FUNC(__imp__sub_82B82340);\nvoid OriginalNumeric(PPCContext&,std::uint8_t*);\nvoid OriginalCopySign(PPCContext&,std::uint8_t*);\nvoid OriginalFlipSign(PPCContext&,std::uint8_t*);\nvoid OriginalCategory(PPCContext&,std::uint8_t*);\nvoid OriginalSpecial(PPCContext&,std::uint8_t*);\n#define sub_83053360(c,b) OriginalNumeric(c,b)\n#define sub_82B7DEF0(c,b) OriginalCopySign(c,b)\n#define sub_82B7DF28(c,b) OriginalFlipSign(c,b)\n#define sub_82B7DFC0(c,b) OriginalCategory(c,b)\n#define sub_82B82340(c,b) OriginalSpecial(c,b)\nextern \"C\" PPC_FUNC(__imp__sub_82FF9B60);\nextern \"C\" PPC_FUNC(__imp__sub_83053C78);\n#define sub_82FF9B60(c,b) __imp__sub_82FF9B60(c,b)\n#define sub_83053C78(c,b) __imp__sub_83053C78(c,b)\nvoid OriginalDiagnostic(PPCContext&,std::uint8_t*);\n#define sub_82F99F48(c,b) OriginalDiagnostic(c,b)\nvoid OriginalSave28(PPCContext&,std::uint8_t*);\nvoid OriginalRestore28(PPCContext&,std::uint8_t*);\n#define __savegprlr_28(c,b) OriginalSave28(c,b)\n#define __restgprlr_28(c,b) OriginalRestore28(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_fp_classification.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_fp_numeric_routes.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_fp_flagged_routes.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_descriptor_numeric_read.cpp"
+      ]
+    }
+  ]
+}
