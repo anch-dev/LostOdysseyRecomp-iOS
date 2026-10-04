@@ -82,6 +82,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/object_metadata_manager_chain.cpp
     src/object_refresh_routes.cpp
     src/object_refresh_metadata_chain.cpp
+    src/object_refresh_curve_chain.cpp
     src/object_curve_sample.cpp
     src/crt_allocation.cpp
     src/crt_reallocate.cpp

@@ -414,6 +414,20 @@
       "runtime_validated": false,
       "complete": false,
       "unvalidated_scope": "Remaining direct 822C7388 and manager initializer/allocator internals; generic volatile ABI, FP exceptional values, nested scratch, faults, MMIO, runtime."
+    },
+    {
+      "scope": "Actual 13-body refresh/metadata/child/curve composition, with f10/f11/f12 propagation and mutable extended curve-vtable context.",
+      "source": "src/object_refresh_curve_chain.cpp",
+      "oracle": "tests/object_refresh_curve_chain_oracle.cpp",
+      "pin": "recovery_drafts/object_refresh_curve_chain.json",
+      "status": "passed",
+      "focused_original_ppc_cases": 5,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-object-refresh-curve-chain-tests/object-refresh-curve-chain-result.json",
+      "library": "Windows-native /W4 /WX MT static library passed",
+      "mapping_credit": 0,
+      "runtime_validated": false,
+      "complete": false,
+      "unvalidated_scope": "Manager initialization, allocator/constructor/virtual/native internals, unexposed PPCContext fields, exceptional FP, faults, MMIO and runtime."
     }
   ]
 }
