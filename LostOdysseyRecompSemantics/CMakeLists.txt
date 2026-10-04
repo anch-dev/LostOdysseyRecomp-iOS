@@ -67,6 +67,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/legacy_float_binary_conversion.cpp
     src/legacy_fp_classification.cpp
     src/legacy_fp_numeric_routes.cpp
+    src/legacy_fp_flagged_routes.cpp
     src/legacy_utf16_line_token_number.cpp
     src/legacy_float_digit_accumulator.cpp
     src/legacy_float_text_parser.cpp

@@ -1,0 +1,198 @@
+{
+  "schema": "legacy-fp-flagged-routes-draft-v1",
+  "entries": [
+    {
+      "address": "83053C10",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.225.cpp",
+      "source_line": 10788,
+      "instruction_count": 26,
+      "instructions": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-112(r1)",
+        "mr r31,r4",
+        "clrlwi. r11,r31,31",
+        "beq 0x83053c30",
+        "bl 0x83053360",
+        "rlwinm. r11,r31,0,30,30",
+        "beq 0x83053c48",
+        "lis r11,-32256",
+        "lfd f2,4072(r11)",
+        "bl 0x82b7def0",
+        "frsp f1,f1",
+        "rlwinm. r11,r31,0,29,29",
+        "beq 0x83053c64",
+        "stfs f1,80(r1)",
+        "lwz r11,80(r1)",
+        "xoris r11,r11,32768",
+        "stw r11,132(r1)",
+        "lfs f1,132(r1)",
+        "addi r1,r1,112",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr "
+      ],
+      "direct_calls": [
+        "83053360",
+        "82B7DEF0"
+      ],
+      "native_calls": [],
+      "cfg": {
+        "labels": [
+          "83053C30",
+          "83053C48",
+          "83053C64"
+        ],
+        "branches": [
+          "beq 0x83053c30",
+          "bl 0x83053360",
+          "beq 0x83053c48",
+          "bl 0x82b7def0",
+          "beq 0x83053c64"
+        ]
+      },
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_83053C10) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// std r31,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// mr r31,r4\n\tctx.r31.u64 = ctx.r4.u64;\n\t// clrlwi. r11,r31,31\n\tctx.r11.u64 = ctx.r31.u32 & 0x1;\n\tctx.cr0.compare<int32_t>(ctx.r11.s32, 0, ctx.xer);\n\t// beq 0x83053c30\n\tif (ctx.cr0.eq) goto loc_83053C30;\n\t// bl 0x83053360\n\tctx.lr = 0x83053C30;\n\tsub_83053360(ctx, base);\nloc_83053C30:\n\t// rlwinm. r11,r31,0,30,30\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r31.u32 | (ctx.r31.u64 << 32), 0) & 0x2;\n\tctx.cr0.compare<int32_t>(ctx.r11.s32, 0, ctx.xer);\n\t// beq 0x83053c48\n\tif (ctx.cr0.eq) goto loc_83053C48;\n\t// lis r11,-32256\n\tctx.r11.s64 = -2113929216;\n\t// lfd f2,4072(r11)\n\tctx.fpscr.disableFlushMode();\n\tctx.f2.u64 = PPC_LOAD_U64(ctx.r11.u32 + 4072);\n\t// bl 0x82b7def0\n\tctx.lr = 0x83053C44;\n\tsub_82B7DEF0(ctx, base);\n\t// frsp f1,f1\n\tctx.fpscr.disableFlushMode();\n\tctx.f1.f64 = double(float(ctx.f1.f64));\nloc_83053C48:\n\t// rlwinm. r11,r31,0,29,29\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r31.u32 | (ctx.r31.u64 << 32), 0) & 0x4;\n\tctx.cr0.compare<int32_t>(ctx.r11.s32, 0, ctx.xer);\n\t// beq 0x83053c64\n\tif (ctx.cr0.eq) goto loc_83053C64;\n\t// stfs f1,80(r1)\n\tctx.fpscr.disableFlushMode();\n\ttemp.f32 = float(ctx.f1.f64);\n\tPPC_STORE_U32(ctx.r1.u32 + 80, temp.u32);\n\t// lwz r11,80(r1)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r1.u32 + 80);\n\t// xoris r11,r11,32768\n\tctx.r11.u64 = ctx.r11.u64 ^ 2147483648;\n\t// stw r11,132(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + 132, ctx.r11.u32);\n\t// lfs f1,132(r1)\n\ttemp.u32 = PPC_LOAD_U32(ctx.r1.u32 + 132);\n\tctx.f1.f64 = double(temp.f32);\nloc_83053C64:\n\t// addi r1,r1,112\n\tctx.r1.s64 = ctx.r1.s64 + 112;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}\n",
+      "status": "original_ppc_validated"
+    },
+    {
+      "address": "83053C78",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.225.cpp",
+      "source_line": 10864,
+      "instruction_count": 31,
+      "instructions": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r30,-24(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-112(r1)",
+        "mr r31,r5",
+        "mr r30,r4",
+        "clrlwi. r11,r31,31",
+        "beq 0x83053ca4",
+        "frsp f1,f1",
+        "bl 0x83053360",
+        "rlwinm. r11,r31,0,30,30",
+        "beq 0x83053cb8",
+        "lis r11,-32256",
+        "lfd f2,4072(r11)",
+        "bl 0x82b7def0",
+        "rlwinm. r11,r31,0,29,29",
+        "beq 0x83053cdc",
+        "cmpwi cr6,r30,2",
+        "bne cr6,0x83053cd8",
+        "lis r11,-32239",
+        "lfd f0,-21816(r11)",
+        "fsub f1,f0,f1",
+        "b 0x83053cdc",
+        "bl 0x82b7df28",
+        "addi r1,r1,112",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r30,-24(r1)",
+        "ld r31,-16(r1)",
+        "blr "
+      ],
+      "direct_calls": [
+        "83053360",
+        "82B7DEF0",
+        "82B7DF28"
+      ],
+      "native_calls": [],
+      "cfg": {
+        "labels": [
+          "83053CA4",
+          "83053CB8",
+          "83053CD8",
+          "83053CDC"
+        ],
+        "branches": [
+          "beq 0x83053ca4",
+          "bl 0x83053360",
+          "beq 0x83053cb8",
+          "bl 0x82b7def0",
+          "beq 0x83053cdc",
+          "bne cr6,0x83053cd8",
+          "b 0x83053cdc",
+          "bl 0x82b7df28"
+        ]
+      },
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_83053C78) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// std r30,-24(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -24, ctx.r30.u64);\n\t// std r31,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// mr r31,r5\n\tctx.r31.u64 = ctx.r5.u64;\n\t// mr r30,r4\n\tctx.r30.u64 = ctx.r4.u64;\n\t// clrlwi. r11,r31,31\n\tctx.r11.u64 = ctx.r31.u32 & 0x1;\n\tctx.cr0.compare<int32_t>(ctx.r11.s32, 0, ctx.xer);\n\t// beq 0x83053ca4\n\tif (ctx.cr0.eq) goto loc_83053CA4;\n\t// frsp f1,f1\n\tctx.fpscr.disableFlushMode();\n\tctx.f1.f64 = double(float(ctx.f1.f64));\n\t// bl 0x83053360\n\tctx.lr = 0x83053CA4;\n\tsub_83053360(ctx, base);\nloc_83053CA4:\n\t// rlwinm. r11,r31,0,30,30\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r31.u32 | (ctx.r31.u64 << 32), 0) & 0x2;\n\tctx.cr0.compare<int32_t>(ctx.r11.s32, 0, ctx.xer);\n\t// beq 0x83053cb8\n\tif (ctx.cr0.eq) goto loc_83053CB8;\n\t// lis r11,-32256\n\tctx.r11.s64 = -2113929216;\n\t// lfd f2,4072(r11)\n\tctx.fpscr.disableFlushMode();\n\tctx.f2.u64 = PPC_LOAD_U64(ctx.r11.u32 + 4072);\n\t// bl 0x82b7def0\n\tctx.lr = 0x83053CB8;\n\tsub_82B7DEF0(ctx, base);\nloc_83053CB8:\n\t// rlwinm. r11,r31,0,29,29\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r31.u32 | (ctx.r31.u64 << 32), 0) & 0x4;\n\tctx.cr0.compare<int32_t>(ctx.r11.s32, 0, ctx.xer);\n\t// beq 0x83053cdc\n\tif (ctx.cr0.eq) goto loc_83053CDC;\n\t// cmpwi cr6,r30,2\n\tctx.cr6.compare<int32_t>(ctx.r30.s32, 2, ctx.xer);\n\t// bne cr6,0x83053cd8\n\tif (!ctx.cr6.eq) goto loc_83053CD8;\n\t// lis r11,-32239\n\tctx.r11.s64 = -2112815104;\n\t// lfd f0,-21816(r11)\n\tctx.fpscr.disableFlushMode();\n\tctx.f0.u64 = PPC_LOAD_U64(ctx.r11.u32 + -21816);\n\t// fsub f1,f0,f1\n\tctx.f1.f64 = ctx.f0.f64 - ctx.f1.f64;\n\t// b 0x83053cdc\n\tgoto loc_83053CDC;\nloc_83053CD8:\n\t// bl 0x82b7df28\n\tctx.lr = 0x83053CDC;\n\tsub_82B7DF28(ctx, base);\nloc_83053CDC:\n\t// addi r1,r1,112\n\tctx.r1.s64 = ctx.r1.s64 + 112;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// ld r30,-24(r1)\n\tctx.r30.u64 = PPC_LOAD_U64(ctx.r1.u32 + -24);\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}\n",
+      "status": "original_ppc_validated"
+    },
+    {
+      "address": "82B7DEF0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.175.cpp",
+      "source_line": 16359,
+      "instruction_count": 13,
+      "instructions": [
+        "lis r11,-32256",
+        "stfd f1,16(r1)",
+        "stfd f2,24(r1)",
+        "lfd f0,4072(r11)",
+        "stfd f0,-16(r1)",
+        "lwz r10,24(r1)",
+        "lwz r11,16(r1)",
+        "lwz r9,20(r1)",
+        "rlwimi r10,r11,0,1,31",
+        "stw r9,-12(r1)",
+        "stw r10,-16(r1)",
+        "lfd f1,-16(r1)",
+        "blr "
+      ],
+      "direct_calls": [],
+      "native_calls": [],
+      "cfg": {
+        "labels": [],
+        "branches": []
+      },
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82B7DEF0) {\n\tPPC_FUNC_PROLOGUE();\n\t// lis r11,-32256\n\tctx.r11.s64 = -2113929216;\n\t// stfd f1,16(r1)\n\tctx.fpscr.disableFlushMode();\n\tPPC_STORE_U64(ctx.r1.u32 + 16, ctx.f1.u64);\n\t// stfd f2,24(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + 24, ctx.f2.u64);\n\t// lfd f0,4072(r11)\n\tctx.f0.u64 = PPC_LOAD_U64(ctx.r11.u32 + 4072);\n\t// stfd f0,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.f0.u64);\n\t// lwz r10,24(r1)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r1.u32 + 24);\n\t// lwz r11,16(r1)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r1.u32 + 16);\n\t// lwz r9,20(r1)\n\tctx.r9.u64 = PPC_LOAD_U32(ctx.r1.u32 + 20);\n\t// rlwimi r10,r11,0,1,31\n\tctx.r10.u64 = (__builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 0) & 0x7FFFFFFF) | (ctx.r10.u64 & 0xFFFFFFFF80000000);\n\t// stw r9,-12(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -12, ctx.r9.u32);\n\t// stw r10,-16(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -16, ctx.r10.u32);\n\t// lfd f1,-16(r1)\n\tctx.f1.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}\n",
+      "status": "original_ppc_validated"
+    },
+    {
+      "address": "82B7DF28",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.175.cpp",
+      "source_line": 16394,
+      "instruction_count": 12,
+      "instructions": [
+        "stfd f1,16(r1)",
+        "lis r10,-32256",
+        "lfd f0,4072(r10)",
+        "lwz r11,16(r1)",
+        "stfd f0,-16(r1)",
+        "not r9,r11",
+        "rlwimi r9,r11,0,1,31",
+        "stw r9,-16(r1)",
+        "lwz r10,20(r1)",
+        "stw r10,-12(r1)",
+        "lfd f1,-16(r1)",
+        "blr "
+      ],
+      "direct_calls": [],
+      "native_calls": [],
+      "cfg": {
+        "labels": [],
+        "branches": []
+      },
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82B7DF28) {\n\tPPC_FUNC_PROLOGUE();\n\t// stfd f1,16(r1)\n\tctx.fpscr.disableFlushMode();\n\tPPC_STORE_U64(ctx.r1.u32 + 16, ctx.f1.u64);\n\t// lis r10,-32256\n\tctx.r10.s64 = -2113929216;\n\t// lfd f0,4072(r10)\n\tctx.f0.u64 = PPC_LOAD_U64(ctx.r10.u32 + 4072);\n\t// lwz r11,16(r1)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r1.u32 + 16);\n\t// stfd f0,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.f0.u64);\n\t// not r9,r11\n\tctx.r9.u64 = ~ctx.r11.u64;\n\t// rlwimi r9,r11,0,1,31\n\tctx.r9.u64 = (__builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 0) & 0x7FFFFFFF) | (ctx.r9.u64 & 0xFFFFFFFF80000000);\n\t// stw r9,-16(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -16, ctx.r9.u32);\n\t// lwz r10,20(r1)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r1.u32 + 20);\n\t// stw r10,-12(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -12, ctx.r10.u32);\n\t// lfd f1,-16(r1)\n\tctx.f1.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}\n",
+      "status": "original_ppc_validated"
+    }
+  ],
+  "implementation": {
+    "header": "include/lo_semantics/legacy_fp_flagged_routes.h",
+    "source": "src/legacy_fp_flagged_routes.cpp",
+    "oracle": "tests/legacy_fp_flagged_routes_oracle.cpp",
+    "scope": "Two complete flag-driven binary64 routes and two directly composed sign helpers."
+  },
+  "validation": {
+    "status": "passed",
+    "planned_input_cases": 8,
+    "entry_comparisons": 32,
+    "runtime_validated": false,
+    "complete": false,
+    "focused_original_ppc_cases": 8,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-legacy-fp-flagged-routes-tests/legacy-fp-flagged-routes-result.json",
+    "library": "Windows-native /W4 /WX MT static library passed"
+  }
+}
