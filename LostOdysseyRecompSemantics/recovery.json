@@ -764,6 +764,18 @@
       "open_obligations": [
         "Validate actual runtime ABI and mapped memory domains.",
         "Bounded heap fixtures do not establish full allocator lifetime, concurrent mutation, arbitrary corruption, or real kernel behavior."
+      ],
+      "validation_extensions": [
+        {
+          "name": "heap_coalesce_context",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 4,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-heap-coalesce-context-tests/heap-coalesce-context-result.json",
+          "original_body_pin": "recovery_drafts/heap_coalesce_context_validation.json",
+          "implementation": "src/heap_coalesce_context.cpp",
+          "scope": "Complete 257-instruction coalesce selected 32-GPR/CR0/6/SO/CA/SP/LR/CTR and ordinary-RAM control flow, composed into accepted 155/18-instruction free/cleanup semantics without a recovered-side original PPC bridge. Previous, next, both and standalone both merge fixtures passed. 827CBA60/827CC668 remain explicit guest boundaries; native implementation, other PPCContext fields, faults, unwind, MMIO, concurrency and runtime remain open."
+        }
       ]
     },
     {
@@ -878,6 +890,16 @@
           "original_body_pin": "recovery_drafts/heap_free_context_validation.json",
           "implementation": "src/heap_free_context.cpp",
           "scope": "Full 155/18-instruction selected 32-GPR/CR0/6/SO/CA/SP/LR/CTR and ordinary-RAM control flow. Eight original PPC cases cover null, process guard, small/large ordinary blocks, heap lock, VM success/failure and standalone cleanup. 823AE108 in recovered oracle remains an actual-PPC validation-only mutable boundary; its selected implementation is not restored by this extension. 827CBA60/827CC668 paths, native implementation, other PPCContext fields, faults, unwind, MMIO, concurrency and runtime remain open."
+        },
+        {
+          "name": "heap_coalesce_context",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 4,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-heap-coalesce-context-tests/heap-coalesce-context-result.json",
+          "original_body_pin": "recovery_drafts/heap_coalesce_context_validation.json",
+          "implementation": "src/heap_coalesce_context.cpp",
+          "scope": "Complete 257-instruction coalesce selected 32-GPR/CR0/6/SO/CA/SP/LR/CTR and ordinary-RAM control flow, composed into accepted 155/18-instruction free/cleanup semantics without a recovered-side original PPC bridge. Previous, next, both and standalone both merge fixtures passed. 827CBA60/827CC668 remain explicit guest boundaries; native implementation, other PPCContext fields, faults, unwind, MMIO, concurrency and runtime remain open."
         }
       ]
     },
