@@ -95,6 +95,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/invalid_parameter.cpp
     src/manager_init.cpp
     src/manager_init_context.cpp
+    src/manager_init_raw_allocation_chain.cpp
     src/manager_facade.cpp
     src/array_release_family.cpp
     src/object_registration.cpp

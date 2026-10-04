@@ -1,0 +1,16 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "families": [
+    {
+      "name": "manager-init-raw-allocation-chain",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/manager_init_raw_allocation_chain.json",
+      "harness": "LostOdysseyRecompSemantics/tests/manager_init_raw_allocation_chain_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\nvoid OriginalManagerDirect(unsigned,PPCContext&,unsigned char*);\nvoid OriginalManagerVirtual(unsigned,PPCContext&,unsigned char*);\n#define sub_823ACBD0(c,b) __imp__sub_823ACBD0(c,b)\n#define sub_827C5970(c,b) OriginalManagerDirect(0x827C5970u,c,b)\n#define sub_827C4ED0(c,b) OriginalManagerDirect(0x827C4ED0u,c,b)\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(t) OriginalManagerVirtual(t,ctx,base)\nextern \"C\" PPC_FUNC(__imp__sub_823ACBD0);\nextern \"C\" PPC_FUNC(__imp__sub_823ACC98);\nvoid OriginalRawSave28(PPCContext&,unsigned char*);\nvoid OriginalRawRestore28(PPCContext&,unsigned char*);\n#define sub_823ACC98(c,b) __imp__sub_823ACC98(c,b)\n#define __savegprlr_28(c,b) OriginalRawSave28(c,b)\n#define __restgprlr_28(c,b) OriginalRawRestore28(c,b)\n#define sub_823ACCB0(c,b) OriginalManagerDirect(0x823ACCB0u,c,b)\n#define sub_82B7FCE0(c,b) OriginalManagerDirect(0x82B7FCE0u,c,b)\n#define sub_82B7FC98(c,b) OriginalManagerDirect(0x82B7FC98u,c,b)\n#define sub_82B7BF20(c,b) OriginalManagerDirect(0x82B7BF20u,c,b)\n#define sub_82B7FE68(c,b) OriginalManagerDirect(0x82B7FE68u,c,b)\n#define sub_82B7FD78(c,b) OriginalManagerDirect(0x82B7FD78u,c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/manager_init_context.cpp",
+        "LostOdysseyRecompSemantics/src/raw_allocation_context.cpp",
+        "LostOdysseyRecompSemantics/src/manager_init_raw_allocation_chain.cpp"
+      ]
+    }
+  ]
+}
