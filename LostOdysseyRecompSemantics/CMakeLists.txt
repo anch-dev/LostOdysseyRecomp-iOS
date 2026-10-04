@@ -65,6 +65,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/legacy_float_public_parse.cpp
     src/legacy_float_public_numeric_parse_chain.cpp
     src/legacy_float_binary_conversion.cpp
+    src/legacy_fp_classification.cpp
     src/legacy_float_digit_accumulator.cpp
     src/legacy_float_text_parser.cpp
     src/legacy_float_text_parser_digit_chain.cpp
@@ -73,6 +74,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/object_child_float_record_chain.cpp
     src/object_parent_flag_probe.cpp
     src/object_owner_flag_routes.cpp
+    src/object_metadata_storage.cpp
     src/crt_allocation.cpp
     src/crt_reallocate.cpp
     src/invalid_parameter.cpp

@@ -1623,8 +1623,20 @@
       ],
       "open_obligations": [
         "Compose the recovered primary/fallback resize methods with real allocation services and validate allocator lifetime.",
-        "Original residual r3 is unmodeled; adapt it before any caller that observes the register.",
-        "Validate a complete PPCContext adapter and representative game scenes before runtime replacement."
+        "Validate a complete PPCContext adapter and representative game scenes before runtime replacement.",
+        "Residual r3 is exposed by the validated object_metadata_storage selected ABI adapter; complete PPCContext/runtime integration and representative scene validation remain pending."
+      ],
+      "validation_extensions": [
+        {
+          "implementation": "LostOdysseyRecompSemantics/src/object_metadata_storage.cpp",
+          "header": "LostOdysseyRecompSemantics/include/lo_semantics/object_metadata_storage.h",
+          "batch": "LostOdysseyRecompSemantics/recovery_batches/object_metadata_storage.json",
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-object-metadata-storage-tests/object-metadata-storage-result.json",
+          "focused_original_ppc_cases": 6,
+          "status": "passed",
+          "mapping_credit": 0,
+          "scope": "Actual three-body selected-register ABI and frame adapter; original residual r3 now exposed, including allocator pointer return. Manager initializer and allocator are explicit guest boundaries; broader PPCContext/FP/alias/hardware/runtime acceptance remains open."
+        }
       ]
     },
     {
@@ -4199,6 +4211,18 @@
       "open_obligations": [
         "Existing resize service uses its guest32 argument contract; underlying manager lifetime, callbacks, faults, MMIO and concurrency remain bounded.",
         "Runtime ABI adapter and representative scene validation remain pending."
+      ],
+      "validation_extensions": [
+        {
+          "implementation": "LostOdysseyRecompSemantics/src/object_metadata_storage.cpp",
+          "header": "LostOdysseyRecompSemantics/include/lo_semantics/object_metadata_storage.h",
+          "batch": "LostOdysseyRecompSemantics/recovery_batches/object_metadata_storage.json",
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-object-metadata-storage-tests/object-metadata-storage-result.json",
+          "focused_original_ppc_cases": 6,
+          "status": "passed",
+          "mapping_credit": 0,
+          "scope": "Actual three-body selected-register ABI and frame adapter; original residual r3 now exposed, including allocator pointer return. Manager initializer and allocator are explicit guest boundaries; broader PPCContext/FP/alias/hardware/runtime acceptance remains open."
+        }
       ]
     },
     {
@@ -4243,6 +4267,18 @@
       "open_obligations": [
         "Existing resize service uses its guest32 argument contract; underlying manager lifetime, callbacks, faults, MMIO and concurrency remain bounded.",
         "Runtime ABI adapter and representative scene validation remain pending."
+      ],
+      "validation_extensions": [
+        {
+          "implementation": "LostOdysseyRecompSemantics/src/object_metadata_storage.cpp",
+          "header": "LostOdysseyRecompSemantics/include/lo_semantics/object_metadata_storage.h",
+          "batch": "LostOdysseyRecompSemantics/recovery_batches/object_metadata_storage.json",
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-object-metadata-storage-tests/object-metadata-storage-result.json",
+          "focused_original_ppc_cases": 6,
+          "status": "passed",
+          "mapping_credit": 0,
+          "scope": "Actual three-body selected-register ABI and frame adapter; original residual r3 now exposed, including allocator pointer return. Manager initializer and allocator are explicit guest boundaries; broader PPCContext/FP/alias/hardware/runtime acceptance remains open."
+        }
       ]
     }
   ]

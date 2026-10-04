@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Four complete CRT binary64 classification bodies with actual 82B7DFC0 -> 82B82340 direct call; eight focused payloads compared separately for each entry.",
+  "families": [
+    {
+      "name": "legacy-fp-classification",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/legacy_fp_classification_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_fp_classification_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_82B82340);\nvoid OriginalSpecial(PPCContext&,std::uint8_t*);\n#define sub_82B82340(c,b) OriginalSpecial(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_fp_classification.cpp"
+      ]
+    }
+  ]
+}
