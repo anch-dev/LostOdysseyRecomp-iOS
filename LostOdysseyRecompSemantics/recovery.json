@@ -1460,6 +1460,18 @@
       "open_obligations": [
         "Validate zeroed/reserved/committed VM arena contracts and segment owner lifetime in the runtime.",
         "Expand malformed/cyclic lists, address aliasing, faults and concurrency beyond bounded fixtures."
+      ],
+      "validation_extensions": [
+        {
+          "name": "heap_range_context",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 7,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-heap-range-context-tests/heap-range-context-result.json",
+          "original_body_pin": "recovery_drafts/heap_range_context_validation.json",
+          "implementation": "src/heap_range_context.cpp",
+          "scope": "Complete 112/72-instruction selected 32-GPR/CR0/6/SO/CA/SP/LR/CTR and ordinary-RAM descriptor allocation/range merge flow; free descriptor, arena grow/failure, empty range, previous/next merge and disjoint insertion. Native VM models explicit; other PPCContext fields, faults, unwind, MMIO, concurrency and runtime remain open."
+        }
       ]
     },
     {
@@ -1506,6 +1518,18 @@
       "open_obligations": [
         "Recover shared range/segment field types and complete lifetime/concurrency validation.",
         "Validate runtime adapters and coverage beyond bounded sorted-list fixtures."
+      ],
+      "validation_extensions": [
+        {
+          "name": "heap_range_context",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 7,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-heap-range-context-tests/heap-range-context-result.json",
+          "original_body_pin": "recovery_drafts/heap_range_context_validation.json",
+          "implementation": "src/heap_range_context.cpp",
+          "scope": "Complete 112/72-instruction selected 32-GPR/CR0/6/SO/CA/SP/LR/CTR and ordinary-RAM descriptor allocation/range merge flow; free descriptor, arena grow/failure, empty range, previous/next merge and disjoint insertion. Native VM models explicit; other PPCContext fields, faults, unwind, MMIO, concurrency and runtime remain open."
+        }
       ]
     },
     {
