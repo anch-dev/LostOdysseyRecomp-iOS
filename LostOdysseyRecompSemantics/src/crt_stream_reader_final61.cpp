@@ -741,6 +741,8 @@ loc_82B81690:
 #undef PPC_STORE_U64
 }
 bool ApplyAcceptedLower(GuestAddress entry,GuestMemory& memory,Dependencies dependencies,Registers& state) {
+    if(entry==0x82b81f78u&&dependencies.full_flush)
+        return crt_flush_full61::Apply(entry,memory,*dependencies.full_flush,state);
     if(entry==0x82b81de0u||entry==0x82b81f78u) {
         auto lower=crt_context_adapter::ToStream(state);
         const auto& accepted=dependencies.accepted.close.pipeline.close.accepted;
@@ -751,6 +753,11 @@ bool ApplyAcceptedLower(GuestAddress entry,GuestMemory& memory,Dependencies depe
         crt_context_adapter::FromStream(state,lower);return true;
     }
     return crt_stream_close_shared_lower::ApplyAcceptedLower(entry,memory,dependencies.accepted,state);
+}
+bool ApplySupport(GuestAddress entry,GuestMemory& memory,Dependencies dependencies,Registers& state) {
+    if(entry!=0x82b7b8d0u)return false;
+    Context ctx{};FromFull(ctx,state);Base base{memory,dependencies,state};
+    Body_82B7B8D0(ctx,base);ToFull(state,ctx);return true;
 }
 bool Apply(GuestAddress entry,GuestMemory& memory,Dependencies dependencies,Registers& state) {
     if(entry!=0x82b7bb38u)return false;

@@ -149,7 +149,19 @@
         "blr "
       ],
       "translated_body": "PPC_FUNC_IMPL(__imp__sub_82B7B8D0) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// std r31,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// mr r31,r3\n\tctx.r31.u64 = ctx.r3.u64;\n\t// cmplwi cr6,r31,0\n\tctx.cr6.compare<uint32_t>(ctx.r31.u32, 0, ctx.xer);\n\t// bne cr6,0x82b7b8f4\n\tif (!ctx.cr6.eq) goto loc_82B7B8F4;\n\t// bl 0x82b7b950\n\tctx.lr = 0x82B7B8F0;\n\tsub_82B7B950(ctx, base);\n\t// b 0x82b7b934\n\tgoto loc_82B7B934;\nloc_82B7B8F4:\n\t// mr r3,r31\n\tctx.r3.u64 = ctx.r31.u64;\n\t// bl 0x82b7b838\n\tctx.lr = 0x82B7B8FC;\n\tsub_82B7B838(ctx, base);\n\t// cmpwi r3,0\n\tctx.cr0.compare<int32_t>(ctx.r3.s32, 0, ctx.xer);\n\t// beq 0x82b7b90c\n\tif (ctx.cr0.eq) goto loc_82B7B90C;\n\t// li r3,-1\n\tctx.r3.s64 = -1;\n\t// b 0x82b7b934\n\tgoto loc_82B7B934;\nloc_82B7B90C:\n\t// lwz r11,12(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + 12);\n\t// rlwinm. r11,r11,0,17,17\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 0) & 0x4000;\n\tctx.cr0.compare<int32_t>(ctx.r11.s32, 0, ctx.xer);\n\t// beq 0x82b7b930\n\tif (ctx.cr0.eq) goto loc_82B7B930;\n\t// mr r3,r31\n\tctx.r3.u64 = ctx.r31.u64;\n\t// bl 0x82b81648\n\tctx.lr = 0x82B7B920;\n\tsub_82B81648(ctx, base);\n\t// bl 0x82b81f78\n\tctx.lr = 0x82B7B924;\n\tsub_82B81F78(ctx, base);\n\t// subfic r11,r3,0\n\tctx.xer.ca = ctx.r3.u32 <= 0;\n\tctx.r11.s64 = 0 - ctx.r3.s64;\n\t// subfe r3,r11,r11\n\ttemp.u8 = (~ctx.r11.u32 + ctx.r11.u32 < ~ctx.r11.u32) | (~ctx.r11.u32 + ctx.r11.u32 + ctx.xer.ca < ctx.xer.ca);\n\tctx.r3.u64 = ~ctx.r11.u64 + ctx.r11.u64 + ctx.xer.ca;\n\tctx.xer.ca = temp.u8;\n\t// b 0x82b7b934\n\tgoto loc_82B7B934;\nloc_82B7B930:\n\t// li r3,0\n\tctx.r3.s64 = 0;\nloc_82B7B934:\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}",
-      "status": "original_ppc_validated"
+      "status": "original_ppc_validated",
+      "validation_extensions": [
+        {
+          "name": "crt_stream_follow61",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 2,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-upper-follow61-batch-tests/crt-stream-follow61-result.json",
+          "original_body_pin": "recovery_drafts/crt_stream_follow61_validation.json",
+          "implementation": "src/crt_stream_follow61.cpp",
+          "scope": "187-instruction zero-credit Full ABI extension of mapped flush, status, native lock/unlock and cleanup bodies; descriptor table D80/countD68 distinct from E90 stream sweep."
+        }
+      ]
     },
     {
       "address": "82B7BA78",

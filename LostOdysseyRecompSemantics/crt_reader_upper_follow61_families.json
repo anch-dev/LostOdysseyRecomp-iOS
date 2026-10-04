@@ -1,0 +1,92 @@
+{
+  "schema": "semantic-recovery-draft-v1",
+  "scope": "Reader object constructor and combined dynamic/buffer size query. Accepted constant pointer-field constructor; mutable guest size target. Ordinary RAM; native ABI faults MMIO concurrency runtime unvalidated; zero runtime replacements.",
+  "entries": [
+    {
+      "address": "82BD1AA8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.181.cpp",
+      "source_line": 5474,
+      "instruction_count": 20,
+      "instructions": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "bl 0x82bd12d0",
+        "lis r11,-32243",
+        "mr r3,r31",
+        "addi r10,r11,27700",
+        "li r11,0",
+        "stw r10,0(r31)",
+        "stw r11,20(r31)",
+        "stw r11,24(r31)",
+        "stw r11,28(r31)",
+        "stw r11,32(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr "
+      ],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82BD1AA8) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// std r31,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// mr r31,r3\n\tctx.r31.u64 = ctx.r3.u64;\n\t// bl 0x82bd12d0\n\tctx.lr = 0x82BD1AC0;\n\tsub_82BD12D0(ctx, base);\n\t// lis r11,-32243\n\tctx.r11.s64 = -2113077248;\n\t// mr r3,r31\n\tctx.r3.u64 = ctx.r31.u64;\n\t// addi r10,r11,27700\n\tctx.r10.s64 = ctx.r11.s64 + 27700;\n\t// li r11,0\n\tctx.r11.s64 = 0;\n\t// stw r10,0(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 0, ctx.r10.u32);\n\t// stw r11,20(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 20, ctx.r11.u32);\n\t// stw r11,24(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 24, ctx.r11.u32);\n\t// stw r11,28(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 28, ctx.r11.u32);\n\t// stw r11,32(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 32, ctx.r11.u32);\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}",
+      "status": "original_ppc_validated"
+    },
+    {
+      "address": "82BD2030",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.181.cpp",
+      "source_line": 6302,
+      "instruction_count": 31,
+      "instructions": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r3,0",
+        "lwz r11,16(r31)",
+        "cmplwi cr6,r11,0",
+        "beq cr6,0x82bd2068",
+        "rotlwi r3,r11,0",
+        "lwz r11,0(r3)",
+        "lwz r11,28(r11)",
+        "mtctr r11",
+        "bctrl ",
+        "lwz r11,32(r31)",
+        "cmplwi cr6,r11,0",
+        "beq cr6,0x82bd2080",
+        "lwz r11,28(r31)",
+        "rlwinm r11,r11,2,0,29",
+        "add r3,r11,r3",
+        "lwz r11,24(r31)",
+        "cmplwi cr6,r11,0",
+        "beq cr6,0x82bd2098",
+        "lwz r11,20(r31)",
+        "rlwinm r11,r11,2,0,29",
+        "add r3,r11,r3",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr "
+      ],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82BD2030) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// std r31,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// mr r31,r3\n\tctx.r31.u64 = ctx.r3.u64;\n\t// li r3,0\n\tctx.r3.s64 = 0;\n\t// lwz r11,16(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + 16);\n\t// cmplwi cr6,r11,0\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 0, ctx.xer);\n\t// beq cr6,0x82bd2068\n\tif (ctx.cr6.eq) goto loc_82BD2068;\n\t// rotlwi r3,r11,0\n\tctx.r3.u64 = __builtin_rotateleft32(ctx.r11.u32, 0);\n\t// lwz r11,0(r3)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 0);\n\t// lwz r11,28(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 28);\n\t// mtctr r11\n\tctx.ctr.u64 = ctx.r11.u64;\n\t// bctrl \n\tctx.lr = 0x82BD2068;\n\tPPC_CALL_INDIRECT_FUNC(ctx.ctr.u32 & ~3u);\nloc_82BD2068:\n\t// lwz r11,32(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + 32);\n\t// cmplwi cr6,r11,0\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 0, ctx.xer);\n\t// beq cr6,0x82bd2080\n\tif (ctx.cr6.eq) goto loc_82BD2080;\n\t// lwz r11,28(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + 28);\n\t// rlwinm r11,r11,2,0,29\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 2) & 0xFFFFFFFC;\n\t// add r3,r11,r3\n\tctx.r3.u64 = ctx.r11.u64 + ctx.r3.u64;\nloc_82BD2080:\n\t// lwz r11,24(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + 24);\n\t// cmplwi cr6,r11,0\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 0, ctx.xer);\n\t// beq cr6,0x82bd2098\n\tif (ctx.cr6.eq) goto loc_82BD2098;\n\t// lwz r11,20(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + 20);\n\t// rlwinm r11,r11,2,0,29\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 2) & 0xFFFFFFFC;\n\t// add r3,r11,r3\n\tctx.r3.u64 = ctx.r11.u64 + ctx.r3.u64;\nloc_82BD2098:\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}",
+      "status": "original_ppc_validated"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "complete": false,
+    "runtime_validated": false,
+    "focused_original_ppc_cases": 3,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-upper-follow61-batch-tests/crt-reader-upper-follow61-result.json",
+    "library": "Windows-native /W4 /WX MT static library passed",
+    "mapping_credit": 2,
+    "original_body_pin": "recovery_drafts/crt_reader_upper_follow61_validation.json"
+  },
+  "implementation": {
+    "header": "include/lo_semantics/crt_reader_upper_follow61.h",
+    "source": "src/crt_reader_upper_follow61.cpp",
+    "oracle": "tests/crt_reader_upper_follow61_oracle.cpp"
+  }
+}
