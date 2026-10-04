@@ -1,6 +1,6 @@
 {
   "schema": "semantic-recovery-batch-v1",
-  "scope": "Current public parse regression entry: validation-only nine-body public -> actual numeric parser/digit/copy/route/binary chain, five focused cases. Earlier five-case parser-boundary receipt at 97e4fa2c remains historical and superseded.",
+  "scope": "Validation-only public UTF-16 numeric conversion with all nine actual directly participating PPC entries plus exact save/restore-17 ABI prelude. Five focused cases; exceptional native calls unselected.",
   "families": [
     {
       "name": "legacy-float-public-numeric-parse-chain",

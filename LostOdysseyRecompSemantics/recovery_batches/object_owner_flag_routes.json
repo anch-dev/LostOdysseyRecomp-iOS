@@ -1,0 +1,26 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Two new actual bodies 8236B4D0 and 8236B578, pending actual 82384B20, five accepted actual lowers, eight focused cases. Mapping credit conditional on parent probe acceptance.",
+  "families": [
+    {
+      "name": "object-owner-flag-routes",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/object_owner_flag_routes_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/object_owner_flag_routes_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_8236B578);\nextern \"C\" PPC_FUNC(__imp__sub_822C5E58);\nextern \"C\" PPC_FUNC(__imp__sub_822C5F28);\nextern \"C\" PPC_FUNC(__imp__sub_82384B20);\nextern \"C\" PPC_FUNC(__imp__sub_82384C08);\nextern \"C\" PPC_FUNC(__imp__sub_8242D038);\nextern \"C\" PPC_FUNC(__imp__sub_82627230);\nvoid OriginalSave22(PPCContext&,std::uint8_t*);\nvoid OriginalSave27(PPCContext&,std::uint8_t*);\nvoid OriginalSave29(PPCContext&,std::uint8_t*);\nvoid OriginalRestore22(PPCContext&,std::uint8_t*);\nvoid OriginalRestore27(PPCContext&,std::uint8_t*);\nvoid OriginalRestore29(PPCContext&,std::uint8_t*);\nvoid OriginalAllocate(PPCContext&,std::uint8_t*);\nvoid OriginalInitialize(PPCContext&,std::uint8_t*);\nvoid OriginalPost(PPCContext&,std::uint8_t*);\nvoid OriginalAssociated(PPCContext&,std::uint8_t*);\nvoid OriginalSharedConstruct(PPCContext&,std::uint8_t*);\nvoid OriginalSharedRegister(PPCContext&,std::uint8_t*);\nvoid OriginalPrimaryConstruct(PPCContext&,std::uint8_t*);\nvoid OriginalPrimaryRegister(PPCContext&,std::uint8_t*);\nvoid OriginalPrimaryGetter(PPCContext&,std::uint8_t*);\nvoid OriginalIndirect(std::uint32_t,PPCContext&,std::uint8_t*);\n#define __savegprlr_22(c,b) OriginalSave22(c,b)\n#define __savegprlr_27(c,b) OriginalSave27(c,b)\n#define __savegprlr_29(c,b) OriginalSave29(c,b)\n#define __restgprlr_22(c,b) OriginalRestore22(c,b)\n#define __restgprlr_27(c,b) OriginalRestore27(c,b)\n#define __restgprlr_29(c,b) OriginalRestore29(c,b)\n#define sub_8236B578(c,b) __imp__sub_8236B578(c,b)\n#define sub_822C5E58(c,b) __imp__sub_822C5E58(c,b)\n#define sub_82384B20(c,b) __imp__sub_82384B20(c,b)\n#define sub_822C5F28(c,b) __imp__sub_822C5F28(c,b)\n#define sub_82384C08(c,b) __imp__sub_82384C08(c,b)\n#define sub_8242D038(c,b) __imp__sub_8242D038(c,b)\n#define sub_82486C88(c,b) OriginalAllocate(c,b)\n#define sub_82410A28(c,b) OriginalInitialize(c,b)\n#define sub_82627230(c,b) OriginalPost(c,b)\n#define sub_8242CF78(c,b) OriginalAssociated(c,b)\n#define sub_82403148(c,b) OriginalSharedConstruct(c,b)\n#define sub_82403200(c,b) OriginalSharedRegister(c,b)\n#define sub_82410B90(c,b) OriginalPrimaryConstruct(c,b)\n#define sub_82410C48(c,b) OriginalPrimaryRegister(c,b)\n#define sub_82406B00(c,b) OriginalPrimaryGetter(c,b)\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(t) OriginalIndirect((t),ctx,base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/object_owner_flag_routes.cpp",
+        "LostOdysseyRecompSemantics/src/object_parent_flag_probe.cpp",
+        "LostOdysseyRecompSemantics/src/object_child_float_record_chain.cpp",
+        "LostOdysseyRecompSemantics/src/object_child_float.cpp",
+        "LostOdysseyRecompSemantics/src/object_float_record_post_chain.cpp",
+        "LostOdysseyRecompSemantics/src/object_float_record.cpp",
+        "LostOdysseyRecompSemantics/src/object_registration_post.cpp",
+        "LostOdysseyRecompSemantics/src/registered_constructor_family.cpp",
+        "LostOdysseyRecompSemantics/src/registered_callback_family.cpp",
+        "LostOdysseyRecompSemantics/src/object_registration.cpp",
+        "LostOdysseyRecompSemantics/src/object_startup.cpp",
+        "LostOdysseyRecompSemantics/src/manager_facade.cpp"
+      ]
+    }
+  ]
+}

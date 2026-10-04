@@ -1,0 +1,107 @@
+{
+  "schema": "object-owner-flag-routes-v1",
+  "entries": [
+    {
+      "address": "8236B4D0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.8.cpp",
+      "source_line": 49235,
+      "instruction_count": 41,
+      "instructions": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r30,-24(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-112(r1)",
+        "mr r31,r3",
+        "lwz r3,128(r31)",
+        "lwz r11,108(r31)",
+        "cmplwi cr6,r3,0",
+        "rlwinm r30,r11,1,31,31",
+        "beq cr6,0x8236b558",
+        "li r5,1",
+        "li r4,0",
+        "bl 0x8236b578",
+        "lis r11,-32256",
+        "lfs f0,3664(r11)",
+        "fcmpu cr6,f1,f0",
+        "blt cr6,0x8236b534",
+        "lwz r11,128(r31)",
+        "lwz r3,60(r11)",
+        "cmplwi cr6,r3,0",
+        "beq cr6,0x8236b538",
+        "bl 0x82384b20",
+        "cmpwi cr6,r3,0",
+        "beq cr6,0x8236b538",
+        "li r30,1",
+        "lwz r11,0(r31)",
+        "mr r3,r31",
+        "lwz r11,376(r11)",
+        "mtctr r11",
+        "bctrl",
+        "cmpwi cr6,r3,0",
+        "li r3,0",
+        "bne cr6,0x8236b55c",
+        "mr r3,r30",
+        "addi r1,r1,112",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r30,-24(r1)",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "direct_calls": [
+        "8236B578",
+        "82384B20"
+      ],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_8236B4D0) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// std r30,-24(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -24, ctx.r30.u64);\n\t// std r31,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// mr r31,r3\n\tctx.r31.u64 = ctx.r3.u64;\n\t// lwz r3,128(r31)\n\tctx.r3.u64 = PPC_LOAD_U32(ctx.r31.u32 + 128);\n\t// lwz r11,108(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + 108);\n\t// cmplwi cr6,r3,0\n\tctx.cr6.compare<uint32_t>(ctx.r3.u32, 0, ctx.xer);\n\t// rlwinm r30,r11,1,31,31\n\tctx.r30.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 1) & 0x1;\n\t// beq cr6,0x8236b558\n\tif (ctx.cr6.eq) goto loc_8236B558;\n\t// li r5,1\n\tctx.r5.s64 = 1;\n\t// li r4,0\n\tctx.r4.s64 = 0;\n\t// bl 0x8236b578\n\tctx.lr = 0x8236B508;\n\tsub_8236B578(ctx, base);\n\t// lis r11,-32256\n\tctx.r11.s64 = -2113929216;\n\t// lfs f0,3664(r11)\n\tctx.fpscr.disableFlushMode();\n\ttemp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 3664);\n\tctx.f0.f64 = double(temp.f32);\n\t// fcmpu cr6,f1,f0\n\tctx.cr6.compare(ctx.f1.f64, ctx.f0.f64);\n\t// blt cr6,0x8236b534\n\tif (ctx.cr6.lt) goto loc_8236B534;\n\t// lwz r11,128(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + 128);\n\t// lwz r3,60(r11)\n\tctx.r3.u64 = PPC_LOAD_U32(ctx.r11.u32 + 60);\n\t// cmplwi cr6,r3,0\n\tctx.cr6.compare<uint32_t>(ctx.r3.u32, 0, ctx.xer);\n\t// beq cr6,0x8236b538\n\tif (ctx.cr6.eq) goto loc_8236B538;\n\t// bl 0x82384b20\n\tctx.lr = 0x8236B52C;\n\tsub_82384B20(ctx, base);\n\t// cmpwi cr6,r3,0\n\tctx.cr6.compare<int32_t>(ctx.r3.s32, 0, ctx.xer);\n\t// beq cr6,0x8236b538\n\tif (ctx.cr6.eq) goto loc_8236B538;\nloc_8236B534:\n\t// li r30,1\n\tctx.r30.s64 = 1;\nloc_8236B538:\n\t// lwz r11,0(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + 0);\n\t// mr r3,r31\n\tctx.r3.u64 = ctx.r31.u64;\n\t// lwz r11,376(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 376);\n\t// mtctr r11\n\tctx.ctr.u64 = ctx.r11.u64;\n\t// bctrl \n\tctx.lr = 0x8236B54C;\n\tPPC_CALL_INDIRECT_FUNC(ctx.ctr.u32 & ~3u);\n\t// cmpwi cr6,r3,0\n\tctx.cr6.compare<int32_t>(ctx.r3.s32, 0, ctx.xer);\n\t// li r3,0\n\tctx.r3.s64 = 0;\n\t// bne cr6,0x8236b55c\n\tif (!ctx.cr6.eq) goto loc_8236B55C;\nloc_8236B558:\n\t// mr r3,r30\n\tctx.r3.u64 = ctx.r30.u64;\nloc_8236B55C:\n\t// addi r1,r1,112\n\tctx.r1.s64 = ctx.r1.s64 + 112;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// ld r30,-24(r1)\n\tctx.r30.u64 = PPC_LOAD_U64(ctx.r1.u32 + -24);\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}",
+      "status": "original_ppc_validated"
+    },
+    {
+      "address": "8236B578",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.8.cpp",
+      "source_line": 49337,
+      "instruction_count": 16,
+      "instructions": [
+        "lis r11,-32256",
+        "cmpwi cr6,r4,0",
+        "lfs f1,3664(r11)",
+        "bne cr6,0x8236b5a8",
+        "lwz r11,64(r3)",
+        "lwz r11,60(r11)",
+        "rlwinm r11,r11,0,0,0",
+        "cmplwi cr6,r11,0",
+        "beq cr6,0x8236b5a8",
+        "lis r11,-32256",
+        "lfs f1,3648(r11)",
+        "blr",
+        "lwz r3,60(r3)",
+        "cmplwi cr6,r3,0",
+        "beqlr cr6",
+        "b 0x822c5e58"
+      ],
+      "direct_calls": [
+        "822C5E58"
+      ],
+      "native_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_8236B578) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// lis r11,-32256\n\tctx.r11.s64 = -2113929216;\n\t// cmpwi cr6,r4,0\n\tctx.cr6.compare<int32_t>(ctx.r4.s32, 0, ctx.xer);\n\t// lfs f1,3664(r11)\n\tctx.fpscr.disableFlushMode();\n\ttemp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 3664);\n\tctx.f1.f64 = double(temp.f32);\n\t// bne cr6,0x8236b5a8\n\tif (!ctx.cr6.eq) goto loc_8236B5A8;\n\t// lwz r11,64(r3)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 64);\n\t// lwz r11,60(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 60);\n\t// rlwinm r11,r11,0,0,0\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 0) & 0x80000000;\n\t// cmplwi cr6,r11,0\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, 0, ctx.xer);\n\t// beq cr6,0x8236b5a8\n\tif (ctx.cr6.eq) goto loc_8236B5A8;\n\t// lis r11,-32256\n\tctx.r11.s64 = -2113929216;\n\t// lfs f1,3648(r11)\n\ttemp.u32 = PPC_LOAD_U32(ctx.r11.u32 + 3648);\n\tctx.f1.f64 = double(temp.f32);\n\t// blr \n\treturn;\nloc_8236B5A8:\n\t// lwz r3,60(r3)\n\tctx.r3.u64 = PPC_LOAD_U32(ctx.r3.u32 + 60);\n\t// cmplwi cr6,r3,0\n\tctx.cr6.compare<uint32_t>(ctx.r3.u32, 0, ctx.xer);\n\t// beqlr cr6\n\tif (ctx.cr6.eq) return;\n\t// b 0x822c5e58\n\tsub_822C5E58(ctx, base);\n\treturn;\n}",
+      "status": "original_ppc_validated"
+    }
+  ],
+  "implementation": {
+    "header": "include/lo_semantics/object_owner_flag_routes.h",
+    "source": "src/object_owner_flag_routes.cpp",
+    "oracle": "tests/object_owner_flag_routes_oracle.cpp",
+    "scope": "Two full owner FP/flag selector and branch bodies, composing accepted parent probe and actual child/record/post direct lower chain; vtable dispatch remains a mutable guest boundary."
+  },
+  "validation": {
+    "focused_original_ppc_cases": 8,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-object-owner-flag-routes-tests/object-owner-flag-routes-result.json",
+    "library": "Windows-native /W4 /WX MT static library passed",
+    "planned_scope": "Two new actual PPC bodies plus actual pending probe and accepted lower PPC chain, branch-specific FP, selected GPR/CR/frame, RAM and vtable+376 mutable event.",
+    "unvalidated_scope": "Pending 82384B20 acceptance, guest virtual-callee internals, generic volatile ABI and nested scratch, FP exceptional values, faults, MMIO, concurrency and runtime.",
+    "runtime_validated": false,
+    "complete": false,
+    "status": "passed"
+  }
+}
