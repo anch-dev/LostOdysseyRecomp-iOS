@@ -867,6 +867,18 @@
         "Compose the recovered decommit path and validate real kernel VM contracts, live allocation and synchronization.",
         "Validate a PPCContext adapter, actual guest exception landing pad 823AE094 and Xbox unwind machinery; ordinary C++ exceptions are not equivalent evidence.",
         "No runtime replacement or representative scene acceptance yet."
+      ],
+      "validation_extensions": [
+        {
+          "name": "heap_free_context",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 8,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-heap-free-context-tests/heap-free-context-result.json",
+          "original_body_pin": "recovery_drafts/heap_free_context_validation.json",
+          "implementation": "src/heap_free_context.cpp",
+          "scope": "Full 155/18-instruction selected 32-GPR/CR0/6/SO/CA/SP/LR/CTR and ordinary-RAM control flow. Eight original PPC cases cover null, process guard, small/large ordinary blocks, heap lock, VM success/failure and standalone cleanup. 823AE108 in recovered oracle remains an actual-PPC validation-only mutable boundary; its selected implementation is not restored by this extension. 827CBA60/827CC668 paths, native implementation, other PPCContext fields, faults, unwind, MMIO, concurrency and runtime remain open."
+        }
       ]
     },
     {
@@ -914,6 +926,18 @@
         "Compose the recovered decommit path and validate real kernel VM contracts, live allocation and synchronization.",
         "Validate a PPCContext adapter, actual guest exception landing pad 823AE094 and Xbox unwind machinery; ordinary C++ exceptions are not equivalent evidence.",
         "No runtime replacement or representative scene acceptance yet."
+      ],
+      "validation_extensions": [
+        {
+          "name": "heap_free_context",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 8,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-heap-free-context-tests/heap-free-context-result.json",
+          "original_body_pin": "recovery_drafts/heap_free_context_validation.json",
+          "implementation": "src/heap_free_context.cpp",
+          "scope": "Full 155/18-instruction selected 32-GPR/CR0/6/SO/CA/SP/LR/CTR and ordinary-RAM control flow. Eight original PPC cases cover null, process guard, small/large ordinary blocks, heap lock, VM success/failure and standalone cleanup. 823AE108 in recovered oracle remains an actual-PPC validation-only mutable boundary; its selected implementation is not restored by this extension. 827CBA60/827CC668 paths, native implementation, other PPCContext fields, faults, unwind, MMIO, concurrency and runtime remain open."
+        }
       ]
     },
     {

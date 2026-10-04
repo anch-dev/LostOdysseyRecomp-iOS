@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Validation-only selected-context 823ADE28/823AE0BC with actual 823AE108 coalesce lower: eight focused null, ordinary small/large, lock and VM paths. Explicit 827CBA60/827CC668 guest and kernel boundaries remain. All three entries already mapped, zero new credit.",
+  "families": [
+    {
+      "name": "heap-free-context",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/heap_free_context_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/heap_free_context_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nvoid OriginalSave25(PPCContext&,std::uint8_t*);\nvoid OriginalRestore25(PPCContext&,std::uint8_t*);\nvoid OriginalDirect(std::uint32_t,PPCContext&,std::uint8_t*);\nvoid OriginalNative(std::uint32_t,PPCContext&,std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_823ADE28);\nextern \"C\" PPC_FUNC(__imp__sub_823AE0BC);\nextern \"C\" PPC_FUNC(__imp__sub_823AE108);\n#define __savegprlr_25(c,b) OriginalSave25(c,b)\n#define __restgprlr_25(c,b) OriginalRestore25(c,b)\n#define sub_823AE0BC(c,b) __imp__sub_823AE0BC(c,b)\n#define sub_823AE108(c,b) OriginalDirect(0x823AE108u,c,b)\n#define sub_827CBA60(c,b) OriginalDirect(0x827CBA60u,c,b)\n#define sub_827CC668(c,b) OriginalDirect(0x827CC668u,c,b)\n#define __imp__KeGetCurrentProcessType(c,b) OriginalNative(0x830DA07Cu,c,b)\n#define __imp__KeBugCheckEx(c,b) OriginalNative(0x830DA06Cu,c,b)\n#define __imp__RtlEnterCriticalSection(c,b) OriginalNative(0x830D9C6Cu,c,b)\n#define __imp__RtlLeaveCriticalSection(c,b) OriginalNative(0x830D9C7Cu,c,b)\n#define __imp__NtFreeVirtualMemory(c,b) OriginalNative(0x830D9D3Cu,c,b)\n#define __imp__RtlCompareMemoryUlong(c,b) OriginalNative(0x830DA08Cu,c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/heap_free_context.cpp"
+      ]
+    }
+  ]
+}
