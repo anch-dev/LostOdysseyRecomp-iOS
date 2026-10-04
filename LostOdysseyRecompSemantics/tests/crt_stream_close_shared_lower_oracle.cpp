@@ -1,7 +1,10 @@
 // Reuse the accepted actual open-wrapper pin and its selected lower services.
+#pragma push_macro("main")
+#undef main
 #define main CloseSharedOpenFixtureMain
 #include "crt_stream_open_wrapper_oracle.cpp"
 #undef main
+#pragma pop_macro("main")
 
 #include "lo_semantics/crt_stream_close_shared_lower.h"
 
@@ -23,7 +26,7 @@ constexpr std::array SharedCases{
         Route::ReturningUnwind}};
 constexpr GuestAddress ModeString=0x41000u;
 
-struct SharedExtra final : crt_formatting_support::NativeServices,
+struct SharedExtra : crt_formatting_support::NativeServices,
     crt_formatter::DynamicServices,
     crt_stream_close_error::GuestServices,
     crt_stream_bulk_close_routes::NativeServices,
