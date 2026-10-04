@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Actual 822C7388/822C73E8/822C78D8 PPC bodies, three new mappings; mutable vtable+268 guest target only.",
+  "families": [
+    {
+      "name": "object-curve-sample",
+      "manifest": "LostOdysseyRecompSemantics/object_curve_sample_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/object_curve_sample_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_822C7388);\nextern \"C\" PPC_FUNC(__imp__sub_822C73E8);\nextern \"C\" PPC_FUNC(__imp__sub_822C78D8);\nvoid OriginalSave27(PPCContext&,std::uint8_t*);\nvoid OriginalRestore27(PPCContext&,std::uint8_t*);\nvoid OriginalIndirect(std::uint32_t,PPCContext&,std::uint8_t*);\n#define __savegprlr_27(c,b) OriginalSave27(c,b)\n#define __restgprlr_27(c,b) OriginalRestore27(c,b)\n#define sub_822C73E8(c,b) __imp__sub_822C73E8(c,b)\n#define sub_822C78D8(c,b) __imp__sub_822C78D8(c,b)\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(t) OriginalIndirect((t),ctx,base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/object_curve_sample.cpp"
+      ]
+    }
+  ]
+}
