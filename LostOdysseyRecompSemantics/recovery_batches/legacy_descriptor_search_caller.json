@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Complete full 562-instruction 83058FC8 selected descriptor search/flag propagation; accepted layout and five helper lowers, validation-only diagnostic shim, eight focused cases.",
+  "families": [
+    {
+      "name": "legacy-descriptor-search-caller",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/legacy_descriptor_search_caller_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_descriptor_search_caller_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_82FB67E8);\nextern \"C\" PPC_FUNC(__imp__sub_82FB6840);\nextern \"C\" PPC_FUNC(__imp__sub_83054648);\nextern \"C\" PPC_FUNC(__imp__sub_82FAC070);\nextern \"C\" PPC_FUNC(__imp__sub_82FAC608);\nextern \"C\" PPC_FUNC(__imp__sub_83054600);\nextern \"C\" PPC_FUNC(__imp__sub_82FB71D0);\nextern \"C\" PPC_FUNC(__imp__sub_83057B58);\nextern \"C\" PPC_FUNC(__imp__sub_82F99F48);\nextern \"C\" PPC_FUNC(__imp__sub_83058FC8);\nvoid OriginalClassifier(PPCContext&,std::uint8_t*);\nvoid OriginalSelector(PPCContext&,std::uint8_t*);\nvoid OriginalLayout(PPCContext&,std::uint8_t*);\nvoid OriginalOrdinal(PPCContext&,std::uint8_t*);\nvoid OriginalFeature(PPCContext&,std::uint8_t*);\nvoid OriginalNormalize(PPCContext&,std::uint8_t*);\nvoid OriginalOverlap(PPCContext&,std::uint8_t*);\nvoid OriginalWalk(PPCContext&,std::uint8_t*);\nvoid OriginalDiagnostic(PPCContext&,std::uint8_t*);\nvoid OriginalDiagnosticLower(PPCContext&,std::uint8_t*);\n#define sub_82FB67E8(c,b) OriginalClassifier(c,b)\n#define sub_82FB6840(c,b) OriginalSelector(c,b)\n#define sub_83054648(c,b) OriginalLayout(c,b)\n#define sub_82FAC070(c,b) OriginalOrdinal(c,b)\n#define sub_82FAC608(c,b) OriginalFeature(c,b)\n#define sub_83054600(c,b) OriginalNormalize(c,b)\n#define sub_82FB71D0(c,b) OriginalOverlap(c,b)\n#define sub_83057B58(c,b) OriginalWalk(c,b)\n#define sub_82F99F48(c,b) OriginalDiagnostic(c,b)\n#define sub_82F99D98(c,b) OriginalDiagnosticLower(c,b)\nvoid OriginalSave25(PPCContext&,std::uint8_t*);\nvoid OriginalRestore25(PPCContext&,std::uint8_t*);\n#define __savegprlr_25(c,b) OriginalSave25(c,b)\n#define __restgprlr_25(c,b) OriginalRestore25(c,b)\nvoid OriginalSave26(PPCContext&,std::uint8_t*);\nvoid OriginalRestore26(PPCContext&,std::uint8_t*);\n#define __savegprlr_26(c,b) OriginalSave26(c,b)\n#define __restgprlr_26(c,b) OriginalRestore26(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_descriptor_search_caller.cpp"
+      ]
+    }
+  ]
+}
