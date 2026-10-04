@@ -16,6 +16,13 @@ public:
         Registers& registers) = 0;
 };
 
+class ReallocateCalls
+{
+public:
+    virtual ~ReallocateCalls() = default;
+    virtual void Call(GuestMemory& memory, Registers& registers) = 0;
+};
+
 struct Dependencies
 {
     heap_reallocate::Services& heap;
@@ -23,10 +30,12 @@ struct Dependencies
     crt_formatter::Dependencies formatter;
     crt_free_context::LowerCalls& free_lower;
     VirtualCalls& virtual_calls;
+    ReallocateCalls* reallocate = nullptr;
 };
 
 // Complete 824790A8 caller body with selected-context formatter/free and
-// exact-size large-list heap ABI. Other heap paths retain typed lower bounds.
+// an injectable selected-context reallocator. The default dependency retains
+// the accepted exact-size large-list heap ABI and typed lower bounds.
 [[nodiscard]] bool Apply(GuestAddress entry, GuestMemory& memory,
     Dependencies dependencies, Registers& registers);
 } // namespace lo::semantic::gpu::legacy_config_format_dispatch

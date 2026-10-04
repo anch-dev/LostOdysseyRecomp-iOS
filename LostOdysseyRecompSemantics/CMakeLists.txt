@@ -90,6 +90,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/legacy_config_dispatch_gate.cpp
     src/legacy_config_format_dispatch.cpp
     src/legacy_config_format_heap_context.cpp
+    src/legacy_config_format_full_heap_chain.cpp
     src/legacy_float_digit_accumulator.cpp
     src/legacy_float_text_parser.cpp
     src/legacy_float_text_parser_digit_chain.cpp

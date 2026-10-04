@@ -163,6 +163,11 @@ void CallReallocateNull(GuestMemory& memory,Dependencies dependencies,
 void CallReallocate(GuestMemory& memory, Dependencies dependencies,
     Registers& state)
 {
+    if (dependencies.reallocate != nullptr)
+    {
+        dependencies.reallocate->Call(memory, state);
+        return;
+    }
     if(Address(state.r[3])==0u)
     {
         const auto heap=memory.ReadU32(0x83245708u);

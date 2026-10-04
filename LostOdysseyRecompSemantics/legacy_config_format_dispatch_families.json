@@ -107,5 +107,17 @@
     "original_body_pin": "recovery_drafts/legacy_config_format_dispatch_validation.json",
     "unvalidated_scope": "Retry resize and other heap ABI branches, exceptional FP, unexposed PPCContext fields, dynamic target/native free implementation, faults, MMIO, concurrency and runtime."
   },
-  "scope": "Complete 824790A8 55-instruction caller. Four focused cases cover literal, decimal integer, empty text and blocked gate; real 10 PPC bodies and accepted deeper formatter semantics, mutable heap-free/dynamic target boundaries. Actual raw-allocation selected context and exact-size large-list heap/cleanup frame bridge; other heap paths retain their typed lower ABI boundary. Full selected GPR/CR0/CR6/XER/SP/LR/CTR, events and ordinary RAM compared. Retry resize, other heap branches, exceptional FP, unexposed PPCContext state, faults, MMIO, concurrency and runtime remain open."
+  "scope": "Complete 824790A8 55-instruction caller. Four focused cases cover literal, decimal integer, empty text and blocked gate; real 10 PPC bodies and accepted deeper formatter semantics, mutable heap-free/dynamic target boundaries. Actual raw-allocation selected context and exact-size large-list heap/cleanup frame bridge; other heap paths retain their typed lower ABI boundary. Full selected GPR/CR0/CR6/XER/SP/LR/CTR, events and ordinary RAM compared. Retry resize, other heap branches, exceptional FP, unexposed PPCContext state, faults, MMIO, concurrency and runtime remain open.",
+  "validation_extensions": [
+    {
+      "name": "legacy_config_format_full_heap_chain",
+      "status": "passed",
+      "mapping_credit": 0,
+      "focused_original_ppc_cases": 4,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-legacy-config-format-full-heap-chain-tests/legacy-config-format-full-heap-chain-result.json",
+      "original_body_pin": "recovery_drafts/legacy_config_format_full_heap_chain_validation.json",
+      "implementation": "src/legacy_config_format_full_heap_chain.cpp",
+      "scope": "824790A8 formatted caller composes actual null-buffer 823ACAD8 frame, accepted 823ACBD0 raw selected context and full 823ACCB0/823AD544 control flow. Four original PPC cases cover exact large block, large split with integer formatting, empty-list grow and heap locking; full selected state, committed RAM and formatter/free/heap events compared. Non-null retry, guest grow/native implementation, deep heap-free boundary, unexposed PPCContext fields, faults, MMIO, concurrency and runtime remain open."
+    }
+  ]
 }
