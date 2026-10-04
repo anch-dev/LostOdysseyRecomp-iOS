@@ -228,6 +228,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/memory_services.cpp
     src/memory_fill.cpp
     src/memory_move.cpp
+    src/memory_copy_context.cpp
     src/heap.cpp
     src/heap_free.cpp
     src/heap_lock_exit.cpp

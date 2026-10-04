@@ -1701,6 +1701,18 @@
       "open_obligations": [
         "U64 transfers use two big-endian U32 accessors: final ordinary memory is tested; fault, atomic access width, concurrency and MMIO equivalence are not established.",
         "Validate a complete PPCContext adapter and representative game scenes before runtime replacement."
+      ],
+      "validation_extensions": [
+        {
+          "name": "memory_copy_context",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 8,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-memory-copy-context-tests/memory-copy-context-result.json",
+          "original_body_pin": "recovery_drafts/memory_copy_context_validation.json",
+          "implementation": "src/memory_copy_context.cpp",
+          "scope": "Complete 290-instruction selected 32-GPR/CR0/1/6/7/SO/CA/SP/LR/CTR and ordinary-RAM forward-copy control flow. Eight zero, byte tail, actual caller record24, leading word, source word-aligned bulk/tail, byte-assembled bulk, aligned two-line and partial-line word-route fixtures compare full selected state/RAM and independent copied bytes/extent/full-64-bit return. Cache prefetch behavior, access-width/fault/atomicity, arbitrary aliasing, MMIO, concurrency and runtime remain open."
+        }
       ]
     },
     {

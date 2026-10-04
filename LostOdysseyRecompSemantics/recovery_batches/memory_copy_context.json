@@ -1,0 +1,14 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "families": [
+    {
+      "name": "memory-copy-context",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/memory_copy_context_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/memory_copy_context_oracle.cpp",
+      "prelude": "",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/memory_copy_context.cpp"
+      ]
+    }
+  ]
+}
