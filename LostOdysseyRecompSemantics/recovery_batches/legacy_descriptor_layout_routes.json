@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Complete 163-instruction descriptor layout and its two actual 21-instruction classifier layers; 8 focused descriptor/type fixtures separately compare all three PPC bodies.",
+  "families": [
+    {
+      "name": "legacy-descriptor-layout-routes",
+      "manifest": "LostOdysseyRecompSemantics/legacy_descriptor_layout_routes_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_descriptor_layout_routes_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_82FB67E8);\nextern \"C\" PPC_FUNC(__imp__sub_82FB6840);\nvoid OriginalClassifier(PPCContext&,std::uint8_t*);\nvoid OriginalSelector(PPCContext&,std::uint8_t*);\nvoid OriginalSave25(PPCContext&,std::uint8_t*);\nvoid OriginalRestore25(PPCContext&,std::uint8_t*);\n#define sub_82FB67E8(c,b) OriginalClassifier(c,b)\n#define sub_82FB6840(c,b) OriginalSelector(c,b)\n#define __savegprlr_25(c,b) OriginalSave25(c,b)\n#define __restgprlr_25(c,b) OriginalRestore25(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_descriptor_layout_routes.cpp"
+      ]
+    }
+  ]
+}
