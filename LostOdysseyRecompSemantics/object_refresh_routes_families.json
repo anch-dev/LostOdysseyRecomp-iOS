@@ -400,5 +400,20 @@
     "runtime_validated": false,
     "complete": false,
     "status": "passed"
-  }
+  },
+  "validation_extensions": [
+    {
+      "scope": "Actual refresh -> metadata append/count/reallocation composition with accepted child/record/post lowers; ten original PPC bodies.",
+      "source": "src/object_refresh_metadata_chain.cpp",
+      "oracle": "tests/object_refresh_metadata_chain_oracle.cpp",
+      "pin": "recovery_drafts/object_refresh_metadata_chain.json",
+      "focused_original_ppc_cases": 5,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-object-refresh-metadata-chain-tests/object-refresh-metadata-chain-result.json",
+      "status": "passed",
+      "mapping_credit": 0,
+      "runtime_validated": false,
+      "complete": false,
+      "unvalidated_scope": "Remaining direct 822C7388 and manager initializer/allocator internals; generic volatile ABI, FP exceptional values, nested scratch, faults, MMIO, runtime."
+    }
+  ]
 }
