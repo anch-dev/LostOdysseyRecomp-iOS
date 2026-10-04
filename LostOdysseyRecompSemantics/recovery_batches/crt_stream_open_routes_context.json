@@ -1,0 +1,38 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Five complete stream slot/open/initialization bodies with accepted lower selected ABI and explicit mutable allocation, native and indirect guest boundaries; six focused original PPC comparisons.",
+  "families": [
+    {
+      "name": "crt-stream-open-routes-context",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/crt_stream_open_routes_context_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/crt_stream_open_routes_context_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_82B86108);\nextern \"C\" PPC_FUNC(__imp__sub_82B86420);\nextern \"C\" PPC_FUNC(__imp__sub_82B86630);\nextern \"C\" PPC_FUNC(__imp__sub_82B86654);\nextern \"C\" PPC_FUNC(__imp__sub_82BE2BE0);\nvoid OriginalSave(unsigned,PPCContext&);\nvoid OriginalRestore(unsigned,PPCContext&);\nvoid OriginalCallee(std::uint32_t,PPCContext&,std::uint8_t*);\nvoid OriginalOpenLower(std::uint32_t,PPCContext&,std::uint8_t*);\nvoid OriginalOpenAllocation(PPCContext&,std::uint8_t*);\nvoid OriginalOpenNative(std::uint32_t,PPCContext&,std::uint8_t*);\nvoid OriginalOpenIndirect(std::uint32_t,PPCContext&,std::uint8_t*);\n#define __savegprlr_24(c,b) OriginalSave(24,c)\n#define __restgprlr_24(c,b) OriginalRestore(24,c)\n#define __savegprlr_26(c,b) OriginalSave(26,c)\n#define __restgprlr_26(c,b) OriginalRestore(26,c)\n#define sub_82B7FD78(c,b) OriginalCallee(0x82B7FD78u,c,b)\n#define sub_82B7FDB0(c,b) OriginalCallee(0x82B7FDB0u,c,b)\n#define sub_82B819E8(c,b) OriginalOpenLower(0x82B819E8u,c,b)\n#define sub_82B81B28(c,b) OriginalOpenLower(0x82B81B28u,c,b)\n#define sub_82B821B0(c,b) OriginalOpenLower(0x82B821B0u,c,b)\n#define sub_82B819C8(c,b) OriginalOpenLower(0x82B819C8u,c,b)\n#define sub_82B862F8(c,b) OriginalOpenLower(0x82B862F8u,c,b)\n#define sub_827CA628(c,b) OriginalOpenLower(0x827CA628u,c,b)\n#define sub_822CA180(c,b) OriginalOpenLower(0x822CA180u,c,b)\n#define sub_82B81778(c,b) OriginalOpenAllocation(c,b)\n#define sub_82B86630(c,b) __imp__sub_82B86630(c,b)\n#define sub_82B86654(c,b) __imp__sub_82B86654(c,b)\n#define __imp__RtlEnterCriticalSection(c,b) OriginalOpenNative(0x830D9C6Cu,c,b)\n#define __imp__RtlLeaveCriticalSection(c,b) OriginalOpenNative(0x830D9C7Cu,c,b)\n#define __imp__RtlInitAnsiString(c,b) OriginalOpenNative(0x830D9DFCu,c,b)\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(t) OriginalOpenIndirect((t),ctx,base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/crt_stream_locks.cpp",
+        "LostOdysseyRecompSemantics/src/raw_allocation.cpp",
+        "LostOdysseyRecompSemantics/src/allocation_failure.cpp",
+        "LostOdysseyRecompSemantics/src/crt_allocation.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_state.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_pointer_unlock.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_index_unlock.cpp",
+        "LostOdysseyRecompSemantics/src/crt_thread_data.cpp",
+        "LostOdysseyRecompSemantics/src/invalid_parameter.cpp",
+        "LostOdysseyRecompSemantics/src/memory_services.cpp",
+        "LostOdysseyRecompSemantics/src/heap_allocate.cpp",
+        "LostOdysseyRecompSemantics/src/heap_free.cpp",
+        "LostOdysseyRecompSemantics/src/heap_segment.cpp",
+        "LostOdysseyRecompSemantics/src/heap.cpp",
+        "LostOdysseyRecompSemantics/src/memory_fill.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_io.cpp",
+        "LostOdysseyRecompSemantics/src/crt_status_error.cpp",
+        "LostOdysseyRecompSemantics/src/thread_state.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_operations.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_error.cpp",
+        "LostOdysseyRecompSemantics/src/crt_last_error.cpp",
+        "LostOdysseyRecompSemantics/src/integer_leaf.cpp",
+        "LostOdysseyRecompSemantics/src/crt_thread_error_routes.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_open_routes_context.cpp"
+      ]
+    }
+  ]
+}
