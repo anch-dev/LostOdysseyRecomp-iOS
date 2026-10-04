@@ -138,6 +138,9 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/crt_reader_upper61.cpp
     src/crt_close_upper61.cpp
     src/crt_numeric61_context.cpp
+    src/crt_close_next61.cpp
+    src/crt_numeric_next61_context.cpp
+    src/crt_reader_next61.cpp
     src/crt_wide_read_callers_context.cpp
     src/crt_reader_cleanup_callers_context.cpp
     src/crt_index_unlock_frames_context.cpp

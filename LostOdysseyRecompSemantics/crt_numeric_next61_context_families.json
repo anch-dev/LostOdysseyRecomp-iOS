@@ -1,0 +1,53 @@
+{
+  "schema": "semantic-recovery-draft-v1",
+  "entries": [
+    {
+      "address": "82DF45E0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.203.cpp",
+      "source_line": 541,
+      "instruction_count": 22,
+      "instructions": [
+        "std r31,-8(r1)",
+        "addi r31,r12,-160",
+        "std r30,-16(r1)",
+        "mflr r12",
+        "stw r12,-24(r1)",
+        "stwu r1,-112(r1)",
+        "lwz r30,180(r31)",
+        "b 0x82df4618",
+        "std r31,-8(r1)",
+        "addi r31,r12,-160",
+        "std r30,-16(r1)",
+        "mflr r12",
+        "stw r12,-24(r1)",
+        "stwu r1,-112(r1)",
+        "mr r3,r30",
+        "bl 0x82b863f0",
+        "lwz r1,0(r1)",
+        "ld r31,-8(r1)",
+        "ld r30,-16(r1)",
+        "lwz r12,-24(r1)",
+        "mtlr r12",
+        "blr "
+      ],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82DF45E0) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// std r31,-8(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -8, ctx.r31.u64);\n\t// addi r31,r12,-160\n\tctx.r31.s64 = ctx.r12.s64 + -160;\n\t// std r30,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r30.u64);\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-24(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -24, ctx.r12.u32);\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// lwz r30,180(r31)\n\tctx.r30.u64 = PPC_LOAD_U32(ctx.r31.u32 + 180);\n\t// b 0x82df4618\n\tgoto loc_82DF4618;\n\t// std r31,-8(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -8, ctx.r31.u64);\n\t// addi r31,r12,-160\n\tctx.r31.s64 = ctx.r12.s64 + -160;\n\t// std r30,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r30.u64);\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-24(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -24, ctx.r12.u32);\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\nloc_82DF4618:\n\t// mr r3,r30\n\tctx.r3.u64 = ctx.r30.u64;\n\t// bl 0x82b863f0\n\tctx.lr = 0x82DF4620;\n\tsub_82B863F0(ctx, base);\n\t// lwz r1,0(r1)\n\tctx.r1.u64 = PPC_LOAD_U32(ctx.r1.u32 + 0);\n\t// ld r31,-8(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -8);\n\t// ld r30,-16(r1)\n\tctx.r30.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// lwz r12,-24(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -24);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}",
+      "status": "original_ppc_validated"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "complete": false,
+    "runtime_validated": false,
+    "focused_original_ppc_cases": 3,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-next61-batch-tests/crt-numeric-next61-context-result.json",
+    "library": "Windows-native /W4 /WX MT static library passed",
+    "mapping_credit": 1,
+    "original_body_pin": "recovery_drafts/crt_numeric_next61_context_validation.json"
+  },
+  "scope": "Mode scan parent pointer-unlock local frames: DF45E0 22 instructions one baseline mapping; external DF4600 14 instructions validation-only. Three Full72/RAM/callback cases including live saved-slot mutation. Accepted pointer native selected boundary; no runtime/fault/MMIO coverage.",
+  "implementation": {
+    "header": "include/lo_semantics/crt_numeric_next61_context.h",
+    "source": "src/crt_numeric_next61_context.cpp",
+    "oracle": "tests/crt_numeric_next61_context_oracle.cpp"
+  }
+}
