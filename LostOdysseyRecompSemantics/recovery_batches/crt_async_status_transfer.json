@@ -1,0 +1,16 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "One new actual 82BE2DD8 97-instruction CRT async status body and accepted 827CA628 real lower; six focused mutable callback/stack cases.",
+  "families": [
+    {
+      "name": "crt-async-status-transfer",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/crt_async_status_transfer_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/crt_async_status_transfer_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_82BE2DD8);\nextern \"C\" PPC_FUNC(__imp__sub_827CA628);\nvoid OriginalSave28(PPCContext&,std::uint8_t*);\nvoid OriginalRestore28(PPCContext&,std::uint8_t*);\nvoid OriginalIndirect(std::uint32_t,PPCContext&,std::uint8_t*);\nvoid OriginalWait(PPCContext&,std::uint8_t*);\nvoid OriginalStatus(PPCContext&,std::uint8_t*);\n#define __savegprlr_28(c,b) OriginalSave28(c,b)\n#define __restgprlr_28(c,b) OriginalRestore28(c,b)\n#define sub_827CA628(c,b) __imp__sub_827CA628(c,b)\n#define __imp__NtWaitForSingleObjectEx(c,b) OriginalWait(c,b)\n#define __imp__RtlNtStatusToDosError(c,b) OriginalStatus(c,b)\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(t) OriginalIndirect((t),ctx,base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/crt_async_status_transfer.cpp",
+        "LostOdysseyRecompSemantics/src/crt_status_error.cpp"
+      ]
+    }
+  ]
+}
