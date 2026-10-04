@@ -1,0 +1,17 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Validation-only actual append/grow/reallocation with actual 827C5F38 selected-context initializer; zero new mappings.",
+  "families": [
+    {
+      "name": "object-metadata-manager-chain",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/object_metadata_manager_chain.json",
+      "harness": "LostOdysseyRecompSemantics/tests/object_metadata_manager_chain_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\nextern \"C\" PPC_FUNC(__imp__sub_827C5F38);\nextern \"C\" PPC_FUNC(__imp__sub_822C42D8);\nextern \"C\" PPC_FUNC(__imp__sub_8229F678);\nvoid OriginalStorageSave27(PPCContext&,std::uint8_t*);\nvoid OriginalStorageRestore27(PPCContext&,std::uint8_t*);\nvoid OriginalStorageInitialize(PPCContext&,std::uint8_t*);\nvoid OriginalStorageAllocator(std::uint32_t,PPCContext&,std::uint8_t*);\n#define sub_822C42D8(c,b) __imp__sub_822C42D8(c,b)\n#define sub_8229F678(c,b) __imp__sub_8229F678(c,b)\n#define sub_827C5F38(c,b) __imp__sub_827C5F38(c,b)\n#define __savegprlr_27(c,b) OriginalStorageSave27(c,b)\n#define __restgprlr_27(c,b) OriginalStorageRestore27(c,b)\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(t) OriginalStorageAllocator((t),ctx,base)\n\nvoid OriginalManagerBoundary(unsigned,PPCContext&,unsigned char*);\n#define sub_823ACBD0(c,b) OriginalManagerBoundary(0x823ACBD0u,c,b)\n#define sub_827C5970(c,b) OriginalManagerBoundary(0x827C5970u,c,b)\n#define sub_827C4ED0(c,b) OriginalManagerBoundary(0x827C4ED0u,c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/object_metadata_manager_chain.cpp",
+        "LostOdysseyRecompSemantics/src/object_metadata_storage.cpp",
+        "LostOdysseyRecompSemantics/src/manager_init_context.cpp"
+      ]
+    }
+  ]
+}

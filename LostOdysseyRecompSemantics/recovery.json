@@ -1636,6 +1636,19 @@
           "status": "passed",
           "mapping_credit": 0,
           "scope": "Actual three-body selected-register ABI and frame adapter; original residual r3 now exposed, including allocator pointer return. Manager initializer and allocator are explicit guest boundaries; broader PPCContext/FP/alias/hardware/runtime acceptance remains open."
+        },
+        {
+          "scope": "Actual metadata append/grow/reallocation -> manager initializer 827C5F38 composition, including lazy primary/fallback selection, live frame/register effects and callback aliasing.",
+          "source": "LostOdysseyRecompSemantics/src/object_metadata_manager_chain.cpp",
+          "pin": "LostOdysseyRecompSemantics/recovery_drafts/object_metadata_manager_chain.json",
+          "oracle": "LostOdysseyRecompSemantics/tests/object_metadata_manager_chain_oracle.cpp",
+          "focused_original_ppc_cases": 5,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-object-metadata-manager-chain-tests/object-metadata-manager-chain-result.json",
+          "status": "passed",
+          "mapping_credit": 0,
+          "runtime_validated": false,
+          "complete": false,
+          "unvalidated_scope": "Remaining guest allocator/constructor/virtual internals, unexposed PPCContext fields, faults, MMIO, concurrency and runtime."
         }
       ]
     },
@@ -2055,6 +2068,19 @@
           "runtime_validated": false,
           "complete": false,
           "unvalidated_scope": "Unexposed PPCContext fields, guest allocator/constructor/virtual internals, faults/MMIO/concurrency/runtime; null tests require mapped page zero."
+        },
+        {
+          "scope": "Actual metadata append/grow/reallocation -> manager initializer 827C5F38 composition, including lazy primary/fallback selection, live frame/register effects and callback aliasing.",
+          "source": "LostOdysseyRecompSemantics/src/object_metadata_manager_chain.cpp",
+          "pin": "LostOdysseyRecompSemantics/recovery_drafts/object_metadata_manager_chain.json",
+          "oracle": "LostOdysseyRecompSemantics/tests/object_metadata_manager_chain_oracle.cpp",
+          "focused_original_ppc_cases": 5,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-object-metadata-manager-chain-tests/object-metadata-manager-chain-result.json",
+          "status": "passed",
+          "mapping_credit": 0,
+          "runtime_validated": false,
+          "complete": false,
+          "unvalidated_scope": "Remaining guest allocator/constructor/virtual internals, unexposed PPCContext fields, faults, MMIO, concurrency and runtime."
         }
       ]
     },
@@ -4238,6 +4264,19 @@
           "status": "passed",
           "mapping_credit": 0,
           "scope": "Actual three-body selected-register ABI and frame adapter; original residual r3 now exposed, including allocator pointer return. Manager initializer and allocator are explicit guest boundaries; broader PPCContext/FP/alias/hardware/runtime acceptance remains open."
+        },
+        {
+          "scope": "Actual metadata append/grow/reallocation -> manager initializer 827C5F38 composition, including lazy primary/fallback selection, live frame/register effects and callback aliasing.",
+          "source": "LostOdysseyRecompSemantics/src/object_metadata_manager_chain.cpp",
+          "pin": "LostOdysseyRecompSemantics/recovery_drafts/object_metadata_manager_chain.json",
+          "oracle": "LostOdysseyRecompSemantics/tests/object_metadata_manager_chain_oracle.cpp",
+          "focused_original_ppc_cases": 5,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-object-metadata-manager-chain-tests/object-metadata-manager-chain-result.json",
+          "status": "passed",
+          "mapping_credit": 0,
+          "runtime_validated": false,
+          "complete": false,
+          "unvalidated_scope": "Remaining guest allocator/constructor/virtual internals, unexposed PPCContext fields, faults, MMIO, concurrency and runtime."
         }
       ]
     },
@@ -4294,6 +4333,19 @@
           "status": "passed",
           "mapping_credit": 0,
           "scope": "Actual three-body selected-register ABI and frame adapter; original residual r3 now exposed, including allocator pointer return. Manager initializer and allocator are explicit guest boundaries; broader PPCContext/FP/alias/hardware/runtime acceptance remains open."
+        },
+        {
+          "scope": "Actual metadata append/grow/reallocation -> manager initializer 827C5F38 composition, including lazy primary/fallback selection, live frame/register effects and callback aliasing.",
+          "source": "LostOdysseyRecompSemantics/src/object_metadata_manager_chain.cpp",
+          "pin": "LostOdysseyRecompSemantics/recovery_drafts/object_metadata_manager_chain.json",
+          "oracle": "LostOdysseyRecompSemantics/tests/object_metadata_manager_chain_oracle.cpp",
+          "focused_original_ppc_cases": 5,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-object-metadata-manager-chain-tests/object-metadata-manager-chain-result.json",
+          "status": "passed",
+          "mapping_credit": 0,
+          "runtime_validated": false,
+          "complete": false,
+          "unvalidated_scope": "Remaining guest allocator/constructor/virtual internals, unexposed PPCContext fields, faults, MMIO, concurrency and runtime."
         }
       ]
     }

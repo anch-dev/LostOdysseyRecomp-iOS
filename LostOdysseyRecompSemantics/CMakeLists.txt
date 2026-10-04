@@ -79,6 +79,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/object_parent_flag_probe.cpp
     src/object_owner_flag_routes.cpp
     src/object_metadata_storage.cpp
+    src/object_metadata_manager_chain.cpp
     src/object_refresh_routes.cpp
     src/object_refresh_metadata_chain.cpp
     src/object_curve_sample.cpp
