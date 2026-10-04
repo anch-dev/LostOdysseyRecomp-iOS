@@ -24,7 +24,7 @@ struct Case
     std::uint64_t bits;
     unsigned sqrt_category, sqrt_normalize, special;
 };
-constexpr std::array<Case, 8> Cases{{
+constexpr std::array<Case, 9> Cases{{
     {"positive-zero", 0x0000000000000000ull, 1u, 1u, 0u},
     {"negative-zero", 0x8000000000000000ull, 1u, 1u, 0u},
     {"one-early-return", 0x3ff0000000000000ull, 0u, 0u, 0u},
@@ -32,6 +32,7 @@ constexpr std::array<Case, 8> Cases{{
     {"negative-four", 0xc010000000000000ull, 0u, 0u, 0u},
     {"positive-infinity", 0x7ff0000000000000ull, 1u, 0u, 1u},
     {"quiet-nan-payload", 0x7ff8000000000042ull, 1u, 0u, 1u},
+    {"signaling-nan-payload", 0x7ff0000000000042ull, 1u, 0u, 1u},
     {"smallest-subnormal", 0x0000000000000001ull, 1u, 1u, 0u}
 }};
 unsigned category_calls = 0, normalize_calls = 0, special_calls = 0;

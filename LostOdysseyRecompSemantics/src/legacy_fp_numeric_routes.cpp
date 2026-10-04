@@ -53,11 +53,23 @@ void CompareFp(Condition& cr, std::uint64_t left_bits,
 {
     constexpr std::uint64_t Exponent = 0x7ff0000000000000ull;
     constexpr std::uint64_t Fraction = 0x000fffffffffffffull;
-    if (((left_bits & Exponent) == Exponent &&
-            (left_bits & Fraction) != 0u) ||
-        ((right_bits & Exponent) == Exponent &&
-            (right_bits & Fraction) != 0u))
+    constexpr std::uint64_t QuietBit = 0x0008000000000000ull;
+    const bool left_nan = (left_bits & Exponent) == Exponent &&
+        (left_bits & Fraction) != 0u;
+    const bool right_nan = (right_bits & Exponent) == Exponent &&
+        (right_bits & Fraction) != 0u;
+    if (left_nan || right_nan)
     {
+        if ((left_nan && (left_bits & QuietBit) == 0u) ||
+            (right_nan && (right_bits & QuietBit) == 0u))
+        {
+            // The original unordered test raises the host invalid flag for
+            // signaling NaNs. Force that scalar comparison to execute.
+            volatile double left = std::bit_cast<double>(left_bits);
+            volatile double right = std::bit_cast<double>(right_bits);
+            volatile bool probe = left == right;
+            (void)probe;
+        }
         cr = {0u, 0u, 0u, 1u};
         return;
     }

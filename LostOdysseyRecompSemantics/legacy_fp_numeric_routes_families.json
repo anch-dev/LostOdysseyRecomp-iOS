@@ -217,10 +217,10 @@
   "validation": {
     "status": "passed",
     "planned_input_cases": 8,
-    "entry_comparisons": 24,
+    "entry_comparisons": 27,
     "runtime_validated": false,
     "complete": false,
-    "focused_original_ppc_cases": 8,
+    "focused_original_ppc_cases": 9,
     "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-legacy-fp-numeric-routes-tests/legacy-fp-numeric-routes-result.json",
     "library": "Windows-native /W4 /WX MT static library passed"
   }
