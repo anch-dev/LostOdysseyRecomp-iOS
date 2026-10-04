@@ -104,6 +104,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/legacy_descriptor_recursive_copy.cpp
     src/legacy_descriptor_cursor_routes.cpp
     src/legacy_descriptor_recursive_copy_caller.cpp
+    src/crt_stream_counted_output.cpp
     src/legacy_utf16_line_token_number.cpp
     src/legacy_config_command_dispatch.cpp
     src/legacy_config_command_name_chain.cpp
@@ -143,6 +144,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/object_curve_owner_node_record_update.cpp
     src/object_curve_owner_vector_record.cpp
     src/object_curve_owner_record_write.cpp
+    src/object_curve_control_point_blend.cpp
     src/object_curve_sample.cpp
     src/crt_allocation.cpp
     src/crt_free_context.cpp

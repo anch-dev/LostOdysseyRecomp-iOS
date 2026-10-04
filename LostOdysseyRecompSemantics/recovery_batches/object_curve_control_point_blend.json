@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Two new actual PPC bodies 8262B610 and its direct 8262C4B0, eight finite record/FP focused cases; two candidate mappings.",
+  "families": [
+    {
+      "name": "object-curve-control-point-blend",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/object_curve_control_point_blend_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/object_curve_control_point_blend_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_8262B610);\nextern \"C\" PPC_FUNC(__imp__sub_8262C4B0);\nvoid OriginalSave27(PPCContext&,std::uint8_t*);\nvoid OriginalRestore27(PPCContext&,std::uint8_t*);\n#define __savegprlr_27(c,b) OriginalSave27(c,b)\n#define __restgprlr_27(c,b) OriginalRestore27(c,b)\n#define sub_8262C4B0(c,b) __imp__sub_8262C4B0(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/object_curve_control_point_blend.cpp"
+      ]
+    }
+  ]
+}

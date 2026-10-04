@@ -1,0 +1,70 @@
+{
+  "schema": "crt-stream-counted-output-v1",
+  "entries": [
+    {
+      "address": "82B82728",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.176.cpp",
+      "source_line": 6473,
+      "instruction_count": 37,
+      "instructions": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "lwz r10,12(r4)",
+        "mr r11,r3",
+        "mr r31,r5",
+        "rlwinm. r10,r10,0,25,25",
+        "beq 0x82b82758",
+        "lwz r10,8(r4)",
+        "cmplwi cr6,r10,0",
+        "beq cr6,0x82b8279c",
+        "lwz r10,4(r4)",
+        "addic. r10,r10,-1",
+        "stw r10,4(r4)",
+        "blt 0x82b82784",
+        "lwz r10,0(r4)",
+        "clrlwi r3,r11,24",
+        "stb r11,0(r10)",
+        "lwz r11,0(r4)",
+        "addi r11,r11,1",
+        "stw r11,0(r4)",
+        "b 0x82b8278c",
+        "extsb r3,r11",
+        "bl 0x82b82558",
+        "cmpwi cr6,r3,-1",
+        "bne cr6,0x82b8279c",
+        "li r11,-1",
+        "b 0x82b827a4",
+        "lwz r11,0(r31)",
+        "addi r11,r11,1",
+        "stw r11,0(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr "
+      ],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82B82728) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// std r31,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// lwz r10,12(r4)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r4.u32 + 12);\n\t// mr r11,r3\n\tctx.r11.u64 = ctx.r3.u64;\n\t// mr r31,r5\n\tctx.r31.u64 = ctx.r5.u64;\n\t// rlwinm. r10,r10,0,25,25\n\tctx.r10.u64 = __builtin_rotateleft64(ctx.r10.u32 | (ctx.r10.u64 << 32), 0) & 0x40;\n\tctx.cr0.compare<int32_t>(ctx.r10.s32, 0, ctx.xer);\n\t// beq 0x82b82758\n\tif (ctx.cr0.eq) goto loc_82B82758;\n\t// lwz r10,8(r4)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r4.u32 + 8);\n\t// cmplwi cr6,r10,0\n\tctx.cr6.compare<uint32_t>(ctx.r10.u32, 0, ctx.xer);\n\t// beq cr6,0x82b8279c\n\tif (ctx.cr6.eq) goto loc_82B8279C;\nloc_82B82758:\n\t// lwz r10,4(r4)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r4.u32 + 4);\n\t// addic. r10,r10,-1\n\tctx.xer.ca = ctx.r10.u32 > 0;\n\tctx.r10.s64 = ctx.r10.s64 + -1;\n\tctx.cr0.compare<int32_t>(ctx.r10.s32, 0, ctx.xer);\n\t// stw r10,4(r4)\n\tPPC_STORE_U32(ctx.r4.u32 + 4, ctx.r10.u32);\n\t// blt 0x82b82784\n\tif (ctx.cr0.lt) goto loc_82B82784;\n\t// lwz r10,0(r4)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r4.u32 + 0);\n\t// clrlwi r3,r11,24\n\tctx.r3.u64 = ctx.r11.u32 & 0xFF;\n\t// stb r11,0(r10)\n\tPPC_STORE_U8(ctx.r10.u32 + 0, ctx.r11.u8);\n\t// lwz r11,0(r4)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r4.u32 + 0);\n\t// addi r11,r11,1\n\tctx.r11.s64 = ctx.r11.s64 + 1;\n\t// stw r11,0(r4)\n\tPPC_STORE_U32(ctx.r4.u32 + 0, ctx.r11.u32);\n\t// b 0x82b8278c\n\tgoto loc_82B8278C;\nloc_82B82784:\n\t// extsb r3,r11\n\tctx.r3.s64 = ctx.r11.s8;\n\t// bl 0x82b82558\n\tctx.lr = 0x82B8278C;\n\tsub_82B82558(ctx, base);\nloc_82B8278C:\n\t// cmpwi cr6,r3,-1\n\tctx.cr6.compare<int32_t>(ctx.r3.s32, -1, ctx.xer);\n\t// bne cr6,0x82b8279c\n\tif (!ctx.cr6.eq) goto loc_82B8279C;\n\t// li r11,-1\n\tctx.r11.s64 = -1;\n\t// b 0x82b827a4\n\tgoto loc_82B827A4;\nloc_82B8279C:\n\t// lwz r11,0(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + 0);\n\t// addi r11,r11,1\n\tctx.r11.s64 = ctx.r11.s64 + 1;\nloc_82B827A4:\n\t// stw r11,0(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 0, ctx.r11.u32);\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}",
+      "status": "original_ppc_validated"
+    }
+  ],
+  "implementation": {
+    "header": "include/lo_semantics/crt_stream_counted_output.h",
+    "source": "src/crt_stream_counted_output.cpp",
+    "oracle": "tests/crt_stream_counted_output_oracle.cpp"
+  },
+  "validation": {
+    "status": "passed",
+    "planned_cases": 4,
+    "mapping_credit": 1,
+    "runtime_validated": false,
+    "complete": false,
+    "scope": "Complete counted byte output37 and selected original five-entry stream operation flow. High byte/sign extension, count overflow, caller stack and error-after-native-write are selected; accepted deeper ABI/kernel callbacks, faults, MMIO, concurrency and runtime remain open.",
+    "focused_original_ppc_cases": 4,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-ready-diagnostic-batch-tests/crt-stream-counted-output-result.json",
+    "library": "Windows-native /W4 /WX MT static library passed",
+    "original_body_pin": "recovery_drafts/crt_stream_counted_output_validation.json"
+  },
+  "scope": "Complete counted byte output37 and selected original five-entry stream operation flow. High byte/sign extension, count overflow, caller stack and error-after-native-write are selected; accepted deeper ABI/kernel callbacks, faults, MMIO, concurrency and runtime remain open."
+}
