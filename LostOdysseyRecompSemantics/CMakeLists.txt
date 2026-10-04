@@ -155,8 +155,12 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/crt_stream_follow61.cpp
     src/crt_reader_float61.cpp
     src/crt_error_text61_context.cpp
+    src/crt_stream_output_upper61.cpp
     src/crt_reader_bucket_sort61.cpp
     src/crt_narrow_formatter61.cpp
+    src/crt_format_frame61.cpp
+    src/crt_error_format_upper61.cpp
+    src/crt_narrow_callers61.cpp
     src/crt_wide_read_callers_context.cpp
     src/crt_reader_cleanup_callers_context.cpp
     src/crt_index_unlock_frames_context.cpp
