@@ -75,6 +75,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/object_parent_flag_probe.cpp
     src/object_owner_flag_routes.cpp
     src/object_metadata_storage.cpp
+    src/object_refresh_routes.cpp
     src/crt_allocation.cpp
     src/crt_reallocate.cpp
     src/invalid_parameter.cpp
