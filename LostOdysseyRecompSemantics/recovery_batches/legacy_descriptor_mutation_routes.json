@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Complete 93-instruction descriptor mutation and 52-instruction caller with actual accepted 82FAC238 selector. Nine focused cases compare both new PPC bodies; selector is validation-only with no new mapping credit.",
+  "families": [
+    {
+      "name": "legacy-descriptor-mutation-routes",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/legacy_descriptor_mutation_routes_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_descriptor_mutation_routes_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_82FAC238);\nextern \"C\" PPC_FUNC(__imp__sub_83056568);\nvoid OriginalRecordSelector(PPCContext&,std::uint8_t*);\nvoid OriginalMutate(PPCContext&,std::uint8_t*);\nvoid OriginalSave27(PPCContext&,std::uint8_t*);\nvoid OriginalRestore27(PPCContext&,std::uint8_t*);\n#define sub_82FAC238(c,b) OriginalRecordSelector(c,b)\n#define sub_83056568(c,b) OriginalMutate(c,b)\n#define __savegprlr_27(c,b) OriginalSave27(c,b)\n#define __restgprlr_27(c,b) OriginalRestore27(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_descriptor_mutation_routes.cpp"
+      ]
+    }
+  ]
+}
