@@ -91,6 +91,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/legacy_descriptor_record_rebind.cpp
     src/legacy_descriptor_search_caller.cpp
     src/legacy_descriptor_scalar_intern_callers.cpp
+    src/legacy_descriptor_attachment_callers.cpp
     src/legacy_utf16_line_token_number.cpp
     src/legacy_config_command_dispatch.cpp
     src/legacy_config_command_name_chain.cpp
