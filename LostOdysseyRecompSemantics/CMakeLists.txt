@@ -78,6 +78,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/legacy_config_name_routes.cpp
     src/legacy_config_line_dispatch.cpp
     src/legacy_numeric_text_shape.cpp
+    src/legacy_config_dispatch_gate.cpp
     src/legacy_float_digit_accumulator.cpp
     src/legacy_float_text_parser.cpp
     src/legacy_float_text_parser_digit_chain.cpp

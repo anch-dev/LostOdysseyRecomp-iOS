@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Complete 82479058 global/bit44 gate and vtable tail dispatch; four focused original PPC cases cover disabled/open/closed gate and tagged target. Tail vtable implementation is explicit mutable guest boundary.",
+  "families": [
+    {
+      "name": "legacy-config-dispatch-gate",
+      "manifest": "LostOdysseyRecompSemantics/legacy_config_dispatch_gate_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_config_dispatch_gate_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\nvoid OriginalVirtualGate(PPCContext&, std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_82479058);\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(t) OriginalVirtualGate(ctx,base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_config_dispatch_gate.cpp"
+      ]
+    }
+  ]
+}

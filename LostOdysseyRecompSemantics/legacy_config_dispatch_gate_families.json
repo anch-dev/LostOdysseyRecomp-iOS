@@ -1,0 +1,58 @@
+{
+  "schema": "legacy-config-dispatch-gate-draft-v1",
+  "entries": [
+    {
+      "address": "82479058",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.23.cpp",
+      "source_line": 19176,
+      "instruction_count": 18,
+      "instructions": [
+        "lis r11,-31964",
+        "lwz r11,25184(r11)",
+        "cmpwi cr6,r11,0",
+        "beq cr6,0x8247908c",
+        "lis r11,-31945",
+        "li r12,1",
+        "rldicr r12,r12,44,63",
+        "lwz r11,-28464(r11)",
+        "lwz r11,3040(r11)",
+        "ld r11,4(r11)",
+        "and r11,r11,r12",
+        "cmpldi cr6,r11,0",
+        "bnelr cr6",
+        "lwz r11,0(r3)",
+        "li r5,760",
+        "lwz r11,4(r11)",
+        "mtctr r11",
+        "bctr"
+      ],
+      "cfg": {
+        "labels": [
+          "8247908C"
+        ],
+        "branches": [
+          "beq cr6,0x8247908c"
+        ]
+      },
+      "direct_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82479058) {\n\tPPC_FUNC_PROLOGUE();\n\t// lis r11,-31964\n\tctx.r11.s64 = -2094792704;\n\t// lwz r11,25184(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 25184);\n\t// cmpwi cr6,r11,0\n\tctx.cr6.compare<int32_t>(ctx.r11.s32, 0, ctx.xer);\n\t// beq cr6,0x8247908c\n\tif (ctx.cr6.eq) goto loc_8247908C;\n\t// lis r11,-31945\n\tctx.r11.s64 = -2093547520;\n\t// li r12,1\n\tctx.r12.s64 = 1;\n\t// rldicr r12,r12,44,63\n\tctx.r12.u64 = __builtin_rotateleft64(ctx.r12.u64, 44) & 0xFFFFFFFFFFFFFFFF;\n\t// lwz r11,-28464(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + -28464);\n\t// lwz r11,3040(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 3040);\n\t// ld r11,4(r11)\n\tctx.r11.u64 = PPC_LOAD_U64(ctx.r11.u32 + 4);\n\t// and r11,r11,r12\n\tctx.r11.u64 = ctx.r11.u64 & ctx.r12.u64;\n\t// cmpldi cr6,r11,0\n\tctx.cr6.compare<uint64_t>(ctx.r11.u64, 0, ctx.xer);\n\t// bnelr cr6\n\tif (!ctx.cr6.eq) return;\nloc_8247908C:\n\t// lwz r11,0(r3)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r3.u32 + 0);\n\t// li r5,760\n\tctx.r5.s64 = 760;\n\t// lwz r11,4(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 4);\n\t// mtctr r11\n\tctx.ctr.u64 = ctx.r11.u64;\n\t// bctr \n\tPPC_CALL_INDIRECT_FUNC(ctx.ctr.u32 & ~3u);\n\treturn;\n}\n",
+      "status": "original_ppc_validated"
+    }
+  ],
+  "implementation": {
+    "header": "include/lo_semantics/legacy_config_dispatch_gate.h",
+    "source": "src/legacy_config_dispatch_gate.cpp",
+    "oracle": "tests/legacy_config_dispatch_gate_oracle.cpp",
+    "scope": "Complete global/bit gate and vtable tail dispatch; mutable target remains explicit."
+  },
+  "validation": {
+    "status": "passed",
+    "planned_cases": 4,
+    "runtime_validated": false,
+    "focused_original_ppc_cases": 4,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-legacy-config-dispatch-gate-tests/legacy-config-dispatch-gate-result.json",
+    "library": "Windows-native /W4 /WX MT static library passed",
+    "complete": false,
+    "unvalidated_scope": "Dynamic vtable target implementation, other inputs, unexposed PPCContext fields, faults, MMIO, concurrency and runtime remain open."
+  }
+}
