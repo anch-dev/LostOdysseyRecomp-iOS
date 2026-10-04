@@ -2040,6 +2040,22 @@
         "The observed virtual targets now have readable implementations; validate their dynamic dispatch, object lifetimes and synchronization in the runtime.",
         "Null paths still dereference zero as in the original; synthetic mapped page zero is not evidence that failed live allocation is safe.",
         "Validate complete PPCContext adapter and representative runtime scenes before replacing generated code."
+      ],
+      "validation_extensions": [
+        {
+          "scope": "Actual 45-instruction body selected ABI adapter preserves full GPR state, live frame and mutable callee effects, CR6/SO/CA/LR/CTR and selected FP state; allocation/constructor/virtual internals remain boundaries.",
+          "source": "LostOdysseyRecompSemantics/src/manager_init_context.cpp",
+          "header": "LostOdysseyRecompSemantics/include/lo_semantics/manager_init_context.h",
+          "oracle": "LostOdysseyRecompSemantics/tests/manager_init_context_oracle.cpp",
+          "pin": "LostOdysseyRecompSemantics/recovery_drafts/manager_init_context.json",
+          "focused_original_ppc_cases": 6,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-manager-init-context-tests/manager-init-context-result.json",
+          "status": "passed",
+          "mapping_credit": 0,
+          "runtime_validated": false,
+          "complete": false,
+          "unvalidated_scope": "Unexposed PPCContext fields, guest allocator/constructor/virtual internals, faults/MMIO/concurrency/runtime; null tests require mapped page zero."
+        }
       ]
     },
     {

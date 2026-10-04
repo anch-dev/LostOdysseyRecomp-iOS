@@ -1,0 +1,14 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "families": [
+    {
+      "name": "manager-init-context",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/manager_init_context.json",
+      "harness": "LostOdysseyRecompSemantics/tests/manager_init_context_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\nvoid OriginalManagerDirect(unsigned,PPCContext&,unsigned char*);\nvoid OriginalManagerVirtual(unsigned,PPCContext&,unsigned char*);\n#define sub_823ACBD0(c,b) OriginalManagerDirect(0x823ACBD0u,c,b)\n#define sub_827C5970(c,b) OriginalManagerDirect(0x827C5970u,c,b)\n#define sub_827C4ED0(c,b) OriginalManagerDirect(0x827C4ED0u,c,b)\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(t) OriginalManagerVirtual(t,ctx,base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/manager_init_context.cpp"
+      ]
+    }
+  ]
+}
