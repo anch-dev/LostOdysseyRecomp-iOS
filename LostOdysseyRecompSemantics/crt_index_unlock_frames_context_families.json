@@ -1,0 +1,67 @@
+{
+  "schema": "semantic-recovery-draft-v1",
+  "entries": [
+    {
+      "address": "82DF61AC",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.203.cpp",
+      "source_line": 4755,
+      "instruction_count": 36,
+      "instructions": [
+        "std r31,-8(r1)",
+        "addi r31,r12,-128",
+        "std r30,-16(r1)",
+        "std r29,-24(r1)",
+        "mflr r12",
+        "stw r12,-32(r1)",
+        "stwu r1,-112(r1)",
+        "lis r11,-31944",
+        "addi r30,r11,-29040",
+        "lwz r29,80(r31)",
+        "b 0x82df61f4",
+        "std r31,-8(r1)",
+        "addi r31,r12,-128",
+        "std r30,-16(r1)",
+        "std r29,-24(r1)",
+        "mflr r12",
+        "stw r12,-32(r1)",
+        "stwu r1,-112(r1)",
+        "rlwinm r11,r29,2,0,29",
+        "mr r3,r29",
+        "lwz r10,0(r30)",
+        "lwzx r4,r11,r10",
+        "bl 0x82b7b810",
+        "lis r11,-31944",
+        "addi r30,r11,-29040",
+        "lis r11,-31944",
+        "addi r10,r11,-29036",
+        "lwz r29,80(r31)",
+        "lwz r11,0(r30)",
+        "lwz r1,0(r1)",
+        "ld r31,-8(r1)",
+        "ld r30,-16(r1)",
+        "ld r29,-24(r1)",
+        "lwz r12,-32(r1)",
+        "mtlr r12",
+        "blr "
+      ],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82DF61AC) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// std r31,-8(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -8, ctx.r31.u64);\n\t// addi r31,r12,-128\n\tctx.r31.s64 = ctx.r12.s64 + -128;\n\t// std r30,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r30.u64);\n\t// std r29,-24(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -24, ctx.r29.u64);\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-32(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -32, ctx.r12.u32);\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// lis r11,-31944\n\tctx.r11.s64 = -2093481984;\n\t// addi r30,r11,-29040\n\tctx.r30.s64 = ctx.r11.s64 + -29040;\n\t// lwz r29,80(r31)\n\tctx.r29.u64 = PPC_LOAD_U32(ctx.r31.u32 + 80);\n\t// b 0x82df61f4\n\tgoto loc_82DF61F4;\n\t// std r31,-8(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -8, ctx.r31.u64);\n\t// addi r31,r12,-128\n\tctx.r31.s64 = ctx.r12.s64 + -128;\n\t// std r30,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r30.u64);\n\t// std r29,-24(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -24, ctx.r29.u64);\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-32(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -32, ctx.r12.u32);\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\nloc_82DF61F4:\n\t// rlwinm r11,r29,2,0,29\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r29.u32 | (ctx.r29.u64 << 32), 2) & 0xFFFFFFFC;\n\t// mr r3,r29\n\tctx.r3.u64 = ctx.r29.u64;\n\t// lwz r10,0(r30)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r30.u32 + 0);\n\t// lwzx r4,r11,r10\n\tctx.r4.u64 = PPC_LOAD_U32(ctx.r11.u32 + ctx.r10.u32);\n\t// bl 0x82b7b810\n\tctx.lr = 0x82DF6208;\n\tsub_82B7B810(ctx, base);\n\t// lis r11,-31944\n\tctx.r11.s64 = -2093481984;\n\t// addi r30,r11,-29040\n\tctx.r30.s64 = ctx.r11.s64 + -29040;\n\t// lis r11,-31944\n\tctx.r11.s64 = -2093481984;\n\t// addi r10,r11,-29036\n\tctx.r10.s64 = ctx.r11.s64 + -29036;\n\t// lwz r29,80(r31)\n\tctx.r29.u64 = PPC_LOAD_U32(ctx.r31.u32 + 80);\n\t// lwz r11,0(r30)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r30.u32 + 0);\n\t// lwz r1,0(r1)\n\tctx.r1.u64 = PPC_LOAD_U32(ctx.r1.u32 + 0);\n\t// ld r31,-8(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -8);\n\t// ld r30,-16(r1)\n\tctx.r30.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// ld r29,-24(r1)\n\tctx.r29.u64 = PPC_LOAD_U64(ctx.r1.u32 + -24);\n\t// lwz r12,-32(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -32);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}",
+      "status": "original_ppc_validated"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "complete": false,
+    "runtime_validated": false,
+    "focused_original_ppc_cases": 3,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-wide-unlock-fixture-fix-tests/crt-index-unlock-frames-context-result.json",
+    "library": "Windows-native /W4 /WX MT static library passed",
+    "mapping_credit": 1,
+    "original_body_pin": "recovery_drafts/crt_index_unlock_frames_context_validation.json"
+  },
+  "scope": "CRT indexed-unlock EH/local-frame bodies: DF61AC 36 instructions, one baseline mapping; DF61D8 25 instructions external zero-credit pin. Three ordinary RAM selected Full72, RAM and callback comparisons. Native ABI/fault/MMIO/runtime remains bounded.",
+  "implementation": {
+    "header": "include/lo_semantics/crt_index_unlock_frames_context.h",
+    "source": "src/crt_index_unlock_frames_context.cpp",
+    "oracle": "tests/crt_index_unlock_frames_context_oracle.cpp"
+  }
+}
