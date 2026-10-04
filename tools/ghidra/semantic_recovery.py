@@ -442,12 +442,14 @@ def run_batch(batch_path: Path, output_path: Path, ppc_root: Path,
                 raise
             result["library"] = str(library)
             result["library_build_seconds"] = elapsed
+        failed_families = []
         for family, item, checked, harness, prelude, sources in prepared:
             result["phase"] = f"oracle:{family['name']}"
             item["phase"] = "compile"
             _write(Path(item["receipt"]), item)
             _write(receipt_path, result)
             original = prelude.encode("utf-8") + b"\n" + checked["original_cpp"]
+            family_error = None
             try:
                 run = compile_and_run(family["name"], original, harness.read_bytes(),
                                       [] if library else sources, output,
@@ -455,6 +457,9 @@ def run_batch(batch_path: Path, output_path: Path, ppc_root: Path,
                                       semantic_library=library,
                                       msvc_runtime=msvc_runtime or "MD",
                                       native_environment=environment)
+            except Exception as exc:
+                family_error = exc
+                failed_families.append(family["name"])
             finally:
                 # compile_and_run writes the phase and error even on failure.
                 item.update(_json(Path(item["receipt"])))
@@ -465,7 +470,12 @@ def run_batch(batch_path: Path, output_path: Path, ppc_root: Path,
                              "receipt": item["receipt"]})
                 _write(Path(item["receipt"]), item)
                 _write(receipt_path, result)
+            if family_error is not None:
+                continue
             item.update(run)
+        if failed_families:
+            result["phase"] = "oracles_complete"
+            raise RuntimeError(f"failed oracle families: {', '.join(failed_families)}")
         result["status"] = "passed"
         result["phase"] = "complete"
     except Exception as exc:

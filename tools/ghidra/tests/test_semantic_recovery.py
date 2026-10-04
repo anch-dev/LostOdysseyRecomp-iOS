@@ -277,6 +277,41 @@ class SemanticRecoveryTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "duplicate batch address: 80000000"):
             recovery._track_pins(checked, seen, allow_shared=False)
 
+    def test_failed_oracle_does_not_skip_independent_family(self) -> None:
+        harness = self.root / "oracle.cpp"
+        harness.write_text("", encoding="utf-8")
+        families = []
+        for index, entry in enumerate(self.entries):
+            manifest = self.root / f"family-{index}.json"
+            manifest.write_text(json.dumps({"entries": [entry]}), encoding="utf-8")
+            families.append({"name": f"family-{index}", "manifest": str(manifest),
+                             "harness": str(harness), "sources": []})
+        batch = self.root / "batch.json"
+        batch.write_text(json.dumps({"families": families}), encoding="utf-8")
+        output = self.root / "result"
+        visited = []
+
+        def oracle(name, original, harness, sources, directory, **kwargs):
+            visited.append(name)
+            result = {"status": "failed" if name == "family-0" else "passed",
+                      "phase": "execute" if name == "family-0" else "complete"}
+            (directory / f"{name}-result.json").write_text(json.dumps(result))
+            if name == "family-0":
+                raise RuntimeError("selected original mismatch")
+            return result
+
+        with patch.object(recovery, "compiler_environment", return_value={}), \
+             patch.object(recovery, "_build_library", return_value=(self.root / "lib", 0)) as build, \
+             patch.object(recovery, "compile_and_run", side_effect=oracle), \
+             self.assertRaisesRegex(RuntimeError, "failed oracle families: family-0"):
+            recovery.run_batch(batch, output, self.ppc,
+                               library_build=self.root / "build", msvc_runtime="MT")
+        build.assert_called_once()
+        self.assertEqual(visited, ["family-0", "family-1"])
+        result = json.loads((output / "semantic-recovery-result.json").read_text())
+        self.assertEqual(result["status"], "failed")
+        self.assertEqual([item["status"] for item in result["families"]], ["failed", "passed"])
+
     def test_serve_reuses_environment_for_two_requests(self) -> None:
         harness = self.root / "oracle.cpp"
         harness.write_text("", encoding="utf-8")
