@@ -1,0 +1,30 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Complete 82296008 PPC dispatcher; six original-body cases use actual accepted prefix/token callees. Five unmapped guest calls remain explicit mutable boundaries; other accepted but unselected callees throw in this bounded oracle.",
+  "families": [
+    {
+      "name": "legacy-config-command-dispatch",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/legacy_config_command_dispatch_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_config_command_dispatch_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\nvoid OriginalSave26(PPCContext&, std::uint8_t*);\nvoid OriginalRestore26(PPCContext&, std::uint8_t*);\nvoid OriginalGuest(std::uint32_t, PPCContext&, std::uint8_t*);\nvoid OriginalUnselected(PPCContext&, std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_82296740);\nextern \"C\" PPC_FUNC(__imp__sub_82296830);\nextern \"C\" PPC_FUNC(__imp__sub_82296858);\nextern \"C\" PPC_FUNC(__imp__sub_82296938);\nextern \"C\" PPC_FUNC(__imp__sub_82483AC8);\nextern \"C\" PPC_FUNC(__imp__sub_822969A0);\n#define __savegprlr_26(c,b) OriginalSave26(c,b)\n#define __restgprlr_26(c,b) OriginalRestore26(c,b)\n#define sub_82296740(c,b) __imp__sub_82296740(c,b)\n#define sub_82296830(c,b) __imp__sub_82296830(c,b)\n#define sub_82296858(c,b) __imp__sub_82296858(c,b)\n#define sub_82296938(c,b) __imp__sub_82296938(c,b)\n#define sub_82483AC8(c,b) __imp__sub_82483AC8(c,b)\n#define sub_822969A0(c,b) __imp__sub_822969A0(c,b)\n#define sub_82713828(c,b) OriginalGuest(0x82713828u,c,b)\n#define sub_82296B00(c,b) OriginalGuest(0x82296B00u,c,b)\n#define sub_82479058(c,b) OriginalUnselected(c,b)\n#define sub_824790A8(c,b) OriginalUnselected(c,b)\n#define sub_82297338(c,b) OriginalUnselected(c,b)\n#define sub_822988E0(c,b) OriginalUnselected(c,b)\n#define sub_82296E80(c,b) OriginalUnselected(c,b)\n#define sub_82296F68(c,b) OriginalUnselected(c,b)\n#define sub_822971E0(c,b) OriginalUnselected(c,b)\n#define sub_823F4700(c,b) OriginalUnselected(c,b)\n#define sub_82295DA8(c,b) OriginalUnselected(c,b)\n#define sub_82B7FD78(c,b) OriginalUnselected(c,b)\n#define sub_82B7FEC0(c,b) OriginalUnselected(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_config_command_dispatch.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_utf16_prefix_cursor.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_character_cursor.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_utf16_line_token_number.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_token_float_cursor.cpp",
+        "LostOdysseyRecompSemantics/src/metadata_name_index.cpp",
+        "LostOdysseyRecompSemantics/src/manager_metadata_compare.cpp",
+        "LostOdysseyRecompSemantics/src/manager_metadata_parsing.cpp",
+        "LostOdysseyRecompSemantics/src/metadata_name_registry.cpp",
+        "LostOdysseyRecompSemantics/src/metadata_option_match.cpp",
+        "LostOdysseyRecompSemantics/src/registered_metadata_string.cpp",
+        "LostOdysseyRecompSemantics/src/metadata_name_record.cpp",
+        "LostOdysseyRecompSemantics/src/allocation_array.cpp",
+        "LostOdysseyRecompSemantics/src/allocation_failure.cpp",
+        "LostOdysseyRecompSemantics/src/crt_thread_data.cpp",
+        "LostOdysseyRecompSemantics/src/invalid_parameter.cpp"
+      ]
+    }
+  ]
+}
