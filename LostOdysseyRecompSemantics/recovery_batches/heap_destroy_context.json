@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Draft 827CBA08/827CBB98 selected page release and heap destruction; five actual PPC focused cases.",
+  "families": [
+    {
+      "name": "heap-destroy-context",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/heap_destroy_context_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/heap_destroy_context_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nvoid OriginalSave28(PPCContext&,std::uint8_t*);\nvoid OriginalRestore28(PPCContext&,std::uint8_t*);\nvoid OriginalNative(std::uint32_t,PPCContext&,std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_827CBA08);\nextern \"C\" PPC_FUNC(__imp__sub_827CBB98);\n#define __savegprlr_28(c,b) OriginalSave28(c,b)\n#define __restgprlr_28(c,b) OriginalRestore28(c,b)\n#define sub_827CBA08(c,b) __imp__sub_827CBA08(c,b)\n#define __imp__NtFreeVirtualMemory(c,b) OriginalNative(0x830D9D3Cu,c,b)\n#define __imp__KeGetCurrentProcessType(c,b) OriginalNative(0x830DA07Cu,c,b)\n#define __imp__KeBugCheckEx(c,b) OriginalNative(0x830DA06Cu,c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/heap_destroy_context.cpp"
+      ]
+    }
+  ]
+}
