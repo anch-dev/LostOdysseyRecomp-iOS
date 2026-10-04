@@ -73,6 +73,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/legacy_descriptor_layout_routes.cpp
     src/legacy_descriptor_record_routes.cpp
     src/legacy_descriptor_mutation_routes.cpp
+    src/legacy_descriptor_array_allocation.cpp
     src/legacy_utf16_line_token_number.cpp
     src/legacy_config_command_dispatch.cpp
     src/legacy_config_command_name_chain.cpp

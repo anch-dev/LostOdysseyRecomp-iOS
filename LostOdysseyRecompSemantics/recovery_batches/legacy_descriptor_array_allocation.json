@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Complete 140-instruction array-descriptor constructor and 36-instruction allocator; five original bodies pinned, three accepted as validation-only. Eight focused cases exercise pool, free list, native boundary and finite float/flag paths.",
+  "families": [
+    {
+      "name": "legacy-descriptor-array-allocation",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/legacy_descriptor_array_allocation_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_descriptor_array_allocation_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_82FAC238);\nextern \"C\" PPC_FUNC(__imp__sub_83056568);\nextern \"C\" PPC_FUNC(__imp__sub_82B7BC40);\nextern \"C\" PPC_FUNC(__imp__sub_82FB36B0);\nvoid OriginalRecordSelector(PPCContext&,std::uint8_t*);\nvoid OriginalMutate(PPCContext&,std::uint8_t*);\nvoid OriginalAllocateRecord(PPCContext&,std::uint8_t*);\nvoid OriginalFill(PPCContext&,std::uint8_t*);\nvoid OriginalNativeAllocate(PPCContext&,std::uint8_t*);\nvoid OriginalSave27(PPCContext&,std::uint8_t*);\nvoid OriginalRestore27(PPCContext&,std::uint8_t*);\n#define sub_82FAC238(c,b) OriginalRecordSelector(c,b)\n#define sub_83056568(c,b) OriginalMutate(c,b)\n#define sub_82FB36B0(c,b) OriginalAllocateRecord(c,b)\n#define sub_82B7BC40(c,b) OriginalFill(c,b)\n#define sub_82FAC428(c,b) OriginalNativeAllocate(c,b)\n#define __savegprlr_27(c,b) OriginalSave27(c,b)\n#define __restgprlr_27(c,b) OriginalRestore27(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_descriptor_array_allocation.cpp"
+      ]
+    }
+  ]
+}
