@@ -129,6 +129,11 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/crt_close_buffer_callers_context.cpp
     src/crt_stream_close_file_lower.cpp
     src/crt_stream_pushback_context.cpp
+    src/crt_stream_close_reopen_context.cpp
+    src/crt_stream_refill_context.cpp
+    src/crt_stream_byte_read_context.cpp
+    src/crt_stream_block_read_context.cpp
+    src/crt_close_reader_callers_context.cpp
     src/crt_stream_flush_context.cpp
     src/crt_utf8_conversion_routes.cpp
     src/crt_async_status_transfer.cpp

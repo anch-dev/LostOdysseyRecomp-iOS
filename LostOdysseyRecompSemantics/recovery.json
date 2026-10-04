@@ -680,6 +680,18 @@
         "Store traces do not establish real concurrent/MMIO effects; enormous lengths are not executed exhaustively.",
         "The unregistered PPC adapter restores final register values after stores; mid-store faults and observation of intermediate PPCContext are not equivalent evidence.",
         "Current adapter differential uses /Od; optimized adapter and live runtime paths are unvalidated."
+      ],
+      "validation_extensions": [
+        {
+          "name": "crt_stream_block_read_context",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 3,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-block-read-fixture-fix-tests/crt-stream-block-read-context-result.json",
+          "original_body_pin": "recovery_drafts/crt_stream_block_read_context_validation.json",
+          "implementation": "src/crt_stream_block_read_context.cpp",
+          "scope": "Actual 40-instruction fill body, including live GPR/CTR/CR state, composed in copy/read capacity and null-stream errors. Three of five new block-read original-PPC cases execute this leaf; ordinary RAM only, faults/MMIO/concurrency/runtime remain open."
+        }
       ]
     },
     {
