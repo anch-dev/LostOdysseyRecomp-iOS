@@ -1,0 +1,16 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Three new CRT binary64 numeric routes; 8 focused payloads separately compare all three actual PPC bodies, with composed accepted 82B7DFC0/82B82340 lower and new 82FF99E0 lower.",
+  "families": [
+    {
+      "name": "legacy-fp-numeric-routes",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/legacy_fp_numeric_routes_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_fp_numeric_routes_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_82B7DFC0);\nextern \"C\" PPC_FUNC(__imp__sub_82B82340);\nextern \"C\" PPC_FUNC(__imp__sub_82FF99E0);\nvoid OriginalCategory(PPCContext&,std::uint8_t*);\nvoid OriginalSpecial(PPCContext&,std::uint8_t*);\nvoid OriginalNormalize(PPCContext&,std::uint8_t*);\n#define sub_82B7DFC0(c,b) OriginalCategory(c,b)\n#define sub_82B82340(c,b) OriginalSpecial(c,b)\n#define sub_82FF99E0(c,b) OriginalNormalize(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_fp_classification.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_fp_numeric_routes.cpp"
+      ]
+    }
+  ]
+}
