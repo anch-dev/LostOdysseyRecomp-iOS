@@ -24,6 +24,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/heap_range_context.cpp
     src/heap_decommit_range_chain.cpp
     src/heap_full_free_chain.cpp
+    src/heap_grow_context.cpp
     src/allocation_failure.cpp
     src/crt_thread_data.cpp
     src/crt_last_error.cpp

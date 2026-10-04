@@ -1338,6 +1338,18 @@
       "open_obligations": [
         "Expand beyond the one bounded composed growth/initialization/extension lifecycle and validate actual runtime guest frames.",
         "Validate kernel VM output contracts, allocation lifetime, actual runtime ABI and concurrent heap use."
+      ],
+      "validation_extensions": [
+        {
+          "name": "heap_grow_context",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 6,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-heap-grow-context-tests/heap-grow-context-result.json",
+          "original_body_pin": "recovery_drafts/heap_grow_context_validation.json",
+          "implementation": "src/heap_grow_context.cpp",
+          "scope": "Complete 143-instruction selected 32-GPR/CR0/6/SO/CA/SP/LR/CTR and ordinary-RAM heap grow flow; selected coalesce257 and insert77 compose. Six empty-scan, insufficient-segment, commit miss/success and reserve failure/success fixtures compare state, RAM and guest/native events. 827CB778/827CC2C0 remain mutable guest boundaries; kernel imports modeled. Other PPCContext fields, faults, unwind, MMIO, concurrency and runtime remain open."
+        }
       ]
     },
     {
