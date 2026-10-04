@@ -1,8 +1,11 @@
 // Reuse the accepted 82DF6240 selected-context fixture and its original-body
 // adapters. Its main is compiled here only as a helper and is never run.
+#pragma push_macro("main")
+#undef main
 #define main OpenPipelineFixtureMain
 #include "crt_stream_open_pipeline_oracle.cpp"
 #undef main
+#pragma pop_macro("main")
 
 #include "lo_semantics/crt_stream_open_wrapper.h"
 
