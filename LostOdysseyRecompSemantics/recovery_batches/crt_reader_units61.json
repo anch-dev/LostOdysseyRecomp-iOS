@@ -1,0 +1,16 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "U32 and byte-loop reader writers plus external byte/U32 consume validation support. Complete integer bodies composed with accepted recursive allocation. Ordinary RAM; native ABI faults MMIO concurrency runtime unvalidated; zero runtime replacements.",
+  "families": [
+    {
+      "name": "crt-reader-units61",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/crt_reader_units61_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/crt_reader_units61_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_82BD0798);\nextern \"C\" PPC_FUNC(__imp__sub_82BD07D8);\nextern \"C\" PPC_FUNC(__imp__sub_82BD0C18);\nvoid OriginalRecursiveSave(unsigned,PPCContext&);\nvoid OriginalRecursiveRestore(unsigned,PPCContext&);\nvoid OriginalRecursiveIndirect(std::uint32_t,PPCContext&,std::uint8_t*);\n#define __savegprlr_27(c,b) OriginalRecursiveSave(27,c)\n#define __restgprlr_27(c,b) OriginalRecursiveRestore(27,c)\n#define __savegprlr_29(c,b) OriginalRecursiveSave(29,c)\n#define __restgprlr_29(c,b) OriginalRecursiveRestore(29,c)\n#define sub_82BD0798(c,b) __imp__sub_82BD0798(c,b)\n#define sub_82BD07D8(c,b) __imp__sub_82BD07D8(c,b)\n#define sub_82BD0C18(c,b) __imp__sub_82BD0C18(c,b)\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(t) OriginalRecursiveIndirect((t),ctx,base)\n#define __savegprlr_28(c,b) OriginalRecursiveSave(28,c)\n#define __restgprlr_28(c,b) OriginalRecursiveRestore(28,c)\nextern \"C\" PPC_FUNC(__imp__sub_82BD1050);\n#ifndef sub_82BD1050\n#define sub_82BD1050(c,b) __imp__sub_82BD1050(c,b)\n#endif\nextern \"C\" PPC_FUNC(__imp__sub_82BD1160);\n#ifndef sub_82BD1160\n#define sub_82BD1160(c,b) __imp__sub_82BD1160(c,b)\n#endif\nextern \"C\" PPC_FUNC(__imp__sub_82BD09C0);\n#ifndef sub_82BD09C0\n#define sub_82BD09C0(c,b) __imp__sub_82BD09C0(c,b)\n#endif\nextern \"C\" PPC_FUNC(__imp__sub_82BD09F8);\n#ifndef sub_82BD09F8\n#define sub_82BD09F8(c,b) __imp__sub_82BD09F8(c,b)\n#endif\nextern \"C\" PPC_FUNC(__imp__sub_82BD0798);\n#ifndef sub_82BD0798\n#define sub_82BD0798(c,b) __imp__sub_82BD0798(c,b)\n#endif\nextern \"C\" PPC_FUNC(__imp__sub_82BD07D8);\n#ifndef sub_82BD07D8\n#define sub_82BD07D8(c,b) __imp__sub_82BD07D8(c,b)\n#endif\nextern \"C\" PPC_FUNC(__imp__sub_82BD0C18);\n#ifndef sub_82BD0C18\n#define sub_82BD0C18(c,b) __imp__sub_82BD0C18(c,b)\n#endif\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/crt_close_recursive_buffer_context.cpp",
+        "LostOdysseyRecompSemantics/src/crt_reader_units61.cpp"
+      ]
+    }
+  ]
+}
