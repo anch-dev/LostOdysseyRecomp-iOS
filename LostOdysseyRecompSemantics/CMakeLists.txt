@@ -86,6 +86,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/legacy_descriptor_numeric_match_routes.cpp
     src/legacy_descriptor_match_caller.cpp
     src/legacy_descriptor_clone_chain.cpp
+    src/legacy_descriptor_rank_attachment.cpp
     src/legacy_descriptor_search_helpers.cpp
     src/legacy_descriptor_record_rebind.cpp
     src/legacy_descriptor_search_caller.cpp
