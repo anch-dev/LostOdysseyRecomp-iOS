@@ -1,0 +1,16 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Complete 8229C560 code-page dispatch and 827CA660 UTF8 decoder. Exact fixed image tables are seeded from image_disc1.bin guest 831E7C90..831E7DC7; accepted 822CA180 guest error tail composed. Two kernel imports remain mutable selected-context boundaries. Ordinary RAM/GPR/CR/XER/SP/LR/CTR compared; faults, MMIO, concurrency and runtime remain open.",
+  "families": [
+    {
+      "name": "crt-utf8-conversion-routes",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/crt_utf8_conversion_routes_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/crt_utf8_conversion_routes_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_8229C560);\nextern \"C\" PPC_FUNC(__imp__sub_827CA660);\nvoid OriginalSave(unsigned,PPCContext&);\nvoid OriginalRestore(unsigned,PPCContext&);\nvoid OriginalMultiByte(PPCContext&,std::uint8_t*);\nvoid OriginalStatusError(PPCContext&,std::uint8_t*);\nvoid OriginalStoreThreadError(PPCContext&,std::uint8_t*);\n#define __savegprlr_20(c,b) OriginalSave(20,c)\n#define __restgprlr_20(c,b) OriginalRestore(20,c)\n#define sub_827CA660(c,b) __imp__sub_827CA660(c,b)\n#define sub_822CA180(c,b) OriginalStoreThreadError(c,b)\n#define __imp__RtlMultiByteToUnicodeN(c,b) OriginalMultiByte(c,b)\n#define __imp__RtlNtStatusToDosError(c,b) OriginalStatusError(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/crt_thread_error_routes.cpp",
+        "LostOdysseyRecompSemantics/src/crt_utf8_conversion_routes.cpp"
+      ]
+    }
+  ]
+}

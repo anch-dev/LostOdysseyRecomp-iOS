@@ -1,0 +1,19 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Draft complete 827CC9D0 heap create with actual PPC fill and selected segment/range/insert; four focused cases.",
+  "families": [
+    {
+      "name": "heap-create-context",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/heap_create_context_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/heap_create_context_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nvoid OriginalSave21(PPCContext&,std::uint8_t*);\nvoid OriginalRestore21(PPCContext&,std::uint8_t*);\nvoid OriginalSave22(PPCContext&,std::uint8_t*);\nvoid OriginalRestore22(PPCContext&,std::uint8_t*);\nvoid OriginalSave28(PPCContext&,std::uint8_t*);\nvoid OriginalRestore28(PPCContext&,std::uint8_t*);\nvoid OriginalNative(std::uint32_t,PPCContext&,std::uint8_t*);\nvoid OriginalGuestMove(PPCContext&,std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_827CC9D0);\nextern \"C\" PPC_FUNC(__imp__sub_82B7BC40);\nextern \"C\" PPC_FUNC(__imp__sub_827CC2C0);\nextern \"C\" PPC_FUNC(__imp__sub_827CB658);\nextern \"C\" PPC_FUNC(__imp__sub_827CB498);\nextern \"C\" PPC_FUNC(__imp__sub_827CBA60);\n#define __savegprlr_21(c,b) OriginalSave21(c,b)\n#define __restgprlr_21(c,b) OriginalRestore21(c,b)\n#define __savegprlr_22(c,b) OriginalSave22(c,b)\n#define __restgprlr_22(c,b) OriginalRestore22(c,b)\n#define __savegprlr_28(c,b) OriginalSave28(c,b)\n#define __restgprlr_28(c,b) OriginalRestore28(c,b)\n#define sub_82B7C470(c,b) OriginalGuestMove(c,b)\n#define sub_82B7BC40(c,b) __imp__sub_82B7BC40(c,b)\n#define sub_827CC2C0(c,b) __imp__sub_827CC2C0(c,b)\n#define sub_827CB658(c,b) __imp__sub_827CB658(c,b)\n#define sub_827CB498(c,b) __imp__sub_827CB498(c,b)\n#define sub_827CBA60(c,b) __imp__sub_827CBA60(c,b)\n#define __imp__NtQueryVirtualMemory(c,b) OriginalNative(0x830DA09Cu,c,b)\n#define __imp__NtAllocateVirtualMemory(c,b) OriginalNative(0x830D9D1Cu,c,b)\n#define __imp__NtFreeVirtualMemory(c,b) OriginalNative(0x830D9D3Cu,c,b)\n#define __imp__KeGetCurrentProcessType(c,b) OriginalNative(0x830DA07Cu,c,b)\n#define __imp__RtlInitializeCriticalSection(c,b) OriginalNative(0x830D9E9Cu,c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/memory_fill.cpp",
+        "LostOdysseyRecompSemantics/src/heap_growth_lower_context.cpp",
+        "LostOdysseyRecompSemantics/src/heap_range_context.cpp",
+        "LostOdysseyRecompSemantics/src/heap_insert_context.cpp",
+        "LostOdysseyRecompSemantics/src/heap_create_context.cpp"
+      ]
+    }
+  ]
+}

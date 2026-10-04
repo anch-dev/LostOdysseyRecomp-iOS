@@ -29,6 +29,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/heap_grow_full_chain.cpp
     src/heap_destroy_context.cpp
     src/heap_block_query_context.cpp
+    src/heap_create_context.cpp
     src/allocation_failure.cpp
     src/crt_thread_data.cpp
     src/crt_last_error.cpp
@@ -106,6 +107,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/legacy_descriptor_recursive_copy_caller.cpp
     src/crt_stream_counted_output.cpp
     src/crt_stream_close_error.cpp
+    src/crt_utf8_conversion_routes.cpp
     src/crt_async_status_transfer.cpp
     src/legacy_utf16_line_token_number.cpp
     src/legacy_config_command_dispatch.cpp
