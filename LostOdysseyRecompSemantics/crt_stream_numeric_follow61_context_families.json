@@ -1,0 +1,81 @@
+{
+  "schema": "semantic-recovery-draft-v1",
+  "entries": [
+    {
+      "address": "82DF4144",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.202.cpp",
+      "source_line": 30262,
+      "instruction_count": 27,
+      "instructions": [
+        "std r31,-8(r1)",
+        "addi r31,r12,-176",
+        "std r29,-16(r1)",
+        "mflr r12",
+        "stw r12,-24(r1)",
+        "stwu r1,-112(r1)",
+        "lwz r29,88(r31)",
+        "b 0x82df417c",
+        "std r31,-8(r1)",
+        "addi r31,r12,-176",
+        "std r29,-16(r1)",
+        "mflr r12",
+        "stw r12,-24(r1)",
+        "stwu r1,-112(r1)",
+        "lwz r11,92(r31)",
+        "cmpwi cr6,r11,0",
+        "beq cr6,0x82df4190",
+        "mr r3,r29",
+        "bl 0x82b7b7c8",
+        "li r3,2",
+        "bl 0x82b819c8",
+        "lwz r1,0(r1)",
+        "ld r31,-8(r1)",
+        "ld r29,-16(r1)",
+        "lwz r12,-24(r1)",
+        "mtlr r12",
+        "blr "
+      ],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82DF4144) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// std r31,-8(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -8, ctx.r31.u64);\n\t// addi r31,r12,-176\n\tctx.r31.s64 = ctx.r12.s64 + -176;\n\t// std r29,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r29.u64);\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-24(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -24, ctx.r12.u32);\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// lwz r29,88(r31)\n\tctx.r29.u64 = PPC_LOAD_U32(ctx.r31.u32 + 88);\n\t// b 0x82df417c\n\tgoto loc_82DF417C;\n\t// std r31,-8(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -8, ctx.r31.u64);\n\t// addi r31,r12,-176\n\tctx.r31.s64 = ctx.r12.s64 + -176;\n\t// std r29,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r29.u64);\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-24(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -24, ctx.r12.u32);\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\nloc_82DF417C:\n\t// lwz r11,92(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + 92);\n\t// cmpwi cr6,r11,0\n\tctx.cr6.compare<int32_t>(ctx.r11.s32, 0, ctx.xer);\n\t// beq cr6,0x82df4190\n\tif (ctx.cr6.eq) goto loc_82DF4190;\n\t// mr r3,r29\n\tctx.r3.u64 = ctx.r29.u64;\n\t// bl 0x82b7b7c8\n\tctx.lr = 0x82DF4190;\n\tsub_82B7B7C8(ctx, base);\nloc_82DF4190:\n\t// li r3,2\n\tctx.r3.s64 = 2;\n\t// bl 0x82b819c8\n\tctx.lr = 0x82DF4198;\n\tsub_82B819C8(ctx, base);\n\t// lwz r1,0(r1)\n\tctx.r1.u64 = PPC_LOAD_U32(ctx.r1.u32 + 0);\n\t// ld r31,-8(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -8);\n\t// ld r29,-16(r1)\n\tctx.r29.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// lwz r12,-24(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -24);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}",
+      "status": "original_ppc_validated"
+    },
+    {
+      "address": "82DF41B0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.202.cpp",
+      "source_line": 30385,
+      "instruction_count": 13,
+      "instructions": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "stwu r1,-96(r1)",
+        "li r11,0",
+        "li r4,64",
+        "addi r3,r1,80",
+        "stw r11,80(r1)",
+        "bl 0x82df3e80",
+        "lwz r3,80(r1)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "blr "
+      ],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82DF41B0) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// li r11,0\n\tctx.r11.s64 = 0;\n\t// li r4,64\n\tctx.r4.s64 = 64;\n\t// addi r3,r1,80\n\tctx.r3.s64 = ctx.r1.s64 + 80;\n\t// stw r11,80(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + 80, ctx.r11.u32);\n\t// bl 0x82df3e80\n\tctx.lr = 0x82DF41D0;\n\tsub_82DF3E80(ctx, base);\n\t// lwz r3,80(r1)\n\tctx.r3.u64 = PPC_LOAD_U32(ctx.r1.u32 + 80);\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}",
+      "status": "original_ppc_validated"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "complete": false,
+    "runtime_validated": false,
+    "focused_original_ppc_cases": 4,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-follow61-limit-fix-tests/crt-stream-numeric-follow61-context-result.json",
+    "library": "Windows-native /W4 /WX MT static library passed",
+    "mapping_credit": 2,
+    "original_body_pin": "recovery_drafts/crt_stream_numeric_follow61_context_validation.json"
+  },
+  "scope": "Two baseline bodies DF4144 27 and DF41B0 13 instructions, 40 total. Four new Full72/RAM/callback cases: actual public wrapper success and parser limit, active/inactive parent cleanup. Accepted heap/open/close native selected ABI remains bounded.",
+  "implementation": {
+    "header": "include/lo_semantics/crt_stream_numeric_follow61_context.h",
+    "source": "src/crt_stream_numeric_follow61_context.cpp",
+    "oracle": "tests/crt_stream_numeric_follow61_context_oracle.cpp"
+  }
+}

@@ -1,8 +1,11 @@
 // The accepted close fixture supplies selected CRT errno services and full
 // PPC register/RAM comparison without executing its own case matrix.
+#pragma push_macro("main")
+#undef main
 #define main TempPathSharedFixtureMain
 #include "crt_stream_close_shared_lower_oracle.cpp"
 #undef main
+#pragma pop_macro("main")
 
 #include "lo_semantics/crt_temp_path_chain61_context.h"
 #include "lo_semantics/crt_stream_close_caller.h"
