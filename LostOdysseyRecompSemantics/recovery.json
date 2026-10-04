@@ -1349,6 +1349,16 @@
           "original_body_pin": "recovery_drafts/heap_grow_context_validation.json",
           "implementation": "src/heap_grow_context.cpp",
           "scope": "Complete 143-instruction selected 32-GPR/CR0/6/SO/CA/SP/LR/CTR and ordinary-RAM heap grow flow; selected coalesce257 and insert77 compose. Six empty-scan, insufficient-segment, commit miss/success and reserve failure/success fixtures compare state, RAM and guest/native events. 827CB778/827CC2C0 remain mutable guest boundaries; kernel imports modeled. Other PPCContext fields, faults, unwind, MMIO, concurrency and runtime remain open."
+        },
+        {
+          "name": "heap_grow_full_chain",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 4,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-heap-grow-full-chain-tests/heap-grow-full-chain-result.json",
+          "original_body_pin": "recovery_drafts/heap_grow_full_chain_validation.json",
+          "implementation": "src/heap_grow_full_chain.cpp",
+          "scope": "Four actual PPC cases: empty heap, reserve failure, full reserve/commit and partial commit with descriptor insertion. Native VM calls and configurable indirect guest call remain explicit mutable boundaries. Other size classes, faults, unwind, MMIO, concurrency and runtime are open."
         }
       ]
     },

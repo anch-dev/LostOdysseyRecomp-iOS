@@ -1,0 +1,20 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Validation-only selected seven-body grow composition; four actual PPC cases, zero new mapping credit.",
+  "families": [
+    {
+      "name": "heap-grow-full-chain",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/heap_grow_full_chain_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/heap_grow_full_chain_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nvoid OriginalSave27(PPCContext&,std::uint8_t*);\nvoid OriginalRestore27(PPCContext&,std::uint8_t*);\nvoid OriginalSave25(PPCContext&,std::uint8_t*);\nvoid OriginalRestore25(PPCContext&,std::uint8_t*);\nvoid OriginalSave22(PPCContext&,std::uint8_t*);\nvoid OriginalRestore22(PPCContext&,std::uint8_t*);\nvoid OriginalSave28(PPCContext&,std::uint8_t*);\nvoid OriginalRestore28(PPCContext&,std::uint8_t*);\nvoid OriginalIndirect(std::uint32_t,PPCContext&,std::uint8_t*);\nvoid OriginalNative(std::uint32_t,PPCContext&,std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_827CC428);\nextern \"C\" PPC_FUNC(__imp__sub_827CB778);\nextern \"C\" PPC_FUNC(__imp__sub_827CC2C0);\nextern \"C\" PPC_FUNC(__imp__sub_823AE108);\nextern \"C\" PPC_FUNC(__imp__sub_827CBA60);\nextern \"C\" PPC_FUNC(__imp__sub_827CB498);\nextern \"C\" PPC_FUNC(__imp__sub_827CB658);\n#define __savegprlr_27(c,b) OriginalSave27(c,b)\n#define __restgprlr_27(c,b) OriginalRestore27(c,b)\n#define __savegprlr_25(c,b) OriginalSave25(c,b)\n#define __restgprlr_25(c,b) OriginalRestore25(c,b)\n#define __savegprlr_22(c,b) OriginalSave22(c,b)\n#define __restgprlr_22(c,b) OriginalRestore22(c,b)\n#define __savegprlr_28(c,b) OriginalSave28(c,b)\n#define __restgprlr_28(c,b) OriginalRestore28(c,b)\n#define sub_827CB778(c,b) __imp__sub_827CB778(c,b)\n#define sub_823AE108(c,b) __imp__sub_823AE108(c,b)\n#define sub_827CBA60(c,b) __imp__sub_827CBA60(c,b)\n#define sub_827CC2C0(c,b) __imp__sub_827CC2C0(c,b)\n#define sub_827CB498(c,b) __imp__sub_827CB498(c,b)\n#define sub_827CB658(c,b) __imp__sub_827CB658(c,b)\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(t) OriginalIndirect((t),ctx,base)\n#define __imp__NtAllocateVirtualMemory(c,b) OriginalNative(0x830D9D1Cu,c,b)\n#define __imp__NtFreeVirtualMemory(c,b) OriginalNative(0x830D9D3Cu,c,b)\n#define __imp__RtlCompareMemoryUlong(c,b) OriginalNative(0x830DA08Cu,c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/heap_grow_context.cpp",
+        "LostOdysseyRecompSemantics/src/heap_growth_lower_context.cpp",
+        "LostOdysseyRecompSemantics/src/heap_coalesce_context.cpp",
+        "LostOdysseyRecompSemantics/src/heap_insert_context.cpp",
+        "LostOdysseyRecompSemantics/src/heap_range_context.cpp",
+        "LostOdysseyRecompSemantics/src/heap_grow_full_chain.cpp"
+      ]
+    }
+  ]
+}
