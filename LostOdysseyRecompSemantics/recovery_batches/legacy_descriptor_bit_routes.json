@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Complete 155-instruction descriptor bit propagation plus its 21-instruction classifier; 8 focused graph/type fixtures separately compare both actual PPC bodies.",
+  "families": [
+    {
+      "name": "legacy-descriptor-bit-routes",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/legacy_descriptor_bit_routes_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_descriptor_bit_routes_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_83053308);\nvoid OriginalDescriptorClass(PPCContext&,std::uint8_t*);\nvoid OriginalSave28(PPCContext&,std::uint8_t*);\nvoid OriginalRestore28(PPCContext&,std::uint8_t*);\n#define sub_83053308(c,b) OriginalDescriptorClass(c,b)\n#define __savegprlr_28(c,b) OriginalSave28(c,b)\n#define __restgprlr_28(c,b) OriginalRestore28(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_descriptor_bit_routes.cpp"
+      ]
+    }
+  ]
+}
