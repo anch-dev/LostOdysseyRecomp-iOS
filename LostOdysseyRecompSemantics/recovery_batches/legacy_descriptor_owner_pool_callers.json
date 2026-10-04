@@ -1,0 +1,19 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Two new owner-pool guest bodies 82FD1240/82FACBF0. Seven focused actual PPC cases. Existing heap/fill and validation-only guest dispatcher bodies earn no new mapping credit. 82FAC428 remains mutable guest allocator boundary; selected deeper heap guest/native import boundaries are explicit.",
+  "families": [
+    {
+      "name": "legacy-descriptor-owner-pool-callers",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/legacy_descriptor_owner_pool_callers_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_descriptor_owner_pool_callers_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nvoid OriginalSave22(PPCContext&,std::uint8_t*);\nvoid OriginalRestore22(PPCContext&,std::uint8_t*);\nvoid OriginalSave29(PPCContext&,std::uint8_t*);\nvoid OriginalRestore29(PPCContext&,std::uint8_t*);\nvoid OriginalGuestBoundary(std::uint32_t,PPCContext&,std::uint8_t*);\nvoid OriginalHeapBoundary(std::uint32_t,PPCContext&,std::uint8_t*);\n#define __savegprlr_22(c,b) OriginalSave22(c,b)\n#define __restgprlr_22(c,b) OriginalRestore22(c,b)\n#define __savegprlr_29(c,b) OriginalSave29(c,b)\n#define __restgprlr_29(c,b) OriginalRestore29(c,b)\nextern \"C\" PPC_FUNC(__imp__sub_82FD1240);\nextern \"C\" PPC_FUNC(__imp__sub_82FACBF0);\nextern \"C\" PPC_FUNC(__imp__sub_827C9D88);\nextern \"C\" PPC_FUNC(__imp__sub_827CA050);\nextern \"C\" PPC_FUNC(__imp__sub_827CAD38);\nextern \"C\" PPC_FUNC(__imp__sub_823ACC98);\nextern \"C\" PPC_FUNC(__imp__sub_823ACCB0);\nextern \"C\" PPC_FUNC(__imp__sub_823AD544);\nextern \"C\" PPC_FUNC(__imp__sub_82B7BC40);\n#define sub_82FD1240(c,b) __imp__sub_82FD1240(c,b)\n#define sub_82FACBF0(c,b) __imp__sub_82FACBF0(c,b)\n#define sub_827C9D88(c,b) __imp__sub_827C9D88(c,b)\n#define sub_827CA050(c,b) __imp__sub_827CA050(c,b)\n#define sub_827CAD38(c,b) __imp__sub_827CAD38(c,b)\n#define sub_823ACC98(c,b) __imp__sub_823ACC98(c,b)\n#define sub_823ACCB0(c,b) __imp__sub_823ACCB0(c,b)\n#define sub_823AD544(c,b) __imp__sub_823AD544(c,b)\n#define sub_82B7BC40(c,b) __imp__sub_82B7BC40(c,b)\n#define sub_82FAC428(c,b) OriginalGuestBoundary(0x82FAC428u,c,b)\n#define sub_827C9A40(c,b) OriginalGuestBoundary(0x827C9A40u,c,b)\n#define sub_827C9E20(c,b) OriginalGuestBoundary(0x827C9E20u,c,b)\n#define sub_827CC428(c,b) OriginalHeapBoundary(0x827CC428u,c,b)\n#define sub_827CBA60(c,b) OriginalHeapBoundary(0x827CBA60u,c,b)\n#define __imp__KeGetCurrentProcessType(c,b) OriginalHeapBoundary(0x830DA07Cu,c,b)\n#define __imp__KeBugCheckEx(c,b) OriginalHeapBoundary(0x830DA06Cu,c,b)\n#define __imp__RtlEnterCriticalSection(c,b) OriginalHeapBoundary(0x830D9C6Cu,c,b)\n#define __imp__RtlLeaveCriticalSection(c,b) OriginalHeapBoundary(0x830D9C7Cu,c,b)\n#define __imp__NtAllocateVirtualMemory(c,b) OriginalHeapBoundary(0x830D9D1Cu,c,b)\n#define __imp__RtlRaiseException(c,b) OriginalHeapBoundary(0x830DA0ACu,c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_descriptor_owner_pool_callers.cpp",
+        "LostOdysseyRecompSemantics/src/raw_allocation_context.cpp",
+        "LostOdysseyRecompSemantics/src/heap_allocation_context.cpp",
+        "LostOdysseyRecompSemantics/src/heap.cpp",
+        "LostOdysseyRecompSemantics/src/memory_fill.cpp"
+      ]
+    }
+  ]
+}
