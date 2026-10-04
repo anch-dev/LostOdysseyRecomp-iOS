@@ -1,0 +1,17 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Validation-only selected 827CB778/827CC2C0 plus selected descriptor/range/insert lower; five actual PPC cases, zero new mapping credit.",
+  "families": [
+    {
+      "name": "heap-growth-lower-context",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/heap_growth_lower_context_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/heap_growth_lower_context_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nvoid OriginalSave25(PPCContext&,std::uint8_t*);\nvoid OriginalRestore25(PPCContext&,std::uint8_t*);\nvoid OriginalSave22(PPCContext&,std::uint8_t*);\nvoid OriginalRestore22(PPCContext&,std::uint8_t*);\nvoid OriginalSave28(PPCContext&,std::uint8_t*);\nvoid OriginalRestore28(PPCContext&,std::uint8_t*);\nvoid OriginalIndirect(std::uint32_t,PPCContext&,std::uint8_t*);\nvoid OriginalNative(std::uint32_t,PPCContext&,std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_827CB778);\nextern \"C\" PPC_FUNC(__imp__sub_827CC2C0);\nextern \"C\" PPC_FUNC(__imp__sub_827CB498);\nextern \"C\" PPC_FUNC(__imp__sub_827CB658);\nextern \"C\" PPC_FUNC(__imp__sub_827CBA60);\n#define __savegprlr_25(c,b) OriginalSave25(c,b)\n#define __restgprlr_25(c,b) OriginalRestore25(c,b)\n#define __savegprlr_22(c,b) OriginalSave22(c,b)\n#define __restgprlr_22(c,b) OriginalRestore22(c,b)\n#define __savegprlr_28(c,b) OriginalSave28(c,b)\n#define __restgprlr_28(c,b) OriginalRestore28(c,b)\n#define sub_827CB498(c,b) __imp__sub_827CB498(c,b)\n#define sub_827CB658(c,b) __imp__sub_827CB658(c,b)\n#define sub_827CBA60(c,b) __imp__sub_827CBA60(c,b)\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(t) OriginalIndirect((t),ctx,base)\n#define __imp__NtAllocateVirtualMemory(c,b) OriginalNative(0x830D9D1Cu,c,b)\n#define __imp__NtFreeVirtualMemory(c,b) OriginalNative(0x830D9D3Cu,c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/heap_insert_context.cpp",
+        "LostOdysseyRecompSemantics/src/heap_range_context.cpp",
+        "LostOdysseyRecompSemantics/src/heap_growth_lower_context.cpp"
+      ]
+    }
+  ]
+}

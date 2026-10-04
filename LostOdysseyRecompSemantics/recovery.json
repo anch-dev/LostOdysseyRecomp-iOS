@@ -1608,6 +1608,18 @@
       "open_obligations": [
         "Resolve optional indirect commit callback loaded from heap+1412, including guest arguments and output aliases; it remains synthetic in the oracle.",
         "Validate real committed memory, list corruption/fault behavior, runtime ABI and concurrency."
+      ],
+      "validation_extensions": [
+        {
+          "name": "heap_growth_lower_context",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 5,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-heap-growth-lower-context-tests/heap-growth-lower-context-result.json",
+          "original_body_pin": "recovery_drafts/heap_growth_lower_context_validation.json",
+          "implementation": "src/heap_growth_lower_context.cpp",
+          "scope": "Five actual PPC cases: commit empty/native failure; segment creation rejected/full/partial with range and insertion. NtAllocateVirtualMemory and configurable indirect call retain mutable boundaries. Commit success, other native paths, faults, unwind, MMIO and concurrency not yet exercised."
+        }
       ]
     },
     {
@@ -1668,6 +1680,18 @@
       "open_obligations": [
         "Expand the composed range bookkeeping and VM fixture to real VM zero-initialization and kernel behavior.",
         "Validate the incoming caller argument spill at frame+236 and actual runtime ABI/lifetimes."
+      ],
+      "validation_extensions": [
+        {
+          "name": "heap_growth_lower_context",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 5,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-heap-growth-lower-context-tests/heap-growth-lower-context-result.json",
+          "original_body_pin": "recovery_drafts/heap_growth_lower_context_validation.json",
+          "implementation": "src/heap_growth_lower_context.cpp",
+          "scope": "Five actual PPC cases: commit empty/native failure; segment creation rejected/full/partial with range and insertion. NtAllocateVirtualMemory and configurable indirect call retain mutable boundaries. Commit success, other native paths, faults, unwind, MMIO and concurrency not yet exercised."
+        }
       ]
     },
     {
