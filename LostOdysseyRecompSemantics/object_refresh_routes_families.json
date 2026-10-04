@@ -428,6 +428,20 @@
       "runtime_validated": false,
       "complete": false,
       "unvalidated_scope": "Manager initialization, allocator/constructor/virtual/native internals, unexposed PPCContext fields, exceptional FP, faults, MMIO and runtime."
+    },
+    {
+      "scope": "Actual 14-body refresh/metadata/child/curve/manager initialization composition including lazy primary/fallback growth and extended curve virtual context.",
+      "source": "src/object_refresh_manager_curve_chain.cpp",
+      "oracle": "tests/object_refresh_manager_curve_chain_oracle.cpp",
+      "pin": "recovery_drafts/object_refresh_manager_curve_chain.json",
+      "status": "passed",
+      "focused_original_ppc_cases": 5,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-object-refresh-manager-curve-chain-tests/object-refresh-manager-curve-chain-result.json",
+      "library": "Windows-native /W4 /WX MT static library passed",
+      "mapping_credit": 0,
+      "runtime_validated": false,
+      "complete": false,
+      "unvalidated_scope": "Manager allocator/constructor/virtual/native internals, unexposed PPCContext fields, exceptional FP, faults, MMIO and runtime."
     }
   ]
 }
