@@ -100,6 +100,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/object_blended_curve_apply.cpp
     src/object_curve_sample.cpp
     src/crt_allocation.cpp
+    src/crt_free_context.cpp
     src/crt_reallocate.cpp
     src/invalid_parameter.cpp
     src/manager_init.cpp

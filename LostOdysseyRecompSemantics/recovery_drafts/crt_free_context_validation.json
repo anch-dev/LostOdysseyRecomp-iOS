@@ -1,0 +1,86 @@
+{
+  "schema": "crt-free-context-validation-v1",
+  "entries": [
+    {
+      "address": "823ADDC0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.11.cpp",
+      "source_line": 29684,
+      "instruction_count": 23,
+      "instructions": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "cmplwi cr6,r31,0",
+        "beq cr6,0x823ade08",
+        "bl 0x823acc98",
+        "li r4,0",
+        "mr r5,r31",
+        "bl 0x823ade28",
+        "cmpwi r3,0",
+        "bne 0x823ade08",
+        "bl 0x82b7fd78",
+        "mr r31,r3",
+        "bl 0x822ca100",
+        "bl 0x82b7fd10",
+        "stw r3,0(r31)",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "cfg": {
+        "labels": [
+          "823ADE08"
+        ],
+        "branches": [
+          "beq cr6,0x823ade08",
+          "bl 0x823acc98",
+          "bl 0x823ade28",
+          "bne 0x823ade08",
+          "bl 0x82b7fd78",
+          "bl 0x822ca100",
+          "bl 0x82b7fd10"
+        ]
+      },
+      "direct_calls": [
+        "823ACC98",
+        "823ADE28",
+        "82B7FD78",
+        "822CA100",
+        "82B7FD10"
+      ],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_823ADDC0) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// std r31,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// mr r31,r3\n\tctx.r31.u64 = ctx.r3.u64;\n\t// cmplwi cr6,r31,0\n\tctx.cr6.compare<uint32_t>(ctx.r31.u32, 0, ctx.xer);\n\t// beq cr6,0x823ade08\n\tif (ctx.cr6.eq) goto loc_823ADE08;\n\t// bl 0x823acc98\n\tctx.lr = 0x823ADDE0;\n\tsub_823ACC98(ctx, base);\n\t// li r4,0\n\tctx.r4.s64 = 0;\n\t// mr r5,r31\n\tctx.r5.u64 = ctx.r31.u64;\n\t// bl 0x823ade28\n\tctx.lr = 0x823ADDEC;\n\tsub_823ADE28(ctx, base);\n\t// cmpwi r3,0\n\tctx.cr0.compare<int32_t>(ctx.r3.s32, 0, ctx.xer);\n\t// bne 0x823ade08\n\tif (!ctx.cr0.eq) goto loc_823ADE08;\n\t// bl 0x82b7fd78\n\tctx.lr = 0x823ADDF8;\n\tsub_82B7FD78(ctx, base);\n\t// mr r31,r3\n\tctx.r31.u64 = ctx.r3.u64;\n\t// bl 0x822ca100\n\tctx.lr = 0x823ADE00;\n\tsub_822CA100(ctx, base);\n\t// bl 0x82b7fd10\n\tctx.lr = 0x823ADE04;\n\tsub_82B7FD10(ctx, base);\n\t// stw r3,0(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 0, ctx.r3.u32);\nloc_823ADE08:\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}\n"
+    },
+    {
+      "address": "823ACC98",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.11.cpp",
+      "source_line": 27167,
+      "instruction_count": 3,
+      "instructions": [
+        "lis r11,-31964",
+        "lwz r3,22280(r11)",
+        "blr"
+      ],
+      "cfg": {
+        "labels": [],
+        "branches": []
+      },
+      "direct_calls": [],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_823ACC98) {\n\tPPC_FUNC_PROLOGUE();\n\t// lis r11,-31964\n\tctx.r11.s64 = -2094792704;\n\t// lwz r3,22280(r11)\n\tctx.r3.u64 = PPC_LOAD_U32(ctx.r11.u32 + 22280);\n\t// blr \n\treturn;\n}\n"
+    }
+  ],
+  "implementation": {
+    "header": "include/lo_semantics/crt_free_context.h",
+    "source": "src/crt_free_context.cpp",
+    "oracle": "tests/crt_free_context_oracle.cpp",
+    "scope": "Complete 823ADDC0 caller and actual 823ACC98 heap getter; heap-free/error lower selected context remains an explicit mutable boundary."
+  },
+  "validation": {
+    "status": "draft",
+    "planned_cases": 3,
+    "runtime_validated": false
+  }
+}

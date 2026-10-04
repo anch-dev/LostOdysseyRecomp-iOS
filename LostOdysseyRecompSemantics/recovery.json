@@ -3286,6 +3286,19 @@
           "boundary": "TranslateCrtError",
           "status": "implementation_available"
         }
+      ],
+      "validation_extensions": [
+        {
+          "name": "crt_free_context",
+          "status": "passed",
+          "focused_original_ppc_cases": 3,
+          "mapping_credit": 0,
+          "implementation": "src/crt_free_context.cpp",
+          "header": "include/lo_semantics/crt_free_context.h",
+          "original_body_pin": "recovery_drafts/crt_free_context_validation.json",
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-free-context-tests/crt-free-context-result.json",
+          "scope": "Actual 23-instruction free caller and 3-instruction process heap getter, full selected GPR/CR0/CR6/XER/SP/LR/CTR and ordinary RAM. Heap-release and error-helper internals remain explicit mutable selected-context boundaries; unexposed PPCContext state, faults, MMIO and runtime excluded."
+        }
       ]
     },
     {

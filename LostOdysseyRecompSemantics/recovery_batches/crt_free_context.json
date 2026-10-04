@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Complete 823ADDC0 caller and actual 823ACC98 heap getter; three focused cases cover full high-half zero pointer, successful release, and error mapping. Accepted 823ADE28 heap-release and error-helper selected context is an explicit mutable boundary pending ABI bridge.",
+  "families": [
+    {
+      "name": "crt-free-context",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/crt_free_context_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/crt_free_context_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\nvoid OriginalFreeLower(std::uint32_t, PPCContext&, std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_823ADDC0);\nextern \"C\" PPC_FUNC(__imp__sub_823ACC98);\n#define sub_823ACC98(c,b) __imp__sub_823ACC98(c,b)\n#define sub_823ADE28(c,b) OriginalFreeLower(0x823ADE28u,c,b)\n#define sub_82B7FD78(c,b) OriginalFreeLower(0x82B7FD78u,c,b)\n#define sub_822CA100(c,b) OriginalFreeLower(0x822CA100u,c,b)\n#define sub_82B7FD10(c,b) OriginalFreeLower(0x82B7FD10u,c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/crt_free_context.cpp"
+      ]
+    }
+  ]
+}
