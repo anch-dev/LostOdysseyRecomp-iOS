@@ -1,5 +1,6 @@
 #include "lo_semantics/legacy_float_parse_routes.h"
 
+#include "lo_semantics/legacy_float_binary_conversion.h"
 #include "lo_semantics/legacy_token_lookup_flags.h"
 #include "lo_semantics/recovery_abi.h"
 #include "lo_semantics/registered_metadata_string.h"
@@ -14,6 +15,38 @@ namespace
 using recovery_abi::Address;
 using recovery_abi::ReadU64;
 using recovery_abi::WriteU64;
+namespace binary = legacy_float_binary_conversion;
+
+binary::Registers ToBinary(const Registers& state)
+{
+    binary::Registers result{};
+    result.r = state.integer.r;
+    result.r[1] = state.integer.sp;
+    result.ctr = state.integer.ctr;
+    result.lr = state.integer.lr;
+    result.xer.so = state.integer.xer_so;
+    result.xer.ca = state.integer.xer_ca;
+    result.cr0 = {state.integer.cr0.lt, state.integer.cr0.gt,
+        state.integer.cr0.eq, state.integer.cr0.so};
+    result.cr6 = {state.integer.cr6.lt, state.integer.cr6.gt,
+        state.integer.cr6.eq, state.integer.cr6.so};
+    return result;
+}
+void FromBinary(Registers& state, const binary::Registers& result)
+{
+    const auto unexposed_r1 = state.integer.r[1];
+    state.integer.r = result.r;
+    state.integer.r[1] = unexposed_r1;
+    state.integer.sp = result.r[1];
+    state.integer.ctr = result.ctr;
+    state.integer.lr = result.lr;
+    state.integer.xer_so = result.xer.so;
+    state.integer.xer_ca = result.xer.ca;
+    state.integer.cr0 = {result.cr0.lt, result.cr0.gt,
+        result.cr0.eq, result.cr0.so};
+    state.integer.cr6 = {result.cr6.lt, result.cr6.gt,
+        result.cr6.eq, result.cr6.so};
+}
 
 std::uint64_t& R(Registers& state, unsigned index)
 { return state.integer.r[index]; }
@@ -104,7 +137,9 @@ void Route(GuestMemory& memory, PpcBoundaryServices& services,
         R(state, 4) = integer.sp + 88u;
         R(state, 3) = integer.sp + 96u;
         integer.lr = 0x82297560u;
-        services.Classify822981C8(memory, state);
+        auto converted = ToBinary(state);
+        (void)binary::Apply(0x822981c8u, memory, converted);
+        FromBinary(state, converted);
         R(state, 11) = R(state, 31) & 2u;
         CompareCr0Zero(state, R(state, 11));
         if (!integer.cr0.eq)

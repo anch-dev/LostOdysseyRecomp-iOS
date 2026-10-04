@@ -1,0 +1,16 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Actual 82297F38 plus already accepted actual 82B7A0B0 copy PPC; six focused accumulator and alignment cases.",
+  "families": [
+    {
+      "name": "legacy-float-digit-accumulator",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/legacy_float_digit_accumulator_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_float_digit_accumulator_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\nvoid OriginalSave27(PPCContext&,std::uint8_t*);\nvoid OriginalRestore27(PPCContext&,std::uint8_t*);\n#define __savegprlr_27(c,b) OriginalSave27(c,b)\n#define __restgprlr_27(c,b) OriginalRestore27(c,b)\nextern \"C\" PPC_FUNC(__imp__sub_82B7A0B0);\n#define sub_82B7A0B0(c,b) __imp__sub_82B7A0B0(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_float_digit_accumulator.cpp",
+        "LostOdysseyRecompSemantics/src/memory_move.cpp"
+      ]
+    }
+  ]
+}

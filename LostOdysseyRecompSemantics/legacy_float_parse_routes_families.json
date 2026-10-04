@@ -172,7 +172,7 @@
     "header": "include/lo_semantics/legacy_float_parse_routes.h",
     "source": "src/legacy_float_parse_routes.cpp",
     "oracle": "tests/legacy_float_parse_routes_oracle.cpp",
-    "scope": "Two new outer PPC bodies; accepted character-flags and UTF-16 length lower bodies are validation-only. 822975B0/822981C8 are explicit unrecovered PPC guest boundaries."
+    "scope": "Two outer parser-routing bodies with accepted character flags/length and actual accepted 822981C8 binary conversion; 822975B0 remains explicit guest parser boundary."
   },
   "validation": {
     "status": "passed",
@@ -181,7 +181,15 @@
     "runtime_validated": false,
     "complete": false,
     "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-legacy-float-parse-routes-tests/legacy-float-parse-routes-result.json",
-    "library": "Windows-native /W4 /WX MT static library passed"
+    "library": "Windows-native /W4 /WX MT static library passed",
+    "binary_chain": {
+      "status": "passed",
+      "focused_original_ppc_cases": 4,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-legacy-float-route-binary-chain-tests/legacy-float-route-binary-chain-result.json",
+      "batch": "recovery_batches/legacy_float_route_binary_chain.json",
+      "mapping_credit": 0,
+      "scope": "Actual 822974F8/822981C8 PPC bodies, parser boundary; selected finite inputs and ordinary RAM, faults/MMIO/runtime excluded."
+    }
   },
-  "scope": "Bounded parser routing/whitespace and result packing; two deep PPC guest callees remain callbacks, no numeric parser internals recovered."
+  "scope": "Parser routing/whitespace and result packing; binary conversion direct callee now restored; numeric parser remains a boundary pending chain validation."
 }

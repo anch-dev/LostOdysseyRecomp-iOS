@@ -16,8 +16,9 @@ class PpcBoundaryServices
 public:
     virtual ~PpcBoundaryServices() = default;
 
-    // Unrecovered PPC guest bodies. These callbacks may change selected live
-    // registers and guest RAM, just as the corresponding direct calls do.
+    // The parser and invalid-parameter PPC bodies remain explicit boundaries.
+    // The classifier hook is retained for historical oracle compatibility;
+    // current routes call the recovered 822981C8 lower directly.
     virtual void Parse822975B0(GuestMemory&, Registers&) = 0;
     virtual void Classify822981C8(GuestMemory&, Registers&) = 0;
     virtual void InvalidArgument82B7FD78(GuestMemory&, Registers&) = 0;
@@ -27,7 +28,8 @@ public:
 
 // 82B7D270 skips classified leading UTF-16 whitespace before converting;
 // 822974F8 routes the parser flags/classification into a result object.
-// Numeric parsing (822975B0) and conversion (822981C8) remain PPC boundaries.
+// Numeric parsing (822975B0) remains a PPC boundary; conversion (822981C8)
+// runs its complete recovered integer/ordinary-RAM control flow.
 [[nodiscard]] bool Apply(GuestAddress entry, GuestMemory& memory,
     PpcBoundaryServices& services, Registers& registers);
 } // namespace lo::semantic::gpu::legacy_float_parse_routes

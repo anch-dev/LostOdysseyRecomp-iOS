@@ -1,6 +1,6 @@
 {
   "schema": "semantic-recovery-batch-v1",
-  "scope": "Current legacy float route regression entry: validation-only 822974F8 -> actual 822981C8 chain, four focused cases. The prior seven-case callback-boundary receipt is historical and superseded.",
+  "scope": "Validation-only 822974F8 -> actual 822981C8 chain; four focused cases and bounded 822975B0 parser boundary.",
   "families": [
     {
       "name": "legacy-float-route-binary-chain",

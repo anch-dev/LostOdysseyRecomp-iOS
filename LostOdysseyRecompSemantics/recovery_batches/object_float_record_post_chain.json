@@ -1,6 +1,6 @@
 {
   "schema": "semantic-recovery-batch-v1",
-  "scope": "Current actual three-body record/post chain; initial seven-case bounded-callback receipt preserved at fe7da132.",
+  "scope": "Validation-only actual 82384C08 -> 8242D038 -> 82627230 PPC chain; zero new mapping credit, six focused cases.",
   "families": [
     {
       "name": "object-float-record-post-chain",
