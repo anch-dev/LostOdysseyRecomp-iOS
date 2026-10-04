@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "New 822C79B0 and actual 82607318 direct lower; two mapping candidates, finite normal FP selected ABI.",
+  "families": [
+    {
+      "name": "object-sample-accumulator",
+      "manifest": "LostOdysseyRecompSemantics/object_sample_accumulator_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/object_sample_accumulator_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_822C79B0);\nextern \"C\" PPC_FUNC(__imp__sub_82607318);\nvoid OriginalSave25(PPCContext&,std::uint8_t*);\nvoid OriginalRestore25(PPCContext&,std::uint8_t*);\n#define __savegprlr_25(c,b) OriginalSave25(c,b)\n#define __restgprlr_25(c,b) OriginalRestore25(c,b)\n#define sub_82607318(c,b) __imp__sub_82607318(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/object_sample_accumulator.cpp"
+      ]
+    }
+  ]
+}
