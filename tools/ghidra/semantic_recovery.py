@@ -136,6 +136,7 @@ def validate_manifests(paths: list[Path], ppc_root: Path = DEFAULT_PPC,
         if not isinstance(entries, list) or not entries:
             raise ValueError(f"manifest needs nonempty entries: {manifest_path}")
         bodies = []
+        pin_identities = {}
         for entry in entries:
             if not isinstance(entry, dict):
                 raise ValueError(f"invalid entry: {manifest_path}")
@@ -169,12 +170,92 @@ def validate_manifests(paths: list[Path], ppc_root: Path = DEFAULT_PPC,
                 raise ValueError(f"complete translated body changed: {address} {name}:{line_number}")
             _metadata(entry, body)
             bodies.append(body)
+            pin_identities[address] = (name, line_number, source_body)
         checked.append({"manifest": str(Path(manifest_path).resolve()),
                         "schema": document.get("schema", document.get("schema_version")),
                         "entries": [e["address"] for e in entries],
                         "sources": sorted({_source_name(e) for e in entries}),
+                        "pin_identities": pin_identities,
                         "original_cpp": ("\n".join(bodies)).encode("utf-8")})
     return checked
+
+
+def compose_batches(paths: list[Path]) -> dict:
+    """Keep every oracle while assigning stable, unique receipt names."""
+    if not paths:
+        raise ValueError("at least one batch is required")
+    families = []
+    names = set()
+    sources = []
+    for path in paths:
+        source = str(path.resolve())
+        batch = _json(path)
+        if batch.get("schema") != "semantic-recovery-batch-v1":
+            raise ValueError(f"unexpected batch schema: {path}")
+        items = batch.get("families")
+        if not isinstance(items, list) or not items:
+            raise ValueError(f"batch needs nonempty families: {path}")
+        sources.append(source)
+        for family in items:
+            if not isinstance(family, dict):
+                raise ValueError(f"invalid family in batch: {path}")
+            original_name = family.get("name")
+            if not isinstance(original_name, str) or not SUITE.fullmatch(original_name):
+                raise ValueError(f"invalid family name in batch: {path}")
+            name = original_name
+            suffix = 2
+            while name in names:
+                name = f"{original_name}-{suffix}"
+                suffix += 1
+            names.add(name)
+            item = dict(family)
+            item.update({"name": name, "original_name": original_name,
+                         "source_batch": source})
+            families.append(item)
+    return {"schema": "semantic-recovery-batch-v1",
+            "scope": "Composed existing semantic recovery batches; no mapping credit",
+            "source_batches": sources, "families": families}
+
+
+def _track_pins(checked: dict, seen: dict, allow_shared: bool) -> None:
+    for address, identity in checked["pin_identities"].items():
+        previous = seen.get(address)
+        if previous is not None:
+            if not allow_shared:
+                raise ValueError(f"duplicate batch address: {address}")
+            if previous != identity:
+                raise ValueError(f"conflicting shared pin: {address}")
+        else:
+            seen[address] = identity
+
+
+def check_composed_batch(batch: dict, ppc_root: Path) -> list[dict]:
+    """Read-only pin/source check for a proposed one-build batch."""
+    seen = {}
+    source_cache = {}
+    plan = []
+    for family in batch["families"]:
+        manifest = family.get("manifest")
+        harness = family.get("harness")
+        prelude = family.get("prelude", "")
+        if not all(isinstance(value, str) for value in (manifest, harness, prelude)):
+            raise ValueError(f"invalid manifest, harness or prelude: {family['name']}")
+        manifest_path = (ROOT / manifest).resolve()
+        harness_path = (ROOT / harness).resolve()
+        if not manifest_path.is_file() or not harness_path.is_file():
+            raise FileNotFoundError(f"missing manifest or harness: {family['name']}")
+        checked = validate_manifests([manifest_path], ppc_root, source_cache)[0]
+        _track_pins(checked, seen, allow_shared=True)
+        sources = _source_paths(family, None)
+        plan.append({"name": family["name"],
+                     "original_name": family["original_name"],
+                     "source_batch": family["source_batch"],
+                     "manifest": checked["manifest"],
+                     "harness": str(harness_path),
+                     "entries": checked["entries"],
+                     "semantic_sources": [str(path) for path in sources],
+                     "receipt_name": f"{family['name']}-result.json"})
+    return plan
 
 
 def _output_dir(path: Path) -> Path:
@@ -258,7 +339,9 @@ def _build_library(build_dir: Path, output: Path,
 def run_batch(batch_path: Path, output_path: Path, ppc_root: Path,
               library_build: Path | None = None,
               library_file: Path | None = None,
-              msvc_runtime: str | None = None) -> dict:
+              msvc_runtime: str | None = None,
+              allow_shared_pins: bool = False,
+              native_environment: dict | None = None) -> dict:
     output = _output_dir(output_path)
     receipt_path = output / "semantic-recovery-result.json"
     result = {"status": "failed", "phase": "batch_validation", "batch": str(batch_path.resolve()),
@@ -267,6 +350,8 @@ def run_batch(batch_path: Path, output_path: Path, ppc_root: Path,
     started = time.perf_counter()
     try:
         batch = _json(batch_path)
+        if "source_batches" in batch:
+            result["source_batches"] = batch["source_batches"]
         families = batch.get("families")
         if not isinstance(families, list) or not families:
             raise ValueError("batch needs nonempty families")
@@ -279,6 +364,9 @@ def run_batch(batch_path: Path, output_path: Path, ppc_root: Path,
         for family in families:
             item = {"name": family["name"], "status": "failed", "phase": "validation",
                     "receipt": str(output / f"{family['name']}-result.json")}
+            for key in ("source_batch", "original_name"):
+                if key in family:
+                    item[key] = family[key]
             result["families"].append(item)
             _write(Path(item["receipt"]), item)
         _write(receipt_path, result)
@@ -294,7 +382,7 @@ def run_batch(batch_path: Path, output_path: Path, ppc_root: Path,
             raise ValueError(runtime_error)
         result["msvc_runtime"] = msvc_runtime or "MD"
         prepared = []
-        seen: set[str] = set()
+        seen: dict[str, tuple[str, int, str]] = {}
         source_cache: dict[str, list[str]] = {}
         for family, item in zip(families, result["families"]):
             try:
@@ -308,10 +396,7 @@ def run_batch(batch_path: Path, output_path: Path, ppc_root: Path,
                 if not manifest_path.is_file() or not harness_path.is_file():
                     raise FileNotFoundError(f"missing manifest or harness: {family['name']}")
                 checked = validate_manifests([manifest_path], ppc_root, source_cache)[0]
-                overlap = seen.intersection(checked["entries"])
-                if overlap:
-                    raise ValueError(f"duplicate batch address: {sorted(overlap)}")
-                seen.update(checked["entries"])
+                _track_pins(checked, seen, allow_shared_pins)
                 sources = _source_paths(family, library_build)
                 item.update({"manifest": checked["manifest"], "entries": checked["entries"],
                              "ppc_sources": checked["sources"], "harness": str(harness_path),
@@ -330,7 +415,8 @@ def run_batch(batch_path: Path, output_path: Path, ppc_root: Path,
         _write(receipt_path, result)
         setup_started = time.perf_counter()
         try:
-            environment = compiler_environment()
+            environment = (native_environment if native_environment is not None
+                           else compiler_environment())
         except Exception as exc:
             for item in result["families"]:
                 item["error"] = f"{type(exc).__name__}: {exc}"
@@ -402,6 +488,57 @@ def run_batch(batch_path: Path, output_path: Path, ppc_root: Path,
     return result
 
 
+def serve_requests(lines, ppc_root: Path, library_build: Path,
+                   library_file: Path | None, msvc_runtime: str) -> None:
+    """Process JSON-line batches with one native environment per server."""
+    environment = compiler_environment()
+    for line in lines:
+        if not line.strip():
+            continue
+        output = None
+        receipt = None
+        started_run = False
+        marker = {"done": True, "status": "failed"}
+        try:
+            request = json.loads(line)
+            if not isinstance(request, dict):
+                raise ValueError("serve request must be a JSON object")
+            if request.get("action") == "exit":
+                print("SEMANTIC_RECOVERY_DONE " +
+                      json.dumps({"done": True, "status": "exit"}), flush=True)
+                return
+            batches = request.get("batches")
+            raw_output = request.get("output")
+            if (not isinstance(batches, list) or not batches or
+                    any(not isinstance(path, str) for path in batches) or
+                    not isinstance(raw_output, str)):
+                raise ValueError("serve request needs batches and output")
+            output = _output_dir(Path(raw_output))
+            receipt = output / "semantic-recovery-result.json"
+            _write(receipt, {"status": "failed", "phase": "compose",
+                             "output": str(output), "families": []})
+            paths = [(ROOT / path).resolve() for path in batches]
+            combined = output / "composed-batch.json"
+            _write(combined, compose_batches(paths))
+            started_run = True
+            result = run_batch(combined, output, ppc_root, library_build,
+                               library_file, msvc_runtime,
+                               allow_shared_pins=True,
+                               native_environment=environment)
+            marker["status"] = result["status"]
+        except Exception as exc:
+            marker["error"] = f"{type(exc).__name__}: {exc}"
+            if receipt is not None and not started_run:
+                _write(receipt, {"status": "failed", "phase": "compose",
+                                 "output": str(output), "families": [],
+                                 "error": marker["error"]})
+        if output is not None:
+            marker["output"] = str(output)
+        if receipt is not None:
+            marker["receipt"] = str(receipt)
+        print("SEMANTIC_RECOVERY_DONE " + json.dumps(marker), flush=True)
+
+
 def _head_json(paths: list[str]) -> dict[str, dict]:
     request = "".join(f"HEAD:{path}\n" for path in paths).encode("utf-8")
     completed = subprocess.run(["git", "cat-file", "--batch"], cwd=ROOT,
@@ -459,19 +596,61 @@ def main() -> None:
                      help="exact .lib under --library-build for nonstandard CMake layouts")
     run.add_argument("--msvc-runtime",
                      help="MD, MDd, MT or MTd; required with --library-build")
+    compose = sub.add_parser("compose-batches",
+                             help="run existing batches with one library build and separate family receipts")
+    compose.add_argument("--batch", nargs="+", type=Path, required=True)
+    compose.add_argument("--output", type=Path,
+                         help="output directory outside checkout and ownCloud; required unless --dry-run")
+    compose.add_argument("--ppc-root", type=Path, default=DEFAULT_PPC)
+    compose.add_argument("--library-build", type=Path,
+                         help="configured semantics CMake build; required unless --dry-run")
+    compose.add_argument("--library-file", type=Path)
+    compose.add_argument("--msvc-runtime",
+                         help="MD, MDd, MT or MTd; required unless --dry-run")
+    compose.add_argument("--dry-run", action="store_true",
+                         help="check all pins and sources without writing receipts or building")
+    serve = sub.add_parser("serve", help="process JSON-line composed batches in one native environment")
+    serve.add_argument("--ppc-root", type=Path, default=DEFAULT_PPC)
+    serve.add_argument("--library-build", type=Path, required=True)
+    serve.add_argument("--library-file", type=Path)
+    serve.add_argument("--msvc-runtime", required=True,
+                       help="MD, MDd, MT or MTd")
     stats = sub.add_parser("progress", help="count address mapping from HEAD JSON")
     stats.add_argument("--runtime-wrappers", type=int)
     args = parser.parse_args()
     try:
         if args.command == "check":
             checked = validate_manifests(args.manifest, args.ppc_root)
-            print(json.dumps([{k: v for k, v in item.items() if k != "original_cpp"}
+            print(json.dumps([{k: v for k, v in item.items()
+                               if k not in ("original_cpp", "pin_identities")}
                               for item in checked], indent=2))
         elif args.command == "run":
             if args.library_file and not args.library_build:
                 raise ValueError("--library-file requires --library-build")
             run_batch(args.batch, args.output, args.ppc_root,
                       args.library_build, args.library_file, args.msvc_runtime)
+        elif args.command == "compose-batches":
+            batch = compose_batches(args.batch)
+            if args.dry_run:
+                plan = check_composed_batch(batch, args.ppc_root)
+                print(json.dumps({"status": "checked", "source_batches": batch["source_batches"],
+                                  "families": plan}, indent=2))
+            else:
+                if args.output is None or args.library_build is None:
+                    raise ValueError("--output and --library-build are required for compose-batches")
+                if args.library_file and not args.library_build:
+                    raise ValueError("--library-file requires --library-build")
+                output = _output_dir(args.output)
+                combined = output / "composed-batch.json"
+                _write(combined, batch)
+                run_batch(combined, output, args.ppc_root, args.library_build,
+                          args.library_file, args.msvc_runtime,
+                          allow_shared_pins=True)
+        elif args.command == "serve":
+            if args.msvc_runtime not in ("MD", "MDd", "MT", "MTd"):
+                raise ValueError(f"unsupported MSVC runtime: {args.msvc_runtime}")
+            serve_requests(sys.stdin, args.ppc_root, args.library_build,
+                           args.library_file, args.msvc_runtime)
         else:
             if args.runtime_wrappers is not None and args.runtime_wrappers < 0:
                 raise ValueError("runtime wrappers must be nonnegative")
