@@ -96,10 +96,17 @@ void Grow(GuestAddress entry, unsigned width, GuestMemory& memory,
         R(state, 11) = 1u;
         R(state, 4) = R(state, 29);
         memory.WriteU32(Word(R(state, 28)), Word(R(state, 11)));
-        R(state, 11) = memory.ReadU32(Word(R(state, 31)));
-        R(state, 5) = width == 4u ?
-            WordRotateMask(R(state, 11), 1, 0xfffffffeu) : R(state, 11);
-        R(state, 3) = memory.ReadU32(Word(R(state, 30)));
+        if (width == 4u)
+        {
+            R(state, 11) = memory.ReadU32(Word(R(state, 31)));
+            R(state, 3) = memory.ReadU32(Word(R(state, 30)));
+            R(state, 5) = WordRotateMask(R(state, 11), 1, 0xfffffffeu);
+        }
+        else
+        {
+            R(state, 5) = memory.ReadU32(Word(R(state, 31)));
+            R(state, 3) = memory.ReadU32(Word(R(state, 30)));
+        }
         state.lr = entry == 0x82df4a58u ? 0x82df4ac4u : 0x82b82520u;
         if (!crt_copy_full_context::Apply(0x82b7a0b0u, memory, state))
             throw std::logic_error("missing full-context guest copy");

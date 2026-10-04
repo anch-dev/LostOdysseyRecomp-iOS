@@ -108,7 +108,8 @@
     "complete": false,
     "runtime_validated": false,
     "focused_original_ppc_cases": 4,
-    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-resize-buffer-context-tests/crt-stream-buffer-growth-callers-result.json",
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-growth-copy-order-fix-tests/crt-stream-buffer-growth-callers-result.json",
+    "callsite_correction": "82DF4A58 preserves r11=1 and loads count directly into r5 before copy; 82B824B0 loads r11, then r3, then rotates r5. Static evidence ppc_recomp.203.cpp:1308 and ppc_recomp.176.cpp:6139. Four existing focused paths were rerun after correction; they compare final state and do not observe transient r11 before copy.",
     "library": "Windows-native /W4 /WX MT static library passed",
     "mapping_credit": 2,
     "original_body_pin": "recovery_drafts/crt_stream_buffer_growth_callers_validation.json"

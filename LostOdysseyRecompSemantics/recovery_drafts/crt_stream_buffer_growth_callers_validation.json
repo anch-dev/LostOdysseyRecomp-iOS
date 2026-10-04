@@ -408,7 +408,7 @@
     "complete": false,
     "runtime_validated": false,
     "focused_original_ppc_cases": 4,
-    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-resize-buffer-context-tests/crt-stream-buffer-growth-callers-result.json",
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-growth-copy-order-fix-tests/crt-stream-buffer-growth-callers-result.json",
     "library": "Windows-native /W4 /WX MT static library passed"
   },
   "mapping_credit_entries": [],
