@@ -24,6 +24,13 @@ def translate_body(entry: dict) -> str:
     result = result.replace("__builtin_clz", "std::countl_zero")
     result = result.replace("__builtin_rotateleft64", "std::rotl")
     result = result.replace("__builtin_rotateleft32", "std::rotl")
+    # Integer destinations retain the low byte; both operands still evaluate.
+    # This also avoids /WX boolean-bitwise warnings in the original spelling.
+    result = re.sub(
+        r"(\b(?:ctx\.xer\.ca|temp\.u8)\s*=\s*)(\([^\n;]+?\)) ([&|]) (\([^\n;]+?\));",
+        lambda m: f"{m[1]}std::uint8_t({m[2]}) {m[3]} std::uint8_t({m[4]});",
+        result,
+    )
     # Comments are the authoritative instruction sequence. Adapt syntax only.
     instructions = re.findall(r"^\s*// (.*)$", result, re.M)
     if instructions != entry["instructions"]:

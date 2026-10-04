@@ -1,0 +1,52 @@
+{
+  "schema": "semantic-recovery-draft-v1",
+  "scope": "Complete fixed reader constructor; accepted reader caller composition. Native ABI fault MMIO concurrency runtime unvalidated; zero runtime replacements.",
+  "entries": [
+    {
+      "address": "82BD0CD0",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.181.cpp",
+      "source_line": 3334,
+      "instruction_count": 21,
+      "instructions": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-96(r1)",
+        "mr r31,r3",
+        "li r11,0",
+        "mr r7,r4",
+        "li r6,0",
+        "stw r11,8(r31)",
+        "stw r11,12(r31)",
+        "sth r11,20(r31)",
+        "sth r11,22(r31)",
+        "stb r11,24(r31)",
+        "stb r11,25(r31)",
+        "bl 0x82bd0a60",
+        "mr r3,r31",
+        "addi r1,r1,96",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r31,-16(r1)",
+        "blr "
+      ],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82BD0CD0) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// std r31,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);\n\t// stwu r1,-96(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-96);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// mr r31,r3\n\tctx.r31.u64 = ctx.r3.u64;\n\t// li r11,0\n\tctx.r11.s64 = 0;\n\t// mr r7,r4\n\tctx.r7.u64 = ctx.r4.u64;\n\t// li r6,0\n\tctx.r6.s64 = 0;\n\t// stw r11,8(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 8, ctx.r11.u32);\n\t// stw r11,12(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 12, ctx.r11.u32);\n\t// sth r11,20(r31)\n\tPPC_STORE_U16(ctx.r31.u32 + 20, ctx.r11.u16);\n\t// sth r11,22(r31)\n\tPPC_STORE_U16(ctx.r31.u32 + 22, ctx.r11.u16);\n\t// stb r11,24(r31)\n\tPPC_STORE_U8(ctx.r31.u32 + 24, ctx.r11.u8);\n\t// stb r11,25(r31)\n\tPPC_STORE_U8(ctx.r31.u32 + 25, ctx.r11.u8);\n\t// bl 0x82bd0a60\n\tctx.lr = 0x82BD0D0C;\n\tsub_82BD0A60(ctx, base);\n\t// mr r3,r31\n\tctx.r3.u64 = ctx.r31.u64;\n\t// addi r1,r1,96\n\tctx.r1.s64 = ctx.r1.s64 + 96;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}",
+      "status": "original_ppc_validated"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "complete": false,
+    "runtime_validated": false,
+    "focused_original_ppc_cases": 2,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-upper61-bitwise-fix-tests/crt-close-upper61-result.json",
+    "library": "Windows-native /W4 /WX MT static library passed",
+    "mapping_credit": 1,
+    "original_body_pin": "recovery_drafts/crt_close_upper61_validation.json"
+  },
+  "implementation": {
+    "header": "include/lo_semantics/crt_close_upper61.h",
+    "source": "src/crt_close_upper61.cpp",
+    "oracle": "tests/crt_close_upper61_oracle.cpp"
+  }
+}

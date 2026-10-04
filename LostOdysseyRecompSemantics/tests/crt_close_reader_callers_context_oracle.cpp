@@ -1,6 +1,9 @@
+#pragma push_macro("main")
+#undef main
 #define main ReaderCallersSharedFixtureMain
 #include "crt_stream_close_shared_lower_oracle.cpp"
 #undef main
+#pragma pop_macro("main")
 
 #include "lo_semantics/crt_close_reader_callers_context.h"
 #include "lo_semantics/crt_context_adapter.h"
