@@ -718,6 +718,18 @@
       "open_obligations": [
         "Validate actual runtime ABI and mapped memory domains.",
         "Bounded heap fixtures do not establish full allocator lifetime, concurrent mutation, arbitrary corruption, or real kernel behavior."
+      ],
+      "validation_extensions": [
+        {
+          "name": "heap_insert_context",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 5,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-heap-insert-context-tests/heap-insert-context-result.json",
+          "original_body_pin": "recovery_drafts/heap_insert_context_validation.json",
+          "implementation": "src/heap_insert_context.cpp",
+          "scope": "Complete 77-instruction selected 32-GPR/CR0/6/SO/CA/SP/LR/CTR and ordinary-RAM insert/split control flow; empty/occupied small lists, ordered large-list insertion, 0xF001 splitting and segment-tail stopping. Other PPCContext fields, faults, MMIO, concurrency and runtime remain open."
+        }
       ]
     },
     {

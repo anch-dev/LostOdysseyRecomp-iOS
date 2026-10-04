@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Validation-only 827CBA60 selected-context free-list insertion; five focused original PPC cases. Address previously mapped, zero new credit.",
+  "families": [
+    {
+      "name": "heap-insert-context",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/heap_insert_context_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/heap_insert_context_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nvoid OriginalSave28(PPCContext&,std::uint8_t*);\nvoid OriginalRestore28(PPCContext&,std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_827CBA60);\n#define __savegprlr_28(c,b) OriginalSave28(c,b)\n#define __restgprlr_28(c,b) OriginalRestore28(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/heap_insert_context.cpp"
+      ]
+    }
+  ]
+}
