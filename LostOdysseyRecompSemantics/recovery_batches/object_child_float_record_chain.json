@@ -1,6 +1,6 @@
 {
   "schema": "semantic-recovery-batch-v1",
-  "scope": "Current five-body child/record/post chain; original seven-case bounded-callback receipt preserved at 86b543ab.",
+  "scope": "Validation-only actual 822C5E58 -> 822C5F28 -> 82384C08 -> 8242D038 -> 82627230 chain, four focused cases and zero new mapping credit.",
   "families": [
     {
       "name": "object-child-float-record-chain",
