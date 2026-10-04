@@ -15,6 +15,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/array_code_unit_initializer.cpp
     src/special_allocation.cpp
     src/raw_allocation.cpp
+    src/raw_allocation_context.cpp
     src/allocation_failure.cpp
     src/crt_thread_data.cpp
     src/crt_last_error.cpp

@@ -617,6 +617,22 @@
       "dependencies": [],
       "open_obligations": [
         "Validate global initialization and actual runtime calling convention before replacement."
+      ],
+      "validation_extensions": [
+        {
+          "scope": "Actual 823ACBD0 allocation loop and 823ACC98 getter selected-context adapter: full GPR/frame/LR/CTR, CR0/6/SO/CA, selected FP preservation, live heap reload, retry and observable errno writes.",
+          "source": "LostOdysseyRecompSemantics/src/raw_allocation_context.cpp",
+          "pin": "LostOdysseyRecompSemantics/recovery_drafts/raw_allocation_context.json",
+          "oracle": "LostOdysseyRecompSemantics/tests/raw_allocation_context_oracle.cpp",
+          "status": "passed",
+          "focused_original_ppc_cases": 6,
+          "mapping_credit": 0,
+          "runtime_validated": false,
+          "complete": false,
+          "unvalidated_scope": "Remaining heap/CRT/native internals, unexposed PPCContext fields, faults/MMIO/concurrency/runtime; missing-heap callbacks may not return in the game.",
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-raw-allocation-context-tests/raw-allocation-context-result.json",
+          "library": "Windows-native /W4 /WX MT static library passed"
+        }
       ]
     },
     {
@@ -1960,6 +1976,22 @@
         "Recover CRT termination/retry/error-storage and unwind semantics.",
         "Heap allocation remains a synthetic service in this wrapper oracle; its separately recovered implementation needs composition with the real stack adapter.",
         "Validate complete PPCContext adapter and representative runtime scenes before replacing generated code."
+      ],
+      "validation_extensions": [
+        {
+          "scope": "Actual 823ACBD0 allocation loop and 823ACC98 getter selected-context adapter: full GPR/frame/LR/CTR, CR0/6/SO/CA, selected FP preservation, live heap reload, retry and observable errno writes.",
+          "source": "LostOdysseyRecompSemantics/src/raw_allocation_context.cpp",
+          "pin": "LostOdysseyRecompSemantics/recovery_drafts/raw_allocation_context.json",
+          "oracle": "LostOdysseyRecompSemantics/tests/raw_allocation_context_oracle.cpp",
+          "status": "passed",
+          "focused_original_ppc_cases": 6,
+          "mapping_credit": 0,
+          "runtime_validated": false,
+          "complete": false,
+          "unvalidated_scope": "Remaining heap/CRT/native internals, unexposed PPCContext fields, faults/MMIO/concurrency/runtime; missing-heap callbacks may not return in the game.",
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-raw-allocation-context-tests/raw-allocation-context-result.json",
+          "library": "Windows-native /W4 /WX MT static library passed"
+        }
       ]
     },
     {

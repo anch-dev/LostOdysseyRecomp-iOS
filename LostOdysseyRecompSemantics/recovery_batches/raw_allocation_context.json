@@ -1,0 +1,14 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "families": [
+    {
+      "name": "raw-allocation-context",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/raw_allocation_context.json",
+      "harness": "LostOdysseyRecompSemantics/tests/raw_allocation_context_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\nextern \"C\" PPC_FUNC(__imp__sub_823ACC98);\nvoid OriginalRawSave28(PPCContext&,unsigned char*);\nvoid OriginalRawRestore28(PPCContext&,unsigned char*);\nvoid OriginalRawBoundary(unsigned,PPCContext&,unsigned char*);\n#define __savegprlr_28(c,b) OriginalRawSave28(c,b)\n#define __restgprlr_28(c,b) OriginalRawRestore28(c,b)\n#define sub_823ACC98(c,b) __imp__sub_823ACC98(c,b)\n#define sub_823ACCB0(c,b) OriginalRawBoundary(0x823ACCB0u,c,b)\n#define sub_82B7FCE0(c,b) OriginalRawBoundary(0x82B7FCE0u,c,b)\n#define sub_82B7FC98(c,b) OriginalRawBoundary(0x82B7FC98u,c,b)\n#define sub_82B7BF20(c,b) OriginalRawBoundary(0x82B7BF20u,c,b)\n#define sub_82B7FE68(c,b) OriginalRawBoundary(0x82B7FE68u,c,b)\n#define sub_82B7FD78(c,b) OriginalRawBoundary(0x82B7FD78u,c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/raw_allocation_context.cpp"
+      ]
+    }
+  ]
+}
