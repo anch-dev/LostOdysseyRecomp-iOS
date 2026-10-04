@@ -1,0 +1,31 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Complete 82295DA8 UTF-16 line dispatcher and 8231A220 manager query; eight original-body cases use actual accepted line/prefix/compare/getter PPC callees. Three dynamic vtable calls remain explicit mutable guest edges; lazy singleton construction is unselected.",
+  "families": [
+    {
+      "name": "legacy-config-line-dispatch",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/legacy_config_line_dispatch_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_config_line_dispatch_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\nvoid OriginalSaveLine(PPCContext&, std::uint8_t*);\nvoid OriginalRestoreLine(PPCContext&, std::uint8_t*);\nvoid OriginalVirtualLine(PPCContext&, std::uint8_t*);\nvoid OriginalUnselectedLine(PPCContext&, std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_82295DA8);\nextern \"C\" PPC_FUNC(__imp__sub_8231A220);\nextern \"C\" PPC_FUNC(__imp__sub_82295EE0);\nextern \"C\" PPC_FUNC(__imp__sub_82296740);\nextern \"C\" PPC_FUNC(__imp__sub_82296830);\nextern \"C\" PPC_FUNC(__imp__sub_82296858);\nextern \"C\" PPC_FUNC(__imp__sub_82296938);\nextern \"C\" PPC_FUNC(__imp__sub_82483AC8);\nextern \"C\" PPC_FUNC(__imp__sub_822A2700);\n#define __savegprlr_27(c,b) OriginalSaveLine(c,b)\n#define __restgprlr_27(c,b) OriginalRestoreLine(c,b)\n#define sub_82295EE0(c,b) __imp__sub_82295EE0(c,b)\n#define sub_8231A220(c,b) __imp__sub_8231A220(c,b)\n#define sub_82296740(c,b) __imp__sub_82296740(c,b)\n#define sub_82296830(c,b) __imp__sub_82296830(c,b)\n#define sub_82296858(c,b) __imp__sub_82296858(c,b)\n#define sub_82296938(c,b) __imp__sub_82296938(c,b)\n#define sub_82483AC8(c,b) __imp__sub_82483AC8(c,b)\n#define sub_822A2700(c,b) __imp__sub_822A2700(c,b)\n#define sub_824C94B8(c,b) OriginalUnselectedLine(c,b)\n#define sub_824C9570(c,b) OriginalUnselectedLine(c,b)\n#define sub_82B7FD78(c,b) OriginalUnselectedLine(c,b)\n#define sub_82B7FEC0(c,b) OriginalUnselectedLine(c,b)\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(t) OriginalVirtualLine(ctx,base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_config_line_dispatch.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_utf16_line_token_number.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_utf16_prefix_cursor.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_character_cursor.cpp",
+        "LostOdysseyRecompSemantics/src/registered_getter_family.cpp",
+        "LostOdysseyRecompSemantics/src/registered_inline_constructor.cpp",
+        "LostOdysseyRecompSemantics/src/registered_constructor_family.cpp",
+        "LostOdysseyRecompSemantics/src/manager_facade.cpp",
+        "LostOdysseyRecompSemantics/src/manager_init.cpp",
+        "LostOdysseyRecompSemantics/src/allocation_array.cpp",
+        "LostOdysseyRecompSemantics/src/allocation_failure.cpp",
+        "LostOdysseyRecompSemantics/src/crt_thread_data.cpp",
+        "LostOdysseyRecompSemantics/src/invalid_parameter.cpp",
+        "LostOdysseyRecompSemantics/src/manager_metadata_compare.cpp",
+        "LostOdysseyRecompSemantics/src/manager_metadata_parsing.cpp",
+        "LostOdysseyRecompSemantics/src/metadata_option_match.cpp",
+        "LostOdysseyRecompSemantics/src/registered_metadata_string.cpp"
+      ]
+    }
+  ]
+}

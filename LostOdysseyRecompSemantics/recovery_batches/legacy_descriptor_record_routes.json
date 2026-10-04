@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Complete 206-instruction descriptor record construction and 32-instruction indexed selector; 8 focused image-table and descriptor graph fixtures separately compare both actual PPC bodies.",
+  "families": [
+    {
+      "name": "legacy-descriptor-record-routes",
+      "manifest": "LostOdysseyRecompSemantics/legacy_descriptor_record_routes_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_descriptor_record_routes_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_82FAC238);\nvoid OriginalRecordSelector(PPCContext&,std::uint8_t*);\n#define sub_82FAC238(c,b) OriginalRecordSelector(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_descriptor_record_routes.cpp"
+      ]
+    }
+  ]
+}
