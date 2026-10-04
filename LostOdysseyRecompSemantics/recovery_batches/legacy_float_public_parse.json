@@ -1,0 +1,17 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Two new UTF-16 public parse entries; actual accepted flag/length/route/binary PPC bodies, bounded numeric parser and exceptional native calls. Five focused cases only.",
+  "families": [
+    {
+      "name": "legacy-float-public-parse",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/legacy_float_public_parse_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_float_public_parse_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nvoid OriginalSave28(PPCContext&,std::uint8_t*);\nvoid OriginalRestore28(PPCContext&,std::uint8_t*);\nvoid OriginalSave27(PPCContext&,std::uint8_t*);\nvoid OriginalRestore27(PPCContext&,std::uint8_t*);\nvoid OriginalSave19(PPCContext&,std::uint8_t*);\nvoid OriginalRestore19(PPCContext&,std::uint8_t*);\nvoid OriginalParse(PPCContext&,std::uint8_t*);\nvoid OriginalInvalid(PPCContext&,std::uint8_t*);\nvoid OriginalInvalidParameter(PPCContext&,std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_82B7E098);\nextern \"C\" PPC_FUNC(__imp__sub_822974B0);\nextern \"C\" PPC_FUNC(__imp__sub_82296830);\nextern \"C\" PPC_FUNC(__imp__sub_822974F8);\nextern \"C\" PPC_FUNC(__imp__sub_822981C8);\n#define __savegprlr_28(c,b) OriginalSave28(c,b)\n#define __restgprlr_28(c,b) OriginalRestore28(c,b)\n#define __savegprlr_27(c,b) OriginalSave27(c,b)\n#define __restgprlr_27(c,b) OriginalRestore27(c,b)\n#define __savegprlr_19(c,b) OriginalSave19(c,b)\n#define __restgprlr_19(c,b) OriginalRestore19(c,b)\n#define sub_82B7E098(c,b) __imp__sub_82B7E098(c,b)\n#define sub_82B7FD78(c,b) OriginalInvalid(c,b)\n#define sub_82B7FEC0(c,b) OriginalInvalidParameter(c,b)\n#define sub_822974B0(c,b) __imp__sub_822974B0(c,b)\n#define sub_82296830(c,b) __imp__sub_82296830(c,b)\n#define sub_822974F8(c,b) __imp__sub_822974F8(c,b)\n#define sub_822975B0(c,b) OriginalParse(c,b)\n#define sub_822981C8(c,b) __imp__sub_822981C8(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_float_public_parse.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_float_parse_routes.cpp",
+        "LostOdysseyRecompSemantics/src/legacy_float_binary_conversion.cpp"
+      ]
+    }
+  ]
+}

@@ -61,6 +61,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/object_registration_post.cpp
     src/legacy_token_float_cursor.cpp
     src/legacy_float_parse_routes.cpp
+    src/legacy_float_public_parse.cpp
     src/legacy_float_binary_conversion.cpp
     src/legacy_float_digit_accumulator.cpp
     src/legacy_float_text_parser.cpp
