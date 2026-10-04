@@ -1,0 +1,23 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "One new actual 148-instruction owner curve mix body plus seven accepted direct lower PPC bodies; seven focused warm-singleton cases, one mapping candidate.",
+  "families": [
+    {
+      "name": "object-curve-owner-mix",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/object_curve_owner_mix_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/object_curve_owner_mix_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_82625C40);\nextern \"C\" PPC_FUNC(__imp__sub_8262C430);\nextern \"C\" PPC_FUNC(__imp__sub_8242CC78);\nextern \"C\" PPC_FUNC(__imp__sub_82607318);\nextern \"C\" PPC_FUNC(__imp__sub_822C7FB8);\nextern \"C\" PPC_FUNC(__imp__sub_822C7388);\nextern \"C\" PPC_FUNC(__imp__sub_822C73E8);\nextern \"C\" PPC_FUNC(__imp__sub_822C78D8);\nvoid OriginalSave28(PPCContext&,std::uint8_t*);\nvoid OriginalRestore28(PPCContext&,std::uint8_t*);\nvoid OriginalSave27(PPCContext&,std::uint8_t*);\nvoid OriginalRestore27(PPCContext&,std::uint8_t*);\nvoid OriginalColdCall(PPCContext&,std::uint8_t*);\nvoid OriginalIndirect(std::uint32_t,PPCContext&,std::uint8_t*);\n#define __savegprlr_28(c,b) OriginalSave28(c,b)\n#define __restgprlr_28(c,b) OriginalRestore28(c,b)\n#define __savegprlr_27(c,b) OriginalSave27(c,b)\n#define __restgprlr_27(c,b) OriginalRestore27(c,b)\n#define sub_8262C430(c,b) __imp__sub_8262C430(c,b)\n#define sub_8242CC78(c,b) __imp__sub_8242CC78(c,b)\n#define sub_82607318(c,b) __imp__sub_82607318(c,b)\n#define sub_822C7FB8(c,b) __imp__sub_822C7FB8(c,b)\n#define sub_822C7388(c,b) __imp__sub_822C7388(c,b)\n#define sub_822C73E8(c,b) __imp__sub_822C73E8(c,b)\n#define sub_822C78D8(c,b) __imp__sub_822C78D8(c,b)\n#define sub_82486C88(c,b) OriginalColdCall(c,b)\n#define sub_82410A28(c,b) OriginalColdCall(c,b)\n#define sub_82625A88(c,b) OriginalColdCall(c,b)\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(t) OriginalIndirect((t),ctx,base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/object_curve_owner_mix.cpp",
+        "LostOdysseyRecompSemantics/src/object_blended_curve_apply.cpp",
+        "LostOdysseyRecompSemantics/src/object_curve_pair_apply.cpp",
+        "LostOdysseyRecompSemantics/src/object_curve_sample.cpp",
+        "LostOdysseyRecompSemantics/src/object_sample_accumulator.cpp",
+        "LostOdysseyRecompSemantics/src/registered_constructor_family.cpp",
+        "LostOdysseyRecompSemantics/src/manager_facade.cpp",
+        "LostOdysseyRecompSemantics/src/object_registration.cpp",
+        "LostOdysseyRecompSemantics/src/manager_init.cpp"
+      ]
+    }
+  ]
+}
