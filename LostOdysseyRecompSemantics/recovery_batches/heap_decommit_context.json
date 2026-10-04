@@ -1,0 +1,16 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Validation-only 827CC668 selected decommit composed with selected 827CBA60 and actual 827CB498/827CB658 guest PPC helpers; five focused scenarios. All addresses previously mapped, zero new credit.",
+  "families": [
+    {
+      "name": "heap-decommit-context",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/heap_decommit_context_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/heap_decommit_context_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nvoid OriginalSave19(PPCContext&,std::uint8_t*);\nvoid OriginalRestore19(PPCContext&,std::uint8_t*);\nvoid OriginalSave28(PPCContext&,std::uint8_t*);\nvoid OriginalRestore28(PPCContext&,std::uint8_t*);\nvoid OriginalNative(std::uint32_t,PPCContext&,std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_827CC668);\nextern \"C\" PPC_FUNC(__imp__sub_827CBA60);\nextern \"C\" PPC_FUNC(__imp__sub_827CB498);\nextern \"C\" PPC_FUNC(__imp__sub_827CB658);\n#define __savegprlr_19(c,b) OriginalSave19(c,b)\n#define __restgprlr_19(c,b) OriginalRestore19(c,b)\n#define __savegprlr_28(c,b) OriginalSave28(c,b)\n#define __restgprlr_28(c,b) OriginalRestore28(c,b)\n#define sub_827CBA60(c,b) __imp__sub_827CBA60(c,b)\n#define sub_827CB498(c,b) __imp__sub_827CB498(c,b)\n#define sub_827CB658(c,b) __imp__sub_827CB658(c,b)\n#define __imp__NtAllocateVirtualMemory(c,b) OriginalNative(0x830D9D1Cu,c,b)\n#define __imp__NtFreeVirtualMemory(c,b) OriginalNative(0x830D9D3Cu,c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/heap_insert_context.cpp",
+        "LostOdysseyRecompSemantics/src/heap_decommit_context.cpp"
+      ]
+    }
+  ]
+}

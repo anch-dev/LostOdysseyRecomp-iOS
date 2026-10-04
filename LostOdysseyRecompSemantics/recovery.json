@@ -1395,6 +1395,18 @@
       "open_obligations": [
         "Expand the bounded composed range-node/range-record fixtures to real VM decommit, memory faults and concurrency.",
         "Validate runtime ABI and 64 KiB page ownership/lifetime in representative scenes."
+      ],
+      "validation_extensions": [
+        {
+          "name": "heap_decommit_context",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 5,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-heap-decommit-context-tests/heap-decommit-context-result.json",
+          "original_body_pin": "recovery_drafts/heap_decommit_context_validation.json",
+          "implementation": "src/heap_decommit_context.cpp",
+          "scope": "Complete 216-instruction selected 32-GPR/CR0/6/SO/CA/SP/LR/CTR and ordinary-RAM decommit control flow, composed with accepted complete 77-instruction insert implementation; gate fallback, no-whole-page fallback, VM success/failure and prefix remainder. Recovered oracle still uses actual original 827CB498/827CB658 as validation-only mutable guest boundaries, not restored selected implementations. Kernel VM import modeled; native implementation, other PPCContext fields, faults, unwind, MMIO, concurrency and runtime remain open."
+        }
       ]
     },
     {
