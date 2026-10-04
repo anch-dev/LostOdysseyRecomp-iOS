@@ -1,0 +1,14 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "families": [
+    {
+      "name": "legacy-descriptor-record-rebind",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/legacy_descriptor_record_rebind_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_descriptor_record_rebind_oracle.cpp",
+      "prelude": "",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_descriptor_record_rebind.cpp"
+      ]
+    }
+  ]
+}
