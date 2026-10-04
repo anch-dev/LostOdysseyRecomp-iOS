@@ -1,0 +1,43 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Complete 82B87CF8 CRT stream pushback (117 instructions), with actual original PPC bodies for already accepted 82B81648 (22) and 82B85C40 (34) and zero-credit full selected-context implementations. Accepted errno/invalid-parameter leaves use selected semantic bridges. 82B85C40 to 823ACBD0 remains explicit mutable guest allocator boundary. Six focused ordinary-RAM paths compare all 72 exposed registers/control fields, committed RAM and ordered allocator events. Only 82B87CF8 is new mapping credit.",
+  "families": [
+    {
+      "name": "crt-stream-pushback-context",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/crt_stream_pushback_context_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/crt_stream_pushback_context_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_82B87CF8);\nextern \"C\" PPC_FUNC(__imp__sub_82B81648);\nextern \"C\" PPC_FUNC(__imp__sub_82B85C40);\nvoid OriginalPushbackSave27(PPCContext&);\nvoid OriginalPushbackRestore27(PPCContext&);\nvoid OriginalPushbackLower(std::uint32_t,PPCContext&,std::uint8_t*);\n#define __savegprlr_27(c,b) OriginalPushbackSave27(c)\n#define __restgprlr_27(c,b) OriginalPushbackRestore27(c)\n#define sub_82B81648(c,b) __imp__sub_82B81648(c,b)\n#define sub_82B85C40(c,b) __imp__sub_82B85C40(c,b)\n#define sub_82B7FD78(c,b) OriginalPushbackLower(0x82B7FD78u,c,b)\n#define sub_82B7FEC0(c,b) OriginalPushbackLower(0x82B7FEC0u,c,b)\n#define sub_823ACBD0(c,b) OriginalPushbackLower(0x823ACBD0u,c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/crt_stream_locks.cpp",
+        "LostOdysseyRecompSemantics/src/raw_allocation.cpp",
+        "LostOdysseyRecompSemantics/src/allocation_failure.cpp",
+        "LostOdysseyRecompSemantics/src/crt_allocation.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_state.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_pointer_unlock.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_index_unlock.cpp",
+        "LostOdysseyRecompSemantics/src/crt_thread_data.cpp",
+        "LostOdysseyRecompSemantics/src/invalid_parameter.cpp",
+        "LostOdysseyRecompSemantics/src/memory_services.cpp",
+        "LostOdysseyRecompSemantics/src/heap_allocate.cpp",
+        "LostOdysseyRecompSemantics/src/heap_free.cpp",
+        "LostOdysseyRecompSemantics/src/heap_segment.cpp",
+        "LostOdysseyRecompSemantics/src/heap.cpp",
+        "LostOdysseyRecompSemantics/src/memory_fill.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_io.cpp",
+        "LostOdysseyRecompSemantics/src/crt_status_error.cpp",
+        "LostOdysseyRecompSemantics/src/thread_state.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_operations.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_error.cpp",
+        "LostOdysseyRecompSemantics/src/crt_last_error.cpp",
+        "LostOdysseyRecompSemantics/src/integer_leaf.cpp",
+        "LostOdysseyRecompSemantics/src/crt_thread_error_routes.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_open_routes_context.cpp",
+        "LostOdysseyRecompSemantics/src/raw_allocation_context.cpp",
+        "LostOdysseyRecompSemantics/src/heap_allocation_context.cpp",
+        "LostOdysseyRecompSemantics/src/crt_record_allocation_context.cpp",
+        "LostOdysseyRecompSemantics/src/crt_reallocation_context.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_pushback_context.cpp"
+      ]
+    }
+  ]
+}
