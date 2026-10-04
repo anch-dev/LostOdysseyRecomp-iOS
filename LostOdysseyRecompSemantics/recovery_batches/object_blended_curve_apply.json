@@ -1,0 +1,22 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Two new actual 212+32 instruction object blend/owner bodies with five accepted direct lower PPC bodies; nine focused warm-singleton cases, two mapping candidates.",
+  "families": [
+    {
+      "name": "object-blended-curve-apply",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/object_blended_curve_apply_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/object_blended_curve_apply_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_82625E90);\nextern \"C\" PPC_FUNC(__imp__sub_8262C430);\nextern \"C\" PPC_FUNC(__imp__sub_8242CC78);\nextern \"C\" PPC_FUNC(__imp__sub_82607318);\nextern \"C\" PPC_FUNC(__imp__sub_822C7FB8);\nextern \"C\" PPC_FUNC(__imp__sub_822C73E8);\nextern \"C\" PPC_FUNC(__imp__sub_822C78D8);\nvoid OriginalSave24(PPCContext&,std::uint8_t*);\nvoid OriginalRestore24(PPCContext&,std::uint8_t*);\nvoid OriginalSave27(PPCContext&,std::uint8_t*);\nvoid OriginalRestore27(PPCContext&,std::uint8_t*);\nvoid OriginalColdCall(PPCContext&,std::uint8_t*);\nvoid OriginalIndirect(std::uint32_t,PPCContext&,std::uint8_t*);\n#define __savegprlr_24(c,b) OriginalSave24(c,b)\n#define __restgprlr_24(c,b) OriginalRestore24(c,b)\n#define __savegprlr_27(c,b) OriginalSave27(c,b)\n#define __restgprlr_27(c,b) OriginalRestore27(c,b)\n#define sub_8262C430(c,b) __imp__sub_8262C430(c,b)\n#define sub_8242CC78(c,b) __imp__sub_8242CC78(c,b)\n#define sub_82607318(c,b) __imp__sub_82607318(c,b)\n#define sub_822C7FB8(c,b) __imp__sub_822C7FB8(c,b)\n#define sub_822C73E8(c,b) __imp__sub_822C73E8(c,b)\n#define sub_822C78D8(c,b) __imp__sub_822C78D8(c,b)\n#define sub_82486C88(c,b) OriginalColdCall(c,b)\n#define sub_82410A28(c,b) OriginalColdCall(c,b)\n#define sub_82625A88(c,b) OriginalColdCall(c,b)\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(t) OriginalIndirect((t),ctx,base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/object_blended_curve_apply.cpp",
+        "LostOdysseyRecompSemantics/src/object_curve_pair_apply.cpp",
+        "LostOdysseyRecompSemantics/src/object_curve_sample.cpp",
+        "LostOdysseyRecompSemantics/src/object_sample_accumulator.cpp",
+        "LostOdysseyRecompSemantics/src/registered_constructor_family.cpp",
+        "LostOdysseyRecompSemantics/src/manager_facade.cpp",
+        "LostOdysseyRecompSemantics/src/object_registration.cpp",
+        "LostOdysseyRecompSemantics/src/manager_init.cpp"
+      ]
+    }
+  ]
+}

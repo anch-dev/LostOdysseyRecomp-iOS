@@ -97,6 +97,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/object_sample_accumulator.cpp
     src/object_record_property_apply.cpp
     src/object_curve_pair_apply.cpp
+    src/object_blended_curve_apply.cpp
     src/object_curve_sample.cpp
     src/crt_allocation.cpp
     src/crt_reallocate.cpp
