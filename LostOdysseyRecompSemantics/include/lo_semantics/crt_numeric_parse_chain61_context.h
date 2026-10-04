@@ -10,4 +10,7 @@ using Dependencies = crt_stream_close_shared_lower::Dependencies;
 // Exact locale-aware integer parser and numeric suffix caller. Selected accepted boundaries; no runtime/fault/MMIO coverage.
 [[nodiscard]] bool Apply(GuestAddress entry, GuestMemory& memory,
     Dependencies dependencies, Registers& state);
+// Zero-credit support for the already accepted checked-copy body.
+[[nodiscard]] bool ApplySupport(GuestAddress entry, GuestMemory& memory,
+    Dependencies dependencies, Registers& state);
 } // namespace lo::semantic::gpu::crt_numeric_parse_chain61_context

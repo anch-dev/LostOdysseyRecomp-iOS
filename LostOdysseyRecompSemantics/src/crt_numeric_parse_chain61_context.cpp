@@ -797,4 +797,10 @@ bool Apply(GuestAddress entry,GuestMemory& memory,Dependencies dependencies,Regi
     else Body_82B86F00(c,b);
     ToFull(state,c);return true;
 }
+bool ApplySupport(GuestAddress entry,GuestMemory& memory,Dependencies dependencies,Registers& state)
+{
+    if(entry!=0x8231b0d0u) return false;
+    Context c{};FromFull(c,state);Base b{memory,dependencies,state};
+    Body_8231B0D0(c,b);ToFull(state,c);return true;
+}
 } // namespace lo::semantic::gpu::crt_numeric_parse_chain61_context

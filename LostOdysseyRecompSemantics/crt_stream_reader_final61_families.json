@@ -1,0 +1,73 @@
+{
+  "schema": "semantic-recovery-draft-v1",
+  "entries": [
+    {
+      "address": "82B7BB38",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.175.cpp",
+      "source_line": 10702,
+      "instruction_count": 39,
+      "instructions": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r30,-24(r1)",
+        "std r31,-16(r1)",
+        "addi r31,r1,-112",
+        "stwu r1,-112(r1)",
+        "mr r30,r3",
+        "stw r30,132(r31)",
+        "bl 0x822a03c8",
+        "addi r11,r3,32",
+        "cmplw cr6,r30,r11",
+        "beq cr6,0x82b7bbb8",
+        "bl 0x822a03c8",
+        "addi r11,r3,64",
+        "cmplw cr6,r30,r11",
+        "beq cr6,0x82b7bbb8",
+        "cmplwi cr6,r30,0",
+        "bne cr6,0x82b7bb8c",
+        "li r3,0",
+        "bl 0x82b7b950",
+        "b 0x82b7bbbc",
+        "mr r3,r30",
+        "bl 0x82b7b708",
+        "mr r8,r8",
+        "mr r3,r30",
+        "bl 0x82b7b8d0",
+        "stw r3,80(r31)",
+        "mr r8,r8",
+        "addi r12,r31,112",
+        "bl 0x82b7bbf4",
+        "lwz r3,80(r31)",
+        "b 0x82b7bbbc",
+        "li r3,0",
+        "addi r1,r31,112",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r30,-24(r1)",
+        "ld r31,-16(r1)",
+        "blr "
+      ],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82B7BB38) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// std r30,-24(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -24, ctx.r30.u64);\n\t// std r31,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);\n\t// addi r31,r1,-112\n\tctx.r31.s64 = ctx.r1.s64 + -112;\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// mr r30,r3\n\tctx.r30.u64 = ctx.r3.u64;\n\t// stw r30,132(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 132, ctx.r30.u32);\n\t// bl 0x822a03c8\n\tctx.lr = 0x82B7BB5C;\n\tsub_822A03C8(ctx, base);\n\t// addi r11,r3,32\n\tctx.r11.s64 = ctx.r3.s64 + 32;\n\t// cmplw cr6,r30,r11\n\tctx.cr6.compare<uint32_t>(ctx.r30.u32, ctx.r11.u32, ctx.xer);\n\t// beq cr6,0x82b7bbb8\n\tif (ctx.cr6.eq) goto loc_82B7BBB8;\n\t// bl 0x822a03c8\n\tctx.lr = 0x82B7BB6C;\n\tsub_822A03C8(ctx, base);\n\t// addi r11,r3,64\n\tctx.r11.s64 = ctx.r3.s64 + 64;\n\t// cmplw cr6,r30,r11\n\tctx.cr6.compare<uint32_t>(ctx.r30.u32, ctx.r11.u32, ctx.xer);\n\t// beq cr6,0x82b7bbb8\n\tif (ctx.cr6.eq) goto loc_82B7BBB8;\n\t// cmplwi cr6,r30,0\n\tctx.cr6.compare<uint32_t>(ctx.r30.u32, 0, ctx.xer);\n\t// bne cr6,0x82b7bb8c\n\tif (!ctx.cr6.eq) goto loc_82B7BB8C;\n\t// li r3,0\n\tctx.r3.s64 = 0;\n\t// bl 0x82b7b950\n\tctx.lr = 0x82B7BB88;\n\tsub_82B7B950(ctx, base);\n\t// b 0x82b7bbbc\n\tgoto loc_82B7BBBC;\nloc_82B7BB8C:\n\t// mr r3,r30\n\tctx.r3.u64 = ctx.r30.u64;\n\t// bl 0x82b7b708\n\tctx.lr = 0x82B7BB94;\n\tsub_82B7B708(ctx, base);\n\t// mr r8,r8\n\tctx.r8.u64 = ctx.r8.u64;\n\t// mr r3,r30\n\tctx.r3.u64 = ctx.r30.u64;\n\t// bl 0x82b7b8d0\n\tctx.lr = 0x82B7BBA0;\n\tsub_82B7B8D0(ctx, base);\n\t// stw r3,80(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 80, ctx.r3.u32);\n\t// mr r8,r8\n\tctx.r8.u64 = ctx.r8.u64;\n\t// addi r12,r31,112\n\tctx.r12.s64 = ctx.r31.s64 + 112;\n\t// bl 0x82b7bbf4\n\tctx.lr = 0x82B7BBB0;\n\tsub_82B7BBF4(ctx, base);\n\t// lwz r3,80(r31)\n\tctx.r3.u64 = PPC_LOAD_U32(ctx.r31.u32 + 80);\n\t// b 0x82b7bbbc\n\tgoto loc_82B7BBBC;\nloc_82B7BBB8:\n\t// li r3,0\n\tctx.r3.s64 = 0;\nloc_82B7BBBC:\n\t// addi r1,r31,112\n\tctx.r1.s64 = ctx.r31.s64 + 112;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// ld r30,-24(r1)\n\tctx.r30.u64 = PPC_LOAD_U64(ctx.r1.u32 + -24);\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}",
+      "status": "original_ppc_validated"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "complete": false,
+    "runtime_validated": false,
+    "focused_original_ppc_cases": 3,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-temp-flush61-unused-fix-tests/crt-stream-reader-final61-result.json",
+    "library": "Windows-native /W4 /WX MT static library passed",
+    "mapping_credit": 1,
+    "original_body_pin": "recovery_drafts/crt_stream_reader_final61_validation.json"
+  },
+  "mapping_credit_entries": [
+    "82B7BB38"
+  ],
+  "scope": "39-instruction stream flush wrapper plus 242 exact already-mapped/external sweep/core/lock/cleanup/helper instructions; existing selected write/format/flush and native ABI boundaries.",
+  "implementation": {
+    "header": "include/lo_semantics/crt_stream_reader_final61.h",
+    "source": "src/crt_stream_reader_final61.cpp",
+    "oracle": "tests/crt_stream_reader_final61_oracle.cpp"
+  }
+}

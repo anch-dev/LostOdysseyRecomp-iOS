@@ -9,6 +9,21 @@ from __future__ import annotations
 import re
 
 
+def pinned_call_prelude(entries: list[dict]) -> str:
+    """Link pinned guest calls without replacing an explicit ABI boundary."""
+    lines = []
+    for address in dict.fromkeys(entry["address"] for entry in entries):
+        if not re.fullmatch(r"[0-9A-F]{8}", address):
+            raise ValueError(f"invalid pinned address: {address}")
+        lines.extend((
+            f'extern "C" PPC_FUNC(__imp__sub_{address});',
+            f"#ifndef sub_{address}",
+            f"#define sub_{address}(c,b) __imp__sub_{address}(c,b)",
+            "#endif",
+        ))
+    return "\n".join(lines) + "\n"
+
+
 def translate_body(entry: dict) -> str:
     address = entry["address"]
     original = entry["translated_body"]
@@ -16,7 +31,7 @@ def translate_body(entry: dict) -> str:
     if original.count(marker) != 1:
         raise ValueError(f"missing unique pinned entry: {address}")
     result = original.replace(
-        marker, f"void Body_{address}(Context& ctx, Base& base) {{", 1
+        marker, f"void Body_{address}(Context& ctx, [[maybe_unused]] Base& base) {{", 1
     )
     result = result.replace("\tPPC_FUNC_PROLOGUE();\n", "")
     result = result.replace("PPCRegister", "PpcRegister")
