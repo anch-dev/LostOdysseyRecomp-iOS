@@ -1,0 +1,82 @@
+{
+  "schema": "semantic-recovery-progress-checkpoint-v1",
+  "date": "2026-10-04",
+  "accepted_data_commit": "f066d61adf2a18afad5d7a3f23e7431284ff7675",
+  "branch": "trail/semantic-recovery",
+  "goal_status": "paused",
+  "quota_at_stop": {
+    "used_percent": 98,
+    "remaining_percent": 2,
+    "goal_status": "paused"
+  },
+  "progress": {
+    "source": "HEAD tracked JSON only",
+    "individual": 82,
+    "family_count": 238,
+    "family_entries": 5436,
+    "family_unique": 5436,
+    "overlaps": 2,
+    "unique": 5516,
+    "cached_total": 62627,
+    "cached_entry_mapping_percent": 8.808,
+    "scope_note": "entry address mapping against fixed cached baseline, not a refreshed whole-game census or full semantic completion",
+    "runtime_wrappers_supplied": 3168
+  },
+  "delta_from_recorded_handoff": 275,
+  "delta_from_recorded_run_checkpoint": 57,
+  "new_runtime_replacements": 0,
+  "runtime_count_scope": "3168 supplied historical gated wrappers; no fresh runtime or gameplay validation",
+  "connected_chains": [
+    {
+      "chain": "stream I/O",
+      "path": "refill \u2192 byte/block read \u2192 close/reopen",
+      "accepted_commits": "64829170"
+    },
+    {
+      "chain": "scanner",
+      "path": "82DF4AF8 full scanner \u2192 numeric/float conversion; public scan wrappers",
+      "accepted_commits": "8e2b2220,153d4f73"
+    },
+    {
+      "chain": "reader object",
+      "path": "constructor \u2192 block read \u2192 append/flatten \u2192 sink \u2192 owned cleanup/reallocate",
+      "accepted_commits": "bbf4ade5,5e2a9b61"
+    },
+    {
+      "chain": "temporary stream",
+      "path": "path creation \u2192 open/duplicate \u2192 initialization \u2192 public cleanup",
+      "accepted_commits": "a51df207,5e2a9b61"
+    },
+    {
+      "chain": "native flush",
+      "path": "stream follow \u2192 full flush \u2192 mutable status \u2192 live r13 thread errno \u2192 cleanup",
+      "accepted_commits": "b3126827,153d4f73"
+    },
+    {
+      "chain": "integer sort",
+      "path": "82BD2DF0 full 500-instruction bucket/count/scatter \u2192 two-buffer allocation \u2192 memset",
+      "accepted_commits": "379d41c6"
+    },
+    {
+      "chain": "narrow recursive formatter",
+      "path": "82B827C0 \u2192 82B7D260 \u2192 82B7D168 \u2192 82B827C0, plus 82B83338",
+      "accepted_commits": "315b39c4"
+    },
+    {
+      "chain": "CRT formatted output uppers",
+      "path": "82DF4270 \u2192 error text (82DF4218) and 82DF28C8 \u2192 full narrow recursive formatter; buffer/stdout callers \u2192 cleanup/unlock; 827C8648 format \u2192 console \u2192 fgets",
+      "accepted_commits": "f066d61a"
+    }
+  ],
+  "pending_draft": {
+    "name": "crt_reader_sort_float61",
+    "address": "82BD2A28",
+    "instruction_count": 31,
+    "files_present": 5,
+    "harness_present": false,
+    "cmake": false,
+    "status": "uncompiled, oracle missing, mapping credit 0",
+    "next": "Complete harness for the 3 planned finite threshold/payload paths, then focused original-PPC comparison plus library PASS before promotion."
+  },
+  "validation_limits": "Entry mapping against fixed cached baseline; selected original-PPC comparisons and ordinary RAM only. Full72 comparisons do not expand typed lower ABI. Native internals, fault/MMIO, concurrency, exception/unwind, ARM FP, runtime and gameplay remain unvalidated by these batches. Windows x64 float append checks cover selected finite inputs and host CSR restore only. New runtime replacement count 0; supplied gated wrappers 3168 are historical."
+}
