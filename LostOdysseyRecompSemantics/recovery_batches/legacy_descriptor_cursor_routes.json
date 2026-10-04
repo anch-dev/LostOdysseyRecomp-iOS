@@ -1,0 +1,16 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Four complete cursor refill/consume/skip bodies, selected 290-instruction forward copy and selected 14-instruction diagnostic prologue. Next-frame83028FE0, stack-growth83026518 and diagnostic82F99D98 are mutable guest boundaries. Full selected GPR/CR0/1/6/7/SO/CA/SP/LR/CTR and ordinary RAM; faults, unwind, access width, MMIO, concurrency and runtime open.",
+  "families": [
+    {
+      "name": "legacy-descriptor-cursor-routes",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/legacy_descriptor_cursor_routes_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_descriptor_cursor_routes_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_8302B2F8);\n#define sub_8302B2F8(c,b) __imp__sub_8302B2F8(c,b)\nextern \"C\" PPC_FUNC(__imp__sub_8302B5C8);\n#define sub_8302B5C8(c,b) __imp__sub_8302B5C8(c,b)\nextern \"C\" PPC_FUNC(__imp__sub_8302B620);\n#define sub_8302B620(c,b) __imp__sub_8302B620(c,b)\nextern \"C\" PPC_FUNC(__imp__sub_83053770);\n#define sub_83053770(c,b) __imp__sub_83053770(c,b)\nextern \"C\" PPC_FUNC(__imp__sub_82F99F48);\n#define sub_82F99F48(c,b) __imp__sub_82F99F48(c,b)\nextern \"C\" PPC_FUNC(__imp__sub_82B7A0B0);\n#define sub_82B7A0B0(c,b) __imp__sub_82B7A0B0(c,b)\nvoid OriginalSave28(PPCContext&,std::uint8_t*);\nvoid OriginalRestore28(PPCContext&,std::uint8_t*);\n#define __savegprlr_28(c,b) OriginalSave28(c,b)\n#define __restgprlr_28(c,b) OriginalRestore28(c,b)\nvoid OriginalBoundary(std::uint32_t,PPCContext&,std::uint8_t*);\n#define sub_83028FE0(c,b) OriginalBoundary(0x83028fe0u,c,b)\n#define sub_83026518(c,b) OriginalBoundary(0x83026518u,c,b)\n#define sub_82F99D98(c,b) OriginalBoundary(0x82f99d98u,c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_descriptor_cursor_routes.cpp",
+        "LostOdysseyRecompSemantics/src/memory_copy_context.cpp"
+      ]
+    }
+  ]
+}

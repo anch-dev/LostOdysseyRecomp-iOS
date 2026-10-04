@@ -1,0 +1,102 @@
+{
+  "schema": "heap-block-query-context-draft-v1",
+  "implementation": {
+    "header": "include/lo_semantics/heap_block_query_context.h",
+    "source": "src/heap_block_query_context.cpp",
+    "oracle": "tests/heap_block_query_context_oracle.cpp",
+    "scope": "Complete selected 827CC218 allocation usable-size query."
+  },
+  "validation": {
+    "status": "passed",
+    "planned_cases": 4,
+    "runtime_validated": false,
+    "complete": false,
+    "mapping_credit_entries": [],
+    "selected_state": "all 32 GPR, CR0/CR6, XER SO/CA, LR/CTR and committed RAM",
+    "scope": "Four actual PPC cases: invalid header, regular allocation, large-header allocation and matched process guard. Native process type and bug-check imports modeled; mismatched bug-check, other CR fields, faults, MMIO, concurrency and runtime untested.",
+    "focused_original_ppc_cases": 4,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-ready-multi-batch-tests/heap-block-query-context-result.json",
+    "library": "Windows-native /W4 /WX MT static library passed",
+    "mapping_credit": 1,
+    "original_body_pin": "recovery_drafts/heap_block_query_context_validation.json"
+  },
+  "entries": [
+    {
+      "address": "827CC218",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.76.cpp",
+      "source_line": 2472,
+      "instruction_count": 42,
+      "instructions": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r30,-24(r1)",
+        "std r31,-16(r1)",
+        "stwu r1,-112(r1)",
+        "mr r30,r3",
+        "mr r31,r5",
+        "lwz r11,20(r30)",
+        "rlwinm. r11,r11,0,13,13",
+        "beq 0x827cc268",
+        "bl 0x830da07c",
+        "lbz r11,379(r30)",
+        "cmpw cr6,r11,r3",
+        "beq cr6,0x827cc268",
+        "mr r7,r31",
+        "lwz r5,104(r1)",
+        "li r6,5140",
+        "mr r4,r30",
+        "li r3,244",
+        "bl 0x830da06c",
+        "lbz r11,-11(r31)",
+        "clrlwi. r10,r11,31",
+        "bne 0x827cc27c",
+        "li r3,-1",
+        "b 0x827cc2a8",
+        "rlwinm. r11,r11,0,28,28",
+        "beq 0x827cc298",
+        "lhz r11,-16(r31)",
+        "lwz r10,-24(r31)",
+        "subf r11,r11,r10",
+        "addi r3,r11,-48",
+        "b 0x827cc2a8",
+        "lhz r11,-16(r31)",
+        "lbz r10,-10(r31)",
+        "rotlwi r11,r11,4",
+        "subf r3,r10,r11",
+        "addi r1,r1,112",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "ld r30,-24(r1)",
+        "ld r31,-16(r1)",
+        "blr"
+      ],
+      "cfg": {
+        "labels": [
+          "827CC268",
+          "827CC27C",
+          "827CC298",
+          "827CC2A8"
+        ],
+        "branches": [
+          "beq 0x827cc268",
+          "bl 0x830da07c",
+          "beq cr6,0x827cc268",
+          "bl 0x830da06c",
+          "bne 0x827cc27c",
+          "b 0x827cc2a8",
+          "beq 0x827cc298",
+          "b 0x827cc2a8",
+          "blr"
+        ]
+      },
+      "direct_calls": [],
+      "native_calls": [
+        "KeGetCurrentProcessType",
+        "KeBugCheckEx"
+      ],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_827CC218) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// std r30,-24(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -24, ctx.r30.u64);\n\t// std r31,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// mr r30,r3\n\tctx.r30.u64 = ctx.r3.u64;\n\t// mr r31,r5\n\tctx.r31.u64 = ctx.r5.u64;\n\t// lwz r11,20(r30)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r30.u32 + 20);\n\t// rlwinm. r11,r11,0,13,13\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 0) & 0x40000;\n\tctx.cr0.compare<int32_t>(ctx.r11.s32, 0, ctx.xer);\n\t// beq 0x827cc268\n\tif (ctx.cr0.eq) goto loc_827CC268;\n\t// bl 0x830da07c\n\tctx.lr = 0x827CC244;\n\t__imp__KeGetCurrentProcessType(ctx, base);\n\t// lbz r11,379(r30)\n\tctx.r11.u64 = PPC_LOAD_U8(ctx.r30.u32 + 379);\n\t// cmpw cr6,r11,r3\n\tctx.cr6.compare<int32_t>(ctx.r11.s32, ctx.r3.s32, ctx.xer);\n\t// beq cr6,0x827cc268\n\tif (ctx.cr6.eq) goto loc_827CC268;\n\t// mr r7,r31\n\tctx.r7.u64 = ctx.r31.u64;\n\t// lwz r5,104(r1)\n\tctx.r5.u64 = PPC_LOAD_U32(ctx.r1.u32 + 104);\n\t// li r6,5140\n\tctx.r6.s64 = 5140;\n\t// mr r4,r30\n\tctx.r4.u64 = ctx.r30.u64;\n\t// li r3,244\n\tctx.r3.s64 = 244;\n\t// bl 0x830da06c\n\tctx.lr = 0x827CC268;\n\t__imp__KeBugCheckEx(ctx, base);\nloc_827CC268:\n\t// lbz r11,-11(r31)\n\tctx.r11.u64 = PPC_LOAD_U8(ctx.r31.u32 + -11);\n\t// clrlwi. r10,r11,31\n\tctx.r10.u64 = ctx.r11.u32 & 0x1;\n\tctx.cr0.compare<int32_t>(ctx.r10.s32, 0, ctx.xer);\n\t// bne 0x827cc27c\n\tif (!ctx.cr0.eq) goto loc_827CC27C;\n\t// li r3,-1\n\tctx.r3.s64 = -1;\n\t// b 0x827cc2a8\n\tgoto loc_827CC2A8;\nloc_827CC27C:\n\t// rlwinm. r11,r11,0,28,28\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r11.u32 | (ctx.r11.u64 << 32), 0) & 0x8;\n\tctx.cr0.compare<int32_t>(ctx.r11.s32, 0, ctx.xer);\n\t// beq 0x827cc298\n\tif (ctx.cr0.eq) goto loc_827CC298;\n\t// lhz r11,-16(r31)\n\tctx.r11.u64 = PPC_LOAD_U16(ctx.r31.u32 + -16);\n\t// lwz r10,-24(r31)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r31.u32 + -24);\n\t// subf r11,r11,r10\n\tctx.r11.s64 = ctx.r10.s64 - ctx.r11.s64;\n\t// addi r3,r11,-48\n\tctx.r3.s64 = ctx.r11.s64 + -48;\n\t// b 0x827cc2a8\n\tgoto loc_827CC2A8;\nloc_827CC298:\n\t// lhz r11,-16(r31)\n\tctx.r11.u64 = PPC_LOAD_U16(ctx.r31.u32 + -16);\n\t// lbz r10,-10(r31)\n\tctx.r10.u64 = PPC_LOAD_U8(ctx.r31.u32 + -10);\n\t// rotlwi r11,r11,4\n\tctx.r11.u64 = __builtin_rotateleft32(ctx.r11.u32, 4);\n\t// subf r3,r10,r11\n\tctx.r3.s64 = ctx.r11.s64 - ctx.r10.s64;\nloc_827CC2A8:\n\t// addi r1,r1,112\n\tctx.r1.s64 = ctx.r1.s64 + 112;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// ld r30,-24(r1)\n\tctx.r30.u64 = PPC_LOAD_U64(ctx.r1.u32 + -24);\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}",
+      "status": "original_ppc_validated"
+    }
+  ],
+  "scope": "Draft complete selected 827CC218 block-size query; four actual PPC focused cases."
+}

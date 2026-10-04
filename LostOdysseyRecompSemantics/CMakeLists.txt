@@ -28,6 +28,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/heap_growth_lower_context.cpp
     src/heap_grow_full_chain.cpp
     src/heap_destroy_context.cpp
+    src/heap_block_query_context.cpp
     src/allocation_failure.cpp
     src/crt_thread_data.cpp
     src/crt_last_error.cpp
@@ -101,6 +102,8 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/legacy_descriptor_attachment_callers.cpp
     src/legacy_descriptor_owner_pool_callers.cpp
     src/legacy_descriptor_recursive_copy.cpp
+    src/legacy_descriptor_cursor_routes.cpp
+    src/legacy_descriptor_recursive_copy_caller.cpp
     src/legacy_utf16_line_token_number.cpp
     src/legacy_config_command_dispatch.cpp
     src/legacy_config_command_name_chain.cpp
@@ -139,6 +142,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/object_curve_node_record_update.cpp
     src/object_curve_owner_node_record_update.cpp
     src/object_curve_owner_vector_record.cpp
+    src/object_curve_owner_record_write.cpp
     src/object_curve_sample.cpp
     src/crt_allocation.cpp
     src/crt_free_context.cpp

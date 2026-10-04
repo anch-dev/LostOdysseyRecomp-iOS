@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Draft complete selected 827CC218 block-size query; four actual PPC focused cases.",
+  "families": [
+    {
+      "name": "heap-block-query-context",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/heap_block_query_context_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/heap_block_query_context_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nvoid OriginalNative(std::uint32_t,PPCContext&,std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_827CC218);\n#define __imp__KeGetCurrentProcessType(c,b) OriginalNative(0x830DA07Cu,c,b)\n#define __imp__KeBugCheckEx(c,b) OriginalNative(0x830DA06Cu,c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/heap_block_query_context.cpp"
+      ]
+    }
+  ]
+}
