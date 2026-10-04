@@ -1,0 +1,111 @@
+{
+  "schema": "legacy-config-format-dispatch-draft-v1",
+  "entries": [
+    {
+      "address": "824790A8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.23.cpp",
+      "source_line": 19232,
+      "instruction_count": 55,
+      "instructions": [
+        "mflr r12",
+        "bl 0x82b7a6e4",
+        "std r5,32(r1)",
+        "std r6,40(r1)",
+        "std r7,48(r1)",
+        "std r8,56(r1)",
+        "std r9,64(r1)",
+        "std r10,72(r1)",
+        "stwu r1,-144(r1)",
+        "lis r11,-31964",
+        "mr r27,r3",
+        "mr r28,r4",
+        "lwz r11,25184(r11)",
+        "cmpwi cr6,r11,0",
+        "beq cr6,0x82479108",
+        "lis r11,-31945",
+        "li r12,1",
+        "rldicr r12,r12,44,63",
+        "lwz r11,-28464(r11)",
+        "lwz r11,3040(r11)",
+        "ld r11,4(r11)",
+        "and r11,r11,r12",
+        "cmpldi cr6,r11,0",
+        "bne cr6,0x8247917c",
+        "li r30,1024",
+        "li r31,0",
+        "rlwinm r29,r30,1,0,30",
+        "mr r3,r31",
+        "mr r4,r29",
+        "bl 0x823acad8",
+        "addi r11,r1,80",
+        "addi r10,r1,176",
+        "mr r5,r28",
+        "addi r4,r30,-1",
+        "mr r31,r3",
+        "stw r10,0(r11)",
+        "lwz r6,80(r1)",
+        "bl 0x82b7d158",
+        "mr r30,r29",
+        "cmpwi cr6,r3,-1",
+        "beq cr6,0x82479110",
+        "rlwinm r11,r3,1,0,30",
+        "li r10,0",
+        "li r5,760",
+        "mr r4,r31",
+        "mr r3,r27",
+        "sthx r10,r11,r31",
+        "lwz r11,0(r27)",
+        "lwz r11,4(r11)",
+        "mtctr r11",
+        "bctrl",
+        "mr r3,r31",
+        "bl 0x823addc0",
+        "addi r1,r1,144",
+        "b 0x82b7a734"
+      ],
+      "cfg": {
+        "labels": [
+          "82479108",
+          "82479110",
+          "8247917C"
+        ],
+        "branches": [
+          "bl 0x82b7a6e4",
+          "beq cr6,0x82479108",
+          "bne cr6,0x8247917c",
+          "bl 0x823acad8",
+          "bl 0x82b7d158",
+          "beq cr6,0x82479110",
+          "bl 0x823addc0",
+          "b 0x82b7a734"
+        ]
+      },
+      "direct_calls": [
+        "823ACAD8",
+        "82B7D158",
+        "823ADDC0"
+      ],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_824790A8) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// bl 0x82b7a6e4\n\tctx.lr = 0x824790B0;\n\t__savegprlr_27(ctx, base);\n\t// std r5,32(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + 32, ctx.r5.u64);\n\t// std r6,40(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + 40, ctx.r6.u64);\n\t// std r7,48(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + 48, ctx.r7.u64);\n\t// std r8,56(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + 56, ctx.r8.u64);\n\t// std r9,64(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + 64, ctx.r9.u64);\n\t// std r10,72(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + 72, ctx.r10.u64);\n\t// stwu r1,-144(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-144);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// lis r11,-31964\n\tctx.r11.s64 = -2094792704;\n\t// mr r27,r3\n\tctx.r27.u64 = ctx.r3.u64;\n\t// mr r28,r4\n\tctx.r28.u64 = ctx.r4.u64;\n\t// lwz r11,25184(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 25184);\n\t// cmpwi cr6,r11,0\n\tctx.cr6.compare<int32_t>(ctx.r11.s32, 0, ctx.xer);\n\t// beq cr6,0x82479108\n\tif (ctx.cr6.eq) goto loc_82479108;\n\t// lis r11,-31945\n\tctx.r11.s64 = -2093547520;\n\t// li r12,1\n\tctx.r12.s64 = 1;\n\t// rldicr r12,r12,44,63\n\tctx.r12.u64 = __builtin_rotateleft64(ctx.r12.u64, 44) & 0xFFFFFFFFFFFFFFFF;\n\t// lwz r11,-28464(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + -28464);\n\t// lwz r11,3040(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 3040);\n\t// ld r11,4(r11)\n\tctx.r11.u64 = PPC_LOAD_U64(ctx.r11.u32 + 4);\n\t// and r11,r11,r12\n\tctx.r11.u64 = ctx.r11.u64 & ctx.r12.u64;\n\t// cmpldi cr6,r11,0\n\tctx.cr6.compare<uint64_t>(ctx.r11.u64, 0, ctx.xer);\n\t// bne cr6,0x8247917c\n\tif (!ctx.cr6.eq) goto loc_8247917C;\nloc_82479108:\n\t// li r30,1024\n\tctx.r30.s64 = 1024;\n\t// li r31,0\n\tctx.r31.s64 = 0;\nloc_82479110:\n\t// rlwinm r29,r30,1,0,30\n\tctx.r29.u64 = __builtin_rotateleft64(ctx.r30.u32 | (ctx.r30.u64 << 32), 1) & 0xFFFFFFFE;\n\t// mr r3,r31\n\tctx.r3.u64 = ctx.r31.u64;\n\t// mr r4,r29\n\tctx.r4.u64 = ctx.r29.u64;\n\t// bl 0x823acad8\n\tctx.lr = 0x82479120;\n\tsub_823ACAD8(ctx, base);\n\t// addi r11,r1,80\n\tctx.r11.s64 = ctx.r1.s64 + 80;\n\t// addi r10,r1,176\n\tctx.r10.s64 = ctx.r1.s64 + 176;\n\t// mr r5,r28\n\tctx.r5.u64 = ctx.r28.u64;\n\t// addi r4,r30,-1\n\tctx.r4.s64 = ctx.r30.s64 + -1;\n\t// mr r31,r3\n\tctx.r31.u64 = ctx.r3.u64;\n\t// stw r10,0(r11)\n\tPPC_STORE_U32(ctx.r11.u32 + 0, ctx.r10.u32);\n\t// lwz r6,80(r1)\n\tctx.r6.u64 = PPC_LOAD_U32(ctx.r1.u32 + 80);\n\t// bl 0x82b7d158\n\tctx.lr = 0x82479140;\n\tsub_82B7D158(ctx, base);\n\t// mr r30,r29\n\tctx.r30.u64 = ctx.r29.u64;\n\t// cmpwi cr6,r3,-1\n\tctx.cr6.compare<int32_t>(ctx.r3.s32, -1, ctx.xer);\n\t// beq cr6,0x82479110\n\tif (ctx.cr6.eq) goto loc_82479110;\n\t// rlwinm r11,r3,1,0,30\n\tctx.r11.u64 = __builtin_rotateleft64(ctx.r3.u32 | (ctx.r3.u64 << 32), 1) & 0xFFFFFFFE;\n\t// li r10,0\n\tctx.r10.s64 = 0;\n\t// li r5,760\n\tctx.r5.s64 = 760;\n\t// mr r4,r31\n\tctx.r4.u64 = ctx.r31.u64;\n\t// mr r3,r27\n\tctx.r3.u64 = ctx.r27.u64;\n\t// sthx r10,r11,r31\n\tPPC_STORE_U16(ctx.r11.u32 + ctx.r31.u32, ctx.r10.u16);\n\t// lwz r11,0(r27)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r27.u32 + 0);\n\t// lwz r11,4(r11)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r11.u32 + 4);\n\t// mtctr r11\n\tctx.ctr.u64 = ctx.r11.u64;\n\t// bctrl \n\tctx.lr = 0x82479174;\n\tPPC_CALL_INDIRECT_FUNC(ctx.ctr.u32 & ~3u);\n\t// mr r3,r31\n\tctx.r3.u64 = ctx.r31.u64;\n\t// bl 0x823addc0\n\tctx.lr = 0x8247917C;\n\tsub_823ADDC0(ctx, base);\nloc_8247917C:\n\t// addi r1,r1,144\n\tctx.r1.s64 = ctx.r1.s64 + 144;\n\t// b 0x82b7a734\n\t__restgprlr_27(ctx, base);\n\treturn;\n}\n",
+      "status": "original_ppc_validated"
+    }
+  ],
+  "implementation": {
+    "header": "include/lo_semantics/legacy_config_format_dispatch.h",
+    "source": "src/legacy_config_format_dispatch.cpp",
+    "oracle": "tests/legacy_config_format_dispatch_oracle.cpp",
+    "selected_heap_context": "src/legacy_config_format_heap_context.cpp"
+  },
+  "validation": {
+    "status": "passed",
+    "planned_cases": 4,
+    "runtime_validated": false,
+    "focused_original_ppc_cases": 4,
+    "mapping_credit": 1,
+    "complete": false,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-legacy-config-format-dispatch-tests/legacy-config-format-dispatch-result.json",
+    "library": "Windows-native /W4 /WX MT static library passed",
+    "original_body_pin": "recovery_drafts/legacy_config_format_dispatch_validation.json",
+    "unvalidated_scope": "Retry resize and other heap ABI branches, exceptional FP, unexposed PPCContext fields, dynamic target/native free implementation, faults, MMIO, concurrency and runtime."
+  },
+  "scope": "Complete 824790A8 55-instruction caller. Four focused cases cover literal, decimal integer, empty text and blocked gate; real 10 PPC bodies and accepted deeper formatter semantics, mutable heap-free/dynamic target boundaries. Actual raw-allocation selected context and exact-size large-list heap/cleanup frame bridge; other heap paths retain their typed lower ABI boundary. Full selected GPR/CR0/CR6/XER/SP/LR/CTR, events and ordinary RAM compared. Retry resize, other heap branches, exceptional FP, unexposed PPCContext state, faults, MMIO, concurrency and runtime remain open."
+}
