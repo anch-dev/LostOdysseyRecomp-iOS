@@ -1,10 +1,10 @@
 {
   "schema": "semantic-recovery-batch-v1",
-  "scope": "Three actual TLS initialization and thread-error PPC bodies, six focused cases; system TLS remains mutable native boundary.",
+  "scope": "One new TLS initialization entry and two previously mapped setter/tail entries, actual three-body validation, six cases.",
   "families": [
     {
       "name": "crt-thread-error-routes",
-      "manifest": "LostOdysseyRecompSemantics/crt_thread_error_routes_families.json",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/crt_thread_error_routes_validation.json",
       "harness": "LostOdysseyRecompSemantics/tests/crt_thread_error_routes_oracle.cpp",
       "prelude": "#include \"ppc_context.h\"\nvoid OriginalTlsGet(PPCContext&,std::uint8_t*);\nvoid OriginalTlsSet(PPCContext&,std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_822CA188);\n#define __imp__KeTlsGetValue(c,b) OriginalTlsGet(c,b)\n#define __imp__KeTlsSetValue(c,b) OriginalTlsSet(c,b)\n#define sub_822CA188(c,b) __imp__sub_822CA188(c,b)\n",
       "sources": [
