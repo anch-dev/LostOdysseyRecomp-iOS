@@ -114,6 +114,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/crt_stream_open_routes_context.cpp
     src/crt_stream_position_routes.cpp
     src/crt_stream_open_pipeline.cpp
+    src/crt_record_allocation_context.cpp
     src/crt_stream_shutdown_sweep.cpp
     src/crt_stream_flush_context.cpp
     src/crt_utf8_conversion_routes.cpp

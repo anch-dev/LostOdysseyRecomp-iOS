@@ -3192,6 +3192,18 @@
           "boundary": "AllocationFailureServices::CallNewHandler",
           "status": "opaque"
         }
+      ],
+      "validation_extensions": [
+        {
+          "name": "crt_record_allocation_context",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 5,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-record-allocation-context-fixture-fix-tests/crt-record-allocation-context-result.json",
+          "original_body_pin": "recovery_drafts/crt_record_allocation_context_validation.json",
+          "implementation": "src/crt_record_allocation_context.cpp",
+          "scope": "Validation-only selected-context 82B81778/82B816A0/82B7FE68 linked to actual 823ACC98/823ACCB0/823AD544 PPC bodies. All six addresses already mapped; no new entry credit. Accepted FD78/FEC0 and heap service boundaries remain explicit."
+        }
       ]
     },
     {
@@ -3392,6 +3404,18 @@
           "boundary": "CrtAllocationServices::ReportInvalidParameter",
           "status": "implementation_available"
         }
+      ],
+      "validation_extensions": [
+        {
+          "name": "crt_record_allocation_context",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 5,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-record-allocation-context-fixture-fix-tests/crt-record-allocation-context-result.json",
+          "original_body_pin": "recovery_drafts/crt_record_allocation_context_validation.json",
+          "implementation": "src/crt_record_allocation_context.cpp",
+          "scope": "Validation-only selected-context 82B81778/82B816A0/82B7FE68 linked to actual 823ACC98/823ACCB0/823AD544 PPC bodies. All six addresses already mapped; no new entry credit. Accepted FD78/FEC0 and heap service boundaries remain explicit."
+        }
       ]
     },
     {
@@ -3436,6 +3460,18 @@
           "address": "82B7FD78",
           "boundary": "GetAllocationErrorAddress",
           "status": "implementation_available"
+        }
+      ],
+      "validation_extensions": [
+        {
+          "name": "crt_record_allocation_context",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 5,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-record-allocation-context-fixture-fix-tests/crt-record-allocation-context-result.json",
+          "original_body_pin": "recovery_drafts/crt_record_allocation_context_validation.json",
+          "implementation": "src/crt_record_allocation_context.cpp",
+          "scope": "Validation-only selected-context 82B81778/82B816A0/82B7FE68 linked to actual 823ACC98/823ACCB0/823AD544 PPC bodies. All six addresses already mapped; no new entry credit. Accepted FD78/FEC0 and heap service boundaries remain explicit."
         }
       ]
     },
