@@ -57,7 +57,10 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/object_ring_dispatch.cpp
     src/object_float_record.cpp
     src/object_pointer_routes.cpp
+    src/object_registration_post.cpp
     src/legacy_token_float_cursor.cpp
+    src/legacy_float_parse_routes.cpp
+    src/legacy_float_binary_conversion.cpp
     src/crt_allocation.cpp
     src/crt_reallocate.cpp
     src/invalid_parameter.cpp

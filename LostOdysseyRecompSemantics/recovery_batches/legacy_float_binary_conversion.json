@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Full 822981C8 12-byte legacy float to binary64 conversion, seven focused PPC cases.",
+  "families": [
+    {
+      "name": "legacy-float-binary-conversion",
+      "manifest": "LostOdysseyRecompSemantics/legacy_float_binary_conversion_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_float_binary_conversion_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\nvoid OriginalSave(PPCContext&,std::uint8_t*);\nvoid OriginalRestore(PPCContext&,std::uint8_t*);\n#define __savegprlr_19(c,b) OriginalSave(c,b)\n#define __restgprlr_19(c,b) OriginalRestore(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_float_binary_conversion.cpp"
+      ]
+    }
+  ]
+}

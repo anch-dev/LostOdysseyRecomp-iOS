@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Two new parser-routing PPC bodies plus accepted 822974B0/82296830 direct lower bodies and exact 27-register ABI helpers; 822975B0/822981C8 are explicit guest PPC boundaries.",
+  "families": [
+    {
+      "name": "legacy-float-parse-routes",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/legacy_float_parse_routes_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_float_parse_routes_oracle.cpp",
+      "prelude": "extern \"C\" PPC_FUNC(__imp__sub_822974F8);\nextern \"C\" PPC_FUNC(__imp__sub_822974B0);\nextern \"C\" PPC_FUNC(__imp__sub_82296830);\nextern \"C\" PPC_FUNC(__imp____savegprlr_27);\nextern \"C\" PPC_FUNC(__imp____restgprlr_27);\nvoid LegacyRouteParseBoundary(PPCContext&, std::uint8_t*);\nvoid LegacyRouteClassifyBoundary(PPCContext&, std::uint8_t*);\nvoid LegacyRouteInvalidArgument(PPCContext&, std::uint8_t*);\nvoid LegacyRouteInvalidParameter(PPCContext&, std::uint8_t*);\n#define sub_822974F8(c,b) __imp__sub_822974F8(c,b)\n#define sub_822974B0(c,b) __imp__sub_822974B0(c,b)\n#define sub_82296830(c,b) __imp__sub_82296830(c,b)\n#define sub_822975B0(c,b) LegacyRouteParseBoundary(c,b)\n#define sub_822981C8(c,b) LegacyRouteClassifyBoundary(c,b)\n#define sub_82B7FD78(c,b) LegacyRouteInvalidArgument(c,b)\n#define sub_82B7FEC0(c,b) LegacyRouteInvalidParameter(c,b)\n#define __savegprlr_27(c,b) __imp____savegprlr_27(c,b)\n#define __restgprlr_27(c,b) __imp____restgprlr_27(c,b)\nPPC_FUNC_IMPL(__imp____savegprlr_27) {\n\tPPC_FUNC_PROLOGUE();\n\t// std r27,-48(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -48, ctx.r27.u64);\n\t// std r28,-40(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -40, ctx.r28.u64);\n\t// std r29,-32(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -32, ctx.r29.u64);\n\t// std r30,-24(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -24, ctx.r30.u64);\n\t// std r31,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// blr \n\treturn;\n}\n\nPPC_FUNC_IMPL(__imp____restgprlr_27) {\n\tPPC_FUNC_PROLOGUE();\n\t// ld r27,-48(r1)\n\tctx.r27.u64 = PPC_LOAD_U64(ctx.r1.u32 + -48);\n\t// ld r28,-40(r1)\n\tctx.r28.u64 = PPC_LOAD_U64(ctx.r1.u32 + -40);\n\t// ld r29,-32(r1)\n\tctx.r29.u64 = PPC_LOAD_U64(ctx.r1.u32 + -32);\n\t// ld r30,-24(r1)\n\tctx.r30.u64 = PPC_LOAD_U64(ctx.r1.u32 + -24);\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// blr \n\treturn;\n}\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_float_parse_routes.cpp"
+      ]
+    }
+  ]
+}
