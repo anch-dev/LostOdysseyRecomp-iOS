@@ -1,0 +1,22 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Full 82295EE0 line scanner and 822988E0 named-number caller, with actual accepted 82297390/82296830/82296858/82376F98/82B7D688/82B7D3E0/82376FA8/822974B0 PPC bodies. CRT thread and invalid helper boundaries are unselected.",
+  "families": [
+    {
+      "name": "legacy-utf16-line-token-number",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/legacy_utf16_line_token_number_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_utf16_line_token_number_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\nvoid OriginalSave23(PPCContext&, std::uint8_t*);\nvoid OriginalRestore23(PPCContext&, std::uint8_t*);\nvoid OriginalSave25(PPCContext&, std::uint8_t*);\nvoid OriginalRestore25(PPCContext&, std::uint8_t*);\nvoid OriginalSave29(PPCContext&, std::uint8_t*);\nvoid OriginalRestore29(PPCContext&, std::uint8_t*);\nvoid OriginalInvalidArgument(PPCContext&, std::uint8_t*);\nvoid OriginalInvalidParameter(PPCContext&, std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_82297390);\nextern \"C\" PPC_FUNC(__imp__sub_82296830);\nextern \"C\" PPC_FUNC(__imp__sub_82296858);\nextern \"C\" PPC_FUNC(__imp__sub_82376F98);\nextern \"C\" PPC_FUNC(__imp__sub_82B7D688);\nextern \"C\" PPC_FUNC(__imp__sub_82B7D3E0);\nextern \"C\" PPC_FUNC(__imp__sub_82376FA8);\nextern \"C\" PPC_FUNC(__imp__sub_822974B0);\n#define __savegprlr_23(c,b) OriginalSave23(c,b)\n#define __restgprlr_23(c,b) OriginalRestore23(c,b)\n#define __savegprlr_25(c,b) OriginalSave25(c,b)\n#define __restgprlr_25(c,b) OriginalRestore25(c,b)\n#define __savegprlr_29(c,b) OriginalSave29(c,b)\n#define __restgprlr_29(c,b) OriginalRestore29(c,b)\n#define sub_82297390(c,b) __imp__sub_82297390(c,b)\n#define sub_82296830(c,b) __imp__sub_82296830(c,b)\n#define sub_82296858(c,b) __imp__sub_82296858(c,b)\n#define sub_82376F98(c,b) __imp__sub_82376F98(c,b)\n#define sub_82B7D688(c,b) __imp__sub_82B7D688(c,b)\n#define sub_82B7D3E0(c,b) __imp__sub_82B7D3E0(c,b)\n#define sub_82376FA8(c,b) __imp__sub_82376FA8(c,b)\n#define sub_822974B0(c,b) __imp__sub_822974B0(c,b)\n#define sub_82B7FD78(c,b) OriginalInvalidArgument(c,b)\n#define sub_82B7FEC0(c,b) OriginalInvalidParameter(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_utf16_line_token_number.cpp",
+        "LostOdysseyRecompSemantics/src/metadata_option_match.cpp",
+        "LostOdysseyRecompSemantics/src/registered_metadata_string.cpp",
+        "LostOdysseyRecompSemantics/src/manager_metadata_parsing.cpp",
+        "LostOdysseyRecompSemantics/src/manager_object_registration.cpp",
+        "LostOdysseyRecompSemantics/src/allocation_failure.cpp",
+        "LostOdysseyRecompSemantics/src/crt_thread_data.cpp",
+        "LostOdysseyRecompSemantics/src/invalid_parameter.cpp"
+      ]
+    }
+  ]
+}
