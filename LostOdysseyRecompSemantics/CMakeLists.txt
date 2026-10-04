@@ -136,6 +136,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/object_curve_owner_record_displacement.cpp
     src/object_curve_node_record_update.cpp
     src/object_curve_owner_node_record_update.cpp
+    src/object_curve_owner_vector_record.cpp
     src/object_curve_sample.cpp
     src/crt_allocation.cpp
     src/crt_free_context.cpp
