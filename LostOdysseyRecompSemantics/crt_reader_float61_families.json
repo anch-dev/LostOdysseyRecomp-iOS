@@ -1,0 +1,64 @@
+{
+  "schema": "semantic-recovery-draft-v1",
+  "scope": "Complete float append with FPR31 save/restore, mutable recursive guest allocation, and live host FP flush/rounding control. Windows x64 FP control semantics; native ABI faults MMIO concurrency ARM/runtime unvalidated; zero runtime replacements.",
+  "entries": [
+    {
+      "address": "82BD10D8",
+      "source": "LostOdysseyRecompLib/ppc/ppc_recomp.181.cpp",
+      "source_line": 3961,
+      "instruction_count": 33,
+      "instructions": [
+        "mflr r12",
+        "stw r12,-8(r1)",
+        "std r31,-16(r1)",
+        "stfd f31,-24(r1)",
+        "stwu r1,-112(r1)",
+        "mr r31,r3",
+        "fmr f31,f1",
+        "bl 0x82bd0c18",
+        "lwz r4,0(r3)",
+        "lwz r11,4(r4)",
+        "lwz r10,8(r4)",
+        "addi r11,r11,4",
+        "cmplw cr6,r11,r10",
+        "ble cr6,0x82bd1118",
+        "li r5,0",
+        "bl 0x82bd07d8",
+        "lwz r11,0(r31)",
+        "mr r3,r31",
+        "lwz r9,4(r11)",
+        "lwz r10,0(r11)",
+        "add r10,r10,r9",
+        "stw r10,16(r31)",
+        "lwz r10,4(r11)",
+        "addi r10,r10,4",
+        "stw r10,4(r11)",
+        "lwz r11,16(r31)",
+        "stfs f31,0(r11)",
+        "addi r1,r1,112",
+        "lwz r12,-8(r1)",
+        "mtlr r12",
+        "lfd f31,-24(r1)",
+        "ld r31,-16(r1)",
+        "blr "
+      ],
+      "translated_body": "PPC_FUNC_IMPL(__imp__sub_82BD10D8) {\n\tPPC_FUNC_PROLOGUE();\n\tPPCRegister temp{};\n\t// mflr r12\n\tctx.r12.u64 = ctx.lr;\n\t// stw r12,-8(r1)\n\tPPC_STORE_U32(ctx.r1.u32 + -8, ctx.r12.u32);\n\t// std r31,-16(r1)\n\tPPC_STORE_U64(ctx.r1.u32 + -16, ctx.r31.u64);\n\t// stfd f31,-24(r1)\n\tctx.fpscr.disableFlushMode();\n\tPPC_STORE_U64(ctx.r1.u32 + -24, ctx.f31.u64);\n\t// stwu r1,-112(r1)\n\ttemp.u64 = ctx.r1.u64 + uint64_t(-112);\n\tPPC_STORE_U32(temp.u32, ctx.r1.u32);\n\tctx.r1.u64 = temp.u64;\n\t// mr r31,r3\n\tctx.r31.u64 = ctx.r3.u64;\n\t// fmr f31,f1\n\tctx.f31.f64 = ctx.f1.f64;\n\t// bl 0x82bd0c18\n\tctx.lr = 0x82BD10F8;\n\tsub_82BD0C18(ctx, base);\n\t// lwz r4,0(r3)\n\tctx.r4.u64 = PPC_LOAD_U32(ctx.r3.u32 + 0);\n\t// lwz r11,4(r4)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r4.u32 + 4);\n\t// lwz r10,8(r4)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r4.u32 + 8);\n\t// addi r11,r11,4\n\tctx.r11.s64 = ctx.r11.s64 + 4;\n\t// cmplw cr6,r11,r10\n\tctx.cr6.compare<uint32_t>(ctx.r11.u32, ctx.r10.u32, ctx.xer);\n\t// ble cr6,0x82bd1118\n\tif (!ctx.cr6.gt) goto loc_82BD1118;\n\t// li r5,0\n\tctx.r5.s64 = 0;\n\t// bl 0x82bd07d8\n\tctx.lr = 0x82BD1118;\n\tsub_82BD07D8(ctx, base);\nloc_82BD1118:\n\t// lwz r11,0(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + 0);\n\t// mr r3,r31\n\tctx.r3.u64 = ctx.r31.u64;\n\t// lwz r9,4(r11)\n\tctx.r9.u64 = PPC_LOAD_U32(ctx.r11.u32 + 4);\n\t// lwz r10,0(r11)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 0);\n\t// add r10,r10,r9\n\tctx.r10.u64 = ctx.r10.u64 + ctx.r9.u64;\n\t// stw r10,16(r31)\n\tPPC_STORE_U32(ctx.r31.u32 + 16, ctx.r10.u32);\n\t// lwz r10,4(r11)\n\tctx.r10.u64 = PPC_LOAD_U32(ctx.r11.u32 + 4);\n\t// addi r10,r10,4\n\tctx.r10.s64 = ctx.r10.s64 + 4;\n\t// stw r10,4(r11)\n\tPPC_STORE_U32(ctx.r11.u32 + 4, ctx.r10.u32);\n\t// lwz r11,16(r31)\n\tctx.r11.u64 = PPC_LOAD_U32(ctx.r31.u32 + 16);\n\t// stfs f31,0(r11)\n\tctx.fpscr.disableFlushMode();\n\ttemp.f32 = float(ctx.f31.f64);\n\tPPC_STORE_U32(ctx.r11.u32 + 0, temp.u32);\n\t// addi r1,r1,112\n\tctx.r1.s64 = ctx.r1.s64 + 112;\n\t// lwz r12,-8(r1)\n\tctx.r12.u64 = PPC_LOAD_U32(ctx.r1.u32 + -8);\n\t// mtlr r12\n\tctx.lr = ctx.r12.u64;\n\t// lfd f31,-24(r1)\n\tctx.f31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -24);\n\t// ld r31,-16(r1)\n\tctx.r31.u64 = PPC_LOAD_U64(ctx.r1.u32 + -16);\n\t// blr \n\treturn;\n}",
+      "status": "original_ppc_validated"
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "complete": false,
+    "runtime_validated": false,
+    "focused_original_ppc_cases": 2,
+    "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-float-output61-adl-fix-tests/crt-reader-float61-result.json",
+    "library": "Windows-native /W4 /WX MT static library passed",
+    "mapping_credit": 1,
+    "original_body_pin": "recovery_drafts/crt_reader_float61_validation.json"
+  },
+  "implementation": {
+    "header": "include/lo_semantics/crt_reader_float61.h",
+    "source": "src/crt_reader_float61.cpp",
+    "oracle": "tests/crt_reader_float61_oracle.cpp"
+  }
+}

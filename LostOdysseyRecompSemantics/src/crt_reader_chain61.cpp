@@ -821,4 +821,16 @@ bool Apply(GuestAddress entry,GuestMemory& memory,Dependencies dependencies,Regi
     Context ctx{};FromFull(ctx,state);Base base{memory,dependencies,state};
     Body_82358B30(ctx,base);ToFull(state,ctx);return true;
 }
+void ApplySupport_B7BC40(GuestMemory& memory,Dependencies dependencies,Registers& state) {
+    Context ctx{};FromFull(ctx,state);Base base{memory,dependencies,state};
+    Body_82B7BC40(ctx,base);ToFull(state,ctx);
+}
+void ApplySupport_B86BE0(GuestMemory& memory,Dependencies dependencies,Registers& state) {
+    Context ctx{};FromFull(ctx,state);Base base{memory,dependencies,state};
+    Body_82B86BE0(ctx,base);ToFull(state,ctx);
+}
+void ApplySupport_B81648(GuestMemory& memory,Dependencies dependencies,Registers& state) {
+    Context ctx{};FromFull(ctx,state);Base base{memory,dependencies,state};
+    Body_82B81648(ctx,base);ToFull(state,ctx);
+}
 }
