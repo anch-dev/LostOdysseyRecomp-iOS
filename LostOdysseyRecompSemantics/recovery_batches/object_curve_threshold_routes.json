@@ -1,0 +1,21 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Two new actual scalar threshold bodies (118+145 instructions) plus five accepted direct/nested lower PPC bodies; nine focused warm-singleton cases, two mapping candidates.",
+  "families": [
+    {
+      "name": "object-curve-threshold-routes",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/object_curve_threshold_routes_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/object_curve_threshold_routes_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_82626C88);\nextern \"C\" PPC_FUNC(__imp__sub_82626E60);\nextern \"C\" PPC_FUNC(__imp__sub_8242CEB8);\nextern \"C\" PPC_FUNC(__imp__sub_82607318);\nextern \"C\" PPC_FUNC(__imp__sub_822C7388);\nextern \"C\" PPC_FUNC(__imp__sub_822C73E8);\nextern \"C\" PPC_FUNC(__imp__sub_822C78D8);\nvoid OriginalSave25(PPCContext&,std::uint8_t*);\nvoid OriginalRestore25(PPCContext&,std::uint8_t*);\nvoid OriginalSave27(PPCContext&,std::uint8_t*);\nvoid OriginalRestore27(PPCContext&,std::uint8_t*);\nvoid OriginalColdCall(PPCContext&,std::uint8_t*);\nvoid OriginalIndirect(std::uint32_t,PPCContext&,std::uint8_t*);\n#define __savegprlr_25(c,b) OriginalSave25(c,b)\n#define __restgprlr_25(c,b) OriginalRestore25(c,b)\n#define __savegprlr_27(c,b) OriginalSave27(c,b)\n#define __restgprlr_27(c,b) OriginalRestore27(c,b)\n#define sub_8242CEB8(c,b) __imp__sub_8242CEB8(c,b)\n#define sub_82607318(c,b) __imp__sub_82607318(c,b)\n#define sub_822C7388(c,b) __imp__sub_822C7388(c,b)\n#define sub_822C73E8(c,b) __imp__sub_822C73E8(c,b)\n#define sub_822C78D8(c,b) __imp__sub_822C78D8(c,b)\n#define sub_82486C88(c,b) OriginalColdCall(c,b)\n#define sub_82410A28(c,b) OriginalColdCall(c,b)\n#define sub_82626BB0(c,b) OriginalColdCall(c,b)\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(t) OriginalIndirect((t),ctx,base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/object_curve_threshold_routes.cpp",
+        "LostOdysseyRecompSemantics/src/object_curve_sample.cpp",
+        "LostOdysseyRecompSemantics/src/object_sample_accumulator.cpp",
+        "LostOdysseyRecompSemantics/src/registered_constructor_family.cpp",
+        "LostOdysseyRecompSemantics/src/manager_facade.cpp",
+        "LostOdysseyRecompSemantics/src/object_registration.cpp",
+        "LostOdysseyRecompSemantics/src/manager_init.cpp"
+      ]
+    }
+  ]
+}

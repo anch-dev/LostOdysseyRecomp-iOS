@@ -16,6 +16,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/special_allocation.cpp
     src/raw_allocation.cpp
     src/raw_allocation_context.cpp
+    src/heap_allocation_context.cpp
     src/allocation_failure.cpp
     src/crt_thread_data.cpp
     src/crt_last_error.cpp
@@ -76,6 +77,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/legacy_descriptor_array_allocation.cpp
     src/legacy_descriptor_value_intern.cpp
     src/legacy_descriptor_array_lookup.cpp
+    src/legacy_descriptor_array_callers.cpp
     src/legacy_descriptor_numeric_read.cpp
     src/legacy_utf16_line_token_number.cpp
     src/legacy_config_command_dispatch.cpp
@@ -108,6 +110,7 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/object_curve_owner_mix.cpp
     src/object_curve_box_dispatch.cpp
     src/object_curve_blend_box.cpp
+    src/object_curve_threshold_routes.cpp
     src/object_curve_sample.cpp
     src/crt_allocation.cpp
     src/crt_free_context.cpp

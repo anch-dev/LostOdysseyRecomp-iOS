@@ -1119,6 +1119,16 @@
           "original_body_pin": "recovery_drafts/legacy_config_format_dispatch_validation.json",
           "implementation": "src/legacy_config_format_heap_context.cpp",
           "scope": "Actual heap and cleanup frames for unlocked exact-size large-list allocation with valid sole free-block links. Generic preflight excludes other size classes, split/grow/VM/lock/zero-fill paths. This verifies a selected lower ABI path and does not restore the whole 539-instruction allocation context or runtime."
+        },
+        {
+          "name": "heap_allocation_context",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 9,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-heap-allocation-context-tests/heap-allocation-context-result.json",
+          "original_body_pin": "recovery_drafts/heap_allocation_context_validation.json",
+          "implementation": "src/heap_allocation_context.cpp",
+          "scope": "Full 539/18-instruction selected-context control flow; small/large exact/split, grow, lock, VM, process guard and standalone cleanup. 32 GPRs, CR0/6, XER SO/CA, SP/LR/CTR and full committed ordinary RAM compared; explicit mutable guest/native boundary implementations, other PPCContext fields, faults, MMIO, concurrent heap mutation and runtime remain open."
         }
       ]
     },
@@ -1167,6 +1177,18 @@
         "Validate real VM, process, exception and critical-section service contracts.",
         "Validate guest exception landing pad 823AD51C and actual Xbox unwinding; no C++ RAII behavior is inferred.",
         "Validate runtime ABI adapter, concurrency, memory-fault behavior and representative game scenes."
+      ],
+      "validation_extensions": [
+        {
+          "name": "heap_allocation_context",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 9,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-heap-allocation-context-tests/heap-allocation-context-result.json",
+          "original_body_pin": "recovery_drafts/heap_allocation_context_validation.json",
+          "implementation": "src/heap_allocation_context.cpp",
+          "scope": "Full 539/18-instruction selected-context control flow; small/large exact/split, grow, lock, VM, process guard and standalone cleanup. 32 GPRs, CR0/6, XER SO/CA, SP/LR/CTR and full committed ordinary RAM compared; explicit mutable guest/native boundary implementations, other PPCContext fields, faults, MMIO, concurrent heap mutation and runtime remain open."
+        }
       ]
     },
     {

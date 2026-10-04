@@ -1,0 +1,17 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Validation-only full selected-context 823ACCB0/823AD544: small/large lists, split, grow, lock, VM, process guard and standalone cleanup. Both entries already mapped in recovery.json; no new mapping credit.",
+  "families": [
+    {
+      "name": "heap-allocation-context",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/heap_allocation_context_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/heap_allocation_context_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nvoid OriginalSave22(PPCContext&,std::uint8_t*);\nvoid OriginalRestore22(PPCContext&,std::uint8_t*);\nvoid OriginalHeapBoundary(std::uint32_t,PPCContext&,std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_823ACCB0);\nextern \"C\" PPC_FUNC(__imp__sub_823AD544);\n#define __savegprlr_22(c,b) OriginalSave22(c,b)\n#define __restgprlr_22(c,b) OriginalRestore22(c,b)\n#define sub_823AD544(c,b) __imp__sub_823AD544(c,b)\n#define sub_827CC428(c,b) OriginalHeapBoundary(0x827CC428u,c,b)\n#define sub_827CBA60(c,b) OriginalHeapBoundary(0x827CBA60u,c,b)\n#define sub_82B7BC40(c,b) OriginalHeapBoundary(0x82B7BC40u,c,b)\n#define __imp__KeGetCurrentProcessType(c,b) OriginalHeapBoundary(0x830DA07Cu,c,b)\n#define __imp__KeBugCheckEx(c,b) OriginalHeapBoundary(0x830DA06Cu,c,b)\n#define __imp__RtlEnterCriticalSection(c,b) OriginalHeapBoundary(0x830D9C6Cu,c,b)\n#define __imp__RtlLeaveCriticalSection(c,b) OriginalHeapBoundary(0x830D9C7Cu,c,b)\n#define __imp__NtAllocateVirtualMemory(c,b) OriginalHeapBoundary(0x830D9D1Cu,c,b)\n#define __imp__RtlRaiseException(c,b) OriginalHeapBoundary(0x830DA0ACu,c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/heap_allocation_context.cpp",
+        "LostOdysseyRecompSemantics/src/heap.cpp",
+        "LostOdysseyRecompSemantics/src/memory_fill.cpp"
+      ]
+    }
+  ]
+}
