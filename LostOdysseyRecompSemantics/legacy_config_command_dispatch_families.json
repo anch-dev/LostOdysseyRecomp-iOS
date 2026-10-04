@@ -526,5 +526,21 @@
     "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-legacy-config-command-dispatch-tests/legacy-config-command-dispatch-result.json",
     "library": "Windows-native /W4 /WX MT static library passed",
     "unvalidated_scope": "Five mutable guest callees; unselected registry/numeric paths; generic lower volatile ABI, faults, MMIO and runtime remain open."
-  }
+  },
+  "validation_extensions": [
+    {
+      "scope": "Actual 461-instruction command dispatcher composes both 124-instruction name routes and selected real parsing/hash/token bodies; full selected GPR/CR0/6/SO/CA/frame/LR/CTR and FPR preservation in button, pulse, toggle and axis paths.",
+      "source": "LostOdysseyRecompSemantics/src/legacy_config_command_name_chain.cpp",
+      "header": "LostOdysseyRecompSemantics/include/lo_semantics/legacy_config_command_name_chain.h",
+      "oracle": "LostOdysseyRecompSemantics/tests/legacy_config_command_name_chain_oracle.cpp",
+      "pin": "LostOdysseyRecompSemantics/recovery_drafts/legacy_config_command_name_chain.json",
+      "focused_original_ppc_cases": 5,
+      "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-legacy-config-command-name-chain-tests/legacy-config-command-name-chain-result.json",
+      "status": "passed",
+      "mapping_credit": 0,
+      "runtime_validated": false,
+      "complete": false,
+      "unvalidated_scope": "Other command guests, lower registry/constructor/native services, unexposed PPCContext fields, faults, MMIO and runtime remain open."
+    }
+  ]
 }
