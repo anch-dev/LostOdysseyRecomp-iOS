@@ -1,0 +1,44 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Two new full selected stream resize/query entries, with six actual original PPC bodies and four focused cases; accepted CRT and heap internals retain their explicit boundaries.",
+  "families": [
+    {
+      "name": "crt-stream-resize-context",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/crt_stream_resize_context_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/crt_stream_resize_context_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_82B82100);\nextern \"C\" PPC_FUNC(__imp__sub_82B7D330);\nextern \"C\" PPC_FUNC(__imp__sub_823ACAD8);\nextern \"C\" PPC_FUNC(__imp__sub_823ACC98);\nextern \"C\" PPC_FUNC(__imp__sub_827CC218);\nextern \"C\" PPC_FUNC(__imp__sub_82B7BC40);\nvoid OriginalSave(unsigned,PPCContext&);\nvoid OriginalRestore(unsigned,PPCContext&);\nvoid OriginalResizeAccepted(std::uint32_t,PPCContext&,std::uint8_t*);\nvoid OriginalResizeGuest(std::uint32_t,PPCContext&,std::uint8_t*);\nvoid OriginalResizeNative(std::uint32_t,PPCContext&,std::uint8_t*);\n#define __savegprlr_27(c,b) OriginalSave(27,c)\n#define __restgprlr_27(c,b) OriginalRestore(27,c)\n#define __savegprlr_29(c,b) OriginalSave(29,c)\n#define __restgprlr_29(c,b) OriginalRestore(29,c)\n#define sub_82B82100(c,b) __imp__sub_82B82100(c,b)\n#define sub_82B7D330(c,b) __imp__sub_82B7D330(c,b)\n#define sub_823ACAD8(c,b) __imp__sub_823ACAD8(c,b)\n#define sub_823ACC98(c,b) __imp__sub_823ACC98(c,b)\n#define sub_827CC218(c,b) __imp__sub_827CC218(c,b)\n#define sub_82B7BC40(c,b) __imp__sub_82B7BC40(c,b)\n#define sub_82B7FD78(c,b) OriginalResizeAccepted(0x82B7FD78u,c,b)\n#define sub_82B7FEC0(c,b) OriginalResizeAccepted(0x82B7FEC0u,c,b)\n#define sub_82B7FE68(c,b) OriginalResizeAccepted(0x82B7FE68u,c,b)\n#define sub_822CA100(c,b) OriginalResizeAccepted(0x822CA100u,c,b)\n#define sub_82B7FD10(c,b) OriginalResizeAccepted(0x82B7FD10u,c,b)\n#define sub_823ACBD0(c,b) OriginalResizeGuest(0x823ACBD0u,c,b)\n#define sub_823ADDC0(c,b) OriginalResizeGuest(0x823ADDC0u,c,b)\n#define sub_827CCF80(c,b) OriginalResizeGuest(0x827CCF80u,c,b)\n#define __imp__KeGetCurrentProcessType(c,b) OriginalResizeNative(0x830DA07Cu,c,b)\n#define __imp__KeBugCheckEx(c,b) OriginalResizeNative(0x830DA06Cu,c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/crt_stream_locks.cpp",
+        "LostOdysseyRecompSemantics/src/raw_allocation.cpp",
+        "LostOdysseyRecompSemantics/src/allocation_failure.cpp",
+        "LostOdysseyRecompSemantics/src/crt_allocation.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_state.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_pointer_unlock.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_index_unlock.cpp",
+        "LostOdysseyRecompSemantics/src/crt_thread_data.cpp",
+        "LostOdysseyRecompSemantics/src/invalid_parameter.cpp",
+        "LostOdysseyRecompSemantics/src/memory_services.cpp",
+        "LostOdysseyRecompSemantics/src/heap_allocate.cpp",
+        "LostOdysseyRecompSemantics/src/heap_free.cpp",
+        "LostOdysseyRecompSemantics/src/heap_segment.cpp",
+        "LostOdysseyRecompSemantics/src/heap.cpp",
+        "LostOdysseyRecompSemantics/src/memory_fill.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_io.cpp",
+        "LostOdysseyRecompSemantics/src/crt_status_error.cpp",
+        "LostOdysseyRecompSemantics/src/thread_state.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_operations.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_error.cpp",
+        "LostOdysseyRecompSemantics/src/crt_last_error.cpp",
+        "LostOdysseyRecompSemantics/src/integer_leaf.cpp",
+        "LostOdysseyRecompSemantics/src/crt_thread_error_routes.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_open_routes_context.cpp",
+        "LostOdysseyRecompSemantics/src/raw_allocation_context.cpp",
+        "LostOdysseyRecompSemantics/src/heap_allocation_context.cpp",
+        "LostOdysseyRecompSemantics/src/crt_record_allocation_context.cpp",
+        "LostOdysseyRecompSemantics/src/crt_reallocation_context.cpp",
+        "LostOdysseyRecompSemantics/src/heap_block_query_context.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_resize_context.cpp"
+      ]
+    }
+  ]
+}

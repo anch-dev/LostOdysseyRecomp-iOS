@@ -1,0 +1,42 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Validation-only full selected 823ACAD8 reallocation and 82B7FD10 translation with four actual PPC bodies, six focused cases and mutable direct guest boundaries; no new mapping credit.",
+  "families": [
+    {
+      "name": "crt-reallocation-context",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/crt_reallocation_context_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/crt_reallocation_context_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_823ACAD8);\nextern \"C\" PPC_FUNC(__imp__sub_82B7FE68);\nextern \"C\" PPC_FUNC(__imp__sub_823ACC98);\nextern \"C\" PPC_FUNC(__imp__sub_82B7FD10);\nvoid OriginalSave(unsigned,PPCContext&);\nvoid OriginalRestore(unsigned,PPCContext&);\nvoid OriginalReallocationLower(std::uint32_t,PPCContext&,std::uint8_t*);\nvoid OriginalReallocationGuest(std::uint32_t,PPCContext&,std::uint8_t*);\nvoid OriginalReallocationHandler(std::uint32_t,PPCContext&,std::uint8_t*);\n#define __savegprlr_27(c,b) OriginalSave(27,c)\n#define __restgprlr_27(c,b) OriginalRestore(27,c)\n#define sub_82B7FE68(c,b) __imp__sub_82B7FE68(c,b)\n#define sub_823ACC98(c,b) __imp__sub_823ACC98(c,b)\n#define sub_82B7FD10(c,b) __imp__sub_82B7FD10(c,b)\n#define sub_82B7FD78(c,b) OriginalReallocationLower(0x82B7FD78u,c,b)\n#define sub_822CA100(c,b) OriginalReallocationLower(0x822CA100u,c,b)\n#define sub_823ACBD0(c,b) OriginalReallocationGuest(0x823ACBD0u,c,b)\n#define sub_823ADDC0(c,b) OriginalReallocationGuest(0x823ADDC0u,c,b)\n#define sub_827CCF80(c,b) OriginalReallocationGuest(0x827CCF80u,c,b)\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(t) OriginalReallocationHandler((t),ctx,base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/crt_stream_locks.cpp",
+        "LostOdysseyRecompSemantics/src/raw_allocation.cpp",
+        "LostOdysseyRecompSemantics/src/allocation_failure.cpp",
+        "LostOdysseyRecompSemantics/src/crt_allocation.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_state.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_pointer_unlock.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_index_unlock.cpp",
+        "LostOdysseyRecompSemantics/src/crt_thread_data.cpp",
+        "LostOdysseyRecompSemantics/src/invalid_parameter.cpp",
+        "LostOdysseyRecompSemantics/src/memory_services.cpp",
+        "LostOdysseyRecompSemantics/src/heap_allocate.cpp",
+        "LostOdysseyRecompSemantics/src/heap_free.cpp",
+        "LostOdysseyRecompSemantics/src/heap_segment.cpp",
+        "LostOdysseyRecompSemantics/src/heap.cpp",
+        "LostOdysseyRecompSemantics/src/memory_fill.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_io.cpp",
+        "LostOdysseyRecompSemantics/src/crt_status_error.cpp",
+        "LostOdysseyRecompSemantics/src/thread_state.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_operations.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_error.cpp",
+        "LostOdysseyRecompSemantics/src/crt_last_error.cpp",
+        "LostOdysseyRecompSemantics/src/integer_leaf.cpp",
+        "LostOdysseyRecompSemantics/src/crt_thread_error_routes.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_open_routes_context.cpp",
+        "LostOdysseyRecompSemantics/src/raw_allocation_context.cpp",
+        "LostOdysseyRecompSemantics/src/heap_allocation_context.cpp",
+        "LostOdysseyRecompSemantics/src/crt_record_allocation_context.cpp",
+        "LostOdysseyRecompSemantics/src/crt_reallocation_context.cpp"
+      ]
+    }
+  ]
+}

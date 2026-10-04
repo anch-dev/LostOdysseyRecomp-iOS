@@ -1746,6 +1746,16 @@
           "original_body_pin": "recovery_drafts/memory_copy_context_validation.json",
           "implementation": "src/memory_copy_context.cpp",
           "scope": "Complete 290-instruction selected 32-GPR/CR0/1/6/7/SO/CA/SP/LR/CTR and ordinary-RAM forward-copy control flow. Eight zero, byte tail, actual caller record24, leading word, source word-aligned bulk/tail, byte-assembled bulk, aligned two-line and partial-line word-route fixtures compare full selected state/RAM and independent copied bytes/extent/full-64-bit return. Cache prefetch behavior, access-width/fault/atomicity, arbitrary aliasing, MMIO, concurrency and runtime remain open."
+        },
+        {
+          "name": "crt_copy_full_context",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 2,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-resize-buffer-context-tests/crt-stream-buffer-growth-callers-result.json",
+          "original_body_pin": "recovery_drafts/crt_stream_buffer_growth_callers_validation.json",
+          "implementation": "src/crt_copy_full_context.cpp",
+          "scope": "Actual 290-instruction copy leaf in two allocation-copy caller cases, all GPR/FPR and selected CR0/1/6/7/SO/CA/LR/CTR; ordinary RAM order. CR2-5, cache hints/coherence, faults, MMIO, concurrency and runtime remain outside the selected evidence."
         }
       ]
     },
@@ -3575,7 +3585,19 @@
           "note": "One composed batch passed 5 allocation and 4 free cases. Original CRT bodies are extracted; both paths reuse the previously validated heap semantic implementations rather than rerunning the heap suites. Return, service order/arguments, persistent memory and wrapper error word are compared. ABI saves/volatile state and live runtime are excluded."
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "validation_extensions": [
+        {
+          "name": "crt_reallocation_context",
+          "status": "passed",
+          "mapping_credit": 0,
+          "focused_original_ppc_cases": 6,
+          "receipt": "C:/Users/freefrank/worktrees/LostOdysseyRecomp/semantic-crt-resize-buffer-context-tests/crt-reallocation-context-result.json",
+          "original_body_pin": "recovery_drafts/crt_reallocation_context_validation.json",
+          "implementation": "src/crt_reallocation_context.cpp",
+          "scope": "Zero-credit 823ACAD8 and 82B7FD10 selected-context extensions with actual 82B7FE68 and 823ACC98 lower bodies. 32 GPR/FPR, LR/CTR, CR0/1/6/7, SO/CA and ordinary RAM; real 823ACBD0/823ADDC0/827CCF80 remain mutable guest services. Other CR, native internals, faults, MMIO, concurrency and runtime are not established."
+        }
+      ]
     },
     {
       "address": "82B7FEC0",

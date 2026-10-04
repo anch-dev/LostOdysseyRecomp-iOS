@@ -52,6 +52,10 @@ inline Registers FromPpc(PPCContext& context)
         context.cr0.eq, context.cr0.so};
     state.cr6 = {context.cr6.lt, context.cr6.gt,
         context.cr6.eq, context.cr6.so};
+    state.cr1 = {context.cr1.lt, context.cr1.gt,
+        context.cr1.eq, context.cr1.so};
+    state.cr7 = {context.cr7.lt, context.cr7.gt,
+        context.cr7.eq, context.cr7.so};
     return state;
 }
 
@@ -72,11 +76,15 @@ inline void ToPpc(PPCContext& context, const Registers& state)
         state.cr0.eq, {state.cr0.so}};
     context.cr6 = {state.cr6.lt, state.cr6.gt,
         state.cr6.eq, {state.cr6.so}};
+    context.cr1 = {state.cr1.lt, state.cr1.gt,
+        state.cr1.eq, {state.cr1.so}};
+    context.cr7 = {state.cr7.lt, state.cr7.gt,
+        state.cr7.eq, {state.cr7.so}};
 }
 
-inline std::array<std::uint64_t, 70> Snapshot(const Registers& state)
+inline std::array<std::uint64_t, 72> Snapshot(const Registers& state)
 {
-    std::array<std::uint64_t, 70> result{};
+    std::array<std::uint64_t, 72> result{};
     for (unsigned index = 0; index < 32u; ++index)
     {
         result[index] = state.r[index];
@@ -93,6 +101,8 @@ inline std::array<std::uint64_t, 70> Snapshot(const Registers& state)
     };
     result[68] = pack(state.cr0);
     result[69] = pack(state.cr6);
+    result[70] = pack(state.cr1);
+    result[71] = pack(state.cr7);
     return result;
 }
 } // namespace crt_full_oracle

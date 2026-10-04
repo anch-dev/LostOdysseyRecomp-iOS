@@ -116,6 +116,10 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/crt_stream_open_pipeline.cpp
     src/crt_record_allocation_context.cpp
     src/crt_stream_table_initialize_context.cpp
+    src/crt_reallocation_context.cpp
+    src/crt_stream_resize_context.cpp
+    src/crt_copy_full_context.cpp
+    src/crt_stream_buffer_growth_callers.cpp
     src/crt_stream_shutdown_sweep.cpp
     src/crt_stream_open_wrapper.cpp
     src/crt_stream_lifecycle_recursive.cpp

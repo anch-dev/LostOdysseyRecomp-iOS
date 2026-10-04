@@ -15,6 +15,8 @@ struct Registers
     std::uint32_t cached_fp_control = 0;
     std::uint8_t xer_so = 0, xer_ca = 0;
     Condition cr0{}, cr6{};
+    // The common guest copy leaf also updates CR1 and CR7.
+    Condition cr1{}, cr7{};
 };
 class NativeServices
 {

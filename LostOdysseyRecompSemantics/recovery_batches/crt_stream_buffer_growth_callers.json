@@ -1,0 +1,46 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "82DF4A58 and 82B824B0 complete 2/4-byte CRT buffer-growth callers. Original side executes only these two complete PPC bodies and the already mapped 82B7A0B0 full-context 290-instruction copy body (zero new credit). Accepted 82B81778, separately validated 82B7D330/82B82100 and 823ACAD8 are actual selected-context semantic lower bridges; their independent receipts, guest/import bounds and ordinary RAM scope apply. Four focused paths compare all 72 selected context values, ordered RAM and callbacks.",
+  "families": [
+    {
+      "name": "crt-stream-buffer-growth-callers",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/crt_stream_buffer_growth_callers_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/crt_stream_buffer_growth_callers_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_82DF4A58);\nextern \"C\" PPC_FUNC(__imp__sub_82B824B0);\nextern \"C\" PPC_FUNC(__imp__sub_82B7A0B0);\nvoid OriginalGrowthSave28(PPCContext&);\nvoid OriginalGrowthRestore28(PPCContext&);\nvoid OriginalGrowthLower(std::uint32_t,PPCContext&,std::uint8_t*);\n#define __savegprlr_28(c,b) OriginalGrowthSave28(c)\n#define __restgprlr_28(c,b) OriginalGrowthRestore28(c)\n#define sub_82B81778(c,b) OriginalGrowthLower(0x82B81778u,c,b)\n#define sub_82B7D330(c,b) OriginalGrowthLower(0x82B7D330u,c,b)\n#define sub_82B7A0B0(c,b) __imp__sub_82B7A0B0(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/crt_stream_locks.cpp",
+        "LostOdysseyRecompSemantics/src/raw_allocation.cpp",
+        "LostOdysseyRecompSemantics/src/allocation_failure.cpp",
+        "LostOdysseyRecompSemantics/src/crt_allocation.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_state.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_pointer_unlock.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_index_unlock.cpp",
+        "LostOdysseyRecompSemantics/src/crt_thread_data.cpp",
+        "LostOdysseyRecompSemantics/src/invalid_parameter.cpp",
+        "LostOdysseyRecompSemantics/src/memory_services.cpp",
+        "LostOdysseyRecompSemantics/src/heap_allocate.cpp",
+        "LostOdysseyRecompSemantics/src/heap_free.cpp",
+        "LostOdysseyRecompSemantics/src/heap_segment.cpp",
+        "LostOdysseyRecompSemantics/src/heap.cpp",
+        "LostOdysseyRecompSemantics/src/memory_fill.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_io.cpp",
+        "LostOdysseyRecompSemantics/src/crt_status_error.cpp",
+        "LostOdysseyRecompSemantics/src/thread_state.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_operations.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_error.cpp",
+        "LostOdysseyRecompSemantics/src/crt_last_error.cpp",
+        "LostOdysseyRecompSemantics/src/integer_leaf.cpp",
+        "LostOdysseyRecompSemantics/src/crt_thread_error_routes.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_open_routes_context.cpp",
+        "LostOdysseyRecompSemantics/src/raw_allocation_context.cpp",
+        "LostOdysseyRecompSemantics/src/heap_allocation_context.cpp",
+        "LostOdysseyRecompSemantics/src/crt_record_allocation_context.cpp",
+        "LostOdysseyRecompSemantics/src/crt_reallocation_context.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_resize_context.cpp",
+        "LostOdysseyRecompSemantics/src/heap_block_query_context.cpp",
+        "LostOdysseyRecompSemantics/src/crt_copy_full_context.cpp",
+        "LostOdysseyRecompSemantics/src/crt_stream_buffer_growth_callers.cpp"
+      ]
+    }
+  ]
+}
