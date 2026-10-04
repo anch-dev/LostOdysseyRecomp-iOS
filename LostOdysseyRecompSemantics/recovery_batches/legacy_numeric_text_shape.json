@@ -1,0 +1,15 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "Complete 82479188 UTF-16 numeric text validator and 823F7BF8 length-minus-one leaf; ten focused original-body cases cover empty/single/multi-character, decimal and invalid spellings. No unresolved direct or indirect lower calls.",
+  "families": [
+    {
+      "name": "legacy-numeric-text-shape",
+      "manifest": "LostOdysseyRecompSemantics/legacy_numeric_text_shape_families.json",
+      "harness": "LostOdysseyRecompSemantics/tests/legacy_numeric_text_shape_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\nvoid OriginalSaveShape(PPCContext&, std::uint8_t*);\nvoid OriginalRestoreShape(PPCContext&, std::uint8_t*);\nextern \"C\" PPC_FUNC(__imp__sub_82479188);\nextern \"C\" PPC_FUNC(__imp__sub_823F7BF8);\n#define __savegprlr_29(c,b) OriginalSaveShape(c,b)\n#define __restgprlr_29(c,b) OriginalRestoreShape(c,b)\n#define sub_823F7BF8(c,b) __imp__sub_823F7BF8(c,b)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/legacy_numeric_text_shape.cpp"
+      ]
+    }
+  ]
+}

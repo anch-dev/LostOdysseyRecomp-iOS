@@ -356,4 +356,3 @@ void OriginalRestoreName(PPCContext& context, std::uint8_t* base,
 
 void OriginalUnselectedName(PPCContext&, std::uint8_t*)
 { throw std::runtime_error("unselected original name-route lower"); }
-
