@@ -133,6 +133,8 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/crt_stream_refill_context.cpp
     src/crt_stream_byte_read_context.cpp
     src/crt_stream_block_read_context.cpp
+    src/crt_stream_scan_context.cpp
+    src/crt_stream_scan_adjacent_context.cpp
     src/crt_close_reader_callers_context.cpp
     src/crt_stream_flush_context.cpp
     src/crt_utf8_conversion_routes.cpp

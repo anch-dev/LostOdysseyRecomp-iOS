@@ -23,6 +23,7 @@ def translate_body(entry: dict) -> str:
     result = re.sub(r"ctx\.r(\d+)\b", r"ctx.r[\1]", result)
     result = result.replace("__builtin_clz", "std::countl_zero")
     result = result.replace("__builtin_rotateleft64", "std::rotl")
+    result = result.replace("__builtin_rotateleft32", "std::rotl")
     # Comments are the authoritative instruction sequence. Adapt syntax only.
     instructions = re.findall(r"^\s*// (.*)$", result, re.M)
     if instructions != entry["instructions"]:
