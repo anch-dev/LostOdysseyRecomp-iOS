@@ -107,6 +107,10 @@ add_library(LostOdysseyRecompSemantics STATIC
     src/legacy_descriptor_recursive_copy_caller.cpp
     src/crt_stream_counted_output.cpp
     src/crt_stream_close_error.cpp
+    src/crt_stream_close_caller.cpp
+    src/crt_stream_close_pipeline.cpp
+    src/crt_stream_read_routes.cpp
+    src/crt_stream_flush_context.cpp
     src/crt_utf8_conversion_routes.cpp
     src/crt_async_status_transfer.cpp
     src/legacy_utf16_line_token_number.cpp

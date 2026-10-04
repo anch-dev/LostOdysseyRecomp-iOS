@@ -1,0 +1,17 @@
+{
+  "schema": "semantic-recovery-batch-v1",
+  "scope": "One new actual 82B85448 396-instruction CRT read body; actual 82BE2DD8 and 827CA628 pin; six focused validation cases. Other accepted direct callees use independently validated semantic adapters.",
+  "families": [
+    {
+      "name": "crt-stream-read-routes",
+      "manifest": "LostOdysseyRecompSemantics/recovery_drafts/crt_stream_read_routes_validation.json",
+      "harness": "LostOdysseyRecompSemantics/tests/crt_stream_read_routes_oracle.cpp",
+      "prelude": "#include \"ppc_context.h\"\n#include <cstdint>\nextern \"C\" PPC_FUNC(__imp__sub_82B85448);\nextern \"C\" PPC_FUNC(__imp__sub_82BE2DD8);\nextern \"C\" PPC_FUNC(__imp__sub_827CA628);\nvoid OriginalSave18(PPCContext&,std::uint8_t*);\nvoid OriginalRestore18(PPCContext&,std::uint8_t*);\n#define __savegprlr_18(c,b) OriginalSave18(c,b)\n#define __restgprlr_18(c,b) OriginalRestore18(c,b)\nvoid OriginalSave28(PPCContext&,std::uint8_t*);\nvoid OriginalRestore28(PPCContext&,std::uint8_t*);\n#define __savegprlr_28(c,b) OriginalSave28(c,b)\n#define __restgprlr_28(c,b) OriginalRestore28(c,b)\nvoid OriginalStream(std::uint32_t,PPCContext&,std::uint8_t*);\nvoid OriginalIndirect(std::uint32_t,PPCContext&,std::uint8_t*);\nvoid OriginalWait(PPCContext&,std::uint8_t*);\nvoid OriginalStatus(PPCContext&,std::uint8_t*);\nvoid OriginalUnselected(PPCContext&,std::uint8_t*);\n#define sub_82B7FDB0(c,b) OriginalStream(0x82B7FDB0u,c,b)\n#define sub_82B7FD78(c,b) OriginalStream(0x82B7FD78u,c,b)\n#define sub_82B7FEC0(c,b) OriginalStream(0x82B7FEC0u,c,b)\n#define sub_82B85EA8(c,b) OriginalStream(0x82B85EA8u,c,b)\n#define sub_822CA100(c,b) OriginalStream(0x822CA100u,c,b)\n#define sub_82B7FDE8(c,b) OriginalStream(0x82B7FDE8u,c,b)\n#define sub_823ACBD0(c,b) OriginalUnselected(c,b)\n#define sub_823ADDC0(c,b) OriginalUnselected(c,b)\n#define sub_8229C560(c,b) OriginalUnselected(c,b)\n#define sub_82BE2DD8(c,b) __imp__sub_82BE2DD8(c,b)\n#define sub_827CA628(c,b) __imp__sub_827CA628(c,b)\n#define __imp__NtWaitForSingleObjectEx(c,b) OriginalWait(c,b)\n#define __imp__RtlNtStatusToDosError(c,b) OriginalStatus(c,b)\n#undef PPC_CALL_INDIRECT_FUNC\n#define PPC_CALL_INDIRECT_FUNC(t) OriginalIndirect((t),ctx,base)\n",
+      "sources": [
+        "LostOdysseyRecompSemantics/src/crt_stream_read_routes.cpp",
+        "LostOdysseyRecompSemantics/src/crt_async_status_transfer.cpp",
+        "LostOdysseyRecompSemantics/src/crt_status_error.cpp"
+      ]
+    }
+  ]
+}
