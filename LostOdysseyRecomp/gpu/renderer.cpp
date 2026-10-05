@@ -6537,6 +6537,13 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
                     return;
                 }
 
+                {
+                    static const std::vector<uint64_t> dbgSkip = [] {
+                        std::vector<uint64_t> v; const char* e = getenv("LO_DBG_SKIP_VS");
+                        while (e && *e) { char* end; v.push_back(strtoull(e, &end, 16)); e = *end ? end + 1 : end; }
+                        return v; }();
+                    for (uint64_t h : dbgSkip) if (vsHash == h || (psHash && psHash == h)) return;
+                }
                 // Render targets.
                 uint32_t surfaceInfo = Reg(REG_RB_SURFACE_INFO);
                 uint32_t pitch = surfaceInfo & 0x3FFF;
@@ -6622,6 +6629,11 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
                     static const uint64_t debugVsForDepth = getenv("LO_DEBUG_VS") ? strtoull(getenv("LO_DEBUG_VS"), nullptr, 16) : 0;
                     if (debugNoDepth && (!debugVsForDepth || key.vs == debugVsForDepth))
                         key.depthControl = (key.depthControl & ~0x70u) | (7u << 4);
+                    static const uint64_t dbgNoStencilPs = getenv("LO_DBG_NOSTENCIL_PS") ? strtoull(getenv("LO_DBG_NOSTENCIL_PS"), nullptr, 16) : 0;
+                    if (dbgNoStencilPs && key.ps == dbgNoStencilPs) key.depthControl &= ~1u;
+                    static const uint64_t dbgFuncPs = getenv("LO_DBG_STENCILFUNC_PS") ? strtoull(getenv("LO_DBG_STENCILFUNC_PS"), nullptr, 16) : 0;
+                    static const uint32_t dbgFunc = getenv("LO_DBG_STENCILFUNC") ? strtoul(getenv("LO_DBG_STENCILFUNC"), nullptr, 10) : 5;
+                    if (dbgFuncPs && key.ps == dbgFuncPs) key.depthControl = (key.depthControl & ~0x700u) | (dbgFunc << 8);
                 }
                 key.modeCull = Reg(REG_PA_SU_SC_MODE_CNTL) & 0x3807;
                 if (depth && (depthControl & 6) == 6)
