@@ -1,0 +1,73 @@
+name: iOS arm64
+
+# Cross-builds everything for iPhoneOS/arm64 that does not need game data. The runtime itself links
+# the recompiled game code, which is generated from a private default.xex; game data never enters
+# this public workflow, so the runtime link is not attempted here (see docs/IOS_PORT.md).
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ios-port]
+    paths-ignore:
+      - 'docs/**'
+      - '**/*.md'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ios-arm64-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deps:
+    name: iOS dependencies (no game data)
+    runs-on: macos-26
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Toolchain info
+        run: |
+          xcodebuild -version
+          xcrun --sdk iphoneos --show-sdk-path
+          xcrun --sdk iphoneos --show-sdk-version
+      - name: Install build tools
+        run: |
+          brew install ninja
+          python -m pip install numpy pillow
+      - name: Apply dependency patches
+        run: |
+          git -C tools/XenonRecomp apply --reverse --check ../patches/XenonRecomp-lostodyssey.patch >/dev/null 2>&1 || git -C tools/XenonRecomp apply ../patches/XenonRecomp-lostodyssey.patch
+          git -C thirdparty/plume apply --reverse --check ../../tools/patches/plume-lostodyssey.patch >/dev/null 2>&1 || git -C thirdparty/plume apply ../../tools/patches/plume-lostodyssey.patch
+          git -C thirdparty/plume apply --reverse --check ../../tools/patches/plume-sdl3.patch >/dev/null 2>&1 || git -C thirdparty/plume apply ../../tools/patches/plume-sdl3.patch
+          git -C thirdparty/plume apply --reverse --check ../../tools/patches/plume-macos.patch >/dev/null 2>&1 || git -C thirdparty/plume apply ../../tools/patches/plume-macos.patch
+      - name: Configure (iPhoneOS arm64)
+        run: |
+          cmake -S . -B out/build/ios -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_SYSTEM_NAME=iOS \
+            -DCMAKE_OSX_SYSROOT=iphoneos \
+            -DCMAKE_OSX_ARCHITECTURES=arm64 \
+            -DLO_BUILD_RECOMP_LIB=OFF 2>&1 | tee out-configure.log
+      - name: Build libraries (no game data)
+        run: |
+          set +e
+          ninja -C out/build/ios -k 0 plume spirv-cross-msl SDL3-static XenonUtils lo_portable_shader_pack lo_menu_lzo \
+            lo_avcodec lo_avutil o1heap 2>&1 | tee ios-build.log
+          status=${PIPESTATUS[0]}
+          grep -E "FAILED:|error:" ios-build.log | head -60
+          exit $status
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-deps-logs
+          path: |
+            out-configure.log
+            ios-build.log

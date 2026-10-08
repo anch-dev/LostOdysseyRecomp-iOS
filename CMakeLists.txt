@@ -3,11 +3,17 @@ cmake_minimum_required(VERSION 3.28)
 # plume from falling back to its own 10.15 default. The bundled DXC library is
 # built for macOS 15.
 set(LO_MINIMUM_MACOS "15.0")
-set(CMAKE_OSX_DEPLOYMENT_TARGET "${LO_MINIMUM_MACOS}" CACHE STRING "Minimum macOS deployment target")
-if(CMAKE_OSX_DEPLOYMENT_TARGET VERSION_LESS LO_MINIMUM_MACOS)
-    # Build trees configured before the minimum was raised keep the old cached value.
-    message(STATUS "Raising CMAKE_OSX_DEPLOYMENT_TARGET from ${CMAKE_OSX_DEPLOYMENT_TARGET} to ${LO_MINIMUM_MACOS}")
-    set(CMAKE_OSX_DEPLOYMENT_TARGET "${LO_MINIMUM_MACOS}" CACHE STRING "Minimum macOS deployment target" FORCE)
+# iOS: Metal 3 / MetalFX need iOS 16; the bundled macOS DXC library does not apply (the SPIR-V shader pack is used).
+set(LO_MINIMUM_IOS "16.0")
+if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+    set(CMAKE_OSX_DEPLOYMENT_TARGET "${LO_MINIMUM_IOS}" CACHE STRING "Minimum iOS deployment target")
+else()
+    set(CMAKE_OSX_DEPLOYMENT_TARGET "${LO_MINIMUM_MACOS}" CACHE STRING "Minimum macOS deployment target")
+    if(CMAKE_OSX_DEPLOYMENT_TARGET VERSION_LESS LO_MINIMUM_MACOS)
+        # Build trees configured before the minimum was raised keep the old cached value.
+        message(STATUS "Raising CMAKE_OSX_DEPLOYMENT_TARGET from ${CMAKE_OSX_DEPLOYMENT_TARGET} to ${LO_MINIMUM_MACOS}")
+        set(CMAKE_OSX_DEPLOYMENT_TARGET "${LO_MINIMUM_MACOS}" CACHE STRING "Minimum macOS deployment target" FORCE)
+    endif()
 endif()
 project(LostOdysseyRecomp VERSION 0.9.0 LANGUAGES C CXX)
 include(GNUInstallDirs)
@@ -53,7 +59,7 @@ include(cmake/LoFrameGeneration.cmake)
 include(cmake/LoFsr.cmake)
 # NGX and the FidelityFX SDK paths are D3D12/Vulkan only; macOS renders through
 # Metal. Upscaling there is a separate later feature (MetalFX).
-if(LO_TARGET_PLATFORM STREQUAL "macos" AND (LO_ENABLE_DLSS OR LO_ENABLE_FSR OR LO_ENABLE_STREAMLINE_FG OR
+if(LO_TARGET_APPLE AND (LO_ENABLE_DLSS OR LO_ENABLE_FSR OR LO_ENABLE_STREAMLINE_FG OR
     LO_ENABLE_XESS OR LO_ENABLE_XESS_FG))
     message(FATAL_ERROR "DLSS, FSR, XeSS and DLSS frame generation are not available on macOS")
 endif()
@@ -113,7 +119,7 @@ if(LO_BUILD_RUNTIME)
                 ${CMAKE_SOURCE_DIR}/LostOdysseyRecomp/modding/mod_api.cpp)
         endif()
     endforeach()
-    if(LO_BUILD_GPU AND NOT ANDROID AND NOT LO_TARGET_PLATFORM STREQUAL "macos")
+    if(LO_BUILD_GPU AND NOT ANDROID AND NOT LO_TARGET_APPLE)
         add_subdirectory(tools/tests/native_dlss)
     endif()
     if(TARGET LoPpcAutoSync)

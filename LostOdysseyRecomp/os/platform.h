@@ -20,6 +20,19 @@
 #error "Unsupported host platform"
 #endif
 
+// iOS shares the Mach/POSIX implementations with macOS (LO_PLATFORM_MACOS is 1 on both); code that
+// needs AppKit, process spawning or other desktop-only APIs tests LO_PLATFORM_IOS separately.
+#if defined(__APPLE__)
+#include <TargetConditionals.h>
+#if TARGET_OS_IPHONE
+#define LO_PLATFORM_IOS 1
+#else
+#define LO_PLATFORM_IOS 0
+#endif
+#else
+#define LO_PLATFORM_IOS 0
+#endif
+
 #if defined(__ANDROID__)
 #define LO_PLATFORM_ANDROID 1
 #else

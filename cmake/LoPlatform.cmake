@@ -3,13 +3,16 @@
 # architecture-specific build decisions key off these variables instead of
 # re-testing CMAKE_SYSTEM_NAME / CMAKE_SYSTEM_PROCESSOR at each call site.
 #
-#   LO_TARGET_PLATFORM  windows | linux | macos | android
+#   LO_TARGET_PLATFORM  windows | linux | macos | ios | android
+#   LO_TARGET_APPLE     TRUE for macos and ios (Mach, Metal, Objective-C++)
 #   LO_TARGET_ISA       x86_64 | x86 | aarch64
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Android")
     set(LO_TARGET_PLATFORM "android")
 elseif(WIN32)
     set(LO_TARGET_PLATFORM "windows")
+elseif(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+    set(LO_TARGET_PLATFORM "ios")
 elseif(APPLE)
     set(LO_TARGET_PLATFORM "macos")
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
@@ -46,8 +49,14 @@ endif()
 
 message(STATUS "LostOdysseyRecomp target: ${LO_TARGET_PLATFORM}-${LO_TARGET_ISA}")
 
-if(LO_TARGET_PLATFORM STREQUAL "macos")
-    # SDL's Cocoa backend and plume's Metal backend contain Objective-C(++)
+if(LO_TARGET_PLATFORM STREQUAL "macos" OR LO_TARGET_PLATFORM STREQUAL "ios")
+    set(LO_TARGET_APPLE TRUE)
+else()
+    set(LO_TARGET_APPLE FALSE)
+endif()
+
+if(LO_TARGET_APPLE)
+    # SDL's Cocoa/UIKit backend and plume's Metal backend contain Objective-C(++)
     # sources. Languages enabled only inside a subdirectory are not usable by
     # the generator for the whole build, so enable them at the top level.
     enable_language(OBJC OBJCXX)

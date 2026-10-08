@@ -11,9 +11,13 @@ FetchContent_MakeAvailable(lo_ffmpeg)
 # fork's Android AArch64 config targets an older NDK and API level; our config
 # comes from the same pinned fork's ./configure (recorded in FFMPEG_CONFIGURATION).
 set(LO_FFMPEG_CONFIG_DIR "${CMAKE_CURRENT_LIST_DIR}/ffmpeg-config/${LO_TARGET_PLATFORM}-${LO_TARGET_ISA}")
+if(LO_TARGET_PLATFORM STREQUAL "ios")
+    # Same Darwin/AArch64 configuration as macOS: the codecs used here have no OS-specific code.
+    set(LO_FFMPEG_CONFIG_DIR "${CMAKE_CURRENT_LIST_DIR}/ffmpeg-config/macos-${LO_TARGET_ISA}")
+endif()
 if(EXISTS "${LO_FFMPEG_CONFIG_DIR}/config.h")
     set(LO_FFMPEG_CONFIG_INCLUDE "${LO_FFMPEG_CONFIG_DIR}")
-elseif(NOT LO_TARGET_ISA STREQUAL "x86_64" OR LO_TARGET_PLATFORM STREQUAL "macos")
+elseif(NOT LO_TARGET_ISA STREQUAL "x86_64" OR LO_TARGET_APPLE)
     message(FATAL_ERROR "No FFmpeg config for ${LO_TARGET_PLATFORM}-${LO_TARGET_ISA}; "
         "generate ${LO_FFMPEG_CONFIG_DIR}/config.h with the fork's ./configure")
 endif()

@@ -947,7 +947,7 @@ if(WIN32 AND LO_BUILD_GPU)
         list(APPEND LO_DXC_RUNTIME_FILES "${LO_DXC_BINARY_DIR}/${binary}")
     endforeach()
     set(LO_DXC_RUNTIME_TARGETS LostOdysseyRecomp LoShaderTool LoShaderAluTest LoPresentationTest LoTemporalAATest LoAmbientOcclusionGpuTest LoRenderResolutionShaderTest LoVulkanBackendTest LoVulkanTextureReuseTest LoShaderStartupCacheTest LoBackendCacheTest LoBackendLifecycleTest LoPresentCaptureTest)
-elseif(UNIX AND NOT ANDROID AND LO_BUILD_GPU)
+elseif(UNIX AND NOT ANDROID AND NOT LO_TARGET_PLATFORM STREQUAL "ios" AND LO_BUILD_GPU)
     if(LO_TARGET_PLATFORM STREQUAL "macos")
         # Universal (arm64 + x86_64) build shipped with dxc-bin.
         set(LO_DXC_SO "${CMAKE_SOURCE_DIR}/tools/XenosRecomp/thirdparty/dxc-bin/lib/arm64/libdxcompiler.dylib")
