@@ -6890,7 +6890,8 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
             {
                 if (color) MarkFgWritable(*color, "color_framebuffer");
                 if (depth) MarkFgWritable(*depth, "depth_framebuffer");
-                auto key = std::make_pair(color ? color->texture.get() : nullptr, depth ? depth->texture.get() : nullptr);
+                const std::pair<const RenderTexture*, const RenderTexture*> key(
+                    color ? color->texture.get() : nullptr, depth ? depth->texture.get() : nullptr);
                 if (lastFramebuffer && key == lastFramebufferKey)
                     return lastFramebuffer;
                 auto it = framebuffers.find(key);
