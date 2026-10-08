@@ -3998,6 +3998,7 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
             // stored together, after every other count.
             void WriteOcclusionRecords(const std::vector<gpu::occlusion::Write>& writes)
             {
+                if (!writes.empty()) g_commandProcessor.AdvanceSyncEpoch();
                 for (const auto& write : writes) {
                     if (!write.apply) continue;
                     auto* words = reinterpret_cast<uint32_t*>(Phys(write.address));
@@ -7556,6 +7557,36 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
             }
 
             // ---- vertex buffers ------------------------------------------------------------
+            // A cached vertex/index source is compared with its snapshot once per
+            // sync epoch. Between two sync points only an unsynchronized guest CPU
+            // write racing the GPU can change memory a draw already read; such a
+            // write is seen at the next epoch instead of at the next draw.
+            // LO_REVALIDATE_EVERY_DRAW=1 compares on every draw; LO_REVALIDATE_VERIFY=1
+            // compares skipped sources too and logs mismatches.
+            uint64_t revalidationChecks = 0, revalidationSkips = 0, revalidationMismatches = 0;
+            uint64_t revalidationEpoch = 0;
+            template<class Matches>
+            bool SourceMatches(uint64_t& validatedEpoch, Matches&& matches, uint32_t address)
+            {
+                static const bool everyDraw = [] { const char* v = getenv("LO_REVALIDATE_EVERY_DRAW"); return v && strcmp(v, "0") != 0; }();
+                static const bool verify = [] { const char* v = getenv("LO_REVALIDATE_VERIFY"); return v && strcmp(v, "0") != 0; }();
+                const uint64_t epoch = g_commandProcessor.SyncEpoch();
+                if (!everyDraw && validatedEpoch == epoch) {
+                    ++revalidationSkips;
+                    if (!verify || matches()) return true;
+                    static uint32_t reported = 0;
+                    if (reported++ < 32)
+                        LOG_ERROR("renderer: source {:#x} changed within sync epoch {} (frame {})", address, epoch, frame);
+                    ++revalidationMismatches;
+                    validatedEpoch = 0;
+                    return false;
+                }
+                ++revalidationChecks;
+                const bool ok = matches();
+                validatedEpoch = ok ? epoch : 0;
+                return ok;
+            }
+
             // Returns the arena offset of the swapped copy of a guest vertex buffer.
             uint64_t GetVertexBuffer(uint32_t address, uint32_t sizeDwords, uint32_t endian)
             {
@@ -7576,7 +7607,8 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
                 {
                     const bool matches = [&] {
                         VertexStageTimer timer(vertexTiming.match, vertexTimingEnabled, address, bytes);
-                        return it->second.content.Matches(guest, bytes);
+                        return SourceMatches(it->second.validatedEpoch,
+                            [&] { return it->second.content.Matches(guest, bytes); }, address);
                     }();
                     if (gpu::render_arena::VertexCacheReusable(matches))
                     {
@@ -7607,6 +7639,7 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
                 const uint64_t offset = gpu::render_arena::SlotBase(allocSlot) + local;
                 local += needed;
                 VertexEntry entry{ offset, {}, frame, uint8_t(allocSlot) };
+                entry.validatedEpoch = g_commandProcessor.SyncEpoch();
                 {
                     VertexStageTimer timer(vertexTiming.capture, vertexTimingEnabled, address, bytes);
                     entry.content.Capture(guest, bytes);
@@ -9476,7 +9509,8 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
                         indexKey = { info.indexBase, indexSrcCount, info.primitiveType,
                             uint8_t(info.index32 ? 1 : 0), uint8_t(info.indexEndian & 3) };
                         auto it = indexCache.find(indexKey);
-                        if (it != indexCache.end() && it->second.content.Matches(indexSrc, indexSrcBytes))
+                        if (it != indexCache.end() && SourceMatches(it->second.validatedEpoch,
+                            [&] { return it->second.content.Matches(indexSrc, indexSrcBytes); }, info.indexBase))
                         {
                             cachedIndexEntry = &it->second;
                             it->second.lastFrame = frame;
@@ -9545,6 +9579,7 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
                     entry.data = converted;
                     entry.content.Capture(indexSrc, indexSrcBytes);
                     entry.lastFrame = frame;
+                    entry.validatedEpoch = g_commandProcessor.SyncEpoch();
                     indexCache.emplace(indexKey, std::move(entry));
                     if (cpuTimingEnabled) ++indexCacheMisses;
                 }
@@ -12391,6 +12426,7 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
                         destBase, destFormat, destEndian, x0, y0, copyWidth, copyHeight, destPitch, uint32_t(color->format), nonZero, drawsThisFrame);
                 }
                 uint8_t* dst = Phys(destBase);
+                g_commandProcessor.AdvanceSyncEpoch();
                 uint32_t pitchBlocks = (destPitch + 31) & ~31u;
                 for (uint32_t y = 0; y < copyHeight; y++)
                 {
@@ -13025,6 +13061,18 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
                     r.frame, r.indexCacheHits, r.indexCacheMisses, r.indexCache.size(),
                     r.indexCache.AllocatedBytes(), r.indexCache.PeakBytes(), r.indexCache.Evictions());
                 r.indexCacheHits = r.indexCacheMisses = 0;
+            }
+            {
+                static const bool verify = [] { const char* v = getenv("LO_REVALIDATE_VERIFY"); return v && strcmp(v, "0") != 0; }();
+                auto& r = *g_renderer;
+                const uint64_t epoch = g_commandProcessor.SyncEpoch();
+                if (render_timing::Enabled() || (verify && r.frame % 60 == 0))
+                    LOG_INFO("source revalidation frame={} sync_epochs={} compared={} skipped={} verify_mismatches={} scope=since_previous_line",
+                        r.frame, epoch - r.revalidationEpoch, r.revalidationChecks, r.revalidationSkips, r.revalidationMismatches);
+                if (render_timing::Enabled() || r.frame % 60 == 0) {
+                    r.revalidationEpoch = epoch;
+                    r.revalidationChecks = r.revalidationSkips = r.revalidationMismatches = 0;
+                }
             }
             if (render_timing::Enabled()) {
                 Renderer& r = *g_renderer;

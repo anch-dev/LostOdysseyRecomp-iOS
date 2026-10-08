@@ -496,6 +496,7 @@ namespace gpu
             if ((1u << scratchReg) & umsk)
             {
                 *reinterpret_cast<be<uint32_t>*>(TranslatePhysical(scratchAddr + scratchReg * 4)) = value;
+                AdvanceSyncEpoch();
                 static uint32_t logged = 0;
                 if (logged++ < 4 || (g_swapCount >= 110 && scratchReg <= 1))
                     LOG_VERBOSE("scratch writeback reg{} = {:#x} -> physical {:#x} (umsk {:#x}) swap #{}", scratchReg, value, scratchAddr + scratchReg * 4, umsk, g_swapCount.load());
@@ -705,6 +706,7 @@ namespace gpu
 
             if (m_readPtrWritebackPhysical)
                 *reinterpret_cast<be<uint32_t>*>(TranslatePhysical(m_readPtrWritebackPhysical)) = m_readPtrIndex;
+            AdvanceSyncEpoch();
         }
     }
 
@@ -974,6 +976,16 @@ namespace gpu
             LOG_ERROR("GPU opcode {:#x}: expected at least {} operands, got {}", opcode, minimum, count);
             DumpHistory("short opcode payload");
             return false;
+        }
+
+        switch (opcode)
+        {
+        case PM4_INTERRUPT: case PM4_XE_SWAP: case PM4_WAIT_REG_MEM: case PM4_REG_TO_MEM: case PM4_MEM_WRITE:
+        case PM4_COND_WRITE: case PM4_EVENT_WRITE_SHD: case PM4_EVENT_WRITE_EXT: case PM4_EVENT_WRITE_ZPD:
+            AdvanceSyncEpoch();
+            break;
+        default:
+            break;
         }
 
         switch (opcode)
@@ -1276,6 +1288,8 @@ namespace gpu
                 else
                     std::this_thread::yield();
             }
+            // Guest writes made before the waited-for value are visible from here.
+            AdvanceSyncEpoch();
             return true;
         }
 
