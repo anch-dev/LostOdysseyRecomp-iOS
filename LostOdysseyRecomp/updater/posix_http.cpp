@@ -1,4 +1,8 @@
-#if !defined(_WIN32) && !defined(__ANDROID__)
+#ifdef __APPLE__
+#include <TargetConditionals.h>
+#endif
+// iOS has no libcurl: updater/ios_http.mm implements the same interface with NSURLSession.
+#if !defined(_WIN32) && !defined(__ANDROID__) && !(defined(__APPLE__) && TARGET_OS_IPHONE)
 #include "http.h"
 #include "progress.h"
 

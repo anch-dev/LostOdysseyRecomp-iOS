@@ -208,9 +208,16 @@ if(ANDROID)
 elseif(UNIX)
     set_target_properties(LostOdysseyRecomp PROPERTIES
         INSTALL_RPATH "$ORIGIN;$ORIGIN/../lib")
-    find_package(CURL REQUIRED)
     target_link_libraries(LostOdysseyRecomp PRIVATE pthread dl)
-    target_link_libraries(LostOdysseyRecomp PRIVATE CURL::libcurl)
+    if(LO_TARGET_PLATFORM STREQUAL "ios")
+        # No libcurl on iOS: the updater's HTTPS goes through NSURLSession (Objective-C++, ARC).
+        target_sources(LostOdysseyRecomp PRIVATE ${LO_RUNTIME_ROOT}/updater/ios_http.mm)
+        set_source_files_properties(${LO_RUNTIME_ROOT}/updater/ios_http.mm PROPERTIES COMPILE_OPTIONS "-fobjc-arc")
+        target_link_libraries(LostOdysseyRecomp PRIVATE "-framework Foundation")
+    else()
+        find_package(CURL REQUIRED)
+        target_link_libraries(LostOdysseyRecomp PRIVATE CURL::libcurl)
+    endif()
 endif()
 target_link_libraries(LostOdysseyRecomp PRIVATE lo_avcodec)
 
