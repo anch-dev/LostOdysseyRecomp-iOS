@@ -12,8 +12,8 @@ Download the package for your platform, import the game from your own discs, and
 - [Linux packages](#running-on-linux)
   - [AppImage](#appimage)
   - [Flatpak](#flatpak)
-- [macOS (Apple Silicon, experimental)](#macos)
-- [Android (experimental)](#android)
+- [macOS (Apple Silicon)](#macos)
+- [Android](#android)
 - [First launch and settings](#first-launch-and-settings)
   - [Shader preparation](#shader-preparation)
 - [File locations](#file-locations)
@@ -59,7 +59,7 @@ Do not mix discs from the two editions. Other regional versions, title updates a
 
 ## Adding or replacing discs and DLC
 
-Open the importer again from **Settings → Gameplay → Import discs & DLC**. Choose the discs or DLC to add or replace, check the result and confirm. Your other discs, saves and settings stay as they are. DLC can be selected directly or found in a scanned folder; it is not part of the download.
+Open the importer again from **Settings → System → Import discs & DLC**. Choose the discs or DLC to add or replace, check the result and confirm. Your other discs, saves and settings stay as they are. DLC can be selected directly or found in a scanned folder; it is not part of the download.
 
 The importer copies your files and never moves or changes them, so keep the originals until the game works. If an import is cancelled or fails, run it again.
 
@@ -108,7 +108,7 @@ The importer can read dumps anywhere on your computer, including `/media`, `/run
 
 <a id="macos"></a>
 
-## macOS (Apple Silicon, experimental)
+## macOS (Apple Silicon)
 
 You need an Apple Silicon Mac with macOS 15 or later. The app is not notarized, so macOS blocks the first launch.
 
@@ -123,7 +123,7 @@ The first start may offer to download the Metal shaders; see [Shader preparation
 
 <a id="android"></a>
 
-## Android (experimental)
+## Android
 
 You need a 64-bit Android 8.0 or newer device with Vulkan and about 20 GB of free space for the four discs.
 
@@ -151,7 +151,7 @@ Only one tablet has been tested so far.
 
 On Windows, the first-launch page sets the interface language, game language and graphics options; run `LostOdysseyRecomp.exe --setup` to open it again. Linux and macOS start with default settings, which you change on the in-game Settings page. Settings tells you when a change needs a restart.
 
-In Graphics, **Display mode** is Windowed or Fullscreen. On a PC with several monitors or graphics cards, **Display** picks the monitor and **GPU** the graphics card (a GPU change applies after a restart). After you switch the display, the game asks whether to keep it and goes back after 5 seconds without an answer. On Windows, Win+Shift+Left/Right also moves the game to the next monitor. In Audio, **Vibration** sets the rumble strength and **Audio output** chooses Stereo or 5.1 surround; for 5.1, set your speakers to 5.1 or 7.1 in the system sound settings first, otherwise the game stays on stereo. On Windows that option is only in Control Panel → Sound → Playback: select the device, click Configure and choose 5.1 or 7.1 Surround.
+In Graphics, **Display mode** is Windowed or Fullscreen. On a PC with several monitors or graphics cards, **Display** picks the monitor and **GPU** the graphics card (a GPU change applies after a restart). After you switch the display, the game asks whether to keep it and goes back after 5 seconds without an answer. On Windows, Win+Shift+Left/Right also moves the game to the next monitor. In Gameplay, **Vibration** sets the rumble strength. In Audio, **Audio output** chooses Stereo or 5.1 surround; for 5.1, set your speakers to 5.1 or 7.1 in the system sound settings first, otherwise the game stays on stereo. On Windows that option is only in Control Panel → Sound → Playback: select the device, click Configure and choose 5.1 or 7.1 Surround.
 
 The interface language and the game language are separate. USA/Europe discs have English, Japanese, German, French, Spanish and Italian; the Asian set has English, Japanese, Korean, Traditional Chinese and Simplified Chinese. A game language your discs don't have falls back to English.
 
@@ -173,8 +173,8 @@ After an update that changes the shaders, the first start offers the download ag
 | Windows ZIP | Everything beside `LostOdysseyRecomp.exe`: `save/`, `profile/`, `cache/`, `logs/`, `settings.ini`, `game-path.txt`, and imported games in `game/`. |
 | Linux AppImage | Saves, profiles, cache and games: `~/.local/share/lost-odyssey-recomp/`. Settings: `~/.config/lost-odyssey-recomp/`. Logs: `~/.local/state/lost-odyssey-recomp/logs/`. |
 | Linux Flatpak | Under `~/.var/app/io.github.freefrank.LostOdysseyRecomp/`: saves, profiles, cache and games in `data/` (`/var/data` inside the sandbox); settings in `config/lost-odyssey-recomp/`; logs in `.local/state/lost-odyssey-recomp/logs/`. |
-| macOS (experimental) | Saves, profiles, cache, games and settings: `~/Library/Application Support/LostOdysseyRecomp/`. Logs: `~/Library/Logs/LostOdysseyRecomp/logs/`. |
-| Android (experimental) | Game: `Android/data/io.github.freefrank.lostodyssey/files/game/` (or the folder chosen on the **Game folder** page). Logs: `Android/data/io.github.freefrank.lostodyssey/files/logs/`. Saves and settings stay inside the app; **CTRL → Saves** exports and imports saves. |
+| macOS | Saves, profiles, cache, games and settings: `~/Library/Application Support/LostOdysseyRecomp/`. Logs: `~/Library/Logs/LostOdysseyRecomp/logs/`. |
+| Android | Game: `Android/data/io.github.freefrank.lostodyssey/files/game/` (or the folder chosen on the **Game folder** page). Logs: `Android/data/io.github.freefrank.lostodyssey/files/logs/`. Saves and settings stay inside the app; **CTRL → Saves** exports and imports saves. |
 
 Render captures go to `captures/` and mods to `mods/`: beside the program for the Windows ZIP, otherwise captures in the settings folder and mods in the data folder. Downloaded shaders go to `shaders/` in the same place as mods.
 
@@ -238,7 +238,7 @@ Environment variables override the saved settings for one run:
 | `LO_GRAPHICS_API` | `d3d12` or `vulkan` on Windows. |
 | `LO_FPS` | Frame-rate cap from 0 to 1000; `0` means uncapped. |
 | `LO_FG_PROVIDER`, `LO_FG_MODE`, `LO_FG_MULTIPLIER`, `LO_FG_TARGET_FPS` | Frame generation: `off`/`dlss`/`fsr`/`xess`; `off`/`fixed`/`dynamic`; 2–6; target FPS ([details](notes/vulkan-fg-fsr4-metalfx.md)). |
-| `LO_OPTISCALER_PATH` | Experimental, Windows: full path to your own `OptiScaler.dll` ([setup](notes/vulkan-fg-fsr4-metalfx.md#optional-optiscaler-loading-on-windows)). |
+| `LO_OPTISCALER_PATH` | Windows: full path to your own `OptiScaler.dll` ([setup](notes/vulkan-fg-fsr4-metalfx.md#optional-optiscaler-loading-on-windows)). |
 | `LO_NO_UPDATE` | Any value other than `0` skips the update check. |
 | `LO_PROFILE_DIR`, `LO_SHADER_CACHE_DIR`, `LO_MODS_DIR` | Use another profile, shader cache or mods folder. An empty `LO_SHADER_CACHE_DIR` turns the shader cache off. |
 | `LO_MODS` | `0` or `false` disables mods. |

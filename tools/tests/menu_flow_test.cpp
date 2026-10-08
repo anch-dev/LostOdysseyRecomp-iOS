@@ -334,6 +334,9 @@ void CheckBr03DlssMenu(uint8_t* base)
     Require(settings::snapshot.notice == needsVulkan, "D3D12 DLSS shows Vulkan restart");
     Require(settings::snapshot.rows.size() == size_t(GraphicsRow::Count), "BR-03 keeps every graphics row");
     Require(settings::snapshot.rows[int(GraphicsRow::AntiAliasing)].enabled && settings::snapshot.rows[int(GraphicsRow::AntiAliasing)].choices.size() == 6, "DLSS and FSR choices stay enabled on D3D12");
+    Require(settings::snapshot.rows[int(GraphicsRow::AntiAliasing)].choices[3] == L"TAA" &&
+            settings::snapshot.rows[int(GraphicsRow::FrameRate)].choices.back().find(L"(") == std::wstring::npos,
+            "TAA and frame-rate choices carry no experimental label");
     Require(!settings::snapshot.rows[int(GraphicsRow::DlssQuality)].hidden && settings::snapshot.rows[int(GraphicsRow::DlssQuality)].enabled, "quality row stays available");
     Require(settings::snapshot.rows[int(GraphicsRow::Backend)].enabled && settings::snapshot.rows[int(GraphicsRow::Backend)].choices.size() == 3, "backend choices stay available");
     const auto& shadow = settings::snapshot.rows[int(GraphicsRow::ShadowResolution)];
@@ -1105,11 +1108,13 @@ int main(int argc, char** argv)
             settings::pending = 0x1000; Tick(base);
             Require(saves == savesBefore + 1, "subsequent A on Save row triggers save");
 
-            // Language tab (tab 3): Start (0x10) jumps focus to Save settings (row 3)
+            // System tab (tab 3): Start (0x10) jumps focus to its last row, Save settings
             settings::tab = 3;
             settings::row = 0;
             settings::pending = 0x10; Tick(base);
-            Require(settings::row == 3, "Start on Language tab jumps to Save settings (row 3)");
+            Require(settings::row == settings::SystemSaveRow && settings::snapshot.rows.size() == size_t(settings::SystemRowCount) &&
+                    settings::snapshot.rows[settings::SystemSaveRow].name == L"Save settings",
+                    "Start on System tab jumps to Save settings, the last row");
 
             // PointerClick boundary tests:
             // Valid slot 0 (y = 150) hits row 0
@@ -1131,7 +1136,7 @@ int main(int argc, char** argv)
             std::puts("PASS Start/Enter focus jump, simultaneous confirm suppression, and PointerClick viewport clipping");
         }
         // FG is a dedicated section within Graphics. Its rows share the
-        // Graphics Save action while Language retains its separate Save.
+        // Graphics Save action while System retains its separate Save.
         {
             using framegen::Provider;
             const auto priorCurrent = currentConfig;
@@ -1223,21 +1228,23 @@ int main(int argc, char** argv)
                     settings::snapshot.help == L"显示设置已保存。",
                     "Graphics Save preserves pending Language edit and acknowledges save");
 
-            // The Language page still saves only language fields, leaving a
-            // pending FG change for the shared Graphics Save action.
+            // The System page still saves only language and update fields, leaving
+            // a pending FG change for the shared Graphics Save action.
             const auto graphicsSaved = diskConfig;
             settings::edit.frameGenerationProvider = Provider::Fsr;
             settings::edit.frameGenerationMultiplier = 2;
             settings::tab = 3;
-            settings::row = 3;
+            settings::row = settings::SystemSaveRow;
             const auto beforeLanguageSave = saves;
             settings::pending = 0x1000; Tick(base);
             Require(saves == beforeLanguageSave + 1 && diskConfig.uiLanguage == settings::edit.uiLanguage &&
                     diskConfig.frameGenerationProvider == graphicsSaved.frameGenerationProvider &&
                     diskConfig.frameGenerationMultiplier == graphicsSaved.frameGenerationMultiplier,
-                    "Language Save does not apply a pending Graphics FG change");
+                    "System Save does not apply a pending Graphics FG change");
             Require(settings::edit.frameGenerationProvider == Provider::Fsr,
-                    "Language Save keeps the unsaved FG selection");
+                    "System Save keeps the unsaved FG selection");
+            Require(settings::status == (settings::edit.uiLanguage == 4 ? L"系统设置已保存。" : L"System settings saved."),
+                    "System Save acknowledges with the System page name");
 
             settings::tab = 0;
             settings::row = 0;
@@ -1258,9 +1265,15 @@ int main(int argc, char** argv)
             Require(settings::row == int(GraphicsRow::FrameGeneration),
                     "mouse hit-testing maps scrolled FG section to its logical row");
             settings::pending = 0x200; Tick(base);
-            Require(settings::tab == 3, "right shoulder moves Graphics to Language in four tabs");
+            Require(settings::tab == 3, "right shoulder moves Graphics to System in four tabs");
             settings::pending = 0x200; Tick(base);
-            Require(settings::tab == 0, "right shoulder wraps Language to Gameplay");
+            Require(settings::tab == 0, "right shoulder wraps System to Gameplay");
+            // MenuFlowTranslate is the production Translate, renamed by the include above.
+            Require(std::wstring(settings::MenuFlowTranslate(1, L"System", L"系統")) == L"系統" &&
+                    std::wstring(settings::MenuFlowTranslate(2, L"System", L"系統")) == L"システム" &&
+                    std::wstring(settings::MenuFlowTranslate(3, L"System", L"系統")) == L"시스템" &&
+                    std::wstring(settings::MenuFlowTranslate(4, L"System", L"系統")) == L"系统",
+                    "System tab name is translated in every interface language");
             gpu::video::menuFlowFgStatus.sessionProvider = Provider::Dlss;
             gpu::video::menuFlowFgStatus.requested = Provider::Fsr;
             settings::tab = 2;
@@ -1276,7 +1289,7 @@ int main(int argc, char** argv)
             gpu::video::menuFlowFgStatus = {};
             currentConfig = priorCurrent;
             diskConfig = priorDisk;
-            std::puts("PASS Graphics FG section: provider/input navigation, DLSS multiplier bounds, FSR fixed 2x, shared Save, Language isolation, mouse/scroll and four-tab navigation");
+            std::puts("PASS Graphics FG section: provider/input navigation, DLSS multiplier bounds, FSR fixed 2x, shared Save, System isolation, mouse/scroll and four-tab navigation");
         }
         // FSR sharpness follows quality; Save is always last. Off disables
         // RCAS, and percent changes are bounded.
@@ -1351,11 +1364,11 @@ int main(int argc, char** argv)
             Require(settings::snapshot.help.find(L"Auto follows the controller") != std::wstring::npos, "Button prompts help");
             std::puts("PASS Button prompts row");
         }
-        // Vibration sits below the retail audio sliders. It applies and saves at
-        // once, stays within 0-100 and never commits unsaved Graphics edits.
+        // Vibration follows Button prompts on the Gameplay tab. It applies and saves
+        // at once, stays within 0-100 and never commits unsaved Graphics edits.
         {
-            settings::tab = 1;
-            settings::row = 2;
+            settings::tab = 0;
+            settings::row = settings::GamePromptRow;
             settings::status.clear();
             currentConfig.vibrationPercent = diskConfig.vibrationPercent = 100;
             settings::edit = currentConfig;
@@ -1363,9 +1376,10 @@ int main(int argc, char** argv)
             settings::edit.width = currentConfig.width == 2560 ? 1920 : 2560;
             const unsigned beforeSaves = saves, beforeApplies = applies, beforePreviews = vibrationPreviews;
             settings::pending = 2; Tick(base);
-            Require(settings::row == 3 && settings::snapshot.rows.size() == 5 &&
-                    settings::snapshot.rows[3].name == L"Vibration" && settings::snapshot.rows[3].sliderPercent == 100,
-                    "Vibration slider follows the retail audio sliders");
+            Require(settings::row == settings::GameVibrationRow && settings::snapshot.rows.size() == size_t(settings::GameRowCount) &&
+                    settings::snapshot.rows[settings::GameVibrationRow].name == L"Vibration" &&
+                    settings::snapshot.rows[settings::GameVibrationRow].sliderPercent == 100,
+                    "Vibration slider follows Button prompts on the Gameplay tab");
             Require(settings::snapshot.help.find(L"Min turns it off") != std::wstring::npos, "Vibration help");
             settings::pending = 8; Tick(base);
             Require(settings::edit.vibrationPercent == 100 && saves == beforeSaves, "right at 100 clamps without saving");
@@ -1374,22 +1388,28 @@ int main(int argc, char** argv)
                     vibrationStrength == 90 && vibrationPreviews == beforePreviews + 1 && applies == beforeApplies,
                     "left lowers, saves, applies live and previews without a guest apply");
             Require(diskConfig.width != settings::edit.width, "vibration save leaves unsaved Graphics edits unsaved");
-            Require(settings::snapshot.rows[3].sliderPercent == 90, "slider follows the strength");
+            Require(settings::snapshot.rows[settings::GameVibrationRow].sliderPercent == 90, "slider follows the strength");
             settings::edit.vibrationPercent = currentConfig.vibrationPercent = 0;
             settings::pending = 4; Tick(base);
             Require(settings::edit.vibrationPercent == 0 && saves == beforeSaves + 1, "left at 0 does not wrap");
-            // Audio output closes the tab: Right switches to 5.1 live and saves at once.
             settings::pending = 2; Tick(base);
-            Require(settings::row == 4 && settings::snapshot.rows[4].name == L"Audio output" &&
-                    settings::snapshot.rows[4].selectedChoice == 0, "Audio tab ends with Audio output, Stereo by default");
+            Require(settings::row == settings::GameRestoreRow, "the game actions follow Vibration");
+            // Audio output closes the Audio tab: Right switches to 5.1 live and saves at once.
+            settings::tab = 1;
+            settings::row = settings::AudioEffectsRow;
+            settings::pending = 2; Tick(base);
+            Require(settings::row == settings::AudioOutputRow && settings::snapshot.rows.size() == size_t(settings::AudioRowCount) &&
+                    settings::snapshot.rows[settings::AudioOutputRow].name == L"Audio output" &&
+                    settings::snapshot.rows[settings::AudioOutputRow].selectedChoice == 0,
+                    "Audio tab ends with Audio output after Sound effects, Stereo by default");
             settings::pending = 8; Tick(base);
             Require(settings::edit.audioOutput == settings::AudioOutputSurround && diskConfig.audioOutput == settings::AudioOutputSurround &&
                     apu::menuFlowSurround && saves == beforeSaves + 2 && applies == beforeApplies &&
                     diskConfig.width != settings::edit.width, "audio output switches live and saves alone");
             settings::pending = 2; Tick(base);
-            Require(settings::row == 0, "down from Audio output wraps to Voice language");
+            Require(settings::row == settings::AudioVoiceRow, "down from Audio output wraps to Voice language");
             settings::edit = currentConfig;
-            std::puts("PASS Audio Vibration slider and Audio output: bounds, immediate save, live apply, Graphics edits untouched");
+            std::puts("PASS Gameplay Vibration slider and Audio output: bounds, immediate save, live apply, Graphics edits untouched");
         }
         // The host Settings game tab is reached from the retail System menu.
         // Only explicit dialog confirmation may request the guest title transition.
@@ -1399,7 +1419,7 @@ int main(int argc, char** argv)
             settings::edit.uiLanguage = 0;
             settings::status.clear();
             settings::pending = 0; Tick(base);
-            Require(settings::snapshot.rows.size() == 11 &&
+            Require(settings::snapshot.rows.size() == size_t(settings::GameRowCount) &&
                     settings::snapshot.rows[settings::GameRestoreRow].name == L"Restore game defaults" &&
                     settings::snapshot.rows[settings::GameMainMenuRow].name == L"Quit to Main Menu" &&
                     settings::snapshot.rows[settings::GameMainMenuRow].value == L"Return",
@@ -1408,7 +1428,7 @@ int main(int argc, char** argv)
             const unsigned beforeSaves = saves, beforeApplies = applies, beforeCloses = closes;
             settings::pending = 8; Tick(base);
             Require(!settings::mainMenuPrompt && !mainMenuRequests, "right arrow cannot return to title");
-            settings::PointerClick(500, 150 + settings::GameMainMenuRow * 43 + 20, false);
+            settings::PointerClick(500, float(150 + (settings::GameMainMenuRow - settings::snapshot.scroll) * 43 + 20), false);
             Tick(base);
             Require(settings::mainMenuPrompt && settings::snapshot.dialogTitle == L"Quit to Main Menu" &&
                     settings::snapshot.dialogMessage == L"Return to the main menu? Unsaved progress will be lost." &&
@@ -1475,15 +1495,22 @@ int main(int argc, char** argv)
             settings::row = settings::GameMainMenuRow;
             settings::edit.uiLanguage = 0;
             settings::pending = 2; Tick(base);
-            Require(settings::row == settings::GameImportRow && settings::snapshot.scroll == 0 &&
-                    settings::snapshot.rows.size() == 11 &&
-                    settings::snapshot.rows[settings::GameImportRow].name == L"Import discs & DLC" &&
-                    settings::snapshot.rows[settings::GameImportRow].value == L"Open" &&
-                    settings::graphics_menu::IsAction(0, settings::GameImportRow),
-                    "gamepad reaches visible importer action after Main Menu");
+            Require(settings::row == 0 && settings::snapshot.scroll == 0 &&
+                    settings::snapshot.rows.size() == size_t(settings::GameRowCount),
+                    "Gameplay ends with Quit to Main Menu and fits without scrolling");
+            settings::tab = 3;
+            settings::row = settings::SystemCollectionRow;
+            settings::pending = 2; Tick(base);
+            Require(settings::row == settings::SystemImportRow && settings::snapshot.scroll == 0 &&
+                    settings::snapshot.rows.size() == size_t(settings::SystemRowCount) &&
+                    settings::snapshot.rows[settings::SystemImportRow].name == L"Import discs & DLC" &&
+                    settings::snapshot.rows[settings::SystemImportRow].value == L"Open" &&
+                    settings::snapshot.rows[settings::SystemSaveRow].name == L"Save settings" &&
+                    settings::graphics_menu::IsAction(3, settings::SystemImportRow),
+                    "gamepad reaches the importer action on System, just before Save settings");
             settings::pending = 8; Tick(base);
             Require(!settings::importPrompt && !settings::restart::Requested(), "right arrow cannot launch importer");
-            settings::PointerClick(500, 150 + settings::GameImportRow * 43 + 20, false);
+            settings::PointerClick(500, float(150 + (settings::SystemImportRow - settings::snapshot.scroll) * 43 + 20), false);
             Tick(base);
             Require(settings::importPrompt && settings::snapshot.dialogSelection == 1 &&
                     settings::snapshot.dialogChoices == std::vector<std::wstring>{L"Open importer", L"Cancel"} &&
@@ -1500,7 +1527,7 @@ int main(int argc, char** argv)
             {
                 settings::edit.uiLanguage = language;
                 settings::pending = 0; Tick(base);
-                Require(settings::snapshot.rows[settings::GameImportRow].name == name, "translated importer action");
+                Require(settings::snapshot.rows[settings::SystemImportRow].name == name, "translated importer action");
             }
             settings::edit.uiLanguage = 0;
             settings::pending = 0; Tick(base);
