@@ -4,55 +4,55 @@ Brief release highlights, newest first. Dates are UTC. Technical validation is r
 
 按新到旧记录简短更新，日期采用 UTC。技术验证见[开发状态](docs/STATUS.md)，后续计划见[路线图](docs/ROADMAP.zh-CN.md)。
 
-## Unreleased
+## [v0.8.58](https://github.com/freefrank/LostOdysseyRecomp/releases/tag/v0.8.58) — 2026-10-08
 
 ### English
 
+- The Settings menu fades in when it opens and eases tab switches, cursor moves, value changes and prompts instead of cutting; input still responds at once (#151).
+- New Motion blur and Dynamic shadows switches in the graphics settings turn off the game's motion blur and real-time shadows (after boma's Xenia Canary patches).
+- A Button prompts setting in the Gameplay tab chooses Auto, Xbox or PlayStation button icons; Auto follows the controller you use (#275).
+- Settings menu tidied: Vibration moved to the Gameplay tab under Button prompts; the Language tab is now System, with the TAA shader collection switch and Import discs & DLC above Save settings; Dynamic shadows sits under Shadow resolution; TAA, frame rates above 30 FPS and MetalFX frame generation are no longer marked experimental.
+- Views where walls hide most of the scene, such as the White Boa's Queen's Room, render faster: objects hidden there are skipped as on the console (Radeon 8060S: 72 → 101 FPS in a White Boa conversation).
+- macOS: about 15% higher frame rate in busy scenes on an M1 Max with identical output: depth-only draws no longer split Metal render passes.
+- Upscaling takes less GPU time with the same image: FSR 3.1 drops one full-screen pass and every upscaler skips another, about 3 ms per frame with FSR Performance at 4K on a Radeon 8060S limited to 12 W (14.4 → 15.2 FPS) (#172).
+- Ambient occlusion (SSAO/GTAO) takes less GPU time with identical output: its full-screen pass costs about 40% less, which is about 8% of the frame's GPU time on an Adreno 840 phone (about 20% with HDR on).
+- Vulkan and macOS: scene geometry takes about 12% less GPU time on an Adreno 840 phone with identical output: shaders read vertex data with fewer memory round trips.
+- Vulkan and macOS: scene draws take about 5% less GPU time on an Adreno 840 phone with identical output: shaders spend less work per draw computing constant addresses.
+- Vulkan does less redundant GPU synchronization and clearing between passes and in presentation, with identical output: about 1.5% higher frame rate on an Adreno 840 phone.
+- The renderer thread spends about a fifth less CPU time per frame on graphics constants, index buffers and texture checks: about 8 ms less on an Adreno 840 phone and 3 ms less on an M1 Max.
+- The renderer thread spends about 8% less CPU time per frame on GPU commands and per-draw checks (M1 Max), with identical output.
+- Fixed flickering boats at Experimental Staff Marine Division with TAA, FSR or DLSS (#307).
+- Controllers, audio and the game window run on SDL 3.4.18 instead of SDL2, with newer controller mappings and drivers (#289).
+- When startup stops for more than 10 seconds, the log names the step and where it waits; `LO_TRACE_STARTUP=1` adds graphics adapter and add-on software details (#282).
 - Posts in the Discord #help forum become GitHub issues instead of Discussions; posts in the new #discussion, #ideas and #show-and-tell forums go to the matching Discussions categories.
 - Closing or reopening a #help issue on GitHub adds or removes the Solved tag on the Discord post, and the Solved tag closes or reopens the issue.
 - Automatic first replies on new issues are back on and now written by Claude, for issues opened on GitHub and those copied from Discord.
 - New releases are announced in the Discord #announcements channel, and new commits, new branches and new pull requests are listed in #development.
 - Supporters on Ko-fi and Buy Me a Coffee are thanked in the Discord #supporters channel.
-- When startup stops for more than 10 seconds, the log names the step and where it waits; `LO_TRACE_STARTUP=1` adds graphics adapter and add-on software details (#282).
-- Controllers, audio and the game window run on SDL 3.4.18 instead of SDL2, with newer controller mappings and drivers (#289).
-- Ambient occlusion (SSAO/GTAO) takes less GPU time with identical output: its full-screen pass costs about 40% less, which is about 8% of the frame's GPU time on an Adreno 840 phone (about 20% with HDR on).
-- The renderer thread spends about a fifth less CPU time per frame on graphics constants, index buffers and texture checks: about 8 ms less on an Adreno 840 phone and 3 ms less on an M1 Max.
-- Upscaling takes less GPU time with the same image: FSR 3.1 drops one full-screen pass and every upscaler skips another, about 3 ms per frame with FSR Performance at 4K on a Radeon 8060S limited to 12 W (14.4 → 15.2 FPS) (#172).
-- macOS: about 15% higher frame rate in busy scenes on an M1 Max with identical output: depth-only draws no longer split Metal render passes.
-- Fixed flickering boats at Experimental Staff Marine Division with TAA, FSR or DLSS (#307).
-- Vulkan does less redundant GPU synchronization and clearing between passes and in presentation, with identical output: about 1.5% higher frame rate on an Adreno 840 phone.
-- Vulkan and macOS: scene geometry takes about 12% less GPU time on an Adreno 840 phone with identical output: shaders read vertex data with fewer memory round trips.
-- The renderer thread spends about 8% less CPU time per frame on GPU commands and per-draw checks (M1 Max), with identical output.
-- Vulkan and macOS: scene draws take about 5% less GPU time on an Adreno 840 phone with identical output: shaders spend less work per draw computing constant addresses.
-- Views where walls hide most of the scene, such as the White Boa's Queen's Room, render faster: objects hidden there are skipped as on the console (Radeon 8060S: 72 → 101 FPS in a White Boa conversation).
-- The Settings menu fades in when it opens and eases tab switches, cursor moves, value changes and prompts instead of cutting; input still responds at once (#151).
-- New Motion blur and Dynamic shadows switches in the graphics settings turn off the game's motion blur and real-time shadows (after boma's Xenia Canary patches).
-- A Button prompts setting in the Gameplay tab chooses Auto, Xbox or PlayStation button icons; Auto follows the controller you use (#275).
-- Settings menu tidied: Vibration moved to the Gameplay tab under Button prompts; the Language tab is now System, with the TAA shader collection switch and Import discs & DLC above Save settings; Dynamic shadows sits under Shadow resolution; TAA, frame rates above 30 FPS and MetalFX frame generation are no longer marked experimental.
 
 ### 简体中文
 
+- 设置菜单打开时会淡入，切换分类、移动光标、修改选项和弹出提示时改为平滑过渡，不再生硬跳变；按键仍然立即响应（#151）。
+- 图形设置新增“动态模糊”和“动态阴影”开关，可关闭游戏的动态模糊和实时阴影（参照 boma 的 Xenia Canary 补丁）。
+- 玩法页新增“按键提示”设置，可选自动、Xbox 或 PlayStation 按键图标；自动会跟随你使用的控制器（#275）。
+- 设置菜单重新整理：“震动”移到“游戏”页的“按键提示”下方；“语言”页改名为“系统”，“TAA 着色器收集”开关和“导入光盘与 DLC”放在“保存设置”上方；“动态阴影”移到“阴影分辨率”下方；TAA、30 FPS 以上的帧率和 MetalFX 帧生成不再标为实验性。
+- 大部分场景被墙挡住的视角（例如 White Boa 的 Queen's Room）渲染更快：这些地方被挡住的物体现在会像主机版一样跳过（Radeon 8060S 上 White Boa 的一段对话从 72 FPS 提高到 101 FPS）。
+- macOS：画面不变，繁重场景下 M1 Max 帧率提高约 15%：只写深度的 draw 不再打断 Metal 的渲染 pass。
+- 超分画面不变，占用的 GPU 时间更少：FSR 3.1 少一个全屏 pass，所有超分方案再省掉一个；在功耗限制为 12 W 的 Radeon 8060S 上，4K FSR Performance 每帧约少 3 毫秒（14.4 → 15.2 FPS）（#172）。
+- 环境光遮蔽（SSAO/GTAO）画面不变，占用的 GPU 时间更少：它的全屏 pass 耗时少约 40%，在 Adreno 840 手机上约占整帧 GPU 时间的 8%（开启 HDR 时约 20%）。
+- Vulkan 和 macOS：画面不变，Adreno 840 手机上场景几何体的 GPU 时间少约 12%：着色器读取顶点数据时的内存往返更少。
+- Vulkan 和 macOS：画面不变，Adreno 840 手机上场景 draw 的 GPU 时间再少约 5%：着色器每个 draw 计算常量地址的开销更小。
+- Vulkan 在 pass 之间和画面呈现时减少了多余的 GPU 同步与清屏，画面不变：Adreno 840 手机上帧率提高约 1.5%。
+- 渲染线程每帧在图形常量、索引缓冲和纹理校验上少花约五分之一的 CPU 时间：Adreno 840 手机上约少 8 毫秒，M1 Max 上约少 3 毫秒。
+- 渲染线程每帧在 GPU 命令和逐 draw 检查上少花约 8% 的 CPU 时间（M1 Max），画面不变。
+- 修复 Experimental Staff Marine Division 的船在开启 TAA、FSR 或 DLSS 时闪烁的问题（#307）。
+- 手柄、音频和游戏窗口从 SDL2 换成 SDL 3.4.18，带来更新的手柄映射和驱动（#289）。
+- 启动卡住超过 10 秒时，日志会记下卡住的步骤和等待位置；`LO_TRACE_STARTUP=1` 会额外记录显卡适配器和第三方软件信息（#282）。
 - Discord #help 论坛的帖子改为复制成 GitHub Issue，不再进 Discussions；新开的 #discussion、#ideas、#show-and-tell 论坛的帖子复制到 Discussions 的对应分类。
 - 在 GitHub 上关闭或重新打开 #help 对应的 issue，会给 Discord 帖子加上或去掉 Solved 标签；反过来，Solved 标签也会关闭或重新打开 issue。
 - 新 issue 的自动初步分析重新开启，改由 Claude 撰写；GitHub 上直接开的和从 Discord 复制来的 issue 都适用。
 - 新版本发布会在 Discord #announcements 频道公告，各分支的新提交、新建分支和新开的 pull request 会列在 #development。
 - 在 Ko-fi 和 Buy Me a Coffee 上支持项目的朋友会在 Discord #supporters 频道收到感谢。
-- 启动卡住超过 10 秒时，日志会记下卡住的步骤和等待位置；`LO_TRACE_STARTUP=1` 会额外记录显卡适配器和第三方软件信息（#282）。
-- 手柄、音频和游戏窗口从 SDL2 换成 SDL 3.4.18，带来更新的手柄映射和驱动（#289）。
-- 环境光遮蔽（SSAO/GTAO）画面不变，占用的 GPU 时间更少：它的全屏 pass 耗时少约 40%，在 Adreno 840 手机上约占整帧 GPU 时间的 8%（开启 HDR 时约 20%）。
-- 渲染线程每帧在图形常量、索引缓冲和纹理校验上少花约五分之一的 CPU 时间：Adreno 840 手机上约少 8 毫秒，M1 Max 上约少 3 毫秒。
-- 超分画面不变，占用的 GPU 时间更少：FSR 3.1 少一个全屏 pass，所有超分方案再省掉一个；在功耗限制为 12 W 的 Radeon 8060S 上，4K FSR Performance 每帧约少 3 毫秒（14.4 → 15.2 FPS）（#172）。
-- macOS：画面不变，繁重场景下 M1 Max 帧率提高约 15%：只写深度的 draw 不再打断 Metal 的渲染 pass。
-- 修复 Experimental Staff Marine Division 的船在开启 TAA、FSR 或 DLSS 时闪烁的问题（#307）。
-- Vulkan 在 pass 之间和画面呈现时减少了多余的 GPU 同步与清屏，画面不变：Adreno 840 手机上帧率提高约 1.5%。
-- Vulkan 和 macOS：画面不变，Adreno 840 手机上场景几何体的 GPU 时间少约 12%：着色器读取顶点数据时的内存往返更少。
-- 渲染线程每帧在 GPU 命令和逐 draw 检查上少花约 8% 的 CPU 时间（M1 Max），画面不变。
-- Vulkan 和 macOS：画面不变，Adreno 840 手机上场景 draw 的 GPU 时间再少约 5%：着色器每个 draw 计算常量地址的开销更小。
-- 大部分场景被墙挡住的视角（例如 White Boa 的 Queen's Room）渲染更快：这些地方被挡住的物体现在会像主机版一样跳过（Radeon 8060S 上 White Boa 的一段对话从 72 FPS 提高到 101 FPS）。
-- 设置菜单打开时会淡入，切换分类、移动光标、修改选项和弹出提示时改为平滑过渡，不再生硬跳变；按键仍然立即响应（#151）。
-- 图形设置新增“动态模糊”和“动态阴影”开关，可关闭游戏的动态模糊和实时阴影（参照 boma 的 Xenia Canary 补丁）。
-- 玩法页新增“按键提示”设置，可选自动、Xbox 或 PlayStation 按键图标；自动会跟随你使用的控制器（#275）。
-- 设置菜单重新整理：“震动”移到“游戏”页的“按键提示”下方；“语言”页改名为“系统”，“TAA 着色器收集”开关和“导入光盘与 DLC”放在“保存设置”上方；“动态阴影”移到“阴影分辨率”下方；TAA、30 FPS 以上的帧率和 MetalFX 帧生成不再标为实验性。
 
 ## [v0.8.53](https://github.com/freefrank/LostOdysseyRecomp/releases/tag/v0.8.53) — 2026-10-07
 
