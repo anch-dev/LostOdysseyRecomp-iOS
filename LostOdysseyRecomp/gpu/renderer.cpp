@@ -125,6 +125,7 @@ namespace plume {
 #include <fstream>
 #include <iomanip>
 #include <future>
+#include <bitset>
 #include <set>
 #include <tuple>
 #include <map>
@@ -155,8 +156,12 @@ namespace gpu::renderer
         }
         std::mutex framePlanMutex;
         frame_plan::FramePlan committedPlan{};
+        // Bumped under framePlanMutex when committedPlan or failedPlanEpochs changes.
+        std::atomic<uint64_t> framePlanGeneration{1};
         std::mutex catalogMutex;
         std::unordered_map<uint64_t, frame_plan::SurfaceRole> catalogRoles;
+        // Bumped under catalogMutex when catalogRoles changes.
+        std::atomic<uint64_t> catalogGeneration{1};
         uint64_t CatalogKey(uint32_t surfaceInfo, uint32_t colorInfo)
         {
             return (uint64_t(colorInfo & 0xFFF) << 32) | (surfaceInfo & 0x3FFF);
@@ -1172,6 +1177,9 @@ namespace gpu::renderer
             resolution::ShadowResolutionState shadowState;
             uint32_t shadowResolution = 1;
             frame_plan::FramePlan activePlan{};
+            uint64_t activePlanGeneration = 0, shadowConfigFrame = ~0ull;
+            bool activePlanFailed = false;
+            uint32_t shadowConfigValue = 1;
             // Allocation failures are recorded by the GPU and can be observed
             // after later plan markers have already been committed.
             std::unordered_set<uint64_t> failedPlanEpochs;
@@ -1382,6 +1390,9 @@ namespace gpu::renderer
             // 2048-entry sampler heap, including the immutable host table.
             static constexpr size_t kSamplerVersionsPerBatch = 8;
             std::map<std::pair<const RenderTexture*, const RenderTexture*>, std::unique_ptr<RenderFramebuffer>> framebuffers;
+            // Last GetFramebuffer hit; cleared wherever framebuffers loses entries.
+            std::pair<const RenderTexture*, const RenderTexture*> lastFramebufferKey{};
+            RenderFramebuffer* lastFramebuffer = nullptr;
 
             std::string shaderCacheDir;
             uint32_t drawsThisFrame = 0;
@@ -4190,6 +4201,7 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
                             i, vk_object_trace::Id(texture->allocationSerial), vk_object_trace::Id(image.vk),
                             vk_object_trace::Id(image.imageView), vk_object_trace::Id(s.temporalSerial), vk_object_trace::Id(s.srSubmissionSerial));
                     }
+                    lastFramebuffer = nullptr;
                     for (auto fb = framebuffers.begin(); fb != framebuffers.end();)
                         if (fb->first.first == texture->texture.get() || fb->first.second == texture->texture.get())
                             fb = framebuffers.erase(fb);
@@ -6509,21 +6521,25 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
             bool ApplyInternalResolution()
             {
                 if (video::GpuWorkStopped()) return false;
-                frame_plan::FramePlan selected;
-                bool failed = false;
-                {
+                if (framePlanGeneration.load(std::memory_order_acquire) != activePlanGeneration) {
                     std::lock_guard lock(framePlanMutex);
-                    selected = committedPlan;
-                    failed = selected.geometryEpoch != 0 && failedPlanEpochs.contains(selected.geometryEpoch);
+                    activePlan = committedPlan;
+                    activePlanFailed = activePlan.geometryEpoch != 0 && failedPlanEpochs.contains(activePlan.geometryEpoch);
+                    activePlanGeneration = framePlanGeneration.load(std::memory_order_relaxed);
                 }
-                activePlan = selected;
-                if (failed)
+                if (activePlanFailed)
                     return false;
+                const frame_plan::FramePlan& selected = activePlan;
                 const resolution::Size requested{selected.width, selected.height};
                 const bool first = appliedPlanEpoch == ~0ull;
                 const bool requestChanged = requested != requestedInternalSize;
                 // Snapshot once per renderer frame, before borrowing draw attachments.
-                const auto desiredShadow = shadowState.BeginFrame(frame, settings::GetConfig().shadowResolution);
+                // BeginFrame reads the setting only on the first draw of a frame.
+                if (shadowConfigFrame != frame) {
+                    shadowConfigFrame = frame;
+                    shadowConfigValue = settings::GetConfig().shadowResolution;
+                }
+                const auto desiredShadow = shadowState.BeginFrame(frame, shadowConfigValue);
                 const bool shadowChanged = desiredShadow != shadowResolution;
                 const bool epochChanged = selected.geometryEpoch != appliedPlanEpoch;
                 const bool recreateFeature =
@@ -6574,6 +6590,7 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
                     restoreDebt = {};
                     promotionPool.clear();
                     framebuffers.clear();
+                    lastFramebuffer = nullptr;
                     renderTargets.clear();
                     resolved.clear();
                     tileOwner.clear();
@@ -6602,6 +6619,7 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
                     std::lock_guard lock(framePlanMutex);
                     if (!failedPlanEpochs.emplace(activePlan.geometryEpoch).second)
                         return;
+                    framePlanGeneration.fetch_add(1, std::memory_order_release);
                 }
                 const uint32_t fallback = activePlan.height > 720 ? std::max(720u, activePlan.height * 3 / 4) : 720u;
                 if (reason == frame_plan::FailureReason::Unknown)
@@ -6647,13 +6665,20 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
                 FailCurrentPlan();
             }
 
+            // Last catalog role per attachment kind (color, depth); draws reuse targets.
+            struct CatalogRoleCache { uint64_t key = ~0ull, generation = 0; resolution::TargetRole role{}; } catalogRoleCache[2];
             HostTexture* GetRenderTarget(uint32_t base, uint32_t format, uint32_t pitch, uint32_t height, bool depth)
             {
                 // EDRAM targets have no intrinsic height and ours is only guessed
                 // from the scissor, so draws and resolves may disagree on it: key
                 // by tile base, format and pitch only and grow the texture when a
                 // taller extent shows up.
-                const auto role = ResolveCatalogRole(base, pitch);
+                auto& cachedRole = catalogRoleCache[depth];
+                const uint64_t roleKey = (uint64_t(base) << 32) | pitch;
+                if (const uint64_t generation = catalogGeneration.load(std::memory_order_acquire);
+                    cachedRole.key != roleKey || cachedRole.generation != generation)
+                    cachedRole = {roleKey, generation, ResolveCatalogRole(base, pitch)};
+                const auto role = cachedRole.role;
                 if (role == resolution::TargetRole::Shadow && shadowState.Failed() && shadowResolution > 1) return nullptr;
                 height = resolution::TargetGuestHeight(role, height);
                 // Depth formats (D24S8 / D24FS8) alias the same tiles and share our
@@ -6757,10 +6782,11 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
                 // behavior remains opt-in for diagnostic A/B runs (=read); =0/none
                 // disables transfers entirely.
                 static const char* transferMode = getenv("LO_EDRAM_TRANSFER") ? getenv("LO_EDRAM_TRANSFER") : "draw";
-                const bool doTransfer = strcmp(transferMode, "0") != 0 && strcmp(transferMode, "none") != 0 &&
-                    (forRead || strcmp(transferMode, "draw") == 0);
-                auto owner = tileOwner.find({ base, pitch });
-                if (doTransfer && owner != tileOwner.end() && owner->second != colorClass)
+                static const bool transferNever = strcmp(transferMode, "0") == 0 || strcmp(transferMode, "none") == 0;
+                static const bool transferOnDraw = strcmp(transferMode, "draw") == 0;
+                const bool doTransfer = !transferNever && (forRead || transferOnDraw);
+                auto [owner, firstOwner] = tileOwner.try_emplace({ base, pitch }, colorClass);
+                if (doTransfer && !firstOwner && owner->second != colorClass)
                 {
                     auto prev = renderTargets.find(RenderTargetKey{ base, owner->second, pitch, 0, false });
                     if (prev != renderTargets.end() && prev->second && prev->second->texture && target && target->texture) {
@@ -6769,7 +6795,7 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
                         TransferRegion(*prev->second, *target, owner->second, colorClass);
                     }
                 }
-                tileOwner[{ base, pitch }] = colorClass;
+                owner->second = colorClass;
                 if (target && target == restoreDebt.target && (touchesColor || forRead)) SettleRestoreDebt();
                 return target;
             }
@@ -6779,9 +6805,13 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
                 if (color) MarkFgWritable(*color, "color_framebuffer");
                 if (depth) MarkFgWritable(*depth, "depth_framebuffer");
                 auto key = std::make_pair(color ? color->texture.get() : nullptr, depth ? depth->texture.get() : nullptr);
+                if (lastFramebuffer && key == lastFramebufferKey)
+                    return lastFramebuffer;
                 auto it = framebuffers.find(key);
-                if (it != framebuffers.end())
-                    return it->second.get();
+                if (it != framebuffers.end()) {
+                    lastFramebufferKey = key;
+                    return lastFramebuffer = it->second.get();
+                }
                 if (nativeVulkan && vk_object_trace::Permit()) {
                     const auto* c = static_cast<const VulkanTexture*>(key.first);
                     const auto* d = static_cast<const VulkanTexture*>(key.second);
@@ -8480,9 +8510,11 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
                         // RB_COLOR_INFO.color_exp_bias (signed 6 bits at +20) scales what
                         // the hardware writes to EDRAM; log which values the title uses.
                         const int32_t bias = int32_t(colorInfo << 6) >> 26;
-                        static std::set<int32_t> seenBias;
-                        if (seenBias.insert(bias | (int32_t(cfmt) << 8)).second)
+                        static std::bitset<16 * 64> seenBias;
+                        if (const size_t seen = (cfmt << 6) | (uint32_t(bias) & 63); !seenBias.test(seen)) {
+                            seenBias.set(seen);
                             LOG_INFO("renderer: colour format {} uses exp_bias {}", cfmt, bias);
+                        }
                     }
                     float m = 1.0f;            // 8_8_8_8, 8_8_8_8_GAMMA, 2_10_10_10, _AS_10_10_10_10
                     if (cfmt == 3 || cfmt == 12) m = 31.875f;   // 2_10_10_10_FLOAT (7e3)
@@ -13635,6 +13667,7 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
         if (!plan.width || !plan.height) return;
         std::lock_guard lock(framePlanMutex);
         committedPlan = plan;
+        framePlanGeneration.fetch_add(1, std::memory_order_release);
     }
 
     void RegisterCatalogSurface(frame_plan::SurfaceRole role, uint32_t surfaceInfo, uint32_t colorInfo)
@@ -13644,13 +13677,18 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
         const uint64_t key = CatalogKey(surfaceInfo, colorInfo);
         const auto found = catalogRoles.find(key);
         if (role == frame_plan::SurfaceRole::Unknown) {
-            if (found != catalogRoles.end()) catalogRoles.erase(found);
+            if (found != catalogRoles.end()) {
+                catalogRoles.erase(found);
+                catalogGeneration.fetch_add(1, std::memory_order_release);
+            }
             return;
         }
         if (found != catalogRoles.end() && found->second != role)
             LOG_WARNING("renderer: catalog role conflict base={:#x} pitch={} old={} new={}", colorInfo & 0xFFF, surfaceInfo & 0x3FFF,
                 uint32_t(found->second), uint32_t(role));
+        if (found != catalogRoles.end() && found->second == role) return;
         catalogRoles[key] = role;
+        catalogGeneration.fetch_add(1, std::memory_order_release);
     }
 
     void ClearMovieBars(uint32_t surfaceInfo, uint32_t colorInfo,
