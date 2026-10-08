@@ -47,6 +47,7 @@ jobs:
           git -C thirdparty/plume apply --reverse --check ../../tools/patches/plume-lostodyssey.patch >/dev/null 2>&1 || git -C thirdparty/plume apply ../../tools/patches/plume-lostodyssey.patch
           git -C thirdparty/plume apply --reverse --check ../../tools/patches/plume-sdl3.patch >/dev/null 2>&1 || git -C thirdparty/plume apply ../../tools/patches/plume-sdl3.patch
           git -C thirdparty/plume apply --reverse --check ../../tools/patches/plume-macos.patch >/dev/null 2>&1 || git -C thirdparty/plume apply ../../tools/patches/plume-macos.patch
+          git -C thirdparty/plume apply --reverse --check ../../tools/patches/plume-ios.patch >/dev/null 2>&1 || git -C thirdparty/plume apply ../../tools/patches/plume-ios.patch
       - name: Configure (iPhoneOS arm64)
         shell: bash
         run: |

@@ -1,0 +1,193 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6f09049..7859fba 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -58,10 +58,15 @@ set(PLUME_SOURCES
+ 
+ # Platform-specific files
+ if(APPLE)
++    if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
++        set(PLUME_APPLE_WINDOW_SOURCE plume_apple_ios.mm)
++    else()
++        set(PLUME_APPLE_WINDOW_SOURCE plume_apple.mm)
++    endif()
+     list(APPEND PLUME_SOURCES
+         plume_metal.cpp
+         plume_metal.h
+-        plume_apple.mm
++        ${PLUME_APPLE_WINDOW_SOURCE}
+         plume_apple.h
+     )
+ elseif(WIN32)
+@@ -107,6 +112,9 @@ if(APPLE)
+     endif()
+ 
+     target_link_libraries(plume PUBLIC "-framework CoreGraphics")
++    if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
++        target_link_libraries(plume PUBLIC "-framework Foundation" "-framework Metal" "-framework QuartzCore" "-framework UIKit")
++    endif()
+ 
+     target_include_directories(plume PRIVATE
+         ${CMAKE_CURRENT_SOURCE_DIR}/contrib/metal-cpp
+diff --git a/plume_apple_ios.mm b/plume_apple_ios.mm
+new file mode 100644
+index 0000000..7ccf7b0
+--- /dev/null
++++ b/plume_apple_ios.mm
+@@ -0,0 +1,156 @@
++//
++// plume
++//
++// iOS implementation of the window helper declared in plume_apple.h (plume_apple.mm is the AppKit one).
++// `window` is the UIWindow* of the SDL window. All UIKit access happens on the main queue.
++//
++
++#include "plume_apple.h"
++
++#import <Foundation/Foundation.h>
++#import <QuartzCore/CAMetalLayer.h>
++#import <UIKit/UIKit.h>
++
++#include <algorithm>
++#include <cmath>
++
++namespace plume {
++    // iOS GPUs are always Apple GPUs; the Metal backend only asks for the vendor of non-Apple-family devices.
++    RenderDeviceVendor getRenderDeviceVendor(uint64_t) {
++        return RenderDeviceVendor::UNKNOWN;
++    }
++
++    static CGFloat iosScale(UIWindow *window) {
++        UIScreen *screen = window.screen ?: UIScreen.mainScreen;
++        return screen.nativeScale > 0.0 ? screen.nativeScale : screen.scale;
++    }
++
++    static void readEDRHeadroom(UIWindow *window, float &current, float &potential) {
++        current = potential = 1.0f;
++        if (@available(iOS 16.0, *)) {
++            UIScreen *screen = window.screen ?: UIScreen.mainScreen;
++            current = std::max(1.0f, float(screen.currentEDRHeadroom));
++            potential = std::max(1.0f, float(screen.potentialEDRHeadroom));
++        }
++    }
++
++    static void readAttributes(UIWindow *window, CocoaWindowAttributes &out, int &refresh) {
++        CGRect bounds = window.bounds;
++        CGFloat scale = iosScale(window);
++        out.x = (int)std::lround(bounds.origin.x);
++        out.y = (int)std::lround(bounds.origin.y);
++        out.width = (int)std::lround(bounds.size.width * scale);
++        out.height = (int)std::lround(bounds.size.height * scale);
++        UIScreen *screen = window.screen ?: UIScreen.mainScreen;
++        refresh = (int)screen.maximumFramesPerSecond;
++    }
++
++    CocoaWindow::CocoaWindow(void *window)
++        : windowHandle(window), cachedRefreshRate(0) {
++        cachedAttributes = {0, 0, 0, 0};
++        auto load = ^{
++            UIWindow *uiWindow = (__bridge UIWindow *)windowHandle;
++            CocoaWindowAttributes attributes{};
++            int refresh = 0;
++            readAttributes(uiWindow, attributes, refresh);
++            float current, potential;
++            readEDRHeadroom(uiWindow, current, potential);
++            std::lock_guard<std::mutex> lock(attributesMutex);
++            cachedAttributes = attributes;
++            cachedRefreshRate.store(refresh);
++            edrCache->current.store(current);
++            edrCache->potential.store(potential);
++        };
++        if ([NSThread isMainThread]) load();
++        else dispatch_sync(dispatch_get_main_queue(), load);
++    }
++
++    CocoaWindow::~CocoaWindow() {}
++
++    void CocoaWindow::updateWindowAttributesInternal(bool forceSync) {
++        auto updateBlock = ^{
++            UIWindow *uiWindow = (__bridge UIWindow *)windowHandle;
++            CocoaWindowAttributes attributes{};
++            int refresh = 0;
++            readAttributes(uiWindow, attributes, refresh);
++            std::lock_guard<std::mutex> lock(attributesMutex);
++            cachedAttributes = attributes;
++        };
++        if (forceSync && ![NSThread isMainThread]) dispatch_sync(dispatch_get_main_queue(), updateBlock);
++        else if ([NSThread isMainThread]) updateBlock();
++        else dispatch_async(dispatch_get_main_queue(), updateBlock);
++    }
++
++    void CocoaWindow::updateRefreshRateInternal(bool forceSync) {
++        auto updateBlock = ^{
++            UIWindow *uiWindow = (__bridge UIWindow *)windowHandle;
++            UIScreen *screen = uiWindow.screen ?: UIScreen.mainScreen;
++            cachedRefreshRate.store((int)screen.maximumFramesPerSecond);
++        };
++        if (forceSync && ![NSThread isMainThread]) dispatch_sync(dispatch_get_main_queue(), updateBlock);
++        else if ([NSThread isMainThread]) updateBlock();
++        else dispatch_async(dispatch_get_main_queue(), updateBlock);
++    }
++
++    void CocoaWindow::getWindowAttributes(CocoaWindowAttributes *attributes) const {
++        if ([NSThread isMainThread]) {
++            const_cast<CocoaWindow *>(this)->updateWindowAttributesInternal(true);
++        } else {
++            const_cast<CocoaWindow *>(this)->updateWindowAttributesInternal(false);
++        }
++        std::lock_guard<std::mutex> lock(attributesMutex);
++        *attributes = cachedAttributes;
++    }
++
++    int CocoaWindow::getRefreshRate() const {
++        if ([NSThread isMainThread]) {
++            const_cast<CocoaWindow *>(this)->updateRefreshRateInternal(true);
++        } else {
++            const_cast<CocoaWindow *>(this)->updateRefreshRateInternal(false);
++        }
++        return cachedRefreshRate.load();
++    }
++
++    bool CocoaWindow::configureEDRLayer(void *layerHandle) const {
++        __block bool configured = false;
++        auto configure = ^{
++            if (@available(iOS 16.0, *)) {
++                CAMetalLayer *metalLayer = (__bridge CAMetalLayer *)layerHandle;
++                CGColorSpaceRef colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceExtendedLinearSRGB);
++                if (metalLayer != nil && colorSpace != nullptr) {
++                    [metalLayer setColorspace:colorSpace];
++                    [metalLayer setWantsExtendedDynamicRangeContent:YES];
++                    CGColorSpaceRelease(colorSpace);
++                    configured = true;
++                }
++            }
++        };
++        if ([NSThread isMainThread]) configure();
++        else dispatch_sync(dispatch_get_main_queue(), configure);
++        return configured;
++    }
++
++    void CocoaWindow::getEDRHeadroom(float &current, float &potential) const {
++        auto cache = edrCache;
++        UIWindow *window = (__bridge UIWindow *)windowHandle;
++        if ([NSThread isMainThread]) {
++            float actual, maximum;
++            readEDRHeadroom(window, actual, maximum);
++            cache->current.store(actual);
++            cache->potential.store(maximum);
++        } else if (!cache->updateQueued.exchange(true)) {
++            dispatch_async(dispatch_get_main_queue(), ^{
++                float actual, maximum;
++                readEDRHeadroom(window, actual, maximum);
++                cache->current.store(actual);
++                cache->potential.store(maximum);
++                cache->updateQueued.store(false);
++            });
++        }
++        current = cache->current.load();
++        potential = cache->potential.load();
++    }
++
++    // The app is always full screen on iOS.
++    void CocoaWindow::toggleFullscreen() {}
++}

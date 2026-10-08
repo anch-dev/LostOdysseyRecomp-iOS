@@ -106,3 +106,7 @@ cp thirdparty/plume/plume_metal.cpp thirdparty/plume/plume_metal.h thirdparty/pl
 git -C "$ref" diff > tools/patches/plume-macos.patch
 git -C thirdparty/plume worktree remove --force "$ref"
 ```
+
+## plume-ios.patch
+
+Applied after `plume-macos.patch` when building for iOS. Adds `plume_apple_ios.mm`, the UIKit version of plume's window helper (`CocoaWindow`: pixel size, refresh rate, EDR headroom), selected by CMake when `CMAKE_SYSTEM_NAME` is `iOS`, and links the Metal/UIKit frameworks. It does not change macOS builds.
