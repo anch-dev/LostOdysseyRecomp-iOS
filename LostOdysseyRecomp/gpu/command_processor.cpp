@@ -507,16 +507,16 @@ namespace gpu
         }
     }
 
-    // WriteRegister's side effects all lie below 0x2400 (scratch writeback,
-    // coherency, read-only status) or at REGISTER_COUNT and above (frame plan,
-    // catalog, movie clear). The constant, fetch and bool/loop banks in between
-    // only update the register file and the big-endian MMIO image that guest
-    // loads read.
-    constexpr uint32_t kPlainRegisterFirst = 0x2400;
+    // WriteRegister's side effects all lie below 0x2000 (display gamma, scratch
+    // writeback, coherency, read-only status) or at REGISTER_COUNT and above
+    // (frame plan, catalog, movie clear). The context, constant, fetch and
+    // bool/loop banks in between only update the register file and the
+    // big-endian MMIO image that guest loads read.
+    constexpr uint32_t kPlainRegisterFirst = 0x2000;
     static_assert(REG_SCRATCH_REG7 < kPlainRegisterFirst && REG_COHER_STATUS_HOST < kPlainRegisterFirst &&
         REG_RB_EDRAM_TIMING < kPlainRegisterFirst && REG_RB_BC_CONTROL < kPlainRegisterFirst &&
         REG_D1MODE_V_COUNTER < kPlainRegisterFirst && REG_INTERRUPT_STATUS < kPlainRegisterFirst &&
-        REG_D1MODE_VIEWPORT_SIZE < kPlainRegisterFirst &&
+        REG_D1MODE_VIEWPORT_SIZE < kPlainRegisterFirst && display_gamma::RegisterLast < kPlainRegisterFirst &&
         movie_clear::RegisterBase >= REGISTER_COUNT && frame_plan::wire::PlanBase >= REGISTER_COUNT &&
         frame_plan::wire::CatalogBase >= REGISTER_COUNT);
 
@@ -543,16 +543,35 @@ namespace gpu
         if (first < kPlainRegisterFirst || uint64_t(first) + count > REGISTER_COUNT)
             return false;
         std::memcpy(static_cast<uint8_t*>(g_memory.Translate(MMIO_BASE)) + size_t(first) * 4, guestWords, size_t(count) * 4);
-        uint32_t* registers = m_registers.data() + first;
-        uint64_t changed[2]{};
-        for (uint32_t i = 0; i < count; ++i)
+        uint32_t* registers = m_registers.data();
+        const uint32_t end = first + count;
+        auto copy = [&](uint32_t from, uint32_t to) {
+            for (uint32_t i = from; i < to; ++i) registers[i] = ByteSwap(guestWords[i - first]);
+        };
+        // ALU constants: one compare and dirty bit per 16-word block.
+        constexpr uint32_t kConstantEnd = kAluConstantBase + 2 * kAluConstantBankSize;
+        const uint32_t constantFirst = std::max(first, kAluConstantBase), constantEnd = std::min(end, kConstantEnd);
+        if (constantFirst >= constantEnd)
         {
-            const uint32_t value = ByteSwap(guestWords[i]);
-            const uint32_t index = first + i;
-            if (index - kAluConstantBase < 2 * kAluConstantBankSize && registers[i] != value)
-                changed[(index - kAluConstantBase) / kAluConstantBankSize] |= ConstantBlockBit(index);
-            registers[i] = value;
+            copy(first, end);
+            return true;
         }
+        copy(first, constantFirst);
+        uint64_t changed[2]{};
+        for (uint32_t block = constantFirst; block < constantEnd;)
+        {
+            const uint32_t blockEnd = std::min(constantEnd, (block & ~15u) + 16);
+            uint32_t diff = 0;
+            for (uint32_t i = block; i < blockEnd; ++i)
+            {
+                const uint32_t value = ByteSwap(guestWords[i - first]);
+                diff |= registers[i] ^ value;
+                registers[i] = value;
+            }
+            if (diff) changed[(block - kAluConstantBase) / kAluConstantBankSize] |= ConstantBlockBit(block);
+            block = blockEnd;
+        }
+        copy(constantEnd, end);
         for (uint32_t bank = 0; bank < 2; ++bank)
             if (changed[bank]) MarkConstantsChanged(bank, changed[bank]);
         return true;
