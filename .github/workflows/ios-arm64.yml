@@ -48,6 +48,7 @@ jobs:
           git -C thirdparty/plume apply --reverse --check ../../tools/patches/plume-sdl3.patch >/dev/null 2>&1 || git -C thirdparty/plume apply ../../tools/patches/plume-sdl3.patch
           git -C thirdparty/plume apply --reverse --check ../../tools/patches/plume-macos.patch >/dev/null 2>&1 || git -C thirdparty/plume apply ../../tools/patches/plume-macos.patch
       - name: Configure (iPhoneOS arm64)
+        shell: bash
         run: |
           cmake -S . -B out/build/ios -G Ninja \
             -DCMAKE_BUILD_TYPE=Release \
