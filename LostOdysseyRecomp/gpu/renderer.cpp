@@ -418,6 +418,9 @@ namespace gpu::renderer
             // Nonzero for scene-copy promotion images: retirement returns the
             // image to the renderer's pool instead of destroying it.
             RenderTextureFlags poolFlags = RenderTextureFlag::NONE;
+            // Cropped resolve fetch views: the resolve write they last copied.
+            uint64_t viewSourceOrdinal = 0, viewSourceAllocation = 0;
+            const RenderTexture* viewSource = nullptr;
         };
 
         // An idle scene-copy promotion image, reused once its slot's fence
@@ -7010,11 +7013,20 @@ void main(triangle V input[3], inout TriangleStream<V> stream)
                             return nullptr;
                         }
                         view->shadowMap = rs->tex->shadowMap;
-                        Transition(*rs->tex, RenderTextureLayout::COPY_SOURCE, RenderBarrierStage::COPY);
-                        Transition(*view, RenderTextureLayout::COPY_DEST, RenderBarrierStage::COPY);
-                        RenderBox box{ 0, 0, int32_t(physicalWidth), int32_t(physicalHeight), 0, 1 };
-                        commandList->copyTextureRegion(RenderTextureCopyLocation::Subresource(view->texture.get()),
-                            RenderTextureCopyLocation::Subresource(rs->tex->texture.get()), 0, 0, 0, &box);
+                        // Every resolve write takes a new global ordinal (a fresh
+                        // allocation has none), so an unchanged stamp means the
+                        // view still holds this exact copy.
+                        if (!rs->writeOrdinal || view->viewSourceOrdinal != rs->writeOrdinal ||
+                            view->viewSource != rs->tex->texture.get() || view->viewSourceAllocation != rs->tex->allocationSerial) {
+                            Transition(*rs->tex, RenderTextureLayout::COPY_SOURCE, RenderBarrierStage::COPY);
+                            Transition(*view, RenderTextureLayout::COPY_DEST, RenderBarrierStage::COPY);
+                            RenderBox box{ 0, 0, int32_t(physicalWidth), int32_t(physicalHeight), 0, 1 };
+                            commandList->copyTextureRegion(RenderTextureCopyLocation::Subresource(view->texture.get()),
+                                RenderTextureCopyLocation::Subresource(rs->tex->texture.get()), 0, 0, 0, &box);
+                            view->viewSourceOrdinal = rs->writeOrdinal;
+                            view->viewSource = rs->tex->texture.get();
+                            view->viewSourceAllocation = rs->tex->allocationSerial;
+                        }
                         if (taa_collection::Enabled())
                             view->bindingProducer.Copy(rs->tex->bindingProducer, taa_collection::ConsentEpoch(), frame, true);
                         Transition(*view, RenderTextureLayout::SHADER_READ, RenderBarrierStage::GRAPHICS);
