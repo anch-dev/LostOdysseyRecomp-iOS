@@ -1112,8 +1112,11 @@ namespace gpu
                 static const char* requestPath = getenv("LO_SCREENSHOT_REQUEST");
                 static uint64_t lastRequest = 0;
                 static uint32_t requestedShots = 0;
-                if (requestPath)
+                // Polled at most every 250 ms, like the renderer's request files.
+                static auto nextRequestPoll = std::chrono::steady_clock::time_point{};
+                if (requestPath && std::chrono::steady_clock::now() >= nextRequestPoll)
                 {
+                    nextRequestPoll = std::chrono::steady_clock::now() + std::chrono::milliseconds(250);
                     uint64_t serial = 0;
                     uint32_t count = 0;
                     std::ifstream request(requestPath);

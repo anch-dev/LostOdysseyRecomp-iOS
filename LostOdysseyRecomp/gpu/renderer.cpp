@@ -1628,10 +1628,19 @@ namespace gpu::renderer
                 if (state.fail()) return;
                 std::error_code error; std::filesystem::rename(temporary, destination, error);
             }
+            // Request files are read at most every 250 ms, PollTaaLive's rate.
+            static bool RequestPollDue(std::chrono::steady_clock::time_point& next)
+            {
+                const auto now = std::chrono::steady_clock::now();
+                if (now < next) return false;
+                next = now + std::chrono::milliseconds(250);
+                return true;
+            }
             void PollTaaDiagnostic()
             {
                 static const char* path = getenv("LO_TAA_DIAGNOSTIC_REQUEST");
-                if (!path) return;
+                static std::chrono::steady_clock::time_point nextPoll{};
+                if (!path || !RequestPollDue(nextPoll)) return;
                 std::ifstream input(path);
                 std::string serialText, extra;
                 int aa, jitter, history, bloom, hdr = 0, materials = 1;
@@ -1791,7 +1800,8 @@ namespace gpu::renderer
                 BeginDebugCapture();
                 if (!debugCaptureDir.empty()) return;
                 static const char* path = getenv("LO_CAPTURE_REQUEST");
-                if (!path) return;
+                static std::chrono::steady_clock::time_point nextPoll{};
+                if (!path || !RequestPollDue(nextPoll)) return;
                 {
                     std::lock_guard lock(captureMutex);
                     if (fsrCaptureBusy) return;
