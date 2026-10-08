@@ -146,7 +146,8 @@ if(LO_BUILD_MOD_TESTS)
     add_test(NAME LoModApiTest COMMAND LoModApiTest)
 endif()
 
-if(UNIX AND NOT ANDROID AND LO_BUILD_RUNTIME)
+# iOS builds an app bundle (packaging/ios), not a Linux-style install tree.
+if(UNIX AND NOT ANDROID AND NOT LO_TARGET_PLATFORM STREQUAL "ios" AND LO_BUILD_RUNTIME)
     install(TARGETS LostOdysseyRecomp RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
     install(FILES
         packaging/linux/io.github.freefrank.LostOdysseyRecomp.desktop
