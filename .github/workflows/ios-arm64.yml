@@ -55,6 +55,20 @@ jobs:
             -DCMAKE_OSX_SYSROOT=iphoneos \
             -DCMAKE_OSX_ARCHITECTURES=arm64 \
             -DLO_BUILD_RECOMP_LIB=OFF 2>&1 | tee out-configure.log
+      - name: Report configure errors as annotations
+        if: failure()
+        run: |
+          python3 - <<'PYX'
+          import re, os
+          def emit(title, text):
+              text = text.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+              print("::error title=" + title + "::" + text[:60000])
+          path = "out-configure.log"
+          lines = open(path, errors="replace").read().splitlines() if os.path.exists(path) else ["(no log)"]
+          hits = [l for l in lines if re.search(r"(CMake Error|error:|FAILED:|fatal error|undefined symbol|ld: )", l)]
+          emit("configure-errors", "\n".join(hits[:80]) if hits else "no error lines")
+          emit("configure-tail", "\n".join(lines[-60:]))
+          PYX
       - name: Build libraries (no game data)
         run: |
           set +e
@@ -63,6 +77,20 @@ jobs:
           status=${PIPESTATUS[0]}
           grep -E "FAILED:|error:" ios-build.log | head -60
           exit $status
+      - name: Report build errors as annotations
+        if: failure()
+        run: |
+          python3 - <<'PYX'
+          import re, os
+          def emit(title, text):
+              text = text.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+              print("::error title=" + title + "::" + text[:60000])
+          path = "ios-build.log"
+          lines = open(path, errors="replace").read().splitlines() if os.path.exists(path) else ["(no log)"]
+          hits = [l for l in lines if re.search(r"(CMake Error|error:|FAILED:|fatal error|undefined symbol|ld: )", l)]
+          emit("build-errors", "\n".join(hits[:80]) if hits else "no error lines")
+          emit("build-tail", "\n".join(lines[-60:]))
+          PYX
       - name: Upload logs
         if: always()
         uses: actions/upload-artifact@v4
